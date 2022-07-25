@@ -42,15 +42,6 @@ export interface Approval {
   approvalState?: ApprovalState | string;
 }
 
-export namespace Approval {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Approval): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about the template that created the approval rule for a pull request.</p>
  */
@@ -64,15 +55,6 @@ export interface OriginApprovalRuleTemplate {
    * <p>The name of the template that created the approval rule.</p>
    */
   approvalRuleTemplateName?: string;
-}
-
-export namespace OriginApprovalRuleTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginApprovalRuleTemplate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -118,15 +100,6 @@ export interface ApprovalRule {
    * <p>The approval rule template used to create the rule.</p>
    */
   originApprovalRuleTemplate?: OriginApprovalRuleTemplate;
-}
-
-export namespace ApprovalRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalRule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -185,15 +158,6 @@ export interface ApprovalRuleEventMetadata {
    * <p>The content of the approval rule.</p>
    */
   approvalRuleContent?: string;
-}
-
-export namespace ApprovalRuleEventMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalRuleEventMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -255,15 +219,6 @@ export interface ApprovalRuleOverriddenEventMetadata {
   overrideStatus?: OverrideStatus | string;
 }
 
-export namespace ApprovalRuleOverriddenEventMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalRuleOverriddenEventMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about an approval rule template.</p>
  */
@@ -307,15 +262,6 @@ export interface ApprovalRuleTemplate {
    * <p>The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.</p>
    */
   lastModifiedUser?: string;
-}
-
-export namespace ApprovalRuleTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalRuleTemplate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -432,15 +378,6 @@ export interface ApprovalStateChangedEventMetadata {
   approvalStatus?: ApprovalState | string;
 }
 
-export namespace ApprovalStateChangedEventMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalStateChangedEventMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An approval state is required, but was not specified.</p>
  */
@@ -470,15 +407,6 @@ export interface AssociateApprovalRuleTemplateWithRepositoryInput {
    * <p>The name of the repository that you want to associate with the template.</p>
    */
   repositoryName: string | undefined;
-}
-
-export namespace AssociateApprovalRuleTemplateWithRepositoryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateApprovalRuleTemplateWithRepositoryInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -716,15 +644,6 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
   repositoryNames: string[] | undefined;
 }
 
-export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateApprovalRuleTemplateWithRepositoriesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about errors in a BatchAssociateApprovalRuleTemplateWithRepositories operation.</p>
  */
@@ -745,15 +664,6 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesError {
   errorMessage?: string;
 }
 
-export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateApprovalRuleTemplateWithRepositoriesError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
   /**
    * <p>A list of names of the repositories that have been associated with the template.</p>
@@ -764,15 +674,6 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
    * <p>A list of any errors that might have occurred while attempting to create the association between the template and the repositories.</p>
    */
   errors: BatchAssociateApprovalRuleTemplateWithRepositoriesError[] | undefined;
-}
-
-export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateApprovalRuleTemplateWithRepositoriesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -891,15 +792,6 @@ export interface BatchDescribeMergeConflictsInput {
   nextToken?: string;
 }
 
-export namespace BatchDescribeMergeConflictsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDescribeMergeConflictsInput): any => ({
-    ...obj,
-  });
-}
-
 export enum FileModeTypeEnum {
   EXECUTABLE = "EXECUTABLE",
   NORMAL = "NORMAL",
@@ -926,15 +818,6 @@ export interface FileModes {
   base?: FileModeTypeEnum | string;
 }
 
-export namespace FileModes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileModes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the size of files in a merge or pull request.</p>
  */
@@ -953,15 +836,6 @@ export interface FileSizes {
    * <p>The size of a file in the base of a merge or pull request.</p>
    */
   base?: number;
-}
-
-export namespace FileSizes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSizes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -984,15 +858,6 @@ export interface IsBinaryFile {
   base?: boolean;
 }
 
-export namespace IsBinaryFile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IsBinaryFile): any => ({
-    ...obj,
-  });
-}
-
 export enum ChangeTypeEnum {
   ADDED = "A",
   DELETED = "D",
@@ -1013,15 +878,6 @@ export interface MergeOperations {
    * <p>The operation on a file in the destination of a merge or pull request.</p>
    */
   destination?: ChangeTypeEnum | string;
-}
-
-export namespace MergeOperations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeOperations): any => ({
-    ...obj,
-  });
 }
 
 export enum ObjectTypeEnum {
@@ -1049,15 +905,6 @@ export interface ObjectTypes {
    * <p>The type of the object in the base commit of the merge.</p>
    */
   base?: ObjectTypeEnum | string;
-}
-
-export namespace ObjectTypes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectTypes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1115,15 +962,6 @@ export interface ConflictMetadata {
   mergeOperations?: MergeOperations;
 }
 
-export namespace ConflictMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the details of a merge hunk that contains a conflict in a merge or pull request operation.</p>
  */
@@ -1143,15 +981,6 @@ export interface MergeHunkDetail {
    *             conflict.</p>
    */
   hunkContent?: string;
-}
-
-export namespace MergeHunkDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeHunkDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1183,15 +1012,6 @@ export interface MergeHunk {
   base?: MergeHunkDetail;
 }
 
-export namespace MergeHunk {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeHunk): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about conflicts in a merge operation.</p>
  */
@@ -1205,15 +1025,6 @@ export interface Conflict {
    * <p>A list of hunks that contain the differences between files or lines causing the conflict.</p>
    */
   mergeHunks?: MergeHunk[];
-}
-
-export namespace Conflict {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Conflict): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1234,15 +1045,6 @@ export interface BatchDescribeMergeConflictsError {
    * <p>The message provided by the exception.</p>
    */
   message: string | undefined;
-}
-
-export namespace BatchDescribeMergeConflictsError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDescribeMergeConflictsError): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDescribeMergeConflictsOutput {
@@ -1275,15 +1077,6 @@ export interface BatchDescribeMergeConflictsOutput {
    * <p>The commit ID of the merge base.</p>
    */
   baseCommitId?: string;
-}
-
-export namespace BatchDescribeMergeConflictsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDescribeMergeConflictsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1550,15 +1343,6 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
   repositoryNames: string[] | undefined;
 }
 
-export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about errors in a BatchDisassociateApprovalRuleTemplateFromRepositories operation.</p>
  */
@@ -1580,15 +1364,6 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
   errorMessage?: string;
 }
 
-export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
   /**
    * <p>A list of repository names that have had their association with the template
@@ -1600,15 +1375,6 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
    * <p>A list of any errors that might have occurred while attempting to remove the association between the template and the repositories.</p>
    */
   errors: BatchDisassociateApprovalRuleTemplateFromRepositoriesError[] | undefined;
-}
-
-export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchGetCommitsInput {
@@ -1625,15 +1391,6 @@ export interface BatchGetCommitsInput {
    * <p>The name of the repository that contains the commits.</p>
    */
   repositoryName: string | undefined;
-}
-
-export namespace BatchGetCommitsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetCommitsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1654,15 +1411,6 @@ export interface UserInfo {
    * <p>The date when the specified commit was commited, in timestamp format with GMT offset.</p>
    */
   date?: string;
-}
-
-export namespace UserInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1712,15 +1460,6 @@ export interface Commit {
   additionalData?: string;
 }
 
-export namespace Commit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Commit): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about errors in a BatchGetCommits operation.</p>
  */
@@ -1741,15 +1480,6 @@ export interface BatchGetCommitsError {
   errorMessage?: string;
 }
 
-export namespace BatchGetCommitsError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetCommitsError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetCommitsOutput {
   /**
    * <p>An array of commit data type objects, each of which contains information about a specified commit.</p>
@@ -1762,15 +1492,6 @@ export interface BatchGetCommitsOutput {
    *             repository, the ID returns an error object with more information.</p>
    */
   errors?: BatchGetCommitsError[];
-}
-
-export namespace BatchGetCommitsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetCommitsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1822,15 +1543,6 @@ export interface BatchGetRepositoriesInput {
    *          </note>
    */
   repositoryNames: string[] | undefined;
-}
-
-export namespace BatchGetRepositoriesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetRepositoriesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1888,15 +1600,6 @@ export interface RepositoryMetadata {
   Arn?: string;
 }
 
-export namespace RepositoryMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a batch get repositories operation.</p>
  */
@@ -1910,15 +1613,6 @@ export interface BatchGetRepositoriesOutput {
    * <p>Returns a list of repository names for which information could not be found.</p>
    */
   repositoriesNotFound?: string[];
-}
-
-export namespace BatchGetRepositoriesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetRepositoriesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2016,15 +1710,6 @@ export interface BlobMetadata {
   mode?: string;
 }
 
-export namespace BlobMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlobMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified branch does not exist.</p>
  */
@@ -2057,15 +1742,6 @@ export interface BranchInfo {
    * <p>The ID of the last commit made to the branch.</p>
    */
   commitId?: string;
-}
-
-export namespace BranchInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BranchInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2254,29 +1930,11 @@ export interface CreateApprovalRuleTemplateInput {
   approvalRuleTemplateDescription?: string;
 }
 
-export namespace CreateApprovalRuleTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApprovalRuleTemplateInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateApprovalRuleTemplateOutput {
   /**
    * <p>The content and structure of the created approval rule template.</p>
    */
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
-}
-
-export namespace CreateApprovalRuleTemplateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApprovalRuleTemplateOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2378,15 +2036,6 @@ export interface CreateBranchInput {
   commitId: string | undefined;
 }
 
-export namespace CreateBranchInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBranchInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified reference name is not valid.</p>
  */
@@ -2454,15 +2103,6 @@ export interface DeleteFileEntry {
   filePath: string | undefined;
 }
 
-export namespace DeleteFileEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFileEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a source file that is part of changes made in a commit.</p>
  */
@@ -2476,15 +2116,6 @@ export interface SourceFileSpecifier {
    * <p>Whether to remove the source file from the parent commit.</p>
    */
   isMove?: boolean;
-}
-
-export namespace SourceFileSpecifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceFileSpecifier): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2513,15 +2144,6 @@ export interface PutFileEntry {
   sourceFile?: SourceFileSpecifier;
 }
 
-export namespace PutFileEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFileEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the file mode changes.</p>
  */
@@ -2535,15 +2157,6 @@ export interface SetFileModeEntry {
    * <p>The file mode for the file.</p>
    */
   fileMode: FileModeTypeEnum | string | undefined;
-}
-
-export namespace SetFileModeEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetFileModeEntry): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateCommitInput {
@@ -2603,15 +2216,6 @@ export interface CreateCommitInput {
   setFileModes?: SetFileModeEntry[];
 }
 
-export namespace CreateCommitInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCommitInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A file to be added, updated, or deleted as part of a commit.</p>
  */
@@ -2631,15 +2235,6 @@ export interface FileMetadata {
    * <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
    */
   fileMode?: FileModeTypeEnum | string;
-}
-
-export namespace FileMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileMetadata): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateCommitOutput {
@@ -2667,15 +2262,6 @@ export interface CreateCommitOutput {
    * <p>The files deleted as part of the committed file changes.</p>
    */
   filesDeleted?: FileMetadata[];
-}
-
-export namespace CreateCommitOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCommitOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3192,15 +2778,6 @@ export interface Target {
   destinationReference?: string;
 }
 
-export namespace Target {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Target): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePullRequestInput {
   /**
    * <p>The title of the pull request. This title is used to identify the pull request to
@@ -3233,15 +2810,6 @@ export interface CreatePullRequestInput {
   clientRequestToken?: string;
 }
 
-export namespace CreatePullRequestInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePullRequestInput): any => ({
-    ...obj,
-  });
-}
-
 export enum PullRequestStatusEnum {
   CLOSED = "CLOSED",
   OPEN = "OPEN",
@@ -3270,15 +2838,6 @@ export interface MergeMetadata {
    * <p>The merge strategy used in the merge.</p>
    */
   mergeOption?: MergeOptionTypeEnum | string;
-}
-
-export namespace MergeMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3322,15 +2881,6 @@ export interface PullRequestTarget {
    * <p>Returns metadata about the state of the merge, including whether the merge has been made.</p>
    */
   mergeMetadata?: MergeMetadata;
-}
-
-export namespace PullRequestTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PullRequestTarget): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3397,29 +2947,11 @@ export interface PullRequest {
   approvalRules?: ApprovalRule[];
 }
 
-export namespace PullRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PullRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePullRequestOutput {
   /**
    * <p>Information about the newly created pull request.</p>
    */
   pullRequest: PullRequest | undefined;
-}
-
-export namespace CreatePullRequestOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePullRequestOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3792,29 +3324,11 @@ export interface CreatePullRequestApprovalRuleInput {
   approvalRuleContent: string | undefined;
 }
 
-export namespace CreatePullRequestApprovalRuleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePullRequestApprovalRuleInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePullRequestApprovalRuleOutput {
   /**
    * <p>Information about the created approval rule.</p>
    */
   approvalRule: ApprovalRule | undefined;
-}
-
-export namespace CreatePullRequestApprovalRuleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePullRequestApprovalRuleOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3984,15 +3498,6 @@ export interface CreateRepositoryInput {
   tags?: Record<string, string>;
 }
 
-export namespace CreateRepositoryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRepositoryInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a create repository operation.</p>
  */
@@ -4001,15 +3506,6 @@ export interface CreateRepositoryOutput {
    * <p>Information about the newly created repository.</p>
    */
   repositoryMetadata?: RepositoryMetadata;
-}
-
-export namespace CreateRepositoryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRepositoryOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4196,15 +3692,6 @@ export interface ReplaceContentEntry {
   fileMode?: FileModeTypeEnum | string;
 }
 
-export namespace ReplaceContentEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceContentEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
  *             resolving conflicts during a merge.</p>
@@ -4224,15 +3711,6 @@ export interface ConflictResolution {
    * <p>File modes that are set as part of the merge conflict resolution.</p>
    */
   setFileModes?: SetFileModeEntry[];
-}
-
-export namespace ConflictResolution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictResolution): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateUnreferencedMergeCommitInput {
@@ -4303,15 +3781,6 @@ export interface CreateUnreferencedMergeCommitInput {
   conflictResolution?: ConflictResolution;
 }
 
-export namespace CreateUnreferencedMergeCommitInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUnreferencedMergeCommitInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUnreferencedMergeCommitOutput {
   /**
    * <p>The full commit ID of the commit that contains your merge results.</p>
@@ -4322,15 +3791,6 @@ export interface CreateUnreferencedMergeCommitOutput {
    * <p>The full SHA-1 pointer of the tree information for the commit that contains the merge results.</p>
    */
   treeId?: string;
-}
-
-export namespace CreateUnreferencedMergeCommitOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUnreferencedMergeCommitOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4493,30 +3953,12 @@ export interface DeleteApprovalRuleTemplateInput {
   approvalRuleTemplateName: string | undefined;
 }
 
-export namespace DeleteApprovalRuleTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApprovalRuleTemplateInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteApprovalRuleTemplateOutput {
   /**
    * <p>The system-generated ID of the deleted approval rule template. If the template has
    *             been previously deleted, the only response is a 200 OK.</p>
    */
   approvalRuleTemplateId: string | undefined;
-}
-
-export namespace DeleteApprovalRuleTemplateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApprovalRuleTemplateOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4553,15 +3995,6 @@ export interface DeleteBranchInput {
   branchName: string | undefined;
 }
 
-export namespace DeleteBranchInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBranchInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a delete branch operation.</p>
  */
@@ -4570,15 +4003,6 @@ export interface DeleteBranchOutput {
    * <p>Information about the branch deleted by the operation, including the branch name and the commit ID that was the tip of the branch.</p>
    */
   deletedBranch?: BranchInfo;
-}
-
-export namespace DeleteBranchOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBranchOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4647,15 +4071,6 @@ export interface DeleteCommentContentInput {
   commentId: string | undefined;
 }
 
-export namespace DeleteCommentContentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCommentContentInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about a specific comment.</p>
  */
@@ -4714,29 +4129,11 @@ export interface Comment {
   reactionCounts?: Record<string, number>;
 }
 
-export namespace Comment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Comment): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCommentContentOutput {
   /**
    * <p>Information about the comment you just deleted.</p>
    */
   comment?: Comment;
-}
-
-export namespace DeleteCommentContentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCommentContentOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4811,15 +4208,6 @@ export interface DeleteFileInput {
   email?: string;
 }
 
-export namespace DeleteFileInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFileInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFileOutput {
   /**
    * <p>The full commit ID of the commit that contains the change that deletes the file.</p>
@@ -4843,15 +4231,6 @@ export interface DeleteFileOutput {
   filePath: string | undefined;
 }
 
-export namespace DeleteFileOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFileOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePullRequestApprovalRuleInput {
   /**
    * <p>The system-generated ID of the pull request that contains the approval rule you want to delete.</p>
@@ -4862,15 +4241,6 @@ export interface DeletePullRequestApprovalRuleInput {
    * <p>The name of the approval rule you want to delete.</p>
    */
   approvalRuleName: string | undefined;
-}
-
-export namespace DeletePullRequestApprovalRuleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePullRequestApprovalRuleInput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeletePullRequestApprovalRuleOutput {
@@ -4884,15 +4254,6 @@ export interface DeletePullRequestApprovalRuleOutput {
   approvalRuleId: string | undefined;
 }
 
-export namespace DeletePullRequestApprovalRuleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePullRequestApprovalRuleOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a delete repository operation.</p>
  */
@@ -4903,15 +4264,6 @@ export interface DeleteRepositoryInput {
   repositoryName: string | undefined;
 }
 
-export namespace DeleteRepositoryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRepositoryInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a delete repository operation.</p>
  */
@@ -4920,15 +4272,6 @@ export interface DeleteRepositoryOutput {
    * <p>The ID of the repository that was deleted.</p>
    */
   repositoryId?: string;
-}
-
-export namespace DeleteRepositoryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRepositoryOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeMergeConflictsInput {
@@ -4986,15 +4329,6 @@ export interface DescribeMergeConflictsInput {
   nextToken?: string;
 }
 
-export namespace DescribeMergeConflictsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMergeConflictsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeMergeConflictsOutput {
   /**
    * <p>Contains metadata about the conflicts found in the merge.</p>
@@ -5025,15 +4359,6 @@ export interface DescribeMergeConflictsOutput {
    * <p>The commit ID of the merge base.</p>
    */
   baseCommitId?: string;
-}
-
-export namespace DescribeMergeConflictsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMergeConflictsOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum PullRequestEventType {
@@ -5079,15 +4404,6 @@ export interface DescribePullRequestEventsInput {
   maxResults?: number;
 }
 
-export namespace DescribePullRequestEventsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePullRequestEventsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Metadata about the pull request that is used when comparing the pull request source with its destination.</p>
  */
@@ -5113,15 +4429,6 @@ export interface PullRequestCreatedEventMetadata {
   mergeBase?: string;
 }
 
-export namespace PullRequestCreatedEventMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PullRequestCreatedEventMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about the change in the merge state for a pull request event. </p>
  */
@@ -5140,15 +4447,6 @@ export interface PullRequestMergedStateChangedEventMetadata {
    * <p>Information about the merge state change event.</p>
    */
   mergeMetadata?: MergeMetadata;
-}
-
-export namespace PullRequestMergedStateChangedEventMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PullRequestMergedStateChangedEventMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5176,15 +4474,6 @@ export interface PullRequestSourceReferenceUpdatedEventMetadata {
   mergeBase?: string;
 }
 
-export namespace PullRequestSourceReferenceUpdatedEventMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PullRequestSourceReferenceUpdatedEventMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a change to the status of a pull request.</p>
  */
@@ -5193,15 +4482,6 @@ export interface PullRequestStatusChangedEventMetadata {
    * <p>The changed status of the pull request.</p>
    */
   pullRequestStatus?: PullRequestStatusEnum | string;
-}
-
-export namespace PullRequestStatusChangedEventMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PullRequestStatusChangedEventMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5268,15 +4548,6 @@ export interface PullRequestEvent {
   approvalRuleOverriddenEventMetadata?: ApprovalRuleOverriddenEventMetadata;
 }
 
-export namespace PullRequestEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PullRequestEvent): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePullRequestEventsOutput {
   /**
    * <p>Information about the pull request events.</p>
@@ -5287,15 +4558,6 @@ export interface DescribePullRequestEventsOutput {
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribePullRequestEventsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePullRequestEventsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5368,15 +4630,6 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryInput {
   repositoryName: string | undefined;
 }
 
-export namespace DisassociateApprovalRuleTemplateFromRepositoryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateApprovalRuleTemplateFromRepositoryInput): any => ({
-    ...obj,
-  });
-}
-
 export interface EvaluatePullRequestApprovalRulesInput {
   /**
    * <p>The system-generated ID of the pull request you want to evaluate.</p>
@@ -5389,15 +4642,6 @@ export interface EvaluatePullRequestApprovalRulesInput {
    *             <a>GetPullRequest</a>.</p>
    */
   revisionId: string | undefined;
-}
-
-export namespace EvaluatePullRequestApprovalRulesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluatePullRequestApprovalRulesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5425,30 +4669,12 @@ export interface Evaluation {
   approvalRulesNotSatisfied?: string[];
 }
 
-export namespace Evaluation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Evaluation): any => ({
-    ...obj,
-  });
-}
-
 export interface EvaluatePullRequestApprovalRulesOutput {
   /**
    * <p>The result of the evaluation, including the names of the rules whose conditions have been met (if any), the names of the rules whose conditions have
    *         not been met (if any), whether the pull request is in the approved state, and whether the pull request approval rule has been set aside by an override. </p>
    */
   evaluation: Evaluation | undefined;
-}
-
-export namespace EvaluatePullRequestApprovalRulesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluatePullRequestApprovalRulesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5515,29 +4741,11 @@ export interface GetApprovalRuleTemplateInput {
   approvalRuleTemplateName: string | undefined;
 }
 
-export namespace GetApprovalRuleTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApprovalRuleTemplateInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetApprovalRuleTemplateOutput {
   /**
    * <p>The content and structure of the approval rule template.</p>
    */
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
-}
-
-export namespace GetApprovalRuleTemplateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApprovalRuleTemplateOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5575,15 +4783,6 @@ export interface GetBlobInput {
   blobId: string | undefined;
 }
 
-export namespace GetBlobInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBlobInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a get blob operation.</p>
  */
@@ -5592,15 +4791,6 @@ export interface GetBlobOutput {
    * <p>The content of the blob, usually a file.</p>
    */
   content: Uint8Array | undefined;
-}
-
-export namespace GetBlobOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBlobOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5637,15 +4827,6 @@ export interface GetBranchInput {
   branchName?: string;
 }
 
-export namespace GetBranchInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBranchInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a get branch operation.</p>
  */
@@ -5656,15 +4837,6 @@ export interface GetBranchOutput {
   branch?: BranchInfo;
 }
 
-export namespace GetBranchOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBranchOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCommentInput {
   /**
    * <p>The unique, system-generated ID of the comment. To get this ID, use  <a>GetCommentsForComparedCommit</a>
@@ -5673,29 +4845,11 @@ export interface GetCommentInput {
   commentId: string | undefined;
 }
 
-export namespace GetCommentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCommentInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCommentOutput {
   /**
    * <p>The contents of the comment.</p>
    */
   comment?: Comment;
-}
-
-export namespace GetCommentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCommentOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCommentReactionsInput {
@@ -5720,15 +4874,6 @@ export interface GetCommentReactionsInput {
   maxResults?: number;
 }
 
-export namespace GetCommentReactionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCommentReactionsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the values for reactions to a comment. AWS CodeCommit supports a limited set of reactions.</p>
  */
@@ -5747,15 +4892,6 @@ export interface ReactionValueFormats {
    * <p>The Unicode codepoint for the reaction.</p>
    */
   unicode?: string;
-}
-
-export namespace ReactionValueFormats {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReactionValueFormats): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5779,15 +4915,6 @@ export interface ReactionForComment {
   reactionsFromDeletedUsersCount?: number;
 }
 
-export namespace ReactionForComment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReactionForComment): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCommentReactionsOutput {
   /**
    * <p>An array of reactions to the specified comment.</p>
@@ -5798,15 +4925,6 @@ export interface GetCommentReactionsOutput {
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    */
   nextToken?: string;
-}
-
-export namespace GetCommentReactionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCommentReactionsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5858,15 +4976,6 @@ export interface GetCommentsForComparedCommitInput {
   maxResults?: number;
 }
 
-export namespace GetCommentsForComparedCommitInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCommentsForComparedCommitInput): any => ({
-    ...obj,
-  });
-}
-
 export enum RelativeFileVersionEnum {
   AFTER = "AFTER",
   BEFORE = "BEFORE",
@@ -5891,15 +5000,6 @@ export interface Location {
    *             after of that comparison.</p>
    */
   relativeFileVersion?: RelativeFileVersionEnum | string;
-}
-
-export namespace Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Location): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5946,15 +5046,6 @@ export interface CommentsForComparedCommit {
   comments?: Comment[];
 }
 
-export namespace CommentsForComparedCommit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommentsForComparedCommit): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCommentsForComparedCommitOutput {
   /**
    * <p>A list of comment objects on the compared commit.</p>
@@ -5965,15 +5056,6 @@ export interface GetCommentsForComparedCommitOutput {
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    */
   nextToken?: string;
-}
-
-export namespace GetCommentsForComparedCommitOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCommentsForComparedCommitOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCommentsForPullRequestInput {
@@ -6008,15 +5090,6 @@ export interface GetCommentsForPullRequestInput {
    *             You can return up to 500 comments with a single request.</p>
    */
   maxResults?: number;
-}
-
-export namespace GetCommentsForPullRequestInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCommentsForPullRequestInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6069,15 +5142,6 @@ export interface CommentsForPullRequest {
   comments?: Comment[];
 }
 
-export namespace CommentsForPullRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommentsForPullRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCommentsForPullRequestOutput {
   /**
    * <p>An array of comment objects on the pull request.</p>
@@ -6088,15 +5152,6 @@ export interface GetCommentsForPullRequestOutput {
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    */
   nextToken?: string;
-}
-
-export namespace GetCommentsForPullRequestOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCommentsForPullRequestOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6152,15 +5207,6 @@ export interface GetCommitInput {
   commitId: string | undefined;
 }
 
-export namespace GetCommitInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCommitInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a get commit operation.</p>
  */
@@ -6169,15 +5215,6 @@ export interface GetCommitOutput {
    * <p>A commit data type object that contains information about the specified commit.</p>
    */
   commit: Commit | undefined;
-}
-
-export namespace GetCommitOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCommitOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDifferencesInput {
@@ -6227,15 +5264,6 @@ export interface GetDifferencesInput {
   NextToken?: string;
 }
 
-export namespace GetDifferencesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDifferencesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about a set of differences for a commit specifier.</p>
  */
@@ -6258,15 +5286,6 @@ export interface Difference {
   changeType?: ChangeTypeEnum | string;
 }
 
-export namespace Difference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Difference): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDifferencesOutput {
   /**
    * <p>A data type object that contains information about the differences, including whether
@@ -6278,15 +5297,6 @@ export interface GetDifferencesOutput {
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetDifferencesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDifferencesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6329,15 +5339,6 @@ export interface GetFileInput {
   filePath: string | undefined;
 }
 
-export namespace GetFileInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFileInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFileOutput {
   /**
    * <p>The full commit ID of the commit that contains the content returned by GetFile.</p>
@@ -6374,15 +5375,6 @@ export interface GetFileOutput {
    * <p>The base-64 encoded binary data object that represents the content of the file.</p>
    */
   fileContent: Uint8Array | undefined;
-}
-
-export namespace GetFileOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFileOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6427,15 +5419,6 @@ export interface GetFolderInput {
   folderPath: string | undefined;
 }
 
-export namespace GetFolderInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFolderInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about a file in a repository.</p>
  */
@@ -6461,15 +5444,6 @@ export interface File {
   fileMode?: FileModeTypeEnum | string;
 }
 
-export namespace File {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: File): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about a folder in a repository.</p>
  */
@@ -6490,15 +5464,6 @@ export interface Folder {
   relativePath?: string;
 }
 
-export namespace Folder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Folder): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about a submodule reference in a repository folder.</p>
  */
@@ -6517,15 +5482,6 @@ export interface SubModule {
    * <p>The relative path of the submodule from the folder where the query originated.</p>
    */
   relativePath?: string;
-}
-
-export namespace SubModule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubModule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6551,15 +5507,6 @@ export interface SymbolicLink {
    * <p>The file mode permissions of the blob that cotains information about the symbolic link.</p>
    */
   fileMode?: FileModeTypeEnum | string;
-}
-
-export namespace SymbolicLink {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SymbolicLink): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFolderOutput {
@@ -6601,15 +5548,6 @@ export interface GetFolderOutput {
   subModules?: SubModule[];
 }
 
-export namespace GetFolderOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFolderOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMergeCommitInput {
   /**
    * <p>The name of the repository that contains the merge commit about which you want to get information.</p>
@@ -6644,15 +5582,6 @@ export interface GetMergeCommitInput {
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 }
 
-export namespace GetMergeCommitInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMergeCommitInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMergeCommitOutput {
   /**
    * <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
@@ -6675,15 +5604,6 @@ export interface GetMergeCommitOutput {
    *             commit.</p>
    */
   mergedCommitId?: string;
-}
-
-export namespace GetMergeCommitOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMergeCommitOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMergeConflictsInput {
@@ -6736,15 +5656,6 @@ export interface GetMergeConflictsInput {
   nextToken?: string;
 }
 
-export namespace GetMergeConflictsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMergeConflictsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMergeConflictsOutput {
   /**
    * <p>A Boolean value that indicates whether the code is mergeable by the specified merge option.</p>
@@ -6776,15 +5687,6 @@ export interface GetMergeConflictsOutput {
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    */
   nextToken?: string;
-}
-
-export namespace GetMergeConflictsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMergeConflictsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6859,15 +5761,6 @@ export interface GetMergeOptionsInput {
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
 }
 
-export namespace GetMergeOptionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMergeOptionsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMergeOptionsOutput {
   /**
    * <p>The merge option or strategy used to merge the code.</p>
@@ -6890,15 +5783,6 @@ export interface GetMergeOptionsOutput {
   baseCommitId: string | undefined;
 }
 
-export namespace GetMergeOptionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMergeOptionsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPullRequestInput {
   /**
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
@@ -6906,29 +5790,11 @@ export interface GetPullRequestInput {
   pullRequestId: string | undefined;
 }
 
-export namespace GetPullRequestInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPullRequestInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPullRequestOutput {
   /**
    * <p>Information about the specified pull request.</p>
    */
   pullRequest: PullRequest | undefined;
-}
-
-export namespace GetPullRequestOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPullRequestOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPullRequestApprovalStatesInput {
@@ -6943,29 +5809,11 @@ export interface GetPullRequestApprovalStatesInput {
   revisionId: string | undefined;
 }
 
-export namespace GetPullRequestApprovalStatesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPullRequestApprovalStatesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPullRequestApprovalStatesOutput {
   /**
    * <p>Information about users who have approved the pull request.</p>
    */
   approvals?: Approval[];
-}
-
-export namespace GetPullRequestApprovalStatesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPullRequestApprovalStatesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPullRequestOverrideStateInput {
@@ -6982,15 +5830,6 @@ export interface GetPullRequestOverrideStateInput {
   revisionId: string | undefined;
 }
 
-export namespace GetPullRequestOverrideStateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPullRequestOverrideStateInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPullRequestOverrideStateOutput {
   /**
    * <p>A Boolean value that indicates whether a pull request has had its rules set aside (TRUE) or whether all approval rules still apply (FALSE).</p>
@@ -7003,15 +5842,6 @@ export interface GetPullRequestOverrideStateOutput {
   overrider?: string;
 }
 
-export namespace GetPullRequestOverrideStateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPullRequestOverrideStateOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a get repository operation.</p>
  */
@@ -7020,15 +5850,6 @@ export interface GetRepositoryInput {
    * <p>The name of the repository to get information about.</p>
    */
   repositoryName: string | undefined;
-}
-
-export namespace GetRepositoryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRepositoryInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7041,15 +5862,6 @@ export interface GetRepositoryOutput {
   repositoryMetadata?: RepositoryMetadata;
 }
 
-export namespace GetRepositoryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRepositoryOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a get repository triggers operation.</p>
  */
@@ -7058,15 +5870,6 @@ export interface GetRepositoryTriggersInput {
    * <p>The name of the repository for which the trigger is configured.</p>
    */
   repositoryName: string | undefined;
-}
-
-export namespace GetRepositoryTriggersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRepositoryTriggersInput): any => ({
-    ...obj,
-  });
 }
 
 export enum RepositoryTriggerEventEnum {
@@ -7118,15 +5921,6 @@ export interface RepositoryTrigger {
   events: (RepositoryTriggerEventEnum | string)[] | undefined;
 }
 
-export namespace RepositoryTrigger {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryTrigger): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a get repository triggers operation.</p>
  */
@@ -7142,15 +5936,6 @@ export interface GetRepositoryTriggersOutput {
   triggers?: RepositoryTrigger[];
 }
 
-export namespace GetRepositoryTriggersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRepositoryTriggersOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApprovalRuleTemplatesInput {
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
@@ -7164,15 +5949,6 @@ export interface ListApprovalRuleTemplatesInput {
   maxResults?: number;
 }
 
-export namespace ListApprovalRuleTemplatesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApprovalRuleTemplatesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApprovalRuleTemplatesOutput {
   /**
    * <p>The names of all the approval rule templates found in the AWS Region for your AWS account.</p>
@@ -7183,15 +5959,6 @@ export interface ListApprovalRuleTemplatesOutput {
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListApprovalRuleTemplatesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApprovalRuleTemplatesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssociatedApprovalRuleTemplatesForRepositoryInput {
@@ -7212,15 +5979,6 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryInput {
   maxResults?: number;
 }
 
-export namespace ListAssociatedApprovalRuleTemplatesForRepositoryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedApprovalRuleTemplatesForRepositoryInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
   /**
    * <p>The names of all approval rule templates associated with the repository.</p>
@@ -7231,15 +5989,6 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedApprovalRuleTemplatesForRepositoryOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7257,15 +6006,6 @@ export interface ListBranchesInput {
   nextToken?: string;
 }
 
-export namespace ListBranchesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBranchesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a list branches operation.</p>
  */
@@ -7279,15 +6019,6 @@ export interface ListBranchesOutput {
    * <p>An enumeration token that returns the batch of the results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListBranchesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBranchesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7357,15 +6088,6 @@ export interface ListPullRequestsInput {
   maxResults?: number;
 }
 
-export namespace ListPullRequestsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPullRequestsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPullRequestsOutput {
   /**
    * <p>The system-generated IDs of the pull requests.</p>
@@ -7376,15 +6098,6 @@ export interface ListPullRequestsOutput {
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListPullRequestsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPullRequestsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7424,3 +6137,1042 @@ export class InvalidSortByException extends __BaseException {
     Object.setPrototypeOf(this, InvalidSortByException.prototype);
   }
 }
+
+/**
+ * @internal
+ */
+export const ApprovalFilterSensitiveLog = (obj: Approval): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginApprovalRuleTemplateFilterSensitiveLog = (obj: OriginApprovalRuleTemplate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApprovalRuleFilterSensitiveLog = (obj: ApprovalRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApprovalRuleEventMetadataFilterSensitiveLog = (obj: ApprovalRuleEventMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApprovalRuleOverriddenEventMetadataFilterSensitiveLog = (
+  obj: ApprovalRuleOverriddenEventMetadata
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApprovalRuleTemplateFilterSensitiveLog = (obj: ApprovalRuleTemplate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApprovalStateChangedEventMetadataFilterSensitiveLog = (obj: ApprovalStateChangedEventMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateApprovalRuleTemplateWithRepositoryInputFilterSensitiveLog = (
+  obj: AssociateApprovalRuleTemplateWithRepositoryInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAssociateApprovalRuleTemplateWithRepositoriesInputFilterSensitiveLog = (
+  obj: BatchAssociateApprovalRuleTemplateWithRepositoriesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAssociateApprovalRuleTemplateWithRepositoriesErrorFilterSensitiveLog = (
+  obj: BatchAssociateApprovalRuleTemplateWithRepositoriesError
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAssociateApprovalRuleTemplateWithRepositoriesOutputFilterSensitiveLog = (
+  obj: BatchAssociateApprovalRuleTemplateWithRepositoriesOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDescribeMergeConflictsInputFilterSensitiveLog = (obj: BatchDescribeMergeConflictsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileModesFilterSensitiveLog = (obj: FileModes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileSizesFilterSensitiveLog = (obj: FileSizes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IsBinaryFileFilterSensitiveLog = (obj: IsBinaryFile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergeOperationsFilterSensitiveLog = (obj: MergeOperations): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ObjectTypesFilterSensitiveLog = (obj: ObjectTypes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConflictMetadataFilterSensitiveLog = (obj: ConflictMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergeHunkDetailFilterSensitiveLog = (obj: MergeHunkDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergeHunkFilterSensitiveLog = (obj: MergeHunk): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConflictFilterSensitiveLog = (obj: Conflict): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDescribeMergeConflictsErrorFilterSensitiveLog = (obj: BatchDescribeMergeConflictsError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDescribeMergeConflictsOutputFilterSensitiveLog = (obj: BatchDescribeMergeConflictsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateApprovalRuleTemplateFromRepositoriesInputFilterSensitiveLog = (
+  obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorFilterSensitiveLog = (
+  obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesError
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateApprovalRuleTemplateFromRepositoriesOutputFilterSensitiveLog = (
+  obj: BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetCommitsInputFilterSensitiveLog = (obj: BatchGetCommitsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserInfoFilterSensitiveLog = (obj: UserInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommitFilterSensitiveLog = (obj: Commit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetCommitsErrorFilterSensitiveLog = (obj: BatchGetCommitsError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetCommitsOutputFilterSensitiveLog = (obj: BatchGetCommitsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetRepositoriesInputFilterSensitiveLog = (obj: BatchGetRepositoriesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositoryMetadataFilterSensitiveLog = (obj: RepositoryMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetRepositoriesOutputFilterSensitiveLog = (obj: BatchGetRepositoriesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlobMetadataFilterSensitiveLog = (obj: BlobMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BranchInfoFilterSensitiveLog = (obj: BranchInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApprovalRuleTemplateInputFilterSensitiveLog = (obj: CreateApprovalRuleTemplateInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApprovalRuleTemplateOutputFilterSensitiveLog = (obj: CreateApprovalRuleTemplateOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBranchInputFilterSensitiveLog = (obj: CreateBranchInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFileEntryFilterSensitiveLog = (obj: DeleteFileEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceFileSpecifierFilterSensitiveLog = (obj: SourceFileSpecifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutFileEntryFilterSensitiveLog = (obj: PutFileEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetFileModeEntryFilterSensitiveLog = (obj: SetFileModeEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCommitInputFilterSensitiveLog = (obj: CreateCommitInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileMetadataFilterSensitiveLog = (obj: FileMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCommitOutputFilterSensitiveLog = (obj: CreateCommitOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetFilterSensitiveLog = (obj: Target): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePullRequestInputFilterSensitiveLog = (obj: CreatePullRequestInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergeMetadataFilterSensitiveLog = (obj: MergeMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PullRequestTargetFilterSensitiveLog = (obj: PullRequestTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PullRequestFilterSensitiveLog = (obj: PullRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePullRequestOutputFilterSensitiveLog = (obj: CreatePullRequestOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePullRequestApprovalRuleInputFilterSensitiveLog = (obj: CreatePullRequestApprovalRuleInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePullRequestApprovalRuleOutputFilterSensitiveLog = (
+  obj: CreatePullRequestApprovalRuleOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRepositoryInputFilterSensitiveLog = (obj: CreateRepositoryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRepositoryOutputFilterSensitiveLog = (obj: CreateRepositoryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplaceContentEntryFilterSensitiveLog = (obj: ReplaceContentEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConflictResolutionFilterSensitiveLog = (obj: ConflictResolution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUnreferencedMergeCommitInputFilterSensitiveLog = (obj: CreateUnreferencedMergeCommitInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUnreferencedMergeCommitOutputFilterSensitiveLog = (
+  obj: CreateUnreferencedMergeCommitOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApprovalRuleTemplateInputFilterSensitiveLog = (obj: DeleteApprovalRuleTemplateInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApprovalRuleTemplateOutputFilterSensitiveLog = (obj: DeleteApprovalRuleTemplateOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBranchInputFilterSensitiveLog = (obj: DeleteBranchInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBranchOutputFilterSensitiveLog = (obj: DeleteBranchOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCommentContentInputFilterSensitiveLog = (obj: DeleteCommentContentInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommentFilterSensitiveLog = (obj: Comment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCommentContentOutputFilterSensitiveLog = (obj: DeleteCommentContentOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFileInputFilterSensitiveLog = (obj: DeleteFileInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFileOutputFilterSensitiveLog = (obj: DeleteFileOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePullRequestApprovalRuleInputFilterSensitiveLog = (obj: DeletePullRequestApprovalRuleInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePullRequestApprovalRuleOutputFilterSensitiveLog = (
+  obj: DeletePullRequestApprovalRuleOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRepositoryInputFilterSensitiveLog = (obj: DeleteRepositoryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRepositoryOutputFilterSensitiveLog = (obj: DeleteRepositoryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMergeConflictsInputFilterSensitiveLog = (obj: DescribeMergeConflictsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMergeConflictsOutputFilterSensitiveLog = (obj: DescribeMergeConflictsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePullRequestEventsInputFilterSensitiveLog = (obj: DescribePullRequestEventsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PullRequestCreatedEventMetadataFilterSensitiveLog = (obj: PullRequestCreatedEventMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PullRequestMergedStateChangedEventMetadataFilterSensitiveLog = (
+  obj: PullRequestMergedStateChangedEventMetadata
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PullRequestSourceReferenceUpdatedEventMetadataFilterSensitiveLog = (
+  obj: PullRequestSourceReferenceUpdatedEventMetadata
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PullRequestStatusChangedEventMetadataFilterSensitiveLog = (
+  obj: PullRequestStatusChangedEventMetadata
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PullRequestEventFilterSensitiveLog = (obj: PullRequestEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePullRequestEventsOutputFilterSensitiveLog = (obj: DescribePullRequestEventsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateApprovalRuleTemplateFromRepositoryInputFilterSensitiveLog = (
+  obj: DisassociateApprovalRuleTemplateFromRepositoryInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluatePullRequestApprovalRulesInputFilterSensitiveLog = (
+  obj: EvaluatePullRequestApprovalRulesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluationFilterSensitiveLog = (obj: Evaluation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluatePullRequestApprovalRulesOutputFilterSensitiveLog = (
+  obj: EvaluatePullRequestApprovalRulesOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApprovalRuleTemplateInputFilterSensitiveLog = (obj: GetApprovalRuleTemplateInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApprovalRuleTemplateOutputFilterSensitiveLog = (obj: GetApprovalRuleTemplateOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBlobInputFilterSensitiveLog = (obj: GetBlobInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBlobOutputFilterSensitiveLog = (obj: GetBlobOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBranchInputFilterSensitiveLog = (obj: GetBranchInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBranchOutputFilterSensitiveLog = (obj: GetBranchOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCommentInputFilterSensitiveLog = (obj: GetCommentInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCommentOutputFilterSensitiveLog = (obj: GetCommentOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCommentReactionsInputFilterSensitiveLog = (obj: GetCommentReactionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReactionValueFormatsFilterSensitiveLog = (obj: ReactionValueFormats): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReactionForCommentFilterSensitiveLog = (obj: ReactionForComment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCommentReactionsOutputFilterSensitiveLog = (obj: GetCommentReactionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCommentsForComparedCommitInputFilterSensitiveLog = (obj: GetCommentsForComparedCommitInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LocationFilterSensitiveLog = (obj: Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommentsForComparedCommitFilterSensitiveLog = (obj: CommentsForComparedCommit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCommentsForComparedCommitOutputFilterSensitiveLog = (obj: GetCommentsForComparedCommitOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCommentsForPullRequestInputFilterSensitiveLog = (obj: GetCommentsForPullRequestInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommentsForPullRequestFilterSensitiveLog = (obj: CommentsForPullRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCommentsForPullRequestOutputFilterSensitiveLog = (obj: GetCommentsForPullRequestOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCommitInputFilterSensitiveLog = (obj: GetCommitInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCommitOutputFilterSensitiveLog = (obj: GetCommitOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDifferencesInputFilterSensitiveLog = (obj: GetDifferencesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DifferenceFilterSensitiveLog = (obj: Difference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDifferencesOutputFilterSensitiveLog = (obj: GetDifferencesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFileInputFilterSensitiveLog = (obj: GetFileInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFileOutputFilterSensitiveLog = (obj: GetFileOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFolderInputFilterSensitiveLog = (obj: GetFolderInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileFilterSensitiveLog = (obj: File): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FolderFilterSensitiveLog = (obj: Folder): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubModuleFilterSensitiveLog = (obj: SubModule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SymbolicLinkFilterSensitiveLog = (obj: SymbolicLink): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFolderOutputFilterSensitiveLog = (obj: GetFolderOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMergeCommitInputFilterSensitiveLog = (obj: GetMergeCommitInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMergeCommitOutputFilterSensitiveLog = (obj: GetMergeCommitOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMergeConflictsInputFilterSensitiveLog = (obj: GetMergeConflictsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMergeConflictsOutputFilterSensitiveLog = (obj: GetMergeConflictsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMergeOptionsInputFilterSensitiveLog = (obj: GetMergeOptionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMergeOptionsOutputFilterSensitiveLog = (obj: GetMergeOptionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPullRequestInputFilterSensitiveLog = (obj: GetPullRequestInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPullRequestOutputFilterSensitiveLog = (obj: GetPullRequestOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPullRequestApprovalStatesInputFilterSensitiveLog = (obj: GetPullRequestApprovalStatesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPullRequestApprovalStatesOutputFilterSensitiveLog = (obj: GetPullRequestApprovalStatesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPullRequestOverrideStateInputFilterSensitiveLog = (obj: GetPullRequestOverrideStateInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPullRequestOverrideStateOutputFilterSensitiveLog = (obj: GetPullRequestOverrideStateOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRepositoryInputFilterSensitiveLog = (obj: GetRepositoryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRepositoryOutputFilterSensitiveLog = (obj: GetRepositoryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRepositoryTriggersInputFilterSensitiveLog = (obj: GetRepositoryTriggersInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositoryTriggerFilterSensitiveLog = (obj: RepositoryTrigger): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRepositoryTriggersOutputFilterSensitiveLog = (obj: GetRepositoryTriggersOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApprovalRuleTemplatesInputFilterSensitiveLog = (obj: ListApprovalRuleTemplatesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApprovalRuleTemplatesOutputFilterSensitiveLog = (obj: ListApprovalRuleTemplatesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociatedApprovalRuleTemplatesForRepositoryInputFilterSensitiveLog = (
+  obj: ListAssociatedApprovalRuleTemplatesForRepositoryInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociatedApprovalRuleTemplatesForRepositoryOutputFilterSensitiveLog = (
+  obj: ListAssociatedApprovalRuleTemplatesForRepositoryOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBranchesInputFilterSensitiveLog = (obj: ListBranchesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBranchesOutputFilterSensitiveLog = (obj: ListBranchesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPullRequestsInputFilterSensitiveLog = (obj: ListPullRequestsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPullRequestsOutputFilterSensitiveLog = (obj: ListPullRequestsOutput): any => ({
+  ...obj,
+});

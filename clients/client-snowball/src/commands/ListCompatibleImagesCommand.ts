@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListCompatibleImagesRequest, ListCompatibleImagesResult } from "../models/models_0";
+import {
+  ListCompatibleImagesRequest,
+  ListCompatibleImagesRequestFilterSensitiveLog,
+  ListCompatibleImagesResult,
+  ListCompatibleImagesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListCompatibleImagesCommand,
   serializeAws_json1_1ListCompatibleImagesCommand,
@@ -76,8 +81,8 @@ export class ListCompatibleImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCompatibleImagesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListCompatibleImagesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCompatibleImagesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListCompatibleImagesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

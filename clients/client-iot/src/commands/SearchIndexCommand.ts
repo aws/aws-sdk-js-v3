@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { SearchIndexRequest, SearchIndexResponse } from "../models/models_2";
+import {
+  SearchIndexRequest,
+  SearchIndexRequestFilterSensitiveLog,
+  SearchIndexResponse,
+  SearchIndexResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1SearchIndexCommand,
   serializeAws_restJson1SearchIndexCommand,
@@ -73,8 +78,8 @@ export class SearchIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchIndexRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SearchIndexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchIndexRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SearchIndexResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

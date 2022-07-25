@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { Authorizers, GetAuthorizersRequest } from "../models/models_0";
+import {
+  Authorizers,
+  AuthorizersFilterSensitiveLog,
+  GetAuthorizersRequest,
+  GetAuthorizersRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetAuthorizersCommand,
   serializeAws_restJson1GetAuthorizersCommand,
@@ -72,8 +77,8 @@ export class GetAuthorizersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAuthorizersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Authorizers.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAuthorizersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AuthorizersFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

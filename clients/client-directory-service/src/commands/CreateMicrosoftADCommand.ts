@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { CreateMicrosoftADRequest, CreateMicrosoftADResult } from "../models/models_0";
+import {
+  CreateMicrosoftADRequest,
+  CreateMicrosoftADRequestFilterSensitiveLog,
+  CreateMicrosoftADResult,
+  CreateMicrosoftADResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateMicrosoftADCommand,
   serializeAws_json1_1CreateMicrosoftADCommand,
@@ -75,8 +80,8 @@ export class CreateMicrosoftADCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMicrosoftADRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateMicrosoftADResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateMicrosoftADRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateMicrosoftADResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

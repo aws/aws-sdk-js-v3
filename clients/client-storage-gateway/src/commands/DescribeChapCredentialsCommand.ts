@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeChapCredentialsInput, DescribeChapCredentialsOutput } from "../models/models_0";
+import {
+  DescribeChapCredentialsInput,
+  DescribeChapCredentialsInputFilterSensitiveLog,
+  DescribeChapCredentialsOutput,
+  DescribeChapCredentialsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeChapCredentialsCommand,
   serializeAws_json1_1DescribeChapCredentialsCommand,
@@ -74,8 +79,8 @@ export class DescribeChapCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChapCredentialsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeChapCredentialsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeChapCredentialsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeChapCredentialsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

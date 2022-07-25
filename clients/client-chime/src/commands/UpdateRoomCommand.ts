@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { UpdateRoomRequest, UpdateRoomResponse } from "../models/models_1";
+import {
+  UpdateRoomRequest,
+  UpdateRoomRequestFilterSensitiveLog,
+  UpdateRoomResponse,
+  UpdateRoomResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateRoomCommand,
   serializeAws_restJson1UpdateRoomCommand,
@@ -72,8 +77,8 @@ export class UpdateRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoomRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRoomResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRoomRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRoomResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

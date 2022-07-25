@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { BatchCheckLayerAvailabilityRequest, BatchCheckLayerAvailabilityResponse } from "../models/models_0";
+import {
+  BatchCheckLayerAvailabilityRequest,
+  BatchCheckLayerAvailabilityRequestFilterSensitiveLog,
+  BatchCheckLayerAvailabilityResponse,
+  BatchCheckLayerAvailabilityResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1BatchCheckLayerAvailabilityCommand,
   serializeAws_json1_1BatchCheckLayerAvailabilityCommand,
@@ -81,8 +86,8 @@ export class BatchCheckLayerAvailabilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchCheckLayerAvailabilityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchCheckLayerAvailabilityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchCheckLayerAvailabilityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchCheckLayerAvailabilityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

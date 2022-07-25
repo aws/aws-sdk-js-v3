@@ -15,7 +15,9 @@ import {
 
 import {
   CreateVPCAssociationAuthorizationRequest,
+  CreateVPCAssociationAuthorizationRequestFilterSensitiveLog,
   CreateVPCAssociationAuthorizationResponse,
+  CreateVPCAssociationAuthorizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlCreateVPCAssociationAuthorizationCommand,
@@ -89,8 +91,8 @@ export class CreateVPCAssociationAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVPCAssociationAuthorizationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateVPCAssociationAuthorizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateVPCAssociationAuthorizationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateVPCAssociationAuthorizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

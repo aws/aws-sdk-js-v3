@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { UpdateAssessmentStatusRequest, UpdateAssessmentStatusResponse } from "../models/models_0";
+import {
+  UpdateAssessmentStatusRequest,
+  UpdateAssessmentStatusRequestFilterSensitiveLog,
+  UpdateAssessmentStatusResponse,
+  UpdateAssessmentStatusResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAssessmentStatusCommand,
   serializeAws_restJson1UpdateAssessmentStatusCommand,
@@ -72,8 +77,8 @@ export class UpdateAssessmentStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAssessmentStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAssessmentStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAssessmentStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAssessmentStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
-import { DisassociateAccountsInput, DisassociateAccountsOutput } from "../models/models_0";
+import {
+  DisassociateAccountsInput,
+  DisassociateAccountsInputFilterSensitiveLog,
+  DisassociateAccountsOutput,
+  DisassociateAccountsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateAccountsCommand,
   serializeAws_restJson1DisassociateAccountsCommand,
@@ -72,8 +77,8 @@ export class DisassociateAccountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateAccountsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateAccountsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateAccountsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateAccountsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

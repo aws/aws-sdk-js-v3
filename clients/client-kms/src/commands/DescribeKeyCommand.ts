@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { DescribeKeyRequest, DescribeKeyResponse } from "../models/models_0";
+import {
+  DescribeKeyRequest,
+  DescribeKeyRequestFilterSensitiveLog,
+  DescribeKeyResponse,
+  DescribeKeyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeKeyCommand,
   serializeAws_json1_1DescribeKeyCommand,
@@ -149,8 +154,8 @@ export class DescribeKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeKeyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeKeyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeKeyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

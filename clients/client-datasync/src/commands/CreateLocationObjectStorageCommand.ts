@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { CreateLocationObjectStorageRequest, CreateLocationObjectStorageResponse } from "../models/models_0";
+import {
+  CreateLocationObjectStorageRequest,
+  CreateLocationObjectStorageRequestFilterSensitiveLog,
+  CreateLocationObjectStorageResponse,
+  CreateLocationObjectStorageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLocationObjectStorageCommand,
   serializeAws_json1_1CreateLocationObjectStorageCommand,
@@ -74,8 +79,8 @@ export class CreateLocationObjectStorageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLocationObjectStorageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationObjectStorageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLocationObjectStorageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateLocationObjectStorageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

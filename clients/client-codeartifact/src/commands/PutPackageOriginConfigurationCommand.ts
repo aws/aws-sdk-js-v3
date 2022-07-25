@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { PutPackageOriginConfigurationRequest, PutPackageOriginConfigurationResult } from "../models/models_0";
+import {
+  PutPackageOriginConfigurationRequest,
+  PutPackageOriginConfigurationRequestFilterSensitiveLog,
+  PutPackageOriginConfigurationResult,
+  PutPackageOriginConfigurationResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutPackageOriginConfigurationCommand,
   serializeAws_restJson1PutPackageOriginConfigurationCommand,
@@ -82,8 +87,8 @@ export class PutPackageOriginConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPackageOriginConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutPackageOriginConfigurationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutPackageOriginConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutPackageOriginConfigurationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

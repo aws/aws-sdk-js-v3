@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteSnapshotRequest } from "../models/models_2";
+import { DeleteSnapshotRequest, DeleteSnapshotRequestFilterSensitiveLog } from "../models/models_2";
 import { deserializeAws_ec2DeleteSnapshotCommand, serializeAws_ec2DeleteSnapshotCommand } from "../protocols/Aws_ec2";
 
 export interface DeleteSnapshotCommandInput extends DeleteSnapshotRequest {}
@@ -78,7 +78,7 @@ export class DeleteSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSnapshotRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSnapshotRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CancelDataRepositoryTaskRequest, CancelDataRepositoryTaskResponse } from "../models/models_0";
+import {
+  CancelDataRepositoryTaskRequest,
+  CancelDataRepositoryTaskRequestFilterSensitiveLog,
+  CancelDataRepositoryTaskResponse,
+  CancelDataRepositoryTaskResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CancelDataRepositoryTaskCommand,
   serializeAws_json1_1CancelDataRepositoryTaskCommand,
@@ -84,8 +89,8 @@ export class CancelDataRepositoryTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelDataRepositoryTaskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelDataRepositoryTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelDataRepositoryTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelDataRepositoryTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

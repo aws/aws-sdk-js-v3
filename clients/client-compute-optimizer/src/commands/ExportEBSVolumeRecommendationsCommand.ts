@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import { ExportEBSVolumeRecommendationsRequest, ExportEBSVolumeRecommendationsResponse } from "../models/models_0";
+import {
+  ExportEBSVolumeRecommendationsRequest,
+  ExportEBSVolumeRecommendationsRequestFilterSensitiveLog,
+  ExportEBSVolumeRecommendationsResponse,
+  ExportEBSVolumeRecommendationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0ExportEBSVolumeRecommendationsCommand,
   serializeAws_json1_0ExportEBSVolumeRecommendationsCommand,
@@ -79,8 +84,8 @@ export class ExportEBSVolumeRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportEBSVolumeRecommendationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ExportEBSVolumeRecommendationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ExportEBSVolumeRecommendationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ExportEBSVolumeRecommendationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

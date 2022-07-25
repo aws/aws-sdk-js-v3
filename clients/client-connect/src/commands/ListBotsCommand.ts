@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListBotsRequest, ListBotsResponse } from "../models/models_0";
+import {
+  ListBotsRequest,
+  ListBotsRequestFilterSensitiveLog,
+  ListBotsResponse,
+  ListBotsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListBotsCommand,
   serializeAws_restJson1ListBotsCommand,
@@ -74,8 +79,8 @@ export class ListBotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBotsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListBotsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBotsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListBotsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

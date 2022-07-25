@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { GetAccountSettingsRequest, GetAccountSettingsResult } from "../models/models_0";
+import {
+  GetAccountSettingsRequest,
+  GetAccountSettingsRequestFilterSensitiveLog,
+  GetAccountSettingsResult,
+  GetAccountSettingsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetAccountSettingsCommand,
   serializeAws_json1_1GetAccountSettingsCommand,
@@ -73,8 +78,8 @@ export class GetAccountSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountSettingsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAccountSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAccountSettingsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

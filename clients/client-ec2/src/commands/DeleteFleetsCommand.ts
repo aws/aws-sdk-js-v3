@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteFleetsRequest, DeleteFleetsResult } from "../models/models_2";
+import {
+  DeleteFleetsRequest,
+  DeleteFleetsRequestFilterSensitiveLog,
+  DeleteFleetsResult,
+  DeleteFleetsResultFilterSensitiveLog,
+} from "../models/models_2";
 import { deserializeAws_ec2DeleteFleetsCommand, serializeAws_ec2DeleteFleetsCommand } from "../protocols/Aws_ec2";
 
 export interface DeleteFleetsCommandInput extends DeleteFleetsRequest {}
@@ -95,8 +100,8 @@ export class DeleteFleetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFleetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFleetsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFleetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFleetsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -24,15 +24,6 @@ export interface AcceptDomainTransferFromAnotherAwsAccountRequest {
   Password: string | undefined;
 }
 
-export namespace AcceptDomainTransferFromAnotherAwsAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptDomainTransferFromAnotherAwsAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The AcceptDomainTransferFromAnotherAwsAccount response includes the following element.</p>
  */
@@ -42,15 +33,6 @@ export interface AcceptDomainTransferFromAnotherAwsAccountResponse {
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    */
   OperationId?: string;
-}
-
-export namespace AcceptDomainTransferFromAnotherAwsAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptDomainTransferFromAnotherAwsAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -187,15 +169,6 @@ export interface BillingRecord {
   Price?: number;
 }
 
-export namespace BillingRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BillingRecord): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The CancelDomainTransferToAnotherAwsAccount request includes the following element.</p>
  */
@@ -204,15 +177,6 @@ export interface CancelDomainTransferToAnotherAwsAccountRequest {
    * <p>The name of the domain for which you want to cancel the transfer to another Amazon Web Services account.</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace CancelDomainTransferToAnotherAwsAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelDomainTransferToAnotherAwsAccountRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -225,15 +189,6 @@ export interface CancelDomainTransferToAnotherAwsAccountResponse {
    * 			to query the operation status.</p>
    */
   OperationId?: string;
-}
-
-export namespace CancelDomainTransferToAnotherAwsAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelDomainTransferToAnotherAwsAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -273,15 +228,6 @@ export interface CheckDomainAvailabilityRequest {
    * <p>Reserved for future use.</p>
    */
   IdnLangCode?: string;
-}
-
-export namespace CheckDomainAvailabilityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckDomainAvailabilityRequest): any => ({
-    ...obj,
-  });
 }
 
 export type DomainAvailability =
@@ -349,15 +295,6 @@ export interface CheckDomainAvailabilityResponse {
   Availability: DomainAvailability | string | undefined;
 }
 
-export namespace CheckDomainAvailabilityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckDomainAvailabilityResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The CheckDomainTransferability request contains the following elements.</p>
  */
@@ -390,16 +327,6 @@ export interface CheckDomainTransferabilityRequest {
    * 			the code that you got from the current registrar for the domain.</p>
    */
   AuthCode?: string;
-}
-
-export namespace CheckDomainTransferabilityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckDomainTransferabilityRequest): any => ({
-    ...obj,
-    ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
-  });
 }
 
 export enum Transferable {
@@ -437,15 +364,6 @@ export interface DomainTransferability {
   Transferable?: Transferable | string;
 }
 
-export namespace DomainTransferability {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainTransferability): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The CheckDomainTransferability response includes the following elements.</p>
  */
@@ -454,15 +372,6 @@ export interface CheckDomainTransferabilityResponse {
    * <p>A complex type that contains information about whether the specified domain can be transferred to Route 53.</p>
    */
   Transferability: DomainTransferability | undefined;
-}
-
-export namespace CheckDomainTransferabilityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckDomainTransferabilityResponse): any => ({
-    ...obj,
-  });
 }
 
 export type ContactType = "ASSOCIATION" | "COMPANY" | "PERSON" | "PUBLIC_BODY" | "RESELLER";
@@ -1588,16 +1497,6 @@ export interface ExtraParam {
   Value: string | undefined;
 }
 
-export namespace ExtraParam {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtraParam): any => ({
-    ...obj,
-    ...(obj.Value && { Value: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>ContactDetail includes the following elements.</p>
  */
@@ -1693,30 +1592,11 @@ export interface ContactDetail {
   ExtraParams?: ExtraParam[];
 }
 
-export namespace ContactDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContactDetail): any => ({
-    ...obj,
-    ...(obj.ExtraParams && { ExtraParams: obj.ExtraParams.map((item) => ExtraParam.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface DeleteDomainRequest {
   /**
    * <p>Name of the domain to be deleted.</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace DeleteDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDomainResponse {
@@ -1725,15 +1605,6 @@ export interface DeleteDomainResponse {
    * 			To query the operation status, use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    */
   OperationId?: string;
-}
-
-export namespace DeleteDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1789,25 +1660,7 @@ export interface DeleteTagsForDomainRequest {
   TagsToDelete: string[] | undefined;
 }
 
-export namespace DeleteTagsForDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagsForDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTagsForDomainResponse {}
-
-export namespace DeleteTagsForDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagsForDomainResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisableDomainAutoRenewRequest {
   /**
@@ -1816,25 +1669,7 @@ export interface DisableDomainAutoRenewRequest {
   DomainName: string | undefined;
 }
 
-export namespace DisableDomainAutoRenewRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableDomainAutoRenewRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableDomainAutoRenewResponse {}
-
-export namespace DisableDomainAutoRenewResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableDomainAutoRenewResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The DisableDomainTransferLock request includes the following element.</p>
@@ -1846,15 +1681,6 @@ export interface DisableDomainTransferLockRequest {
   DomainName: string | undefined;
 }
 
-export namespace DisableDomainTransferLockRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableDomainTransferLockRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The DisableDomainTransferLock response includes the following element.</p>
  */
@@ -1864,15 +1690,6 @@ export interface DisableDomainTransferLockResponse {
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    */
   OperationId: string | undefined;
-}
-
-export namespace DisableDomainTransferLockResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableDomainTransferLockResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1888,15 +1705,6 @@ export interface PriceWithCurrency {
    * <p>The currency specifier.</p>
    */
   Currency: string | undefined;
-}
-
-export namespace PriceWithCurrency {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PriceWithCurrency): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1932,15 +1740,6 @@ export interface DomainPrice {
    * <p>The price for restoring the domain with Route 53.</p>
    */
   RestorationPrice?: PriceWithCurrency;
-}
-
-export namespace DomainPrice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainPrice): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2003,15 +1802,6 @@ export interface DomainSuggestion {
   Availability?: string;
 }
 
-export namespace DomainSuggestion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainSuggestion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary information about one domain.</p>
  */
@@ -2037,15 +1827,6 @@ export interface DomainSummary {
   Expiry?: Date;
 }
 
-export namespace DomainSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableDomainAutoRenewRequest {
   /**
    * <p>The name of the domain that you want to enable automatic renewal for.</p>
@@ -2053,25 +1834,7 @@ export interface EnableDomainAutoRenewRequest {
   DomainName: string | undefined;
 }
 
-export namespace EnableDomainAutoRenewRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableDomainAutoRenewRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableDomainAutoRenewResponse {}
-
-export namespace EnableDomainAutoRenewResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableDomainAutoRenewResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to set the transfer lock for the specified domain.</p>
@@ -2083,15 +1846,6 @@ export interface EnableDomainTransferLockRequest {
   DomainName: string | undefined;
 }
 
-export namespace EnableDomainTransferLockRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableDomainTransferLockRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The EnableDomainTransferLock response includes the following elements.</p>
  */
@@ -2100,15 +1854,6 @@ export interface EnableDomainTransferLockResponse {
    * <p>Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.</p>
    */
   OperationId: string | undefined;
-}
-
-export namespace EnableDomainTransferLockResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableDomainTransferLockResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ListDomainsAttributeName {
@@ -2157,29 +1902,11 @@ export interface FilterCondition {
   Values: string[] | undefined;
 }
 
-export namespace FilterCondition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilterCondition): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContactReachabilityStatusRequest {
   /**
    * <p>The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid.</p>
    */
   domainName?: string;
-}
-
-export namespace GetContactReachabilityStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContactReachabilityStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ReachabilityStatus {
@@ -2214,15 +1941,6 @@ export interface GetContactReachabilityStatusResponse {
   status?: ReachabilityStatus | string;
 }
 
-export namespace GetContactReachabilityStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContactReachabilityStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The GetDomainDetail request includes the following element.</p>
  */
@@ -2231,15 +1949,6 @@ export interface GetDomainDetailRequest {
    * <p>The name of the domain that you want to get detailed information about.</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace GetDomainDetailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainDetailRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2259,15 +1968,6 @@ export interface Nameserver {
    * 		       <p>Constraints: The list can contain only one IPv4 and one IPv6 address.</p>
    */
   GlueIps?: string[];
-}
-
-export namespace Nameserver {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Nameserver): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2405,18 +2105,6 @@ export interface GetDomainDetailResponse {
   StatusList?: string[];
 }
 
-export namespace GetDomainDetailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainDetailResponse): any => ({
-    ...obj,
-    ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
-    ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
-    ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetDomainSuggestionsRequest {
   /**
    * <p>A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com,
@@ -2459,30 +2147,12 @@ export interface GetDomainSuggestionsRequest {
   OnlyAvailable: boolean | undefined;
 }
 
-export namespace GetDomainSuggestionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainSuggestionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDomainSuggestionsResponse {
   /**
    * <p>A list of possible domain names. If you specified <code>true</code> for <code>OnlyAvailable</code> in the request,
    * 			the list contains only domains that are available for registration.</p>
    */
   SuggestionsList?: DomainSuggestion[];
-}
-
-export namespace GetDomainSuggestionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainSuggestionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2496,15 +2166,6 @@ export interface GetOperationDetailRequest {
    * 			in the response to the original request.</p>
    */
   OperationId: string | undefined;
-}
-
-export namespace GetOperationDetailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOperationDetailRequest): any => ({
-    ...obj,
-  });
 }
 
 export type OperationStatus = "ERROR" | "FAILED" | "IN_PROGRESS" | "SUBMITTED" | "SUCCESSFUL";
@@ -2544,15 +2205,6 @@ export interface GetOperationDetailResponse {
   SubmittedDate?: Date;
 }
 
-export namespace GetOperationDetailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOperationDetailResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum SortOrder {
   ASC = "ASC",
   DESC = "DESC",
@@ -2574,15 +2226,6 @@ export interface SortCondition {
    * <p>The sort order for a list of domains. Either ascending (ASC) or descending (DES).</p>
    */
   SortOrder: SortOrder | string | undefined;
-}
-
-export namespace SortCondition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SortCondition): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2617,15 +2260,6 @@ export interface ListDomainsRequest {
   MaxItems?: number;
 }
 
-export namespace ListDomainsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The ListDomains response includes the following elements.</p>
  */
@@ -2640,15 +2274,6 @@ export interface ListDomainsResponse {
    * 			request and include the value of <code>NextPageMarker</code> in the value of <code>Marker</code>.</p>
    */
   NextPageMarker?: string;
-}
-
-export namespace ListDomainsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2676,15 +2301,6 @@ export interface ListOperationsRequest {
   MaxItems?: number;
 }
 
-export namespace ListOperationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOperationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>OperationSummary includes the following elements.</p>
  */
@@ -2710,15 +2326,6 @@ export interface OperationSummary {
   SubmittedDate: Date | undefined;
 }
 
-export namespace OperationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The ListOperations response includes the following elements.</p>
  */
@@ -2733,15 +2340,6 @@ export interface ListOperationsResponse {
    * 			request and include the value of <code>NextPageMarker</code> in the value of <code>Marker</code>.</p>
    */
   NextPageMarker?: string;
-}
-
-export namespace ListOperationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOperationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPricesRequest {
@@ -2769,15 +2367,6 @@ export interface ListPricesRequest {
   MaxItems?: number;
 }
 
-export namespace ListPricesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPricesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPricesResponse {
   /**
    * <p>A complex type that includes all the pricing information. If you specify a TLD, this array
@@ -2794,15 +2383,6 @@ export interface ListPricesResponse {
   NextPageMarker?: string;
 }
 
-export namespace ListPricesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPricesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The ListTagsForDomainRequest includes the following elements.</p>
  */
@@ -2811,15 +2391,6 @@ export interface ListTagsForDomainRequest {
    * <p>The domain for which you want to get a list of tags.</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace ListTagsForDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForDomainRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2841,15 +2412,6 @@ export interface Tag {
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The ListTagsForDomain response includes the following elements.</p>
  */
@@ -2858,15 +2420,6 @@ export interface ListTagsForDomainResponse {
    * <p>A list of the tags that are associated with the specified domain.</p>
    */
   TagList: Tag[] | undefined;
-}
-
-export namespace ListTagsForDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForDomainResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2982,18 +2535,6 @@ export interface RegisterDomainRequest {
   PrivacyProtectTechContact?: boolean;
 }
 
-export namespace RegisterDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterDomainRequest): any => ({
-    ...obj,
-    ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
-    ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
-    ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The RegisterDomain response includes the following element.</p>
  */
@@ -3003,15 +2544,6 @@ export interface RegisterDomainResponse {
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    */
   OperationId: string | undefined;
-}
-
-export namespace RegisterDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterDomainResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3027,15 +2559,6 @@ export interface RejectDomainTransferFromAnotherAwsAccountRequest {
   DomainName: string | undefined;
 }
 
-export namespace RejectDomainTransferFromAnotherAwsAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectDomainTransferFromAnotherAwsAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The RejectDomainTransferFromAnotherAwsAccount response includes the following element.</p>
  */
@@ -3046,15 +2569,6 @@ export interface RejectDomainTransferFromAnotherAwsAccountResponse {
    * 			to query the operation status.</p>
    */
   OperationId?: string;
-}
-
-export namespace RejectDomainTransferFromAnotherAwsAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectDomainTransferFromAnotherAwsAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3081,15 +2595,6 @@ export interface RenewDomainRequest {
   CurrentExpiryYear: number | undefined;
 }
 
-export namespace RenewDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RenewDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RenewDomainResponse {
   /**
    * <p>Identifier for tracking the progress of the request. To query the operation status, use
@@ -3098,29 +2603,11 @@ export interface RenewDomainResponse {
   OperationId: string | undefined;
 }
 
-export namespace RenewDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RenewDomainResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ResendContactReachabilityEmailRequest {
   /**
    * <p>The name of the domain for which you want Route 53 to resend a confirmation email to the registrant contact.</p>
    */
   domainName?: string;
-}
-
-export namespace ResendContactReachabilityEmailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResendContactReachabilityEmailRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ResendContactReachabilityEmailResponse {
@@ -3142,15 +2629,6 @@ export interface ResendContactReachabilityEmailResponse {
   isAlreadyVerified?: boolean;
 }
 
-export namespace ResendContactReachabilityEmailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResendContactReachabilityEmailResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request for the authorization code for the specified domain. To transfer a domain to another registrar, you provide
  * 			this value to the new registrar.</p>
@@ -3162,15 +2640,6 @@ export interface RetrieveDomainAuthCodeRequest {
   DomainName: string | undefined;
 }
 
-export namespace RetrieveDomainAuthCodeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetrieveDomainAuthCodeRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The RetrieveDomainAuthCode response includes the following element.</p>
  */
@@ -3179,16 +2648,6 @@ export interface RetrieveDomainAuthCodeResponse {
    * <p>The authorization code for the domain.</p>
    */
   AuthCode: string | undefined;
-}
-
-export namespace RetrieveDomainAuthCodeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetrieveDomainAuthCodeResponse): any => ({
-    ...obj,
-    ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -3302,19 +2761,6 @@ export interface TransferDomainRequest {
   PrivacyProtectTechContact?: boolean;
 }
 
-export namespace TransferDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransferDomainRequest): any => ({
-    ...obj,
-    ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
-    ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
-    ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
-    ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The TransferDomain response includes the following element.</p>
  */
@@ -3324,15 +2770,6 @@ export interface TransferDomainResponse {
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    */
   OperationId: string | undefined;
-}
-
-export namespace TransferDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransferDomainResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3348,15 +2785,6 @@ export interface TransferDomainToAnotherAwsAccountRequest {
    * <p>The account ID of the Amazon Web Services account that you want to transfer the domain to, for example, <code>111122223333</code>.</p>
    */
   AccountId: string | undefined;
-}
-
-export namespace TransferDomainToAnotherAwsAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransferDomainToAnotherAwsAccountRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3376,15 +2804,6 @@ export interface TransferDomainToAnotherAwsAccountResponse {
    * 			<code>TransferDomainToAnotherAwsAccount</code> response.</p>
    */
   Password?: string;
-}
-
-export namespace TransferDomainToAnotherAwsAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransferDomainToAnotherAwsAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3412,18 +2831,6 @@ export interface UpdateDomainContactRequest {
   TechContact?: ContactDetail;
 }
 
-export namespace UpdateDomainContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainContactRequest): any => ({
-    ...obj,
-    ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
-    ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
-    ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The UpdateDomainContact response includes the following element.</p>
  */
@@ -3433,15 +2840,6 @@ export interface UpdateDomainContactResponse {
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    */
   OperationId: string | undefined;
-}
-
-export namespace UpdateDomainContactResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainContactResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3487,15 +2885,6 @@ export interface UpdateDomainContactPrivacyRequest {
   TechPrivacy?: boolean;
 }
 
-export namespace UpdateDomainContactPrivacyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainContactPrivacyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The UpdateDomainContactPrivacy response includes the following element.</p>
  */
@@ -3504,15 +2893,6 @@ export interface UpdateDomainContactPrivacyResponse {
    * <p>Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.</p>
    */
   OperationId: string | undefined;
-}
-
-export namespace UpdateDomainContactPrivacyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainContactPrivacyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3540,16 +2920,6 @@ export interface UpdateDomainNameserversRequest {
   Nameservers: Nameserver[] | undefined;
 }
 
-export namespace UpdateDomainNameserversRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainNameserversRequest): any => ({
-    ...obj,
-    ...(obj.FIAuthKey && { FIAuthKey: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The UpdateDomainNameservers response includes the following element.</p>
  */
@@ -3559,15 +2929,6 @@ export interface UpdateDomainNameserversResponse {
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    */
   OperationId: string | undefined;
-}
-
-export namespace UpdateDomainNameserversResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainNameserversResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3586,25 +2947,7 @@ export interface UpdateTagsForDomainRequest {
   TagsToUpdate?: Tag[];
 }
 
-export namespace UpdateTagsForDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTagsForDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTagsForDomainResponse {}
-
-export namespace UpdateTagsForDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTagsForDomainResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The ViewBilling request includes the following elements.</p>
@@ -3640,15 +2983,6 @@ export interface ViewBillingRequest {
   MaxItems?: number;
 }
 
-export namespace ViewBillingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ViewBillingRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The ViewBilling response includes the following elements.</p>
  */
@@ -3665,11 +2999,555 @@ export interface ViewBillingResponse {
   BillingRecords?: BillingRecord[];
 }
 
-export namespace ViewBillingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ViewBillingResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcceptDomainTransferFromAnotherAwsAccountRequestFilterSensitiveLog = (
+  obj: AcceptDomainTransferFromAnotherAwsAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptDomainTransferFromAnotherAwsAccountResponseFilterSensitiveLog = (
+  obj: AcceptDomainTransferFromAnotherAwsAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BillingRecordFilterSensitiveLog = (obj: BillingRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelDomainTransferToAnotherAwsAccountRequestFilterSensitiveLog = (
+  obj: CancelDomainTransferToAnotherAwsAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelDomainTransferToAnotherAwsAccountResponseFilterSensitiveLog = (
+  obj: CancelDomainTransferToAnotherAwsAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckDomainAvailabilityRequestFilterSensitiveLog = (obj: CheckDomainAvailabilityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckDomainAvailabilityResponseFilterSensitiveLog = (obj: CheckDomainAvailabilityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckDomainTransferabilityRequestFilterSensitiveLog = (obj: CheckDomainTransferabilityRequest): any => ({
+  ...obj,
+  ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DomainTransferabilityFilterSensitiveLog = (obj: DomainTransferability): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckDomainTransferabilityResponseFilterSensitiveLog = (obj: CheckDomainTransferabilityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtraParamFilterSensitiveLog = (obj: ExtraParam): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ContactDetailFilterSensitiveLog = (obj: ContactDetail): any => ({
+  ...obj,
+  ...(obj.ExtraParams && { ExtraParams: obj.ExtraParams.map((item) => ExtraParamFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainRequestFilterSensitiveLog = (obj: DeleteDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainResponseFilterSensitiveLog = (obj: DeleteDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTagsForDomainRequestFilterSensitiveLog = (obj: DeleteTagsForDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTagsForDomainResponseFilterSensitiveLog = (obj: DeleteTagsForDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableDomainAutoRenewRequestFilterSensitiveLog = (obj: DisableDomainAutoRenewRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableDomainAutoRenewResponseFilterSensitiveLog = (obj: DisableDomainAutoRenewResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableDomainTransferLockRequestFilterSensitiveLog = (obj: DisableDomainTransferLockRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableDomainTransferLockResponseFilterSensitiveLog = (obj: DisableDomainTransferLockResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PriceWithCurrencyFilterSensitiveLog = (obj: PriceWithCurrency): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainPriceFilterSensitiveLog = (obj: DomainPrice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainSuggestionFilterSensitiveLog = (obj: DomainSuggestion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainSummaryFilterSensitiveLog = (obj: DomainSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableDomainAutoRenewRequestFilterSensitiveLog = (obj: EnableDomainAutoRenewRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableDomainAutoRenewResponseFilterSensitiveLog = (obj: EnableDomainAutoRenewResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableDomainTransferLockRequestFilterSensitiveLog = (obj: EnableDomainTransferLockRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableDomainTransferLockResponseFilterSensitiveLog = (obj: EnableDomainTransferLockResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterConditionFilterSensitiveLog = (obj: FilterCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContactReachabilityStatusRequestFilterSensitiveLog = (
+  obj: GetContactReachabilityStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContactReachabilityStatusResponseFilterSensitiveLog = (
+  obj: GetContactReachabilityStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainDetailRequestFilterSensitiveLog = (obj: GetDomainDetailRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NameserverFilterSensitiveLog = (obj: Nameserver): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainDetailResponseFilterSensitiveLog = (obj: GetDomainDetailResponse): any => ({
+  ...obj,
+  ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
+  ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
+  ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetDomainSuggestionsRequestFilterSensitiveLog = (obj: GetDomainSuggestionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainSuggestionsResponseFilterSensitiveLog = (obj: GetDomainSuggestionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOperationDetailRequestFilterSensitiveLog = (obj: GetOperationDetailRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOperationDetailResponseFilterSensitiveLog = (obj: GetOperationDetailResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SortConditionFilterSensitiveLog = (obj: SortCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainsRequestFilterSensitiveLog = (obj: ListDomainsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainsResponseFilterSensitiveLog = (obj: ListDomainsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOperationsRequestFilterSensitiveLog = (obj: ListOperationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OperationSummaryFilterSensitiveLog = (obj: OperationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOperationsResponseFilterSensitiveLog = (obj: ListOperationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPricesRequestFilterSensitiveLog = (obj: ListPricesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPricesResponseFilterSensitiveLog = (obj: ListPricesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForDomainRequestFilterSensitiveLog = (obj: ListTagsForDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForDomainResponseFilterSensitiveLog = (obj: ListTagsForDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterDomainRequestFilterSensitiveLog = (obj: RegisterDomainRequest): any => ({
+  ...obj,
+  ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
+  ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
+  ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RegisterDomainResponseFilterSensitiveLog = (obj: RegisterDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectDomainTransferFromAnotherAwsAccountRequestFilterSensitiveLog = (
+  obj: RejectDomainTransferFromAnotherAwsAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectDomainTransferFromAnotherAwsAccountResponseFilterSensitiveLog = (
+  obj: RejectDomainTransferFromAnotherAwsAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RenewDomainRequestFilterSensitiveLog = (obj: RenewDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RenewDomainResponseFilterSensitiveLog = (obj: RenewDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResendContactReachabilityEmailRequestFilterSensitiveLog = (
+  obj: ResendContactReachabilityEmailRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResendContactReachabilityEmailResponseFilterSensitiveLog = (
+  obj: ResendContactReachabilityEmailResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetrieveDomainAuthCodeRequestFilterSensitiveLog = (obj: RetrieveDomainAuthCodeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetrieveDomainAuthCodeResponseFilterSensitiveLog = (obj: RetrieveDomainAuthCodeResponse): any => ({
+  ...obj,
+  ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TransferDomainRequestFilterSensitiveLog = (obj: TransferDomainRequest): any => ({
+  ...obj,
+  ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
+  ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
+  ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
+  ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TransferDomainResponseFilterSensitiveLog = (obj: TransferDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransferDomainToAnotherAwsAccountRequestFilterSensitiveLog = (
+  obj: TransferDomainToAnotherAwsAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransferDomainToAnotherAwsAccountResponseFilterSensitiveLog = (
+  obj: TransferDomainToAnotherAwsAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainContactRequestFilterSensitiveLog = (obj: UpdateDomainContactRequest): any => ({
+  ...obj,
+  ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
+  ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
+  ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainContactResponseFilterSensitiveLog = (obj: UpdateDomainContactResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainContactPrivacyRequestFilterSensitiveLog = (obj: UpdateDomainContactPrivacyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainContactPrivacyResponseFilterSensitiveLog = (obj: UpdateDomainContactPrivacyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainNameserversRequestFilterSensitiveLog = (obj: UpdateDomainNameserversRequest): any => ({
+  ...obj,
+  ...(obj.FIAuthKey && { FIAuthKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainNameserversResponseFilterSensitiveLog = (obj: UpdateDomainNameserversResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTagsForDomainRequestFilterSensitiveLog = (obj: UpdateTagsForDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTagsForDomainResponseFilterSensitiveLog = (obj: UpdateTagsForDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ViewBillingRequestFilterSensitiveLog = (obj: ViewBillingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ViewBillingResponseFilterSensitiveLog = (obj: ViewBillingResponse): any => ({
+  ...obj,
+});

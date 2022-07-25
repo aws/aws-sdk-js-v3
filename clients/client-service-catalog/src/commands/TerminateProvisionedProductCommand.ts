@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TerminateProvisionedProductInput, TerminateProvisionedProductOutput } from "../models/models_0";
+import {
+  TerminateProvisionedProductInput,
+  TerminateProvisionedProductInputFilterSensitiveLog,
+  TerminateProvisionedProductOutput,
+  TerminateProvisionedProductOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1TerminateProvisionedProductCommand,
   serializeAws_json1_1TerminateProvisionedProductCommand,
@@ -74,8 +79,8 @@ export class TerminateProvisionedProductCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateProvisionedProductInput.filterSensitiveLog,
-      outputFilterSensitiveLog: TerminateProvisionedProductOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: TerminateProvisionedProductInputFilterSensitiveLog,
+      outputFilterSensitiveLog: TerminateProvisionedProductOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

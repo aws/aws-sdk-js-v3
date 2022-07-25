@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
+import {
+  ListTagsForResourceRequest,
+  ListTagsForResourceRequestFilterSensitiveLog,
+  ListTagsForResourceResponse,
+  ListTagsForResourceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1ListTagsForResourceCommand,
@@ -76,8 +81,8 @@ export class ListTagsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsForResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsForResourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

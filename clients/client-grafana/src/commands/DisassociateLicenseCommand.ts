@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import { DisassociateLicenseRequest, DisassociateLicenseResponse } from "../models/models_0";
+import {
+  DisassociateLicenseRequest,
+  DisassociateLicenseRequestFilterSensitiveLog,
+  DisassociateLicenseResponse,
+  DisassociateLicenseResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateLicenseCommand,
   serializeAws_restJson1DisassociateLicenseCommand,
@@ -72,8 +77,8 @@ export class DisassociateLicenseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateLicenseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateLicenseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateLicenseRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateLicenseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

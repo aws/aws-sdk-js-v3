@@ -54,15 +54,6 @@ export interface CloneBackendRequest {
   TargetEnvironmentName: string | undefined;
 }
 
-export namespace CloneBackendRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloneBackendRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CloneBackendResponse {
   /**
    * <p>The app ID.</p>
@@ -93,15 +84,6 @@ export interface CloneBackendResponse {
    * <p>The current status of the request.</p>
    */
   Status?: string;
-}
-
-export namespace CloneBackendResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloneBackendResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -193,15 +175,6 @@ export class TooManyRequestsException extends __BaseException {
  */
 export interface ResourceConfig {}
 
-export namespace ResourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body for CreateBackend.</p>
  */
@@ -230,15 +203,6 @@ export interface CreateBackendRequest {
    * <p>The name of the resource.</p>
    */
   ResourceName?: string;
-}
-
-export namespace CreateBackendRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBackendResponse {
@@ -271,15 +235,6 @@ export interface CreateBackendResponse {
    * <p>The current status of the request.</p>
    */
   Status?: string;
-}
-
-export namespace CreateBackendResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum Mode {
@@ -334,15 +289,6 @@ export interface BackendAPIAppSyncAuthSettings {
   OpenIDProviderName?: string;
 }
 
-export namespace BackendAPIAppSyncAuthSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackendAPIAppSyncAuthSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the auth types for your configured data models.</p>
  */
@@ -356,15 +302,6 @@ export interface BackendAPIAuthType {
    * <p>Describes settings for the authentication mode.</p>
    */
   Settings?: BackendAPIAppSyncAuthSettings;
-}
-
-export namespace BackendAPIAuthType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackendAPIAuthType): any => ({
-    ...obj,
-  });
 }
 
 export enum ResolutionStrategy {
@@ -382,15 +319,6 @@ export interface BackendAPIConflictResolution {
    * <p>The strategy for conflict resolution.</p>
    */
   ResolutionStrategy?: ResolutionStrategy | string;
-}
-
-export namespace BackendAPIConflictResolution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackendAPIConflictResolution): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -428,15 +356,6 @@ export interface BackendAPIResourceConfig {
   TransformSchema?: string;
 }
 
-export namespace BackendAPIResourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackendAPIResourceConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body for CreateBackendAPI.</p>
  */
@@ -460,15 +379,6 @@ export interface CreateBackendAPIRequest {
    * <p>The name of this resource.</p>
    */
   ResourceName: string | undefined;
-}
-
-export namespace CreateBackendAPIRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendAPIRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBackendAPIResponse {
@@ -503,15 +413,6 @@ export interface CreateBackendAPIResponse {
   Status?: string;
 }
 
-export namespace CreateBackendAPIResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendAPIResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum AuthResources {
   IDENTITY_POOL_AND_USER_POOL = "IDENTITY_POOL_AND_USER_POOL",
   USER_POOL_ONLY = "USER_POOL_ONLY",
@@ -530,15 +431,6 @@ export interface CreateBackendAuthIdentityPoolConfig {
    * <p>Set to true or false based on whether you want to enable guest authorization to your Amplify app.</p>
    */
   UnauthenticatedLogin: boolean | undefined;
-}
-
-export namespace CreateBackendAuthIdentityPoolConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendAuthIdentityPoolConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum Service {
@@ -565,15 +457,6 @@ export interface EmailSettings {
   EmailSubject?: string;
 }
 
-export namespace EmailSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmailSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>SMS settings for authentication.</p>
  */
@@ -582,15 +465,6 @@ export interface SmsSettings {
    * <p>The contents of the SMS message.</p>
    */
   SmsMessage?: string;
-}
-
-export namespace SmsSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SmsSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -611,15 +485,6 @@ export interface CreateBackendAuthForgotPasswordConfig {
    * <p><b>(DEPRECATED)</b> The configuration for the SMS message sent when an app user forgets their password.</p>
    */
   SmsSettings?: SmsSettings;
-}
-
-export namespace CreateBackendAuthForgotPasswordConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendAuthForgotPasswordConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum MFAMode {
@@ -648,15 +513,6 @@ export interface Settings {
   SmsMessage?: string;
 }
 
-export namespace Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Settings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes whether to apply multi-factor authentication policies for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
  */
@@ -670,15 +526,6 @@ export interface CreateBackendAuthMFAConfig {
    * <p>Describes the configuration settings and methods for your Amplify app users to use MFA.</p>
    */
   Settings?: Settings;
-}
-
-export namespace CreateBackendAuthMFAConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendAuthMFAConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum OAuthGrantType {
@@ -709,15 +556,6 @@ export interface BackendAuthSocialProviderConfig {
   ClientSecret?: string;
 }
 
-export namespace BackendAuthSocialProviderConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackendAuthSocialProviderConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes Apple social federation configurations for allowing your app users to sign in using OAuth.</p>
  */
@@ -743,15 +581,6 @@ export interface BackendAuthAppleProviderConfig {
   TeamId?: string;
 }
 
-export namespace BackendAuthAppleProviderConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackendAuthAppleProviderConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The settings for using the social identity providers for access to your Amplify app.</p>
  */
@@ -775,15 +604,6 @@ export interface SocialProviderSettings {
    * <p>Describes Apple social federation configurations for allowing your app users to sign in using OAuth.</p>
    */
   SignInWithApple?: BackendAuthAppleProviderConfig;
-}
-
-export namespace SocialProviderSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SocialProviderSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -821,15 +641,6 @@ export interface CreateBackendAuthOAuthConfig {
   SocialProviderSettings?: SocialProviderSettings;
 }
 
-export namespace CreateBackendAuthOAuthConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendAuthOAuthConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The password policy configuration for the backend to your Amplify project.</p>
  */
@@ -843,15 +654,6 @@ export interface CreateBackendAuthPasswordPolicyConfig {
    * <p>The minimum length of the password used to access the backend of your Amplify project.</p>
    */
   MinimumLength: number | undefined;
-}
-
-export namespace CreateBackendAuthPasswordPolicyConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendAuthPasswordPolicyConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum RequiredSignUpAttributesElement {
@@ -901,15 +703,6 @@ export interface CreateBackendAuthVerificationMessageConfig {
   SmsSettings?: SmsSettings;
 }
 
-export namespace CreateBackendAuthVerificationMessageConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendAuthVerificationMessageConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the Amazon Cognito user pool configuration for the auth resource to be configured for your Amplify project.</p>
  */
@@ -955,15 +748,6 @@ export interface CreateBackendAuthUserPoolConfig {
   VerificationMessage?: CreateBackendAuthVerificationMessageConfig;
 }
 
-export namespace CreateBackendAuthUserPoolConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendAuthUserPoolConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines the resource configuration when creating an auth resource in your Amplify project.</p>
  */
@@ -989,15 +773,6 @@ export interface CreateBackendAuthResourceConfig {
   UserPoolConfigs: CreateBackendAuthUserPoolConfig | undefined;
 }
 
-export namespace CreateBackendAuthResourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendAuthResourceConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body for CreateBackendAuth.</p>
  */
@@ -1021,15 +796,6 @@ export interface CreateBackendAuthRequest {
    * <p>The name of this resource.</p>
    */
   ResourceName: string | undefined;
-}
-
-export namespace CreateBackendAuthRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendAuthRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBackendAuthResponse {
@@ -1064,15 +830,6 @@ export interface CreateBackendAuthResponse {
   Status?: string;
 }
 
-export namespace CreateBackendAuthResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendAuthResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body for CreateBackendConfig.</p>
  */
@@ -1086,15 +843,6 @@ export interface CreateBackendConfigRequest {
    * <p>The app ID for the backend manager.</p>
    */
   BackendManagerAppId?: string;
-}
-
-export namespace CreateBackendConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBackendConfigResponse {
@@ -1117,15 +865,6 @@ export interface CreateBackendConfigResponse {
    * <p>The current status of the request.</p>
    */
   Status?: string;
-}
-
-export namespace CreateBackendConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum AuthenticatedElement {
@@ -1155,15 +894,6 @@ export interface BackendStoragePermissions {
   UnAuthenticated?: (UnAuthenticatedElement | string)[];
 }
 
-export namespace BackendStoragePermissions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackendStoragePermissions): any => ({
-    ...obj,
-  });
-}
-
 export enum ServiceName {
   S3 = "S3",
 }
@@ -1186,15 +916,6 @@ export interface CreateBackendStorageResourceConfig {
    * <p>The name of the storage service.</p>
    */
   ServiceName: ServiceName | string | undefined;
-}
-
-export namespace CreateBackendStorageResourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendStorageResourceConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1222,15 +943,6 @@ export interface CreateBackendStorageRequest {
   ResourceName: string | undefined;
 }
 
-export namespace CreateBackendStorageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendStorageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateBackendStorageResponse {
   /**
    * <p>The app ID.</p>
@@ -1253,29 +965,11 @@ export interface CreateBackendStorageResponse {
   Status?: string;
 }
 
-export namespace CreateBackendStorageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendStorageResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTokenRequest {
   /**
    * <p>The app ID.</p>
    */
   AppId: string | undefined;
-}
-
-export namespace CreateTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTokenRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateTokenResponse {
@@ -1300,15 +994,6 @@ export interface CreateTokenResponse {
   Ttl?: string;
 }
 
-export namespace CreateTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTokenResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBackendRequest {
   /**
    * <p>The app ID.</p>
@@ -1319,15 +1004,6 @@ export interface DeleteBackendRequest {
    * <p>The name of the backend environment.</p>
    */
   BackendEnvironmentName: string | undefined;
-}
-
-export namespace DeleteBackendRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBackendRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBackendResponse {
@@ -1362,15 +1038,6 @@ export interface DeleteBackendResponse {
   Status?: string;
 }
 
-export namespace DeleteBackendResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBackendResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body for DeleteBackendAPI.</p>
  */
@@ -1394,15 +1061,6 @@ export interface DeleteBackendAPIRequest {
    * <p>The name of this resource.</p>
    */
   ResourceName: string | undefined;
-}
-
-export namespace DeleteBackendAPIRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBackendAPIRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBackendAPIResponse {
@@ -1437,15 +1095,6 @@ export interface DeleteBackendAPIResponse {
   Status?: string;
 }
 
-export namespace DeleteBackendAPIResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBackendAPIResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body for DeleteBackendAuth.</p>
  */
@@ -1464,15 +1113,6 @@ export interface DeleteBackendAuthRequest {
    * <p>The name of this resource.</p>
    */
   ResourceName: string | undefined;
-}
-
-export namespace DeleteBackendAuthRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBackendAuthRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBackendAuthResponse {
@@ -1507,15 +1147,6 @@ export interface DeleteBackendAuthResponse {
   Status?: string;
 }
 
-export namespace DeleteBackendAuthResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBackendAuthResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body for DeleteBackendStorage.</p>
  */
@@ -1541,15 +1172,6 @@ export interface DeleteBackendStorageRequest {
   ServiceName: ServiceName | string | undefined;
 }
 
-export namespace DeleteBackendStorageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBackendStorageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBackendStorageResponse {
   /**
    * <p>The app ID.</p>
@@ -1572,15 +1194,6 @@ export interface DeleteBackendStorageResponse {
   Status?: string;
 }
 
-export namespace DeleteBackendStorageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBackendStorageResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTokenRequest {
   /**
    * <p>The app ID.</p>
@@ -1593,29 +1206,11 @@ export interface DeleteTokenRequest {
   SessionId: string | undefined;
 }
 
-export namespace DeleteTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTokenRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTokenResponse {
   /**
    * <p>Indicates whether the request succeeded or failed.</p>
    */
   IsSuccess?: boolean;
-}
-
-export namespace DeleteTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTokenResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1636,15 +1231,6 @@ export interface GenerateBackendAPIModelsRequest {
    * <p>The name of this resource.</p>
    */
   ResourceName: string | undefined;
-}
-
-export namespace GenerateBackendAPIModelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateBackendAPIModelsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GenerateBackendAPIModelsResponse {
@@ -1679,15 +1265,6 @@ export interface GenerateBackendAPIModelsResponse {
   Status?: string;
 }
 
-export namespace GenerateBackendAPIModelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateBackendAPIModelsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body for GetBackend.</p>
  */
@@ -1701,15 +1278,6 @@ export interface GetBackendRequest {
    * <p>The name of the backend environment.</p>
    */
   BackendEnvironmentName?: string;
-}
-
-export namespace GetBackendRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBackendRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBackendResponse {
@@ -1749,15 +1317,6 @@ export interface GetBackendResponse {
   Error?: string;
 }
 
-export namespace GetBackendResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBackendResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body for GetBackendAPI.</p>
  */
@@ -1781,15 +1340,6 @@ export interface GetBackendAPIRequest {
    * <p>The name of this resource.</p>
    */
   ResourceName: string | undefined;
-}
-
-export namespace GetBackendAPIRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBackendAPIRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBackendAPIResponse {
@@ -1819,15 +1369,6 @@ export interface GetBackendAPIResponse {
   ResourceName?: string;
 }
 
-export namespace GetBackendAPIResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBackendAPIResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body for GetBackendAPIModels.</p>
  */
@@ -1848,15 +1389,6 @@ export interface GetBackendAPIModelsRequest {
   ResourceName: string | undefined;
 }
 
-export namespace GetBackendAPIModelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBackendAPIModelsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum Status {
   LATEST = "LATEST",
   STALE = "STALE",
@@ -1872,15 +1404,6 @@ export interface GetBackendAPIModelsResponse {
    * <p>The current status of the request.</p>
    */
   Status?: Status | string;
-}
-
-export namespace GetBackendAPIModelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBackendAPIModelsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1901,15 +1424,6 @@ export interface GetBackendAuthRequest {
    * <p>The name of this resource.</p>
    */
   ResourceName: string | undefined;
-}
-
-export namespace GetBackendAuthRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBackendAuthRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBackendAuthResponse {
@@ -1939,15 +1453,6 @@ export interface GetBackendAuthResponse {
   ResourceName?: string;
 }
 
-export namespace GetBackendAuthResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBackendAuthResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBackendJobRequest {
   /**
    * <p>The app ID.</p>
@@ -1963,15 +1468,6 @@ export interface GetBackendJobRequest {
    * <p>The ID for the job.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace GetBackendJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBackendJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBackendJobResponse {
@@ -2016,15 +1512,6 @@ export interface GetBackendJobResponse {
   UpdateTime?: string;
 }
 
-export namespace GetBackendJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBackendJobResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body for GetBackendStorage.</p>
  */
@@ -2043,15 +1530,6 @@ export interface GetBackendStorageRequest {
    * <p>The name of the storage resource.</p>
    */
   ResourceName: string | undefined;
-}
-
-export namespace GetBackendStorageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBackendStorageRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2079,15 +1557,6 @@ export interface GetBackendStorageResourceConfig {
   ServiceName: ServiceName | string | undefined;
 }
 
-export namespace GetBackendStorageResourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBackendStorageResourceConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBackendStorageResponse {
   /**
    * <p>The app ID.</p>
@@ -2110,15 +1579,6 @@ export interface GetBackendStorageResponse {
   ResourceName?: string;
 }
 
-export namespace GetBackendStorageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBackendStorageResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTokenRequest {
   /**
    * <p>The app ID.</p>
@@ -2129,15 +1589,6 @@ export interface GetTokenRequest {
    * <p>The session ID.</p>
    */
   SessionId: string | undefined;
-}
-
-export namespace GetTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTokenRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTokenResponse {
@@ -2160,15 +1611,6 @@ export interface GetTokenResponse {
    * <p>The expiry time for the one-time generated token code.</p>
    */
   Ttl?: string;
-}
-
-export namespace GetTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTokenResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2206,15 +1648,6 @@ export interface ImportBackendAuthRequest {
   WebClientId: string | undefined;
 }
 
-export namespace ImportBackendAuthRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportBackendAuthRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportBackendAuthResponse {
   /**
    * <p>The app ID.</p>
@@ -2247,15 +1680,6 @@ export interface ImportBackendAuthResponse {
   Status?: string;
 }
 
-export namespace ImportBackendAuthResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportBackendAuthResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body for ImportBackendStorage.</p>
  */
@@ -2281,15 +1705,6 @@ export interface ImportBackendStorageRequest {
   ServiceName: ServiceName | string | undefined;
 }
 
-export namespace ImportBackendStorageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportBackendStorageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportBackendStorageResponse {
   /**
    * <p>The app ID.</p>
@@ -2310,15 +1725,6 @@ export interface ImportBackendStorageResponse {
    * <p>The current status of the request.</p>
    */
   Status?: string;
-}
-
-export namespace ImportBackendStorageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportBackendStorageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2359,15 +1765,6 @@ export interface ListBackendJobsRequest {
    * <p>Filters the list of response objects to include only those with the specified status.</p>
    */
   Status?: string;
-}
-
-export namespace ListBackendJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBackendJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2415,15 +1812,6 @@ export interface BackendJobRespObj {
   UpdateTime?: string;
 }
 
-export namespace BackendJobRespObj {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackendJobRespObj): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBackendJobsResponse {
   /**
    * <p>An array of jobs and their properties.</p>
@@ -2436,15 +1824,6 @@ export interface ListBackendJobsResponse {
   NextToken?: string;
 }
 
-export namespace ListBackendJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBackendJobsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body for S3Buckets.</p>
  */
@@ -2453,15 +1832,6 @@ export interface ListS3BucketsRequest {
    * <p>Reserved for future use.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListS3BucketsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListS3BucketsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2479,15 +1849,6 @@ export interface S3BucketInfo {
   Name?: string;
 }
 
-export namespace S3BucketInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3BucketInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface ListS3BucketsResponse {
   /**
    * <p>The list of S3 buckets.</p>
@@ -2498,15 +1859,6 @@ export interface ListS3BucketsResponse {
    * <p>Reserved for future use.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListS3BucketsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListS3BucketsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2522,15 +1874,6 @@ export interface RemoveAllBackendsRequest {
    * <p>Cleans up the Amplify Console app if this value is set to true.</p>
    */
   CleanAmplifyApp?: boolean;
-}
-
-export namespace RemoveAllBackendsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveAllBackendsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveAllBackendsResponse {
@@ -2560,15 +1903,6 @@ export interface RemoveAllBackendsResponse {
   Status?: string;
 }
 
-export namespace RemoveAllBackendsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveAllBackendsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveBackendConfigRequest {
   /**
    * <p>The app ID.</p>
@@ -2576,29 +1910,11 @@ export interface RemoveBackendConfigRequest {
   AppId: string | undefined;
 }
 
-export namespace RemoveBackendConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveBackendConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveBackendConfigResponse {
   /**
    * <p>If the request fails, this error is returned.</p>
    */
   Error?: string;
-}
-
-export namespace RemoveBackendConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveBackendConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2624,15 +1940,6 @@ export interface UpdateBackendAPIRequest {
    * <p>The name of this resource.</p>
    */
   ResourceName: string | undefined;
-}
-
-export namespace UpdateBackendAPIRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendAPIRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateBackendAPIResponse {
@@ -2667,15 +1974,6 @@ export interface UpdateBackendAPIResponse {
   Status?: string;
 }
 
-export namespace UpdateBackendAPIResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendAPIResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the authorization configuration for the Amazon Cognito identity pool, provisioned as a part of your auth resource in the Amplify project.</p>
  */
@@ -2684,15 +1982,6 @@ export interface UpdateBackendAuthIdentityPoolConfig {
    * <p>A boolean value that can be set to allow or disallow guest-level authorization into your Amplify app.</p>
    */
   UnauthenticatedLogin?: boolean;
-}
-
-export namespace UpdateBackendAuthIdentityPoolConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendAuthIdentityPoolConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2715,15 +2004,6 @@ export interface UpdateBackendAuthForgotPasswordConfig {
   SmsSettings?: SmsSettings;
 }
 
-export namespace UpdateBackendAuthForgotPasswordConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendAuthForgotPasswordConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updates the multi-factor authentication (MFA) configuration for the backend of your Amplify project.</p>
  */
@@ -2737,15 +2017,6 @@ export interface UpdateBackendAuthMFAConfig {
    * <p>The settings of your MFA configuration for the backend of your Amplify project.</p>
    */
   Settings?: Settings;
-}
-
-export namespace UpdateBackendAuthMFAConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendAuthMFAConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2783,15 +2054,6 @@ export interface UpdateBackendAuthOAuthConfig {
   SocialProviderSettings?: SocialProviderSettings;
 }
 
-export namespace UpdateBackendAuthOAuthConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendAuthOAuthConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the password policy for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
  */
@@ -2805,15 +2067,6 @@ export interface UpdateBackendAuthPasswordPolicyConfig {
    * <p>Describes the minimum length of the password required to sign in to the auth resource, configured as a part of your Amplify project.</p>
    */
   MinimumLength?: number;
-}
-
-export namespace UpdateBackendAuthPasswordPolicyConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendAuthPasswordPolicyConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2834,15 +2087,6 @@ export interface UpdateBackendAuthVerificationMessageConfig {
    * <p>The settings for the SMS message.</p>
    */
   SmsSettings?: SmsSettings;
-}
-
-export namespace UpdateBackendAuthVerificationMessageConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendAuthVerificationMessageConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2875,15 +2119,6 @@ export interface UpdateBackendAuthUserPoolConfig {
   VerificationMessage?: UpdateBackendAuthVerificationMessageConfig;
 }
 
-export namespace UpdateBackendAuthUserPoolConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendAuthUserPoolConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines the resource configuration when updating an authentication resource in your Amplify project.</p>
  */
@@ -2909,15 +2144,6 @@ export interface UpdateBackendAuthResourceConfig {
   UserPoolConfigs: UpdateBackendAuthUserPoolConfig | undefined;
 }
 
-export namespace UpdateBackendAuthResourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendAuthResourceConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body for UpdateBackendAuth.</p>
  */
@@ -2941,15 +2167,6 @@ export interface UpdateBackendAuthRequest {
    * <p>The name of this resource.</p>
    */
   ResourceName: string | undefined;
-}
-
-export namespace UpdateBackendAuthRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendAuthRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateBackendAuthResponse {
@@ -2984,15 +2201,6 @@ export interface UpdateBackendAuthResponse {
   Status?: string;
 }
 
-export namespace UpdateBackendAuthResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendAuthResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request object for this operation.</p>
  */
@@ -3018,15 +2226,6 @@ export interface LoginAuthConfigReqObj {
   AwsUserPoolsWebClientId?: string;
 }
 
-export namespace LoginAuthConfigReqObj {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoginAuthConfigReqObj): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body for UpdateBackendConfig.</p>
  */
@@ -3040,15 +2239,6 @@ export interface UpdateBackendConfigRequest {
    * <p>Describes the Amazon Cognito configuration for Admin UI access.</p>
    */
   LoginAuthConfig?: LoginAuthConfigReqObj;
-}
-
-export namespace UpdateBackendConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateBackendConfigResponse {
@@ -3071,15 +2261,6 @@ export interface UpdateBackendConfigResponse {
    * <p>Describes the Amazon Cognito configurations for the Admin UI auth resource to log in with.</p>
    */
   LoginAuthConfig?: LoginAuthConfigReqObj;
-}
-
-export namespace UpdateBackendConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3110,15 +2291,6 @@ export interface UpdateBackendJobRequest {
    * <p>Filters the list of response objects to include only those with the specified status.</p>
    */
   Status?: string;
-}
-
-export namespace UpdateBackendJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateBackendJobResponse {
@@ -3163,15 +2335,6 @@ export interface UpdateBackendJobResponse {
   UpdateTime?: string;
 }
 
-export namespace UpdateBackendJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendJobResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource configuration for updating backend storage.</p>
  */
@@ -3185,15 +2348,6 @@ export interface UpdateBackendStorageResourceConfig {
    * <p>The name of the storage service.</p>
    */
   ServiceName: ServiceName | string | undefined;
-}
-
-export namespace UpdateBackendStorageResourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendStorageResourceConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3221,15 +2375,6 @@ export interface UpdateBackendStorageRequest {
   ResourceName: string | undefined;
 }
 
-export namespace UpdateBackendStorageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendStorageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateBackendStorageResponse {
   /**
    * <p>The app ID.</p>
@@ -3252,11 +2397,690 @@ export interface UpdateBackendStorageResponse {
   Status?: string;
 }
 
-export namespace UpdateBackendStorageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBackendStorageResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CloneBackendRequestFilterSensitiveLog = (obj: CloneBackendRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloneBackendResponseFilterSensitiveLog = (obj: CloneBackendResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceConfigFilterSensitiveLog = (obj: ResourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendRequestFilterSensitiveLog = (obj: CreateBackendRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendResponseFilterSensitiveLog = (obj: CreateBackendResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackendAPIAppSyncAuthSettingsFilterSensitiveLog = (obj: BackendAPIAppSyncAuthSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackendAPIAuthTypeFilterSensitiveLog = (obj: BackendAPIAuthType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackendAPIConflictResolutionFilterSensitiveLog = (obj: BackendAPIConflictResolution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackendAPIResourceConfigFilterSensitiveLog = (obj: BackendAPIResourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendAPIRequestFilterSensitiveLog = (obj: CreateBackendAPIRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendAPIResponseFilterSensitiveLog = (obj: CreateBackendAPIResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendAuthIdentityPoolConfigFilterSensitiveLog = (
+  obj: CreateBackendAuthIdentityPoolConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EmailSettingsFilterSensitiveLog = (obj: EmailSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SmsSettingsFilterSensitiveLog = (obj: SmsSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendAuthForgotPasswordConfigFilterSensitiveLog = (
+  obj: CreateBackendAuthForgotPasswordConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SettingsFilterSensitiveLog = (obj: Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendAuthMFAConfigFilterSensitiveLog = (obj: CreateBackendAuthMFAConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackendAuthSocialProviderConfigFilterSensitiveLog = (obj: BackendAuthSocialProviderConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackendAuthAppleProviderConfigFilterSensitiveLog = (obj: BackendAuthAppleProviderConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SocialProviderSettingsFilterSensitiveLog = (obj: SocialProviderSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendAuthOAuthConfigFilterSensitiveLog = (obj: CreateBackendAuthOAuthConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendAuthPasswordPolicyConfigFilterSensitiveLog = (
+  obj: CreateBackendAuthPasswordPolicyConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendAuthVerificationMessageConfigFilterSensitiveLog = (
+  obj: CreateBackendAuthVerificationMessageConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendAuthUserPoolConfigFilterSensitiveLog = (obj: CreateBackendAuthUserPoolConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendAuthResourceConfigFilterSensitiveLog = (obj: CreateBackendAuthResourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendAuthRequestFilterSensitiveLog = (obj: CreateBackendAuthRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendAuthResponseFilterSensitiveLog = (obj: CreateBackendAuthResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendConfigRequestFilterSensitiveLog = (obj: CreateBackendConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendConfigResponseFilterSensitiveLog = (obj: CreateBackendConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackendStoragePermissionsFilterSensitiveLog = (obj: BackendStoragePermissions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendStorageResourceConfigFilterSensitiveLog = (obj: CreateBackendStorageResourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendStorageRequestFilterSensitiveLog = (obj: CreateBackendStorageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendStorageResponseFilterSensitiveLog = (obj: CreateBackendStorageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTokenRequestFilterSensitiveLog = (obj: CreateTokenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTokenResponseFilterSensitiveLog = (obj: CreateTokenResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBackendRequestFilterSensitiveLog = (obj: DeleteBackendRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBackendResponseFilterSensitiveLog = (obj: DeleteBackendResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBackendAPIRequestFilterSensitiveLog = (obj: DeleteBackendAPIRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBackendAPIResponseFilterSensitiveLog = (obj: DeleteBackendAPIResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBackendAuthRequestFilterSensitiveLog = (obj: DeleteBackendAuthRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBackendAuthResponseFilterSensitiveLog = (obj: DeleteBackendAuthResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBackendStorageRequestFilterSensitiveLog = (obj: DeleteBackendStorageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBackendStorageResponseFilterSensitiveLog = (obj: DeleteBackendStorageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTokenRequestFilterSensitiveLog = (obj: DeleteTokenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTokenResponseFilterSensitiveLog = (obj: DeleteTokenResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateBackendAPIModelsRequestFilterSensitiveLog = (obj: GenerateBackendAPIModelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateBackendAPIModelsResponseFilterSensitiveLog = (obj: GenerateBackendAPIModelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBackendRequestFilterSensitiveLog = (obj: GetBackendRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBackendResponseFilterSensitiveLog = (obj: GetBackendResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBackendAPIRequestFilterSensitiveLog = (obj: GetBackendAPIRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBackendAPIResponseFilterSensitiveLog = (obj: GetBackendAPIResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBackendAPIModelsRequestFilterSensitiveLog = (obj: GetBackendAPIModelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBackendAPIModelsResponseFilterSensitiveLog = (obj: GetBackendAPIModelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBackendAuthRequestFilterSensitiveLog = (obj: GetBackendAuthRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBackendAuthResponseFilterSensitiveLog = (obj: GetBackendAuthResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBackendJobRequestFilterSensitiveLog = (obj: GetBackendJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBackendJobResponseFilterSensitiveLog = (obj: GetBackendJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBackendStorageRequestFilterSensitiveLog = (obj: GetBackendStorageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBackendStorageResourceConfigFilterSensitiveLog = (obj: GetBackendStorageResourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBackendStorageResponseFilterSensitiveLog = (obj: GetBackendStorageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTokenRequestFilterSensitiveLog = (obj: GetTokenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTokenResponseFilterSensitiveLog = (obj: GetTokenResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportBackendAuthRequestFilterSensitiveLog = (obj: ImportBackendAuthRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportBackendAuthResponseFilterSensitiveLog = (obj: ImportBackendAuthResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportBackendStorageRequestFilterSensitiveLog = (obj: ImportBackendStorageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportBackendStorageResponseFilterSensitiveLog = (obj: ImportBackendStorageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBackendJobsRequestFilterSensitiveLog = (obj: ListBackendJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackendJobRespObjFilterSensitiveLog = (obj: BackendJobRespObj): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBackendJobsResponseFilterSensitiveLog = (obj: ListBackendJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListS3BucketsRequestFilterSensitiveLog = (obj: ListS3BucketsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3BucketInfoFilterSensitiveLog = (obj: S3BucketInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListS3BucketsResponseFilterSensitiveLog = (obj: ListS3BucketsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveAllBackendsRequestFilterSensitiveLog = (obj: RemoveAllBackendsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveAllBackendsResponseFilterSensitiveLog = (obj: RemoveAllBackendsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveBackendConfigRequestFilterSensitiveLog = (obj: RemoveBackendConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveBackendConfigResponseFilterSensitiveLog = (obj: RemoveBackendConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendAPIRequestFilterSensitiveLog = (obj: UpdateBackendAPIRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendAPIResponseFilterSensitiveLog = (obj: UpdateBackendAPIResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendAuthIdentityPoolConfigFilterSensitiveLog = (
+  obj: UpdateBackendAuthIdentityPoolConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendAuthForgotPasswordConfigFilterSensitiveLog = (
+  obj: UpdateBackendAuthForgotPasswordConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendAuthMFAConfigFilterSensitiveLog = (obj: UpdateBackendAuthMFAConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendAuthOAuthConfigFilterSensitiveLog = (obj: UpdateBackendAuthOAuthConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendAuthPasswordPolicyConfigFilterSensitiveLog = (
+  obj: UpdateBackendAuthPasswordPolicyConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendAuthVerificationMessageConfigFilterSensitiveLog = (
+  obj: UpdateBackendAuthVerificationMessageConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendAuthUserPoolConfigFilterSensitiveLog = (obj: UpdateBackendAuthUserPoolConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendAuthResourceConfigFilterSensitiveLog = (obj: UpdateBackendAuthResourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendAuthRequestFilterSensitiveLog = (obj: UpdateBackendAuthRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendAuthResponseFilterSensitiveLog = (obj: UpdateBackendAuthResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoginAuthConfigReqObjFilterSensitiveLog = (obj: LoginAuthConfigReqObj): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendConfigRequestFilterSensitiveLog = (obj: UpdateBackendConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendConfigResponseFilterSensitiveLog = (obj: UpdateBackendConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendJobRequestFilterSensitiveLog = (obj: UpdateBackendJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendJobResponseFilterSensitiveLog = (obj: UpdateBackendJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendStorageResourceConfigFilterSensitiveLog = (obj: UpdateBackendStorageResourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendStorageRequestFilterSensitiveLog = (obj: UpdateBackendStorageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBackendStorageResponseFilterSensitiveLog = (obj: UpdateBackendStorageResponse): any => ({
+  ...obj,
+});

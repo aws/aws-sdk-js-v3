@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { DescribeDatasetRequest, DescribeDatasetResponse } from "../models/models_0";
+import {
+  DescribeDatasetRequest,
+  DescribeDatasetRequestFilterSensitiveLog,
+  DescribeDatasetResponse,
+  DescribeDatasetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeDatasetCommand,
   serializeAws_restJson1DescribeDatasetCommand,
@@ -72,8 +77,8 @@ export class DescribeDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDatasetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDatasetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDatasetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDatasetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

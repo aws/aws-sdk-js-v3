@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DetachDiskRequest, DetachDiskResult } from "../models/models_0";
+import {
+  DetachDiskRequest,
+  DetachDiskRequestFilterSensitiveLog,
+  DetachDiskResult,
+  DetachDiskResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DetachDiskCommand,
   serializeAws_json1_1DetachDiskCommand,
@@ -77,8 +82,8 @@ export class DetachDiskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachDiskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DetachDiskResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachDiskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DetachDiskResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

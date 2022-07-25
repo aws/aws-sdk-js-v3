@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { StartFailbackLaunchRequest, StartFailbackLaunchResponse } from "../models/models_0";
+import {
+  StartFailbackLaunchRequest,
+  StartFailbackLaunchRequestFilterSensitiveLog,
+  StartFailbackLaunchResponse,
+  StartFailbackLaunchResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartFailbackLaunchCommand,
   serializeAws_restJson1StartFailbackLaunchCommand,
@@ -72,8 +77,8 @@ export class StartFailbackLaunchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartFailbackLaunchRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartFailbackLaunchResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartFailbackLaunchRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartFailbackLaunchResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

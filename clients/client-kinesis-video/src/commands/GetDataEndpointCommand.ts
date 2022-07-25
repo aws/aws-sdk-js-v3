@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import { GetDataEndpointInput, GetDataEndpointOutput } from "../models/models_0";
+import {
+  GetDataEndpointInput,
+  GetDataEndpointInputFilterSensitiveLog,
+  GetDataEndpointOutput,
+  GetDataEndpointOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetDataEndpointCommand,
   serializeAws_restJson1GetDataEndpointCommand,
@@ -83,8 +88,8 @@ export class GetDataEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataEndpointInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDataEndpointOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDataEndpointInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDataEndpointOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

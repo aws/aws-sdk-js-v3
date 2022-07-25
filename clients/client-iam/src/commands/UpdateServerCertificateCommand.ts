@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateServerCertificateRequest } from "../models/models_1";
+import { UpdateServerCertificateRequest, UpdateServerCertificateRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_queryUpdateServerCertificateCommand,
   serializeAws_queryUpdateServerCertificateCommand,
@@ -91,7 +91,7 @@ export class UpdateServerCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServerCertificateRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateServerCertificateRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

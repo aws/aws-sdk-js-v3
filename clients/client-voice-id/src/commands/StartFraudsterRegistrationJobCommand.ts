@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartFraudsterRegistrationJobRequest, StartFraudsterRegistrationJobResponse } from "../models/models_0";
+import {
+  StartFraudsterRegistrationJobRequest,
+  StartFraudsterRegistrationJobRequestFilterSensitiveLog,
+  StartFraudsterRegistrationJobResponse,
+  StartFraudsterRegistrationJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0StartFraudsterRegistrationJobCommand,
   serializeAws_json1_0StartFraudsterRegistrationJobCommand,
@@ -74,8 +79,8 @@ export class StartFraudsterRegistrationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartFraudsterRegistrationJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartFraudsterRegistrationJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartFraudsterRegistrationJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartFraudsterRegistrationJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

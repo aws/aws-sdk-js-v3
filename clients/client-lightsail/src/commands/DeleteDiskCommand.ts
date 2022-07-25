@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DeleteDiskRequest, DeleteDiskResult } from "../models/models_0";
+import {
+  DeleteDiskRequest,
+  DeleteDiskRequestFilterSensitiveLog,
+  DeleteDiskResult,
+  DeleteDiskResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDiskCommand,
   serializeAws_json1_1DeleteDiskCommand,
@@ -79,8 +84,8 @@ export class DeleteDiskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDiskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDiskResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDiskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDiskResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

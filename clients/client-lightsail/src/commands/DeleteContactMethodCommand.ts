@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DeleteContactMethodRequest, DeleteContactMethodResult } from "../models/models_0";
+import {
+  DeleteContactMethodRequest,
+  DeleteContactMethodRequestFilterSensitiveLog,
+  DeleteContactMethodResult,
+  DeleteContactMethodResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteContactMethodCommand,
   serializeAws_json1_1DeleteContactMethodCommand,
@@ -76,8 +81,8 @@ export class DeleteContactMethodCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContactMethodRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteContactMethodResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteContactMethodRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteContactMethodResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

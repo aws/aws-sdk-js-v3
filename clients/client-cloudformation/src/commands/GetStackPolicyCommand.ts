@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { GetStackPolicyInput, GetStackPolicyOutput } from "../models/models_0";
+import {
+  GetStackPolicyInput,
+  GetStackPolicyInputFilterSensitiveLog,
+  GetStackPolicyOutput,
+  GetStackPolicyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetStackPolicyCommand,
   serializeAws_queryGetStackPolicyCommand,
@@ -73,8 +78,8 @@ export class GetStackPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStackPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetStackPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetStackPolicyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetStackPolicyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

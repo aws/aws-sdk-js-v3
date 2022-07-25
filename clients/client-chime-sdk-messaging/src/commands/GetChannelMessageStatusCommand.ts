@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import { GetChannelMessageStatusRequest, GetChannelMessageStatusResponse } from "../models/models_0";
+import {
+  GetChannelMessageStatusRequest,
+  GetChannelMessageStatusRequestFilterSensitiveLog,
+  GetChannelMessageStatusResponse,
+  GetChannelMessageStatusResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetChannelMessageStatusCommand,
   serializeAws_restJson1GetChannelMessageStatusCommand,
@@ -112,8 +117,8 @@ export class GetChannelMessageStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChannelMessageStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetChannelMessageStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetChannelMessageStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetChannelMessageStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

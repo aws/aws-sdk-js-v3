@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateAssociationRequest, UpdateAssociationResult } from "../models/models_1";
+import {
+  UpdateAssociationRequest,
+  UpdateAssociationRequestFilterSensitiveLog,
+  UpdateAssociationResult,
+  UpdateAssociationResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateAssociationCommand,
   serializeAws_json1_1UpdateAssociationCommand,
@@ -92,8 +97,8 @@ export class UpdateAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAssociationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAssociationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAssociationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAssociationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { GetArchiveRuleRequest, GetArchiveRuleResponse } from "../models/models_0";
+import {
+  GetArchiveRuleRequest,
+  GetArchiveRuleRequestFilterSensitiveLog,
+  GetArchiveRuleResponse,
+  GetArchiveRuleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetArchiveRuleCommand,
   serializeAws_restJson1GetArchiveRuleCommand,
@@ -73,8 +78,8 @@ export class GetArchiveRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetArchiveRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetArchiveRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetArchiveRuleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetArchiveRuleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

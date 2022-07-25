@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteTransitGatewayMulticastDomainRequest,
+  DeleteTransitGatewayMulticastDomainRequestFilterSensitiveLog,
   DeleteTransitGatewayMulticastDomainResult,
+  DeleteTransitGatewayMulticastDomainResultFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommand,
@@ -77,8 +79,8 @@ export class DeleteTransitGatewayMulticastDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTransitGatewayMulticastDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTransitGatewayMulticastDomainResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTransitGatewayMulticastDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTransitGatewayMulticastDomainResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { ComposeEnvironmentsMessage, EnvironmentDescriptionsMessage } from "../models/models_0";
+import {
+  ComposeEnvironmentsMessage,
+  ComposeEnvironmentsMessageFilterSensitiveLog,
+  EnvironmentDescriptionsMessage,
+  EnvironmentDescriptionsMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryComposeEnvironmentsCommand,
   serializeAws_queryComposeEnvironmentsCommand,
@@ -77,8 +82,8 @@ export class ComposeEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ComposeEnvironmentsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: EnvironmentDescriptionsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: ComposeEnvironmentsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: EnvironmentDescriptionsMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

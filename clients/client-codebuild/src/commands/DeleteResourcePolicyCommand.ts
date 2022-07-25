@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { DeleteResourcePolicyInput, DeleteResourcePolicyOutput } from "../models/models_0";
+import {
+  DeleteResourcePolicyInput,
+  DeleteResourcePolicyInputFilterSensitiveLog,
+  DeleteResourcePolicyOutput,
+  DeleteResourcePolicyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteResourcePolicyCommand,
   serializeAws_json1_1DeleteResourcePolicyCommand,
@@ -72,8 +77,8 @@ export class DeleteResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourcePolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResourcePolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteResourcePolicyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteResourcePolicyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

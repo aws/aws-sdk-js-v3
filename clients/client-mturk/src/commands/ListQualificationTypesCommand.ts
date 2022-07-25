@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListQualificationTypesRequest, ListQualificationTypesResponse } from "../models/models_0";
+import {
+  ListQualificationTypesRequest,
+  ListQualificationTypesRequestFilterSensitiveLog,
+  ListQualificationTypesResponse,
+  ListQualificationTypesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1ListQualificationTypesCommand,
@@ -77,8 +82,8 @@ export class ListQualificationTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQualificationTypesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListQualificationTypesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListQualificationTypesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListQualificationTypesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/models_0";
+import {
+  RebootDBInstanceMessage,
+  RebootDBInstanceMessageFilterSensitiveLog,
+  RebootDBInstanceResult,
+  RebootDBInstanceResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryRebootDBInstanceCommand,
   serializeAws_queryRebootDBInstanceCommand,
@@ -78,8 +83,8 @@ export class RebootDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootDBInstanceMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: RebootDBInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RebootDBInstanceMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: RebootDBInstanceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

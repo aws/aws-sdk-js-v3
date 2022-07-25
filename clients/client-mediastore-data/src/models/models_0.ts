@@ -33,25 +33,7 @@ export interface DeleteObjectRequest {
   Path: string | undefined;
 }
 
-export namespace DeleteObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteObjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteObjectResponse {}
-
-export namespace DeleteObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteObjectResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The service is temporarily unavailable.</p>
@@ -103,15 +85,6 @@ export interface DescribeObjectRequest {
   Path: string | undefined;
 }
 
-export namespace DescribeObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeObjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeObjectResponse {
   /**
    * <p>The ETag that represents a unique instance of the object.</p>
@@ -139,15 +112,6 @@ export interface DescribeObjectResponse {
    * <p>The date and time that the object was last modified.</p>
    */
   LastModified?: Date;
-}
-
-export namespace DescribeObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeObjectResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetObjectRequest {
@@ -178,15 +142,6 @@ export interface GetObjectRequest {
    *           <code>Range</code> header, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>. AWS Elemental MediaStore ignores this header for partially uploaded objects that have streaming upload availability.</p>
    */
   Range?: string;
-}
-
-export namespace GetObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetObjectResponse {
@@ -232,15 +187,6 @@ export interface GetObjectResponse {
    *          success. All other status codes indicate the type of error that occurred.</p>
    */
   StatusCode: number | undefined;
-}
-
-export namespace GetObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -304,15 +250,6 @@ export interface Item {
   ContentLength?: number;
 }
 
-export namespace Item {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Item): any => ({
-    ...obj,
-  });
-}
-
 export interface ListItemsRequest {
   /**
    * <p>The path in the container from which to retrieve items. Format: <folder
@@ -343,15 +280,6 @@ export interface ListItemsRequest {
   NextToken?: string;
 }
 
-export namespace ListItemsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListItemsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListItemsResponse {
   /**
    * <p>The metadata entries for the folders and objects at the requested path.</p>
@@ -366,15 +294,6 @@ export interface ListItemsResponse {
    *          results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListItemsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListItemsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum StorageClass {
@@ -442,15 +361,6 @@ export interface PutObjectRequest {
   UploadAvailability?: UploadAvailability | string;
 }
 
-export namespace PutObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutObjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutObjectResponse {
   /**
    * <p>The SHA256 digest of the object that is persisted.</p>
@@ -469,11 +379,79 @@ export interface PutObjectResponse {
   StorageClass?: StorageClass | string;
 }
 
-export namespace PutObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutObjectResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DeleteObjectRequestFilterSensitiveLog = (obj: DeleteObjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteObjectResponseFilterSensitiveLog = (obj: DeleteObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeObjectRequestFilterSensitiveLog = (obj: DescribeObjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeObjectResponseFilterSensitiveLog = (obj: DescribeObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectRequestFilterSensitiveLog = (obj: GetObjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectResponseFilterSensitiveLog = (obj: GetObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ItemFilterSensitiveLog = (obj: Item): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListItemsRequestFilterSensitiveLog = (obj: ListItemsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListItemsResponseFilterSensitiveLog = (obj: ListItemsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutObjectRequestFilterSensitiveLog = (obj: PutObjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutObjectResponseFilterSensitiveLog = (obj: PutObjectResponse): any => ({
+  ...obj,
+});

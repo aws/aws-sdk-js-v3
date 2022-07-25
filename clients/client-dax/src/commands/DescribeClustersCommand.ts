@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import { DescribeClustersRequest, DescribeClustersResponse } from "../models/models_0";
+import {
+  DescribeClustersRequest,
+  DescribeClustersRequestFilterSensitiveLog,
+  DescribeClustersResponse,
+  DescribeClustersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeClustersCommand,
   serializeAws_json1_1DescribeClustersCommand,
@@ -84,8 +89,8 @@ export class DescribeClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClustersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClustersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeClustersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeClustersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

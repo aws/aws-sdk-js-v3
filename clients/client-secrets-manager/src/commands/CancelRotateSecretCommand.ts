@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CancelRotateSecretRequest, CancelRotateSecretResponse } from "../models/models_0";
+import {
+  CancelRotateSecretRequest,
+  CancelRotateSecretRequestFilterSensitiveLog,
+  CancelRotateSecretResponse,
+  CancelRotateSecretResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CancelRotateSecretCommand,
   serializeAws_json1_1CancelRotateSecretCommand,
@@ -89,8 +94,8 @@ export class CancelRotateSecretCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelRotateSecretRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelRotateSecretResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelRotateSecretRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelRotateSecretResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

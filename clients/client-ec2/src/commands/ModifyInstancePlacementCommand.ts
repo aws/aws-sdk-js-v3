@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyInstancePlacementRequest, ModifyInstancePlacementResult } from "../models/models_5";
+import {
+  ModifyInstancePlacementRequest,
+  ModifyInstancePlacementRequestFilterSensitiveLog,
+  ModifyInstancePlacementResult,
+  ModifyInstancePlacementResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2ModifyInstancePlacementCommand,
   serializeAws_ec2ModifyInstancePlacementCommand,
@@ -97,8 +102,8 @@ export class ModifyInstancePlacementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyInstancePlacementRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyInstancePlacementResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyInstancePlacementRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyInstancePlacementResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetStreamingImageRequest, GetStreamingImageResponse } from "../models/models_0";
+import {
+  GetStreamingImageRequest,
+  GetStreamingImageRequestFilterSensitiveLog,
+  GetStreamingImageResponse,
+  GetStreamingImageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1GetStreamingImageCommand,
@@ -72,8 +77,8 @@ export class GetStreamingImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStreamingImageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetStreamingImageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetStreamingImageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetStreamingImageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

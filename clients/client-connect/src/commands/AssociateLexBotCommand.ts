@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { AssociateLexBotRequest } from "../models/models_0";
+import { AssociateLexBotRequest, AssociateLexBotRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateLexBotCommand,
   serializeAws_restJson1AssociateLexBotCommand,
@@ -73,7 +73,7 @@ export class AssociateLexBotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateLexBotRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateLexBotRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

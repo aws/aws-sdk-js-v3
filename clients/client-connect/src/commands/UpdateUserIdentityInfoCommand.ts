@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateUserIdentityInfoRequest } from "../models/models_1";
+import { UpdateUserIdentityInfoRequest, UpdateUserIdentityInfoRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateUserIdentityInfoCommand,
   serializeAws_restJson1UpdateUserIdentityInfoCommand,
@@ -80,7 +80,7 @@ export class UpdateUserIdentityInfoCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserIdentityInfoRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateUserIdentityInfoRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

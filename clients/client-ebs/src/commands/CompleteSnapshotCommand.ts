@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
-import { CompleteSnapshotRequest, CompleteSnapshotResponse } from "../models/models_0";
+import {
+  CompleteSnapshotRequest,
+  CompleteSnapshotRequestFilterSensitiveLog,
+  CompleteSnapshotResponse,
+  CompleteSnapshotResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CompleteSnapshotCommand,
   serializeAws_restJson1CompleteSnapshotCommand,
@@ -74,8 +79,8 @@ export class CompleteSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CompleteSnapshotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CompleteSnapshotResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CompleteSnapshotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CompleteSnapshotResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

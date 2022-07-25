@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { UpdateEnvironmentRequest, UpdateEnvironmentResponse } from "../models/models_0";
+import {
+  UpdateEnvironmentRequest,
+  UpdateEnvironmentRequestFilterSensitiveLog,
+  UpdateEnvironmentResponse,
+  UpdateEnvironmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateEnvironmentCommand,
   serializeAws_restJson1UpdateEnvironmentCommand,
@@ -72,8 +77,8 @@ export class UpdateEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEnvironmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEnvironmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateEnvironmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateEnvironmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

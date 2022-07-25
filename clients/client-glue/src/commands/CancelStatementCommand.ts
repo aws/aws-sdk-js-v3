@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CancelStatementRequest, CancelStatementResponse } from "../models/models_0";
+import {
+  CancelStatementRequest,
+  CancelStatementRequestFilterSensitiveLog,
+  CancelStatementResponse,
+  CancelStatementResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CancelStatementCommand,
   serializeAws_json1_1CancelStatementCommand,
@@ -72,8 +77,8 @@ export class CancelStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelStatementRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelStatementResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelStatementRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelStatementResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

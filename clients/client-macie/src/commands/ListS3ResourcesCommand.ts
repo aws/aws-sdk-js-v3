@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import { ListS3ResourcesRequest, ListS3ResourcesResult } from "../models/models_0";
+import {
+  ListS3ResourcesRequest,
+  ListS3ResourcesRequestFilterSensitiveLog,
+  ListS3ResourcesResult,
+  ListS3ResourcesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListS3ResourcesCommand,
   serializeAws_json1_1ListS3ResourcesCommand,
@@ -76,8 +81,8 @@ export class ListS3ResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListS3ResourcesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListS3ResourcesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListS3ResourcesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListS3ResourcesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

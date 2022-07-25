@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { CreateEntitlementRequest, CreateEntitlementResult } from "../models/models_0";
+import {
+  CreateEntitlementRequest,
+  CreateEntitlementRequestFilterSensitiveLog,
+  CreateEntitlementResult,
+  CreateEntitlementResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateEntitlementCommand,
   serializeAws_json1_1CreateEntitlementCommand,
@@ -77,8 +82,8 @@ export class CreateEntitlementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEntitlementRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateEntitlementResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateEntitlementRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateEntitlementResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

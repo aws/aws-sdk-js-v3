@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SignOutUserRequest, SignOutUserResponse } from "../models/models_0";
+import {
+  SignOutUserRequest,
+  SignOutUserRequestFilterSensitiveLog,
+  SignOutUserResponse,
+  SignOutUserResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1SignOutUserCommand,
   serializeAws_restJson1SignOutUserCommand,
@@ -75,8 +80,8 @@ export class SignOutUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SignOutUserRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SignOutUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SignOutUserRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SignOutUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

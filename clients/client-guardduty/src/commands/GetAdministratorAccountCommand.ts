@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetAdministratorAccountRequest, GetAdministratorAccountResponse } from "../models/models_0";
+import {
+  GetAdministratorAccountRequest,
+  GetAdministratorAccountRequestFilterSensitiveLog,
+  GetAdministratorAccountResponse,
+  GetAdministratorAccountResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetAdministratorAccountCommand,
   serializeAws_restJson1GetAdministratorAccountCommand,
@@ -73,8 +78,8 @@ export class GetAdministratorAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAdministratorAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAdministratorAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAdministratorAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAdministratorAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

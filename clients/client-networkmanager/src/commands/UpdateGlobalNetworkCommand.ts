@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateGlobalNetworkRequest, UpdateGlobalNetworkResponse } from "../models/models_0";
+import {
+  UpdateGlobalNetworkRequest,
+  UpdateGlobalNetworkRequestFilterSensitiveLog,
+  UpdateGlobalNetworkResponse,
+  UpdateGlobalNetworkResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1UpdateGlobalNetworkCommand,
@@ -73,8 +78,8 @@ export class UpdateGlobalNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGlobalNetworkRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGlobalNetworkResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGlobalNetworkRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGlobalNetworkResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteBucketIntelligentTieringConfigurationRequest } from "../models/models_0";
+import {
+  DeleteBucketIntelligentTieringConfigurationRequest,
+  DeleteBucketIntelligentTieringConfigurationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteBucketIntelligentTieringConfigurationCommand,
   serializeAws_restXmlDeleteBucketIntelligentTieringConfigurationCommand,
@@ -100,7 +103,7 @@ export class DeleteBucketIntelligentTieringConfigurationCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketIntelligentTieringConfigurationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBucketIntelligentTieringConfigurationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

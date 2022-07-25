@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { DescribeListenerRequest, DescribeListenerResponse } from "../models/models_0";
+import {
+  DescribeListenerRequest,
+  DescribeListenerRequestFilterSensitiveLog,
+  DescribeListenerResponse,
+  DescribeListenerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeListenerCommand,
   serializeAws_json1_1DescribeListenerCommand,
@@ -76,8 +81,8 @@ export class DescribeListenerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeListenerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeListenerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeListenerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeListenerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateTaskTemplateRequest, UpdateTaskTemplateResponse } from "../models/models_1";
+import {
+  UpdateTaskTemplateRequest,
+  UpdateTaskTemplateRequestFilterSensitiveLog,
+  UpdateTaskTemplateResponse,
+  UpdateTaskTemplateResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateTaskTemplateCommand,
   serializeAws_restJson1UpdateTaskTemplateCommand,
@@ -74,8 +79,8 @@ export class UpdateTaskTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTaskTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTaskTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTaskTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTaskTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

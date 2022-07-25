@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { AddSourceIdentifierToSubscriptionMessage, AddSourceIdentifierToSubscriptionResult } from "../models/models_0";
+import {
+  AddSourceIdentifierToSubscriptionMessage,
+  AddSourceIdentifierToSubscriptionMessageFilterSensitiveLog,
+  AddSourceIdentifierToSubscriptionResult,
+  AddSourceIdentifierToSubscriptionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryAddSourceIdentifierToSubscriptionCommand,
   serializeAws_queryAddSourceIdentifierToSubscriptionCommand,
@@ -75,8 +80,8 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddSourceIdentifierToSubscriptionMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: AddSourceIdentifierToSubscriptionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AddSourceIdentifierToSubscriptionMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: AddSourceIdentifierToSubscriptionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

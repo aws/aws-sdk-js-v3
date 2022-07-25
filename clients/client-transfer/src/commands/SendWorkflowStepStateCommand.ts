@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SendWorkflowStepStateRequest, SendWorkflowStepStateResponse } from "../models/models_0";
+import {
+  SendWorkflowStepStateRequest,
+  SendWorkflowStepStateRequestFilterSensitiveLog,
+  SendWorkflowStepStateResponse,
+  SendWorkflowStepStateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1SendWorkflowStepStateCommand,
   serializeAws_json1_1SendWorkflowStepStateCommand,
@@ -76,8 +81,8 @@ export class SendWorkflowStepStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendWorkflowStepStateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendWorkflowStepStateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SendWorkflowStepStateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SendWorkflowStepStateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

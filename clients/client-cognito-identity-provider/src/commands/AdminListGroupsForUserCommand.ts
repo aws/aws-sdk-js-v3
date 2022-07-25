@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminListGroupsForUserRequest, AdminListGroupsForUserResponse } from "../models/models_0";
+import {
+  AdminListGroupsForUserRequest,
+  AdminListGroupsForUserRequestFilterSensitiveLog,
+  AdminListGroupsForUserResponse,
+  AdminListGroupsForUserResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AdminListGroupsForUserCommand,
   serializeAws_json1_1AdminListGroupsForUserCommand,
@@ -79,8 +84,8 @@ export class AdminListGroupsForUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AdminListGroupsForUserRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AdminListGroupsForUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminListGroupsForUserRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AdminListGroupsForUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

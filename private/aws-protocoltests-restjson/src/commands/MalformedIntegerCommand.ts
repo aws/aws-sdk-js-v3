@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedIntegerInput } from "../models/models_0";
+import { MalformedIntegerInput, MalformedIntegerInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedIntegerCommand,
   serializeAws_restJson1MalformedIntegerCommand,
@@ -55,7 +55,7 @@ export class MalformedIntegerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedIntegerInput.filterSensitiveLog,
+      inputFilterSensitiveLog: MalformedIntegerInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateRecommendationTemplateRequest, CreateRecommendationTemplateResponse } from "../models/models_0";
+import {
+  CreateRecommendationTemplateRequest,
+  CreateRecommendationTemplateRequestFilterSensitiveLog,
+  CreateRecommendationTemplateResponse,
+  CreateRecommendationTemplateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateRecommendationTemplateCommand,
   serializeAws_restJson1CreateRecommendationTemplateCommand,
@@ -74,8 +79,8 @@ export class CreateRecommendationTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRecommendationTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateRecommendationTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRecommendationTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateRecommendationTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

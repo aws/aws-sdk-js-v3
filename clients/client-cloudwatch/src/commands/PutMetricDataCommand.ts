@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { PutMetricDataInput } from "../models/models_0";
+import { PutMetricDataInput, PutMetricDataInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryPutMetricDataCommand,
   serializeAws_queryPutMetricDataCommand,
@@ -116,7 +116,7 @@ export class PutMetricDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutMetricDataInput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutMetricDataInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

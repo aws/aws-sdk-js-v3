@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDBClusterParameterGroupMessage } from "../models/models_0";
+import {
+  DeleteDBClusterParameterGroupMessage,
+  DeleteDBClusterParameterGroupMessageFilterSensitiveLog,
+} from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryDeleteDBClusterParameterGroupCommand,
@@ -73,7 +76,7 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBClusterParameterGroupMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDBClusterParameterGroupMessageFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

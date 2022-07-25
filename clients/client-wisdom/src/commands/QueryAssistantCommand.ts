@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { QueryAssistantRequest, QueryAssistantResponse } from "../models/models_0";
+import {
+  QueryAssistantRequest,
+  QueryAssistantRequestFilterSensitiveLog,
+  QueryAssistantResponse,
+  QueryAssistantResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1QueryAssistantCommand,
   serializeAws_restJson1QueryAssistantCommand,
@@ -74,8 +79,8 @@ export class QueryAssistantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryAssistantRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: QueryAssistantResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: QueryAssistantRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: QueryAssistantResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import { CreateConnectorProfileRequest, CreateConnectorProfileResponse } from "../models/models_0";
+import {
+  CreateConnectorProfileRequest,
+  CreateConnectorProfileRequestFilterSensitiveLog,
+  CreateConnectorProfileResponse,
+  CreateConnectorProfileResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateConnectorProfileCommand,
   serializeAws_restJson1CreateConnectorProfileCommand,
@@ -75,8 +80,8 @@ export class CreateConnectorProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConnectorProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateConnectorProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateConnectorProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateConnectorProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

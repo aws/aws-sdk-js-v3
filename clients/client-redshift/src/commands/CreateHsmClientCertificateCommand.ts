@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateHsmClientCertificateMessage, CreateHsmClientCertificateResult } from "../models/models_0";
+import {
+  CreateHsmClientCertificateMessage,
+  CreateHsmClientCertificateMessageFilterSensitiveLog,
+  CreateHsmClientCertificateResult,
+  CreateHsmClientCertificateResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCreateHsmClientCertificateCommand,
   serializeAws_queryCreateHsmClientCertificateCommand,
@@ -79,8 +84,8 @@ export class CreateHsmClientCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHsmClientCertificateMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateHsmClientCertificateResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateHsmClientCertificateMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateHsmClientCertificateResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

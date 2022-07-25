@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { RegenerateSecurityTokenRequest, RegenerateSecurityTokenResponse } from "../models/models_1";
+import {
+  RegenerateSecurityTokenRequest,
+  RegenerateSecurityTokenRequestFilterSensitiveLog,
+  RegenerateSecurityTokenResponse,
+  RegenerateSecurityTokenResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1RegenerateSecurityTokenCommand,
   serializeAws_restJson1RegenerateSecurityTokenCommand,
@@ -72,8 +77,8 @@ export class RegenerateSecurityTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegenerateSecurityTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RegenerateSecurityTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RegenerateSecurityTokenRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RegenerateSecurityTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

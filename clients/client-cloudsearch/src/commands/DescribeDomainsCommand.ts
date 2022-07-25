@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { DescribeDomainsRequest, DescribeDomainsResponse } from "../models/models_0";
+import {
+  DescribeDomainsRequest,
+  DescribeDomainsRequestFilterSensitiveLog,
+  DescribeDomainsResponse,
+  DescribeDomainsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeDomainsCommand,
   serializeAws_queryDescribeDomainsCommand,
@@ -74,8 +79,8 @@ export class DescribeDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDomainsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDomainsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDomainsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDomainsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

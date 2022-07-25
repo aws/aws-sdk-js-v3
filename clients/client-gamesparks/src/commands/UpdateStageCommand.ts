@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import { UpdateStageRequest, UpdateStageResult } from "../models/models_0";
+import {
+  UpdateStageRequest,
+  UpdateStageRequestFilterSensitiveLog,
+  UpdateStageResult,
+  UpdateStageResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateStageCommand,
   serializeAws_restJson1UpdateStageCommand,
@@ -72,8 +77,8 @@ export class UpdateStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateStageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateStageResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

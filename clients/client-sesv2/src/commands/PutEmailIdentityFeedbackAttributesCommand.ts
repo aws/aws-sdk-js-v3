@@ -14,7 +14,9 @@ import {
 
 import {
   PutEmailIdentityFeedbackAttributesRequest,
+  PutEmailIdentityFeedbackAttributesRequestFilterSensitiveLog,
   PutEmailIdentityFeedbackAttributesResponse,
+  PutEmailIdentityFeedbackAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand,
@@ -86,8 +88,8 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEmailIdentityFeedbackAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutEmailIdentityFeedbackAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutEmailIdentityFeedbackAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutEmailIdentityFeedbackAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

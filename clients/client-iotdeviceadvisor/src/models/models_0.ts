@@ -37,15 +37,6 @@ export interface DeviceUnderTest {
   certificateArn?: string;
 }
 
-export namespace DeviceUnderTest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceUnderTest): any => ({
-    ...obj,
-  });
-}
-
 export enum Protocol {
   MqttV3_1_1 = "MqttV3_1_1",
   MqttV5 = "MqttV5",
@@ -91,15 +82,6 @@ export interface SuiteDefinitionConfiguration {
   protocol?: Protocol | string;
 }
 
-export namespace SuiteDefinitionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuiteDefinitionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSuiteDefinitionRequest {
   /**
    * <p>Creates a Device Advisor test suite with suite definition configuration.</p>
@@ -110,15 +92,6 @@ export interface CreateSuiteDefinitionRequest {
    * <p>The tags to be attached to the suite definition.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateSuiteDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSuiteDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSuiteDefinitionResponse {
@@ -141,15 +114,6 @@ export interface CreateSuiteDefinitionResponse {
    * <p>Creates a Device Advisor test suite with TimeStamp of when it was created.</p>
    */
   createdAt?: Date;
-}
-
-export namespace CreateSuiteDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSuiteDefinitionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -197,25 +161,7 @@ export interface DeleteSuiteDefinitionRequest {
   suiteDefinitionId: string | undefined;
 }
 
-export namespace DeleteSuiteDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSuiteDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSuiteDefinitionResponse {}
-
-export namespace DeleteSuiteDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSuiteDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetEndpointRequest {
   /**
@@ -229,29 +175,11 @@ export interface GetEndpointRequest {
   certificateArn?: string;
 }
 
-export namespace GetEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEndpointResponse {
   /**
    * <p>The response of an Device Advisor endpoint.</p>
    */
   endpoint?: string;
-}
-
-export namespace GetEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEndpointResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -283,15 +211,6 @@ export interface GetSuiteDefinitionRequest {
    * <p>Suite definition version of the test suite to get.</p>
    */
   suiteDefinitionVersion?: string;
-}
-
-export namespace GetSuiteDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSuiteDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSuiteDefinitionResponse {
@@ -336,15 +255,6 @@ export interface GetSuiteDefinitionResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetSuiteDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSuiteDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSuiteRunRequest {
   /**
    * <p>Suite definition ID for the test suite run.</p>
@@ -355,15 +265,6 @@ export interface GetSuiteRunRequest {
    * <p>Suite run ID for the test suite run.</p>
    */
   suiteRunId: string | undefined;
-}
-
-export namespace GetSuiteRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSuiteRunRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum SuiteRunStatus {
@@ -396,15 +297,6 @@ export interface SuiteRunConfiguration {
    * <p>TRUE if multiple test suites run in parallel.</p>
    */
   parallelRun?: boolean;
-}
-
-export namespace SuiteRunConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuiteRunConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum Status {
@@ -513,15 +405,6 @@ export interface TestCaseScenario {
   systemMessage?: string;
 }
 
-export namespace TestCaseScenario {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestCaseScenario): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the test case run.</p>
  */
@@ -614,15 +497,6 @@ export interface TestCaseRun {
   testScenarios?: TestCaseScenario[];
 }
 
-export namespace TestCaseRun {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestCaseRun): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Show Group Result.</p>
  */
@@ -643,15 +517,6 @@ export interface GroupResult {
   tests?: TestCaseRun[];
 }
 
-export namespace GroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Show each group result.</p>
  */
@@ -660,15 +525,6 @@ export interface TestResult {
    * <p>Show each group of test results.</p>
    */
   groups?: GroupResult[];
-}
-
-export namespace TestResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSuiteRunResponse {
@@ -728,15 +584,6 @@ export interface GetSuiteRunResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetSuiteRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSuiteRunResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSuiteRunReportRequest {
   /**
    * <p>Suite definition ID of the test suite.</p>
@@ -749,29 +596,11 @@ export interface GetSuiteRunReportRequest {
   suiteRunId: string | undefined;
 }
 
-export namespace GetSuiteRunReportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSuiteRunReportRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSuiteRunReportResponse {
   /**
    * <p>Download URL of the qualification report.</p>
    */
   qualificationReportDownloadUrl?: string;
-}
-
-export namespace GetSuiteRunReportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSuiteRunReportResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSuiteDefinitionsRequest {
@@ -784,15 +613,6 @@ export interface ListSuiteDefinitionsRequest {
    * <p>A token used to get the next set of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListSuiteDefinitionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSuiteDefinitionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -835,15 +655,6 @@ export interface SuiteDefinitionInformation {
   createdAt?: Date;
 }
 
-export namespace SuiteDefinitionInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuiteDefinitionInformation): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSuiteDefinitionsResponse {
   /**
    * <p>An array of objects that provide summaries of information about the suite definitions
@@ -855,15 +666,6 @@ export interface ListSuiteDefinitionsResponse {
    * <p>A token used to get the next set of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListSuiteDefinitionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSuiteDefinitionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSuiteRunsRequest {
@@ -888,15 +690,6 @@ export interface ListSuiteRunsRequest {
    * <p>A token to retrieve the next set of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListSuiteRunsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSuiteRunsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -955,15 +748,6 @@ export interface SuiteRunInformation {
   failed?: number;
 }
 
-export namespace SuiteRunInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuiteRunInformation): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSuiteRunsResponse {
   /**
    * <p>An array of objects that provide summaries of information about the suite runs in the
@@ -977,15 +761,6 @@ export interface ListSuiteRunsResponse {
   nextToken?: string;
 }
 
-export namespace ListSuiteRunsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSuiteRunsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the IoT Device Advisor resource.</p>
@@ -993,29 +768,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags attached to the IoT Device Advisor resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartSuiteRunRequest {
@@ -1040,15 +797,6 @@ export interface StartSuiteRunRequest {
   tags?: Record<string, string>;
 }
 
-export namespace StartSuiteRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSuiteRunRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartSuiteRunResponse {
   /**
    * <p>Suite Run ID of the started suite run.</p>
@@ -1066,15 +814,6 @@ export interface StartSuiteRunResponse {
   createdAt?: Date;
 }
 
-export namespace StartSuiteRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSuiteRunResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StopSuiteRunRequest {
   /**
    * <p>Suite definition ID of the test suite run to be stopped.</p>
@@ -1087,25 +826,7 @@ export interface StopSuiteRunRequest {
   suiteRunId: string | undefined;
 }
 
-export namespace StopSuiteRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopSuiteRunRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopSuiteRunResponse {}
-
-export namespace StopSuiteRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopSuiteRunResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -1119,25 +840,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1151,25 +854,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateSuiteDefinitionRequest {
   /**
@@ -1181,15 +866,6 @@ export interface UpdateSuiteDefinitionRequest {
    * <p>Updates a Device Advisor test suite with suite definition configuration.</p>
    */
   suiteDefinitionConfiguration?: SuiteDefinitionConfiguration;
-}
-
-export namespace UpdateSuiteDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSuiteDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSuiteDefinitionResponse {
@@ -1224,11 +900,261 @@ export interface UpdateSuiteDefinitionResponse {
   lastUpdatedAt?: Date;
 }
 
-export namespace UpdateSuiteDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSuiteDefinitionResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DeviceUnderTestFilterSensitiveLog = (obj: DeviceUnderTest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuiteDefinitionConfigurationFilterSensitiveLog = (obj: SuiteDefinitionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSuiteDefinitionRequestFilterSensitiveLog = (obj: CreateSuiteDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSuiteDefinitionResponseFilterSensitiveLog = (obj: CreateSuiteDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSuiteDefinitionRequestFilterSensitiveLog = (obj: DeleteSuiteDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSuiteDefinitionResponseFilterSensitiveLog = (obj: DeleteSuiteDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEndpointRequestFilterSensitiveLog = (obj: GetEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEndpointResponseFilterSensitiveLog = (obj: GetEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSuiteDefinitionRequestFilterSensitiveLog = (obj: GetSuiteDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSuiteDefinitionResponseFilterSensitiveLog = (obj: GetSuiteDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSuiteRunRequestFilterSensitiveLog = (obj: GetSuiteRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuiteRunConfigurationFilterSensitiveLog = (obj: SuiteRunConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestCaseScenarioFilterSensitiveLog = (obj: TestCaseScenario): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestCaseRunFilterSensitiveLog = (obj: TestCaseRun): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupResultFilterSensitiveLog = (obj: GroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestResultFilterSensitiveLog = (obj: TestResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSuiteRunResponseFilterSensitiveLog = (obj: GetSuiteRunResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSuiteRunReportRequestFilterSensitiveLog = (obj: GetSuiteRunReportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSuiteRunReportResponseFilterSensitiveLog = (obj: GetSuiteRunReportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSuiteDefinitionsRequestFilterSensitiveLog = (obj: ListSuiteDefinitionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuiteDefinitionInformationFilterSensitiveLog = (obj: SuiteDefinitionInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSuiteDefinitionsResponseFilterSensitiveLog = (obj: ListSuiteDefinitionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSuiteRunsRequestFilterSensitiveLog = (obj: ListSuiteRunsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuiteRunInformationFilterSensitiveLog = (obj: SuiteRunInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSuiteRunsResponseFilterSensitiveLog = (obj: ListSuiteRunsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSuiteRunRequestFilterSensitiveLog = (obj: StartSuiteRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSuiteRunResponseFilterSensitiveLog = (obj: StartSuiteRunResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopSuiteRunRequestFilterSensitiveLog = (obj: StopSuiteRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopSuiteRunResponseFilterSensitiveLog = (obj: StopSuiteRunResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSuiteDefinitionRequestFilterSensitiveLog = (obj: UpdateSuiteDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSuiteDefinitionResponseFilterSensitiveLog = (obj: UpdateSuiteDefinitionResponse): any => ({
+  ...obj,
+});

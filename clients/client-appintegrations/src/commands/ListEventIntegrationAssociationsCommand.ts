@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
-import { ListEventIntegrationAssociationsRequest, ListEventIntegrationAssociationsResponse } from "../models/models_0";
+import {
+  ListEventIntegrationAssociationsRequest,
+  ListEventIntegrationAssociationsRequestFilterSensitiveLog,
+  ListEventIntegrationAssociationsResponse,
+  ListEventIntegrationAssociationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListEventIntegrationAssociationsCommand,
   serializeAws_restJson1ListEventIntegrationAssociationsCommand,
@@ -74,8 +79,8 @@ export class ListEventIntegrationAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventIntegrationAssociationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListEventIntegrationAssociationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEventIntegrationAssociationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListEventIntegrationAssociationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

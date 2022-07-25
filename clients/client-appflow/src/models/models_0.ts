@@ -39,15 +39,6 @@ export interface AggregationConfig {
   aggregationType?: AggregationType | string;
 }
 
-export namespace AggregationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregationConfig): any => ({
-    ...obj,
-  });
-}
-
 export enum AmplitudeConnectorOperator {
   BETWEEN = "BETWEEN",
 }
@@ -68,44 +59,15 @@ export interface AmplitudeConnectorProfileCredentials {
   secretKey: string | undefined;
 }
 
-export namespace AmplitudeConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmplitudeConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.apiKey && { apiKey: SENSITIVE_STRING }),
-    ...(obj.secretKey && { secretKey: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p> The connector-specific profile properties required when using Amplitude. </p>
  */
 export interface AmplitudeConnectorProfileProperties {}
 
-export namespace AmplitudeConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmplitudeConnectorProfileProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector metadata specific to Amplitude. </p>
  */
 export interface AmplitudeMetadata {}
-
-export namespace AmplitudeMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmplitudeMetadata): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> The properties that are applied when Amplitude is being used as a source. </p>
@@ -115,15 +77,6 @@ export interface AmplitudeSourceProperties {
    * <p> The object specified in the Amplitude flow source. </p>
    */
   object: string | undefined;
-}
-
-export namespace AmplitudeSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmplitudeSourceProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -139,17 +92,6 @@ export interface ApiKeyCredentials {
    * <p>The API secret key required for API key authentication.</p>
    */
   apiSecretKey?: string;
-}
-
-export namespace ApiKeyCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiKeyCredentials): any => ({
-    ...obj,
-    ...(obj.apiKey && { apiKey: SENSITIVE_STRING }),
-    ...(obj.apiSecretKey && { apiSecretKey: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -188,15 +130,6 @@ export interface AuthParameter {
   connectorSuppliedValues?: string[];
 }
 
-export namespace AuthParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration information required for custom authentication.</p>
  */
@@ -210,15 +143,6 @@ export interface CustomAuthConfig {
    * <p>Information about authentication parameters required for authentication.</p>
    */
   authParameters?: AuthParameter[];
-}
-
-export namespace CustomAuthConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomAuthConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum OAuth2CustomPropType {
@@ -267,15 +191,6 @@ export interface OAuth2CustomParameter {
   type?: OAuth2CustomPropType | string;
 }
 
-export namespace OAuth2CustomParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OAuth2CustomParameter): any => ({
-    ...obj,
-  });
-}
-
 export enum OAuth2GrantType {
   AUTHORIZATION_CODE = "AUTHORIZATION_CODE",
   CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS",
@@ -309,15 +224,6 @@ export interface OAuth2Defaults {
    * <p>List of custom parameters required for OAuth 2.0 authentication.</p>
    */
   oauth2CustomProperties?: OAuth2CustomParameter[];
-}
-
-export namespace OAuth2Defaults {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OAuth2Defaults): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -355,15 +261,6 @@ export interface AuthenticationConfig {
   customAuthConfigs?: CustomAuthConfig[];
 }
 
-export namespace AuthenticationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthenticationConfig): any => ({
-    ...obj,
-  });
-}
-
 export enum AuthenticationType {
   APIKEY = "APIKEY",
   BASIC = "BASIC",
@@ -384,16 +281,6 @@ export interface BasicAuthCredentials {
    * <p> The password to use to connect to a resource.</p>
    */
   password: string | undefined;
-}
-
-export namespace BasicAuthCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BasicAuthCredentials): any => ({
-    ...obj,
-    ...(obj.password && { password: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -445,56 +332,20 @@ export class ConnectorAuthenticationException extends __BaseException {
  */
 export interface CustomerProfilesMetadata {}
 
-export namespace CustomerProfilesMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerProfilesMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector metadata specific to Datadog. </p>
  */
 export interface DatadogMetadata {}
-
-export namespace DatadogMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatadogMetadata): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> The connector metadata specific to Dynatrace. </p>
  */
 export interface DynatraceMetadata {}
 
-export namespace DynatraceMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DynatraceMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector metadata specific to Amazon EventBridge. </p>
  */
 export interface EventBridgeMetadata {}
-
-export namespace EventBridgeMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventBridgeMetadata): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> The connector metadata specific to Google Analytics. </p>
@@ -504,15 +355,6 @@ export interface GoogleAnalyticsMetadata {
    * <p> The desired authorization scope for the Google Analytics account. </p>
    */
   oAuthScopes?: string[];
-}
-
-export namespace GoogleAnalyticsMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GoogleAnalyticsMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -525,70 +367,25 @@ export interface HoneycodeMetadata {
   oAuthScopes?: string[];
 }
 
-export namespace HoneycodeMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HoneycodeMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector metadata specific to Infor Nexus. </p>
  */
 export interface InforNexusMetadata {}
-
-export namespace InforNexusMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InforNexusMetadata): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> The connector metadata specific to Marketo. </p>
  */
 export interface MarketoMetadata {}
 
-export namespace MarketoMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MarketoMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector metadata specific to Amazon Redshift. </p>
  */
 export interface RedshiftMetadata {}
 
-export namespace RedshiftMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector metadata specific to Amazon S3. </p>
  */
 export interface S3Metadata {}
-
-export namespace S3Metadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Metadata): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> The connector metadata specific to Salesforce. </p>
@@ -600,56 +397,20 @@ export interface SalesforceMetadata {
   oAuthScopes?: string[];
 }
 
-export namespace SalesforceMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SalesforceMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector metadata specific to SAPOData. </p>
  */
 export interface SAPODataMetadata {}
-
-export namespace SAPODataMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SAPODataMetadata): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> The connector metadata specific to ServiceNow. </p>
  */
 export interface ServiceNowMetadata {}
 
-export namespace ServiceNowMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceNowMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector metadata specific to Singular. </p>
  */
 export interface SingularMetadata {}
-
-export namespace SingularMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SingularMetadata): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> The connector metadata specific to Slack. </p>
@@ -659,15 +420,6 @@ export interface SlackMetadata {
    * <p> The desired authorization scope for the Slack account. </p>
    */
   oAuthScopes?: string[];
-}
-
-export namespace SlackMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlackMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -680,56 +432,20 @@ export interface SnowflakeMetadata {
   supportedRegions?: string[];
 }
 
-export namespace SnowflakeMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnowflakeMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector metadata specific to Trend Micro. </p>
  */
 export interface TrendmicroMetadata {}
-
-export namespace TrendmicroMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrendmicroMetadata): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> The connector metadata specific to Upsolver. </p>
  */
 export interface UpsolverMetadata {}
 
-export namespace UpsolverMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpsolverMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector metadata specific to Veeva. </p>
  */
 export interface VeevaMetadata {}
-
-export namespace VeevaMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VeevaMetadata): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> The connector metadata specific to Zendesk. </p>
@@ -739,15 +455,6 @@ export interface ZendeskMetadata {
    * <p> The desired authorization scope for the Zendesk account. </p>
    */
   oAuthScopes?: string[];
-}
-
-export namespace ZendeskMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ZendeskMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -861,15 +568,6 @@ export interface ConnectorMetadata {
   SAPOData?: SAPODataMetadata;
 }
 
-export namespace ConnectorMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the configuration of the lambda which is being registered as
  *       the connector.</p>
@@ -881,15 +579,6 @@ export interface LambdaConnectorProvisioningConfig {
   lambdaArn: string | undefined;
 }
 
-export namespace LambdaConnectorProvisioningConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaConnectorProvisioningConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the configuration of the connector being registered.</p>
  */
@@ -899,15 +588,6 @@ export interface ConnectorProvisioningConfig {
    *       the connector.</p>
    */
   lambda?: LambdaConnectorProvisioningConfig;
-}
-
-export namespace ConnectorProvisioningConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorProvisioningConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum ConnectorProvisioningType {
@@ -954,15 +634,6 @@ export interface ConnectorRuntimeSetting {
    *       connector.</p>
    */
   connectorSuppliedValueOptions?: string[];
-}
-
-export namespace ConnectorRuntimeSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorRuntimeSetting): any => ({
-    ...obj,
-  });
 }
 
 export enum ConnectorType {
@@ -1173,15 +844,6 @@ export interface ConnectorConfiguration {
   registeredBy?: string;
 }
 
-export namespace ConnectorConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the registered connector.</p>
  */
@@ -1242,15 +904,6 @@ export interface ConnectorDetail {
   connectorModes?: string[];
 }
 
-export namespace ConnectorDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The high-level entity that can be queried in Amazon AppFlow. For example, a
  *       Salesforce entity might be an <i>Account</i> or
@@ -1276,15 +929,6 @@ export interface ConnectorEntity {
    *       fashion. </p>
    */
   hasNestedEntities?: boolean;
-}
-
-export namespace ConnectorEntity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorEntity): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1327,15 +971,6 @@ export interface DestinationFieldProperties {
   supportedWriteOperations?: (WriteOperationType | string)[];
 }
 
-export namespace DestinationFieldProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationFieldProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The properties that can be applied to a field when the connector is being used as a
  *       source. </p>
@@ -1357,15 +992,6 @@ export interface SourceFieldProperties {
   isTimestampFieldForIncrementalQueries?: boolean;
 }
 
-export namespace SourceFieldProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceFieldProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The range of values that the property supports.</p>
  */
@@ -1379,15 +1005,6 @@ export interface Range {
    * <p>Minimum value supported by the field.</p>
    */
   minimum?: number;
-}
-
-export namespace Range {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Range): any => ({
-    ...obj,
-  });
 }
 
 export enum Operator {
@@ -1456,15 +1073,6 @@ export interface FieldTypeDetails {
   fieldLengthRange?: Range;
 }
 
-export namespace FieldTypeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldTypeDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Contains details regarding all the supported <code>FieldTypes</code> and their
  *       corresponding <code>filterOperators</code> and <code>supportedValues</code>. </p>
@@ -1475,15 +1083,6 @@ export interface SupportedFieldTypeDetails {
    *       different version, v2 will be introduced. </p>
    */
   v1: FieldTypeDetails | undefined;
-}
-
-export namespace SupportedFieldTypeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SupportedFieldTypeDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1551,15 +1150,6 @@ export interface ConnectorEntityField {
   customProperties?: Record<string, string>;
 }
 
-export namespace ConnectorEntityField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorEntityField): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Used by select connectors for which the OAuth workflow is supported, such as Salesforce,
  *       Google Analytics, Marketo, Zendesk, and Slack. </p>
@@ -1576,15 +1166,6 @@ export interface ConnectorOAuthRequest {
    *       been granted. </p>
    */
   redirectUri?: string;
-}
-
-export namespace ConnectorOAuthRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorOAuthRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DatadogConnectorOperator {
@@ -1942,15 +1523,6 @@ export interface ConnectorOperator {
   CustomConnector?: Operator | string;
 }
 
-export namespace ConnectorOperator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorOperator): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The OAuth 2.0 properties required for OAuth 2.0 authentication.</p>
  */
@@ -1973,15 +1545,6 @@ export interface OAuth2Properties {
   tokenUrlCustomProperties?: Record<string, string>;
 }
 
-export namespace OAuth2Properties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OAuth2Properties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The profile properties required by the custom connector.</p>
  */
@@ -1997,15 +1560,6 @@ export interface CustomConnectorProfileProperties {
   oAuth2Properties?: OAuth2Properties;
 }
 
-export namespace CustomConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomConnectorProfileProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector-specific profile properties required by Datadog. </p>
  */
@@ -2014,15 +1568,6 @@ export interface DatadogConnectorProfileProperties {
    * <p> The location of the Datadog resource. </p>
    */
   instanceUrl: string | undefined;
-}
-
-export namespace DatadogConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatadogConnectorProfileProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2035,42 +1580,15 @@ export interface DynatraceConnectorProfileProperties {
   instanceUrl: string | undefined;
 }
 
-export namespace DynatraceConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DynatraceConnectorProfileProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector-specific profile properties required by Google Analytics. </p>
  */
 export interface GoogleAnalyticsConnectorProfileProperties {}
 
-export namespace GoogleAnalyticsConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GoogleAnalyticsConnectorProfileProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector-specific properties required when using Amazon Honeycode. </p>
  */
 export interface HoneycodeConnectorProfileProperties {}
-
-export namespace HoneycodeConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HoneycodeConnectorProfileProperties): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> The connector-specific profile properties required by Infor Nexus. </p>
@@ -2082,15 +1600,6 @@ export interface InforNexusConnectorProfileProperties {
   instanceUrl: string | undefined;
 }
 
-export namespace InforNexusConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InforNexusConnectorProfileProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector-specific profile properties required when using Marketo. </p>
  */
@@ -2099,15 +1608,6 @@ export interface MarketoConnectorProfileProperties {
    * <p> The location of the Marketo resource. </p>
    */
   instanceUrl: string | undefined;
-}
-
-export namespace MarketoConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MarketoConnectorProfileProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2136,15 +1636,6 @@ export interface RedshiftConnectorProfileProperties {
   roleArn: string | undefined;
 }
 
-export namespace RedshiftConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftConnectorProfileProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector-specific profile properties required when using Salesforce. </p>
  */
@@ -2159,15 +1650,6 @@ export interface SalesforceConnectorProfileProperties {
    *     </p>
    */
   isSandboxEnvironment?: boolean;
-}
-
-export namespace SalesforceConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SalesforceConnectorProfileProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2190,15 +1672,6 @@ export interface OAuthProperties {
    * <p> The OAuth scopes required for OAuth type authentication. </p>
    */
   oAuthScopes: string[] | undefined;
-}
-
-export namespace OAuthProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OAuthProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2241,15 +1714,6 @@ export interface SAPODataConnectorProfileProperties {
   oAuthProperties?: OAuthProperties;
 }
 
-export namespace SAPODataConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SAPODataConnectorProfileProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector-specific profile properties required when using ServiceNow. </p>
  */
@@ -2260,28 +1724,10 @@ export interface ServiceNowConnectorProfileProperties {
   instanceUrl: string | undefined;
 }
 
-export namespace ServiceNowConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceNowConnectorProfileProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector-specific profile properties required when using Singular. </p>
  */
 export interface SingularConnectorProfileProperties {}
-
-export namespace SingularConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SingularConnectorProfileProperties): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> The connector-specific profile properties required when using Slack. </p>
@@ -2291,15 +1737,6 @@ export interface SlackConnectorProfileProperties {
    * <p> The location of the Slack resource. </p>
    */
   instanceUrl: string | undefined;
-}
-
-export namespace SlackConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlackConnectorProfileProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2344,28 +1781,10 @@ export interface SnowflakeConnectorProfileProperties {
   region?: string;
 }
 
-export namespace SnowflakeConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnowflakeConnectorProfileProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector-specific profile properties required when using Trend Micro. </p>
  */
 export interface TrendmicroConnectorProfileProperties {}
-
-export namespace TrendmicroConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrendmicroConnectorProfileProperties): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> The connector-specific profile properties required when using Veeva. </p>
@@ -2377,15 +1796,6 @@ export interface VeevaConnectorProfileProperties {
   instanceUrl: string | undefined;
 }
 
-export namespace VeevaConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VeevaConnectorProfileProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The connector-specific profile properties required when using Zendesk. </p>
  */
@@ -2394,15 +1804,6 @@ export interface ZendeskConnectorProfileProperties {
    * <p> The location of the Zendesk resource. </p>
    */
   instanceUrl: string | undefined;
-}
-
-export namespace ZendeskConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ZendeskConnectorProfileProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2500,15 +1901,6 @@ export interface ConnectorProfileProperties {
   CustomConnector?: CustomConnectorProfileProperties;
 }
 
-export namespace ConnectorProfileProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorProfileProperties): any => ({
-    ...obj,
-  });
-}
-
 export enum PrivateConnectionProvisioningFailureCause {
   ACCESS_DENIED = "ACCESS_DENIED",
   CONNECTOR_AUTHENTICATION = "CONNECTOR_AUTHENTICATION",
@@ -2541,15 +1933,6 @@ export interface PrivateConnectionProvisioningState {
    * <p> Specifies the private connection provisioning failure cause. </p>
    */
   failureCause?: PrivateConnectionProvisioningFailureCause | string;
-}
-
-export namespace PrivateConnectionProvisioningState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrivateConnectionProvisioningState): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2612,15 +1995,6 @@ export interface ConnectorProfile {
   privateConnectionProvisioningState?: PrivateConnectionProvisioningState;
 }
 
-export namespace ConnectorProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorProfile): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The custom credentials required for custom authentication.</p>
  */
@@ -2634,16 +2008,6 @@ export interface CustomAuthCredentials {
    * <p>A map that holds custom authentication credentials.</p>
    */
   credentialsMap?: Record<string, string>;
-}
-
-export namespace CustomAuthCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomAuthCredentials): any => ({
-    ...obj,
-    ...(obj.credentialsMap && { credentialsMap: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -2676,17 +2040,6 @@ export interface OAuth2Credentials {
    *       Google Analytics, Marketo, Zendesk, and Slack. </p>
    */
   oAuthRequest?: ConnectorOAuthRequest;
-}
-
-export namespace OAuth2Credentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OAuth2Credentials): any => ({
-    ...obj,
-    ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -2722,19 +2075,6 @@ export interface CustomConnectorProfileCredentials {
   custom?: CustomAuthCredentials;
 }
 
-export namespace CustomConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.basic && { basic: BasicAuthCredentials.filterSensitiveLog(obj.basic) }),
-    ...(obj.oauth2 && { oauth2: OAuth2Credentials.filterSensitiveLog(obj.oauth2) }),
-    ...(obj.apiKey && { apiKey: ApiKeyCredentials.filterSensitiveLog(obj.apiKey) }),
-    ...(obj.custom && { custom: CustomAuthCredentials.filterSensitiveLog(obj.custom) }),
-  });
-}
-
 /**
  * <p> The connector-specific credentials required by Datadog. </p>
  */
@@ -2753,16 +2093,6 @@ export interface DatadogConnectorProfileCredentials {
   applicationKey: string | undefined;
 }
 
-export namespace DatadogConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatadogConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.apiKey && { apiKey: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p> The connector-specific profile credentials required by Dynatrace. </p>
  */
@@ -2771,15 +2101,6 @@ export interface DynatraceConnectorProfileCredentials {
    * <p> The API tokens used by Dynatrace API to authenticate various API calls. </p>
    */
   apiToken: string | undefined;
-}
-
-export namespace DynatraceConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DynatraceConnectorProfileCredentials): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2815,17 +2136,6 @@ export interface GoogleAnalyticsConnectorProfileCredentials {
   oAuthRequest?: ConnectorOAuthRequest;
 }
 
-export namespace GoogleAnalyticsConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GoogleAnalyticsConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p> The connector-specific credentials required when using Amazon Honeycode. </p>
  */
@@ -2845,16 +2155,6 @@ export interface HoneycodeConnectorProfileCredentials {
    *       Google Analytics, Marketo, Zendesk, and Slack. </p>
    */
   oAuthRequest?: ConnectorOAuthRequest;
-}
-
-export namespace HoneycodeConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HoneycodeConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -2880,16 +2180,6 @@ export interface InforNexusConnectorProfileCredentials {
    * <p> The encryption keys used to encrypt data. </p>
    */
   datakey: string | undefined;
-}
-
-export namespace InforNexusConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InforNexusConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.accessKeyId && { accessKeyId: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -2919,17 +2209,6 @@ export interface MarketoConnectorProfileCredentials {
   oAuthRequest?: ConnectorOAuthRequest;
 }
 
-export namespace MarketoConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MarketoConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p> The connector-specific profile credentials required when using Amazon Redshift.
  *     </p>
@@ -2944,16 +2223,6 @@ export interface RedshiftConnectorProfileCredentials {
    * <p> The password that corresponds to the user name. </p>
    */
   password: string | undefined;
-}
-
-export namespace RedshiftConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.password && { password: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -2981,17 +2250,6 @@ export interface SalesforceConnectorProfileCredentials {
    *       app. </p>
    */
   clientCredentialsArn?: string;
-}
-
-export namespace SalesforceConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SalesforceConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-    ...(obj.clientCredentialsArn && { clientCredentialsArn: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -3026,17 +2284,6 @@ export interface OAuthCredentials {
   oAuthRequest?: ConnectorOAuthRequest;
 }
 
-export namespace OAuthCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OAuthCredentials): any => ({
-    ...obj,
-    ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p> The connector-specific profile credentials required when using SAPOData. </p>
  */
@@ -3050,19 +2297,6 @@ export interface SAPODataConnectorProfileCredentials {
    * <p> The SAPOData OAuth type authentication credentials. </p>
    */
   oAuthCredentials?: OAuthCredentials;
-}
-
-export namespace SAPODataConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SAPODataConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.basicAuthCredentials && {
-      basicAuthCredentials: BasicAuthCredentials.filterSensitiveLog(obj.basicAuthCredentials),
-    }),
-    ...(obj.oAuthCredentials && { oAuthCredentials: OAuthCredentials.filterSensitiveLog(obj.oAuthCredentials) }),
-  });
 }
 
 /**
@@ -3080,16 +2314,6 @@ export interface ServiceNowConnectorProfileCredentials {
   password: string | undefined;
 }
 
-export namespace ServiceNowConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceNowConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.password && { password: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p> The connector-specific profile credentials required when using Singular. </p>
  */
@@ -3099,16 +2323,6 @@ export interface SingularConnectorProfileCredentials {
    *       program to your API. </p>
    */
   apiKey: string | undefined;
-}
-
-export namespace SingularConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SingularConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.apiKey && { apiKey: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -3138,17 +2352,6 @@ export interface SlackConnectorProfileCredentials {
   oAuthRequest?: ConnectorOAuthRequest;
 }
 
-export namespace SlackConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlackConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p> The connector-specific profile credentials required when using Snowflake. </p>
  */
@@ -3164,16 +2367,6 @@ export interface SnowflakeConnectorProfileCredentials {
   password: string | undefined;
 }
 
-export namespace SnowflakeConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnowflakeConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.password && { password: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p> The connector-specific profile credentials required when using Trend Micro. </p>
  */
@@ -3182,16 +2375,6 @@ export interface TrendmicroConnectorProfileCredentials {
    * <p> The Secret Access Key portion of the credentials. </p>
    */
   apiSecretKey: string | undefined;
-}
-
-export namespace TrendmicroConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrendmicroConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.apiSecretKey && { apiSecretKey: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -3207,16 +2390,6 @@ export interface VeevaConnectorProfileCredentials {
    * <p> The password that corresponds to the user name. </p>
    */
   password: string | undefined;
-}
-
-export namespace VeevaConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VeevaConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.password && { password: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -3244,17 +2417,6 @@ export interface ZendeskConnectorProfileCredentials {
    *     </p>
    */
   oAuthRequest?: ConnectorOAuthRequest;
-}
-
-export namespace ZendeskConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ZendeskConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -3353,36 +2515,6 @@ export interface ConnectorProfileCredentials {
   CustomConnector?: CustomConnectorProfileCredentials;
 }
 
-export namespace ConnectorProfileCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorProfileCredentials): any => ({
-    ...obj,
-    ...(obj.Amplitude && { Amplitude: AmplitudeConnectorProfileCredentials.filterSensitiveLog(obj.Amplitude) }),
-    ...(obj.Datadog && { Datadog: DatadogConnectorProfileCredentials.filterSensitiveLog(obj.Datadog) }),
-    ...(obj.GoogleAnalytics && {
-      GoogleAnalytics: GoogleAnalyticsConnectorProfileCredentials.filterSensitiveLog(obj.GoogleAnalytics),
-    }),
-    ...(obj.Honeycode && { Honeycode: HoneycodeConnectorProfileCredentials.filterSensitiveLog(obj.Honeycode) }),
-    ...(obj.InforNexus && { InforNexus: InforNexusConnectorProfileCredentials.filterSensitiveLog(obj.InforNexus) }),
-    ...(obj.Marketo && { Marketo: MarketoConnectorProfileCredentials.filterSensitiveLog(obj.Marketo) }),
-    ...(obj.Redshift && { Redshift: RedshiftConnectorProfileCredentials.filterSensitiveLog(obj.Redshift) }),
-    ...(obj.Salesforce && { Salesforce: SalesforceConnectorProfileCredentials.filterSensitiveLog(obj.Salesforce) }),
-    ...(obj.ServiceNow && { ServiceNow: ServiceNowConnectorProfileCredentials.filterSensitiveLog(obj.ServiceNow) }),
-    ...(obj.Singular && { Singular: SingularConnectorProfileCredentials.filterSensitiveLog(obj.Singular) }),
-    ...(obj.Slack && { Slack: SlackConnectorProfileCredentials.filterSensitiveLog(obj.Slack) }),
-    ...(obj.Snowflake && { Snowflake: SnowflakeConnectorProfileCredentials.filterSensitiveLog(obj.Snowflake) }),
-    ...(obj.Trendmicro && { Trendmicro: TrendmicroConnectorProfileCredentials.filterSensitiveLog(obj.Trendmicro) }),
-    ...(obj.Veeva && { Veeva: VeevaConnectorProfileCredentials.filterSensitiveLog(obj.Veeva) }),
-    ...(obj.Zendesk && { Zendesk: ZendeskConnectorProfileCredentials.filterSensitiveLog(obj.Zendesk) }),
-    ...(obj.SAPOData && { SAPOData: SAPODataConnectorProfileCredentials.filterSensitiveLog(obj.SAPOData) }),
-    ...(obj.CustomConnector && {
-      CustomConnector: CustomConnectorProfileCredentials.filterSensitiveLog(obj.CustomConnector),
-    }),
-  });
-}
-
 /**
  * <p> Defines the connector-specific configuration and credentials for the connector profile.
  *     </p>
@@ -3397,18 +2529,6 @@ export interface ConnectorProfileConfig {
    * <p> The connector-specific credentials required by each connector. </p>
    */
   connectorProfileCredentials: ConnectorProfileCredentials | undefined;
-}
-
-export namespace ConnectorProfileConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorProfileConfig): any => ({
-    ...obj,
-    ...(obj.connectorProfileCredentials && {
-      connectorProfileCredentials: ConnectorProfileCredentials.filterSensitiveLog(obj.connectorProfileCredentials),
-    }),
-  });
 }
 
 /**
@@ -3469,29 +2589,11 @@ export interface CreateConnectorProfileRequest {
   connectorProfileConfig: ConnectorProfileConfig | undefined;
 }
 
-export namespace CreateConnectorProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectorProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateConnectorProfileResponse {
   /**
    * <p> The Amazon Resource Name (ARN) of the connector profile. </p>
    */
   connectorProfileArn?: string;
-}
-
-export namespace CreateConnectorProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectorProfileResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3578,15 +2680,6 @@ export interface ErrorHandlingConfig {
   bucketName?: string;
 }
 
-export namespace ErrorHandlingConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorHandlingConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The properties that are applied when the custom connector is being used as a
  *       destination.</p>
@@ -3622,15 +2715,6 @@ export interface CustomConnectorDestinationProperties {
   customProperties?: Record<string, string>;
 }
 
-export namespace CustomConnectorDestinationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomConnectorDestinationProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The properties that are applied when Amazon Connect Customer Profiles is used as a
  *       destination. </p>
@@ -3646,15 +2730,6 @@ export interface CustomerProfilesDestinationProperties {
    *     </p>
    */
   objectTypeName?: string;
-}
-
-export namespace CustomerProfilesDestinationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerProfilesDestinationProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3677,15 +2752,6 @@ export interface EventBridgeDestinationProperties {
   errorHandlingConfig?: ErrorHandlingConfig;
 }
 
-export namespace EventBridgeDestinationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventBridgeDestinationProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The properties that are applied when Amazon Honeycode is used as a destination. </p>
  */
@@ -3705,29 +2771,11 @@ export interface HoneycodeDestinationProperties {
   errorHandlingConfig?: ErrorHandlingConfig;
 }
 
-export namespace HoneycodeDestinationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HoneycodeDestinationProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The properties that are applied when Amazon Lookout for Metrics is used as a destination.
  *     </p>
  */
 export interface LookoutMetricsDestinationProperties {}
-
-export namespace LookoutMetricsDestinationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LookoutMetricsDestinationProperties): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The properties that Amazon AppFlow applies when you use Marketo as a flow
@@ -3747,15 +2795,6 @@ export interface MarketoDestinationProperties {
    *     </p>
    */
   errorHandlingConfig?: ErrorHandlingConfig;
-}
-
-export namespace MarketoDestinationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MarketoDestinationProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3787,15 +2826,6 @@ export interface RedshiftDestinationProperties {
    *       destination connector details. </p>
    */
   errorHandlingConfig?: ErrorHandlingConfig;
-}
-
-export namespace RedshiftDestinationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftDestinationProperties): any => ({
-    ...obj,
-  });
 }
 
 export enum FileType {
@@ -3833,15 +2863,6 @@ export interface PrefixConfig {
    * <p> Determines the level of granularity that's included in the prefix. </p>
    */
   prefixFormat?: PrefixFormat | string;
-}
-
-export namespace PrefixConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrefixConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3886,15 +2907,6 @@ export interface S3OutputFormatConfig {
   preserveSourceDataTyping?: boolean;
 }
 
-export namespace S3OutputFormatConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3OutputFormatConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The properties that are applied when Amazon S3 is used as a destination. </p>
  */
@@ -3916,15 +2928,6 @@ export interface S3DestinationProperties {
    *       data when Amazon S3 is used as the destination. </p>
    */
   s3OutputFormatConfig?: S3OutputFormatConfig;
-}
-
-export namespace S3DestinationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DestinationProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3958,15 +2961,6 @@ export interface SalesforceDestinationProperties {
   writeOperationType?: WriteOperationType | string;
 }
 
-export namespace SalesforceDestinationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SalesforceDestinationProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Determines how Amazon AppFlow handles the success response that it gets from the
  *       connector after placing data.</p>
@@ -3983,15 +2977,6 @@ export interface SuccessResponseHandlingConfig {
    * <p>The name of the Amazon S3 bucket.</p>
    */
   bucketName?: string;
-}
-
-export namespace SuccessResponseHandlingConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuccessResponseHandlingConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4033,15 +3018,6 @@ export interface SAPODataDestinationProperties {
   writeOperationType?: WriteOperationType | string;
 }
 
-export namespace SAPODataDestinationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SAPODataDestinationProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The properties that are applied when Snowflake is being used as a destination. </p>
  */
@@ -4073,15 +3049,6 @@ export interface SnowflakeDestinationProperties {
   errorHandlingConfig?: ErrorHandlingConfig;
 }
 
-export namespace SnowflakeDestinationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnowflakeDestinationProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The configuration that determines how Amazon AppFlow formats the flow output data
  *       when Upsolver is used as the destination. </p>
@@ -4105,15 +3072,6 @@ export interface UpsolverS3OutputFormatConfig {
   aggregationConfig?: AggregationConfig;
 }
 
-export namespace UpsolverS3OutputFormatConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpsolverS3OutputFormatConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The properties that are applied when Upsolver is used as a destination. </p>
  */
@@ -4134,15 +3092,6 @@ export interface UpsolverDestinationProperties {
    *       destination. </p>
    */
   s3OutputFormatConfig: UpsolverS3OutputFormatConfig | undefined;
-}
-
-export namespace UpsolverDestinationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpsolverDestinationProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4174,15 +3123,6 @@ export interface ZendeskDestinationProperties {
    *       provided, this defaults to the <code>INSERT</code> operation. </p>
    */
   writeOperationType?: WriteOperationType | string;
-}
-
-export namespace ZendeskDestinationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ZendeskDestinationProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4255,15 +3195,6 @@ export interface DestinationConnectorProperties {
   SAPOData?: SAPODataDestinationProperties;
 }
 
-export namespace DestinationConnectorProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationConnectorProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Contains information about the configuration of destination connectors present in the
  *       flow. </p>
@@ -4291,15 +3222,6 @@ export interface DestinationFlowConfig {
   destinationConnectorProperties: DestinationConnectorProperties | undefined;
 }
 
-export namespace DestinationFlowConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationFlowConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Specifies the configuration used when importing incremental records from the source.
  *     </p>
@@ -4310,15 +3232,6 @@ export interface IncrementalPullConfig {
    *       importing incremental records from the source. </p>
    */
   datetimeTypeFieldName?: string;
-}
-
-export namespace IncrementalPullConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncrementalPullConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4337,15 +3250,6 @@ export interface CustomConnectorSourceProperties {
   customProperties?: Record<string, string>;
 }
 
-export namespace CustomConnectorSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomConnectorSourceProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The properties that are applied when Datadog is being used as a source. </p>
  */
@@ -4354,15 +3258,6 @@ export interface DatadogSourceProperties {
    * <p> The object specified in the Datadog flow source. </p>
    */
   object: string | undefined;
-}
-
-export namespace DatadogSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatadogSourceProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4375,15 +3270,6 @@ export interface DynatraceSourceProperties {
   object: string | undefined;
 }
 
-export namespace DynatraceSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DynatraceSourceProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The properties that are applied when Google Analytics is being used as a source. </p>
  */
@@ -4392,15 +3278,6 @@ export interface GoogleAnalyticsSourceProperties {
    * <p> The object specified in the Google Analytics flow source. </p>
    */
   object: string | undefined;
-}
-
-export namespace GoogleAnalyticsSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GoogleAnalyticsSourceProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4413,15 +3290,6 @@ export interface InforNexusSourceProperties {
   object: string | undefined;
 }
 
-export namespace InforNexusSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InforNexusSourceProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The properties that are applied when Marketo is being used as a source. </p>
  */
@@ -4430,15 +3298,6 @@ export interface MarketoSourceProperties {
    * <p> The object specified in the Marketo flow source. </p>
    */
   object: string | undefined;
-}
-
-export namespace MarketoSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MarketoSourceProperties): any => ({
-    ...obj,
-  });
 }
 
 export enum S3InputFileType {
@@ -4455,15 +3314,6 @@ export interface S3InputFormatConfig {
    * <p> The file type that Amazon AppFlow gets from your Amazon S3 bucket. </p>
    */
   s3InputFileType?: S3InputFileType | string;
-}
-
-export namespace S3InputFormatConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3InputFormatConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4489,15 +3339,6 @@ export interface S3SourceProperties {
   s3InputFormatConfig?: S3InputFormatConfig;
 }
 
-export namespace S3SourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3SourceProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The properties that are applied when Salesforce is being used as a source. </p>
  */
@@ -4519,15 +3360,6 @@ export interface SalesforceSourceProperties {
   includeDeletedRecords?: boolean;
 }
 
-export namespace SalesforceSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SalesforceSourceProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The properties that are applied when using SAPOData as a flow source. </p>
  */
@@ -4536,15 +3368,6 @@ export interface SAPODataSourceProperties {
    * <p> The object path specified in the SAPOData flow source. </p>
    */
   objectPath?: string;
-}
-
-export namespace SAPODataSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SAPODataSourceProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4557,15 +3380,6 @@ export interface ServiceNowSourceProperties {
   object: string | undefined;
 }
 
-export namespace ServiceNowSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceNowSourceProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The properties that are applied when Singular is being used as a source. </p>
  */
@@ -4574,15 +3388,6 @@ export interface SingularSourceProperties {
    * <p> The object specified in the Singular flow source. </p>
    */
   object: string | undefined;
-}
-
-export namespace SingularSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SingularSourceProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4595,15 +3400,6 @@ export interface SlackSourceProperties {
   object: string | undefined;
 }
 
-export namespace SlackSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlackSourceProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The properties that are applied when using Trend Micro as a flow source. </p>
  */
@@ -4612,15 +3408,6 @@ export interface TrendmicroSourceProperties {
    * <p> The object specified in the Trend Micro flow source. </p>
    */
   object: string | undefined;
-}
-
-export namespace TrendmicroSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrendmicroSourceProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4653,15 +3440,6 @@ export interface VeevaSourceProperties {
   includeAllVersions?: boolean;
 }
 
-export namespace VeevaSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VeevaSourceProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The properties that are applied when using Zendesk as a flow source. </p>
  */
@@ -4670,15 +3448,6 @@ export interface ZendeskSourceProperties {
    * <p> The object specified in the Zendesk flow source. </p>
    */
   object: string | undefined;
-}
-
-export namespace ZendeskSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ZendeskSourceProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4767,15 +3536,6 @@ export interface SourceConnectorProperties {
   CustomConnector?: CustomConnectorSourceProperties;
 }
 
-export namespace SourceConnectorProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceConnectorProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Contains information about the configuration of the source connector used in the flow.
  *     </p>
@@ -4809,15 +3569,6 @@ export interface SourceFlowConfig {
    *       incremental data pull. </p>
    */
   incrementalPullConfig?: IncrementalPullConfig;
-}
-
-export namespace SourceFlowConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceFlowConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum OperatorPropertiesKeys {
@@ -4883,15 +3634,6 @@ export interface Task {
   taskProperties?: Record<string, string>;
 }
 
-export namespace Task {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Task): any => ({
-    ...obj,
-  });
-}
-
 export enum DataPullMode {
   COMPLETE = "Complete",
   INCREMENTAL = "Incremental",
@@ -4955,15 +3697,6 @@ export interface ScheduledTriggerProperties {
   flowErrorDeactivationThreshold?: number;
 }
 
-export namespace ScheduledTriggerProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledTriggerProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Specifies the configuration details that control the trigger for a flow. Currently, these
  *       settings only apply to the <code>Scheduled</code> trigger type. </p>
@@ -4974,15 +3707,6 @@ export interface TriggerProperties {
    *     </p>
    */
   Scheduled?: ScheduledTriggerProperties;
-}
-
-export namespace TriggerProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TriggerProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5001,15 +3725,6 @@ export interface TriggerConfig {
    *       Currently, these settings only apply to the <code>Scheduled</code> trigger type. </p>
    */
   triggerProperties?: TriggerProperties;
-}
-
-export namespace TriggerConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TriggerConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateFlowRequest {
@@ -5060,15 +3775,6 @@ export interface CreateFlowRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFlowRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum FlowStatus {
   ACTIVE = "Active",
   DELETED = "Deleted",
@@ -5088,15 +3794,6 @@ export interface CreateFlowResponse {
    * <p> Indicates the current status of the flow. </p>
    */
   flowStatus?: FlowStatus | string;
-}
-
-export namespace CreateFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFlowResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5133,25 +3830,7 @@ export interface DeleteConnectorProfileRequest {
   forceDelete?: boolean;
 }
 
-export namespace DeleteConnectorProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectorProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteConnectorProfileResponse {}
-
-export namespace DeleteConnectorProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectorProfileResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteFlowRequest {
   /**
@@ -5167,25 +3846,7 @@ export interface DeleteFlowRequest {
   forceDelete?: boolean;
 }
 
-export namespace DeleteFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFlowRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFlowResponse {}
-
-export namespace DeleteFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFlowResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeConnectorRequest {
   /**
@@ -5202,29 +3863,11 @@ export interface DescribeConnectorRequest {
   connectorLabel?: string;
 }
 
-export namespace DescribeConnectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConnectorResponse {
   /**
    * <p>Configuration info of all the connectors that the user requested.</p>
    */
   connectorConfiguration?: ConnectorConfiguration;
-}
-
-export namespace DescribeConnectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectorResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConnectorEntityRequest {
@@ -5250,15 +3893,6 @@ export interface DescribeConnectorEntityRequest {
   apiVersion?: string;
 }
 
-export namespace DescribeConnectorEntityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectorEntityRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConnectorEntityResponse {
   /**
    * <p> Describes the fields for that connector entity. For example, for an
@@ -5266,15 +3900,6 @@ export interface DescribeConnectorEntityResponse {
    *         <i>account ID</i>, and so on. </p>
    */
   connectorEntityFields: ConnectorEntityField[] | undefined;
-}
-
-export namespace DescribeConnectorEntityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectorEntityResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConnectorProfilesRequest {
@@ -5308,15 +3933,6 @@ export interface DescribeConnectorProfilesRequest {
   nextToken?: string;
 }
 
-export namespace DescribeConnectorProfilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectorProfilesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConnectorProfilesResponse {
   /**
    * <p> Returns information about the connector profiles associated with the flow. </p>
@@ -5328,15 +3944,6 @@ export interface DescribeConnectorProfilesResponse {
    *       means that all records have been fetched. </p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeConnectorProfilesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectorProfilesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConnectorsRequest {
@@ -5357,15 +3964,6 @@ export interface DescribeConnectorsRequest {
   nextToken?: string;
 }
 
-export namespace DescribeConnectorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectorsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConnectorsResponse {
   /**
    * <p> The configuration that is applied to the connectors used in the flow. </p>
@@ -5383,30 +3981,12 @@ export interface DescribeConnectorsResponse {
   nextToken?: string;
 }
 
-export namespace DescribeConnectorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectorsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFlowRequest {
   /**
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
    *       (-) only. </p>
    */
   flowName: string | undefined;
-}
-
-export namespace DescribeFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFlowRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ExecutionStatus {
@@ -5434,15 +4014,6 @@ export interface ExecutionDetails {
    * <p> Specifies the status of the most recent flow run. </p>
    */
   mostRecentExecutionStatus?: ExecutionStatus | string;
-}
-
-export namespace ExecutionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionDetails): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeFlowResponse {
@@ -5534,15 +4105,6 @@ export interface DescribeFlowResponse {
   tags?: Record<string, string>;
 }
 
-export namespace DescribeFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFlowResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFlowExecutionRecordsRequest {
   /**
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
@@ -5562,15 +4124,6 @@ export interface DescribeFlowExecutionRecordsRequest {
   nextToken?: string;
 }
 
-export namespace DescribeFlowExecutionRecordsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFlowExecutionRecordsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Provides details in the event of a failed flow, including the failure count and the
  *       related error messages. </p>
@@ -5585,15 +4138,6 @@ export interface ErrorInfo {
    * <p> Specifies the error message that appears if a flow fails. </p>
    */
   executionMessage?: string;
-}
-
-export namespace ErrorInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5619,15 +4163,6 @@ export interface ExecutionResult {
    * <p> The number of records processed in the flow run. </p>
    */
   recordsProcessed?: number;
-}
-
-export namespace ExecutionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5673,15 +4208,6 @@ export interface ExecutionRecord {
   dataPullEndTime?: Date;
 }
 
-export namespace ExecutionRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionRecord): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFlowExecutionRecordsResponse {
   /**
    * <p> Returns a list of all instances when this flow was run. </p>
@@ -5692,15 +4218,6 @@ export interface DescribeFlowExecutionRecordsResponse {
    * <p> The pagination token for the next page of data. </p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeFlowExecutionRecordsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFlowExecutionRecordsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5788,15 +4305,6 @@ export interface FlowDefinition {
   lastRunExecutionDetails?: ExecutionDetails;
 }
 
-export namespace FlowDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FlowDefinition): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConnectorEntitiesRequest {
   /**
    * <p> The name of the connector profile. The name is unique for each
@@ -5825,15 +4333,6 @@ export interface ListConnectorEntitiesRequest {
   apiVersion?: string;
 }
 
-export namespace ListConnectorEntitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConnectorEntitiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConnectorEntitiesResponse {
   /**
    * <p> The response of <code>ListConnectorEntities</code> lists entities grouped by category.
@@ -5841,15 +4340,6 @@ export interface ListConnectorEntitiesResponse {
    *       belonging to that group. </p>
    */
   connectorEntityMap: Record<string, ConnectorEntity[]> | undefined;
-}
-
-export namespace ListConnectorEntitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConnectorEntitiesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListConnectorsRequest {
@@ -5865,15 +4355,6 @@ export interface ListConnectorsRequest {
   nextToken?: string;
 }
 
-export namespace ListConnectorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConnectorsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConnectorsResponse {
   /**
    * <p>Contains information about the connectors supported by Amazon AppFlow.</p>
@@ -5885,15 +4366,6 @@ export interface ListConnectorsResponse {
    *       records have been fetched.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListConnectorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConnectorsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFlowsRequest {
@@ -5908,15 +4380,6 @@ export interface ListFlowsRequest {
   nextToken?: string;
 }
 
-export namespace ListFlowsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFlowsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFlowsResponse {
   /**
    * <p> The list of flows associated with your account. </p>
@@ -5929,15 +4392,6 @@ export interface ListFlowsResponse {
   nextToken?: string;
 }
 
-export namespace ListFlowsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFlowsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the specified flow. </p>
@@ -5945,29 +4399,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p> The tags used to organize, track, or control access for your flow. </p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterConnectorRequest {
@@ -5995,29 +4431,11 @@ export interface RegisterConnectorRequest {
   connectorProvisioningConfig?: ConnectorProvisioningConfig;
 }
 
-export namespace RegisterConnectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterConnectorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterConnectorResponse {
   /**
    * <p>The ARN of the connector being registered.</p>
    */
   connectorArn?: string;
-}
-
-export namespace RegisterConnectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterConnectorResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6048,15 +4466,6 @@ export interface StartFlowRequest {
   flowName: string | undefined;
 }
 
-export namespace StartFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFlowRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartFlowResponse {
   /**
    * <p> The flow's Amazon Resource Name (ARN). </p>
@@ -6075,30 +4484,12 @@ export interface StartFlowResponse {
   executionId?: string;
 }
 
-export namespace StartFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFlowResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StopFlowRequest {
   /**
    * <p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens
    *       (-) only. </p>
    */
   flowName: string | undefined;
-}
-
-export namespace StopFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopFlowRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StopFlowResponse {
@@ -6111,15 +4502,6 @@ export interface StopFlowResponse {
    * <p> Indicates the current status of the flow. </p>
    */
   flowStatus?: FlowStatus | string;
-}
-
-export namespace StopFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopFlowResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6153,25 +4535,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UnregisterConnectorRequest {
   /**
@@ -6187,25 +4551,7 @@ export interface UnregisterConnectorRequest {
   forceDelete?: boolean;
 }
 
-export namespace UnregisterConnectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnregisterConnectorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UnregisterConnectorResponse {}
-
-export namespace UnregisterConnectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnregisterConnectorResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -6219,25 +4565,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateConnectorProfileRequest {
   /**
@@ -6257,29 +4585,11 @@ export interface UpdateConnectorProfileRequest {
   connectorProfileConfig: ConnectorProfileConfig | undefined;
 }
 
-export namespace UpdateConnectorProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectorProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateConnectorProfileResponse {
   /**
    * <p> The Amazon Resource Name (ARN) of the connector profile. </p>
    */
   connectorProfileArn?: string;
-}
-
-export namespace UpdateConnectorProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectorProfileResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateFlowRequest {
@@ -6318,15 +4628,6 @@ export interface UpdateFlowRequest {
   tasks: Task[] | undefined;
 }
 
-export namespace UpdateFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFlowRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFlowResponse {
   /**
    * <p>Indicates the current status of the flow. </p>
@@ -6334,11 +4635,1396 @@ export interface UpdateFlowResponse {
   flowStatus?: FlowStatus | string;
 }
 
-export namespace UpdateFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFlowResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AggregationConfigFilterSensitiveLog = (obj: AggregationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmplitudeConnectorProfileCredentialsFilterSensitiveLog = (
+  obj: AmplitudeConnectorProfileCredentials
+): any => ({
+  ...obj,
+  ...(obj.apiKey && { apiKey: SENSITIVE_STRING }),
+  ...(obj.secretKey && { secretKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AmplitudeConnectorProfilePropertiesFilterSensitiveLog = (
+  obj: AmplitudeConnectorProfileProperties
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmplitudeMetadataFilterSensitiveLog = (obj: AmplitudeMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmplitudeSourcePropertiesFilterSensitiveLog = (obj: AmplitudeSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApiKeyCredentialsFilterSensitiveLog = (obj: ApiKeyCredentials): any => ({
+  ...obj,
+  ...(obj.apiKey && { apiKey: SENSITIVE_STRING }),
+  ...(obj.apiSecretKey && { apiSecretKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AuthParameterFilterSensitiveLog = (obj: AuthParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomAuthConfigFilterSensitiveLog = (obj: CustomAuthConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OAuth2CustomParameterFilterSensitiveLog = (obj: OAuth2CustomParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OAuth2DefaultsFilterSensitiveLog = (obj: OAuth2Defaults): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthenticationConfigFilterSensitiveLog = (obj: AuthenticationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BasicAuthCredentialsFilterSensitiveLog = (obj: BasicAuthCredentials): any => ({
+  ...obj,
+  ...(obj.password && { password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CustomerProfilesMetadataFilterSensitiveLog = (obj: CustomerProfilesMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatadogMetadataFilterSensitiveLog = (obj: DatadogMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DynatraceMetadataFilterSensitiveLog = (obj: DynatraceMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventBridgeMetadataFilterSensitiveLog = (obj: EventBridgeMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GoogleAnalyticsMetadataFilterSensitiveLog = (obj: GoogleAnalyticsMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HoneycodeMetadataFilterSensitiveLog = (obj: HoneycodeMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InforNexusMetadataFilterSensitiveLog = (obj: InforNexusMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MarketoMetadataFilterSensitiveLog = (obj: MarketoMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedshiftMetadataFilterSensitiveLog = (obj: RedshiftMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3MetadataFilterSensitiveLog = (obj: S3Metadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SalesforceMetadataFilterSensitiveLog = (obj: SalesforceMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SAPODataMetadataFilterSensitiveLog = (obj: SAPODataMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceNowMetadataFilterSensitiveLog = (obj: ServiceNowMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SingularMetadataFilterSensitiveLog = (obj: SingularMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlackMetadataFilterSensitiveLog = (obj: SlackMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnowflakeMetadataFilterSensitiveLog = (obj: SnowflakeMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrendmicroMetadataFilterSensitiveLog = (obj: TrendmicroMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpsolverMetadataFilterSensitiveLog = (obj: UpsolverMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VeevaMetadataFilterSensitiveLog = (obj: VeevaMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ZendeskMetadataFilterSensitiveLog = (obj: ZendeskMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectorMetadataFilterSensitiveLog = (obj: ConnectorMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaConnectorProvisioningConfigFilterSensitiveLog = (obj: LambdaConnectorProvisioningConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectorProvisioningConfigFilterSensitiveLog = (obj: ConnectorProvisioningConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectorRuntimeSettingFilterSensitiveLog = (obj: ConnectorRuntimeSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectorConfigurationFilterSensitiveLog = (obj: ConnectorConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectorDetailFilterSensitiveLog = (obj: ConnectorDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectorEntityFilterSensitiveLog = (obj: ConnectorEntity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationFieldPropertiesFilterSensitiveLog = (obj: DestinationFieldProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceFieldPropertiesFilterSensitiveLog = (obj: SourceFieldProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RangeFilterSensitiveLog = (obj: Range): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FieldTypeDetailsFilterSensitiveLog = (obj: FieldTypeDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SupportedFieldTypeDetailsFilterSensitiveLog = (obj: SupportedFieldTypeDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectorEntityFieldFilterSensitiveLog = (obj: ConnectorEntityField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectorOAuthRequestFilterSensitiveLog = (obj: ConnectorOAuthRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectorOperatorFilterSensitiveLog = (obj: ConnectorOperator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OAuth2PropertiesFilterSensitiveLog = (obj: OAuth2Properties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomConnectorProfilePropertiesFilterSensitiveLog = (obj: CustomConnectorProfileProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatadogConnectorProfilePropertiesFilterSensitiveLog = (obj: DatadogConnectorProfileProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DynatraceConnectorProfilePropertiesFilterSensitiveLog = (
+  obj: DynatraceConnectorProfileProperties
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GoogleAnalyticsConnectorProfilePropertiesFilterSensitiveLog = (
+  obj: GoogleAnalyticsConnectorProfileProperties
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HoneycodeConnectorProfilePropertiesFilterSensitiveLog = (
+  obj: HoneycodeConnectorProfileProperties
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InforNexusConnectorProfilePropertiesFilterSensitiveLog = (
+  obj: InforNexusConnectorProfileProperties
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MarketoConnectorProfilePropertiesFilterSensitiveLog = (obj: MarketoConnectorProfileProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedshiftConnectorProfilePropertiesFilterSensitiveLog = (obj: RedshiftConnectorProfileProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SalesforceConnectorProfilePropertiesFilterSensitiveLog = (
+  obj: SalesforceConnectorProfileProperties
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OAuthPropertiesFilterSensitiveLog = (obj: OAuthProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SAPODataConnectorProfilePropertiesFilterSensitiveLog = (obj: SAPODataConnectorProfileProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceNowConnectorProfilePropertiesFilterSensitiveLog = (
+  obj: ServiceNowConnectorProfileProperties
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SingularConnectorProfilePropertiesFilterSensitiveLog = (obj: SingularConnectorProfileProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlackConnectorProfilePropertiesFilterSensitiveLog = (obj: SlackConnectorProfileProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnowflakeConnectorProfilePropertiesFilterSensitiveLog = (
+  obj: SnowflakeConnectorProfileProperties
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrendmicroConnectorProfilePropertiesFilterSensitiveLog = (
+  obj: TrendmicroConnectorProfileProperties
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VeevaConnectorProfilePropertiesFilterSensitiveLog = (obj: VeevaConnectorProfileProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ZendeskConnectorProfilePropertiesFilterSensitiveLog = (obj: ZendeskConnectorProfileProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectorProfilePropertiesFilterSensitiveLog = (obj: ConnectorProfileProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrivateConnectionProvisioningStateFilterSensitiveLog = (obj: PrivateConnectionProvisioningState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectorProfileFilterSensitiveLog = (obj: ConnectorProfile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomAuthCredentialsFilterSensitiveLog = (obj: CustomAuthCredentials): any => ({
+  ...obj,
+  ...(obj.credentialsMap && { credentialsMap: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const OAuth2CredentialsFilterSensitiveLog = (obj: OAuth2Credentials): any => ({
+  ...obj,
+  ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CustomConnectorProfileCredentialsFilterSensitiveLog = (obj: CustomConnectorProfileCredentials): any => ({
+  ...obj,
+  ...(obj.basic && { basic: BasicAuthCredentialsFilterSensitiveLog(obj.basic) }),
+  ...(obj.oauth2 && { oauth2: OAuth2CredentialsFilterSensitiveLog(obj.oauth2) }),
+  ...(obj.apiKey && { apiKey: ApiKeyCredentialsFilterSensitiveLog(obj.apiKey) }),
+  ...(obj.custom && { custom: CustomAuthCredentialsFilterSensitiveLog(obj.custom) }),
+});
+
+/**
+ * @internal
+ */
+export const DatadogConnectorProfileCredentialsFilterSensitiveLog = (obj: DatadogConnectorProfileCredentials): any => ({
+  ...obj,
+  ...(obj.apiKey && { apiKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DynatraceConnectorProfileCredentialsFilterSensitiveLog = (
+  obj: DynatraceConnectorProfileCredentials
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GoogleAnalyticsConnectorProfileCredentialsFilterSensitiveLog = (
+  obj: GoogleAnalyticsConnectorProfileCredentials
+): any => ({
+  ...obj,
+  ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const HoneycodeConnectorProfileCredentialsFilterSensitiveLog = (
+  obj: HoneycodeConnectorProfileCredentials
+): any => ({
+  ...obj,
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InforNexusConnectorProfileCredentialsFilterSensitiveLog = (
+  obj: InforNexusConnectorProfileCredentials
+): any => ({
+  ...obj,
+  ...(obj.accessKeyId && { accessKeyId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MarketoConnectorProfileCredentialsFilterSensitiveLog = (obj: MarketoConnectorProfileCredentials): any => ({
+  ...obj,
+  ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RedshiftConnectorProfileCredentialsFilterSensitiveLog = (
+  obj: RedshiftConnectorProfileCredentials
+): any => ({
+  ...obj,
+  ...(obj.password && { password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SalesforceConnectorProfileCredentialsFilterSensitiveLog = (
+  obj: SalesforceConnectorProfileCredentials
+): any => ({
+  ...obj,
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+  ...(obj.clientCredentialsArn && { clientCredentialsArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const OAuthCredentialsFilterSensitiveLog = (obj: OAuthCredentials): any => ({
+  ...obj,
+  ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SAPODataConnectorProfileCredentialsFilterSensitiveLog = (
+  obj: SAPODataConnectorProfileCredentials
+): any => ({
+  ...obj,
+  ...(obj.basicAuthCredentials && {
+    basicAuthCredentials: BasicAuthCredentialsFilterSensitiveLog(obj.basicAuthCredentials),
+  }),
+  ...(obj.oAuthCredentials && { oAuthCredentials: OAuthCredentialsFilterSensitiveLog(obj.oAuthCredentials) }),
+});
+
+/**
+ * @internal
+ */
+export const ServiceNowConnectorProfileCredentialsFilterSensitiveLog = (
+  obj: ServiceNowConnectorProfileCredentials
+): any => ({
+  ...obj,
+  ...(obj.password && { password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SingularConnectorProfileCredentialsFilterSensitiveLog = (
+  obj: SingularConnectorProfileCredentials
+): any => ({
+  ...obj,
+  ...(obj.apiKey && { apiKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SlackConnectorProfileCredentialsFilterSensitiveLog = (obj: SlackConnectorProfileCredentials): any => ({
+  ...obj,
+  ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SnowflakeConnectorProfileCredentialsFilterSensitiveLog = (
+  obj: SnowflakeConnectorProfileCredentials
+): any => ({
+  ...obj,
+  ...(obj.password && { password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TrendmicroConnectorProfileCredentialsFilterSensitiveLog = (
+  obj: TrendmicroConnectorProfileCredentials
+): any => ({
+  ...obj,
+  ...(obj.apiSecretKey && { apiSecretKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const VeevaConnectorProfileCredentialsFilterSensitiveLog = (obj: VeevaConnectorProfileCredentials): any => ({
+  ...obj,
+  ...(obj.password && { password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ZendeskConnectorProfileCredentialsFilterSensitiveLog = (obj: ZendeskConnectorProfileCredentials): any => ({
+  ...obj,
+  ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectorProfileCredentialsFilterSensitiveLog = (obj: ConnectorProfileCredentials): any => ({
+  ...obj,
+  ...(obj.Amplitude && { Amplitude: AmplitudeConnectorProfileCredentialsFilterSensitiveLog(obj.Amplitude) }),
+  ...(obj.Datadog && { Datadog: DatadogConnectorProfileCredentialsFilterSensitiveLog(obj.Datadog) }),
+  ...(obj.GoogleAnalytics && {
+    GoogleAnalytics: GoogleAnalyticsConnectorProfileCredentialsFilterSensitiveLog(obj.GoogleAnalytics),
+  }),
+  ...(obj.Honeycode && { Honeycode: HoneycodeConnectorProfileCredentialsFilterSensitiveLog(obj.Honeycode) }),
+  ...(obj.InforNexus && { InforNexus: InforNexusConnectorProfileCredentialsFilterSensitiveLog(obj.InforNexus) }),
+  ...(obj.Marketo && { Marketo: MarketoConnectorProfileCredentialsFilterSensitiveLog(obj.Marketo) }),
+  ...(obj.Redshift && { Redshift: RedshiftConnectorProfileCredentialsFilterSensitiveLog(obj.Redshift) }),
+  ...(obj.Salesforce && { Salesforce: SalesforceConnectorProfileCredentialsFilterSensitiveLog(obj.Salesforce) }),
+  ...(obj.ServiceNow && { ServiceNow: ServiceNowConnectorProfileCredentialsFilterSensitiveLog(obj.ServiceNow) }),
+  ...(obj.Singular && { Singular: SingularConnectorProfileCredentialsFilterSensitiveLog(obj.Singular) }),
+  ...(obj.Slack && { Slack: SlackConnectorProfileCredentialsFilterSensitiveLog(obj.Slack) }),
+  ...(obj.Snowflake && { Snowflake: SnowflakeConnectorProfileCredentialsFilterSensitiveLog(obj.Snowflake) }),
+  ...(obj.Trendmicro && { Trendmicro: TrendmicroConnectorProfileCredentialsFilterSensitiveLog(obj.Trendmicro) }),
+  ...(obj.Veeva && { Veeva: VeevaConnectorProfileCredentialsFilterSensitiveLog(obj.Veeva) }),
+  ...(obj.Zendesk && { Zendesk: ZendeskConnectorProfileCredentialsFilterSensitiveLog(obj.Zendesk) }),
+  ...(obj.SAPOData && { SAPOData: SAPODataConnectorProfileCredentialsFilterSensitiveLog(obj.SAPOData) }),
+  ...(obj.CustomConnector && {
+    CustomConnector: CustomConnectorProfileCredentialsFilterSensitiveLog(obj.CustomConnector),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectorProfileConfigFilterSensitiveLog = (obj: ConnectorProfileConfig): any => ({
+  ...obj,
+  ...(obj.connectorProfileCredentials && {
+    connectorProfileCredentials: ConnectorProfileCredentialsFilterSensitiveLog(obj.connectorProfileCredentials),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectorProfileRequestFilterSensitiveLog = (obj: CreateConnectorProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectorProfileResponseFilterSensitiveLog = (obj: CreateConnectorProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorHandlingConfigFilterSensitiveLog = (obj: ErrorHandlingConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomConnectorDestinationPropertiesFilterSensitiveLog = (
+  obj: CustomConnectorDestinationProperties
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomerProfilesDestinationPropertiesFilterSensitiveLog = (
+  obj: CustomerProfilesDestinationProperties
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventBridgeDestinationPropertiesFilterSensitiveLog = (obj: EventBridgeDestinationProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HoneycodeDestinationPropertiesFilterSensitiveLog = (obj: HoneycodeDestinationProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LookoutMetricsDestinationPropertiesFilterSensitiveLog = (
+  obj: LookoutMetricsDestinationProperties
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MarketoDestinationPropertiesFilterSensitiveLog = (obj: MarketoDestinationProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedshiftDestinationPropertiesFilterSensitiveLog = (obj: RedshiftDestinationProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrefixConfigFilterSensitiveLog = (obj: PrefixConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3OutputFormatConfigFilterSensitiveLog = (obj: S3OutputFormatConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationPropertiesFilterSensitiveLog = (obj: S3DestinationProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SalesforceDestinationPropertiesFilterSensitiveLog = (obj: SalesforceDestinationProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuccessResponseHandlingConfigFilterSensitiveLog = (obj: SuccessResponseHandlingConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SAPODataDestinationPropertiesFilterSensitiveLog = (obj: SAPODataDestinationProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnowflakeDestinationPropertiesFilterSensitiveLog = (obj: SnowflakeDestinationProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpsolverS3OutputFormatConfigFilterSensitiveLog = (obj: UpsolverS3OutputFormatConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpsolverDestinationPropertiesFilterSensitiveLog = (obj: UpsolverDestinationProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ZendeskDestinationPropertiesFilterSensitiveLog = (obj: ZendeskDestinationProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationConnectorPropertiesFilterSensitiveLog = (obj: DestinationConnectorProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationFlowConfigFilterSensitiveLog = (obj: DestinationFlowConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IncrementalPullConfigFilterSensitiveLog = (obj: IncrementalPullConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomConnectorSourcePropertiesFilterSensitiveLog = (obj: CustomConnectorSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatadogSourcePropertiesFilterSensitiveLog = (obj: DatadogSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DynatraceSourcePropertiesFilterSensitiveLog = (obj: DynatraceSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GoogleAnalyticsSourcePropertiesFilterSensitiveLog = (obj: GoogleAnalyticsSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InforNexusSourcePropertiesFilterSensitiveLog = (obj: InforNexusSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MarketoSourcePropertiesFilterSensitiveLog = (obj: MarketoSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3InputFormatConfigFilterSensitiveLog = (obj: S3InputFormatConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3SourcePropertiesFilterSensitiveLog = (obj: S3SourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SalesforceSourcePropertiesFilterSensitiveLog = (obj: SalesforceSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SAPODataSourcePropertiesFilterSensitiveLog = (obj: SAPODataSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceNowSourcePropertiesFilterSensitiveLog = (obj: ServiceNowSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SingularSourcePropertiesFilterSensitiveLog = (obj: SingularSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlackSourcePropertiesFilterSensitiveLog = (obj: SlackSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrendmicroSourcePropertiesFilterSensitiveLog = (obj: TrendmicroSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VeevaSourcePropertiesFilterSensitiveLog = (obj: VeevaSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ZendeskSourcePropertiesFilterSensitiveLog = (obj: ZendeskSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceConnectorPropertiesFilterSensitiveLog = (obj: SourceConnectorProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceFlowConfigFilterSensitiveLog = (obj: SourceFlowConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskFilterSensitiveLog = (obj: Task): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledTriggerPropertiesFilterSensitiveLog = (obj: ScheduledTriggerProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TriggerPropertiesFilterSensitiveLog = (obj: TriggerProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TriggerConfigFilterSensitiveLog = (obj: TriggerConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFlowRequestFilterSensitiveLog = (obj: CreateFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFlowResponseFilterSensitiveLog = (obj: CreateFlowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectorProfileRequestFilterSensitiveLog = (obj: DeleteConnectorProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectorProfileResponseFilterSensitiveLog = (obj: DeleteConnectorProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFlowRequestFilterSensitiveLog = (obj: DeleteFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFlowResponseFilterSensitiveLog = (obj: DeleteFlowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectorRequestFilterSensitiveLog = (obj: DescribeConnectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectorResponseFilterSensitiveLog = (obj: DescribeConnectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectorEntityRequestFilterSensitiveLog = (obj: DescribeConnectorEntityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectorEntityResponseFilterSensitiveLog = (obj: DescribeConnectorEntityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectorProfilesRequestFilterSensitiveLog = (obj: DescribeConnectorProfilesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectorProfilesResponseFilterSensitiveLog = (obj: DescribeConnectorProfilesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectorsRequestFilterSensitiveLog = (obj: DescribeConnectorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectorsResponseFilterSensitiveLog = (obj: DescribeConnectorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFlowRequestFilterSensitiveLog = (obj: DescribeFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutionDetailsFilterSensitiveLog = (obj: ExecutionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFlowResponseFilterSensitiveLog = (obj: DescribeFlowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFlowExecutionRecordsRequestFilterSensitiveLog = (
+  obj: DescribeFlowExecutionRecordsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorInfoFilterSensitiveLog = (obj: ErrorInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutionResultFilterSensitiveLog = (obj: ExecutionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutionRecordFilterSensitiveLog = (obj: ExecutionRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFlowExecutionRecordsResponseFilterSensitiveLog = (
+  obj: DescribeFlowExecutionRecordsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FlowDefinitionFilterSensitiveLog = (obj: FlowDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConnectorEntitiesRequestFilterSensitiveLog = (obj: ListConnectorEntitiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConnectorEntitiesResponseFilterSensitiveLog = (obj: ListConnectorEntitiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConnectorsRequestFilterSensitiveLog = (obj: ListConnectorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConnectorsResponseFilterSensitiveLog = (obj: ListConnectorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFlowsRequestFilterSensitiveLog = (obj: ListFlowsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFlowsResponseFilterSensitiveLog = (obj: ListFlowsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterConnectorRequestFilterSensitiveLog = (obj: RegisterConnectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterConnectorResponseFilterSensitiveLog = (obj: RegisterConnectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFlowRequestFilterSensitiveLog = (obj: StartFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFlowResponseFilterSensitiveLog = (obj: StartFlowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopFlowRequestFilterSensitiveLog = (obj: StopFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopFlowResponseFilterSensitiveLog = (obj: StopFlowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnregisterConnectorRequestFilterSensitiveLog = (obj: UnregisterConnectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnregisterConnectorResponseFilterSensitiveLog = (obj: UnregisterConnectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectorProfileRequestFilterSensitiveLog = (obj: UpdateConnectorProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectorProfileResponseFilterSensitiveLog = (obj: UpdateConnectorProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFlowRequestFilterSensitiveLog = (obj: UpdateFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFlowResponseFilterSensitiveLog = (obj: UpdateFlowResponse): any => ({
+  ...obj,
+});

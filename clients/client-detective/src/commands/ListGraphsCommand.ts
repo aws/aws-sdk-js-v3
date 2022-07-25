@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { ListGraphsRequest, ListGraphsResponse } from "../models/models_0";
+import {
+  ListGraphsRequest,
+  ListGraphsRequestFilterSensitiveLog,
+  ListGraphsResponse,
+  ListGraphsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListGraphsCommand,
   serializeAws_restJson1ListGraphsCommand,
@@ -75,8 +80,8 @@ export class ListGraphsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGraphsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListGraphsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListGraphsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListGraphsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

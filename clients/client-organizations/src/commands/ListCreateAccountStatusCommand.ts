@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListCreateAccountStatusRequest, ListCreateAccountStatusResponse } from "../models/models_0";
+import {
+  ListCreateAccountStatusRequest,
+  ListCreateAccountStatusRequestFilterSensitiveLog,
+  ListCreateAccountStatusResponse,
+  ListCreateAccountStatusResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1ListCreateAccountStatusCommand,
@@ -83,8 +88,8 @@ export class ListCreateAccountStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCreateAccountStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListCreateAccountStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCreateAccountStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListCreateAccountStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListStreamsRequest, ListStreamsResponse } from "../models/models_1";
+import {
+  ListStreamsRequest,
+  ListStreamsRequestFilterSensitiveLog,
+  ListStreamsResponse,
+  ListStreamsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListStreamsCommand,
   serializeAws_restJson1ListStreamsCommand,
@@ -73,8 +78,8 @@ export class ListStreamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStreamsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListStreamsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListStreamsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListStreamsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { ListWebhooksInput, ListWebhooksOutput } from "../models/models_0";
+import {
+  ListWebhooksInput,
+  ListWebhooksInputFilterSensitiveLog,
+  ListWebhooksOutput,
+  ListWebhooksOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListWebhooksCommand,
   serializeAws_json1_1ListWebhooksCommand,
@@ -74,8 +79,8 @@ export class ListWebhooksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWebhooksInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListWebhooksOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListWebhooksInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListWebhooksOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

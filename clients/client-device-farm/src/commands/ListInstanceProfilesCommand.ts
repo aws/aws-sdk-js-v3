@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { ListInstanceProfilesRequest, ListInstanceProfilesResult } from "../models/models_0";
+import {
+  ListInstanceProfilesRequest,
+  ListInstanceProfilesRequestFilterSensitiveLog,
+  ListInstanceProfilesResult,
+  ListInstanceProfilesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListInstanceProfilesCommand,
   serializeAws_json1_1ListInstanceProfilesCommand,
@@ -72,8 +77,8 @@ export class ListInstanceProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInstanceProfilesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListInstanceProfilesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListInstanceProfilesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListInstanceProfilesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

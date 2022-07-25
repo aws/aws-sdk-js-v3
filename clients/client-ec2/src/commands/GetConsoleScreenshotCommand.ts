@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetConsoleScreenshotRequest, GetConsoleScreenshotResult } from "../models/models_5";
+import {
+  GetConsoleScreenshotRequest,
+  GetConsoleScreenshotRequestFilterSensitiveLog,
+  GetConsoleScreenshotResult,
+  GetConsoleScreenshotResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2GetConsoleScreenshotCommand,
   serializeAws_ec2GetConsoleScreenshotCommand,
@@ -74,8 +79,8 @@ export class GetConsoleScreenshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConsoleScreenshotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetConsoleScreenshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetConsoleScreenshotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetConsoleScreenshotResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

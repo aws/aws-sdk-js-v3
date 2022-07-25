@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetDataflowGraphRequest, GetDataflowGraphResponse } from "../models/models_1";
+import {
+  GetDataflowGraphRequest,
+  GetDataflowGraphRequestFilterSensitiveLog,
+  GetDataflowGraphResponse,
+  GetDataflowGraphResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetDataflowGraphCommand,
   serializeAws_json1_1GetDataflowGraphCommand,
@@ -72,8 +77,8 @@ export class GetDataflowGraphCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataflowGraphRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDataflowGraphResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDataflowGraphRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDataflowGraphResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

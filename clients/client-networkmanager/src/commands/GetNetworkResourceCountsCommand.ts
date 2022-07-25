@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetNetworkResourceCountsRequest, GetNetworkResourceCountsResponse } from "../models/models_0";
+import {
+  GetNetworkResourceCountsRequest,
+  GetNetworkResourceCountsRequestFilterSensitiveLog,
+  GetNetworkResourceCountsResponse,
+  GetNetworkResourceCountsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1GetNetworkResourceCountsCommand,
@@ -72,8 +77,8 @@ export class GetNetworkResourceCountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkResourceCountsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetNetworkResourceCountsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetNetworkResourceCountsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetNetworkResourceCountsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DescribeIndexRequest, DescribeIndexResponse } from "../models/models_0";
+import {
+  DescribeIndexRequest,
+  DescribeIndexRequestFilterSensitiveLog,
+  DescribeIndexResponse,
+  DescribeIndexResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeIndexCommand,
   serializeAws_json1_1DescribeIndexCommand,
@@ -72,8 +77,8 @@ export class DescribeIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIndexRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIndexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeIndexRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeIndexResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CancelResizeMessage, ResizeProgressMessage } from "../models/models_0";
+import {
+  CancelResizeMessage,
+  CancelResizeMessageFilterSensitiveLog,
+  ResizeProgressMessage,
+  ResizeProgressMessageFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryCancelResizeCommand, serializeAws_queryCancelResizeCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -69,8 +74,8 @@ export class CancelResizeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelResizeMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ResizeProgressMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelResizeMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ResizeProgressMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

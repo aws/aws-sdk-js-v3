@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeclineInvitationsRequest, DeclineInvitationsResponse } from "../models/models_1";
+import {
+  DeclineInvitationsRequest,
+  DeclineInvitationsRequestFilterSensitiveLog,
+  DeclineInvitationsResponse,
+  DeclineInvitationsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DeclineInvitationsCommand,
   serializeAws_restJson1DeclineInvitationsCommand,
@@ -74,8 +79,8 @@ export class DeclineInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeclineInvitationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeclineInvitationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeclineInvitationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeclineInvitationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

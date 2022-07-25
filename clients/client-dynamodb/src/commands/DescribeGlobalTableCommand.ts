@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { DescribeGlobalTableInput, DescribeGlobalTableOutput } from "../models/models_0";
+import {
+  DescribeGlobalTableInput,
+  DescribeGlobalTableInputFilterSensitiveLog,
+  DescribeGlobalTableOutput,
+  DescribeGlobalTableOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeGlobalTableCommand,
   serializeAws_json1_0DescribeGlobalTableCommand,
@@ -77,8 +82,8 @@ export class DescribeGlobalTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGlobalTableInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGlobalTableOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeGlobalTableInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeGlobalTableOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

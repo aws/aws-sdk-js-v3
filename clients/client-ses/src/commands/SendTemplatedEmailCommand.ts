@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SendTemplatedEmailRequest, SendTemplatedEmailResponse } from "../models/models_0";
+import {
+  SendTemplatedEmailRequest,
+  SendTemplatedEmailRequestFilterSensitiveLog,
+  SendTemplatedEmailResponse,
+  SendTemplatedEmailResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_querySendTemplatedEmailCommand,
   serializeAws_querySendTemplatedEmailCommand,
@@ -121,8 +126,8 @@ export class SendTemplatedEmailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendTemplatedEmailRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendTemplatedEmailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SendTemplatedEmailRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SendTemplatedEmailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

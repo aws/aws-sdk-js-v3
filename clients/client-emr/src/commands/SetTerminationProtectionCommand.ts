@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { SetTerminationProtectionInput } from "../models/models_0";
+import { SetTerminationProtectionInput, SetTerminationProtectionInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1SetTerminationProtectionCommand,
   serializeAws_json1_1SetTerminationProtectionCommand,
@@ -86,7 +86,7 @@ export class SetTerminationProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetTerminationProtectionInput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetTerminationProtectionInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

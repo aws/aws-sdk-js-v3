@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { CreateModelRequest, CreateModelResult } from "../models/models_0";
+import {
+  CreateModelRequest,
+  CreateModelRequestFilterSensitiveLog,
+  CreateModelResult,
+  CreateModelResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateModelCommand,
   serializeAws_json1_1CreateModelCommand,
@@ -72,8 +77,8 @@ export class CreateModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateModelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateModelResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateModelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateModelResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

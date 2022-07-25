@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { GetCommitInput, GetCommitOutput } from "../models/models_0";
+import {
+  GetCommitInput,
+  GetCommitInputFilterSensitiveLog,
+  GetCommitOutput,
+  GetCommitOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1GetCommitCommand, serializeAws_json1_1GetCommitCommand } from "../protocols/Aws_json1_1";
 
 export interface GetCommitCommandInput extends GetCommitInput {}
@@ -69,8 +74,8 @@ export class GetCommitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCommitInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCommitOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCommitInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCommitOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteSpotDatafeedSubscriptionRequest } from "../models/models_2";
+import {
+  DeleteSpotDatafeedSubscriptionRequest,
+  DeleteSpotDatafeedSubscriptionRequestFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_ec2DeleteSpotDatafeedSubscriptionCommand,
   serializeAws_ec2DeleteSpotDatafeedSubscriptionCommand,
@@ -72,7 +75,7 @@ export class DeleteSpotDatafeedSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSpotDatafeedSubscriptionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSpotDatafeedSubscriptionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

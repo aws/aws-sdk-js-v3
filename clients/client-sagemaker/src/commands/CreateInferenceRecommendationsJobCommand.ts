@@ -14,7 +14,9 @@ import {
 
 import {
   CreateInferenceRecommendationsJobRequest,
+  CreateInferenceRecommendationsJobRequestFilterSensitiveLog,
   CreateInferenceRecommendationsJobResponse,
+  CreateInferenceRecommendationsJobResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateInferenceRecommendationsJobCommand,
@@ -78,8 +80,8 @@ export class CreateInferenceRecommendationsJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInferenceRecommendationsJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateInferenceRecommendationsJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateInferenceRecommendationsJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateInferenceRecommendationsJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

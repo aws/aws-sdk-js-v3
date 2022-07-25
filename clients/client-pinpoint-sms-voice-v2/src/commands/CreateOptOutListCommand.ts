@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateOptOutListRequest, CreateOptOutListResult } from "../models/models_0";
+import {
+  CreateOptOutListRequest,
+  CreateOptOutListRequestFilterSensitiveLog,
+  CreateOptOutListResult,
+  CreateOptOutListResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -84,8 +89,8 @@ export class CreateOptOutListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOptOutListRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateOptOutListResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateOptOutListRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateOptOutListResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ImportInstanceRequest, ImportInstanceResult } from "../models/models_5";
+import {
+  ImportInstanceRequest,
+  ImportInstanceRequestFilterSensitiveLog,
+  ImportInstanceResult,
+  ImportInstanceResultFilterSensitiveLog,
+} from "../models/models_5";
 import { deserializeAws_ec2ImportInstanceCommand, serializeAws_ec2ImportInstanceCommand } from "../protocols/Aws_ec2";
 
 export interface ImportInstanceCommandInput extends ImportInstanceRequest {}
@@ -75,8 +80,8 @@ export class ImportInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportInstanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ImportInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportInstanceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ImportInstanceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

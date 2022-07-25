@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { GetPolicyRequest, GetPolicyResponse } from "../models/models_0";
+import {
+  GetPolicyRequest,
+  GetPolicyRequestFilterSensitiveLog,
+  GetPolicyResponse,
+  GetPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1GetPolicyCommand, serializeAws_json1_1GetPolicyCommand } from "../protocols/Aws_json1_1";
 
 export interface GetPolicyCommandInput extends GetPolicyRequest {}
@@ -65,8 +70,8 @@ export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

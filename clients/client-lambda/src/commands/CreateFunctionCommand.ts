@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { CreateFunctionRequest, FunctionConfiguration } from "../models/models_0";
+import {
+  CreateFunctionRequest,
+  CreateFunctionRequestFilterSensitiveLog,
+  FunctionConfiguration,
+  FunctionConfigurationFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateFunctionCommand,
   serializeAws_restJson1CreateFunctionCommand,
@@ -118,8 +123,8 @@ export class CreateFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFunctionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: FunctionConfiguration.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateFunctionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: FunctionConfigurationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

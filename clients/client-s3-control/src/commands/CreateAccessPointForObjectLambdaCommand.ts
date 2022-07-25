@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateAccessPointForObjectLambdaRequest, CreateAccessPointForObjectLambdaResult } from "../models/models_0";
+import {
+  CreateAccessPointForObjectLambdaRequest,
+  CreateAccessPointForObjectLambdaRequestFilterSensitiveLog,
+  CreateAccessPointForObjectLambdaResult,
+  CreateAccessPointForObjectLambdaResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlCreateAccessPointForObjectLambdaCommand,
   serializeAws_restXmlCreateAccessPointForObjectLambdaCommand,
@@ -96,8 +101,8 @@ export class CreateAccessPointForObjectLambdaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccessPointForObjectLambdaRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateAccessPointForObjectLambdaResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAccessPointForObjectLambdaRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateAccessPointForObjectLambdaResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

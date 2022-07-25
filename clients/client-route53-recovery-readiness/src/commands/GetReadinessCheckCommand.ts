@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetReadinessCheckRequest, GetReadinessCheckResponse } from "../models/models_0";
+import {
+  GetReadinessCheckRequest,
+  GetReadinessCheckRequestFilterSensitiveLog,
+  GetReadinessCheckResponse,
+  GetReadinessCheckResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetReadinessCheckCommand,
   serializeAws_restJson1GetReadinessCheckCommand,
@@ -76,8 +81,8 @@ export class GetReadinessCheckCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReadinessCheckRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetReadinessCheckResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetReadinessCheckRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetReadinessCheckResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

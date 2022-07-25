@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetDedicatedIpsRequest, GetDedicatedIpsResponse } from "../models/models_0";
+import {
+  GetDedicatedIpsRequest,
+  GetDedicatedIpsRequestFilterSensitiveLog,
+  GetDedicatedIpsResponse,
+  GetDedicatedIpsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
   deserializeAws_restJson1GetDedicatedIpsCommand,
@@ -73,8 +78,8 @@ export class GetDedicatedIpsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDedicatedIpsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDedicatedIpsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDedicatedIpsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDedicatedIpsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

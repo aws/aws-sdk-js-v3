@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeInstanceTypeLimitsRequest, DescribeInstanceTypeLimitsResponse } from "../models/models_0";
+import {
+  DescribeInstanceTypeLimitsRequest,
+  DescribeInstanceTypeLimitsRequestFilterSensitiveLog,
+  DescribeInstanceTypeLimitsResponse,
+  DescribeInstanceTypeLimitsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1DescribeInstanceTypeLimitsCommand,
@@ -79,8 +84,8 @@ export class DescribeInstanceTypeLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceTypeLimitsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceTypeLimitsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInstanceTypeLimitsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInstanceTypeLimitsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

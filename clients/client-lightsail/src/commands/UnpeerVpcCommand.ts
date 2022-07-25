@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { UnpeerVpcRequest, UnpeerVpcResult } from "../models/models_1";
+import {
+  UnpeerVpcRequest,
+  UnpeerVpcRequestFilterSensitiveLog,
+  UnpeerVpcResult,
+  UnpeerVpcResultFilterSensitiveLog,
+} from "../models/models_1";
 import { deserializeAws_json1_1UnpeerVpcCommand, serializeAws_json1_1UnpeerVpcCommand } from "../protocols/Aws_json1_1";
 
 export interface UnpeerVpcCommandInput extends UnpeerVpcRequest {}
@@ -69,8 +74,8 @@ export class UnpeerVpcCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnpeerVpcRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UnpeerVpcResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UnpeerVpcRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UnpeerVpcResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

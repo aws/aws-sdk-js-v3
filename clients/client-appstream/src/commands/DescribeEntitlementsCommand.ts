@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DescribeEntitlementsRequest, DescribeEntitlementsResult } from "../models/models_0";
+import {
+  DescribeEntitlementsRequest,
+  DescribeEntitlementsRequestFilterSensitiveLog,
+  DescribeEntitlementsResult,
+  DescribeEntitlementsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEntitlementsCommand,
   serializeAws_json1_1DescribeEntitlementsCommand,
@@ -72,8 +77,8 @@ export class DescribeEntitlementsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEntitlementsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEntitlementsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEntitlementsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEntitlementsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

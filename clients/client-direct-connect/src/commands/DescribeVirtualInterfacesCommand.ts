@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { DescribeVirtualInterfacesRequest, VirtualInterfaces } from "../models/models_0";
+import {
+  DescribeVirtualInterfacesRequest,
+  DescribeVirtualInterfacesRequestFilterSensitiveLog,
+  VirtualInterfaces,
+  VirtualInterfacesFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeVirtualInterfacesCommand,
   serializeAws_json1_1DescribeVirtualInterfacesCommand,
@@ -76,8 +81,8 @@ export class DescribeVirtualInterfacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVirtualInterfacesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: VirtualInterfaces.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVirtualInterfacesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: VirtualInterfacesFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

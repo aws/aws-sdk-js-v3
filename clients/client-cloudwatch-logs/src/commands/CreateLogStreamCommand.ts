@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { CreateLogStreamRequest } from "../models/models_0";
+import { CreateLogStreamRequest, CreateLogStreamRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLogStreamCommand,
   serializeAws_json1_1CreateLogStreamCommand,
@@ -88,7 +88,7 @@ export class CreateLogStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLogStreamRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLogStreamRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

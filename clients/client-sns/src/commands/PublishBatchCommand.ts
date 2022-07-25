@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PublishBatchInput, PublishBatchResponse } from "../models/models_0";
+import {
+  PublishBatchInput,
+  PublishBatchInputFilterSensitiveLog,
+  PublishBatchResponse,
+  PublishBatchResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryPublishBatchCommand, serializeAws_queryPublishBatchCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
@@ -78,8 +83,8 @@ export class PublishBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishBatchInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PublishBatchResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PublishBatchInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PublishBatchResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

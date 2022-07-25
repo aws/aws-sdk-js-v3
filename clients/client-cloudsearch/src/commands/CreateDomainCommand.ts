@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { CreateDomainRequest, CreateDomainResponse } from "../models/models_0";
+import {
+  CreateDomainRequest,
+  CreateDomainRequestFilterSensitiveLog,
+  CreateDomainResponse,
+  CreateDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryCreateDomainCommand, serializeAws_queryCreateDomainCommand } from "../protocols/Aws_query";
 
 export interface CreateDomainCommandInput extends CreateDomainRequest {}
@@ -70,8 +75,8 @@ export class CreateDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

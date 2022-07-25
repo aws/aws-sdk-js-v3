@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { DeleteFunctionUrlConfigRequest } from "../models/models_0";
+import { DeleteFunctionUrlConfigRequest, DeleteFunctionUrlConfigRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFunctionUrlConfigCommand,
   serializeAws_restJson1DeleteFunctionUrlConfigCommand,
@@ -73,7 +73,7 @@ export class DeleteFunctionUrlConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFunctionUrlConfigRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFunctionUrlConfigRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

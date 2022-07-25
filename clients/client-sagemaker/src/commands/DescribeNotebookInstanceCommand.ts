@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeNotebookInstanceInput, DescribeNotebookInstanceOutput } from "../models/models_2";
+import {
+  DescribeNotebookInstanceInput,
+  DescribeNotebookInstanceInputFilterSensitiveLog,
+  DescribeNotebookInstanceOutput,
+  DescribeNotebookInstanceOutputFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeNotebookInstanceCommand,
   serializeAws_json1_1DescribeNotebookInstanceCommand,
@@ -72,8 +77,8 @@ export class DescribeNotebookInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNotebookInstanceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNotebookInstanceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeNotebookInstanceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNotebookInstanceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

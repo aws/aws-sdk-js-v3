@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeletePortfolioInput, DeletePortfolioOutput } from "../models/models_0";
+import {
+  DeletePortfolioInput,
+  DeletePortfolioInputFilterSensitiveLog,
+  DeletePortfolioOutput,
+  DeletePortfolioOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePortfolioCommand,
   serializeAws_json1_1DeletePortfolioCommand,
@@ -75,8 +80,8 @@ export class DeletePortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePortfolioInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePortfolioOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePortfolioInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePortfolioOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import { PutChannelMembershipPreferencesRequest, PutChannelMembershipPreferencesResponse } from "../models/models_0";
+import {
+  PutChannelMembershipPreferencesRequest,
+  PutChannelMembershipPreferencesRequestFilterSensitiveLog,
+  PutChannelMembershipPreferencesResponse,
+  PutChannelMembershipPreferencesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutChannelMembershipPreferencesCommand,
   serializeAws_restJson1PutChannelMembershipPreferencesCommand,
@@ -80,8 +85,8 @@ export class PutChannelMembershipPreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutChannelMembershipPreferencesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutChannelMembershipPreferencesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutChannelMembershipPreferencesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutChannelMembershipPreferencesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

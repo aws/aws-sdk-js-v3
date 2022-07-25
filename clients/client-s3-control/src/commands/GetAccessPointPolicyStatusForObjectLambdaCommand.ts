@@ -15,7 +15,9 @@ import {
 
 import {
   GetAccessPointPolicyStatusForObjectLambdaRequest,
+  GetAccessPointPolicyStatusForObjectLambdaRequestFilterSensitiveLog,
   GetAccessPointPolicyStatusForObjectLambdaResult,
+  GetAccessPointPolicyStatusForObjectLambdaResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaCommand,
@@ -83,8 +85,8 @@ export class GetAccessPointPolicyStatusForObjectLambdaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessPointPolicyStatusForObjectLambdaRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessPointPolicyStatusForObjectLambdaResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAccessPointPolicyStatusForObjectLambdaRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAccessPointPolicyStatusForObjectLambdaResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

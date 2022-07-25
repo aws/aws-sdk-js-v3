@@ -354,15 +354,6 @@ export interface HlsGroupSettings {
   TsFileMode?: HlsTsFileMode | string;
 }
 
-export namespace HlsGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsGroupSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Media Package Group Settings
  */
@@ -371,15 +362,6 @@ export interface MediaPackageGroupSettings {
    * MediaPackage channel destination.
    */
   Destination: OutputLocationRef | undefined;
-}
-
-export namespace MediaPackageGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaPackageGroupSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum SmoothGroupAudioOnlyTimecodeControl {
@@ -541,28 +523,10 @@ export interface MsSmoothGroupSettings {
   TimestampOffsetMode?: SmoothGroupTimestampOffsetMode | string;
 }
 
-export namespace MsSmoothGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MsSmoothGroupSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Multiplex Group Settings
  */
 export interface MultiplexGroupSettings {}
-
-export namespace MultiplexGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiplexGroupSettings): any => ({
-    ...obj,
-  });
-}
 
 export enum RtmpAdMarkers {
   ON_CUE_POINT_SCTE35 = "ON_CUE_POINT_SCTE35",
@@ -632,15 +596,6 @@ export interface RtmpGroupSettings {
   RestartDelay?: number;
 }
 
-export namespace RtmpGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RtmpGroupSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum InputLossActionForUdpOut {
   DROP_PROGRAM = "DROP_PROGRAM",
   DROP_TS = "DROP_TS",
@@ -671,15 +626,6 @@ export interface UdpGroupSettings {
    * Timed Metadata interval in seconds.
    */
   TimedMetadataId3Period?: number;
-}
-
-export namespace UdpGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UdpGroupSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -727,15 +673,6 @@ export interface OutputGroupSettings {
   UdpGroupSettings?: UdpGroupSettings;
 }
 
-export namespace OutputGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputGroupSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Output groups for this Live Event. Output groups contain information about where streams should be distributed.
  */
@@ -754,15 +691,6 @@ export interface OutputGroup {
    * Placeholder documentation for __listOfOutput
    */
   Outputs: Output[] | undefined;
-}
-
-export namespace OutputGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -795,15 +723,6 @@ export interface PipelineDetail {
   PipelineId?: string;
 }
 
-export namespace PipelineDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineDetail): any => ({
-    ...obj,
-  });
-}
-
 export enum PipelineId {
   PIPELINE_0 = "PIPELINE_0",
   PIPELINE_1 = "PIPELINE_1",
@@ -817,15 +736,6 @@ export interface PipelinePauseStateSettings {
    * Pipeline ID to pause ("PIPELINE_0" or "PIPELINE_1").
    */
   PipelineId: PipelineId | string | undefined;
-}
-
-export namespace PipelinePauseStateSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelinePauseStateSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum ReservationAutomaticRenewal {
@@ -847,15 +757,6 @@ export interface RenewalSettings {
    * Count for the reservation renewal
    */
   RenewalCount?: number;
-}
-
-export namespace RenewalSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RenewalSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum ReservationState {
@@ -965,15 +866,6 @@ export interface Reservation {
   UsagePrice?: number;
 }
 
-export namespace Reservation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Reservation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings for the action to insert a user-defined ID3 tag in each HLS segment
  */
@@ -984,15 +876,6 @@ export interface HlsId3SegmentTaggingScheduleActionSettings {
   Tag: string | undefined;
 }
 
-export namespace HlsId3SegmentTaggingScheduleActionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsId3SegmentTaggingScheduleActionSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings for the action to emit HLS metadata
  */
@@ -1001,15 +884,6 @@ export interface HlsTimedMetadataScheduleActionSettings {
    * Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
    */
   Id3: string | undefined;
-}
-
-export namespace HlsTimedMetadataScheduleActionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsTimedMetadataScheduleActionSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum InputTimecodeSource {
@@ -1025,15 +899,6 @@ export interface StartTimecode {
    * The timecode for the frame where you want to start the clip. Optional; if not specified, the clip starts at first frame in the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
    */
   Timecode?: string;
-}
-
-export namespace StartTimecode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTimecode): any => ({
-    ...obj,
-  });
 }
 
 export enum LastFrameClippingBehavior {
@@ -1056,15 +921,6 @@ export interface StopTimecode {
   Timecode?: string;
 }
 
-export namespace StopTimecode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopTimecode): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
  */
@@ -1083,15 +939,6 @@ export interface InputClippingSettings {
    * Settings to identify the end of the clip.
    */
   StopTimecode?: StopTimecode;
-}
-
-export namespace InputClippingSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputClippingSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1114,15 +961,6 @@ export interface InputPrepareScheduleActionSettings {
   UrlPath?: string[];
 }
 
-export namespace InputPrepareScheduleActionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputPrepareScheduleActionSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings for the "switch input" action: to switch from ingesting one input to ingesting another input.
  */
@@ -1141,15 +979,6 @@ export interface InputSwitchScheduleActionSettings {
    * The value for the variable portion of the URL for the dynamic input, for this instance of the input. Each time you use the same dynamic input in an input switch action, you can provide a different value, in order to connect the input to a different content source.
    */
   UrlPath?: string[];
-}
-
-export namespace InputSwitchScheduleActionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputSwitchScheduleActionSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1177,28 +1006,10 @@ export interface MotionGraphicsActivateScheduleActionSettings {
   Username?: string;
 }
 
-export namespace MotionGraphicsActivateScheduleActionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MotionGraphicsActivateScheduleActionSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings to specify the ending of rendering motion graphics into the video stream.
  */
 export interface MotionGraphicsDeactivateScheduleActionSettings {}
-
-export namespace MotionGraphicsDeactivateScheduleActionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MotionGraphicsDeactivateScheduleActionSettings): any => ({
-    ...obj,
-  });
-}
 
 /**
  * Settings for the action to set pause state of a channel.
@@ -1210,15 +1021,6 @@ export interface PauseStateScheduleActionSettings {
   Pipelines?: PipelinePauseStateSettings[];
 }
 
-export namespace PauseStateScheduleActionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PauseStateScheduleActionSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings for a SCTE-35 return_to_network message.
  */
@@ -1227,15 +1029,6 @@ export interface Scte35ReturnToNetworkScheduleActionSettings {
    * The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
    */
   SpliceEventId: number | undefined;
-}
-
-export namespace Scte35ReturnToNetworkScheduleActionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scte35ReturnToNetworkScheduleActionSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1251,15 +1044,6 @@ export interface Scte35SpliceInsertScheduleActionSettings {
    * The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
    */
   SpliceEventId: number | undefined;
-}
-
-export namespace Scte35SpliceInsertScheduleActionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scte35SpliceInsertScheduleActionSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum Scte35ArchiveAllowedFlag {
@@ -1307,15 +1091,6 @@ export interface Scte35DeliveryRestrictions {
    * Corresponds to SCTE-35 web_delivery_allowed_flag parameter.
    */
   WebDeliveryAllowedFlag: Scte35WebDeliveryAllowedFlag | string | undefined;
-}
-
-export namespace Scte35DeliveryRestrictions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scte35DeliveryRestrictions): any => ({
-    ...obj,
-  });
 }
 
 export enum Scte35SegmentationCancelIndicator {
@@ -1383,15 +1158,6 @@ export interface Scte35SegmentationDescriptor {
   SubSegmentsExpected?: number;
 }
 
-export namespace Scte35SegmentationDescriptor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scte35SegmentationDescriptor): any => ({
-    ...obj,
-  });
-}
-
 /**
  * SCTE-35 Descriptor settings.
  */
@@ -1400,15 +1166,6 @@ export interface Scte35DescriptorSettings {
    * SCTE-35 Segmentation Descriptor.
    */
   SegmentationDescriptorScte35DescriptorSettings: Scte35SegmentationDescriptor | undefined;
-}
-
-export namespace Scte35DescriptorSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scte35DescriptorSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1421,15 +1178,6 @@ export interface Scte35Descriptor {
   Scte35DescriptorSettings: Scte35DescriptorSettings | undefined;
 }
 
-export namespace Scte35Descriptor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scte35Descriptor): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings for a SCTE-35 time_signal.
  */
@@ -1438,15 +1186,6 @@ export interface Scte35TimeSignalScheduleActionSettings {
    * The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
    */
   Scte35Descriptors: Scte35Descriptor[] | undefined;
-}
-
-export namespace Scte35TimeSignalScheduleActionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scte35TimeSignalScheduleActionSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1504,15 +1243,6 @@ export interface StaticImageActivateScheduleActionSettings {
   Width?: number;
 }
 
-export namespace StaticImageActivateScheduleActionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StaticImageActivateScheduleActionSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings for the action to deactivate the image in a specific layer.
  */
@@ -1526,15 +1256,6 @@ export interface StaticImageDeactivateScheduleActionSettings {
    * The image overlay layer to deactivate, 0 to 7. Default is 0.
    */
   Layer?: number;
-}
-
-export namespace StaticImageDeactivateScheduleActionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StaticImageDeactivateScheduleActionSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1602,15 +1323,6 @@ export interface ScheduleActionSettings {
   StaticImageDeactivateSettings?: StaticImageDeactivateScheduleActionSettings;
 }
 
-export namespace ScheduleActionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleActionSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Start time for the action.
  */
@@ -1619,15 +1331,6 @@ export interface FixedModeScheduleActionStartSettings {
    * Start time for the action to start in the channel. (Not the time for the action to be added to the schedule: actions are always added to the schedule immediately.) UTC format: yyyy-mm-ddThh:mm:ss.nnnZ. All the letters are digits (for example, mm might be 01) except for the two constants "T" for time and "Z" for "UTC format".
    */
   Time: string | undefined;
-}
-
-export namespace FixedModeScheduleActionStartSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FixedModeScheduleActionStartSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum FollowPoint {
@@ -1650,28 +1353,10 @@ export interface FollowModeScheduleActionStartSettings {
   ReferenceActionName: string | undefined;
 }
 
-export namespace FollowModeScheduleActionStartSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FollowModeScheduleActionStartSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings to configure an action so that it occurs as soon as possible.
  */
 export interface ImmediateModeScheduleActionStartSettings {}
-
-export namespace ImmediateModeScheduleActionStartSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImmediateModeScheduleActionStartSettings): any => ({
-    ...obj,
-  });
-}
 
 /**
  * Settings to specify when an action should occur. Only one of the options must be selected.
@@ -1693,15 +1378,6 @@ export interface ScheduleActionStartSettings {
   ImmediateModeScheduleActionStartSettings?: ImmediateModeScheduleActionStartSettings;
 }
 
-export namespace ScheduleActionStartSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleActionStartSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Contains information on a single schedule action.
  */
@@ -1720,15 +1396,6 @@ export interface ScheduleAction {
    * The time for the action to start in the channel.
    */
   ScheduleActionStartSettings: ScheduleActionStartSettings | undefined;
-}
-
-export namespace ScheduleAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleAction): any => ({
-    ...obj,
-  });
 }
 
 export enum InputDeviceTransferType {
@@ -1761,15 +1428,6 @@ export interface TransferringInputDeviceSummary {
   TransferType?: InputDeviceTransferType | string;
 }
 
-export namespace TransferringInputDeviceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransferringInputDeviceSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for ValidationError
  */
@@ -1783,15 +1441,6 @@ export interface ValidationError {
    * The error message.
    */
   ErrorMessage?: string;
-}
-
-export namespace ValidationError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationError): any => ({
-    ...obj,
-  });
 }
 
 export enum FrameCaptureIntervalUnit {
@@ -1812,15 +1461,6 @@ export interface FrameCaptureSettings {
    * Unit for the frame capture interval.
    */
   CaptureIntervalUnits?: FrameCaptureIntervalUnit | string;
-}
-
-export namespace FrameCaptureSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FrameCaptureSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum H264AdaptiveQuantization {
@@ -1849,42 +1489,15 @@ export enum H264ColorMetadata {
  */
 export interface ColorSpacePassthroughSettings {}
 
-export namespace ColorSpacePassthroughSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColorSpacePassthroughSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Rec601 Settings
  */
 export interface Rec601Settings {}
 
-export namespace Rec601Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Rec601Settings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Rec709 Settings
  */
 export interface Rec709Settings {}
-
-export namespace Rec709Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Rec709Settings): any => ({
-    ...obj,
-  });
-}
 
 /**
  * H264 Color Space Settings
@@ -1904,15 +1517,6 @@ export interface H264ColorSpaceSettings {
    * Rec709 Settings
    */
   Rec709Settings?: Rec709Settings;
-}
-
-export namespace H264ColorSpaceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: H264ColorSpaceSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum H264EntropyEncoding {
@@ -1963,15 +1567,6 @@ export interface TemporalFilterSettings {
   Strength?: TemporalFilterStrength | string;
 }
 
-export namespace TemporalFilterSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemporalFilterSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * H264 Filter Settings
  */
@@ -1980,15 +1575,6 @@ export interface H264FilterSettings {
    * Temporal Filter Settings
    */
   TemporalFilterSettings?: TemporalFilterSettings;
-}
-
-export namespace H264FilterSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: H264FilterSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum FixedAfd {
@@ -2358,15 +1944,6 @@ export interface H264Settings {
   TimecodeInsertion?: H264TimecodeInsertionBehavior | string;
 }
 
-export namespace H264Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: H264Settings): any => ({
-    ...obj,
-  });
-}
-
 export enum H265AdaptiveQuantization {
   AUTO = "AUTO",
   HIGH = "HIGH",
@@ -2412,15 +1989,6 @@ export interface H265ColorSpaceSettings {
   Rec709Settings?: Rec709Settings;
 }
 
-export namespace H265ColorSpaceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: H265ColorSpaceSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * H265 Filter Settings
  */
@@ -2429,15 +1997,6 @@ export interface H265FilterSettings {
    * Temporal Filter Settings
    */
   TemporalFilterSettings?: TemporalFilterSettings;
-}
-
-export namespace H265FilterSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: H265FilterSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum H265FlickerAq {
@@ -2672,15 +2231,6 @@ export interface H265Settings {
   TimecodeInsertion?: H265TimecodeInsertionBehavior | string;
 }
 
-export namespace H265Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: H265Settings): any => ({
-    ...obj,
-  });
-}
-
 export enum Mpeg2AdaptiveQuantization {
   AUTO = "AUTO",
   HIGH = "HIGH",
@@ -2712,15 +2262,6 @@ export interface Mpeg2FilterSettings {
    * Temporal Filter Settings
    */
   TemporalFilterSettings?: TemporalFilterSettings;
-}
-
-export namespace Mpeg2FilterSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Mpeg2FilterSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum Mpeg2GopSizeUnits {
@@ -2841,15 +2382,6 @@ export interface Mpeg2Settings {
   TimecodeInsertion?: Mpeg2TimecodeInsertionBehavior | string;
 }
 
-export namespace Mpeg2Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Mpeg2Settings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Video Codec Settings
  */
@@ -2873,15 +2405,6 @@ export interface VideoCodecSettings {
    * Mpeg2 Settings
    */
   Mpeg2Settings?: Mpeg2Settings;
-}
-
-export namespace VideoCodecSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoCodecSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum VideoDescriptionRespondToAfd {
@@ -2938,15 +2461,6 @@ export interface VideoDescription {
   Width?: number;
 }
 
-export namespace VideoDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoDescription): any => ({
-    ...obj,
-  });
-}
-
 export enum AcceptHeader {
   image_jpeg = "image/jpeg",
 }
@@ -2961,28 +2475,10 @@ export interface AcceptInputDeviceTransferRequest {
   InputDeviceId: string | undefined;
 }
 
-export namespace AcceptInputDeviceTransferRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptInputDeviceTransferRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for AcceptInputDeviceTransferResponse
  */
 export interface AcceptInputDeviceTransferResponse {}
-
-export namespace AcceptInputDeviceTransferResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptInputDeviceTransferResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * Placeholder documentation for BadGatewayException
@@ -3226,15 +2722,6 @@ export interface AvailBlanking {
   State?: AvailBlankingState | string;
 }
 
-export namespace AvailBlanking {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailBlanking): any => ({
-    ...obj,
-  });
-}
-
 export enum Scte35SpliceInsertNoRegionalBlackoutBehavior {
   FOLLOW = "FOLLOW",
   IGNORE = "IGNORE",
@@ -3263,15 +2750,6 @@ export interface Scte35SpliceInsert {
    * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
    */
   WebDeliveryAllowedFlag?: Scte35SpliceInsertWebDeliveryAllowedBehavior | string;
-}
-
-export namespace Scte35SpliceInsert {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scte35SpliceInsert): any => ({
-    ...obj,
-  });
 }
 
 export enum Scte35AposNoRegionalBlackoutBehavior {
@@ -3304,15 +2782,6 @@ export interface Scte35TimeSignalApos {
   WebDeliveryAllowedFlag?: Scte35AposWebDeliveryAllowedBehavior | string;
 }
 
-export namespace Scte35TimeSignalApos {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scte35TimeSignalApos): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Avail Settings
  */
@@ -3328,15 +2797,6 @@ export interface AvailSettings {
   Scte35TimeSignalApos?: Scte35TimeSignalApos;
 }
 
-export namespace AvailSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Avail Configuration
  */
@@ -3345,15 +2805,6 @@ export interface AvailConfiguration {
    * Ad avail settings.
    */
   AvailSettings?: AvailSettings;
-}
-
-export namespace AvailConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3381,15 +2832,6 @@ export interface BatchDeleteRequest {
   MultiplexIds?: string[];
 }
 
-export namespace BatchDeleteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for BatchDeleteResponse
  */
@@ -3405,15 +2847,6 @@ export interface BatchDeleteResponse {
   Successful?: BatchSuccessfulResultModel[];
 }
 
-export namespace BatchDeleteResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A list of schedule actions to create (in a request) or that have been created (in a response).
  */
@@ -3422,15 +2855,6 @@ export interface BatchScheduleActionCreateRequest {
    * A list of schedule actions to create.
    */
   ScheduleActions: ScheduleAction[] | undefined;
-}
-
-export namespace BatchScheduleActionCreateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchScheduleActionCreateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3443,15 +2867,6 @@ export interface BatchScheduleActionCreateResult {
   ScheduleActions: ScheduleAction[] | undefined;
 }
 
-export namespace BatchScheduleActionCreateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchScheduleActionCreateResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A list of schedule actions to delete.
  */
@@ -3462,15 +2877,6 @@ export interface BatchScheduleActionDeleteRequest {
   ActionNames: string[] | undefined;
 }
 
-export namespace BatchScheduleActionDeleteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchScheduleActionDeleteRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * List of actions that have been deleted from the schedule.
  */
@@ -3479,15 +2885,6 @@ export interface BatchScheduleActionDeleteResult {
    * List of actions that have been deleted from the schedule.
    */
   ScheduleActions: ScheduleAction[] | undefined;
-}
-
-export namespace BatchScheduleActionDeleteResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchScheduleActionDeleteResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3505,15 +2902,6 @@ export interface BatchStartRequest {
   MultiplexIds?: string[];
 }
 
-export namespace BatchStartRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchStartRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for BatchStartResponse
  */
@@ -3527,15 +2915,6 @@ export interface BatchStartResponse {
    * List of successful operations
    */
   Successful?: BatchSuccessfulResultModel[];
-}
-
-export namespace BatchStartResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchStartResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3553,15 +2932,6 @@ export interface BatchStopRequest {
   MultiplexIds?: string[];
 }
 
-export namespace BatchStopRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchStopRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for BatchStopResponse
  */
@@ -3575,15 +2945,6 @@ export interface BatchStopResponse {
    * List of successful operations
    */
   Successful?: BatchSuccessfulResultModel[];
-}
-
-export namespace BatchStopResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchStopResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3606,15 +2967,6 @@ export interface BatchUpdateScheduleRequest {
   Deletes?: BatchScheduleActionDeleteRequest;
 }
 
-export namespace BatchUpdateScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for BatchUpdateScheduleResponse
  */
@@ -3628,15 +2980,6 @@ export interface BatchUpdateScheduleResponse {
    * Schedule actions deleted from the schedule.
    */
   Deletes?: BatchScheduleActionDeleteResult;
-}
-
-export namespace BatchUpdateScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateScheduleResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum BlackoutSlateNetworkEndBlackout {
@@ -3679,15 +3022,6 @@ export interface BlackoutSlate {
   State?: BlackoutSlateState | string;
 }
 
-export namespace BlackoutSlate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlackoutSlate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for CancelInputDeviceTransferRequest
  */
@@ -3698,28 +3032,10 @@ export interface CancelInputDeviceTransferRequest {
   InputDeviceId: string | undefined;
 }
 
-export namespace CancelInputDeviceTransferRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelInputDeviceTransferRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for CancelInputDeviceTransferResponse
  */
 export interface CancelInputDeviceTransferResponse {}
-
-export namespace CancelInputDeviceTransferResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelInputDeviceTransferResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum FeatureActivationsInputPrepareScheduleActions {
   DISABLED = "DISABLED",
@@ -3735,15 +3051,6 @@ export interface FeatureActivations {
    * If you disable the feature on an existing schedule, make sure that you first delete all input prepare actions from the schedule.
    */
   InputPrepareScheduleActions?: FeatureActivationsInputPrepareScheduleActions | string;
-}
-
-export namespace FeatureActivations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FeatureActivations): any => ({
-    ...obj,
-  });
 }
 
 export enum GlobalConfigurationInputEndAction {
@@ -3784,15 +3091,6 @@ export interface InputLossBehavior {
    * Documentation update needed
    */
   RepeatFrameMsec?: number;
-}
-
-export namespace InputLossBehavior {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputLossBehavior): any => ({
-    ...obj,
-  });
 }
 
 export enum GlobalConfigurationOutputLockingMode {
@@ -3848,15 +3146,6 @@ export interface GlobalConfiguration {
   SupportLowFramerateInputs?: GlobalConfigurationLowFramerateInputs | string;
 }
 
-export namespace GlobalConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum MotionGraphicsInsertion {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -3867,15 +3156,6 @@ export enum MotionGraphicsInsertion {
  */
 export interface HtmlMotionGraphicsSettings {}
 
-export namespace HtmlMotionGraphicsSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HtmlMotionGraphicsSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Motion Graphics Settings
  */
@@ -3884,15 +3164,6 @@ export interface MotionGraphicsSettings {
    * Html Motion Graphics Settings
    */
   HtmlMotionGraphicsSettings?: HtmlMotionGraphicsSettings;
-}
-
-export namespace MotionGraphicsSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MotionGraphicsSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3908,15 +3179,6 @@ export interface MotionGraphicsConfiguration {
    * Motion Graphics Settings
    */
   MotionGraphicsSettings: MotionGraphicsSettings | undefined;
-}
-
-export namespace MotionGraphicsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MotionGraphicsConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum NielsenPcmToId3TaggingState {
@@ -3937,15 +3199,6 @@ export interface NielsenConfiguration {
    * Enables Nielsen PCM to ID3 tagging
    */
   NielsenPcmToId3Tagging?: NielsenPcmToId3TaggingState | string;
-}
-
-export namespace NielsenConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NielsenConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum TimecodeConfigSource {
@@ -3970,15 +3223,6 @@ export interface TimecodeConfig {
    * Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified.
    */
   SyncThreshold?: number;
-}
-
-export namespace TimecodeConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimecodeConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4044,15 +3288,6 @@ export interface EncoderSettings {
    * Placeholder documentation for __listOfVideoDescription
    */
   VideoDescriptions: VideoDescription[] | undefined;
-}
-
-export namespace EncoderSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncoderSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4152,15 +3387,6 @@ export interface Channel {
   Vpc?: VpcOutputSettingsDescription;
 }
 
-export namespace Channel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Channel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A request to claim an AWS Elemental device that you have purchased from a third-party vendor.
  */
@@ -4171,28 +3397,10 @@ export interface ClaimDeviceRequest {
   Id?: string;
 }
 
-export namespace ClaimDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClaimDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for ClaimDeviceResponse
  */
 export interface ClaimDeviceResponse {}
-
-export namespace ClaimDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClaimDeviceResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum ContentType {
   image_jpeg = "image/jpeg",
@@ -4211,15 +3419,6 @@ export interface MaintenanceCreateSettings {
    * Choose the hour that maintenance will start. The chosen time is used for all future maintenance windows.
    */
   MaintenanceStartTime?: string;
-}
-
-export namespace MaintenanceCreateSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaintenanceCreateSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4244,15 +3443,6 @@ export interface VpcOutputSettings {
    * If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
    */
   SubnetIds: string[] | undefined;
-}
-
-export namespace VpcOutputSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcOutputSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4333,15 +3523,6 @@ export interface CreateChannelRequest {
   Vpc?: VpcOutputSettings;
 }
 
-export namespace CreateChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for CreateChannelResponse
  */
@@ -4350,15 +3531,6 @@ export interface CreateChannelResponse {
    * Placeholder documentation for Channel
    */
   Channel?: Channel;
-}
-
-export namespace CreateChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4379,15 +3551,6 @@ export interface InputVpcRequest {
    * Subnet IDs must be mapped to two unique availability zones (AZ).
    */
   SubnetIds: string[] | undefined;
-}
-
-export namespace InputVpcRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputVpcRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4458,15 +3621,6 @@ export interface CreateInputRequest {
   Vpc?: InputVpcRequest;
 }
 
-export namespace CreateInputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInputRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for CreateInputResponse
  */
@@ -4475,15 +3629,6 @@ export interface CreateInputResponse {
    * Placeholder documentation for Input
    */
   Input?: Input;
-}
-
-export namespace CreateInputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInputResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4501,15 +3646,6 @@ export interface CreateInputSecurityGroupRequest {
   WhitelistRules?: InputWhitelistRuleCidr[];
 }
 
-export namespace CreateInputSecurityGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInputSecurityGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for CreateInputSecurityGroupResponse
  */
@@ -4518,15 +3654,6 @@ export interface CreateInputSecurityGroupResponse {
    * An Input Security Group
    */
   SecurityGroup?: InputSecurityGroup;
-}
-
-export namespace CreateInputSecurityGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInputSecurityGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4552,15 +3679,6 @@ export interface MultiplexSettings {
    * Transport stream reserved bit rate.
    */
   TransportStreamReservedBitrate?: number;
-}
-
-export namespace MultiplexSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiplexSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4592,15 +3710,6 @@ export interface CreateMultiplexRequest {
    * A collection of key-value pairs.
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateMultiplexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMultiplexRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4658,15 +3767,6 @@ export interface Multiplex {
   Tags?: Record<string, string>;
 }
 
-export namespace Multiplex {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Multiplex): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for CreateMultiplexResponse
  */
@@ -4675,15 +3775,6 @@ export interface CreateMultiplexResponse {
    * The newly created multiplex.
    */
   Multiplex?: Multiplex;
-}
-
-export namespace CreateMultiplexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMultiplexResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum PreferredChannelPipeline {
@@ -4707,15 +3798,6 @@ export interface MultiplexProgramServiceDescriptor {
   ServiceName: string | undefined;
 }
 
-export namespace MultiplexProgramServiceDescriptor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiplexProgramServiceDescriptor): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Statmux rate control settings
  */
@@ -4736,15 +3818,6 @@ export interface MultiplexStatmuxVideoSettings {
   Priority?: number;
 }
 
-export namespace MultiplexStatmuxVideoSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiplexStatmuxVideoSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The video configuration for each program in a multiplex.
  */
@@ -4760,15 +3833,6 @@ export interface MultiplexVideoSettings {
    * When this field is defined, ConstantBitrate must be undefined.
    */
   StatmuxSettings?: MultiplexStatmuxVideoSettings;
-}
-
-export namespace MultiplexVideoSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiplexVideoSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4796,15 +3860,6 @@ export interface MultiplexProgramSettings {
   VideoSettings?: MultiplexVideoSettings;
 }
 
-export namespace MultiplexProgramSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiplexProgramSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A request to create a program in a multiplex.
  */
@@ -4829,15 +3884,6 @@ export interface CreateMultiplexProgramRequest {
    * resources.
    */
   RequestId?: string;
-}
-
-export namespace CreateMultiplexProgramRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMultiplexProgramRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4910,15 +3956,6 @@ export interface MultiplexProgramPacketIdentifiersMap {
   VideoPid?: number;
 }
 
-export namespace MultiplexProgramPacketIdentifiersMap {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiplexProgramPacketIdentifiersMap): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The multiplex program object.
  */
@@ -4949,15 +3986,6 @@ export interface MultiplexProgram {
   ProgramName?: string;
 }
 
-export namespace MultiplexProgram {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiplexProgram): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for CreateMultiplexProgramResponse
  */
@@ -4966,15 +3994,6 @@ export interface CreateMultiplexProgramResponse {
    * The newly created multiplex program.
    */
   MultiplexProgram?: MultiplexProgram;
-}
-
-export namespace CreateMultiplexProgramResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMultiplexProgramResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4998,15 +4017,6 @@ export interface CreatePartnerInputRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreatePartnerInputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePartnerInputRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for CreatePartnerInputResponse
  */
@@ -5015,15 +4025,6 @@ export interface CreatePartnerInputResponse {
    * Placeholder documentation for Input
    */
   Input?: Input;
-}
-
-export namespace CreatePartnerInputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePartnerInputResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5041,15 +4042,6 @@ export interface CreateTagsRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DeleteChannelRequest
  */
@@ -5058,15 +4050,6 @@ export interface DeleteChannelRequest {
    * Unique ID of the channel.
    */
   ChannelId: string | undefined;
-}
-
-export namespace DeleteChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5166,15 +4149,6 @@ export interface DeleteChannelResponse {
   Vpc?: VpcOutputSettingsDescription;
 }
 
-export namespace DeleteChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChannelResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DeleteInputRequest
  */
@@ -5185,28 +4159,10 @@ export interface DeleteInputRequest {
   InputId: string | undefined;
 }
 
-export namespace DeleteInputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInputRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DeleteInputResponse
  */
 export interface DeleteInputResponse {}
-
-export namespace DeleteInputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInputResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * Placeholder documentation for DeleteInputSecurityGroupRequest
@@ -5218,28 +4174,10 @@ export interface DeleteInputSecurityGroupRequest {
   InputSecurityGroupId: string | undefined;
 }
 
-export namespace DeleteInputSecurityGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInputSecurityGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DeleteInputSecurityGroupResponse
  */
 export interface DeleteInputSecurityGroupResponse {}
-
-export namespace DeleteInputSecurityGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInputSecurityGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * Placeholder documentation for DeleteMultiplexRequest
@@ -5249,15 +4187,6 @@ export interface DeleteMultiplexRequest {
    * The ID of the multiplex.
    */
   MultiplexId: string | undefined;
-}
-
-export namespace DeleteMultiplexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMultiplexRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5315,15 +4244,6 @@ export interface DeleteMultiplexResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace DeleteMultiplexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMultiplexResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DeleteMultiplexProgramRequest
  */
@@ -5337,15 +4257,6 @@ export interface DeleteMultiplexProgramRequest {
    * The multiplex program name.
    */
   ProgramName: string | undefined;
-}
-
-export namespace DeleteMultiplexProgramRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMultiplexProgramRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5378,15 +4289,6 @@ export interface DeleteMultiplexProgramResponse {
   ProgramName?: string;
 }
 
-export namespace DeleteMultiplexProgramResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMultiplexProgramResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DeleteReservationRequest
  */
@@ -5395,15 +4297,6 @@ export interface DeleteReservationRequest {
    * Unique reservation ID, e.g. '1234567'
    */
   ReservationId: string | undefined;
-}
-
-export namespace DeleteReservationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReservationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5506,15 +4399,6 @@ export interface DeleteReservationResponse {
   UsagePrice?: number;
 }
 
-export namespace DeleteReservationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReservationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DeleteScheduleRequest
  */
@@ -5525,28 +4409,10 @@ export interface DeleteScheduleRequest {
   ChannelId: string | undefined;
 }
 
-export namespace DeleteScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DeleteScheduleResponse
  */
 export interface DeleteScheduleResponse {}
-
-export namespace DeleteScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScheduleResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * Placeholder documentation for DeleteTagsRequest
@@ -5563,15 +4429,6 @@ export interface DeleteTagsRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace DeleteTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DescribeChannelRequest
  */
@@ -5580,15 +4437,6 @@ export interface DescribeChannelRequest {
    * channel ID
    */
   ChannelId: string | undefined;
-}
-
-export namespace DescribeChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5688,15 +4536,6 @@ export interface DescribeChannelResponse {
   Vpc?: VpcOutputSettingsDescription;
 }
 
-export namespace DescribeChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DescribeInputRequest
  */
@@ -5705,15 +4544,6 @@ export interface DescribeInputRequest {
    * Unique ID of the input
    */
   InputId: string | undefined;
-}
-
-export namespace DescribeInputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInputRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5803,15 +4633,6 @@ export interface DescribeInputResponse {
   Type?: InputType | string;
 }
 
-export namespace DescribeInputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInputResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DescribeInputDeviceRequest
  */
@@ -5820,15 +4641,6 @@ export interface DescribeInputDeviceRequest {
    * The unique ID of this input device. For example, hd-123456789abcdef.
    */
   InputDeviceId: string | undefined;
-}
-
-export namespace DescribeInputDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInputDeviceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5896,15 +4708,6 @@ export interface DescribeInputDeviceResponse {
   UhdDeviceSettings?: InputDeviceUhdSettings;
 }
 
-export namespace DescribeInputDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInputDeviceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DescribeInputDeviceThumbnailRequest
  */
@@ -5918,15 +4721,6 @@ export interface DescribeInputDeviceThumbnailRequest {
    * The HTTP Accept header. Indicates the requested type for the thumbnail.
    */
   Accept: AcceptHeader | string | undefined;
-}
-
-export namespace DescribeInputDeviceThumbnailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInputDeviceThumbnailRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5959,15 +4753,6 @@ export interface DescribeInputDeviceThumbnailResponse {
   LastModified?: Date;
 }
 
-export namespace DescribeInputDeviceThumbnailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInputDeviceThumbnailResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DescribeInputSecurityGroupRequest
  */
@@ -5976,15 +4761,6 @@ export interface DescribeInputSecurityGroupRequest {
    * The id of the Input Security Group to describe
    */
   InputSecurityGroupId: string | undefined;
-}
-
-export namespace DescribeInputSecurityGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInputSecurityGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6022,15 +4798,6 @@ export interface DescribeInputSecurityGroupResponse {
   WhitelistRules?: InputWhitelistRule[];
 }
 
-export namespace DescribeInputSecurityGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInputSecurityGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DescribeMultiplexRequest
  */
@@ -6039,15 +4806,6 @@ export interface DescribeMultiplexRequest {
    * The ID of the multiplex.
    */
   MultiplexId: string | undefined;
-}
-
-export namespace DescribeMultiplexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMultiplexRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6105,15 +4863,6 @@ export interface DescribeMultiplexResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace DescribeMultiplexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMultiplexResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DescribeMultiplexProgramRequest
  */
@@ -6127,15 +4876,6 @@ export interface DescribeMultiplexProgramRequest {
    * The name of the program.
    */
   ProgramName: string | undefined;
-}
-
-export namespace DescribeMultiplexProgramRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMultiplexProgramRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6168,15 +4908,6 @@ export interface DescribeMultiplexProgramResponse {
   ProgramName?: string;
 }
 
-export namespace DescribeMultiplexProgramResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMultiplexProgramResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DescribeOfferingRequest
  */
@@ -6185,15 +4916,6 @@ export interface DescribeOfferingRequest {
    * Unique offering ID, e.g. '87654321'
    */
   OfferingId: string | undefined;
-}
-
-export namespace DescribeOfferingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOfferingRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6256,15 +4978,6 @@ export interface DescribeOfferingResponse {
   UsagePrice?: number;
 }
 
-export namespace DescribeOfferingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOfferingResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DescribeReservationRequest
  */
@@ -6273,15 +4986,6 @@ export interface DescribeReservationRequest {
    * Unique reservation ID, e.g. '1234567'
    */
   ReservationId: string | undefined;
-}
-
-export namespace DescribeReservationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6384,15 +5088,6 @@ export interface DescribeReservationResponse {
   UsagePrice?: number;
 }
 
-export namespace DescribeReservationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DescribeScheduleRequest
  */
@@ -6413,15 +5108,6 @@ export interface DescribeScheduleRequest {
   NextToken?: string;
 }
 
-export namespace DescribeScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for DescribeScheduleResponse
  */
@@ -6435,15 +5121,6 @@ export interface DescribeScheduleResponse {
    * The list of actions in the schedule.
    */
   ScheduleActions?: ScheduleAction[];
-}
-
-export namespace DescribeScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScheduleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6461,15 +5138,6 @@ export interface InputDeviceConfigurableSettings {
   MaxBitrate?: number;
 }
 
-export namespace InputDeviceConfigurableSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDeviceConfigurableSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for ListChannelsRequest
  */
@@ -6483,15 +5151,6 @@ export interface ListChannelsRequest {
    * Placeholder documentation for __string
    */
   NextToken?: string;
-}
-
-export namespace ListChannelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6509,15 +5168,6 @@ export interface ListChannelsResponse {
   NextToken?: string;
 }
 
-export namespace ListChannelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for ListInputDevicesRequest
  */
@@ -6533,15 +5183,6 @@ export interface ListInputDevicesRequest {
   NextToken?: string;
 }
 
-export namespace ListInputDevicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInputDevicesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for ListInputDevicesResponse
  */
@@ -6555,15 +5196,6 @@ export interface ListInputDevicesResponse {
    * A token to get additional list results.
    */
   NextToken?: string;
-}
-
-export namespace ListInputDevicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInputDevicesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6586,15 +5218,6 @@ export interface ListInputDeviceTransfersRequest {
   TransferType: string | undefined;
 }
 
-export namespace ListInputDeviceTransfersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInputDeviceTransfersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for ListInputDeviceTransfersResponse
  */
@@ -6608,15 +5231,6 @@ export interface ListInputDeviceTransfersResponse {
    * A token to get additional list results.
    */
   NextToken?: string;
-}
-
-export namespace ListInputDeviceTransfersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInputDeviceTransfersResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6634,15 +5248,6 @@ export interface ListInputsRequest {
   NextToken?: string;
 }
 
-export namespace ListInputsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInputsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for ListInputsResponse
  */
@@ -6656,15 +5261,6 @@ export interface ListInputsResponse {
    * Placeholder documentation for __string
    */
   NextToken?: string;
-}
-
-export namespace ListInputsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInputsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6682,15 +5278,6 @@ export interface ListInputSecurityGroupsRequest {
   NextToken?: string;
 }
 
-export namespace ListInputSecurityGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInputSecurityGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for ListInputSecurityGroupsResponse
  */
@@ -6704,15 +5291,6 @@ export interface ListInputSecurityGroupsResponse {
    * Placeholder documentation for __string
    */
   NextToken?: string;
-}
-
-export namespace ListInputSecurityGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInputSecurityGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6730,15 +5308,6 @@ export interface ListMultiplexesRequest {
   NextToken?: string;
 }
 
-export namespace ListMultiplexesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMultiplexesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for ListMultiplexesResponse
  */
@@ -6752,15 +5321,6 @@ export interface ListMultiplexesResponse {
    * Token for the next ListMultiplexes request.
    */
   NextToken?: string;
-}
-
-export namespace ListMultiplexesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMultiplexesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6783,15 +5343,6 @@ export interface ListMultiplexProgramsRequest {
   NextToken?: string;
 }
 
-export namespace ListMultiplexProgramsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMultiplexProgramsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for ListMultiplexProgramsResponse
  */
@@ -6805,15 +5356,6 @@ export interface ListMultiplexProgramsResponse {
    * Token for the next ListMultiplexProgram request.
    */
   NextToken?: string;
-}
-
-export namespace ListMultiplexProgramsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMultiplexProgramsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6881,15 +5423,6 @@ export interface ListOfferingsRequest {
   VideoQuality?: string;
 }
 
-export namespace ListOfferingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOfferingsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for ListOfferingsResponse
  */
@@ -6903,15 +5436,6 @@ export interface ListOfferingsResponse {
    * List of offerings
    */
   Offerings?: Offering[];
-}
-
-export namespace ListOfferingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOfferingsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6969,15 +5493,6 @@ export interface ListReservationsRequest {
   VideoQuality?: string;
 }
 
-export namespace ListReservationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReservationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for ListReservationsResponse
  */
@@ -6993,15 +5508,6 @@ export interface ListReservationsResponse {
   Reservations?: Reservation[];
 }
 
-export namespace ListReservationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReservationsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for ListTagsForResourceRequest
  */
@@ -7012,15 +5518,6 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for ListTagsForResourceResponse
  */
@@ -7029,15 +5526,6 @@ export interface ListTagsForResourceResponse {
    * Placeholder documentation for Tags
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7058,15 +5546,6 @@ export interface MaintenanceUpdateSettings {
    * Choose the hour that maintenance will start. The chosen time is used for all future maintenance windows.
    */
   MaintenanceStartTime?: string;
-}
-
-export namespace MaintenanceUpdateSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaintenanceUpdateSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7109,15 +5588,6 @@ export interface PurchaseOfferingRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace PurchaseOfferingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PurchaseOfferingRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for PurchaseOfferingResponse
  */
@@ -7126,15 +5596,6 @@ export interface PurchaseOfferingResponse {
    * Reserved resources available to use
    */
   Reservation?: Reservation;
-}
-
-export namespace PurchaseOfferingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PurchaseOfferingResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum RebootInputDeviceForce {
@@ -7157,28 +5618,10 @@ export interface RebootInputDeviceRequest {
   InputDeviceId: string | undefined;
 }
 
-export namespace RebootInputDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootInputDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for RebootInputDeviceResponse
  */
 export interface RebootInputDeviceResponse {}
-
-export namespace RebootInputDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootInputDeviceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * Placeholder documentation for RejectInputDeviceTransferRequest
@@ -7190,28 +5633,10 @@ export interface RejectInputDeviceTransferRequest {
   InputDeviceId: string | undefined;
 }
 
-export namespace RejectInputDeviceTransferRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectInputDeviceTransferRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for RejectInputDeviceTransferResponse
  */
 export interface RejectInputDeviceTransferResponse {}
-
-export namespace RejectInputDeviceTransferResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectInputDeviceTransferResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * Placeholder documentation for StartChannelRequest
@@ -7221,15 +5646,6 @@ export interface StartChannelRequest {
    * A request to start a channel
    */
   ChannelId: string | undefined;
-}
-
-export namespace StartChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7329,15 +5745,6 @@ export interface StartChannelResponse {
   Vpc?: VpcOutputSettingsDescription;
 }
 
-export namespace StartChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartChannelResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for StartInputDeviceMaintenanceWindowRequest
  */
@@ -7348,28 +5755,10 @@ export interface StartInputDeviceMaintenanceWindowRequest {
   InputDeviceId: string | undefined;
 }
 
-export namespace StartInputDeviceMaintenanceWindowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartInputDeviceMaintenanceWindowRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for StartInputDeviceMaintenanceWindowResponse
  */
 export interface StartInputDeviceMaintenanceWindowResponse {}
-
-export namespace StartInputDeviceMaintenanceWindowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartInputDeviceMaintenanceWindowResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * Placeholder documentation for StartMultiplexRequest
@@ -7379,15 +5768,6 @@ export interface StartMultiplexRequest {
    * The ID of the multiplex.
    */
   MultiplexId: string | undefined;
-}
-
-export namespace StartMultiplexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMultiplexRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7445,15 +5825,6 @@ export interface StartMultiplexResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace StartMultiplexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMultiplexResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for StopChannelRequest
  */
@@ -7462,15 +5833,6 @@ export interface StopChannelRequest {
    * A request to stop a running channel
    */
   ChannelId: string | undefined;
-}
-
-export namespace StopChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7570,15 +5932,6 @@ export interface StopChannelResponse {
   Vpc?: VpcOutputSettingsDescription;
 }
 
-export namespace StopChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopChannelResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for StopMultiplexRequest
  */
@@ -7587,15 +5940,6 @@ export interface StopMultiplexRequest {
    * The ID of the multiplex.
    */
   MultiplexId: string | undefined;
-}
-
-export namespace StopMultiplexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopMultiplexRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7653,15 +5997,6 @@ export interface StopMultiplexResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace StopMultiplexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopMultiplexResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A request to transfer an input device.
  */
@@ -7687,28 +6022,10 @@ export interface TransferInputDeviceRequest {
   TransferMessage?: string;
 }
 
-export namespace TransferInputDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransferInputDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for TransferInputDeviceResponse
  */
 export interface TransferInputDeviceResponse {}
-
-export namespace TransferInputDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransferInputDeviceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * A request to update a channel.
@@ -7765,15 +6082,6 @@ export interface UpdateChannelRequest {
   RoleArn?: string;
 }
 
-export namespace UpdateChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for UpdateChannelResponse
  */
@@ -7782,15 +6090,6 @@ export interface UpdateChannelResponse {
    * Placeholder documentation for Channel
    */
   Channel?: Channel;
-}
-
-export namespace UpdateChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7813,15 +6112,6 @@ export interface UpdateChannelClassRequest {
   Destinations?: OutputDestination[];
 }
 
-export namespace UpdateChannelClassRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelClassRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for UpdateChannelClassResponse
  */
@@ -7830,15 +6120,6 @@ export interface UpdateChannelClassResponse {
    * Placeholder documentation for Channel
    */
   Channel?: Channel;
-}
-
-export namespace UpdateChannelClassResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelClassResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7890,11 +6171,1380 @@ export interface UpdateInputRequest {
   Sources?: InputSourceRequest[];
 }
 
-export namespace UpdateInputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInputRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HlsGroupSettingsFilterSensitiveLog = (obj: HlsGroupSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaPackageGroupSettingsFilterSensitiveLog = (obj: MediaPackageGroupSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MsSmoothGroupSettingsFilterSensitiveLog = (obj: MsSmoothGroupSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexGroupSettingsFilterSensitiveLog = (obj: MultiplexGroupSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RtmpGroupSettingsFilterSensitiveLog = (obj: RtmpGroupSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UdpGroupSettingsFilterSensitiveLog = (obj: UdpGroupSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputGroupSettingsFilterSensitiveLog = (obj: OutputGroupSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputGroupFilterSensitiveLog = (obj: OutputGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelineDetailFilterSensitiveLog = (obj: PipelineDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelinePauseStateSettingsFilterSensitiveLog = (obj: PipelinePauseStateSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RenewalSettingsFilterSensitiveLog = (obj: RenewalSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservationFilterSensitiveLog = (obj: Reservation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsId3SegmentTaggingScheduleActionSettingsFilterSensitiveLog = (
+  obj: HlsId3SegmentTaggingScheduleActionSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsTimedMetadataScheduleActionSettingsFilterSensitiveLog = (
+  obj: HlsTimedMetadataScheduleActionSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTimecodeFilterSensitiveLog = (obj: StartTimecode): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopTimecodeFilterSensitiveLog = (obj: StopTimecode): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputClippingSettingsFilterSensitiveLog = (obj: InputClippingSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputPrepareScheduleActionSettingsFilterSensitiveLog = (obj: InputPrepareScheduleActionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputSwitchScheduleActionSettingsFilterSensitiveLog = (obj: InputSwitchScheduleActionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MotionGraphicsActivateScheduleActionSettingsFilterSensitiveLog = (
+  obj: MotionGraphicsActivateScheduleActionSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MotionGraphicsDeactivateScheduleActionSettingsFilterSensitiveLog = (
+  obj: MotionGraphicsDeactivateScheduleActionSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PauseStateScheduleActionSettingsFilterSensitiveLog = (obj: PauseStateScheduleActionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Scte35ReturnToNetworkScheduleActionSettingsFilterSensitiveLog = (
+  obj: Scte35ReturnToNetworkScheduleActionSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Scte35SpliceInsertScheduleActionSettingsFilterSensitiveLog = (
+  obj: Scte35SpliceInsertScheduleActionSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Scte35DeliveryRestrictionsFilterSensitiveLog = (obj: Scte35DeliveryRestrictions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Scte35SegmentationDescriptorFilterSensitiveLog = (obj: Scte35SegmentationDescriptor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Scte35DescriptorSettingsFilterSensitiveLog = (obj: Scte35DescriptorSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Scte35DescriptorFilterSensitiveLog = (obj: Scte35Descriptor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Scte35TimeSignalScheduleActionSettingsFilterSensitiveLog = (
+  obj: Scte35TimeSignalScheduleActionSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StaticImageActivateScheduleActionSettingsFilterSensitiveLog = (
+  obj: StaticImageActivateScheduleActionSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StaticImageDeactivateScheduleActionSettingsFilterSensitiveLog = (
+  obj: StaticImageDeactivateScheduleActionSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleActionSettingsFilterSensitiveLog = (obj: ScheduleActionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FixedModeScheduleActionStartSettingsFilterSensitiveLog = (
+  obj: FixedModeScheduleActionStartSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FollowModeScheduleActionStartSettingsFilterSensitiveLog = (
+  obj: FollowModeScheduleActionStartSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImmediateModeScheduleActionStartSettingsFilterSensitiveLog = (
+  obj: ImmediateModeScheduleActionStartSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleActionStartSettingsFilterSensitiveLog = (obj: ScheduleActionStartSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleActionFilterSensitiveLog = (obj: ScheduleAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransferringInputDeviceSummaryFilterSensitiveLog = (obj: TransferringInputDeviceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationErrorFilterSensitiveLog = (obj: ValidationError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FrameCaptureSettingsFilterSensitiveLog = (obj: FrameCaptureSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColorSpacePassthroughSettingsFilterSensitiveLog = (obj: ColorSpacePassthroughSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Rec601SettingsFilterSensitiveLog = (obj: Rec601Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Rec709SettingsFilterSensitiveLog = (obj: Rec709Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const H264ColorSpaceSettingsFilterSensitiveLog = (obj: H264ColorSpaceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemporalFilterSettingsFilterSensitiveLog = (obj: TemporalFilterSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const H264FilterSettingsFilterSensitiveLog = (obj: H264FilterSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const H264SettingsFilterSensitiveLog = (obj: H264Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const H265ColorSpaceSettingsFilterSensitiveLog = (obj: H265ColorSpaceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const H265FilterSettingsFilterSensitiveLog = (obj: H265FilterSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const H265SettingsFilterSensitiveLog = (obj: H265Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Mpeg2FilterSettingsFilterSensitiveLog = (obj: Mpeg2FilterSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Mpeg2SettingsFilterSensitiveLog = (obj: Mpeg2Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoCodecSettingsFilterSensitiveLog = (obj: VideoCodecSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoDescriptionFilterSensitiveLog = (obj: VideoDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptInputDeviceTransferRequestFilterSensitiveLog = (obj: AcceptInputDeviceTransferRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptInputDeviceTransferResponseFilterSensitiveLog = (obj: AcceptInputDeviceTransferResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvailBlankingFilterSensitiveLog = (obj: AvailBlanking): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Scte35SpliceInsertFilterSensitiveLog = (obj: Scte35SpliceInsert): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Scte35TimeSignalAposFilterSensitiveLog = (obj: Scte35TimeSignalApos): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvailSettingsFilterSensitiveLog = (obj: AvailSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvailConfigurationFilterSensitiveLog = (obj: AvailConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteRequestFilterSensitiveLog = (obj: BatchDeleteRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteResponseFilterSensitiveLog = (obj: BatchDeleteResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchScheduleActionCreateRequestFilterSensitiveLog = (obj: BatchScheduleActionCreateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchScheduleActionCreateResultFilterSensitiveLog = (obj: BatchScheduleActionCreateResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchScheduleActionDeleteRequestFilterSensitiveLog = (obj: BatchScheduleActionDeleteRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchScheduleActionDeleteResultFilterSensitiveLog = (obj: BatchScheduleActionDeleteResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchStartRequestFilterSensitiveLog = (obj: BatchStartRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchStartResponseFilterSensitiveLog = (obj: BatchStartResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchStopRequestFilterSensitiveLog = (obj: BatchStopRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchStopResponseFilterSensitiveLog = (obj: BatchStopResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateScheduleRequestFilterSensitiveLog = (obj: BatchUpdateScheduleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateScheduleResponseFilterSensitiveLog = (obj: BatchUpdateScheduleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlackoutSlateFilterSensitiveLog = (obj: BlackoutSlate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelInputDeviceTransferRequestFilterSensitiveLog = (obj: CancelInputDeviceTransferRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelInputDeviceTransferResponseFilterSensitiveLog = (obj: CancelInputDeviceTransferResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FeatureActivationsFilterSensitiveLog = (obj: FeatureActivations): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputLossBehaviorFilterSensitiveLog = (obj: InputLossBehavior): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlobalConfigurationFilterSensitiveLog = (obj: GlobalConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HtmlMotionGraphicsSettingsFilterSensitiveLog = (obj: HtmlMotionGraphicsSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MotionGraphicsSettingsFilterSensitiveLog = (obj: MotionGraphicsSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MotionGraphicsConfigurationFilterSensitiveLog = (obj: MotionGraphicsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NielsenConfigurationFilterSensitiveLog = (obj: NielsenConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimecodeConfigFilterSensitiveLog = (obj: TimecodeConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncoderSettingsFilterSensitiveLog = (obj: EncoderSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelFilterSensitiveLog = (obj: Channel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClaimDeviceRequestFilterSensitiveLog = (obj: ClaimDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClaimDeviceResponseFilterSensitiveLog = (obj: ClaimDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MaintenanceCreateSettingsFilterSensitiveLog = (obj: MaintenanceCreateSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcOutputSettingsFilterSensitiveLog = (obj: VpcOutputSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelRequestFilterSensitiveLog = (obj: CreateChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelResponseFilterSensitiveLog = (obj: CreateChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputVpcRequestFilterSensitiveLog = (obj: InputVpcRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInputRequestFilterSensitiveLog = (obj: CreateInputRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInputResponseFilterSensitiveLog = (obj: CreateInputResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInputSecurityGroupRequestFilterSensitiveLog = (obj: CreateInputSecurityGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInputSecurityGroupResponseFilterSensitiveLog = (obj: CreateInputSecurityGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexSettingsFilterSensitiveLog = (obj: MultiplexSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMultiplexRequestFilterSensitiveLog = (obj: CreateMultiplexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexFilterSensitiveLog = (obj: Multiplex): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMultiplexResponseFilterSensitiveLog = (obj: CreateMultiplexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexProgramServiceDescriptorFilterSensitiveLog = (obj: MultiplexProgramServiceDescriptor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexStatmuxVideoSettingsFilterSensitiveLog = (obj: MultiplexStatmuxVideoSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexVideoSettingsFilterSensitiveLog = (obj: MultiplexVideoSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexProgramSettingsFilterSensitiveLog = (obj: MultiplexProgramSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMultiplexProgramRequestFilterSensitiveLog = (obj: CreateMultiplexProgramRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexProgramPacketIdentifiersMapFilterSensitiveLog = (
+  obj: MultiplexProgramPacketIdentifiersMap
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexProgramFilterSensitiveLog = (obj: MultiplexProgram): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMultiplexProgramResponseFilterSensitiveLog = (obj: CreateMultiplexProgramResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePartnerInputRequestFilterSensitiveLog = (obj: CreatePartnerInputRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePartnerInputResponseFilterSensitiveLog = (obj: CreatePartnerInputResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTagsRequestFilterSensitiveLog = (obj: CreateTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChannelRequestFilterSensitiveLog = (obj: DeleteChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChannelResponseFilterSensitiveLog = (obj: DeleteChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInputRequestFilterSensitiveLog = (obj: DeleteInputRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInputResponseFilterSensitiveLog = (obj: DeleteInputResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInputSecurityGroupRequestFilterSensitiveLog = (obj: DeleteInputSecurityGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInputSecurityGroupResponseFilterSensitiveLog = (obj: DeleteInputSecurityGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMultiplexRequestFilterSensitiveLog = (obj: DeleteMultiplexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMultiplexResponseFilterSensitiveLog = (obj: DeleteMultiplexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMultiplexProgramRequestFilterSensitiveLog = (obj: DeleteMultiplexProgramRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMultiplexProgramResponseFilterSensitiveLog = (obj: DeleteMultiplexProgramResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReservationRequestFilterSensitiveLog = (obj: DeleteReservationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReservationResponseFilterSensitiveLog = (obj: DeleteReservationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteScheduleRequestFilterSensitiveLog = (obj: DeleteScheduleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteScheduleResponseFilterSensitiveLog = (obj: DeleteScheduleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTagsRequestFilterSensitiveLog = (obj: DeleteTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelRequestFilterSensitiveLog = (obj: DescribeChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelResponseFilterSensitiveLog = (obj: DescribeChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInputRequestFilterSensitiveLog = (obj: DescribeInputRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInputResponseFilterSensitiveLog = (obj: DescribeInputResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInputDeviceRequestFilterSensitiveLog = (obj: DescribeInputDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInputDeviceResponseFilterSensitiveLog = (obj: DescribeInputDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInputDeviceThumbnailRequestFilterSensitiveLog = (
+  obj: DescribeInputDeviceThumbnailRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInputDeviceThumbnailResponseFilterSensitiveLog = (
+  obj: DescribeInputDeviceThumbnailResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInputSecurityGroupRequestFilterSensitiveLog = (obj: DescribeInputSecurityGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInputSecurityGroupResponseFilterSensitiveLog = (obj: DescribeInputSecurityGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMultiplexRequestFilterSensitiveLog = (obj: DescribeMultiplexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMultiplexResponseFilterSensitiveLog = (obj: DescribeMultiplexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMultiplexProgramRequestFilterSensitiveLog = (obj: DescribeMultiplexProgramRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMultiplexProgramResponseFilterSensitiveLog = (obj: DescribeMultiplexProgramResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOfferingRequestFilterSensitiveLog = (obj: DescribeOfferingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOfferingResponseFilterSensitiveLog = (obj: DescribeOfferingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservationRequestFilterSensitiveLog = (obj: DescribeReservationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservationResponseFilterSensitiveLog = (obj: DescribeReservationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScheduleRequestFilterSensitiveLog = (obj: DescribeScheduleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScheduleResponseFilterSensitiveLog = (obj: DescribeScheduleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDeviceConfigurableSettingsFilterSensitiveLog = (obj: InputDeviceConfigurableSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsRequestFilterSensitiveLog = (obj: ListChannelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsResponseFilterSensitiveLog = (obj: ListChannelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInputDevicesRequestFilterSensitiveLog = (obj: ListInputDevicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInputDevicesResponseFilterSensitiveLog = (obj: ListInputDevicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInputDeviceTransfersRequestFilterSensitiveLog = (obj: ListInputDeviceTransfersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInputDeviceTransfersResponseFilterSensitiveLog = (obj: ListInputDeviceTransfersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInputsRequestFilterSensitiveLog = (obj: ListInputsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInputsResponseFilterSensitiveLog = (obj: ListInputsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInputSecurityGroupsRequestFilterSensitiveLog = (obj: ListInputSecurityGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInputSecurityGroupsResponseFilterSensitiveLog = (obj: ListInputSecurityGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMultiplexesRequestFilterSensitiveLog = (obj: ListMultiplexesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMultiplexesResponseFilterSensitiveLog = (obj: ListMultiplexesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMultiplexProgramsRequestFilterSensitiveLog = (obj: ListMultiplexProgramsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMultiplexProgramsResponseFilterSensitiveLog = (obj: ListMultiplexProgramsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOfferingsRequestFilterSensitiveLog = (obj: ListOfferingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOfferingsResponseFilterSensitiveLog = (obj: ListOfferingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReservationsRequestFilterSensitiveLog = (obj: ListReservationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReservationsResponseFilterSensitiveLog = (obj: ListReservationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MaintenanceUpdateSettingsFilterSensitiveLog = (obj: MaintenanceUpdateSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseOfferingRequestFilterSensitiveLog = (obj: PurchaseOfferingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseOfferingResponseFilterSensitiveLog = (obj: PurchaseOfferingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootInputDeviceRequestFilterSensitiveLog = (obj: RebootInputDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootInputDeviceResponseFilterSensitiveLog = (obj: RebootInputDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectInputDeviceTransferRequestFilterSensitiveLog = (obj: RejectInputDeviceTransferRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectInputDeviceTransferResponseFilterSensitiveLog = (obj: RejectInputDeviceTransferResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartChannelRequestFilterSensitiveLog = (obj: StartChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartChannelResponseFilterSensitiveLog = (obj: StartChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartInputDeviceMaintenanceWindowRequestFilterSensitiveLog = (
+  obj: StartInputDeviceMaintenanceWindowRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartInputDeviceMaintenanceWindowResponseFilterSensitiveLog = (
+  obj: StartInputDeviceMaintenanceWindowResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMultiplexRequestFilterSensitiveLog = (obj: StartMultiplexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMultiplexResponseFilterSensitiveLog = (obj: StartMultiplexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopChannelRequestFilterSensitiveLog = (obj: StopChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopChannelResponseFilterSensitiveLog = (obj: StopChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopMultiplexRequestFilterSensitiveLog = (obj: StopMultiplexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopMultiplexResponseFilterSensitiveLog = (obj: StopMultiplexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransferInputDeviceRequestFilterSensitiveLog = (obj: TransferInputDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransferInputDeviceResponseFilterSensitiveLog = (obj: TransferInputDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelRequestFilterSensitiveLog = (obj: UpdateChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelResponseFilterSensitiveLog = (obj: UpdateChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelClassRequestFilterSensitiveLog = (obj: UpdateChannelClassRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelClassResponseFilterSensitiveLog = (obj: UpdateChannelClassResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInputRequestFilterSensitiveLog = (obj: UpdateInputRequest): any => ({
+  ...obj,
+});

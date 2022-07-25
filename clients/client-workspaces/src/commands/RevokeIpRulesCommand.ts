@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RevokeIpRulesRequest, RevokeIpRulesResult } from "../models/models_0";
+import {
+  RevokeIpRulesRequest,
+  RevokeIpRulesRequestFilterSensitiveLog,
+  RevokeIpRulesResult,
+  RevokeIpRulesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RevokeIpRulesCommand,
   serializeAws_json1_1RevokeIpRulesCommand,
@@ -72,8 +77,8 @@ export class RevokeIpRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeIpRulesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RevokeIpRulesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokeIpRulesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RevokeIpRulesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

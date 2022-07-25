@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { OmitsNullSerializesEmptyStringInput } from "../models/models_0";
+import {
+  OmitsNullSerializesEmptyStringInput,
+  OmitsNullSerializesEmptyStringInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1OmitsNullSerializesEmptyStringCommand,
   serializeAws_restJson1OmitsNullSerializesEmptyStringCommand,
@@ -72,7 +75,7 @@ export class OmitsNullSerializesEmptyStringCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: OmitsNullSerializesEmptyStringInput.filterSensitiveLog,
+      inputFilterSensitiveLog: OmitsNullSerializesEmptyStringInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

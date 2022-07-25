@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import { StopApplicationRequest, StopApplicationResponse } from "../models/models_0";
+import {
+  StopApplicationRequest,
+  StopApplicationRequestFilterSensitiveLog,
+  StopApplicationResponse,
+  StopApplicationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StopApplicationCommand,
   serializeAws_restJson1StopApplicationCommand,
@@ -72,8 +77,8 @@ export class StopApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopApplicationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopApplicationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopApplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

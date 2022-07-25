@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminSetUserSettingsRequest, AdminSetUserSettingsResponse } from "../models/models_0";
+import {
+  AdminSetUserSettingsRequest,
+  AdminSetUserSettingsRequestFilterSensitiveLog,
+  AdminSetUserSettingsResponse,
+  AdminSetUserSettingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AdminSetUserSettingsCommand,
   serializeAws_json1_1AdminSetUserSettingsCommand,
@@ -81,8 +86,8 @@ export class AdminSetUserSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AdminSetUserSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AdminSetUserSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminSetUserSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AdminSetUserSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

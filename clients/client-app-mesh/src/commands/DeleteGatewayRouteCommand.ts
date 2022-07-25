@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { DeleteGatewayRouteInput, DeleteGatewayRouteOutput } from "../models/models_0";
+import {
+  DeleteGatewayRouteInput,
+  DeleteGatewayRouteInputFilterSensitiveLog,
+  DeleteGatewayRouteOutput,
+  DeleteGatewayRouteOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteGatewayRouteCommand,
   serializeAws_restJson1DeleteGatewayRouteCommand,
@@ -72,8 +77,8 @@ export class DeleteGatewayRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGatewayRouteInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGatewayRouteOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGatewayRouteInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGatewayRouteOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

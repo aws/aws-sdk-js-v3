@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   StartVpcEndpointServicePrivateDnsVerificationRequest,
+  StartVpcEndpointServicePrivateDnsVerificationRequestFilterSensitiveLog,
   StartVpcEndpointServicePrivateDnsVerificationResult,
+  StartVpcEndpointServicePrivateDnsVerificationResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
   deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand,
@@ -84,8 +86,8 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartVpcEndpointServicePrivateDnsVerificationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartVpcEndpointServicePrivateDnsVerificationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartVpcEndpointServicePrivateDnsVerificationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartVpcEndpointServicePrivateDnsVerificationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

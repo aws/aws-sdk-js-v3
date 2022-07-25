@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutGroupConfigurationInput, PutGroupConfigurationOutput } from "../models/models_0";
+import {
+  PutGroupConfigurationInput,
+  PutGroupConfigurationInputFilterSensitiveLog,
+  PutGroupConfigurationOutput,
+  PutGroupConfigurationOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutGroupConfigurationCommand,
   serializeAws_restJson1PutGroupConfigurationCommand,
@@ -85,8 +90,8 @@ export class PutGroupConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutGroupConfigurationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PutGroupConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutGroupConfigurationInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PutGroupConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

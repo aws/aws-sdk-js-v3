@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { CreateEventSubscriptionMessage, CreateEventSubscriptionResponse } from "../models/models_0";
+import {
+  CreateEventSubscriptionMessage,
+  CreateEventSubscriptionMessageFilterSensitiveLog,
+  CreateEventSubscriptionResponse,
+  CreateEventSubscriptionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateEventSubscriptionCommand,
   serializeAws_json1_1CreateEventSubscriptionCommand,
@@ -91,8 +96,8 @@ export class CreateEventSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEventSubscriptionMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateEventSubscriptionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateEventSubscriptionMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateEventSubscriptionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

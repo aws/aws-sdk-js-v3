@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartStackRequest } from "../models/models_0";
+import { StartStackRequest, StartStackRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1StartStackCommand,
@@ -77,7 +77,7 @@ export class StartStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartStackRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: StartStackRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SubscribeInput, SubscribeResponse } from "../models/models_0";
+import {
+  SubscribeInput,
+  SubscribeInputFilterSensitiveLog,
+  SubscribeResponse,
+  SubscribeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_querySubscribeCommand, serializeAws_querySubscribeCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
@@ -70,8 +75,8 @@ export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubscribeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: SubscribeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SubscribeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: SubscribeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

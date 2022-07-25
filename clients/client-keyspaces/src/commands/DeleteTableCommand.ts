@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
-import { DeleteTableRequest, DeleteTableResponse } from "../models/models_0";
+import {
+  DeleteTableRequest,
+  DeleteTableRequestFilterSensitiveLog,
+  DeleteTableResponse,
+  DeleteTableResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteTableCommand,
   serializeAws_json1_0DeleteTableCommand,
@@ -76,8 +81,8 @@ export class DeleteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTableRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTableResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTableRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTableResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

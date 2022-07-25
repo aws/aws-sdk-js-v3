@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateClusterSecurityGroupMessage, CreateClusterSecurityGroupResult } from "../models/models_0";
+import {
+  CreateClusterSecurityGroupMessage,
+  CreateClusterSecurityGroupMessageFilterSensitiveLog,
+  CreateClusterSecurityGroupResult,
+  CreateClusterSecurityGroupResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCreateClusterSecurityGroupCommand,
   serializeAws_queryCreateClusterSecurityGroupCommand,
@@ -77,8 +82,8 @@ export class CreateClusterSecurityGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateClusterSecurityGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateClusterSecurityGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateClusterSecurityGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateClusterSecurityGroupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

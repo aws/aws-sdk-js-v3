@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateParallelDataRequest, CreateParallelDataResponse } from "../models/models_0";
+import {
+  CreateParallelDataRequest,
+  CreateParallelDataRequestFilterSensitiveLog,
+  CreateParallelDataResponse,
+  CreateParallelDataResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateParallelDataCommand,
   serializeAws_json1_1CreateParallelDataCommand,
@@ -75,8 +80,8 @@ export class CreateParallelDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateParallelDataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateParallelDataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateParallelDataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateParallelDataResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

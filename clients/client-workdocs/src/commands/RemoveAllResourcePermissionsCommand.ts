@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RemoveAllResourcePermissionsRequest } from "../models/models_0";
+import {
+  RemoveAllResourcePermissionsRequest,
+  RemoveAllResourcePermissionsRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveAllResourcePermissionsCommand,
   serializeAws_restJson1RemoveAllResourcePermissionsCommand,
@@ -72,7 +75,7 @@ export class RemoveAllResourcePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveAllResourcePermissionsRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveAllResourcePermissionsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

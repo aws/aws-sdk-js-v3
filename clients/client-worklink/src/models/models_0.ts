@@ -25,25 +25,7 @@ export interface AssociateDomainRequest {
   AcmCertificateArn: string | undefined;
 }
 
-export namespace AssociateDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateDomainResponse {}
-
-export namespace AssociateDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDomainResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The service is temporarily unavailable.</p>
@@ -193,29 +175,11 @@ export interface AssociateWebsiteAuthorizationProviderRequest {
   DomainName?: string;
 }
 
-export namespace AssociateWebsiteAuthorizationProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWebsiteAuthorizationProviderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateWebsiteAuthorizationProviderResponse {
   /**
    * <p>A unique identifier for the authorization provider.</p>
    */
   AuthorizationProviderId?: string;
-}
-
-export namespace AssociateWebsiteAuthorizationProviderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWebsiteAuthorizationProviderResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateWebsiteCertificateAuthorityRequest {
@@ -235,29 +199,11 @@ export interface AssociateWebsiteCertificateAuthorityRequest {
   DisplayName?: string;
 }
 
-export namespace AssociateWebsiteCertificateAuthorityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWebsiteCertificateAuthorityRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateWebsiteCertificateAuthorityResponse {
   /**
    * <p>A unique identifier for the CA.</p>
    */
   WebsiteCaId?: string;
-}
-
-export namespace AssociateWebsiteCertificateAuthorityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWebsiteCertificateAuthorityResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateFleetRequest {
@@ -283,29 +229,11 @@ export interface CreateFleetRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFleetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFleetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
    */
   FleetArn?: string;
-}
-
-export namespace CreateFleetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFleetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFleetRequest {
@@ -315,40 +243,13 @@ export interface DeleteFleetRequest {
   FleetArn: string | undefined;
 }
 
-export namespace DeleteFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFleetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFleetResponse {}
-
-export namespace DeleteFleetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFleetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeAuditStreamConfigurationRequest {
   /**
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
-}
-
-export namespace DescribeAuditStreamConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAuditStreamConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAuditStreamConfigurationResponse {
@@ -358,29 +259,11 @@ export interface DescribeAuditStreamConfigurationResponse {
   AuditStreamArn?: string;
 }
 
-export namespace DescribeAuditStreamConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAuditStreamConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCompanyNetworkConfigurationRequest {
   /**
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
-}
-
-export namespace DescribeCompanyNetworkConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCompanyNetworkConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCompanyNetworkConfigurationResponse {
@@ -400,15 +283,6 @@ export interface DescribeCompanyNetworkConfigurationResponse {
   SecurityGroupIds?: string[];
 }
 
-export namespace DescribeCompanyNetworkConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCompanyNetworkConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDeviceRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -419,15 +293,6 @@ export interface DescribeDeviceRequest {
    * <p>A unique identifier for a registered user's device.</p>
    */
   DeviceId: string | undefined;
-}
-
-export namespace DescribeDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DeviceStatus {
@@ -482,15 +347,6 @@ export interface DescribeDeviceResponse {
   Username?: string;
 }
 
-export namespace DescribeDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDevicePolicyConfigurationRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -498,29 +354,11 @@ export interface DescribeDevicePolicyConfigurationRequest {
   FleetArn: string | undefined;
 }
 
-export namespace DescribeDevicePolicyConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDevicePolicyConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDevicePolicyConfigurationResponse {
   /**
    * <p>The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.</p>
    */
   DeviceCaCertificate?: string;
-}
-
-export namespace DescribeDevicePolicyConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDevicePolicyConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDomainRequest {
@@ -533,15 +371,6 @@ export interface DescribeDomainRequest {
    * <p>The name of the domain.</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace DescribeDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DomainStatus {
@@ -582,29 +411,11 @@ export interface DescribeDomainResponse {
   AcmCertificateArn?: string;
 }
 
-export namespace DescribeDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFleetMetadataRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
    */
   FleetArn: string | undefined;
-}
-
-export namespace DescribeFleetMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetMetadataRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum FleetStatus {
@@ -659,29 +470,11 @@ export interface DescribeFleetMetadataResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace DescribeFleetMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetMetadataResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeIdentityProviderConfigurationRequest {
   /**
    * <p>The ARN of the fleet.</p>
    */
   FleetArn: string | undefined;
-}
-
-export namespace DescribeIdentityProviderConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdentityProviderConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum IdentityProviderType {
@@ -705,15 +498,6 @@ export interface DescribeIdentityProviderConfigurationResponse {
   IdentityProviderSamlMetadata?: string;
 }
 
-export namespace DescribeIdentityProviderConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdentityProviderConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeWebsiteCertificateAuthorityRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -724,15 +508,6 @@ export interface DescribeWebsiteCertificateAuthorityRequest {
    * <p>A unique identifier for the certificate authority.</p>
    */
   WebsiteCaId: string | undefined;
-}
-
-export namespace DescribeWebsiteCertificateAuthorityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWebsiteCertificateAuthorityRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeWebsiteCertificateAuthorityResponse {
@@ -752,15 +527,6 @@ export interface DescribeWebsiteCertificateAuthorityResponse {
   DisplayName?: string;
 }
 
-export namespace DescribeWebsiteCertificateAuthorityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWebsiteCertificateAuthorityResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The summary of devices.</p>
  */
@@ -776,15 +542,6 @@ export interface DeviceSummary {
   DeviceStatus?: DeviceStatus | string;
 }
 
-export namespace DeviceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateDomainRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -797,25 +554,7 @@ export interface DisassociateDomainRequest {
   DomainName: string | undefined;
 }
 
-export namespace DisassociateDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateDomainResponse {}
-
-export namespace DisassociateDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDomainResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateWebsiteAuthorizationProviderRequest {
   /**
@@ -829,25 +568,7 @@ export interface DisassociateWebsiteAuthorizationProviderRequest {
   AuthorizationProviderId: string | undefined;
 }
 
-export namespace DisassociateWebsiteAuthorizationProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWebsiteAuthorizationProviderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateWebsiteAuthorizationProviderResponse {}
-
-export namespace DisassociateWebsiteAuthorizationProviderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWebsiteAuthorizationProviderResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateWebsiteCertificateAuthorityRequest {
   /**
@@ -861,25 +582,7 @@ export interface DisassociateWebsiteCertificateAuthorityRequest {
   WebsiteCaId: string | undefined;
 }
 
-export namespace DisassociateWebsiteCertificateAuthorityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWebsiteCertificateAuthorityRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateWebsiteCertificateAuthorityResponse {}
-
-export namespace DisassociateWebsiteCertificateAuthorityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWebsiteCertificateAuthorityResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The summary of the domain.</p>
@@ -904,15 +607,6 @@ export interface DomainSummary {
    * <p>The status of the domain.</p>
    */
   DomainStatus: DomainStatus | string | undefined;
-}
-
-export namespace DomainSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -960,15 +654,6 @@ export interface FleetSummary {
   Tags?: Record<string, string>;
 }
 
-export namespace FleetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FleetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDevicesRequest {
   /**
    * <p>The ARN of the fleet.</p>
@@ -987,15 +672,6 @@ export interface ListDevicesRequest {
   MaxResults?: number;
 }
 
-export namespace ListDevicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDevicesResponse {
   /**
    * <p>Information about the devices.</p>
@@ -1007,15 +683,6 @@ export interface ListDevicesResponse {
    *             there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDevicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDomainsRequest {
@@ -1036,15 +703,6 @@ export interface ListDomainsRequest {
   MaxResults?: number;
 }
 
-export namespace ListDomainsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDomainsResponse {
   /**
    * <p>Information about the domains.</p>
@@ -1056,15 +714,6 @@ export interface ListDomainsResponse {
    *             there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDomainsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFleetsRequest {
@@ -1080,15 +729,6 @@ export interface ListFleetsRequest {
   MaxResults?: number;
 }
 
-export namespace ListFleetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFleetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFleetsResponse {
   /**
    * <p>The summary list of the fleets.</p>
@@ -1102,15 +742,6 @@ export interface ListFleetsResponse {
   NextToken?: string;
 }
 
-export namespace ListFleetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFleetsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the fleet.</p>
@@ -1118,29 +749,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags attached to the resource. A tag is a key-value pair.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListWebsiteAuthorizationProvidersRequest {
@@ -1158,15 +771,6 @@ export interface ListWebsiteAuthorizationProvidersRequest {
    * <p>The maximum number of results to be included in the next page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListWebsiteAuthorizationProvidersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebsiteAuthorizationProvidersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1195,15 +799,6 @@ export interface WebsiteAuthorizationProviderSummary {
   CreatedTime?: Date;
 }
 
-export namespace WebsiteAuthorizationProviderSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebsiteAuthorizationProviderSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWebsiteAuthorizationProvidersResponse {
   /**
    * <p>The website authorization providers.</p>
@@ -1214,15 +809,6 @@ export interface ListWebsiteAuthorizationProvidersResponse {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListWebsiteAuthorizationProvidersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebsiteAuthorizationProvidersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListWebsiteCertificateAuthoritiesRequest {
@@ -1241,15 +827,6 @@ export interface ListWebsiteCertificateAuthoritiesRequest {
    *             this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListWebsiteCertificateAuthoritiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebsiteCertificateAuthoritiesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1272,15 +849,6 @@ export interface WebsiteCaSummary {
   DisplayName?: string;
 }
 
-export namespace WebsiteCaSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebsiteCaSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWebsiteCertificateAuthoritiesResponse {
   /**
    * <p>Information about the certificates.</p>
@@ -1292,15 +860,6 @@ export interface ListWebsiteCertificateAuthoritiesResponse {
    *             there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListWebsiteCertificateAuthoritiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebsiteCertificateAuthoritiesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreDomainAccessRequest {
@@ -1315,25 +874,7 @@ export interface RestoreDomainAccessRequest {
   DomainName: string | undefined;
 }
 
-export namespace RestoreDomainAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreDomainAccessRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreDomainAccessResponse {}
-
-export namespace RestoreDomainAccessResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreDomainAccessResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface RevokeDomainAccessRequest {
   /**
@@ -1347,25 +888,7 @@ export interface RevokeDomainAccessRequest {
   DomainName: string | undefined;
 }
 
-export namespace RevokeDomainAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeDomainAccessRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RevokeDomainAccessResponse {}
-
-export namespace RevokeDomainAccessResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeDomainAccessResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface SignOutUserRequest {
   /**
@@ -1379,25 +902,7 @@ export interface SignOutUserRequest {
   Username: string | undefined;
 }
 
-export namespace SignOutUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SignOutUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SignOutUserResponse {}
-
-export namespace SignOutUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SignOutUserResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -1411,25 +916,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1443,25 +930,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateAuditStreamConfigurationRequest {
   /**
@@ -1475,25 +944,7 @@ export interface UpdateAuditStreamConfigurationRequest {
   AuditStreamArn?: string;
 }
 
-export namespace UpdateAuditStreamConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAuditStreamConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAuditStreamConfigurationResponse {}
-
-export namespace UpdateAuditStreamConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAuditStreamConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateCompanyNetworkConfigurationRequest {
   /**
@@ -1517,25 +968,7 @@ export interface UpdateCompanyNetworkConfigurationRequest {
   SecurityGroupIds: string[] | undefined;
 }
 
-export namespace UpdateCompanyNetworkConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCompanyNetworkConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCompanyNetworkConfigurationResponse {}
-
-export namespace UpdateCompanyNetworkConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCompanyNetworkConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDevicePolicyConfigurationRequest {
   /**
@@ -1549,25 +982,7 @@ export interface UpdateDevicePolicyConfigurationRequest {
   DeviceCaCertificate?: string;
 }
 
-export namespace UpdateDevicePolicyConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDevicePolicyConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDevicePolicyConfigurationResponse {}
-
-export namespace UpdateDevicePolicyConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDevicePolicyConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDomainMetadataRequest {
   /**
@@ -1586,25 +1001,7 @@ export interface UpdateDomainMetadataRequest {
   DisplayName?: string;
 }
 
-export namespace UpdateDomainMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainMetadataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDomainMetadataResponse {}
-
-export namespace UpdateDomainMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainMetadataResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateFleetMetadataRequest {
   /**
@@ -1624,25 +1021,7 @@ export interface UpdateFleetMetadataRequest {
   OptimizeForEndUserLocation?: boolean;
 }
 
-export namespace UpdateFleetMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFleetMetadataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFleetMetadataResponse {}
-
-export namespace UpdateFleetMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFleetMetadataResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateIdentityProviderConfigurationRequest {
   /**
@@ -1662,22 +1041,563 @@ export interface UpdateIdentityProviderConfigurationRequest {
   IdentityProviderSamlMetadata?: string;
 }
 
-export namespace UpdateIdentityProviderConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIdentityProviderConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateIdentityProviderConfigurationResponse {}
 
-export namespace UpdateIdentityProviderConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIdentityProviderConfigurationResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AssociateDomainRequestFilterSensitiveLog = (obj: AssociateDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateDomainResponseFilterSensitiveLog = (obj: AssociateDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWebsiteAuthorizationProviderRequestFilterSensitiveLog = (
+  obj: AssociateWebsiteAuthorizationProviderRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWebsiteAuthorizationProviderResponseFilterSensitiveLog = (
+  obj: AssociateWebsiteAuthorizationProviderResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWebsiteCertificateAuthorityRequestFilterSensitiveLog = (
+  obj: AssociateWebsiteCertificateAuthorityRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWebsiteCertificateAuthorityResponseFilterSensitiveLog = (
+  obj: AssociateWebsiteCertificateAuthorityResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFleetRequestFilterSensitiveLog = (obj: CreateFleetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFleetResponseFilterSensitiveLog = (obj: CreateFleetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFleetRequestFilterSensitiveLog = (obj: DeleteFleetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFleetResponseFilterSensitiveLog = (obj: DeleteFleetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAuditStreamConfigurationRequestFilterSensitiveLog = (
+  obj: DescribeAuditStreamConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAuditStreamConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeAuditStreamConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCompanyNetworkConfigurationRequestFilterSensitiveLog = (
+  obj: DescribeCompanyNetworkConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCompanyNetworkConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeCompanyNetworkConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeviceRequestFilterSensitiveLog = (obj: DescribeDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeviceResponseFilterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDevicePolicyConfigurationRequestFilterSensitiveLog = (
+  obj: DescribeDevicePolicyConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDevicePolicyConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeDevicePolicyConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainRequestFilterSensitiveLog = (obj: DescribeDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainResponseFilterSensitiveLog = (obj: DescribeDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetMetadataRequestFilterSensitiveLog = (obj: DescribeFleetMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetMetadataResponseFilterSensitiveLog = (obj: DescribeFleetMetadataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIdentityProviderConfigurationRequestFilterSensitiveLog = (
+  obj: DescribeIdentityProviderConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIdentityProviderConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeIdentityProviderConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWebsiteCertificateAuthorityRequestFilterSensitiveLog = (
+  obj: DescribeWebsiteCertificateAuthorityRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWebsiteCertificateAuthorityResponseFilterSensitiveLog = (
+  obj: DescribeWebsiteCertificateAuthorityResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceSummaryFilterSensitiveLog = (obj: DeviceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateDomainRequestFilterSensitiveLog = (obj: DisassociateDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateDomainResponseFilterSensitiveLog = (obj: DisassociateDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWebsiteAuthorizationProviderRequestFilterSensitiveLog = (
+  obj: DisassociateWebsiteAuthorizationProviderRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWebsiteAuthorizationProviderResponseFilterSensitiveLog = (
+  obj: DisassociateWebsiteAuthorizationProviderResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWebsiteCertificateAuthorityRequestFilterSensitiveLog = (
+  obj: DisassociateWebsiteCertificateAuthorityRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWebsiteCertificateAuthorityResponseFilterSensitiveLog = (
+  obj: DisassociateWebsiteCertificateAuthorityResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainSummaryFilterSensitiveLog = (obj: DomainSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FleetSummaryFilterSensitiveLog = (obj: FleetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDevicesRequestFilterSensitiveLog = (obj: ListDevicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDevicesResponseFilterSensitiveLog = (obj: ListDevicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainsRequestFilterSensitiveLog = (obj: ListDomainsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainsResponseFilterSensitiveLog = (obj: ListDomainsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFleetsRequestFilterSensitiveLog = (obj: ListFleetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFleetsResponseFilterSensitiveLog = (obj: ListFleetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWebsiteAuthorizationProvidersRequestFilterSensitiveLog = (
+  obj: ListWebsiteAuthorizationProvidersRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebsiteAuthorizationProviderSummaryFilterSensitiveLog = (
+  obj: WebsiteAuthorizationProviderSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWebsiteAuthorizationProvidersResponseFilterSensitiveLog = (
+  obj: ListWebsiteAuthorizationProvidersResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWebsiteCertificateAuthoritiesRequestFilterSensitiveLog = (
+  obj: ListWebsiteCertificateAuthoritiesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebsiteCaSummaryFilterSensitiveLog = (obj: WebsiteCaSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWebsiteCertificateAuthoritiesResponseFilterSensitiveLog = (
+  obj: ListWebsiteCertificateAuthoritiesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreDomainAccessRequestFilterSensitiveLog = (obj: RestoreDomainAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreDomainAccessResponseFilterSensitiveLog = (obj: RestoreDomainAccessResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeDomainAccessRequestFilterSensitiveLog = (obj: RevokeDomainAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeDomainAccessResponseFilterSensitiveLog = (obj: RevokeDomainAccessResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SignOutUserRequestFilterSensitiveLog = (obj: SignOutUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SignOutUserResponseFilterSensitiveLog = (obj: SignOutUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAuditStreamConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateAuditStreamConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAuditStreamConfigurationResponseFilterSensitiveLog = (
+  obj: UpdateAuditStreamConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCompanyNetworkConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateCompanyNetworkConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCompanyNetworkConfigurationResponseFilterSensitiveLog = (
+  obj: UpdateCompanyNetworkConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDevicePolicyConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateDevicePolicyConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDevicePolicyConfigurationResponseFilterSensitiveLog = (
+  obj: UpdateDevicePolicyConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainMetadataRequestFilterSensitiveLog = (obj: UpdateDomainMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainMetadataResponseFilterSensitiveLog = (obj: UpdateDomainMetadataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFleetMetadataRequestFilterSensitiveLog = (obj: UpdateFleetMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFleetMetadataResponseFilterSensitiveLog = (obj: UpdateFleetMetadataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIdentityProviderConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateIdentityProviderConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIdentityProviderConfigurationResponseFilterSensitiveLog = (
+  obj: UpdateIdentityProviderConfigurationResponse
+): any => ({
+  ...obj,
+});

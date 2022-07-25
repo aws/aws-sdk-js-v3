@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import { GetCampaignStateRequest, GetCampaignStateResponse } from "../models/models_0";
+import {
+  GetCampaignStateRequest,
+  GetCampaignStateRequestFilterSensitiveLog,
+  GetCampaignStateResponse,
+  GetCampaignStateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetCampaignStateCommand,
   serializeAws_restJson1GetCampaignStateCommand,
@@ -72,8 +77,8 @@ export class GetCampaignStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCampaignStateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCampaignStateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCampaignStateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCampaignStateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

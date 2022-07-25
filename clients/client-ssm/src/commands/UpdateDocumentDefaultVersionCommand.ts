@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateDocumentDefaultVersionRequest, UpdateDocumentDefaultVersionResult } from "../models/models_1";
+import {
+  UpdateDocumentDefaultVersionRequest,
+  UpdateDocumentDefaultVersionRequestFilterSensitiveLog,
+  UpdateDocumentDefaultVersionResult,
+  UpdateDocumentDefaultVersionResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateDocumentDefaultVersionCommand,
   serializeAws_json1_1UpdateDocumentDefaultVersionCommand,
@@ -79,8 +84,8 @@ export class UpdateDocumentDefaultVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDocumentDefaultVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDocumentDefaultVersionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDocumentDefaultVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDocumentDefaultVersionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

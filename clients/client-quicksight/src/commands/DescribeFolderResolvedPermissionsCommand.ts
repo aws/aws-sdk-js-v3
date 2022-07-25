@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeFolderResolvedPermissionsRequest,
+  DescribeFolderResolvedPermissionsRequestFilterSensitiveLog,
   DescribeFolderResolvedPermissionsResponse,
+  DescribeFolderResolvedPermissionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeFolderResolvedPermissionsCommand,
@@ -77,8 +79,8 @@ export class DescribeFolderResolvedPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFolderResolvedPermissionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFolderResolvedPermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFolderResolvedPermissionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFolderResolvedPermissionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

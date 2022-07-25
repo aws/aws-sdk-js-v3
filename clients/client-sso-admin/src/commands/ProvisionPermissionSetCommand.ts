@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ProvisionPermissionSetRequest, ProvisionPermissionSetResponse } from "../models/models_0";
+import {
+  ProvisionPermissionSetRequest,
+  ProvisionPermissionSetRequestFilterSensitiveLog,
+  ProvisionPermissionSetResponse,
+  ProvisionPermissionSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ProvisionPermissionSetCommand,
   serializeAws_json1_1ProvisionPermissionSetCommand,
@@ -73,8 +78,8 @@ export class ProvisionPermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ProvisionPermissionSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ProvisionPermissionSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ProvisionPermissionSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ProvisionPermissionSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

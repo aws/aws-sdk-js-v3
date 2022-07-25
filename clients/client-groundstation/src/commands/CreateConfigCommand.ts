@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import { ConfigIdResponse, CreateConfigRequest } from "../models/models_0";
+import {
+  ConfigIdResponse,
+  ConfigIdResponseFilterSensitiveLog,
+  CreateConfigRequest,
+  CreateConfigRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateConfigCommand,
   serializeAws_restJson1CreateConfigCommand,
@@ -73,8 +78,8 @@ export class CreateConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ConfigIdResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ConfigIdResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,9 @@ import {
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
 import {
   BatchGetRepositoryScanningConfigurationRequest,
+  BatchGetRepositoryScanningConfigurationRequestFilterSensitiveLog,
   BatchGetRepositoryScanningConfigurationResponse,
+  BatchGetRepositoryScanningConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand,
@@ -81,8 +83,8 @@ export class BatchGetRepositoryScanningConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetRepositoryScanningConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetRepositoryScanningConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchGetRepositoryScanningConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetRepositoryScanningConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

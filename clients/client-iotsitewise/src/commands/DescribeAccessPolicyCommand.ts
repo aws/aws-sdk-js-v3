@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DescribeAccessPolicyRequest, DescribeAccessPolicyResponse } from "../models/models_0";
+import {
+  DescribeAccessPolicyRequest,
+  DescribeAccessPolicyRequestFilterSensitiveLog,
+  DescribeAccessPolicyResponse,
+  DescribeAccessPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAccessPolicyCommand,
   serializeAws_restJson1DescribeAccessPolicyCommand,
@@ -73,8 +78,8 @@ export class DescribeAccessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccessPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccessPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAccessPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAccessPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

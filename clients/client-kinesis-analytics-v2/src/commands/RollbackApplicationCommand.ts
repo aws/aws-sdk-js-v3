@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import { RollbackApplicationRequest, RollbackApplicationResponse } from "../models/models_0";
+import {
+  RollbackApplicationRequest,
+  RollbackApplicationRequestFilterSensitiveLog,
+  RollbackApplicationResponse,
+  RollbackApplicationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RollbackApplicationCommand,
   serializeAws_json1_1RollbackApplicationCommand,
@@ -82,8 +87,8 @@ export class RollbackApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RollbackApplicationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RollbackApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RollbackApplicationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RollbackApplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeApplicationInstanceDetailsRequest,
+  DescribeApplicationInstanceDetailsRequestFilterSensitiveLog,
   DescribeApplicationInstanceDetailsResponse,
+  DescribeApplicationInstanceDetailsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
@@ -77,8 +79,8 @@ export class DescribeApplicationInstanceDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicationInstanceDetailsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeApplicationInstanceDetailsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeApplicationInstanceDetailsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeApplicationInstanceDetailsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

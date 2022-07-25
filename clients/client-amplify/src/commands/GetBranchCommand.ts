@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { GetBranchRequest, GetBranchResult } from "../models/models_0";
+import {
+  GetBranchRequest,
+  GetBranchRequestFilterSensitiveLog,
+  GetBranchResult,
+  GetBranchResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetBranchCommand,
   serializeAws_restJson1GetBranchCommand,
@@ -72,8 +77,8 @@ export class GetBranchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBranchRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBranchResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBranchRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBranchResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RegisterInstanceRequest, RegisterInstanceResult } from "../models/models_0";
+import {
+  RegisterInstanceRequest,
+  RegisterInstanceRequestFilterSensitiveLog,
+  RegisterInstanceResult,
+  RegisterInstanceResultFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1RegisterInstanceCommand,
@@ -90,8 +95,8 @@ export class RegisterInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterInstanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterInstanceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RegisterInstanceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

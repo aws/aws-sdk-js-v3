@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { AllowedNodeTypeModificationsMessage, ListAllowedNodeTypeModificationsMessage } from "../models/models_0";
+import {
+  AllowedNodeTypeModificationsMessage,
+  AllowedNodeTypeModificationsMessageFilterSensitiveLog,
+  ListAllowedNodeTypeModificationsMessage,
+  ListAllowedNodeTypeModificationsMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryListAllowedNodeTypeModificationsCommand,
   serializeAws_queryListAllowedNodeTypeModificationsCommand,
@@ -79,8 +84,8 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAllowedNodeTypeModificationsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: AllowedNodeTypeModificationsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAllowedNodeTypeModificationsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: AllowedNodeTypeModificationsMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

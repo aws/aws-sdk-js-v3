@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ExportClientVpnClientCertificateRevocationListRequest,
+  ExportClientVpnClientCertificateRevocationListRequestFilterSensitiveLog,
   ExportClientVpnClientCertificateRevocationListResult,
+  ExportClientVpnClientCertificateRevocationListResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
   deserializeAws_ec2ExportClientVpnClientCertificateRevocationListCommand,
@@ -81,8 +83,8 @@ export class ExportClientVpnClientCertificateRevocationListCommand extends $Comm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportClientVpnClientCertificateRevocationListRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ExportClientVpnClientCertificateRevocationListResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ExportClientVpnClientCertificateRevocationListRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ExportClientVpnClientCertificateRevocationListResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

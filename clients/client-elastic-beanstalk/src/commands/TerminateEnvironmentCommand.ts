@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { EnvironmentDescription, TerminateEnvironmentMessage } from "../models/models_0";
+import {
+  EnvironmentDescription,
+  EnvironmentDescriptionFilterSensitiveLog,
+  TerminateEnvironmentMessage,
+  TerminateEnvironmentMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryTerminateEnvironmentCommand,
   serializeAws_queryTerminateEnvironmentCommand,
@@ -72,8 +77,8 @@ export class TerminateEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateEnvironmentMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: EnvironmentDescription.filterSensitiveLog,
+      inputFilterSensitiveLog: TerminateEnvironmentMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: EnvironmentDescriptionFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

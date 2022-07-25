@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { GetDataLakeSettingsRequest, GetDataLakeSettingsResponse } from "../models/models_0";
+import {
+  GetDataLakeSettingsRequest,
+  GetDataLakeSettingsRequestFilterSensitiveLog,
+  GetDataLakeSettingsResponse,
+  GetDataLakeSettingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetDataLakeSettingsCommand,
   serializeAws_restJson1GetDataLakeSettingsCommand,
@@ -72,8 +77,8 @@ export class GetDataLakeSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataLakeSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDataLakeSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDataLakeSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDataLakeSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

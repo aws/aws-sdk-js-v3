@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetPackageVersionHistoryRequest, GetPackageVersionHistoryResponse } from "../models/models_0";
+import {
+  GetPackageVersionHistoryRequest,
+  GetPackageVersionHistoryRequestFilterSensitiveLog,
+  GetPackageVersionHistoryResponse,
+  GetPackageVersionHistoryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1GetPackageVersionHistoryCommand,
@@ -72,8 +77,8 @@ export class GetPackageVersionHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPackageVersionHistoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPackageVersionHistoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPackageVersionHistoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetPackageVersionHistoryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

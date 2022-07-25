@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import { SetRepositoryPolicyRequest, SetRepositoryPolicyResponse } from "../models/models_0";
+import {
+  SetRepositoryPolicyRequest,
+  SetRepositoryPolicyRequestFilterSensitiveLog,
+  SetRepositoryPolicyResponse,
+  SetRepositoryPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1SetRepositoryPolicyCommand,
   serializeAws_json1_1SetRepositoryPolicyCommand,
@@ -74,8 +79,8 @@ export class SetRepositoryPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetRepositoryPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SetRepositoryPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SetRepositoryPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SetRepositoryPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

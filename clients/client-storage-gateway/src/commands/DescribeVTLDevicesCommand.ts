@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeVTLDevicesInput, DescribeVTLDevicesOutput } from "../models/models_0";
+import {
+  DescribeVTLDevicesInput,
+  DescribeVTLDevicesInputFilterSensitiveLog,
+  DescribeVTLDevicesOutput,
+  DescribeVTLDevicesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeVTLDevicesCommand,
   serializeAws_json1_1DescribeVTLDevicesCommand,
@@ -75,8 +80,8 @@ export class DescribeVTLDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVTLDevicesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVTLDevicesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVTLDevicesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVTLDevicesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

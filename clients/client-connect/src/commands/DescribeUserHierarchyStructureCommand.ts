@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeUserHierarchyStructureRequest, DescribeUserHierarchyStructureResponse } from "../models/models_0";
+import {
+  DescribeUserHierarchyStructureRequest,
+  DescribeUserHierarchyStructureRequestFilterSensitiveLog,
+  DescribeUserHierarchyStructureResponse,
+  DescribeUserHierarchyStructureResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeUserHierarchyStructureCommand,
   serializeAws_restJson1DescribeUserHierarchyStructureCommand,
@@ -74,8 +79,8 @@ export class DescribeUserHierarchyStructureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserHierarchyStructureRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserHierarchyStructureResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeUserHierarchyStructureRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeUserHierarchyStructureResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

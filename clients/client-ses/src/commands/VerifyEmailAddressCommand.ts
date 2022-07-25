@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { VerifyEmailAddressRequest } from "../models/models_0";
+import { VerifyEmailAddressRequest, VerifyEmailAddressRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryVerifyEmailAddressCommand,
   serializeAws_queryVerifyEmailAddressCommand,
@@ -73,7 +73,7 @@ export class VerifyEmailAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: VerifyEmailAddressRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: VerifyEmailAddressRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

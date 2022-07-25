@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { ListAccessPreviewsRequest, ListAccessPreviewsResponse } from "../models/models_0";
+import {
+  ListAccessPreviewsRequest,
+  ListAccessPreviewsRequestFilterSensitiveLog,
+  ListAccessPreviewsResponse,
+  ListAccessPreviewsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListAccessPreviewsCommand,
   serializeAws_restJson1ListAccessPreviewsCommand,
@@ -72,8 +77,8 @@ export class ListAccessPreviewsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessPreviewsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessPreviewsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAccessPreviewsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAccessPreviewsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

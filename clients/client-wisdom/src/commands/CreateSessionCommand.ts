@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateSessionRequest, CreateSessionResponse } from "../models/models_0";
+import {
+  CreateSessionRequest,
+  CreateSessionRequestFilterSensitiveLog,
+  CreateSessionResponse,
+  CreateSessionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSessionCommand,
   serializeAws_restJson1CreateSessionCommand,
@@ -74,8 +79,8 @@ export class CreateSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

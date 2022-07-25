@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { GetKeyRotationStatusRequest, GetKeyRotationStatusResponse } from "../models/models_0";
+import {
+  GetKeyRotationStatusRequest,
+  GetKeyRotationStatusRequestFilterSensitiveLog,
+  GetKeyRotationStatusResponse,
+  GetKeyRotationStatusResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetKeyRotationStatusCommand,
   serializeAws_json1_1GetKeyRotationStatusCommand,
@@ -125,8 +130,8 @@ export class GetKeyRotationStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetKeyRotationStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetKeyRotationStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetKeyRotationStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetKeyRotationStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

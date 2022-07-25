@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { StartNotebookExecutionInput, StartNotebookExecutionOutput } from "../models/models_0";
+import {
+  StartNotebookExecutionInput,
+  StartNotebookExecutionInputFilterSensitiveLog,
+  StartNotebookExecutionOutput,
+  StartNotebookExecutionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartNotebookExecutionCommand,
   serializeAws_json1_1StartNotebookExecutionCommand,
@@ -72,8 +77,8 @@ export class StartNotebookExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartNotebookExecutionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: StartNotebookExecutionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StartNotebookExecutionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: StartNotebookExecutionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

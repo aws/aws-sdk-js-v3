@@ -72,15 +72,6 @@ export interface AccessControlRule {
   DateModified?: Date;
 }
 
-export namespace AccessControlRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessControlRule): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateDelegateToResourceRequest {
   /**
    * <p>The organization under which the resource exists.</p>
@@ -98,25 +89,7 @@ export interface AssociateDelegateToResourceRequest {
   EntityId: string | undefined;
 }
 
-export namespace AssociateDelegateToResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDelegateToResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateDelegateToResourceResponse {}
-
-export namespace AssociateDelegateToResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDelegateToResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The identifier supplied for the user, group, or resource does not exist in your
@@ -244,25 +217,7 @@ export interface AssociateMemberToGroupRequest {
   MemberId: string | undefined;
 }
 
-export namespace AssociateMemberToGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateMemberToGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateMemberToGroupResponse {}
-
-export namespace AssociateMemberToGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateMemberToGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
@@ -343,15 +298,6 @@ export interface RedactedEwsAvailabilityProvider {
   EwsUsername?: string;
 }
 
-export namespace RedactedEwsAvailabilityProvider {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedactedEwsAvailabilityProvider): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a Lambda based availability provider.</p>
  */
@@ -360,15 +306,6 @@ export interface LambdaAvailabilityProvider {
    * <p>The Amazon Resource Name (ARN) of the Lambda that acts as the availability provider.</p>
    */
   LambdaArn: string | undefined;
-}
-
-export namespace LambdaAvailabilityProvider {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaAvailabilityProvider): any => ({
-    ...obj,
-  });
 }
 
 export enum AvailabilityProviderType {
@@ -414,15 +351,6 @@ export interface AvailabilityConfiguration {
   DateModified?: Date;
 }
 
-export namespace AvailabilityConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailabilityConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>At least one delegate must be associated to the resource to disable automatic replies
  *          from the resource.</p>
@@ -445,15 +373,6 @@ export interface BookingOptions {
   AutoDeclineConflictingRequests?: boolean;
 }
 
-export namespace BookingOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BookingOptions): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelMailboxExportJobRequest {
   /**
    * <p>The idempotency token for the client request.</p>
@@ -471,25 +390,7 @@ export interface CancelMailboxExportJobRequest {
   OrganizationId: string | undefined;
 }
 
-export namespace CancelMailboxExportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelMailboxExportJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelMailboxExportJobResponse {}
-
-export namespace CancelMailboxExportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelMailboxExportJobResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateAliasRequest {
   /**
@@ -508,25 +409,7 @@ export interface CreateAliasRequest {
   Alias: string | undefined;
 }
 
-export namespace CreateAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAliasResponse {}
-
-export namespace CreateAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAliasResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The email address that you're trying to assign is already created for a different
@@ -634,16 +517,6 @@ export interface EwsAvailabilityProvider {
   EwsPassword: string | undefined;
 }
 
-export namespace EwsAvailabilityProvider {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EwsAvailabilityProvider): any => ({
-    ...obj,
-    ...(obj.EwsPassword && { EwsPassword: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateAvailabilityConfigurationRequest {
   /**
    * <p>An idempotent token that ensures that an API request is executed only once.</p>
@@ -671,26 +544,7 @@ export interface CreateAvailabilityConfigurationRequest {
   LambdaProvider?: LambdaAvailabilityProvider;
 }
 
-export namespace CreateAvailabilityConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAvailabilityConfigurationRequest): any => ({
-    ...obj,
-    ...(obj.EwsProvider && { EwsProvider: EwsAvailabilityProvider.filterSensitiveLog(obj.EwsProvider) }),
-  });
-}
-
 export interface CreateAvailabilityConfigurationResponse {}
-
-export namespace CreateAvailabilityConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAvailabilityConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The user, group, or resource name isn't unique in Amazon WorkMail.</p>
@@ -725,29 +579,11 @@ export interface CreateGroupRequest {
   Name: string | undefined;
 }
 
-export namespace CreateGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGroupResponse {
   /**
    * <p>The identifier of the group.</p>
    */
   GroupId?: string;
-}
-
-export namespace CreateGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -843,29 +679,11 @@ export interface CreateMobileDeviceAccessRuleRequest {
   NotDeviceUserAgents?: string[];
 }
 
-export namespace CreateMobileDeviceAccessRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMobileDeviceAccessRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateMobileDeviceAccessRuleResponse {
   /**
    * <p>The identifier for the newly created mobile device access rule.</p>
    */
   MobileDeviceAccessRuleId?: string;
-}
-
-export namespace CreateMobileDeviceAccessRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMobileDeviceAccessRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -882,15 +700,6 @@ export interface Domain {
    * <p>The hosted zone ID for a domain hosted in Route 53. Required when configuring a domain hosted in Route 53.</p>
    */
   HostedZoneId?: string;
-}
-
-export namespace Domain {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Domain): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateOrganizationRequest {
@@ -926,29 +735,11 @@ export interface CreateOrganizationRequest {
   EnableInteroperability?: boolean;
 }
 
-export namespace CreateOrganizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOrganizationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateOrganizationResponse {
   /**
    * <p>The organization ID.</p>
    */
   OrganizationId?: string;
-}
-
-export namespace CreateOrganizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOrganizationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -996,29 +787,11 @@ export interface CreateResourceRequest {
   Type: ResourceType | string | undefined;
 }
 
-export namespace CreateResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateResourceResponse {
   /**
    * <p>The identifier of the new resource.</p>
    */
   ResourceId?: string;
-}
-
-export namespace CreateResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateUserRequest {
@@ -1043,30 +816,11 @@ export interface CreateUserRequest {
   Password: string | undefined;
 }
 
-export namespace CreateUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateUserResponse {
   /**
    * <p>The identifier for the new user.</p>
    */
   UserId?: string;
-}
-
-export namespace CreateUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1112,15 +866,6 @@ export interface Delegate {
   Type: MemberType | string | undefined;
 }
 
-export namespace Delegate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Delegate): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAccessControlRuleRequest {
   /**
    * <p>The identifier for the organization.</p>
@@ -1133,25 +878,7 @@ export interface DeleteAccessControlRuleRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteAccessControlRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccessControlRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAccessControlRuleResponse {}
-
-export namespace DeleteAccessControlRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccessControlRuleResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteAliasRequest {
   /**
@@ -1172,25 +899,7 @@ export interface DeleteAliasRequest {
   Alias: string | undefined;
 }
 
-export namespace DeleteAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAliasResponse {}
-
-export namespace DeleteAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAliasResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteAvailabilityConfigurationRequest {
   /**
@@ -1204,25 +913,7 @@ export interface DeleteAvailabilityConfigurationRequest {
   DomainName: string | undefined;
 }
 
-export namespace DeleteAvailabilityConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAvailabilityConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAvailabilityConfigurationResponse {}
-
-export namespace DeleteAvailabilityConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAvailabilityConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteEmailMonitoringConfigurationRequest {
   /**
@@ -1231,25 +922,7 @@ export interface DeleteEmailMonitoringConfigurationRequest {
   OrganizationId: string | undefined;
 }
 
-export namespace DeleteEmailMonitoringConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEmailMonitoringConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEmailMonitoringConfigurationResponse {}
-
-export namespace DeleteEmailMonitoringConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEmailMonitoringConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteGroupRequest {
   /**
@@ -1263,25 +936,7 @@ export interface DeleteGroupRequest {
   GroupId: string | undefined;
 }
 
-export namespace DeleteGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGroupResponse {}
-
-export namespace DeleteGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteMailboxPermissionsRequest {
   /**
@@ -1302,25 +957,7 @@ export interface DeleteMailboxPermissionsRequest {
   GranteeId: string | undefined;
 }
 
-export namespace DeleteMailboxPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMailboxPermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteMailboxPermissionsResponse {}
-
-export namespace DeleteMailboxPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMailboxPermissionsResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteMobileDeviceAccessOverrideRequest {
   /**
@@ -1353,25 +990,7 @@ export interface DeleteMobileDeviceAccessOverrideRequest {
   DeviceId: string | undefined;
 }
 
-export namespace DeleteMobileDeviceAccessOverrideRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMobileDeviceAccessOverrideRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteMobileDeviceAccessOverrideResponse {}
-
-export namespace DeleteMobileDeviceAccessOverrideResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMobileDeviceAccessOverrideResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteMobileDeviceAccessRuleRequest {
   /**
@@ -1385,25 +1004,7 @@ export interface DeleteMobileDeviceAccessRuleRequest {
   MobileDeviceAccessRuleId: string | undefined;
 }
 
-export namespace DeleteMobileDeviceAccessRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMobileDeviceAccessRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteMobileDeviceAccessRuleResponse {}
-
-export namespace DeleteMobileDeviceAccessRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMobileDeviceAccessRuleResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteOrganizationRequest {
   /**
@@ -1422,15 +1023,6 @@ export interface DeleteOrganizationRequest {
   DeleteDirectory: boolean | undefined;
 }
 
-export namespace DeleteOrganizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOrganizationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteOrganizationResponse {
   /**
    * <p>The organization ID.</p>
@@ -1441,15 +1033,6 @@ export interface DeleteOrganizationResponse {
    * <p>The state of the organization.</p>
    */
   State?: string;
-}
-
-export namespace DeleteOrganizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOrganizationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteResourceRequest {
@@ -1465,25 +1048,7 @@ export interface DeleteResourceRequest {
   ResourceId: string | undefined;
 }
 
-export namespace DeleteResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourceResponse {}
-
-export namespace DeleteResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteRetentionPolicyRequest {
   /**
@@ -1497,25 +1062,7 @@ export interface DeleteRetentionPolicyRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteRetentionPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRetentionPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRetentionPolicyResponse {}
-
-export namespace DeleteRetentionPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRetentionPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteUserRequest {
   /**
@@ -1529,25 +1076,7 @@ export interface DeleteUserRequest {
   UserId: string | undefined;
 }
 
-export namespace DeleteUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUserResponse {}
-
-export namespace DeleteUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeregisterFromWorkMailRequest {
   /**
@@ -1561,25 +1090,7 @@ export interface DeregisterFromWorkMailRequest {
   EntityId: string | undefined;
 }
 
-export namespace DeregisterFromWorkMailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterFromWorkMailRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterFromWorkMailResponse {}
-
-export namespace DeregisterFromWorkMailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterFromWorkMailResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeregisterMailDomainRequest {
   /**
@@ -1593,25 +1104,7 @@ export interface DeregisterMailDomainRequest {
   DomainName: string | undefined;
 }
 
-export namespace DeregisterMailDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterMailDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterMailDomainResponse {}
-
-export namespace DeregisterMailDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterMailDomainResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>You SES configuration has customizations that Amazon WorkMail cannot save. The error message lists the invalid setting. For examples of invalid settings, refer to
@@ -1663,15 +1156,6 @@ export interface DescribeEmailMonitoringConfigurationRequest {
   OrganizationId: string | undefined;
 }
 
-export namespace DescribeEmailMonitoringConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEmailMonitoringConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEmailMonitoringConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM Role associated with the email monitoring configuration.</p>
@@ -1682,15 +1166,6 @@ export interface DescribeEmailMonitoringConfigurationResponse {
    * <p>The Amazon Resource Name (ARN) of the CloudWatch Log group associated with the email monitoring configuration.</p>
    */
   LogGroupArn?: string;
-}
-
-export namespace DescribeEmailMonitoringConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEmailMonitoringConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1724,15 +1199,6 @@ export interface DescribeGroupRequest {
    * <p>The identifier for the group to be described.</p>
    */
   GroupId: string | undefined;
-}
-
-export namespace DescribeGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum EntityState {
@@ -1776,15 +1242,6 @@ export interface DescribeGroupResponse {
   DisabledDate?: Date;
 }
 
-export namespace DescribeGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeInboundDmarcSettingsRequest {
   /**
    * <p>Lists the ID of the given organization.</p>
@@ -1792,29 +1249,11 @@ export interface DescribeInboundDmarcSettingsRequest {
   OrganizationId: string | undefined;
 }
 
-export namespace DescribeInboundDmarcSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInboundDmarcSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeInboundDmarcSettingsResponse {
   /**
    * <p>Lists the enforcement setting of the applied policy.</p>
    */
   Enforced?: boolean;
-}
-
-export namespace DescribeInboundDmarcSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInboundDmarcSettingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeMailboxExportJobRequest {
@@ -1827,15 +1266,6 @@ export interface DescribeMailboxExportJobRequest {
    * <p>The organization ID.</p>
    */
   OrganizationId: string | undefined;
-}
-
-export namespace DescribeMailboxExportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMailboxExportJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum MailboxExportJobState {
@@ -1910,29 +1340,11 @@ export interface DescribeMailboxExportJobResponse {
   EndTime?: Date;
 }
 
-export namespace DescribeMailboxExportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMailboxExportJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOrganizationRequest {
   /**
    * <p>The identifier for the organization to be described.</p>
    */
   OrganizationId: string | undefined;
-}
-
-export namespace DescribeOrganizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeOrganizationResponse {
@@ -1984,15 +1396,6 @@ export interface DescribeOrganizationResponse {
   ARN?: string;
 }
 
-export namespace DescribeOrganizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeResourceRequest {
   /**
    * <p>The identifier associated with the organization for which the resource is
@@ -2004,15 +1407,6 @@ export interface DescribeResourceRequest {
    * <p>The identifier of the resource to be described.</p>
    */
   ResourceId: string | undefined;
-}
-
-export namespace DescribeResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeResourceResponse {
@@ -2060,15 +1454,6 @@ export interface DescribeResourceResponse {
   DisabledDate?: Date;
 }
 
-export namespace DescribeResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUserRequest {
   /**
    * <p>The identifier for the organization under which the user exists.</p>
@@ -2079,15 +1464,6 @@ export interface DescribeUserRequest {
    * <p>The identifier for the user to be described.</p>
    */
   UserId: string | undefined;
-}
-
-export namespace DescribeUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum UserRole {
@@ -2145,15 +1521,6 @@ export interface DescribeUserResponse {
   DisabledDate?: Date;
 }
 
-export namespace DescribeUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateDelegateFromResourceRequest {
   /**
    * <p>The identifier for the organization under which the resource exists.</p>
@@ -2173,25 +1540,7 @@ export interface DisassociateDelegateFromResourceRequest {
   EntityId: string | undefined;
 }
 
-export namespace DisassociateDelegateFromResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDelegateFromResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateDelegateFromResourceResponse {}
-
-export namespace DisassociateDelegateFromResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDelegateFromResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateMemberFromGroupRequest {
   /**
@@ -2210,25 +1559,7 @@ export interface DisassociateMemberFromGroupRequest {
   MemberId: string | undefined;
 }
 
-export namespace DisassociateMemberFromGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateMemberFromGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateMemberFromGroupResponse {}
-
-export namespace DisassociateMemberFromGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateMemberFromGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A DNS record uploaded to your DNS provider.</p>
@@ -2248,15 +1579,6 @@ export interface DnsRecord {
    * <p>The value returned by the DNS for a query to that hostname and record type.</p>
    */
   Value?: string;
-}
-
-export namespace DnsRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DnsRecord): any => ({
-    ...obj,
-  });
 }
 
 export enum DnsRecordVerificationStatus {
@@ -2323,15 +1645,6 @@ export interface FolderConfiguration {
   Period?: number;
 }
 
-export namespace FolderConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FolderConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccessControlEffectRequest {
   /**
    * <p>The identifier for the organization.</p>
@@ -2356,15 +1669,6 @@ export interface GetAccessControlEffectRequest {
   UserId: string | undefined;
 }
 
-export namespace GetAccessControlEffectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessControlEffectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccessControlEffectResponse {
   /**
    * <p>The rule effect.</p>
@@ -2377,29 +1681,11 @@ export interface GetAccessControlEffectResponse {
   MatchedRules?: string[];
 }
 
-export namespace GetAccessControlEffectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessControlEffectResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDefaultRetentionPolicyRequest {
   /**
    * <p>The organization ID.</p>
    */
   OrganizationId: string | undefined;
-}
-
-export namespace GetDefaultRetentionPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDefaultRetentionPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDefaultRetentionPolicyResponse {
@@ -2424,15 +1710,6 @@ export interface GetDefaultRetentionPolicyResponse {
   FolderConfigurations?: FolderConfiguration[];
 }
 
-export namespace GetDefaultRetentionPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDefaultRetentionPolicyResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMailboxDetailsRequest {
   /**
    * <p>The identifier for the organization that contains the user whose mailbox details are
@@ -2444,15 +1721,6 @@ export interface GetMailboxDetailsRequest {
    * <p>The identifier for the user whose mailbox details are being requested.</p>
    */
   UserId: string | undefined;
-}
-
-export namespace GetMailboxDetailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMailboxDetailsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMailboxDetailsResponse {
@@ -2467,15 +1735,6 @@ export interface GetMailboxDetailsResponse {
   MailboxSize?: number;
 }
 
-export namespace GetMailboxDetailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMailboxDetailsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMailDomainRequest {
   /**
    * <p>The Amazon WorkMail organization for which the domain is retrieved.</p>
@@ -2486,15 +1745,6 @@ export interface GetMailDomainRequest {
    * <p>The domain from which you want to retrieve details.</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace GetMailDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMailDomainRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMailDomainResponse {
@@ -2525,15 +1775,6 @@ export interface GetMailDomainResponse {
   DkimVerificationStatus?: DnsRecordVerificationStatus | string;
 }
 
-export namespace GetMailDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMailDomainResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMobileDeviceAccessEffectRequest {
   /**
    * <p>The Amazon WorkMail organization to simulate the access effect for.</p>
@@ -2561,15 +1802,6 @@ export interface GetMobileDeviceAccessEffectRequest {
   DeviceUserAgent?: string;
 }
 
-export namespace GetMobileDeviceAccessEffectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMobileDeviceAccessEffectRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The rule that a simulated user matches.</p>
  */
@@ -2585,15 +1817,6 @@ export interface MobileDeviceAccessMatchedRule {
   Name?: string;
 }
 
-export namespace MobileDeviceAccessMatchedRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MobileDeviceAccessMatchedRule): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMobileDeviceAccessEffectResponse {
   /**
    * <p>The effect of the simulated access, <code>ALLOW</code> or <code>DENY</code>, after evaluating mobile device access rules in the Amazon WorkMail organization for the simulated
@@ -2605,15 +1828,6 @@ export interface GetMobileDeviceAccessEffectResponse {
    * <p>A list of the rules which matched the simulated user input and produced the effect.</p>
    */
   MatchedRules?: MobileDeviceAccessMatchedRule[];
-}
-
-export namespace GetMobileDeviceAccessEffectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMobileDeviceAccessEffectResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMobileDeviceAccessOverrideRequest {
@@ -2647,15 +1861,6 @@ export interface GetMobileDeviceAccessOverrideRequest {
   DeviceId: string | undefined;
 }
 
-export namespace GetMobileDeviceAccessOverrideRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMobileDeviceAccessOverrideRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMobileDeviceAccessOverrideResponse {
   /**
    * <p>The WorkMail user to which the access override applies.</p>
@@ -2686,15 +1891,6 @@ export interface GetMobileDeviceAccessOverrideResponse {
    * <p>The date the description was last modified.</p>
    */
   DateModified?: Date;
-}
-
-export namespace GetMobileDeviceAccessOverrideResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMobileDeviceAccessOverrideResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2730,15 +1926,6 @@ export interface Group {
    * <p>The date indicating when the group was disabled from Amazon WorkMail use.</p>
    */
   DisabledDate?: Date;
-}
-
-export namespace Group {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Group): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2815,15 +2002,6 @@ export interface MailboxExportJob {
   EndTime?: Date;
 }
 
-export namespace MailboxExportJob {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MailboxExportJob): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccessControlRulesRequest {
   /**
    * <p>The identifier for the organization.</p>
@@ -2831,29 +2009,11 @@ export interface ListAccessControlRulesRequest {
   OrganizationId: string | undefined;
 }
 
-export namespace ListAccessControlRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccessControlRulesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccessControlRulesResponse {
   /**
    * <p>The access control rules.</p>
    */
   Rules?: AccessControlRule[];
-}
-
-export namespace ListAccessControlRulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccessControlRulesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAliasesRequest {
@@ -2879,15 +2039,6 @@ export interface ListAliasesRequest {
   MaxResults?: number;
 }
 
-export namespace ListAliasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAliasesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAliasesResponse {
   /**
    * <p>The entity's paginated aliases.</p>
@@ -2899,15 +2050,6 @@ export interface ListAliasesResponse {
    *          are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAliasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAliasesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAvailabilityConfigurationsRequest {
@@ -2928,15 +2070,6 @@ export interface ListAvailabilityConfigurationsRequest {
   NextToken?: string;
 }
 
-export namespace ListAvailabilityConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAvailabilityConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAvailabilityConfigurationsResponse {
   /**
    * <p>The list of <code>AvailabilityConfiguration</code>'s that exist for the specified Amazon WorkMail organization.</p>
@@ -2947,15 +2080,6 @@ export interface ListAvailabilityConfigurationsResponse {
    * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no further results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAvailabilityConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAvailabilityConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGroupMembersRequest {
@@ -2980,15 +2104,6 @@ export interface ListGroupMembersRequest {
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListGroupMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupMembersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3026,15 +2141,6 @@ export interface Member {
   DisabledDate?: Date;
 }
 
-export namespace Member {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Member): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGroupMembersResponse {
   /**
    * <p>The members associated to the group.</p>
@@ -3046,15 +2152,6 @@ export interface ListGroupMembersResponse {
    *          contain any tokens.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListGroupMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupMembersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGroupsRequest {
@@ -3075,15 +2172,6 @@ export interface ListGroupsRequest {
   MaxResults?: number;
 }
 
-export namespace ListGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGroupsResponse {
   /**
    * <p>The overview of groups for an organization.</p>
@@ -3095,15 +2183,6 @@ export interface ListGroupsResponse {
    *          are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMailboxExportJobsRequest {
@@ -3123,15 +2202,6 @@ export interface ListMailboxExportJobsRequest {
   MaxResults?: number;
 }
 
-export namespace ListMailboxExportJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMailboxExportJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMailboxExportJobsResponse {
   /**
    * <p>The mailbox export job details.</p>
@@ -3142,15 +2212,6 @@ export interface ListMailboxExportJobsResponse {
    * <p>The token to use to retrieve the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListMailboxExportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMailboxExportJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMailboxPermissionsRequest {
@@ -3176,15 +2237,6 @@ export interface ListMailboxPermissionsRequest {
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListMailboxPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMailboxPermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum PermissionType {
@@ -3220,15 +2272,6 @@ export interface Permission {
   PermissionValues: (PermissionType | string)[] | undefined;
 }
 
-export namespace Permission {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Permission): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMailboxPermissionsResponse {
   /**
    * <p>One page of the user, group, or resource mailbox permissions.</p>
@@ -3240,15 +2283,6 @@ export interface ListMailboxPermissionsResponse {
    *          are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListMailboxPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMailboxPermissionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMailDomainsRequest {
@@ -3268,15 +2302,6 @@ export interface ListMailDomainsRequest {
   NextToken?: string;
 }
 
-export namespace ListMailDomainsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMailDomainsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The data for a given domain.</p>
  */
@@ -3292,15 +2317,6 @@ export interface MailDomainSummary {
   DefaultDomain?: boolean;
 }
 
-export namespace MailDomainSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MailDomainSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMailDomainsResponse {
   /**
    * <p>The list of mail domain summaries, specifying domains that exist in the specified Amazon WorkMail  organization, along with the information about whether the domain is or isn't the default.</p>
@@ -3311,15 +2327,6 @@ export interface ListMailDomainsResponse {
    * <p>The token to use to retrieve the next page of results. The value becomes <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListMailDomainsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMailDomainsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMobileDeviceAccessOverridesRequest {
@@ -3363,15 +2370,6 @@ export interface ListMobileDeviceAccessOverridesRequest {
   MaxResults?: number;
 }
 
-export namespace ListMobileDeviceAccessOverridesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMobileDeviceAccessOverridesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The override object.</p>
  */
@@ -3407,15 +2405,6 @@ export interface MobileDeviceAccessOverride {
   DateModified?: Date;
 }
 
-export namespace MobileDeviceAccessOverride {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MobileDeviceAccessOverride): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMobileDeviceAccessOverridesResponse {
   /**
    * <p>The list of mobile device access overrides that exist for the specified Amazon WorkMail organization and user.</p>
@@ -3428,29 +2417,11 @@ export interface ListMobileDeviceAccessOverridesResponse {
   NextToken?: string;
 }
 
-export namespace ListMobileDeviceAccessOverridesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMobileDeviceAccessOverridesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMobileDeviceAccessRulesRequest {
   /**
    * <p>The Amazon WorkMail organization for which to list the rules.</p>
    */
   OrganizationId: string | undefined;
-}
-
-export namespace ListMobileDeviceAccessRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMobileDeviceAccessRulesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3528,29 +2499,11 @@ export interface MobileDeviceAccessRule {
   DateModified?: Date;
 }
 
-export namespace MobileDeviceAccessRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MobileDeviceAccessRule): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMobileDeviceAccessRulesResponse {
   /**
    * <p>The list of mobile device access rules that exist under the specified Amazon WorkMail organization.</p>
    */
   Rules?: MobileDeviceAccessRule[];
-}
-
-export namespace ListMobileDeviceAccessRulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMobileDeviceAccessRulesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListOrganizationsRequest {
@@ -3564,15 +2517,6 @@ export interface ListOrganizationsRequest {
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListOrganizationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrganizationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3607,15 +2551,6 @@ export interface OrganizationSummary {
   State?: string;
 }
 
-export namespace OrganizationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOrganizationsResponse {
   /**
    * <p>The overview of owned organizations presented as a list of organization
@@ -3628,15 +2563,6 @@ export interface ListOrganizationsResponse {
    *          are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListOrganizationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrganizationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourceDelegatesRequest {
@@ -3663,15 +2589,6 @@ export interface ListResourceDelegatesRequest {
   MaxResults?: number;
 }
 
-export namespace ListResourceDelegatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceDelegatesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourceDelegatesResponse {
   /**
    * <p>One page of the resource's delegates.</p>
@@ -3684,15 +2601,6 @@ export interface ListResourceDelegatesResponse {
    *          token is empty. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListResourceDelegatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceDelegatesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourcesRequest {
@@ -3711,15 +2619,6 @@ export interface ListResourcesRequest {
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3762,15 +2661,6 @@ export interface Resource {
   DisabledDate?: Date;
 }
 
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourcesResponse {
   /**
    * <p>One page of the organization's resource representation.</p>
@@ -3785,29 +2675,11 @@ export interface ListResourcesResponse {
   NextToken?: string;
 }
 
-export namespace ListResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The resource ARN.</p>
    */
   ResourceARN: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3825,29 +2697,11 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tag key-value pairs.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListUsersRequest {
@@ -3866,15 +2720,6 @@ export interface ListUsersRequest {
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListUsersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3922,15 +2767,6 @@ export interface User {
   DisabledDate?: Date;
 }
 
-export namespace User {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: User): any => ({
-    ...obj,
-  });
-}
-
 export interface ListUsersResponse {
   /**
    * <p>The overview of users for an organization.</p>
@@ -3942,15 +2778,6 @@ export interface ListUsersResponse {
    *          there are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListUsersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutAccessControlRuleRequest {
@@ -4009,25 +2836,7 @@ export interface PutAccessControlRuleRequest {
   OrganizationId: string | undefined;
 }
 
-export namespace PutAccessControlRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccessControlRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAccessControlRuleResponse {}
-
-export namespace PutAccessControlRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccessControlRuleResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface PutEmailMonitoringConfigurationRequest {
   /**
@@ -4046,25 +2855,7 @@ export interface PutEmailMonitoringConfigurationRequest {
   LogGroupArn: string | undefined;
 }
 
-export namespace PutEmailMonitoringConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEmailMonitoringConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutEmailMonitoringConfigurationResponse {}
-
-export namespace PutEmailMonitoringConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEmailMonitoringConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface PutInboundDmarcSettingsRequest {
   /**
@@ -4078,25 +2869,7 @@ export interface PutInboundDmarcSettingsRequest {
   Enforced: boolean | undefined;
 }
 
-export namespace PutInboundDmarcSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutInboundDmarcSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutInboundDmarcSettingsResponse {}
-
-export namespace PutInboundDmarcSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutInboundDmarcSettingsResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface PutMailboxPermissionsRequest {
   /**
@@ -4128,25 +2901,7 @@ export interface PutMailboxPermissionsRequest {
   PermissionValues: (PermissionType | string)[] | undefined;
 }
 
-export namespace PutMailboxPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutMailboxPermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutMailboxPermissionsResponse {}
-
-export namespace PutMailboxPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutMailboxPermissionsResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface PutMobileDeviceAccessOverrideRequest {
   /**
@@ -4189,25 +2944,7 @@ export interface PutMobileDeviceAccessOverrideRequest {
   Description?: string;
 }
 
-export namespace PutMobileDeviceAccessOverrideRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutMobileDeviceAccessOverrideRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutMobileDeviceAccessOverrideResponse {}
-
-export namespace PutMobileDeviceAccessOverrideResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutMobileDeviceAccessOverrideResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface PutRetentionPolicyRequest {
   /**
@@ -4236,26 +2973,7 @@ export interface PutRetentionPolicyRequest {
   FolderConfigurations: FolderConfiguration[] | undefined;
 }
 
-export namespace PutRetentionPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRetentionPolicyRequest): any => ({
-    ...obj,
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface PutRetentionPolicyResponse {}
-
-export namespace PutRetentionPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRetentionPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface RegisterMailDomainRequest {
   /**
@@ -4274,25 +2992,7 @@ export interface RegisterMailDomainRequest {
   DomainName: string | undefined;
 }
 
-export namespace RegisterMailDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterMailDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterMailDomainResponse {}
-
-export namespace RegisterMailDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterMailDomainResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface RegisterToWorkMailRequest {
   /**
@@ -4312,25 +3012,7 @@ export interface RegisterToWorkMailRequest {
   Email: string | undefined;
 }
 
-export namespace RegisterToWorkMailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterToWorkMailRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterToWorkMailResponse {}
-
-export namespace RegisterToWorkMailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterToWorkMailResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface ResetPasswordRequest {
   /**
@@ -4350,26 +3032,7 @@ export interface ResetPasswordRequest {
   Password: string | undefined;
 }
 
-export namespace ResetPasswordRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetPasswordRequest): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 export interface ResetPasswordResponse {}
-
-export namespace ResetPasswordResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetPasswordResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface StartMailboxExportJobRequest {
   /**
@@ -4415,29 +3078,11 @@ export interface StartMailboxExportJobRequest {
   S3Prefix: string | undefined;
 }
 
-export namespace StartMailboxExportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMailboxExportJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartMailboxExportJobResponse {
   /**
    * <p>The job ID.</p>
    */
   JobId?: string;
-}
-
-export namespace StartMailboxExportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMailboxExportJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -4452,25 +3097,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The resource can have up to 50 user-applied tags.</p>
@@ -4515,16 +3142,6 @@ export interface TestAvailabilityConfigurationRequest {
   LambdaProvider?: LambdaAvailabilityProvider;
 }
 
-export namespace TestAvailabilityConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestAvailabilityConfigurationRequest): any => ({
-    ...obj,
-    ...(obj.EwsProvider && { EwsProvider: EwsAvailabilityProvider.filterSensitiveLog(obj.EwsProvider) }),
-  });
-}
-
 export interface TestAvailabilityConfigurationResponse {
   /**
    * <p>Boolean indicating whether the test passed or failed.</p>
@@ -4535,15 +3152,6 @@ export interface TestAvailabilityConfigurationResponse {
    * <p>String containing the reason for a failed test if <code>TestPassed</code> is false.</p>
    */
   FailureReason?: string;
-}
-
-export namespace TestAvailabilityConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestAvailabilityConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {
@@ -4558,25 +3166,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateAvailabilityConfigurationRequest {
   /**
@@ -4605,26 +3195,7 @@ export interface UpdateAvailabilityConfigurationRequest {
   LambdaProvider?: LambdaAvailabilityProvider;
 }
 
-export namespace UpdateAvailabilityConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAvailabilityConfigurationRequest): any => ({
-    ...obj,
-    ...(obj.EwsProvider && { EwsProvider: EwsAvailabilityProvider.filterSensitiveLog(obj.EwsProvider) }),
-  });
-}
-
 export interface UpdateAvailabilityConfigurationResponse {}
-
-export namespace UpdateAvailabilityConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAvailabilityConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDefaultMailDomainRequest {
   /**
@@ -4638,25 +3209,7 @@ export interface UpdateDefaultMailDomainRequest {
   DomainName: string | undefined;
 }
 
-export namespace UpdateDefaultMailDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDefaultMailDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDefaultMailDomainResponse {}
-
-export namespace UpdateDefaultMailDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDefaultMailDomainResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateMailboxQuotaRequest {
   /**
@@ -4676,25 +3229,7 @@ export interface UpdateMailboxQuotaRequest {
   MailboxQuota: number | undefined;
 }
 
-export namespace UpdateMailboxQuotaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMailboxQuotaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateMailboxQuotaResponse {}
-
-export namespace UpdateMailboxQuotaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMailboxQuotaResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateMobileDeviceAccessRuleRequest {
   /**
@@ -4763,25 +3298,7 @@ export interface UpdateMobileDeviceAccessRuleRequest {
   NotDeviceUserAgents?: string[];
 }
 
-export namespace UpdateMobileDeviceAccessRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMobileDeviceAccessRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateMobileDeviceAccessRuleResponse {}
-
-export namespace UpdateMobileDeviceAccessRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMobileDeviceAccessRuleResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdatePrimaryEmailAddressRequest {
   /**
@@ -4800,25 +3317,7 @@ export interface UpdatePrimaryEmailAddressRequest {
   Email: string | undefined;
 }
 
-export namespace UpdatePrimaryEmailAddressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePrimaryEmailAddressRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePrimaryEmailAddressResponse {}
-
-export namespace UpdatePrimaryEmailAddressResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePrimaryEmailAddressResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateResourceRequest {
   /**
@@ -4843,22 +3342,1263 @@ export interface UpdateResourceRequest {
   BookingOptions?: BookingOptions;
 }
 
-export namespace UpdateResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateResourceResponse {}
 
-export namespace UpdateResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccessControlRuleFilterSensitiveLog = (obj: AccessControlRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateDelegateToResourceRequestFilterSensitiveLog = (obj: AssociateDelegateToResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateDelegateToResourceResponseFilterSensitiveLog = (
+  obj: AssociateDelegateToResourceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateMemberToGroupRequestFilterSensitiveLog = (obj: AssociateMemberToGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateMemberToGroupResponseFilterSensitiveLog = (obj: AssociateMemberToGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedactedEwsAvailabilityProviderFilterSensitiveLog = (obj: RedactedEwsAvailabilityProvider): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaAvailabilityProviderFilterSensitiveLog = (obj: LambdaAvailabilityProvider): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvailabilityConfigurationFilterSensitiveLog = (obj: AvailabilityConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BookingOptionsFilterSensitiveLog = (obj: BookingOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelMailboxExportJobRequestFilterSensitiveLog = (obj: CancelMailboxExportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelMailboxExportJobResponseFilterSensitiveLog = (obj: CancelMailboxExportJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAliasRequestFilterSensitiveLog = (obj: CreateAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAliasResponseFilterSensitiveLog = (obj: CreateAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EwsAvailabilityProviderFilterSensitiveLog = (obj: EwsAvailabilityProvider): any => ({
+  ...obj,
+  ...(obj.EwsPassword && { EwsPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAvailabilityConfigurationRequestFilterSensitiveLog = (
+  obj: CreateAvailabilityConfigurationRequest
+): any => ({
+  ...obj,
+  ...(obj.EwsProvider && { EwsProvider: EwsAvailabilityProviderFilterSensitiveLog(obj.EwsProvider) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAvailabilityConfigurationResponseFilterSensitiveLog = (
+  obj: CreateAvailabilityConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupRequestFilterSensitiveLog = (obj: CreateGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupResponseFilterSensitiveLog = (obj: CreateGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMobileDeviceAccessRuleRequestFilterSensitiveLog = (
+  obj: CreateMobileDeviceAccessRuleRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMobileDeviceAccessRuleResponseFilterSensitiveLog = (
+  obj: CreateMobileDeviceAccessRuleResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainFilterSensitiveLog = (obj: Domain): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOrganizationRequestFilterSensitiveLog = (obj: CreateOrganizationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOrganizationResponseFilterSensitiveLog = (obj: CreateOrganizationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceRequestFilterSensitiveLog = (obj: CreateResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceResponseFilterSensitiveLog = (obj: CreateResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DelegateFilterSensitiveLog = (obj: Delegate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccessControlRuleRequestFilterSensitiveLog = (obj: DeleteAccessControlRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccessControlRuleResponseFilterSensitiveLog = (obj: DeleteAccessControlRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAliasRequestFilterSensitiveLog = (obj: DeleteAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAliasResponseFilterSensitiveLog = (obj: DeleteAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAvailabilityConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteAvailabilityConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAvailabilityConfigurationResponseFilterSensitiveLog = (
+  obj: DeleteAvailabilityConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEmailMonitoringConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteEmailMonitoringConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEmailMonitoringConfigurationResponseFilterSensitiveLog = (
+  obj: DeleteEmailMonitoringConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupRequestFilterSensitiveLog = (obj: DeleteGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupResponseFilterSensitiveLog = (obj: DeleteGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMailboxPermissionsRequestFilterSensitiveLog = (obj: DeleteMailboxPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMailboxPermissionsResponseFilterSensitiveLog = (obj: DeleteMailboxPermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMobileDeviceAccessOverrideRequestFilterSensitiveLog = (
+  obj: DeleteMobileDeviceAccessOverrideRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMobileDeviceAccessOverrideResponseFilterSensitiveLog = (
+  obj: DeleteMobileDeviceAccessOverrideResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMobileDeviceAccessRuleRequestFilterSensitiveLog = (
+  obj: DeleteMobileDeviceAccessRuleRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMobileDeviceAccessRuleResponseFilterSensitiveLog = (
+  obj: DeleteMobileDeviceAccessRuleResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOrganizationRequestFilterSensitiveLog = (obj: DeleteOrganizationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOrganizationResponseFilterSensitiveLog = (obj: DeleteOrganizationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourceRequestFilterSensitiveLog = (obj: DeleteResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourceResponseFilterSensitiveLog = (obj: DeleteResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRetentionPolicyRequestFilterSensitiveLog = (obj: DeleteRetentionPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRetentionPolicyResponseFilterSensitiveLog = (obj: DeleteRetentionPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserResponseFilterSensitiveLog = (obj: DeleteUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterFromWorkMailRequestFilterSensitiveLog = (obj: DeregisterFromWorkMailRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterFromWorkMailResponseFilterSensitiveLog = (obj: DeregisterFromWorkMailResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterMailDomainRequestFilterSensitiveLog = (obj: DeregisterMailDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterMailDomainResponseFilterSensitiveLog = (obj: DeregisterMailDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEmailMonitoringConfigurationRequestFilterSensitiveLog = (
+  obj: DescribeEmailMonitoringConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEmailMonitoringConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeEmailMonitoringConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGroupRequestFilterSensitiveLog = (obj: DescribeGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGroupResponseFilterSensitiveLog = (obj: DescribeGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInboundDmarcSettingsRequestFilterSensitiveLog = (
+  obj: DescribeInboundDmarcSettingsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInboundDmarcSettingsResponseFilterSensitiveLog = (
+  obj: DescribeInboundDmarcSettingsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMailboxExportJobRequestFilterSensitiveLog = (obj: DescribeMailboxExportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMailboxExportJobResponseFilterSensitiveLog = (obj: DescribeMailboxExportJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationRequestFilterSensitiveLog = (obj: DescribeOrganizationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationResponseFilterSensitiveLog = (obj: DescribeOrganizationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourceRequestFilterSensitiveLog = (obj: DescribeResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourceResponseFilterSensitiveLog = (obj: DescribeResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserRequestFilterSensitiveLog = (obj: DescribeUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserResponseFilterSensitiveLog = (obj: DescribeUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateDelegateFromResourceRequestFilterSensitiveLog = (
+  obj: DisassociateDelegateFromResourceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateDelegateFromResourceResponseFilterSensitiveLog = (
+  obj: DisassociateDelegateFromResourceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateMemberFromGroupRequestFilterSensitiveLog = (obj: DisassociateMemberFromGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateMemberFromGroupResponseFilterSensitiveLog = (
+  obj: DisassociateMemberFromGroupResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DnsRecordFilterSensitiveLog = (obj: DnsRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FolderConfigurationFilterSensitiveLog = (obj: FolderConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessControlEffectRequestFilterSensitiveLog = (obj: GetAccessControlEffectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessControlEffectResponseFilterSensitiveLog = (obj: GetAccessControlEffectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDefaultRetentionPolicyRequestFilterSensitiveLog = (obj: GetDefaultRetentionPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDefaultRetentionPolicyResponseFilterSensitiveLog = (obj: GetDefaultRetentionPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMailboxDetailsRequestFilterSensitiveLog = (obj: GetMailboxDetailsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMailboxDetailsResponseFilterSensitiveLog = (obj: GetMailboxDetailsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMailDomainRequestFilterSensitiveLog = (obj: GetMailDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMailDomainResponseFilterSensitiveLog = (obj: GetMailDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMobileDeviceAccessEffectRequestFilterSensitiveLog = (obj: GetMobileDeviceAccessEffectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MobileDeviceAccessMatchedRuleFilterSensitiveLog = (obj: MobileDeviceAccessMatchedRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMobileDeviceAccessEffectResponseFilterSensitiveLog = (
+  obj: GetMobileDeviceAccessEffectResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMobileDeviceAccessOverrideRequestFilterSensitiveLog = (
+  obj: GetMobileDeviceAccessOverrideRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMobileDeviceAccessOverrideResponseFilterSensitiveLog = (
+  obj: GetMobileDeviceAccessOverrideResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupFilterSensitiveLog = (obj: Group): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MailboxExportJobFilterSensitiveLog = (obj: MailboxExportJob): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccessControlRulesRequestFilterSensitiveLog = (obj: ListAccessControlRulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccessControlRulesResponseFilterSensitiveLog = (obj: ListAccessControlRulesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAliasesRequestFilterSensitiveLog = (obj: ListAliasesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAliasesResponseFilterSensitiveLog = (obj: ListAliasesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAvailabilityConfigurationsRequestFilterSensitiveLog = (
+  obj: ListAvailabilityConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAvailabilityConfigurationsResponseFilterSensitiveLog = (
+  obj: ListAvailabilityConfigurationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupMembersRequestFilterSensitiveLog = (obj: ListGroupMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberFilterSensitiveLog = (obj: Member): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupMembersResponseFilterSensitiveLog = (obj: ListGroupMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupsRequestFilterSensitiveLog = (obj: ListGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupsResponseFilterSensitiveLog = (obj: ListGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMailboxExportJobsRequestFilterSensitiveLog = (obj: ListMailboxExportJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMailboxExportJobsResponseFilterSensitiveLog = (obj: ListMailboxExportJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMailboxPermissionsRequestFilterSensitiveLog = (obj: ListMailboxPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PermissionFilterSensitiveLog = (obj: Permission): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMailboxPermissionsResponseFilterSensitiveLog = (obj: ListMailboxPermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMailDomainsRequestFilterSensitiveLog = (obj: ListMailDomainsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MailDomainSummaryFilterSensitiveLog = (obj: MailDomainSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMailDomainsResponseFilterSensitiveLog = (obj: ListMailDomainsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMobileDeviceAccessOverridesRequestFilterSensitiveLog = (
+  obj: ListMobileDeviceAccessOverridesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MobileDeviceAccessOverrideFilterSensitiveLog = (obj: MobileDeviceAccessOverride): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMobileDeviceAccessOverridesResponseFilterSensitiveLog = (
+  obj: ListMobileDeviceAccessOverridesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMobileDeviceAccessRulesRequestFilterSensitiveLog = (obj: ListMobileDeviceAccessRulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MobileDeviceAccessRuleFilterSensitiveLog = (obj: MobileDeviceAccessRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMobileDeviceAccessRulesResponseFilterSensitiveLog = (
+  obj: ListMobileDeviceAccessRulesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOrganizationsRequestFilterSensitiveLog = (obj: ListOrganizationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationSummaryFilterSensitiveLog = (obj: OrganizationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOrganizationsResponseFilterSensitiveLog = (obj: ListOrganizationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceDelegatesRequestFilterSensitiveLog = (obj: ListResourceDelegatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceDelegatesResponseFilterSensitiveLog = (obj: ListResourceDelegatesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesRequestFilterSensitiveLog = (obj: ListResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesResponseFilterSensitiveLog = (obj: ListResourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsersRequestFilterSensitiveLog = (obj: ListUsersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserFilterSensitiveLog = (obj: User): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsersResponseFilterSensitiveLog = (obj: ListUsersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAccessControlRuleRequestFilterSensitiveLog = (obj: PutAccessControlRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAccessControlRuleResponseFilterSensitiveLog = (obj: PutAccessControlRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEmailMonitoringConfigurationRequestFilterSensitiveLog = (
+  obj: PutEmailMonitoringConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEmailMonitoringConfigurationResponseFilterSensitiveLog = (
+  obj: PutEmailMonitoringConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutInboundDmarcSettingsRequestFilterSensitiveLog = (obj: PutInboundDmarcSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutInboundDmarcSettingsResponseFilterSensitiveLog = (obj: PutInboundDmarcSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMailboxPermissionsRequestFilterSensitiveLog = (obj: PutMailboxPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMailboxPermissionsResponseFilterSensitiveLog = (obj: PutMailboxPermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMobileDeviceAccessOverrideRequestFilterSensitiveLog = (
+  obj: PutMobileDeviceAccessOverrideRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMobileDeviceAccessOverrideResponseFilterSensitiveLog = (
+  obj: PutMobileDeviceAccessOverrideResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRetentionPolicyRequestFilterSensitiveLog = (obj: PutRetentionPolicyRequest): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutRetentionPolicyResponseFilterSensitiveLog = (obj: PutRetentionPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterMailDomainRequestFilterSensitiveLog = (obj: RegisterMailDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterMailDomainResponseFilterSensitiveLog = (obj: RegisterMailDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterToWorkMailRequestFilterSensitiveLog = (obj: RegisterToWorkMailRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterToWorkMailResponseFilterSensitiveLog = (obj: RegisterToWorkMailResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetPasswordRequestFilterSensitiveLog = (obj: ResetPasswordRequest): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ResetPasswordResponseFilterSensitiveLog = (obj: ResetPasswordResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMailboxExportJobRequestFilterSensitiveLog = (obj: StartMailboxExportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMailboxExportJobResponseFilterSensitiveLog = (obj: StartMailboxExportJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestAvailabilityConfigurationRequestFilterSensitiveLog = (
+  obj: TestAvailabilityConfigurationRequest
+): any => ({
+  ...obj,
+  ...(obj.EwsProvider && { EwsProvider: EwsAvailabilityProviderFilterSensitiveLog(obj.EwsProvider) }),
+});
+
+/**
+ * @internal
+ */
+export const TestAvailabilityConfigurationResponseFilterSensitiveLog = (
+  obj: TestAvailabilityConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAvailabilityConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateAvailabilityConfigurationRequest
+): any => ({
+  ...obj,
+  ...(obj.EwsProvider && { EwsProvider: EwsAvailabilityProviderFilterSensitiveLog(obj.EwsProvider) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAvailabilityConfigurationResponseFilterSensitiveLog = (
+  obj: UpdateAvailabilityConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDefaultMailDomainRequestFilterSensitiveLog = (obj: UpdateDefaultMailDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDefaultMailDomainResponseFilterSensitiveLog = (obj: UpdateDefaultMailDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMailboxQuotaRequestFilterSensitiveLog = (obj: UpdateMailboxQuotaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMailboxQuotaResponseFilterSensitiveLog = (obj: UpdateMailboxQuotaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMobileDeviceAccessRuleRequestFilterSensitiveLog = (
+  obj: UpdateMobileDeviceAccessRuleRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMobileDeviceAccessRuleResponseFilterSensitiveLog = (
+  obj: UpdateMobileDeviceAccessRuleResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePrimaryEmailAddressRequestFilterSensitiveLog = (obj: UpdatePrimaryEmailAddressRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePrimaryEmailAddressResponseFilterSensitiveLog = (obj: UpdatePrimaryEmailAddressResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceRequestFilterSensitiveLog = (obj: UpdateResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceResponseFilterSensitiveLog = (obj: UpdateResourceResponse): any => ({
+  ...obj,
+});

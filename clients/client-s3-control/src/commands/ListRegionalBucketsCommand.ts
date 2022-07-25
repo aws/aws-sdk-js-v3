@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListRegionalBucketsRequest, ListRegionalBucketsResult } from "../models/models_0";
+import {
+  ListRegionalBucketsRequest,
+  ListRegionalBucketsRequestFilterSensitiveLog,
+  ListRegionalBucketsResult,
+  ListRegionalBucketsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlListRegionalBucketsCommand,
   serializeAws_restXmlListRegionalBucketsCommand,
@@ -78,8 +83,8 @@ export class ListRegionalBucketsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRegionalBucketsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListRegionalBucketsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRegionalBucketsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListRegionalBucketsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { XmlTimestampsOutput } from "../models/models_0";
+import { XmlTimestampsOutput, XmlTimestampsOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_ec2XmlTimestampsCommand, serializeAws_ec2XmlTimestampsCommand } from "../protocols/Aws_ec2";
 
 export interface XmlTimestampsCommandInput {}
@@ -72,7 +72,7 @@ export class XmlTimestampsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: XmlTimestampsOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: XmlTimestampsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteScheduledQueryRequest } from "../models/models_0";
+import { DeleteScheduledQueryRequest, DeleteScheduledQueryRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteScheduledQueryCommand,
   serializeAws_json1_0DeleteScheduledQueryCommand,
@@ -76,7 +76,7 @@ export class DeleteScheduledQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScheduledQueryRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteScheduledQueryRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

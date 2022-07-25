@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   RegisterTransitGatewayMulticastGroupSourcesRequest,
+  RegisterTransitGatewayMulticastGroupSourcesRequestFilterSensitiveLog,
   RegisterTransitGatewayMulticastGroupSourcesResult,
+  RegisterTransitGatewayMulticastGroupSourcesResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
   deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommand,
@@ -86,8 +88,8 @@ export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterTransitGatewayMulticastGroupSourcesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterTransitGatewayMulticastGroupSourcesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterTransitGatewayMulticastGroupSourcesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RegisterTransitGatewayMulticastGroupSourcesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

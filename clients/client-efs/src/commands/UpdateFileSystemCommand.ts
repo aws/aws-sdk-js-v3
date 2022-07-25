@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { FileSystemDescription, UpdateFileSystemRequest } from "../models/models_0";
+import {
+  FileSystemDescription,
+  FileSystemDescriptionFilterSensitiveLog,
+  UpdateFileSystemRequest,
+  UpdateFileSystemRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFileSystemCommand,
   serializeAws_restJson1UpdateFileSystemCommand,
@@ -73,8 +78,8 @@ export class UpdateFileSystemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFileSystemRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: FileSystemDescription.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFileSystemRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: FileSystemDescriptionFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

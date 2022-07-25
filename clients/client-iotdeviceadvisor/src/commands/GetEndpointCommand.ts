@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
-import { GetEndpointRequest, GetEndpointResponse } from "../models/models_0";
+import {
+  GetEndpointRequest,
+  GetEndpointRequestFilterSensitiveLog,
+  GetEndpointResponse,
+  GetEndpointResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetEndpointCommand,
   serializeAws_restJson1GetEndpointCommand,
@@ -72,8 +77,8 @@ export class GetEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEndpointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEndpointRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetEndpointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

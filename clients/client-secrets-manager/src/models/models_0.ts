@@ -18,15 +18,6 @@ export interface ReplicaRegionType {
   KmsKeyId?: string;
 }
 
-export namespace ReplicaRegionType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicaRegionType): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelRotateSecretRequest {
   /**
    * <p>The ARN or name of the secret.</p>
@@ -34,15 +25,6 @@ export interface CancelRotateSecretRequest {
    *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
-}
-
-export namespace CancelRotateSecretRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelRotateSecretRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CancelRotateSecretResponse {
@@ -64,15 +46,6 @@ export interface CancelRotateSecretResponse {
    *       starting future rotations.</p>
    */
   VersionId?: string;
-}
-
-export namespace CancelRotateSecretResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelRotateSecretResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -183,15 +156,6 @@ export interface Tag {
    * <p>The string value associated with the key of the tag.</p>
    */
   Value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSecretRequest {
@@ -341,17 +305,6 @@ export interface CreateSecretRequest {
   ForceOverwriteReplicaSecret?: boolean;
 }
 
-export namespace CreateSecretRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSecretRequest): any => ({
-    ...obj,
-    ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
-    ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
-  });
-}
-
 export enum StatusType {
   Failed = "Failed",
   InProgress = "InProgress",
@@ -387,15 +340,6 @@ export interface ReplicationStatusType {
    * <p>The date that you last accessed the secret in the Region. </p>
    */
   LastAccessedDate?: Date;
-}
-
-export namespace ReplicationStatusType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationStatusType): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSecretResponse {
@@ -435,15 +379,6 @@ export interface CreateSecretResponse {
    *          </ul>
    */
   ReplicationStatus?: ReplicationStatusType[];
-}
-
-export namespace CreateSecretResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSecretResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -583,15 +518,6 @@ export interface DeleteResourcePolicyRequest {
   SecretId: string | undefined;
 }
 
-export namespace DeleteResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourcePolicyResponse {
   /**
    * <p>The ARN of the secret that the resource-based policy was deleted for.</p>
@@ -602,15 +528,6 @@ export interface DeleteResourcePolicyResponse {
    * <p>The name of the secret that the resource-based policy was deleted for.</p>
    */
   Name?: string;
-}
-
-export namespace DeleteResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteSecretRequest {
@@ -646,15 +563,6 @@ export interface DeleteSecretRequest {
   ForceDeleteWithoutRecovery?: boolean;
 }
 
-export namespace DeleteSecretRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSecretRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSecretResponse {
   /**
    * <p>The ARN of the secret.</p>
@@ -674,15 +582,6 @@ export interface DeleteSecretResponse {
   DeletionDate?: Date;
 }
 
-export namespace DeleteSecretResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSecretResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSecretRequest {
   /**
    * <p>The ARN or name of the secret. </p>
@@ -690,15 +589,6 @@ export interface DescribeSecretRequest {
    *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
-}
-
-export namespace DescribeSecretRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSecretRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -745,15 +635,6 @@ export interface RotationRulesType {
    *       the rotation window.</p>
    */
   ScheduleExpression?: string;
-}
-
-export namespace RotationRulesType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RotationRulesType): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSecretResponse {
@@ -894,15 +775,6 @@ export interface DescribeSecretResponse {
   ReplicationStatus?: ReplicationStatusType[];
 }
 
-export namespace DescribeSecretResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSecretResponse): any => ({
-    ...obj,
-  });
-}
-
 export type FilterNameStringType = "all" | "description" | "name" | "primary-region" | "tag-key" | "tag-value";
 
 /**
@@ -945,15 +817,6 @@ export interface Filter {
    *          <p>You can prefix your search value with an exclamation mark (<code>!</code>) in order to perform negation filters. </p>
    */
   Values?: string[];
-}
-
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRandomPasswordRequest {
@@ -1006,30 +869,11 @@ export interface GetRandomPasswordRequest {
   RequireEachIncludedType?: boolean;
 }
 
-export namespace GetRandomPasswordRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRandomPasswordRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRandomPasswordResponse {
   /**
    * <p>A string with the password.</p>
    */
   RandomPassword?: string;
-}
-
-export namespace GetRandomPasswordResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRandomPasswordResponse): any => ({
-    ...obj,
-    ...(obj.RandomPassword && { RandomPassword: SENSITIVE_STRING }),
-  });
 }
 
 export interface GetResourcePolicyRequest {
@@ -1039,15 +883,6 @@ export interface GetResourcePolicyRequest {
    *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
-}
-
-export namespace GetResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourcePolicyResponse {
@@ -1067,15 +902,6 @@ export interface GetResourcePolicyResponse {
    *         Secrets Manager</a>.</p>
    */
   ResourcePolicy?: string;
-}
-
-export namespace GetResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSecretValueRequest {
@@ -1104,15 +930,6 @@ export interface GetSecretValueRequest {
    *       <code>VersionId</code>, Secrets Manager returns the <code>AWSCURRENT</code> version.</p>
    */
   VersionStage?: string;
-}
-
-export namespace GetSecretValueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSecretValueRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSecretValueResponse {
@@ -1162,17 +979,6 @@ export interface GetSecretValueResponse {
    *       <code>AWSCURRENT</code> version.</p>
    */
   CreatedDate?: Date;
-}
-
-export namespace GetSecretValueResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSecretValueResponse): any => ({
-    ...obj,
-    ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
-    ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1226,15 +1032,6 @@ export interface ListSecretsRequest {
    * <p>Lists secrets in the requested order. </p>
    */
   SortOrder?: SortOrderType | string;
-}
-
-export namespace ListSecretsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSecretsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1349,15 +1146,6 @@ export interface SecretListEntry {
   PrimaryRegion?: string;
 }
 
-export namespace SecretListEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecretListEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSecretsResponse {
   /**
    * <p>A list of the secrets in the account.</p>
@@ -1372,15 +1160,6 @@ export interface ListSecretsResponse {
    *       with this value.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListSecretsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSecretsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSecretVersionIdsRequest {
@@ -1411,15 +1190,6 @@ export interface ListSecretVersionIdsRequest {
    *       deletion by Secrets Manager.</p>
    */
   IncludeDeprecated?: boolean;
-}
-
-export namespace ListSecretVersionIdsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSecretVersionIdsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1454,15 +1224,6 @@ export interface SecretVersionsListEntry {
   KmsKeyIds?: string[];
 }
 
-export namespace SecretVersionsListEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecretVersionsListEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSecretVersionIdsResponse {
   /**
    * <p>A list of the versions of the secret.</p>
@@ -1486,15 +1247,6 @@ export interface ListSecretVersionIdsResponse {
    * <p>The name of the secret.</p>
    */
   Name?: string;
-}
-
-export namespace ListSecretVersionIdsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSecretVersionIdsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1539,15 +1291,6 @@ export interface PutResourcePolicyRequest {
   BlockPublicPolicy?: boolean;
 }
 
-export namespace PutResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutResourcePolicyResponse {
   /**
    * <p>The ARN of the secret.</p>
@@ -1558,15 +1301,6 @@ export interface PutResourcePolicyResponse {
    * <p>The name of the secret.</p>
    */
   Name?: string;
-}
-
-export namespace PutResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutSecretValueRequest {
@@ -1644,17 +1378,6 @@ export interface PutSecretValueRequest {
   VersionStages?: string[];
 }
 
-export namespace PutSecretValueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutSecretValueRequest): any => ({
-    ...obj,
-    ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
-    ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
-  });
-}
-
 export interface PutSecretValueResponse {
   /**
    * <p>The ARN of the secret.</p>
@@ -1679,15 +1402,6 @@ export interface PutSecretValueResponse {
   VersionStages?: string[];
 }
 
-export namespace PutSecretValueResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutSecretValueResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveRegionsFromReplicationRequest {
   /**
    * <p>The ARN or name of the secret.</p>
@@ -1700,15 +1414,6 @@ export interface RemoveRegionsFromReplicationRequest {
   RemoveReplicaRegions: string[] | undefined;
 }
 
-export namespace RemoveRegionsFromReplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveRegionsFromReplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveRegionsFromReplicationResponse {
   /**
    * <p>The ARN of the primary secret.</p>
@@ -1719,15 +1424,6 @@ export interface RemoveRegionsFromReplicationResponse {
    * <p>The status of replicas for this secret after you remove Regions.</p>
    */
   ReplicationStatus?: ReplicationStatusType[];
-}
-
-export namespace RemoveRegionsFromReplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveRegionsFromReplicationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ReplicateSecretToRegionsRequest {
@@ -1747,15 +1443,6 @@ export interface ReplicateSecretToRegionsRequest {
   ForceOverwriteReplicaSecret?: boolean;
 }
 
-export namespace ReplicateSecretToRegionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicateSecretToRegionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ReplicateSecretToRegionsResponse {
   /**
    * <p>The ARN of the primary secret.</p>
@@ -1768,15 +1455,6 @@ export interface ReplicateSecretToRegionsResponse {
   ReplicationStatus?: ReplicationStatusType[];
 }
 
-export namespace ReplicateSecretToRegionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicateSecretToRegionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreSecretRequest {
   /**
    * <p>The ARN or name of the secret to restore.</p>
@@ -1784,15 +1462,6 @@ export interface RestoreSecretRequest {
    *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
-}
-
-export namespace RestoreSecretRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreSecretRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreSecretResponse {
@@ -1805,15 +1474,6 @@ export interface RestoreSecretResponse {
    * <p>The name of the secret that was restored.</p>
    */
   Name?: string;
-}
-
-export namespace RestoreSecretResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreSecretResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RotateSecretRequest {
@@ -1863,15 +1523,6 @@ export interface RotateSecretRequest {
   RotateImmediately?: boolean;
 }
 
-export namespace RotateSecretRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RotateSecretRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RotateSecretResponse {
   /**
    * <p>The ARN of the secret.</p>
@@ -1889,15 +1540,6 @@ export interface RotateSecretResponse {
   VersionId?: string;
 }
 
-export namespace RotateSecretResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RotateSecretResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StopReplicationToReplicaRequest {
   /**
    * <p>The ARN of the primary secret. </p>
@@ -1905,29 +1547,11 @@ export interface StopReplicationToReplicaRequest {
   SecretId: string | undefined;
 }
 
-export namespace StopReplicationToReplicaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopReplicationToReplicaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopReplicationToReplicaResponse {
   /**
    * <p>The ARN of the promoted secret. The ARN is the same as the original primary secret except the Region is changed.</p>
    */
   ARN?: string;
-}
-
-export namespace StopReplicationToReplicaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopReplicationToReplicaResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -1950,15 +1574,6 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * <p>The ARN or name of the secret.</p>
@@ -1976,15 +1591,6 @@ export interface UntagResourceRequest {
    *     in the Amazon Web Services CLI User Guide.</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSecretRequest {
@@ -2051,17 +1657,6 @@ export interface UpdateSecretRequest {
   SecretString?: string;
 }
 
-export namespace UpdateSecretRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSecretRequest): any => ({
-    ...obj,
-    ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
-    ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateSecretResponse {
   /**
    * <p>The ARN of the secret that was updated.</p>
@@ -2078,15 +1673,6 @@ export interface UpdateSecretResponse {
    *       contains the unique identifier of the new version.</p>
    */
   VersionId?: string;
-}
-
-export namespace UpdateSecretResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSecretResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSecretVersionStageRequest {
@@ -2120,15 +1706,6 @@ export interface UpdateSecretVersionStageRequest {
   MoveToVersionId?: string;
 }
 
-export namespace UpdateSecretVersionStageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSecretVersionStageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSecretVersionStageResponse {
   /**
    * <p>The ARN of the secret that was updated.</p>
@@ -2139,15 +1716,6 @@ export interface UpdateSecretVersionStageResponse {
    * <p>The name of the secret that was updated.</p>
    */
   Name?: string;
-}
-
-export namespace UpdateSecretVersionStageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSecretVersionStageResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ValidateResourcePolicyRequest {
@@ -2162,15 +1730,6 @@ export interface ValidateResourcePolicyRequest {
    *       secret and its versions. For example policies, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html">Permissions policy examples</a>.</p>
    */
   ResourcePolicy: string | undefined;
-}
-
-export namespace ValidateResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidateResourcePolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2188,15 +1747,6 @@ export interface ValidationErrorsEntry {
   ErrorMessage?: string;
 }
 
-export namespace ValidationErrorsEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationErrorsEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface ValidateResourcePolicyResponse {
   /**
    * <p>True if your policy passes validation, otherwise false.</p>
@@ -2209,11 +1759,365 @@ export interface ValidateResourcePolicyResponse {
   ValidationErrors?: ValidationErrorsEntry[];
 }
 
-export namespace ValidateResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidateResourcePolicyResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ReplicaRegionTypeFilterSensitiveLog = (obj: ReplicaRegionType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelRotateSecretRequestFilterSensitiveLog = (obj: CancelRotateSecretRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelRotateSecretResponseFilterSensitiveLog = (obj: CancelRotateSecretResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSecretRequestFilterSensitiveLog = (obj: CreateSecretRequest): any => ({
+  ...obj,
+  ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
+  ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ReplicationStatusTypeFilterSensitiveLog = (obj: ReplicationStatusType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSecretResponseFilterSensitiveLog = (obj: CreateSecretResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyRequestFilterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyResponseFilterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSecretRequestFilterSensitiveLog = (obj: DeleteSecretRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSecretResponseFilterSensitiveLog = (obj: DeleteSecretResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSecretRequestFilterSensitiveLog = (obj: DescribeSecretRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RotationRulesTypeFilterSensitiveLog = (obj: RotationRulesType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSecretResponseFilterSensitiveLog = (obj: DescribeSecretResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRandomPasswordRequestFilterSensitiveLog = (obj: GetRandomPasswordRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRandomPasswordResponseFilterSensitiveLog = (obj: GetRandomPasswordResponse): any => ({
+  ...obj,
+  ...(obj.RandomPassword && { RandomPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePolicyRequestFilterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePolicyResponseFilterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSecretValueRequestFilterSensitiveLog = (obj: GetSecretValueRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSecretValueResponseFilterSensitiveLog = (obj: GetSecretValueResponse): any => ({
+  ...obj,
+  ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
+  ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListSecretsRequestFilterSensitiveLog = (obj: ListSecretsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecretListEntryFilterSensitiveLog = (obj: SecretListEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSecretsResponseFilterSensitiveLog = (obj: ListSecretsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSecretVersionIdsRequestFilterSensitiveLog = (obj: ListSecretVersionIdsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecretVersionsListEntryFilterSensitiveLog = (obj: SecretVersionsListEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSecretVersionIdsResponseFilterSensitiveLog = (obj: ListSecretVersionIdsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyRequestFilterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyResponseFilterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutSecretValueRequestFilterSensitiveLog = (obj: PutSecretValueRequest): any => ({
+  ...obj,
+  ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
+  ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutSecretValueResponseFilterSensitiveLog = (obj: PutSecretValueResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveRegionsFromReplicationRequestFilterSensitiveLog = (
+  obj: RemoveRegionsFromReplicationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveRegionsFromReplicationResponseFilterSensitiveLog = (
+  obj: RemoveRegionsFromReplicationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicateSecretToRegionsRequestFilterSensitiveLog = (obj: ReplicateSecretToRegionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicateSecretToRegionsResponseFilterSensitiveLog = (obj: ReplicateSecretToRegionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreSecretRequestFilterSensitiveLog = (obj: RestoreSecretRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreSecretResponseFilterSensitiveLog = (obj: RestoreSecretResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RotateSecretRequestFilterSensitiveLog = (obj: RotateSecretRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RotateSecretResponseFilterSensitiveLog = (obj: RotateSecretResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopReplicationToReplicaRequestFilterSensitiveLog = (obj: StopReplicationToReplicaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopReplicationToReplicaResponseFilterSensitiveLog = (obj: StopReplicationToReplicaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSecretRequestFilterSensitiveLog = (obj: UpdateSecretRequest): any => ({
+  ...obj,
+  ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
+  ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateSecretResponseFilterSensitiveLog = (obj: UpdateSecretResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSecretVersionStageRequestFilterSensitiveLog = (obj: UpdateSecretVersionStageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSecretVersionStageResponseFilterSensitiveLog = (obj: UpdateSecretVersionStageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidateResourcePolicyRequestFilterSensitiveLog = (obj: ValidateResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationErrorsEntryFilterSensitiveLog = (obj: ValidationErrorsEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidateResourcePolicyResponseFilterSensitiveLog = (obj: ValidateResourcePolicyResponse): any => ({
+  ...obj,
+});

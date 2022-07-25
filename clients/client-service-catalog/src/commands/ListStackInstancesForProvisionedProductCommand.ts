@@ -14,7 +14,9 @@ import {
 
 import {
   ListStackInstancesForProvisionedProductInput,
+  ListStackInstancesForProvisionedProductInputFilterSensitiveLog,
   ListStackInstancesForProvisionedProductOutput,
+  ListStackInstancesForProvisionedProductOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ListStackInstancesForProvisionedProductCommand,
@@ -81,8 +83,8 @@ export class ListStackInstancesForProvisionedProductCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStackInstancesForProvisionedProductInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListStackInstancesForProvisionedProductOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListStackInstancesForProvisionedProductInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListStackInstancesForProvisionedProductOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

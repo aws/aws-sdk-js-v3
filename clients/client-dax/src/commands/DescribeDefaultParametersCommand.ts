@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import { DescribeDefaultParametersRequest, DescribeDefaultParametersResponse } from "../models/models_0";
+import {
+  DescribeDefaultParametersRequest,
+  DescribeDefaultParametersRequestFilterSensitiveLog,
+  DescribeDefaultParametersResponse,
+  DescribeDefaultParametersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDefaultParametersCommand,
   serializeAws_json1_1DescribeDefaultParametersCommand,
@@ -73,8 +78,8 @@ export class DescribeDefaultParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDefaultParametersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDefaultParametersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDefaultParametersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDefaultParametersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeregisterWorkspaceDirectoryRequest, DeregisterWorkspaceDirectoryResult } from "../models/models_0";
+import {
+  DeregisterWorkspaceDirectoryRequest,
+  DeregisterWorkspaceDirectoryRequestFilterSensitiveLog,
+  DeregisterWorkspaceDirectoryResult,
+  DeregisterWorkspaceDirectoryResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand,
   serializeAws_json1_1DeregisterWorkspaceDirectoryCommand,
@@ -87,8 +92,8 @@ export class DeregisterWorkspaceDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterWorkspaceDirectoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterWorkspaceDirectoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterWorkspaceDirectoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterWorkspaceDirectoryResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

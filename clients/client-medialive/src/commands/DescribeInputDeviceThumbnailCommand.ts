@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { DescribeInputDeviceThumbnailRequest, DescribeInputDeviceThumbnailResponse } from "../models/models_1";
+import {
+  DescribeInputDeviceThumbnailRequest,
+  DescribeInputDeviceThumbnailRequestFilterSensitiveLog,
+  DescribeInputDeviceThumbnailResponse,
+  DescribeInputDeviceThumbnailResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeInputDeviceThumbnailCommand,
   serializeAws_restJson1DescribeInputDeviceThumbnailCommand,
@@ -74,8 +79,8 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInputDeviceThumbnailRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInputDeviceThumbnailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInputDeviceThumbnailRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInputDeviceThumbnailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

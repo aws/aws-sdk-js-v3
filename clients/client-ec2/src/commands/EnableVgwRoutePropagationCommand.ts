@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { EnableVgwRoutePropagationRequest } from "../models/models_4";
+import {
+  EnableVgwRoutePropagationRequest,
+  EnableVgwRoutePropagationRequestFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2EnableVgwRoutePropagationCommand,
   serializeAws_ec2EnableVgwRoutePropagationCommand,
@@ -73,7 +76,7 @@ export class EnableVgwRoutePropagationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableVgwRoutePropagationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableVgwRoutePropagationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

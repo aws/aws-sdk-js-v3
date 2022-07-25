@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { CreateAppBlockRequest, CreateAppBlockResult } from "../models/models_0";
+import {
+  CreateAppBlockRequest,
+  CreateAppBlockRequestFilterSensitiveLog,
+  CreateAppBlockResult,
+  CreateAppBlockResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateAppBlockCommand,
   serializeAws_json1_1CreateAppBlockCommand,
@@ -78,8 +83,8 @@ export class CreateAppBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAppBlockRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppBlockResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAppBlockRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateAppBlockResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

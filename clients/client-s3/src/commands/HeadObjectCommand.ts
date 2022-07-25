@@ -14,7 +14,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HeadObjectOutput, HeadObjectRequest } from "../models/models_0";
+import {
+  HeadObjectOutput,
+  HeadObjectOutputFilterSensitiveLog,
+  HeadObjectRequest,
+  HeadObjectRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlHeadObjectCommand,
   serializeAws_restXmlHeadObjectCommand,
@@ -192,8 +197,8 @@ export class HeadObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HeadObjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: HeadObjectOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: HeadObjectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: HeadObjectOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

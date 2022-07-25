@@ -13,15 +13,6 @@ export interface AcceptInboundCrossClusterSearchConnectionRequest {
   CrossClusterSearchConnectionId: string | undefined;
 }
 
-export namespace AcceptInboundCrossClusterSearchConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptInboundCrossClusterSearchConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum InboundCrossClusterSearchConnectionStatusCode {
   APPROVED = "APPROVED",
   DELETED = "DELETED",
@@ -54,15 +45,6 @@ export interface InboundCrossClusterSearchConnectionStatus {
   Message?: string;
 }
 
-export namespace InboundCrossClusterSearchConnectionStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InboundCrossClusterSearchConnectionStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface DomainInformation {
   OwnerId?: string;
   /**
@@ -71,15 +53,6 @@ export interface DomainInformation {
   DomainName: string | undefined;
 
   Region?: string;
-}
-
-export namespace DomainInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainInformation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -107,15 +80,6 @@ export interface InboundCrossClusterSearchConnection {
   ConnectionStatus?: InboundCrossClusterSearchConnectionStatus;
 }
 
-export namespace InboundCrossClusterSearchConnection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InboundCrossClusterSearchConnection): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code><a>AcceptInboundCrossClusterSearchConnection</a></code> operation. Contains details of accepted inbound connection.</p>
  */
@@ -124,15 +88,6 @@ export interface AcceptInboundCrossClusterSearchConnectionResponse {
    * <p>Specifies the <code><a>InboundCrossClusterSearchConnection</a></code> of accepted inbound connection. </p>
    */
   CrossClusterSearchConnection?: InboundCrossClusterSearchConnection;
-}
-
-export namespace AcceptInboundCrossClusterSearchConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptInboundCrossClusterSearchConnectionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -243,15 +198,6 @@ export interface OptionStatus {
   PendingDeletion?: boolean;
 }
 
-export namespace OptionStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptionStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configured access rules for the domain's document and search endpoints, and the current status of those rules.</p>
  */
@@ -266,15 +212,6 @@ export interface AccessPoliciesStatus {
    * <p>The status of the access policy for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>
    */
   Status: OptionStatus | undefined;
-}
-
-export namespace AccessPoliciesStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessPoliciesStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -329,15 +266,6 @@ export interface AdditionalLimit {
   LimitValues?: string[];
 }
 
-export namespace AdditionalLimit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdditionalLimit): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a key value pair for a resource tag.</p>
  */
@@ -354,15 +282,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the parameters to the <code><a>AddTags</a></code> operation. Specify the tags that you want to attach to the Elasticsearch domain.</p>
  */
@@ -376,15 +295,6 @@ export interface AddTagsRequest {
    * <p> List of <code>Tag</code> that need to be added for the Elasticsearch domain. </p>
    */
   TagList: Tag[] | undefined;
-}
-
-export namespace AddTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -465,15 +375,6 @@ export interface AdvancedOptionsStatus {
   Status: OptionStatus | undefined;
 }
 
-export namespace AdvancedOptionsStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdvancedOptionsStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the SAML Identity Provider's information.</p>
  */
@@ -487,15 +388,6 @@ export interface SAMLIdp {
    * <p>The unique Entity ID of the application in SAML Identity Provider.</p>
    */
   EntityId: string | undefined;
-}
-
-export namespace SAMLIdp {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SAMLIdp): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -528,15 +420,6 @@ export interface SAMLOptionsOutput {
   SessionTimeoutMinutes?: number;
 }
 
-export namespace SAMLOptionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SAMLOptionsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the advanced security configuration: whether advanced security is enabled, whether the internal database option is enabled.</p>
  */
@@ -567,15 +450,6 @@ export interface AdvancedSecurityOptions {
   AnonymousAuthEnabled?: boolean;
 }
 
-export namespace AdvancedSecurityOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdvancedSecurityOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Credentials for the master user: username and password, ARN, or both.</p>
  */
@@ -594,17 +468,6 @@ export interface MasterUserOptions {
    * <p>The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database.</p>
    */
   MasterUserPassword?: string;
-}
-
-export namespace MasterUserOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MasterUserOptions): any => ({
-    ...obj,
-    ...(obj.MasterUserName && { MasterUserName: SENSITIVE_STRING }),
-    ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -647,16 +510,6 @@ export interface SAMLOptionsInput {
   SessionTimeoutMinutes?: number;
 }
 
-export namespace SAMLOptionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SAMLOptionsInput): any => ({
-    ...obj,
-    ...(obj.MasterUserName && { MasterUserName: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Specifies the advanced security configuration: whether advanced security is enabled, whether the internal database option is enabled, master username and password (if internal database is enabled), and master user ARN (if IAM is enabled).</p>
  */
@@ -687,17 +540,6 @@ export interface AdvancedSecurityOptionsInput {
   AnonymousAuthEnabled?: boolean;
 }
 
-export namespace AdvancedSecurityOptionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdvancedSecurityOptionsInput): any => ({
-    ...obj,
-    ...(obj.MasterUserOptions && { MasterUserOptions: MasterUserOptions.filterSensitiveLog(obj.MasterUserOptions) }),
-    ...(obj.SAMLOptions && { SAMLOptions: SAMLOptionsInput.filterSensitiveLog(obj.SAMLOptions) }),
-  });
-}
-
 /**
  * <p> Specifies the status of advanced security options for the specified Elasticsearch domain.</p>
  */
@@ -711,15 +553,6 @@ export interface AdvancedSecurityOptionsStatus {
    * <p> Status of the advanced security options for the specified Elasticsearch domain.</p>
    */
   Status: OptionStatus | undefined;
-}
-
-export namespace AdvancedSecurityOptionsStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdvancedSecurityOptionsStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -743,15 +576,6 @@ export interface AssociatePackageRequest {
   DomainName: string | undefined;
 }
 
-export namespace AssociatePackageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatePackageRequest): any => ({
-    ...obj,
-  });
-}
-
 export type DomainPackageStatus =
   | "ACTIVE"
   | "ASSOCIATING"
@@ -762,15 +586,6 @@ export type DomainPackageStatus =
 export interface ErrorDetails {
   ErrorType?: string;
   ErrorMessage?: string;
-}
-
-export namespace ErrorDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorDetails): any => ({
-    ...obj,
-  });
 }
 
 export type PackageType = "TXT-DICTIONARY";
@@ -821,15 +636,6 @@ export interface DomainPackageDetails {
   ErrorDetails?: ErrorDetails;
 }
 
-export namespace DomainPackageDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainPackageDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Container for response returned by
@@ -844,15 +650,6 @@ export interface AssociatePackageResponse {
    * <p><code>DomainPackageDetails</code></p>
    */
   DomainPackageDetails?: DomainPackageDetails;
-}
-
-export namespace AssociatePackageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatePackageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -882,15 +679,6 @@ export interface CancelElasticsearchServiceSoftwareUpdateRequest {
    * <p>The name of the domain that you want to stop the latest service software update on.</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace CancelElasticsearchServiceSoftwareUpdateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelElasticsearchServiceSoftwareUpdateRequest): any => ({
-    ...obj,
-  });
 }
 
 export type DeploymentStatus = "COMPLETED" | "ELIGIBLE" | "IN_PROGRESS" | "NOT_ELIGIBLE" | "PENDING_UPDATE";
@@ -940,15 +728,6 @@ export interface ServiceSoftwareOptions {
   OptionalDeployment?: boolean;
 }
 
-export namespace ServiceSoftwareOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceSoftwareOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>CancelElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>
  */
@@ -957,15 +736,6 @@ export interface CancelElasticsearchServiceSoftwareUpdateResponse {
    * <p>The current status of the Elasticsearch service software update.</p>
    */
   ServiceSoftwareOptions?: ServiceSoftwareOptions;
-}
-
-export namespace CancelElasticsearchServiceSoftwareUpdateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelElasticsearchServiceSoftwareUpdateResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum AutoTuneDesiredState {
@@ -992,15 +762,6 @@ export interface Duration {
   Unit?: TimeUnit | string;
 }
 
-export namespace Duration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Duration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies Auto-Tune maitenance schedule. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
  */
@@ -1021,15 +782,6 @@ export interface AutoTuneMaintenanceSchedule {
   CronExpressionForRecurrence?: string;
 }
 
-export namespace AutoTuneMaintenanceSchedule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoTuneMaintenanceSchedule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the Auto-Tune options: the Auto-Tune desired state for the domain and list of maintenance schedules.</p>
  */
@@ -1043,15 +795,6 @@ export interface AutoTuneOptionsInput {
    * <p>Specifies list of maitenance schedules. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
    */
   MaintenanceSchedules?: AutoTuneMaintenanceSchedule[];
-}
-
-export namespace AutoTuneOptionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoTuneOptionsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1077,15 +820,6 @@ export interface CognitoOptions {
    * <p>Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.</p>
    */
   RoleArn?: string;
-}
-
-export namespace CognitoOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CognitoOptions): any => ({
-    ...obj,
-  });
 }
 
 export enum TLSSecurityPolicy {
@@ -1129,15 +863,6 @@ export interface DomainEndpointOptions {
   CustomEndpointCertificateArn?: string;
 }
 
-export namespace DomainEndpointOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainEndpointOptions): any => ({
-    ...obj,
-  });
-}
-
 export type VolumeType = "gp2" | "io1" | "standard";
 
 /**
@@ -1165,15 +890,6 @@ export interface EBSOptions {
   Iops?: number;
 }
 
-export namespace EBSOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EBSOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the configuration for cold storage options such as enabled</p>
  */
@@ -1182,15 +898,6 @@ export interface ColdStorageOptions {
    * <p>Enable cold storage option. Accepted values true or false</p>
    */
   Enabled: boolean | undefined;
-}
-
-export namespace ColdStorageOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColdStorageOptions): any => ({
-    ...obj,
-  });
 }
 
 export type ESPartitionInstanceType =
@@ -1265,15 +972,6 @@ export interface ZoneAwarenessConfig {
   AvailabilityZoneCount?: number;
 }
 
-export namespace ZoneAwarenessConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ZoneAwarenessConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the configuration for the domain cluster, such as the type and number of instances.</p>
  */
@@ -1334,15 +1032,6 @@ export interface ElasticsearchClusterConfig {
   ColdStorageOptions?: ColdStorageOptions;
 }
 
-export namespace ElasticsearchClusterConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticsearchClusterConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the Encryption At Rest Options.</p>
  */
@@ -1356,15 +1045,6 @@ export interface EncryptionAtRestOptions {
    * <p> Specifies the KMS Key ID for Encryption At Rest options.</p>
    */
   KmsKeyId?: string;
-}
-
-export namespace EncryptionAtRestOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionAtRestOptions): any => ({
-    ...obj,
-  });
 }
 
 export type LogType = "AUDIT_LOGS" | "ES_APPLICATION_LOGS" | "INDEX_SLOW_LOGS" | "SEARCH_SLOW_LOGS";
@@ -1390,15 +1070,6 @@ export interface LogPublishingOption {
   Enabled?: boolean;
 }
 
-export namespace LogPublishingOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogPublishingOption): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the node-to-node encryption options.</p>
  */
@@ -1409,15 +1080,6 @@ export interface NodeToNodeEncryptionOptions {
   Enabled?: boolean;
 }
 
-export namespace NodeToNodeEncryptionOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeToNodeEncryptionOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is <code>0</code> hours.</p>
  */
@@ -1426,15 +1088,6 @@ export interface SnapshotOptions {
    * <p>Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is <code>0</code> hours.</p>
    */
   AutomatedSnapshotStartHour?: number;
-}
-
-export namespace SnapshotOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1450,15 +1103,6 @@ export interface VPCOptions {
    * <p>Specifies the security groups for VPC endpoint.</p>
    */
   SecurityGroupIds?: string[];
-}
-
-export namespace VPCOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VPCOptions): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateElasticsearchDomainRequest {
@@ -1545,18 +1189,6 @@ export interface CreateElasticsearchDomainRequest {
   TagList?: Tag[];
 }
 
-export namespace CreateElasticsearchDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateElasticsearchDomainRequest): any => ({
-    ...obj,
-    ...(obj.AdvancedSecurityOptions && {
-      AdvancedSecurityOptions: AdvancedSecurityOptionsInput.filterSensitiveLog(obj.AdvancedSecurityOptions),
-    }),
-  });
-}
-
 export enum AutoTuneState {
   DISABLED = "DISABLED",
   DISABLED_AND_ROLLBACK_COMPLETE = "DISABLED_AND_ROLLBACK_COMPLETE",
@@ -1584,15 +1216,6 @@ export interface AutoTuneOptionsOutput {
   ErrorMessage?: string;
 }
 
-export namespace AutoTuneOptionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoTuneOptionsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies change details of the domain configuration change.</p>
  */
@@ -1606,15 +1229,6 @@ export interface ChangeProgressDetails {
    * <p>Contains an optional message associated with the domain configuration change.</p>
    */
   Message?: string;
-}
-
-export namespace ChangeProgressDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeProgressDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1640,15 +1254,6 @@ export interface VPCDerivedInfo {
    * <p>Specifies the security groups for VPC endpoint.</p>
    */
   SecurityGroupIds?: string[];
-}
-
-export namespace VPCDerivedInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VPCDerivedInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1777,15 +1382,6 @@ export interface ElasticsearchDomainStatus {
   ChangeProgressDetails?: ChangeProgressDetails;
 }
 
-export namespace ElasticsearchDomainStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticsearchDomainStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>CreateElasticsearchDomain</code> operation. Contains the status of the newly created Elasticsearch domain.</p>
  */
@@ -1794,15 +1390,6 @@ export interface CreateElasticsearchDomainResponse {
    * <p>The status of the newly created Elasticsearch domain. </p>
    */
   DomainStatus?: ElasticsearchDomainStatus;
-}
-
-export namespace CreateElasticsearchDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateElasticsearchDomainResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1863,15 +1450,6 @@ export interface CreateOutboundCrossClusterSearchConnectionRequest {
   ConnectionAlias: string | undefined;
 }
 
-export namespace CreateOutboundCrossClusterSearchConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOutboundCrossClusterSearchConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum OutboundCrossClusterSearchConnectionStatusCode {
   ACTIVE = "ACTIVE",
   DELETED = "DELETED",
@@ -1908,15 +1486,6 @@ export interface OutboundCrossClusterSearchConnectionStatus {
   Message?: string;
 }
 
-export namespace OutboundCrossClusterSearchConnectionStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutboundCrossClusterSearchConnectionStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code><a>CreateOutboundCrossClusterSearchConnection</a></code> request. Contains the details of the newly created cross-cluster search connection.</p>
  */
@@ -1947,15 +1516,6 @@ export interface CreateOutboundCrossClusterSearchConnectionResponse {
   CrossClusterSearchConnectionId?: string;
 }
 
-export namespace CreateOutboundCrossClusterSearchConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOutboundCrossClusterSearchConnectionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The S3 location for importing the package specified as <code>S3BucketName</code> and <code>S3Key</code></p>
  */
@@ -1969,15 +1529,6 @@ export interface PackageSource {
    * <p>Key (file name) of the package.</p>
    */
   S3Key?: string;
-}
-
-export namespace PackageSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2009,15 +1560,6 @@ export interface CreatePackageRequest {
    * <p>The customer S3 location <code>PackageSource</code> for importing the package.</p>
    */
   PackageSource: PackageSource | undefined;
-}
-
-export namespace CreatePackageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePackageRequest): any => ({
-    ...obj,
-  });
 }
 
 export type PackageStatus =
@@ -2072,15 +1614,6 @@ export interface PackageDetails {
   ErrorDetails?: ErrorDetails;
 }
 
-export namespace PackageDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Container for response returned by
@@ -2097,15 +1630,6 @@ export interface CreatePackageResponse {
   PackageDetails?: PackageDetails;
 }
 
-export namespace CreatePackageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePackageResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the parameters to the <code><a>DeleteElasticsearchDomain</a></code> operation. Specifies the name of the Elasticsearch domain that you want to delete.</p>
  */
@@ -2114,15 +1638,6 @@ export interface DeleteElasticsearchDomainRequest {
    * <p>The name of the Elasticsearch domain that you want to permanently delete.</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace DeleteElasticsearchDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteElasticsearchDomainRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2135,15 +1650,6 @@ export interface DeleteElasticsearchDomainResponse {
   DomainStatus?: ElasticsearchDomainStatus;
 }
 
-export namespace DeleteElasticsearchDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteElasticsearchDomainResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the parameters to the <code><a>DeleteInboundCrossClusterSearchConnection</a></code> operation.</p>
  */
@@ -2152,15 +1658,6 @@ export interface DeleteInboundCrossClusterSearchConnectionRequest {
    * <p>The id of the inbound connection that you want to permanently delete.</p>
    */
   CrossClusterSearchConnectionId: string | undefined;
-}
-
-export namespace DeleteInboundCrossClusterSearchConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInboundCrossClusterSearchConnectionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2173,15 +1670,6 @@ export interface DeleteInboundCrossClusterSearchConnectionResponse {
   CrossClusterSearchConnection?: InboundCrossClusterSearchConnection;
 }
 
-export namespace DeleteInboundCrossClusterSearchConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInboundCrossClusterSearchConnectionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the parameters to the <code><a>DeleteOutboundCrossClusterSearchConnection</a></code> operation.</p>
  */
@@ -2190,15 +1678,6 @@ export interface DeleteOutboundCrossClusterSearchConnectionRequest {
    * <p>The id of the outbound connection that you want to permanently delete.</p>
    */
   CrossClusterSearchConnectionId: string | undefined;
-}
-
-export namespace DeleteOutboundCrossClusterSearchConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOutboundCrossClusterSearchConnectionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2231,15 +1710,6 @@ export interface OutboundCrossClusterSearchConnection {
   ConnectionStatus?: OutboundCrossClusterSearchConnectionStatus;
 }
 
-export namespace OutboundCrossClusterSearchConnection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutboundCrossClusterSearchConnection): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code><a>DeleteOutboundCrossClusterSearchConnection</a></code> operation. Contains details of deleted outbound connection.</p>
  */
@@ -2248,15 +1718,6 @@ export interface DeleteOutboundCrossClusterSearchConnectionResponse {
    * <p>Specifies the <code><a>OutboundCrossClusterSearchConnection</a></code> of deleted outbound connection. </p>
    */
   CrossClusterSearchConnection?: OutboundCrossClusterSearchConnection;
-}
-
-export namespace DeleteOutboundCrossClusterSearchConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOutboundCrossClusterSearchConnectionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2275,15 +1736,6 @@ export interface DeletePackageRequest {
   PackageID: string | undefined;
 }
 
-export namespace DeletePackageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePackageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Container for response parameters to
@@ -2298,15 +1750,6 @@ export interface DeletePackageResponse {
    * <p><code>PackageDetails</code></p>
    */
   PackageDetails?: PackageDetails;
-}
-
-export namespace DeletePackageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePackageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2327,15 +1770,6 @@ export interface DescribeDomainAutoTunesRequest {
    * <p>NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeDomainAutoTunesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainAutoTunesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ScheduledAutoTuneActionType {
@@ -2374,15 +1808,6 @@ export interface ScheduledAutoTuneDetails {
   Severity?: ScheduledAutoTuneSeverityType | string;
 }
 
-export namespace ScheduledAutoTuneDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledAutoTuneDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies details of the Auto-Tune action. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information. </p>
  */
@@ -2391,15 +1816,6 @@ export interface AutoTuneDetails {
    * <p>Specifies details of the scheduled Auto-Tune action. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information. </p>
    */
   ScheduledAutoTuneDetails?: ScheduledAutoTuneDetails;
-}
-
-export namespace AutoTuneDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoTuneDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum AutoTuneType {
@@ -2421,15 +1837,6 @@ export interface AutoTune {
   AutoTuneDetails?: AutoTuneDetails;
 }
 
-export namespace AutoTune {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoTune): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of <code>DescribeDomainAutoTunes</code> request. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information. </p>
  */
@@ -2443,15 +1850,6 @@ export interface DescribeDomainAutoTunesResponse {
    * <p>Specifies an identifier to allow retrieval of paginated results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeDomainAutoTunesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainAutoTunesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2471,15 +1869,6 @@ export interface DescribeDomainChangeProgressRequest {
    *       </p>
    */
   ChangeId?: string;
-}
-
-export namespace DescribeDomainChangeProgressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainChangeProgressRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2505,15 +1894,6 @@ export interface ChangeProgressStage {
    * <p>The last updated timestamp of the progress stage.</p>
    */
   LastUpdated?: Date;
-}
-
-export namespace ChangeProgressStage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeProgressStage): any => ({
-    ...obj,
-  });
 }
 
 export enum OverallChangeStatus {
@@ -2563,15 +1943,6 @@ export interface ChangeProgressStatusDetails {
   ChangeProgressStages?: ChangeProgressStage[];
 }
 
-export namespace ChangeProgressStatusDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeProgressStatusDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DescribeDomainChangeProgress</code> request. Contains the progress information of
  *         the requested domain change.
@@ -2585,15 +1956,6 @@ export interface DescribeDomainChangeProgressResponse {
   ChangeProgressStatus?: ChangeProgressStatusDetails;
 }
 
-export namespace DescribeDomainChangeProgressResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainChangeProgressResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the parameters to the <code><a>DescribeElasticsearchDomain</a></code> operation.</p>
  */
@@ -2602,15 +1964,6 @@ export interface DescribeElasticsearchDomainRequest {
    * <p>The name of the Elasticsearch domain for which you want information.</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace DescribeElasticsearchDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeElasticsearchDomainRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2623,15 +1976,6 @@ export interface DescribeElasticsearchDomainResponse {
   DomainStatus: ElasticsearchDomainStatus | undefined;
 }
 
-export namespace DescribeElasticsearchDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeElasticsearchDomainResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Container for the parameters to the <code>DescribeElasticsearchDomainConfig</code> operation. Specifies the domain name for which you want configuration information.</p>
  */
@@ -2640,15 +1984,6 @@ export interface DescribeElasticsearchDomainConfigRequest {
    * <p>The Elasticsearch domain that you want to get information about.</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace DescribeElasticsearchDomainConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeElasticsearchDomainConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum RollbackOnDisable {
@@ -2674,15 +2009,6 @@ export interface AutoTuneOptions {
    * <p>Specifies list of maitenance schedules. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
    */
   MaintenanceSchedules?: AutoTuneMaintenanceSchedule[];
-}
-
-export namespace AutoTuneOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoTuneOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2720,15 +2046,6 @@ export interface AutoTuneStatus {
   PendingDeletion?: boolean;
 }
 
-export namespace AutoTuneStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoTuneStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Specifies the status of Auto-Tune options for the specified Elasticsearch domain.</p>
  */
@@ -2742,15 +2059,6 @@ export interface AutoTuneOptionsStatus {
    * <p> Specifies Status of the Auto-Tune options for the specified Elasticsearch domain.</p>
    */
   Status?: AutoTuneStatus;
-}
-
-export namespace AutoTuneOptionsStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoTuneOptionsStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2768,15 +2076,6 @@ export interface CognitoOptionsStatus {
   Status: OptionStatus | undefined;
 }
 
-export namespace CognitoOptionsStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CognitoOptionsStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configured endpoint options for the domain and their current status.</p>
  */
@@ -2790,15 +2089,6 @@ export interface DomainEndpointOptionsStatus {
    * <p>The status of the endpoint options for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. </p>
    */
   Status: OptionStatus | undefined;
-}
-
-export namespace DomainEndpointOptionsStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainEndpointOptionsStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2816,15 +2106,6 @@ export interface EBSOptionsStatus {
   Status: OptionStatus | undefined;
 }
 
-export namespace EBSOptionsStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EBSOptionsStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Specifies the configuration status for the specified Elasticsearch domain.</p>
  */
@@ -2838,15 +2119,6 @@ export interface ElasticsearchClusterConfigStatus {
    * <p> Specifies the status of the configuration for the specified Elasticsearch domain.</p>
    */
   Status: OptionStatus | undefined;
-}
-
-export namespace ElasticsearchClusterConfigStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticsearchClusterConfigStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2864,15 +2136,6 @@ export interface ElasticsearchVersionStatus {
   Status: OptionStatus | undefined;
 }
 
-export namespace ElasticsearchVersionStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticsearchVersionStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Status of the Encryption At Rest options for the specified Elasticsearch domain.</p>
  */
@@ -2886,15 +2149,6 @@ export interface EncryptionAtRestOptionsStatus {
    * <p> Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.</p>
    */
   Status: OptionStatus | undefined;
-}
-
-export namespace EncryptionAtRestOptionsStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionAtRestOptionsStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2912,15 +2166,6 @@ export interface LogPublishingOptionsStatus {
   Status?: OptionStatus;
 }
 
-export namespace LogPublishingOptionsStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogPublishingOptionsStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Status of the node-to-node encryption options for the specified Elasticsearch domain.</p>
  */
@@ -2934,15 +2179,6 @@ export interface NodeToNodeEncryptionOptionsStatus {
    * <p>Specifies the status of the node-to-node encryption options for the specified Elasticsearch domain.</p>
    */
   Status: OptionStatus | undefined;
-}
-
-export namespace NodeToNodeEncryptionOptionsStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeToNodeEncryptionOptionsStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2960,15 +2196,6 @@ export interface SnapshotOptionsStatus {
   Status: OptionStatus | undefined;
 }
 
-export namespace SnapshotOptionsStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotOptionsStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Status of the VPC options for the specified Elasticsearch domain.</p>
  */
@@ -2982,15 +2209,6 @@ export interface VPCDerivedInfoStatus {
    * <p> Specifies the status of the VPC options for the specified Elasticsearch domain.</p>
    */
   Status: OptionStatus | undefined;
-}
-
-export namespace VPCDerivedInfoStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VPCDerivedInfoStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3073,15 +2291,6 @@ export interface ElasticsearchDomainConfig {
   ChangeProgressDetails?: ChangeProgressDetails;
 }
 
-export namespace ElasticsearchDomainConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticsearchDomainConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DescribeElasticsearchDomainConfig</code> request. Contains the configuration information of the requested domain.</p>
  */
@@ -3090,15 +2299,6 @@ export interface DescribeElasticsearchDomainConfigResponse {
    * <p>The configuration information of the domain requested in the <code>DescribeElasticsearchDomainConfig</code> request.</p>
    */
   DomainConfig: ElasticsearchDomainConfig | undefined;
-}
-
-export namespace DescribeElasticsearchDomainConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeElasticsearchDomainConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3111,15 +2311,6 @@ export interface DescribeElasticsearchDomainsRequest {
   DomainNames: string[] | undefined;
 }
 
-export namespace DescribeElasticsearchDomainsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeElasticsearchDomainsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DescribeElasticsearchDomains</code> request. Contains the status of the specified domains or all domains owned by the account.</p>
  */
@@ -3128,15 +2319,6 @@ export interface DescribeElasticsearchDomainsResponse {
    * <p>The status of the domains requested in the <code>DescribeElasticsearchDomains</code> request.</p>
    */
   DomainStatusList: ElasticsearchDomainStatus[] | undefined;
-}
-
-export namespace DescribeElasticsearchDomainsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeElasticsearchDomainsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3185,15 +2367,6 @@ export interface DescribeElasticsearchInstanceTypeLimitsRequest {
   ElasticsearchVersion: string | undefined;
 }
 
-export namespace DescribeElasticsearchInstanceTypeLimitsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeElasticsearchInstanceTypeLimitsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       InstanceCountLimits represents the limits on number of instances that be created in Amazon Elasticsearch for
@@ -3216,15 +2389,6 @@ export interface InstanceCountLimits {
   MaximumInstanceCount?: number;
 }
 
-export namespace InstanceCountLimits {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceCountLimits): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>InstanceLimits represents the list of instance related attributes that are available for given InstanceType.
  *     </p>
@@ -3237,15 +2401,6 @@ export interface InstanceLimits {
    *     </p>
    */
   InstanceCountLimits?: InstanceCountLimits;
-}
-
-export namespace InstanceLimits {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceLimits): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3287,15 +2442,6 @@ export interface StorageTypeLimit {
   LimitValues?: string[];
 }
 
-export namespace StorageTypeLimit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageTypeLimit): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>StorageTypes represents the list of storage related types and their attributes
  *       that are available for given InstanceType.
@@ -3335,15 +2481,6 @@ export interface StorageType {
    *     </p>
    */
   StorageTypeLimits?: StorageTypeLimit[];
-}
-
-export namespace StorageType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3389,15 +2526,6 @@ export interface Limits {
   AdditionalLimits?: AdditionalLimit[];
 }
 
-export namespace Limits {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Limits): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Container for the parameters received from
@@ -3423,15 +2551,6 @@ export interface DescribeElasticsearchInstanceTypeLimitsResponse {
   LimitsByRole?: Record<string, Limits>;
 }
 
-export namespace DescribeElasticsearchInstanceTypeLimitsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeElasticsearchInstanceTypeLimitsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       A filter used to limit results when describing inbound or outbound cross-cluster search connections.
@@ -3454,15 +2573,6 @@ export interface Filter {
    *     </p>
    */
   Values?: string[];
-}
-
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3495,15 +2605,6 @@ export interface DescribeInboundCrossClusterSearchConnectionsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeInboundCrossClusterSearchConnectionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInboundCrossClusterSearchConnectionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code><a>DescribeInboundCrossClusterSearchConnections</a></code> request. Contains the list of connections matching the filter criteria.</p>
  */
@@ -3518,15 +2619,6 @@ export interface DescribeInboundCrossClusterSearchConnectionsResponse {
    *     </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeInboundCrossClusterSearchConnectionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInboundCrossClusterSearchConnectionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3578,15 +2670,6 @@ export interface DescribeOutboundCrossClusterSearchConnectionsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeOutboundCrossClusterSearchConnectionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOutboundCrossClusterSearchConnectionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code><a>DescribeOutboundCrossClusterSearchConnections</a></code> request. Contains the list of connections matching the filter criteria.</p>
  */
@@ -3601,15 +2684,6 @@ export interface DescribeOutboundCrossClusterSearchConnectionsResponse {
    *     </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeOutboundCrossClusterSearchConnectionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOutboundCrossClusterSearchConnectionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum DescribePackagesFilterName {
@@ -3631,15 +2705,6 @@ export interface DescribePackagesFilter {
    * <p>A list of values for the specified field.</p>
    */
   Value?: string[];
-}
-
-export namespace DescribePackagesFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackagesFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3668,15 +2733,6 @@ export interface DescribePackagesRequest {
   NextToken?: string;
 }
 
-export namespace DescribePackagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackagesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Container for response returned by
@@ -3693,15 +2749,6 @@ export interface DescribePackagesResponse {
   PackageDetailsList?: PackageDetails[];
 
   NextToken?: string;
-}
-
-export namespace DescribePackagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackagesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3725,15 +2772,6 @@ export interface DescribeReservedElasticsearchInstanceOfferingsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeReservedElasticsearchInstanceOfferingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservedElasticsearchInstanceOfferingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export type ReservedElasticsearchInstancePaymentOption = "ALL_UPFRONT" | "NO_UPFRONT" | "PARTIAL_UPFRONT";
 
 /**
@@ -3749,15 +2787,6 @@ export interface RecurringCharge {
    * <p>The frequency of the recurring charge.</p>
    */
   RecurringChargeFrequency?: string;
-}
-
-export namespace RecurringCharge {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecurringCharge): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3805,15 +2834,6 @@ export interface ReservedElasticsearchInstanceOffering {
   RecurringCharges?: RecurringCharge[];
 }
 
-export namespace ReservedElasticsearchInstanceOffering {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedElasticsearchInstanceOffering): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for results from <code>DescribeReservedElasticsearchInstanceOfferings</code></p>
  */
@@ -3827,15 +2847,6 @@ export interface DescribeReservedElasticsearchInstanceOfferingsResponse {
    * <p>List of reserved Elasticsearch instance offerings</p>
    */
   ReservedElasticsearchInstanceOfferings?: ReservedElasticsearchInstanceOffering[];
-}
-
-export namespace DescribeReservedElasticsearchInstanceOfferingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservedElasticsearchInstanceOfferingsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3857,15 +2868,6 @@ export interface DescribeReservedElasticsearchInstancesRequest {
    * 		containing NextToken. It is used for pagination.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeReservedElasticsearchInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservedElasticsearchInstancesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3938,15 +2940,6 @@ export interface ReservedElasticsearchInstance {
   RecurringCharges?: RecurringCharge[];
 }
 
-export namespace ReservedElasticsearchInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedElasticsearchInstance): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for results from <code>DescribeReservedElasticsearchInstances</code></p>
  */
@@ -3960,15 +2953,6 @@ export interface DescribeReservedElasticsearchInstancesResponse {
    * <p>List of reserved Elasticsearch instances.</p>
    */
   ReservedElasticsearchInstances?: ReservedElasticsearchInstance[];
-}
-
-export namespace DescribeReservedElasticsearchInstancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservedElasticsearchInstancesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3992,15 +2976,6 @@ export interface DissociatePackageRequest {
   DomainName: string | undefined;
 }
 
-export namespace DissociatePackageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DissociatePackageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Container for response returned by
@@ -4017,15 +2992,6 @@ export interface DissociatePackageResponse {
   DomainPackageDetails?: DomainPackageDetails;
 }
 
-export namespace DissociatePackageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DissociatePackageResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Container for request parameters to
@@ -4040,15 +3006,6 @@ export interface GetCompatibleElasticsearchVersionsRequest {
    * <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
    */
   DomainName?: string;
-}
-
-export namespace GetCompatibleElasticsearchVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCompatibleElasticsearchVersionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4077,15 +3034,6 @@ export interface CompatibleVersionsMap {
   TargetVersions?: string[];
 }
 
-export namespace CompatibleVersionsMap {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompatibleVersionsMap): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Container for response returned by
@@ -4106,15 +3054,6 @@ export interface GetCompatibleElasticsearchVersionsResponse {
    *     </p>
    */
   CompatibleElasticsearchVersions?: CompatibleVersionsMap[];
-}
-
-export namespace GetCompatibleElasticsearchVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCompatibleElasticsearchVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4143,15 +3082,6 @@ export interface GetPackageVersionHistoryRequest {
   NextToken?: string;
 }
 
-export namespace GetPackageVersionHistoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPackageVersionHistoryRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details of a package version.</p>
  */
@@ -4172,15 +3102,6 @@ export interface PackageVersionHistory {
   CreatedAt?: Date;
 }
 
-export namespace PackageVersionHistory {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageVersionHistory): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Container for response returned by
@@ -4198,15 +3119,6 @@ export interface GetPackageVersionHistoryResponse {
   PackageVersionHistoryList?: PackageVersionHistory[];
 
   NextToken?: string;
-}
-
-export namespace GetPackageVersionHistoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPackageVersionHistoryResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4238,15 +3150,6 @@ export interface GetUpgradeHistoryRequest {
    *     </p>
    */
   NextToken?: string;
-}
-
-export namespace GetUpgradeHistoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUpgradeHistoryRequest): any => ({
-    ...obj,
-  });
 }
 
 export type UpgradeStep = "PRE_UPGRADE_CHECK" | "SNAPSHOT" | "UPGRADE";
@@ -4293,15 +3196,6 @@ export interface UpgradeStepItem {
   ProgressPercent?: number;
 }
 
-export namespace UpgradeStepItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpgradeStepItem): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>History of the last 10 Upgrades and Upgrade Eligibility Checks.</p>
  */
@@ -4341,15 +3235,6 @@ export interface UpgradeHistory {
   StepsList?: UpgradeStepItem[];
 }
 
-export namespace UpgradeHistory {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpgradeHistory): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Container for response returned by
@@ -4381,15 +3266,6 @@ export interface GetUpgradeHistoryResponse {
   NextToken?: string;
 }
 
-export namespace GetUpgradeHistoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUpgradeHistoryResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Container for request parameters to
@@ -4404,15 +3280,6 @@ export interface GetUpgradeStatusRequest {
    * <p>The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace GetUpgradeStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUpgradeStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4460,15 +3327,6 @@ export interface GetUpgradeStatusResponse {
   UpgradeName?: string;
 }
 
-export namespace GetUpgradeStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUpgradeStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum EngineType {
   Elasticsearch = "Elasticsearch",
   OpenSearch = "OpenSearch",
@@ -4484,15 +3342,6 @@ export interface ListDomainNamesRequest {
   EngineType?: EngineType | string;
 }
 
-export namespace ListDomainNamesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainNamesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DomainInfo {
   /**
    * <p> Specifies the <code>DomainName</code>.</p>
@@ -4505,15 +3354,6 @@ export interface DomainInfo {
   EngineType?: EngineType | string;
 }
 
-export namespace DomainInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>ListDomainNames</code> operation. Contains the names of all domains owned by this account and their respective engine types.</p>
  */
@@ -4522,15 +3362,6 @@ export interface ListDomainNamesResponse {
    * <p>List of domain names and respective engine types.</p>
    */
   DomainNames?: DomainInfo[];
-}
-
-export namespace ListDomainNamesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainNamesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4559,15 +3390,6 @@ export interface ListDomainsForPackageRequest {
   NextToken?: string;
 }
 
-export namespace ListDomainsForPackageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainsForPackageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Container for response parameters to
@@ -4584,15 +3406,6 @@ export interface ListDomainsForPackageResponse {
   DomainPackageDetailsList?: DomainPackageDetails[];
 
   NextToken?: string;
-}
-
-export namespace ListDomainsForPackageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainsForPackageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4635,15 +3448,6 @@ export interface ListElasticsearchInstanceTypesRequest {
   NextToken?: string;
 }
 
-export namespace ListElasticsearchInstanceTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListElasticsearchInstanceTypesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Container for the parameters returned by
@@ -4672,15 +3476,6 @@ export interface ListElasticsearchInstanceTypesResponse {
    *     </p>
    */
   NextToken?: string;
-}
-
-export namespace ListElasticsearchInstanceTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListElasticsearchInstanceTypesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4726,15 +3521,6 @@ export interface ListElasticsearchVersionsRequest {
   NextToken?: string;
 }
 
-export namespace ListElasticsearchVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListElasticsearchVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Container for the parameters for response received from
@@ -4758,15 +3544,6 @@ export interface ListElasticsearchVersionsResponse {
    *     </p>
    */
   NextToken?: string;
-}
-
-export namespace ListElasticsearchVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListElasticsearchVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4795,15 +3572,6 @@ export interface ListPackagesForDomainRequest {
   NextToken?: string;
 }
 
-export namespace ListPackagesForDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackagesForDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Container for response parameters to
@@ -4825,15 +3593,6 @@ export interface ListPackagesForDomainResponse {
   NextToken?: string;
 }
 
-export namespace ListPackagesForDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackagesForDomainResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the parameters to the <code><a>ListTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view are attached.</p>
  */
@@ -4844,15 +3603,6 @@ export interface ListTagsRequest {
   ARN: string | undefined;
 }
 
-export namespace ListTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>ListTags</code> operation. Contains tags for all requested Elasticsearch domains.</p>
  */
@@ -4861,15 +3611,6 @@ export interface ListTagsResponse {
    * <p> List of <code>Tag</code> for the requested Elasticsearch domain.</p>
    */
   TagList?: Tag[];
-}
-
-export namespace ListTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4892,15 +3633,6 @@ export interface PurchaseReservedElasticsearchInstanceOfferingRequest {
   InstanceCount?: number;
 }
 
-export namespace PurchaseReservedElasticsearchInstanceOfferingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PurchaseReservedElasticsearchInstanceOfferingRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>PurchaseReservedElasticsearchInstanceOffering</code> operation.</p>
  */
@@ -4916,15 +3648,6 @@ export interface PurchaseReservedElasticsearchInstanceOfferingResponse {
   ReservationName?: string;
 }
 
-export namespace PurchaseReservedElasticsearchInstanceOfferingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PurchaseReservedElasticsearchInstanceOfferingResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the parameters to the <code><a>RejectInboundCrossClusterSearchConnection</a></code> operation.</p>
  */
@@ -4935,15 +3658,6 @@ export interface RejectInboundCrossClusterSearchConnectionRequest {
   CrossClusterSearchConnectionId: string | undefined;
 }
 
-export namespace RejectInboundCrossClusterSearchConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectInboundCrossClusterSearchConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code><a>RejectInboundCrossClusterSearchConnection</a></code> operation. Contains details of rejected inbound connection.</p>
  */
@@ -4952,15 +3666,6 @@ export interface RejectInboundCrossClusterSearchConnectionResponse {
    * <p>Specifies the <code><a>InboundCrossClusterSearchConnection</a></code> of rejected inbound connection. </p>
    */
   CrossClusterSearchConnection?: InboundCrossClusterSearchConnection;
-}
-
-export namespace RejectInboundCrossClusterSearchConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectInboundCrossClusterSearchConnectionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4978,15 +3683,6 @@ export interface RemoveTagsRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace RemoveTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the parameters to the <code><a>StartElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to schedule a service software update on.</p>
  */
@@ -4997,15 +3693,6 @@ export interface StartElasticsearchServiceSoftwareUpdateRequest {
   DomainName: string | undefined;
 }
 
-export namespace StartElasticsearchServiceSoftwareUpdateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartElasticsearchServiceSoftwareUpdateRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>StartElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>
  */
@@ -5014,15 +3701,6 @@ export interface StartElasticsearchServiceSoftwareUpdateResponse {
    * <p>The current status of the Elasticsearch service software update.</p>
    */
   ServiceSoftwareOptions?: ServiceSoftwareOptions;
-}
-
-export namespace StartElasticsearchServiceSoftwareUpdateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartElasticsearchServiceSoftwareUpdateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5110,18 +3788,6 @@ export interface UpdateElasticsearchDomainConfigRequest {
   DryRun?: boolean;
 }
 
-export namespace UpdateElasticsearchDomainConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateElasticsearchDomainConfigRequest): any => ({
-    ...obj,
-    ...(obj.AdvancedSecurityOptions && {
-      AdvancedSecurityOptions: AdvancedSecurityOptionsInput.filterSensitiveLog(obj.AdvancedSecurityOptions),
-    }),
-  });
-}
-
 export interface DryRunResults {
   /**
    * <p>
@@ -5141,15 +3807,6 @@ export interface DryRunResults {
   Message?: string;
 }
 
-export namespace DryRunResults {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DryRunResults): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of an <code>UpdateElasticsearchDomain</code> request. Contains the status of the Elasticsearch domain being updated.</p>
  */
@@ -5163,15 +3820,6 @@ export interface UpdateElasticsearchDomainConfigResponse {
    * <p>Contains result of DryRun. </p>
    */
   DryRunResults?: DryRunResults;
-}
-
-export namespace UpdateElasticsearchDomainConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateElasticsearchDomainConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5205,15 +3853,6 @@ export interface UpdatePackageRequest {
   CommitMessage?: string;
 }
 
-export namespace UpdatePackageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePackageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Container for response returned by
@@ -5228,15 +3867,6 @@ export interface UpdatePackageResponse {
    * <p>Information about the package <code>PackageDetails</code>.</p>
    */
   PackageDetails?: PackageDetails;
-}
-
-export namespace UpdatePackageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePackageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5266,15 +3896,6 @@ export interface UpgradeElasticsearchDomainRequest {
    *     </p>
    */
   PerformCheckOnly?: boolean;
-}
-
-export namespace UpgradeElasticsearchDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpgradeElasticsearchDomainRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5311,11 +3932,1172 @@ export interface UpgradeElasticsearchDomainResponse {
   ChangeProgressDetails?: ChangeProgressDetails;
 }
 
-export namespace UpgradeElasticsearchDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpgradeElasticsearchDomainResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcceptInboundCrossClusterSearchConnectionRequestFilterSensitiveLog = (
+  obj: AcceptInboundCrossClusterSearchConnectionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InboundCrossClusterSearchConnectionStatusFilterSensitiveLog = (
+  obj: InboundCrossClusterSearchConnectionStatus
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainInformationFilterSensitiveLog = (obj: DomainInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InboundCrossClusterSearchConnectionFilterSensitiveLog = (
+  obj: InboundCrossClusterSearchConnection
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptInboundCrossClusterSearchConnectionResponseFilterSensitiveLog = (
+  obj: AcceptInboundCrossClusterSearchConnectionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OptionStatusFilterSensitiveLog = (obj: OptionStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessPoliciesStatusFilterSensitiveLog = (obj: AccessPoliciesStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdditionalLimitFilterSensitiveLog = (obj: AdditionalLimit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsRequestFilterSensitiveLog = (obj: AddTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdvancedOptionsStatusFilterSensitiveLog = (obj: AdvancedOptionsStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SAMLIdpFilterSensitiveLog = (obj: SAMLIdp): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SAMLOptionsOutputFilterSensitiveLog = (obj: SAMLOptionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdvancedSecurityOptionsFilterSensitiveLog = (obj: AdvancedSecurityOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MasterUserOptionsFilterSensitiveLog = (obj: MasterUserOptions): any => ({
+  ...obj,
+  ...(obj.MasterUserName && { MasterUserName: SENSITIVE_STRING }),
+  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SAMLOptionsInputFilterSensitiveLog = (obj: SAMLOptionsInput): any => ({
+  ...obj,
+  ...(obj.MasterUserName && { MasterUserName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdvancedSecurityOptionsInputFilterSensitiveLog = (obj: AdvancedSecurityOptionsInput): any => ({
+  ...obj,
+  ...(obj.MasterUserOptions && { MasterUserOptions: MasterUserOptionsFilterSensitiveLog(obj.MasterUserOptions) }),
+  ...(obj.SAMLOptions && { SAMLOptions: SAMLOptionsInputFilterSensitiveLog(obj.SAMLOptions) }),
+});
+
+/**
+ * @internal
+ */
+export const AdvancedSecurityOptionsStatusFilterSensitiveLog = (obj: AdvancedSecurityOptionsStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociatePackageRequestFilterSensitiveLog = (obj: AssociatePackageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorDetailsFilterSensitiveLog = (obj: ErrorDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainPackageDetailsFilterSensitiveLog = (obj: DomainPackageDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociatePackageResponseFilterSensitiveLog = (obj: AssociatePackageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelElasticsearchServiceSoftwareUpdateRequestFilterSensitiveLog = (
+  obj: CancelElasticsearchServiceSoftwareUpdateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceSoftwareOptionsFilterSensitiveLog = (obj: ServiceSoftwareOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelElasticsearchServiceSoftwareUpdateResponseFilterSensitiveLog = (
+  obj: CancelElasticsearchServiceSoftwareUpdateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DurationFilterSensitiveLog = (obj: Duration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoTuneMaintenanceScheduleFilterSensitiveLog = (obj: AutoTuneMaintenanceSchedule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoTuneOptionsInputFilterSensitiveLog = (obj: AutoTuneOptionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CognitoOptionsFilterSensitiveLog = (obj: CognitoOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainEndpointOptionsFilterSensitiveLog = (obj: DomainEndpointOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EBSOptionsFilterSensitiveLog = (obj: EBSOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColdStorageOptionsFilterSensitiveLog = (obj: ColdStorageOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ZoneAwarenessConfigFilterSensitiveLog = (obj: ZoneAwarenessConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ElasticsearchClusterConfigFilterSensitiveLog = (obj: ElasticsearchClusterConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionAtRestOptionsFilterSensitiveLog = (obj: EncryptionAtRestOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogPublishingOptionFilterSensitiveLog = (obj: LogPublishingOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeToNodeEncryptionOptionsFilterSensitiveLog = (obj: NodeToNodeEncryptionOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnapshotOptionsFilterSensitiveLog = (obj: SnapshotOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VPCOptionsFilterSensitiveLog = (obj: VPCOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateElasticsearchDomainRequestFilterSensitiveLog = (obj: CreateElasticsearchDomainRequest): any => ({
+  ...obj,
+  ...(obj.AdvancedSecurityOptions && {
+    AdvancedSecurityOptions: AdvancedSecurityOptionsInputFilterSensitiveLog(obj.AdvancedSecurityOptions),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const AutoTuneOptionsOutputFilterSensitiveLog = (obj: AutoTuneOptionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeProgressDetailsFilterSensitiveLog = (obj: ChangeProgressDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VPCDerivedInfoFilterSensitiveLog = (obj: VPCDerivedInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ElasticsearchDomainStatusFilterSensitiveLog = (obj: ElasticsearchDomainStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateElasticsearchDomainResponseFilterSensitiveLog = (obj: CreateElasticsearchDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOutboundCrossClusterSearchConnectionRequestFilterSensitiveLog = (
+  obj: CreateOutboundCrossClusterSearchConnectionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutboundCrossClusterSearchConnectionStatusFilterSensitiveLog = (
+  obj: OutboundCrossClusterSearchConnectionStatus
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOutboundCrossClusterSearchConnectionResponseFilterSensitiveLog = (
+  obj: CreateOutboundCrossClusterSearchConnectionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageSourceFilterSensitiveLog = (obj: PackageSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePackageRequestFilterSensitiveLog = (obj: CreatePackageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageDetailsFilterSensitiveLog = (obj: PackageDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePackageResponseFilterSensitiveLog = (obj: CreatePackageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteElasticsearchDomainRequestFilterSensitiveLog = (obj: DeleteElasticsearchDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteElasticsearchDomainResponseFilterSensitiveLog = (obj: DeleteElasticsearchDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInboundCrossClusterSearchConnectionRequestFilterSensitiveLog = (
+  obj: DeleteInboundCrossClusterSearchConnectionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInboundCrossClusterSearchConnectionResponseFilterSensitiveLog = (
+  obj: DeleteInboundCrossClusterSearchConnectionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOutboundCrossClusterSearchConnectionRequestFilterSensitiveLog = (
+  obj: DeleteOutboundCrossClusterSearchConnectionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutboundCrossClusterSearchConnectionFilterSensitiveLog = (
+  obj: OutboundCrossClusterSearchConnection
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOutboundCrossClusterSearchConnectionResponseFilterSensitiveLog = (
+  obj: DeleteOutboundCrossClusterSearchConnectionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePackageRequestFilterSensitiveLog = (obj: DeletePackageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePackageResponseFilterSensitiveLog = (obj: DeletePackageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainAutoTunesRequestFilterSensitiveLog = (obj: DescribeDomainAutoTunesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledAutoTuneDetailsFilterSensitiveLog = (obj: ScheduledAutoTuneDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoTuneDetailsFilterSensitiveLog = (obj: AutoTuneDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoTuneFilterSensitiveLog = (obj: AutoTune): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainAutoTunesResponseFilterSensitiveLog = (obj: DescribeDomainAutoTunesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainChangeProgressRequestFilterSensitiveLog = (
+  obj: DescribeDomainChangeProgressRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeProgressStageFilterSensitiveLog = (obj: ChangeProgressStage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeProgressStatusDetailsFilterSensitiveLog = (obj: ChangeProgressStatusDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainChangeProgressResponseFilterSensitiveLog = (
+  obj: DescribeDomainChangeProgressResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeElasticsearchDomainRequestFilterSensitiveLog = (obj: DescribeElasticsearchDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeElasticsearchDomainResponseFilterSensitiveLog = (
+  obj: DescribeElasticsearchDomainResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeElasticsearchDomainConfigRequestFilterSensitiveLog = (
+  obj: DescribeElasticsearchDomainConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoTuneOptionsFilterSensitiveLog = (obj: AutoTuneOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoTuneStatusFilterSensitiveLog = (obj: AutoTuneStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoTuneOptionsStatusFilterSensitiveLog = (obj: AutoTuneOptionsStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CognitoOptionsStatusFilterSensitiveLog = (obj: CognitoOptionsStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainEndpointOptionsStatusFilterSensitiveLog = (obj: DomainEndpointOptionsStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EBSOptionsStatusFilterSensitiveLog = (obj: EBSOptionsStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ElasticsearchClusterConfigStatusFilterSensitiveLog = (obj: ElasticsearchClusterConfigStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ElasticsearchVersionStatusFilterSensitiveLog = (obj: ElasticsearchVersionStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionAtRestOptionsStatusFilterSensitiveLog = (obj: EncryptionAtRestOptionsStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogPublishingOptionsStatusFilterSensitiveLog = (obj: LogPublishingOptionsStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeToNodeEncryptionOptionsStatusFilterSensitiveLog = (obj: NodeToNodeEncryptionOptionsStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnapshotOptionsStatusFilterSensitiveLog = (obj: SnapshotOptionsStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VPCDerivedInfoStatusFilterSensitiveLog = (obj: VPCDerivedInfoStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ElasticsearchDomainConfigFilterSensitiveLog = (obj: ElasticsearchDomainConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeElasticsearchDomainConfigResponseFilterSensitiveLog = (
+  obj: DescribeElasticsearchDomainConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeElasticsearchDomainsRequestFilterSensitiveLog = (
+  obj: DescribeElasticsearchDomainsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeElasticsearchDomainsResponseFilterSensitiveLog = (
+  obj: DescribeElasticsearchDomainsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeElasticsearchInstanceTypeLimitsRequestFilterSensitiveLog = (
+  obj: DescribeElasticsearchInstanceTypeLimitsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceCountLimitsFilterSensitiveLog = (obj: InstanceCountLimits): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceLimitsFilterSensitiveLog = (obj: InstanceLimits): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageTypeLimitFilterSensitiveLog = (obj: StorageTypeLimit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageTypeFilterSensitiveLog = (obj: StorageType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LimitsFilterSensitiveLog = (obj: Limits): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeElasticsearchInstanceTypeLimitsResponseFilterSensitiveLog = (
+  obj: DescribeElasticsearchInstanceTypeLimitsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInboundCrossClusterSearchConnectionsRequestFilterSensitiveLog = (
+  obj: DescribeInboundCrossClusterSearchConnectionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInboundCrossClusterSearchConnectionsResponseFilterSensitiveLog = (
+  obj: DescribeInboundCrossClusterSearchConnectionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOutboundCrossClusterSearchConnectionsRequestFilterSensitiveLog = (
+  obj: DescribeOutboundCrossClusterSearchConnectionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOutboundCrossClusterSearchConnectionsResponseFilterSensitiveLog = (
+  obj: DescribeOutboundCrossClusterSearchConnectionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePackagesFilterFilterSensitiveLog = (obj: DescribePackagesFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePackagesRequestFilterSensitiveLog = (obj: DescribePackagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePackagesResponseFilterSensitiveLog = (obj: DescribePackagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservedElasticsearchInstanceOfferingsRequestFilterSensitiveLog = (
+  obj: DescribeReservedElasticsearchInstanceOfferingsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecurringChargeFilterSensitiveLog = (obj: RecurringCharge): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservedElasticsearchInstanceOfferingFilterSensitiveLog = (
+  obj: ReservedElasticsearchInstanceOffering
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservedElasticsearchInstanceOfferingsResponseFilterSensitiveLog = (
+  obj: DescribeReservedElasticsearchInstanceOfferingsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservedElasticsearchInstancesRequestFilterSensitiveLog = (
+  obj: DescribeReservedElasticsearchInstancesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservedElasticsearchInstanceFilterSensitiveLog = (obj: ReservedElasticsearchInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservedElasticsearchInstancesResponseFilterSensitiveLog = (
+  obj: DescribeReservedElasticsearchInstancesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DissociatePackageRequestFilterSensitiveLog = (obj: DissociatePackageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DissociatePackageResponseFilterSensitiveLog = (obj: DissociatePackageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCompatibleElasticsearchVersionsRequestFilterSensitiveLog = (
+  obj: GetCompatibleElasticsearchVersionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompatibleVersionsMapFilterSensitiveLog = (obj: CompatibleVersionsMap): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCompatibleElasticsearchVersionsResponseFilterSensitiveLog = (
+  obj: GetCompatibleElasticsearchVersionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPackageVersionHistoryRequestFilterSensitiveLog = (obj: GetPackageVersionHistoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageVersionHistoryFilterSensitiveLog = (obj: PackageVersionHistory): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPackageVersionHistoryResponseFilterSensitiveLog = (obj: GetPackageVersionHistoryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUpgradeHistoryRequestFilterSensitiveLog = (obj: GetUpgradeHistoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpgradeStepItemFilterSensitiveLog = (obj: UpgradeStepItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpgradeHistoryFilterSensitiveLog = (obj: UpgradeHistory): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUpgradeHistoryResponseFilterSensitiveLog = (obj: GetUpgradeHistoryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUpgradeStatusRequestFilterSensitiveLog = (obj: GetUpgradeStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUpgradeStatusResponseFilterSensitiveLog = (obj: GetUpgradeStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainNamesRequestFilterSensitiveLog = (obj: ListDomainNamesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainInfoFilterSensitiveLog = (obj: DomainInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainNamesResponseFilterSensitiveLog = (obj: ListDomainNamesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainsForPackageRequestFilterSensitiveLog = (obj: ListDomainsForPackageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainsForPackageResponseFilterSensitiveLog = (obj: ListDomainsForPackageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListElasticsearchInstanceTypesRequestFilterSensitiveLog = (
+  obj: ListElasticsearchInstanceTypesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListElasticsearchInstanceTypesResponseFilterSensitiveLog = (
+  obj: ListElasticsearchInstanceTypesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListElasticsearchVersionsRequestFilterSensitiveLog = (obj: ListElasticsearchVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListElasticsearchVersionsResponseFilterSensitiveLog = (obj: ListElasticsearchVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackagesForDomainRequestFilterSensitiveLog = (obj: ListPackagesForDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackagesForDomainResponseFilterSensitiveLog = (obj: ListPackagesForDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseReservedElasticsearchInstanceOfferingRequestFilterSensitiveLog = (
+  obj: PurchaseReservedElasticsearchInstanceOfferingRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseReservedElasticsearchInstanceOfferingResponseFilterSensitiveLog = (
+  obj: PurchaseReservedElasticsearchInstanceOfferingResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectInboundCrossClusterSearchConnectionRequestFilterSensitiveLog = (
+  obj: RejectInboundCrossClusterSearchConnectionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectInboundCrossClusterSearchConnectionResponseFilterSensitiveLog = (
+  obj: RejectInboundCrossClusterSearchConnectionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsRequestFilterSensitiveLog = (obj: RemoveTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartElasticsearchServiceSoftwareUpdateRequestFilterSensitiveLog = (
+  obj: StartElasticsearchServiceSoftwareUpdateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartElasticsearchServiceSoftwareUpdateResponseFilterSensitiveLog = (
+  obj: StartElasticsearchServiceSoftwareUpdateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateElasticsearchDomainConfigRequestFilterSensitiveLog = (
+  obj: UpdateElasticsearchDomainConfigRequest
+): any => ({
+  ...obj,
+  ...(obj.AdvancedSecurityOptions && {
+    AdvancedSecurityOptions: AdvancedSecurityOptionsInputFilterSensitiveLog(obj.AdvancedSecurityOptions),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DryRunResultsFilterSensitiveLog = (obj: DryRunResults): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateElasticsearchDomainConfigResponseFilterSensitiveLog = (
+  obj: UpdateElasticsearchDomainConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePackageRequestFilterSensitiveLog = (obj: UpdatePackageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePackageResponseFilterSensitiveLog = (obj: UpdatePackageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpgradeElasticsearchDomainRequestFilterSensitiveLog = (obj: UpgradeElasticsearchDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpgradeElasticsearchDomainResponseFilterSensitiveLog = (obj: UpgradeElasticsearchDomainResponse): any => ({
+  ...obj,
+});

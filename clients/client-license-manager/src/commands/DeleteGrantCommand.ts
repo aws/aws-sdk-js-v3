@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import { DeleteGrantRequest, DeleteGrantResponse } from "../models/models_0";
+import {
+  DeleteGrantRequest,
+  DeleteGrantRequestFilterSensitiveLog,
+  DeleteGrantResponse,
+  DeleteGrantResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteGrantCommand,
   serializeAws_json1_1DeleteGrantCommand,
@@ -72,8 +77,8 @@ export class DeleteGrantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGrantRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGrantResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGrantRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGrantResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

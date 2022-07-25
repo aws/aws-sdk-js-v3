@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ActivateUserRequest, ActivateUserResponse } from "../models/models_0";
+import {
+  ActivateUserRequest,
+  ActivateUserRequestFilterSensitiveLog,
+  ActivateUserResponse,
+  ActivateUserResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ActivateUserCommand,
   serializeAws_restJson1ActivateUserCommand,
@@ -73,8 +78,8 @@ export class ActivateUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ActivateUserRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ActivateUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ActivateUserRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ActivateUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateSiteRackPhysicalPropertiesInput, UpdateSiteRackPhysicalPropertiesOutput } from "../models/models_0";
+import {
+  UpdateSiteRackPhysicalPropertiesInput,
+  UpdateSiteRackPhysicalPropertiesInputFilterSensitiveLog,
+  UpdateSiteRackPhysicalPropertiesOutput,
+  UpdateSiteRackPhysicalPropertiesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import {
   deserializeAws_restJson1UpdateSiteRackPhysicalPropertiesCommand,
@@ -79,8 +84,8 @@ export class UpdateSiteRackPhysicalPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSiteRackPhysicalPropertiesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSiteRackPhysicalPropertiesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSiteRackPhysicalPropertiesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSiteRackPhysicalPropertiesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

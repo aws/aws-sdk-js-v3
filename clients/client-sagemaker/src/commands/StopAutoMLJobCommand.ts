@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopAutoMLJobRequest } from "../models/models_3";
+import { StopAutoMLJobRequest, StopAutoMLJobRequestFilterSensitiveLog } from "../models/models_3";
 import {
   deserializeAws_json1_1StopAutoMLJobCommand,
   serializeAws_json1_1StopAutoMLJobCommand,
@@ -72,7 +72,7 @@ export class StopAutoMLJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopAutoMLJobRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: StopAutoMLJobRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

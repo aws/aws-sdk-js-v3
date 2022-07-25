@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedDoubleInput } from "../models/models_0";
+import { MalformedDoubleInput, MalformedDoubleInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedDoubleCommand,
   serializeAws_restJson1MalformedDoubleCommand,
@@ -55,7 +55,7 @@ export class MalformedDoubleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedDoubleInput.filterSensitiveLog,
+      inputFilterSensitiveLog: MalformedDoubleInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DisableUserRequest, DisableUserResult } from "../models/models_0";
+import {
+  DisableUserRequest,
+  DisableUserRequestFilterSensitiveLog,
+  DisableUserResult,
+  DisableUserResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisableUserCommand,
   serializeAws_json1_1DisableUserCommand,
@@ -72,8 +77,8 @@ export class DisableUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableUserRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableUserResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableUserRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisableUserResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { CreateLogGroupRequest } from "../models/models_0";
+import { CreateLogGroupRequest, CreateLogGroupRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLogGroupCommand,
   serializeAws_json1_1CreateLogGroupCommand,
@@ -98,7 +98,7 @@ export class CreateLogGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLogGroupRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLogGroupRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

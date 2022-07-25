@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { GetItemInput, GetItemOutput } from "../models/models_0";
+import {
+  GetItemInput,
+  GetItemInputFilterSensitiveLog,
+  GetItemOutput,
+  GetItemOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_0GetItemCommand, serializeAws_json1_0GetItemCommand } from "../protocols/Aws_json1_0";
 
 export interface GetItemCommandInput extends GetItemInput {}
@@ -72,8 +77,8 @@ export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetItemInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetItemOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetItemInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetItemOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateQuickConnectNameRequest } from "../models/models_1";
+import { UpdateQuickConnectNameRequest, UpdateQuickConnectNameRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateQuickConnectNameCommand,
   serializeAws_restJson1UpdateQuickConnectNameCommand,
@@ -72,7 +72,7 @@ export class UpdateQuickConnectNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateQuickConnectNameRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateQuickConnectNameRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutConfigurationAggregatorRequest, PutConfigurationAggregatorResponse } from "../models/models_0";
+import {
+  PutConfigurationAggregatorRequest,
+  PutConfigurationAggregatorRequestFilterSensitiveLog,
+  PutConfigurationAggregatorResponse,
+  PutConfigurationAggregatorResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutConfigurationAggregatorCommand,
   serializeAws_json1_1PutConfigurationAggregatorCommand,
@@ -87,8 +92,8 @@ export class PutConfigurationAggregatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConfigurationAggregatorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutConfigurationAggregatorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutConfigurationAggregatorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutConfigurationAggregatorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

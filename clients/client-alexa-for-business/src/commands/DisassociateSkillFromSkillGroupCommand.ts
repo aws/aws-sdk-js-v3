@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { DisassociateSkillFromSkillGroupRequest, DisassociateSkillFromSkillGroupResponse } from "../models/models_0";
+import {
+  DisassociateSkillFromSkillGroupRequest,
+  DisassociateSkillFromSkillGroupRequestFilterSensitiveLog,
+  DisassociateSkillFromSkillGroupResponse,
+  DisassociateSkillFromSkillGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateSkillFromSkillGroupCommand,
   serializeAws_json1_1DisassociateSkillFromSkillGroupCommand,
@@ -74,8 +79,8 @@ export class DisassociateSkillFromSkillGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateSkillFromSkillGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateSkillFromSkillGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateSkillFromSkillGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateSkillFromSkillGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { CreateEventBusRequest, CreateEventBusResponse } from "../models/models_0";
+import {
+  CreateEventBusRequest,
+  CreateEventBusRequestFilterSensitiveLog,
+  CreateEventBusResponse,
+  CreateEventBusResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateEventBusCommand,
   serializeAws_json1_1CreateEventBusCommand,
@@ -74,8 +79,8 @@ export class CreateEventBusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEventBusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateEventBusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateEventBusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateEventBusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

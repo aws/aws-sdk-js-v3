@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { ListQueuesRequest, ListQueuesResponse } from "../models/models_2";
+import {
+  ListQueuesRequest,
+  ListQueuesRequestFilterSensitiveLog,
+  ListQueuesResponse,
+  ListQueuesResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1ListQueuesCommand,
   serializeAws_restJson1ListQueuesCommand,
@@ -72,8 +77,8 @@ export class ListQueuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQueuesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListQueuesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListQueuesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListQueuesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetCrawlerMetricsRequest, GetCrawlerMetricsResponse } from "../models/models_1";
+import {
+  GetCrawlerMetricsRequest,
+  GetCrawlerMetricsRequestFilterSensitiveLog,
+  GetCrawlerMetricsResponse,
+  GetCrawlerMetricsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetCrawlerMetricsCommand,
   serializeAws_json1_1GetCrawlerMetricsCommand,
@@ -72,8 +77,8 @@ export class GetCrawlerMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCrawlerMetricsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCrawlerMetricsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCrawlerMetricsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCrawlerMetricsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

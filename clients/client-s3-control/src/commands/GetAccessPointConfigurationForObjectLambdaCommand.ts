@@ -15,7 +15,9 @@ import {
 
 import {
   GetAccessPointConfigurationForObjectLambdaRequest,
+  GetAccessPointConfigurationForObjectLambdaRequestFilterSensitiveLog,
   GetAccessPointConfigurationForObjectLambdaResult,
+  GetAccessPointConfigurationForObjectLambdaResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlGetAccessPointConfigurationForObjectLambdaCommand,
@@ -92,8 +94,8 @@ export class GetAccessPointConfigurationForObjectLambdaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessPointConfigurationForObjectLambdaRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessPointConfigurationForObjectLambdaResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAccessPointConfigurationForObjectLambdaRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAccessPointConfigurationForObjectLambdaResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

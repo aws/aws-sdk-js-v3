@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UndeprecateDomainInput } from "../models/models_0";
+import { UndeprecateDomainInput, UndeprecateDomainInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_0UndeprecateDomainCommand,
   serializeAws_json1_0UndeprecateDomainCommand,
@@ -100,7 +100,7 @@ export class UndeprecateDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UndeprecateDomainInput.filterSensitiveLog,
+      inputFilterSensitiveLog: UndeprecateDomainInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

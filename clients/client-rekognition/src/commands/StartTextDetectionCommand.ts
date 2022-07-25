@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartTextDetectionRequest, StartTextDetectionResponse } from "../models/models_0";
+import {
+  StartTextDetectionRequest,
+  StartTextDetectionRequestFilterSensitiveLog,
+  StartTextDetectionResponse,
+  StartTextDetectionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartTextDetectionCommand,
   serializeAws_json1_1StartTextDetectionCommand,
@@ -79,8 +84,8 @@ export class StartTextDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartTextDetectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartTextDetectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartTextDetectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartTextDetectionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

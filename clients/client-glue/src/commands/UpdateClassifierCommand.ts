@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateClassifierRequest, UpdateClassifierResponse } from "../models/models_2";
+import {
+  UpdateClassifierRequest,
+  UpdateClassifierRequestFilterSensitiveLog,
+  UpdateClassifierResponse,
+  UpdateClassifierResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateClassifierCommand,
   serializeAws_json1_1UpdateClassifierCommand,
@@ -74,8 +79,8 @@ export class UpdateClassifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClassifierRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClassifierResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateClassifierRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateClassifierResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

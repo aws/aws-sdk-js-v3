@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import { ListFlowsRequest, ListFlowsResponse } from "../models/models_0";
+import {
+  ListFlowsRequest,
+  ListFlowsRequestFilterSensitiveLog,
+  ListFlowsResponse,
+  ListFlowsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListFlowsCommand,
   serializeAws_restJson1ListFlowsCommand,
@@ -72,8 +77,8 @@ export class ListFlowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFlowsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListFlowsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFlowsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListFlowsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

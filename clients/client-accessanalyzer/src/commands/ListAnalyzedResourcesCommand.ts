@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { ListAnalyzedResourcesRequest, ListAnalyzedResourcesResponse } from "../models/models_0";
+import {
+  ListAnalyzedResourcesRequest,
+  ListAnalyzedResourcesRequestFilterSensitiveLog,
+  ListAnalyzedResourcesResponse,
+  ListAnalyzedResourcesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListAnalyzedResourcesCommand,
   serializeAws_restJson1ListAnalyzedResourcesCommand,
@@ -73,8 +78,8 @@ export class ListAnalyzedResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAnalyzedResourcesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAnalyzedResourcesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAnalyzedResourcesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAnalyzedResourcesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

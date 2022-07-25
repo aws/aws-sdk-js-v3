@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { SearchLocalGatewayRoutesRequest, SearchLocalGatewayRoutesResult } from "../models/models_6";
+import {
+  SearchLocalGatewayRoutesRequest,
+  SearchLocalGatewayRoutesRequestFilterSensitiveLog,
+  SearchLocalGatewayRoutesResult,
+  SearchLocalGatewayRoutesResultFilterSensitiveLog,
+} from "../models/models_6";
 import {
   deserializeAws_ec2SearchLocalGatewayRoutesCommand,
   serializeAws_ec2SearchLocalGatewayRoutesCommand,
@@ -72,8 +77,8 @@ export class SearchLocalGatewayRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchLocalGatewayRoutesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SearchLocalGatewayRoutesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchLocalGatewayRoutesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SearchLocalGatewayRoutesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

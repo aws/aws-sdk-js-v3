@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeEffectiveInstanceAssociationsRequest,
+  DescribeEffectiveInstanceAssociationsRequestFilterSensitiveLog,
   DescribeEffectiveInstanceAssociationsResult,
+  DescribeEffectiveInstanceAssociationsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand,
@@ -78,8 +80,8 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEffectiveInstanceAssociationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEffectiveInstanceAssociationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEffectiveInstanceAssociationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEffectiveInstanceAssociationsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

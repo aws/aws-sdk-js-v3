@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { GetWebhookRequest, GetWebhookResult } from "../models/models_0";
+import {
+  GetWebhookRequest,
+  GetWebhookRequestFilterSensitiveLog,
+  GetWebhookResult,
+  GetWebhookResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetWebhookCommand,
   serializeAws_restJson1GetWebhookCommand,
@@ -72,8 +77,8 @@ export class GetWebhookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWebhookRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetWebhookResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetWebhookRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetWebhookResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

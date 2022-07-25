@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListResolverRuleAssociationsRequest, ListResolverRuleAssociationsResponse } from "../models/models_0";
+import {
+  ListResolverRuleAssociationsRequest,
+  ListResolverRuleAssociationsRequestFilterSensitiveLog,
+  ListResolverRuleAssociationsResponse,
+  ListResolverRuleAssociationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListResolverRuleAssociationsCommand,
   serializeAws_json1_1ListResolverRuleAssociationsCommand,
@@ -74,8 +79,8 @@ export class ListResolverRuleAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResolverRuleAssociationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListResolverRuleAssociationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListResolverRuleAssociationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListResolverRuleAssociationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

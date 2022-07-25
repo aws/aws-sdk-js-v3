@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateKeyPairRequest, KeyPair } from "../models/models_1";
+import {
+  CreateKeyPairRequest,
+  CreateKeyPairRequestFilterSensitiveLog,
+  KeyPair,
+  KeyPairFilterSensitiveLog,
+} from "../models/models_1";
 import { deserializeAws_ec2CreateKeyPairCommand, serializeAws_ec2CreateKeyPairCommand } from "../protocols/Aws_ec2";
 
 export interface CreateKeyPairCommandInput extends CreateKeyPairRequest {}
@@ -79,8 +84,8 @@ export class CreateKeyPairCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateKeyPairRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: KeyPair.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateKeyPairRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: KeyPairFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

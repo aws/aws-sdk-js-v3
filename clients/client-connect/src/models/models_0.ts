@@ -66,15 +66,6 @@ export interface QueueReference {
   Arn?: string;
 }
 
-export namespace QueueReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueueReference): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Contact.html">contact</a> associated to the
  *    user.</p>
@@ -116,15 +107,6 @@ export interface AgentContactReference {
   Queue?: QueueReference;
 }
 
-export namespace AgentContactReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AgentContactReference): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the agent who accepted the contact.</p>
  */
@@ -138,15 +120,6 @@ export interface AgentInfo {
    * <p>The timestamp when the contact was connected to the agent.</p>
    */
   ConnectedToAgentTimestamp?: Date;
-}
-
-export namespace AgentInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AgentInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum AgentStatusState {
@@ -205,15 +178,6 @@ export interface AgentStatus {
   Tags?: Record<string, string>;
 }
 
-export namespace AgentStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AgentStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the agent's status.</p>
  */
@@ -227,15 +191,6 @@ export interface AgentStatusReference {
    * <p>The Amazon Resource Name (ARN) of the agent's status.</p>
    */
   StatusArn?: string;
-}
-
-export namespace AgentStatusReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AgentStatusReference): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -263,15 +218,6 @@ export interface AgentStatusSummary {
   Type?: AgentStatusType | string;
 }
 
-export namespace AgentStatusSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AgentStatusSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateApprovedOriginRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -282,15 +228,6 @@ export interface AssociateApprovedOriginRequest {
    * <p>The domain to add to your allow list.</p>
    */
   Origin: string | undefined;
-}
-
-export namespace AssociateApprovedOriginRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateApprovedOriginRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -467,15 +404,6 @@ export interface LexBot {
   LexRegion?: string;
 }
 
-export namespace LexBot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LexBot): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration information of an Amazon Lex V2 bot.</p>
  */
@@ -484,15 +412,6 @@ export interface LexV2Bot {
    * <p>The Amazon Resource Name (ARN) of the Amazon Lex V2 bot.</p>
    */
   AliasArn?: string;
-}
-
-export namespace LexV2Bot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LexV2Bot): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateBotRequest {
@@ -510,15 +429,6 @@ export interface AssociateBotRequest {
    * <p>The Amazon Lex V2 bot to associate with the instance.</p>
    */
   LexV2Bot?: LexV2Bot;
-}
-
-export namespace AssociateBotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateBotRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -588,25 +498,7 @@ export interface AssociateDefaultVocabularyRequest {
   VocabularyId?: string;
 }
 
-export namespace AssociateDefaultVocabularyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDefaultVocabularyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateDefaultVocabularyResponse {}
-
-export namespace AssociateDefaultVocabularyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDefaultVocabularyResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum InstanceStorageResourceType {
   AGENT_EVENTS = "AGENT_EVENTS",
@@ -628,15 +520,6 @@ export interface KinesisFirehoseConfig {
   FirehoseArn: string | undefined;
 }
 
-export namespace KinesisFirehoseConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisFirehoseConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration information of a Kinesis data stream.</p>
  */
@@ -645,15 +528,6 @@ export interface KinesisStreamConfig {
    * <p>The Amazon Resource Name (ARN) of the data stream.</p>
    */
   StreamArn: string | undefined;
-}
-
-export namespace KinesisStreamConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisStreamConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum EncryptionType {
@@ -678,15 +552,6 @@ export interface EncryptionConfig {
   KeyId: string | undefined;
 }
 
-export namespace EncryptionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration information of a Kinesis video stream.</p>
  */
@@ -709,15 +574,6 @@ export interface KinesisVideoStreamConfig {
   EncryptionConfig: EncryptionConfig | undefined;
 }
 
-export namespace KinesisVideoStreamConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisVideoStreamConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the Amazon Simple Storage Service (Amazon S3) storage type.</p>
  */
@@ -736,15 +592,6 @@ export interface S3Config {
    * <p>The Amazon S3 encryption configuration.</p>
    */
   EncryptionConfig?: EncryptionConfig;
-}
-
-export namespace S3Config {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Config): any => ({
-    ...obj,
-  });
 }
 
 export enum StorageType {
@@ -790,15 +637,6 @@ export interface InstanceStorageConfig {
   KinesisFirehoseConfig?: KinesisFirehoseConfig;
 }
 
-export namespace InstanceStorageConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceStorageConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateInstanceStorageConfigRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -816,29 +654,11 @@ export interface AssociateInstanceStorageConfigRequest {
   StorageConfig: InstanceStorageConfig | undefined;
 }
 
-export namespace AssociateInstanceStorageConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateInstanceStorageConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateInstanceStorageConfigResponse {
   /**
    * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
    */
   AssociationId?: string;
-}
-
-export namespace AssociateInstanceStorageConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateInstanceStorageConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateLambdaFunctionRequest {
@@ -854,15 +674,6 @@ export interface AssociateLambdaFunctionRequest {
   FunctionArn: string | undefined;
 }
 
-export namespace AssociateLambdaFunctionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateLambdaFunctionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateLexBotRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -873,15 +684,6 @@ export interface AssociateLexBotRequest {
    * <p>The Amazon Lex bot to associate with the instance.</p>
    */
   LexBot: LexBot | undefined;
-}
-
-export namespace AssociateLexBotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateLexBotRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociatePhoneNumberContactFlowRequest {
@@ -901,15 +703,6 @@ export interface AssociatePhoneNumberContactFlowRequest {
   ContactFlowId: string | undefined;
 }
 
-export namespace AssociatePhoneNumberContactFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatePhoneNumberContactFlowRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateQueueQuickConnectsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -927,15 +720,6 @@ export interface AssociateQueueQuickConnectsRequest {
   QuickConnectIds: string[] | undefined;
 }
 
-export namespace AssociateQueueQuickConnectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateQueueQuickConnectsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the channel and queue identifier for a routing profile.</p>
  */
@@ -950,15 +734,6 @@ export interface RoutingProfileQueueReference {
    *    profile.</p>
    */
   Channel: Channel | string | undefined;
-}
-
-export namespace RoutingProfileQueueReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoutingProfileQueueReference): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -986,15 +761,6 @@ export interface RoutingProfileQueueConfig {
   Delay: number | undefined;
 }
 
-export namespace RoutingProfileQueueConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoutingProfileQueueConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateRoutingProfileQueuesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -1012,15 +778,6 @@ export interface AssociateRoutingProfileQueuesRequest {
   QueueConfigs: RoutingProfileQueueConfig[] | undefined;
 }
 
-export namespace AssociateRoutingProfileQueuesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateRoutingProfileQueuesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateSecurityKeyRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -1033,29 +790,11 @@ export interface AssociateSecurityKeyRequest {
   Key: string | undefined;
 }
 
-export namespace AssociateSecurityKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateSecurityKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateSecurityKeyResponse {
   /**
    * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
    */
   AssociationId?: string;
-}
-
-export namespace AssociateSecurityKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateSecurityKeyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ClaimPhoneNumberRequest {
@@ -1087,15 +826,6 @@ export interface ClaimPhoneNumberRequest {
   ClientToken?: string;
 }
 
-export namespace ClaimPhoneNumberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClaimPhoneNumberRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ClaimPhoneNumberResponse {
   /**
    * <p>A unique identifier for the phone number.</p>
@@ -1106,15 +836,6 @@ export interface ClaimPhoneNumberResponse {
    * <p>The Amazon Resource Name (ARN) of the phone number.</p>
    */
   PhoneNumberArn?: string;
-}
-
-export namespace ClaimPhoneNumberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClaimPhoneNumberResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1170,15 +891,6 @@ export interface CreateAgentStatusRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateAgentStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAgentStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAgentStatusResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the agent status.</p>
@@ -1189,15 +901,6 @@ export interface CreateAgentStatusResponse {
    * <p>The identifier of the agent status.</p>
    */
   AgentStatusId?: string;
-}
-
-export namespace CreateAgentStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAgentStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1266,15 +969,6 @@ export interface CreateContactFlowRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateContactFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContactFlowRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateContactFlowResponse {
   /**
    * <p>The identifier of the contact flow.</p>
@@ -1287,15 +981,6 @@ export interface CreateContactFlowResponse {
   ContactFlowArn?: string;
 }
 
-export namespace CreateContactFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContactFlowResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a problem detail.</p>
  */
@@ -1304,15 +989,6 @@ export interface ProblemDetail {
    * <p>The problem detail's message.</p>
    */
   message?: string;
-}
-
-export namespace ProblemDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProblemDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1372,15 +1048,6 @@ export interface CreateContactFlowModuleRequest {
   ClientToken?: string;
 }
 
-export namespace CreateContactFlowModuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContactFlowModuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateContactFlowModuleResponse {
   /**
    * <p>The identifier of the contact flow module.</p>
@@ -1391,15 +1058,6 @@ export interface CreateContactFlowModuleResponse {
    * <p>The Amazon Resource Name (ARN) of the contact flow module.</p>
    */
   Arn?: string;
-}
-
-export namespace CreateContactFlowModuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContactFlowModuleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1448,15 +1106,6 @@ export interface HoursOfOperationTimeSlice {
   Minutes: number | undefined;
 }
 
-export namespace HoursOfOperationTimeSlice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HoursOfOperationTimeSlice): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the hours of operation.</p>
  */
@@ -1475,15 +1124,6 @@ export interface HoursOfOperationConfig {
    * <p>The end time that your contact center closes.</p>
    */
   EndTime: HoursOfOperationTimeSlice | undefined;
-}
-
-export namespace HoursOfOperationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HoursOfOperationConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateHoursOfOperationRequest {
@@ -1518,15 +1158,6 @@ export interface CreateHoursOfOperationRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateHoursOfOperationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHoursOfOperationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateHoursOfOperationResponse {
   /**
    * <p>The identifier for the hours of operation.</p>
@@ -1537,15 +1168,6 @@ export interface CreateHoursOfOperationResponse {
    * <p>The Amazon Resource Name (ARN) for the hours of operation.</p>
    */
   HoursOfOperationArn?: string;
-}
-
-export namespace CreateHoursOfOperationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHoursOfOperationResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum DirectoryType {
@@ -1586,16 +1208,6 @@ export interface CreateInstanceRequest {
   OutboundCallsEnabled: boolean | undefined;
 }
 
-export namespace CreateInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstanceRequest): any => ({
-    ...obj,
-    ...(obj.InstanceAlias && { InstanceAlias: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateInstanceResponse {
   /**
    * <p>The identifier for the instance.</p>
@@ -1606,15 +1218,6 @@ export interface CreateInstanceResponse {
    * <p>The Amazon Resource Name (ARN) of the instance.</p>
    */
   Arn?: string;
-}
-
-export namespace CreateInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstanceResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum IntegrationType {
@@ -1667,15 +1270,6 @@ export interface CreateIntegrationAssociationRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateIntegrationAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIntegrationAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateIntegrationAssociationResponse {
   /**
    * <p>The identifier for the integration association.</p>
@@ -1686,15 +1280,6 @@ export interface CreateIntegrationAssociationResponse {
    * <p>The Amazon Resource Name (ARN) for the association.</p>
    */
   IntegrationAssociationArn?: string;
-}
-
-export namespace CreateIntegrationAssociationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIntegrationAssociationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1715,15 +1300,6 @@ export interface OutboundCallerConfig {
    * <p>The outbound whisper flow to be used during an outbound call.</p>
    */
   OutboundFlowId?: string;
-}
-
-export namespace OutboundCallerConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutboundCallerConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateQueueRequest {
@@ -1768,15 +1344,6 @@ export interface CreateQueueRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateQueueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateQueueRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateQueueResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the queue.</p>
@@ -1789,15 +1356,6 @@ export interface CreateQueueResponse {
   QueueId?: string;
 }
 
-export namespace CreateQueueResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateQueueResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a phone number for a quick connect.</p>
  */
@@ -1806,15 +1364,6 @@ export interface PhoneNumberQuickConnectConfig {
    * <p>The phone number in E.164 format.</p>
    */
   PhoneNumber: string | undefined;
-}
-
-export namespace PhoneNumberQuickConnectConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhoneNumberQuickConnectConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1831,15 +1380,6 @@ export interface QueueQuickConnectConfig {
    * <p>The identifier of the contact flow.</p>
    */
   ContactFlowId: string | undefined;
-}
-
-export namespace QueueQuickConnectConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueueQuickConnectConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum QuickConnectType {
@@ -1862,15 +1402,6 @@ export interface UserQuickConnectConfig {
    * <p>The identifier of the contact flow.</p>
    */
   ContactFlowId: string | undefined;
-}
-
-export namespace UserQuickConnectConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserQuickConnectConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1897,15 +1428,6 @@ export interface QuickConnectConfig {
    * <p>The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.</p>
    */
   PhoneConfig?: PhoneNumberQuickConnectConfig;
-}
-
-export namespace QuickConnectConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QuickConnectConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateQuickConnectRequest {
@@ -1935,15 +1457,6 @@ export interface CreateQuickConnectRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateQuickConnectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateQuickConnectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateQuickConnectResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the quick connect. </p>
@@ -1954,15 +1467,6 @@ export interface CreateQuickConnectResponse {
    * <p>The identifier for the quick connect. </p>
    */
   QuickConnectId?: string;
-}
-
-export namespace CreateQuickConnectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateQuickConnectResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1982,15 +1486,6 @@ export interface MediaConcurrency {
    *          <p>Valid Range for <code>TASK</code>: Minimum value of 1. Maximum value of 10.</p>
    */
   Concurrency: number | undefined;
-}
-
-export namespace MediaConcurrency {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaConcurrency): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRoutingProfileRequest {
@@ -2032,15 +1527,6 @@ export interface CreateRoutingProfileRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateRoutingProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRoutingProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRoutingProfileResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the routing profile.</p>
@@ -2051,15 +1537,6 @@ export interface CreateRoutingProfileResponse {
    * <p>The identifier of the routing profile.</p>
    */
   RoutingProfileId?: string;
-}
-
-export namespace CreateRoutingProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRoutingProfileResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSecurityProfileRequest {
@@ -2089,15 +1566,6 @@ export interface CreateSecurityProfileRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateSecurityProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSecurityProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSecurityProfileResponse {
   /**
    * <p>The identifier for the security profle.</p>
@@ -2110,15 +1578,6 @@ export interface CreateSecurityProfileResponse {
   SecurityProfileArn?: string;
 }
 
-export namespace CreateSecurityProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSecurityProfileResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The identifier of the task template field.</p>
  */
@@ -2127,15 +1586,6 @@ export interface TaskTemplateFieldIdentifier {
    * <p>The name of the task template field.</p>
    */
   Name?: string;
-}
-
-export namespace TaskTemplateFieldIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskTemplateFieldIdentifier): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2148,15 +1598,6 @@ export interface InvisibleFieldInfo {
   Id?: TaskTemplateFieldIdentifier;
 }
 
-export namespace InvisibleFieldInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvisibleFieldInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates a field that is read-only to an agent.</p>
  */
@@ -2167,15 +1608,6 @@ export interface ReadOnlyFieldInfo {
   Id?: TaskTemplateFieldIdentifier;
 }
 
-export namespace ReadOnlyFieldInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReadOnlyFieldInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a required field.</p>
  */
@@ -2184,15 +1616,6 @@ export interface RequiredFieldInfo {
    * <p>The unique identifier for the field.</p>
    */
   Id?: TaskTemplateFieldIdentifier;
-}
-
-export namespace RequiredFieldInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequiredFieldInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2215,15 +1638,6 @@ export interface TaskTemplateConstraints {
   InvisibleFields?: InvisibleFieldInfo[];
 }
 
-export namespace TaskTemplateConstraints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskTemplateConstraints): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a default field and its corresponding value.</p>
  */
@@ -2239,15 +1653,6 @@ export interface TaskTemplateDefaultFieldValue {
   DefaultValue?: string;
 }
 
-export namespace TaskTemplateDefaultFieldValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskTemplateDefaultFieldValue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes default values for fields on a template.</p>
  */
@@ -2256,15 +1661,6 @@ export interface TaskTemplateDefaults {
    * <p>Default value for the field.</p>
    */
   DefaultFieldValues?: TaskTemplateDefaultFieldValue[];
-}
-
-export namespace TaskTemplateDefaults {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskTemplateDefaults): any => ({
-    ...obj,
-  });
 }
 
 export enum TaskTemplateFieldType {
@@ -2305,15 +1701,6 @@ export interface TaskTemplateField {
    * <p>A list of options for a single select field.</p>
    */
   SingleSelectOptions?: string[];
-}
-
-export namespace TaskTemplateField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskTemplateField): any => ({
-    ...obj,
-  });
 }
 
 export enum TaskTemplateStatus {
@@ -2371,15 +1758,6 @@ export interface CreateTaskTemplateRequest {
   ClientToken?: string;
 }
 
-export namespace CreateTaskTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTaskTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTaskTemplateResponse {
   /**
    * <p>The identifier of the task template resource.</p>
@@ -2390,15 +1768,6 @@ export interface CreateTaskTemplateResponse {
    * <p>The Amazon Resource Name (ARN) for the task template resource.</p>
    */
   Arn: string | undefined;
-}
-
-export namespace CreateTaskTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTaskTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum PropertyValidationExceptionReason {
@@ -2428,15 +1797,6 @@ export interface PropertyValidationExceptionProperty {
    * <p>A message describing why the property is not valid.</p>
    */
   Message: string | undefined;
-}
-
-export namespace PropertyValidationExceptionProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PropertyValidationExceptionProperty): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2490,15 +1850,6 @@ export interface CreateUseCaseRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateUseCaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUseCaseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUseCaseResponse {
   /**
    * <p>The identifier of the use case.</p>
@@ -2509,15 +1860,6 @@ export interface CreateUseCaseResponse {
    * <p>The Amazon Resource Name (ARN) for the use case.</p>
    */
   UseCaseArn?: string;
-}
-
-export namespace CreateUseCaseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUseCaseResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2541,15 +1883,6 @@ export interface UserIdentityInfo {
    *    an error is returned.</p>
    */
   Email?: string;
-}
-
-export namespace UserIdentityInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserIdentityInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum PhoneType {
@@ -2580,15 +1913,6 @@ export interface UserPhoneConfig {
    * <p>The phone number for the user's desk phone.</p>
    */
   DeskPhoneNumber?: string;
-}
-
-export namespace UserPhoneConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserPhoneConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateUserRequest {
@@ -2652,15 +1976,6 @@ export interface CreateUserRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUserResponse {
   /**
    * <p>The identifier of the user account.</p>
@@ -2671,15 +1986,6 @@ export interface CreateUserResponse {
    * <p>The Amazon Resource Name (ARN) of the user account.</p>
    */
   UserArn?: string;
-}
-
-export namespace CreateUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateUserHierarchyGroupRequest {
@@ -2705,15 +2011,6 @@ export interface CreateUserHierarchyGroupRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateUserHierarchyGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserHierarchyGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUserHierarchyGroupResponse {
   /**
    * <p>The identifier of the hierarchy group.</p>
@@ -2724,15 +2021,6 @@ export interface CreateUserHierarchyGroupResponse {
    * <p>The Amazon Resource Name (ARN) of the hierarchy group. </p>
    */
   HierarchyGroupArn?: string;
-}
-
-export namespace CreateUserHierarchyGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserHierarchyGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateVocabularyRequest {
@@ -2775,15 +2063,6 @@ export interface CreateVocabularyRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateVocabularyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVocabularyRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum VocabularyState {
   ACTIVE = "ACTIVE",
   CREATION_FAILED = "CREATION_FAILED",
@@ -2808,15 +2087,6 @@ export interface CreateVocabularyResponse {
   State: VocabularyState | string | undefined;
 }
 
-export namespace CreateVocabularyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVocabularyResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteContactFlowRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -2827,15 +2097,6 @@ export interface DeleteContactFlowRequest {
    * <p>The identifier of the contact flow.</p>
    */
   ContactFlowId: string | undefined;
-}
-
-export namespace DeleteContactFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContactFlowRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteContactFlowModuleRequest {
@@ -2850,25 +2111,7 @@ export interface DeleteContactFlowModuleRequest {
   ContactFlowModuleId: string | undefined;
 }
 
-export namespace DeleteContactFlowModuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContactFlowModuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteContactFlowModuleResponse {}
-
-export namespace DeleteContactFlowModuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContactFlowModuleResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteHoursOfOperationRequest {
   /**
@@ -2882,29 +2125,11 @@ export interface DeleteHoursOfOperationRequest {
   HoursOfOperationId: string | undefined;
 }
 
-export namespace DeleteHoursOfOperationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHoursOfOperationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteInstanceRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
-}
-
-export namespace DeleteInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInstanceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteIntegrationAssociationRequest {
@@ -2919,15 +2144,6 @@ export interface DeleteIntegrationAssociationRequest {
   IntegrationAssociationId: string | undefined;
 }
 
-export namespace DeleteIntegrationAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIntegrationAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteQuickConnectRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -2940,15 +2156,6 @@ export interface DeleteQuickConnectRequest {
   QuickConnectId: string | undefined;
 }
 
-export namespace DeleteQuickConnectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteQuickConnectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSecurityProfileRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -2959,15 +2166,6 @@ export interface DeleteSecurityProfileRequest {
    * <p>The identifier for the security profle.</p>
    */
   SecurityProfileId: string | undefined;
-}
-
-export namespace DeleteSecurityProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSecurityProfileRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceType {
@@ -3024,25 +2222,7 @@ export interface DeleteTaskTemplateRequest {
   TaskTemplateId: string | undefined;
 }
 
-export namespace DeleteTaskTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTaskTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTaskTemplateResponse {}
-
-export namespace DeleteTaskTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTaskTemplateResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteUseCaseRequest {
   /**
@@ -3061,15 +2241,6 @@ export interface DeleteUseCaseRequest {
   UseCaseId: string | undefined;
 }
 
-export namespace DeleteUseCaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUseCaseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUserRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -3080,15 +2251,6 @@ export interface DeleteUserRequest {
    * <p>The identifier of the user.</p>
    */
   UserId: string | undefined;
-}
-
-export namespace DeleteUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteUserHierarchyGroupRequest {
@@ -3103,15 +2265,6 @@ export interface DeleteUserHierarchyGroupRequest {
   InstanceId: string | undefined;
 }
 
-export namespace DeleteUserHierarchyGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserHierarchyGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteVocabularyRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -3122,15 +2275,6 @@ export interface DeleteVocabularyRequest {
    * <p>The identifier of the custom vocabulary.</p>
    */
   VocabularyId: string | undefined;
-}
-
-export namespace DeleteVocabularyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVocabularyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteVocabularyResponse {
@@ -3150,15 +2294,6 @@ export interface DeleteVocabularyResponse {
   State: VocabularyState | string | undefined;
 }
 
-export namespace DeleteVocabularyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVocabularyResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAgentStatusRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -3171,29 +2306,11 @@ export interface DescribeAgentStatusRequest {
   AgentStatusId: string | undefined;
 }
 
-export namespace DescribeAgentStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAgentStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAgentStatusResponse {
   /**
    * <p>The agent status.</p>
    */
   AgentStatus?: AgentStatus;
-}
-
-export namespace DescribeAgentStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAgentStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeContactRequest {
@@ -3206,15 +2323,6 @@ export interface DescribeContactRequest {
    * <p>The identifier of the contact.</p>
    */
   ContactId: string | undefined;
-}
-
-export namespace DescribeContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeContactRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3230,15 +2338,6 @@ export interface QueueInfo {
    * <p>The timestamp when the contact was added to the queue.</p>
    */
   EnqueueTimestamp?: Date;
-}
-
-export namespace QueueInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueueInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3321,29 +2420,11 @@ export interface Contact {
   ScheduledTimestamp?: Date;
 }
 
-export namespace Contact {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Contact): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeContactResponse {
   /**
    * <p>Information about the contact.</p>
    */
   Contact?: Contact;
-}
-
-export namespace DescribeContactResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeContactResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3377,15 +2458,6 @@ export interface DescribeContactFlowRequest {
    * <p>The identifier of the contact flow.</p>
    */
   ContactFlowId: string | undefined;
-}
-
-export namespace DescribeContactFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeContactFlowRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ContactFlowState {
@@ -3439,29 +2511,11 @@ export interface ContactFlow {
   Tags?: Record<string, string>;
 }
 
-export namespace ContactFlow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContactFlow): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeContactFlowResponse {
   /**
    * <p>Information about the contact flow.</p>
    */
   ContactFlow?: ContactFlow;
-}
-
-export namespace DescribeContactFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeContactFlowResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeContactFlowModuleRequest {
@@ -3474,15 +2528,6 @@ export interface DescribeContactFlowModuleRequest {
    * <p>The identifier of the contact flow module.</p>
    */
   ContactFlowModuleId: string | undefined;
-}
-
-export namespace DescribeContactFlowModuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeContactFlowModuleRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ContactFlowModuleState {
@@ -3540,29 +2585,11 @@ export interface ContactFlowModule {
   Tags?: Record<string, string>;
 }
 
-export namespace ContactFlowModule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContactFlowModule): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeContactFlowModuleResponse {
   /**
    * <p>Information about the contact flow module.</p>
    */
   ContactFlowModule?: ContactFlowModule;
-}
-
-export namespace DescribeContactFlowModuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeContactFlowModuleResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeHoursOfOperationRequest {
@@ -3575,15 +2602,6 @@ export interface DescribeHoursOfOperationRequest {
    * <p>The identifier for the hours of operation.</p>
    */
   HoursOfOperationId: string | undefined;
-}
-
-export namespace DescribeHoursOfOperationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHoursOfOperationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3626,15 +2644,6 @@ export interface HoursOfOperation {
   Tags?: Record<string, string>;
 }
 
-export namespace HoursOfOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HoursOfOperation): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeHoursOfOperationResponse {
   /**
    * <p>The hours of operation.</p>
@@ -3642,29 +2651,11 @@ export interface DescribeHoursOfOperationResponse {
   HoursOfOperation?: HoursOfOperation;
 }
 
-export namespace DescribeHoursOfOperationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHoursOfOperationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeInstanceRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
-}
-
-export namespace DescribeInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum InstanceStatus {
@@ -3682,15 +2673,6 @@ export interface InstanceStatusReason {
    * <p>The message.</p>
    */
   Message?: string;
-}
-
-export namespace InstanceStatusReason {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceStatusReason): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3749,31 +2731,11 @@ export interface Instance {
   OutboundCallsEnabled?: boolean;
 }
 
-export namespace Instance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Instance): any => ({
-    ...obj,
-    ...(obj.InstanceAlias && { InstanceAlias: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeInstanceResponse {
   /**
    * <p>The name of the instance.</p>
    */
   Instance?: Instance;
-}
-
-export namespace DescribeInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceResponse): any => ({
-    ...obj,
-    ...(obj.Instance && { Instance: Instance.filterSensitiveLog(obj.Instance) }),
-  });
 }
 
 export enum InstanceAttributeType {
@@ -3800,15 +2762,6 @@ export interface DescribeInstanceAttributeRequest {
   AttributeType: InstanceAttributeType | string | undefined;
 }
 
-export namespace DescribeInstanceAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A toggle for an individual feature at the instance level.</p>
  */
@@ -3824,15 +2777,6 @@ export interface Attribute {
   Value?: string;
 }
 
-export namespace Attribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Attribute): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeInstanceAttributeResponse {
   /**
    * <p>The
@@ -3840,15 +2784,6 @@ export interface DescribeInstanceAttributeResponse {
    *    of attribute.</p>
    */
   Attribute?: Attribute;
-}
-
-export namespace DescribeInstanceAttributeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceAttributeResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeInstanceStorageConfigRequest {
@@ -3868,15 +2803,6 @@ export interface DescribeInstanceStorageConfigRequest {
   ResourceType: InstanceStorageResourceType | string | undefined;
 }
 
-export namespace DescribeInstanceStorageConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceStorageConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeInstanceStorageConfigResponse {
   /**
    * <p>A valid storage type.</p>
@@ -3884,29 +2810,11 @@ export interface DescribeInstanceStorageConfigResponse {
   StorageConfig?: InstanceStorageConfig;
 }
 
-export namespace DescribeInstanceStorageConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceStorageConfigResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePhoneNumberRequest {
   /**
    * <p>A unique identifier for the phone number.</p>
    */
   PhoneNumberId: string | undefined;
-}
-
-export namespace DescribePhoneNumberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePhoneNumberRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum PhoneNumberCountryCode {
@@ -4170,15 +3078,6 @@ export interface PhoneNumberStatus {
   Message?: string;
 }
 
-export namespace PhoneNumberStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhoneNumberStatus): any => ({
-    ...obj,
-  });
-}
-
 export enum PhoneNumberType {
   DID = "DID",
   TOLL_FREE = "TOLL_FREE",
@@ -4234,29 +3133,11 @@ export interface ClaimedPhoneNumberSummary {
   PhoneNumberStatus?: PhoneNumberStatus;
 }
 
-export namespace ClaimedPhoneNumberSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClaimedPhoneNumberSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePhoneNumberResponse {
   /**
    * <p>Information about a phone number that's been claimed to your Amazon Connect instance.</p>
    */
   ClaimedPhoneNumberSummary?: ClaimedPhoneNumberSummary;
-}
-
-export namespace DescribePhoneNumberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePhoneNumberResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeQueueRequest {
@@ -4269,15 +3150,6 @@ export interface DescribeQueueRequest {
    * <p>The identifier for the queue.</p>
    */
   QueueId: string | undefined;
-}
-
-export namespace DescribeQueueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeQueueRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum QueueStatus {
@@ -4335,29 +3207,11 @@ export interface Queue {
   Tags?: Record<string, string>;
 }
 
-export namespace Queue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Queue): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeQueueResponse {
   /**
    * <p>The name of the queue.</p>
    */
   Queue?: Queue;
-}
-
-export namespace DescribeQueueResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeQueueResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeQuickConnectRequest {
@@ -4370,15 +3224,6 @@ export interface DescribeQuickConnectRequest {
    * <p>The identifier for the quick connect.</p>
    */
   QuickConnectId: string | undefined;
-}
-
-export namespace DescribeQuickConnectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeQuickConnectRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4416,29 +3261,11 @@ export interface QuickConnect {
   Tags?: Record<string, string>;
 }
 
-export namespace QuickConnect {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QuickConnect): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeQuickConnectResponse {
   /**
    * <p>Information about the quick connect.</p>
    */
   QuickConnect?: QuickConnect;
-}
-
-export namespace DescribeQuickConnectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeQuickConnectResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRoutingProfileRequest {
@@ -4451,15 +3278,6 @@ export interface DescribeRoutingProfileRequest {
    * <p>The identifier of the routing profile.</p>
    */
   RoutingProfileId: string | undefined;
-}
-
-export namespace DescribeRoutingProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRoutingProfileRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4508,29 +3326,11 @@ export interface RoutingProfile {
   Tags?: Record<string, string>;
 }
 
-export namespace RoutingProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoutingProfile): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRoutingProfileResponse {
   /**
    * <p>The routing profile.</p>
    */
   RoutingProfile?: RoutingProfile;
-}
-
-export namespace DescribeRoutingProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRoutingProfileResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSecurityProfileRequest {
@@ -4543,15 +3343,6 @@ export interface DescribeSecurityProfileRequest {
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
-}
-
-export namespace DescribeSecurityProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSecurityProfileRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4589,29 +3380,11 @@ export interface SecurityProfile {
   Tags?: Record<string, string>;
 }
 
-export namespace SecurityProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecurityProfile): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSecurityProfileResponse {
   /**
    * <p>The security profile.</p>
    */
   SecurityProfile?: SecurityProfile;
-}
-
-export namespace DescribeSecurityProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSecurityProfileResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeUserRequest {
@@ -4624,15 +3397,6 @@ export interface DescribeUserRequest {
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
-}
-
-export namespace DescribeUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4691,29 +3455,11 @@ export interface User {
   Tags?: Record<string, string>;
 }
 
-export namespace User {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: User): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUserResponse {
   /**
    * <p>Information about the user account and configuration settings.</p>
    */
   User?: User;
-}
-
-export namespace DescribeUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeUserHierarchyGroupRequest {
@@ -4726,15 +3472,6 @@ export interface DescribeUserHierarchyGroupRequest {
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
-}
-
-export namespace DescribeUserHierarchyGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserHierarchyGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4755,15 +3492,6 @@ export interface HierarchyGroupSummary {
    * <p>The name of the hierarchy group.</p>
    */
   Name?: string;
-}
-
-export namespace HierarchyGroupSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HierarchyGroupSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4794,15 +3522,6 @@ export interface HierarchyPath {
    * <p>Information about level five.</p>
    */
   LevelFive?: HierarchyGroupSummary;
-}
-
-export namespace HierarchyPath {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HierarchyPath): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4840,15 +3559,6 @@ export interface HierarchyGroup {
   Tags?: Record<string, string>;
 }
 
-export namespace HierarchyGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HierarchyGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUserHierarchyGroupResponse {
   /**
    * <p>Information about the hierarchy group.</p>
@@ -4856,29 +3566,11 @@ export interface DescribeUserHierarchyGroupResponse {
   HierarchyGroup?: HierarchyGroup;
 }
 
-export namespace DescribeUserHierarchyGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserHierarchyGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUserHierarchyStructureRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
-}
-
-export namespace DescribeUserHierarchyStructureRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserHierarchyStructureRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4899,15 +3591,6 @@ export interface HierarchyLevel {
    * <p>The name of the hierarchy level.</p>
    */
   Name?: string;
-}
-
-export namespace HierarchyLevel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HierarchyLevel): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4940,29 +3623,11 @@ export interface HierarchyStructure {
   LevelFive?: HierarchyLevel;
 }
 
-export namespace HierarchyStructure {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HierarchyStructure): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUserHierarchyStructureResponse {
   /**
    * <p>Information about the hierarchy structure.</p>
    */
   HierarchyStructure?: HierarchyStructure;
-}
-
-export namespace DescribeUserHierarchyStructureResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserHierarchyStructureResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeVocabularyRequest {
@@ -4975,15 +3640,6 @@ export interface DescribeVocabularyRequest {
    * <p>The identifier of the custom vocabulary.</p>
    */
   VocabularyId: string | undefined;
-}
-
-export namespace DescribeVocabularyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVocabularyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5042,15 +3698,6 @@ export interface Vocabulary {
   Tags?: Record<string, string>;
 }
 
-export namespace Vocabulary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Vocabulary): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeVocabularyResponse {
   /**
    * <p>A list of specific words that you want Contact Lens for Amazon Connect to recognize in your audio input. They are
@@ -5058,15 +3705,6 @@ export interface DescribeVocabularyResponse {
    *    nouns.</p>
    */
   Vocabulary: Vocabulary | undefined;
-}
-
-export namespace DescribeVocabularyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVocabularyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateApprovedOriginRequest {
@@ -5079,15 +3717,6 @@ export interface DisassociateApprovedOriginRequest {
    * <p>The domain URL of the integrated application.</p>
    */
   Origin: string | undefined;
-}
-
-export namespace DisassociateApprovedOriginRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateApprovedOriginRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateBotRequest {
@@ -5107,15 +3736,6 @@ export interface DisassociateBotRequest {
   LexV2Bot?: LexV2Bot;
 }
 
-export namespace DisassociateBotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateBotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateInstanceStorageConfigRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -5133,15 +3753,6 @@ export interface DisassociateInstanceStorageConfigRequest {
   ResourceType: InstanceStorageResourceType | string | undefined;
 }
 
-export namespace DisassociateInstanceStorageConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateInstanceStorageConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateLambdaFunctionRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance..</p>
@@ -5152,15 +3763,6 @@ export interface DisassociateLambdaFunctionRequest {
    * <p>The Amazon Resource Name (ARN) of the Lambda function being disassociated.</p>
    */
   FunctionArn: string | undefined;
-}
-
-export namespace DisassociateLambdaFunctionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateLambdaFunctionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateLexBotRequest {
@@ -5180,15 +3782,6 @@ export interface DisassociateLexBotRequest {
   LexRegion: string | undefined;
 }
 
-export namespace DisassociateLexBotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateLexBotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociatePhoneNumberContactFlowRequest {
   /**
    * <p>A unique identifier for the phone number.</p>
@@ -5199,15 +3792,6 @@ export interface DisassociatePhoneNumberContactFlowRequest {
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
-}
-
-export namespace DisassociatePhoneNumberContactFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociatePhoneNumberContactFlowRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateQueueQuickConnectsRequest {
@@ -5227,15 +3811,6 @@ export interface DisassociateQueueQuickConnectsRequest {
   QuickConnectIds: string[] | undefined;
 }
 
-export namespace DisassociateQueueQuickConnectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateQueueQuickConnectsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateRoutingProfileQueuesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -5253,15 +3828,6 @@ export interface DisassociateRoutingProfileQueuesRequest {
   QueueReferences: RoutingProfileQueueReference[] | undefined;
 }
 
-export namespace DisassociateRoutingProfileQueuesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateRoutingProfileQueuesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateSecurityKeyRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -5272,15 +3838,6 @@ export interface DisassociateSecurityKeyRequest {
    * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
    */
   AssociationId: string | undefined;
-}
-
-export namespace DisassociateSecurityKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateSecurityKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetContactAttributesRequest {
@@ -5295,29 +3852,11 @@ export interface GetContactAttributesRequest {
   InitialContactId: string | undefined;
 }
 
-export namespace GetContactAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContactAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContactAttributesResponse {
   /**
    * <p>Information about the attributes.</p>
    */
   Attributes?: Record<string, string>;
-}
-
-export namespace GetContactAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContactAttributesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum CurrentMetricName {
@@ -5358,15 +3897,6 @@ export interface CurrentMetric {
   Unit?: Unit | string;
 }
 
-export namespace CurrentMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CurrentMetric): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the filter to apply when retrieving metrics.</p>
  */
@@ -5382,15 +3912,6 @@ export interface Filters {
    * <p>The channel to use to filter the metrics.</p>
    */
   Channels?: (Channel | string)[];
-}
-
-export namespace Filters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filters): any => ({
-    ...obj,
-  });
 }
 
 export enum Grouping {
@@ -5534,15 +4055,6 @@ export interface GetCurrentMetricDataRequest {
   MaxResults?: number;
 }
 
-export namespace GetCurrentMetricDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCurrentMetricDataRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the data for a real-time metric.</p>
  */
@@ -5556,15 +4068,6 @@ export interface CurrentMetricData {
    * <p>The value of the metric.</p>
    */
   Value?: number;
-}
-
-export namespace CurrentMetricData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CurrentMetricData): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5582,15 +4085,6 @@ export interface Dimensions {
   Channel?: Channel | string;
 }
 
-export namespace Dimensions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Dimensions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a set of real-time metrics.</p>
  */
@@ -5604,15 +4098,6 @@ export interface CurrentMetricResult {
    * <p>The set of metrics.</p>
    */
   Collections?: CurrentMetricData[];
-}
-
-export namespace CurrentMetricResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CurrentMetricResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCurrentMetricDataResponse {
@@ -5634,15 +4119,6 @@ export interface GetCurrentMetricDataResponse {
   DataSnapshotTime?: Date;
 }
 
-export namespace GetCurrentMetricDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCurrentMetricDataResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Filters user data based on the contact information that is associated to
  *    the users. It contains a list of <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact states</a>.</p>
@@ -5652,15 +4128,6 @@ export interface ContactFilter {
    * <p>A list of up to 9 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact states</a>.</p>
    */
   ContactStates?: (ContactState | string)[];
-}
-
-export namespace ContactFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContactFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5677,15 +4144,6 @@ export interface UserDataFilters {
    *    contains a list of contact states. </p>
    */
   ContactFilter?: ContactFilter;
-}
-
-export namespace UserDataFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserDataFilters): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCurrentUserDataRequest {
@@ -5712,15 +4170,6 @@ export interface GetCurrentUserDataRequest {
   MaxResults?: number;
 }
 
-export namespace GetCurrentUserDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCurrentUserDataRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the hierarchy group.</p>
  */
@@ -5734,15 +4183,6 @@ export interface HierarchyGroupSummaryReference {
    * <p>The Amazon Resource Name (ARN) for the hierarchy group. </p>
    */
   Arn?: string;
-}
-
-export namespace HierarchyGroupSummaryReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HierarchyGroupSummaryReference): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5775,15 +4215,6 @@ export interface HierarchyPathReference {
   LevelFive?: HierarchyGroupSummaryReference;
 }
 
-export namespace HierarchyPathReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HierarchyPathReference): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the routing profile assigned to the user.</p>
  */
@@ -5799,15 +4230,6 @@ export interface RoutingProfileReference {
   Arn?: string;
 }
 
-export namespace RoutingProfileReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoutingProfileReference): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the user.</p>
  */
@@ -5821,15 +4243,6 @@ export interface UserReference {
    * <p>The Amazon Resource Name (ARN) for the user.</p>
    */
   Arn?: string;
-}
-
-export namespace UserReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserReference): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5882,15 +4295,6 @@ export interface UserData {
   Contacts?: AgentContactReference[];
 }
 
-export namespace UserData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserData): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCurrentUserDataResponse {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -5903,29 +4307,11 @@ export interface GetCurrentUserDataResponse {
   UserDataList?: UserData[];
 }
 
-export namespace GetCurrentUserDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCurrentUserDataResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFederationTokenRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
-}
-
-export namespace GetFederationTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFederationTokenRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5954,32 +4340,11 @@ export interface Credentials {
   RefreshTokenExpiration?: Date;
 }
 
-export namespace Credentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Credentials): any => ({
-    ...obj,
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-    ...(obj.RefreshToken && { RefreshToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetFederationTokenResponse {
   /**
    * <p>The credentials to use for federation.</p>
    */
   Credentials?: Credentials;
-}
-
-export namespace GetFederationTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFederationTokenResponse): any => ({
-    ...obj,
-    ...(obj.Credentials && { Credentials: Credentials.filterSensitiveLog(obj.Credentials) }),
-  });
 }
 
 /**
@@ -6056,15 +4421,6 @@ export interface Threshold {
   ThresholdValue?: number;
 }
 
-export namespace Threshold {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Threshold): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a historical metric. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator
  *    Guide</i>.</p>
@@ -6089,15 +4445,6 @@ export interface HistoricalMetric {
    * <p>The unit for the metric.</p>
    */
   Unit?: Unit | string;
-}
-
-export namespace HistoricalMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HistoricalMetric): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMetricDataRequest {
@@ -6298,15 +4645,6 @@ export interface GetMetricDataRequest {
   MaxResults?: number;
 }
 
-export namespace GetMetricDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMetricDataRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the data for a historical metric.</p>
  */
@@ -6320,15 +4658,6 @@ export interface HistoricalMetricData {
    * <p>The value of the metric.</p>
    */
   Value?: number;
-}
-
-export namespace HistoricalMetricData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HistoricalMetricData): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6346,15 +4675,6 @@ export interface HistoricalMetricResult {
   Collections?: HistoricalMetricData[];
 }
 
-export namespace HistoricalMetricResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HistoricalMetricResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMetricDataResponse {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -6368,15 +4688,6 @@ export interface GetMetricDataResponse {
    *          <p>If no grouping is specified, a summary of metric data is returned.</p>
    */
   MetricResults?: HistoricalMetricResult[];
-}
-
-export namespace GetMetricDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMetricDataResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTaskTemplateRequest {
@@ -6395,15 +4706,6 @@ export interface GetTaskTemplateRequest {
    *    task is created.</p>
    */
   SnapshotVersion?: string;
-}
-
-export namespace GetTaskTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTaskTemplateRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTaskTemplateResponse {
@@ -6475,15 +4777,6 @@ export interface GetTaskTemplateResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace GetTaskTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTaskTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAgentStatusRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -6507,15 +4800,6 @@ export interface ListAgentStatusRequest {
   AgentStatusTypes?: (AgentStatusType | string)[];
 }
 
-export namespace ListAgentStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAgentStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAgentStatusResponse {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -6526,15 +4810,6 @@ export interface ListAgentStatusResponse {
    * <p>A summary of agent statuses.</p>
    */
   AgentStatusSummaryList?: AgentStatusSummary[];
-}
-
-export namespace ListAgentStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAgentStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListApprovedOriginsRequest {
@@ -6555,15 +4830,6 @@ export interface ListApprovedOriginsRequest {
   MaxResults?: number;
 }
 
-export namespace ListApprovedOriginsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApprovedOriginsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApprovedOriginsResponse {
   /**
    * <p>The approved origins.</p>
@@ -6574,15 +4840,6 @@ export interface ListApprovedOriginsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListApprovedOriginsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApprovedOriginsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum LexVersion {
@@ -6613,15 +4870,6 @@ export interface ListBotsRequest {
   LexVersion: LexVersion | string | undefined;
 }
 
-export namespace ListBotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration information of an Amazon Lex or Amazon Lex V2 bot.</p>
  */
@@ -6637,15 +4885,6 @@ export interface LexBotConfig {
   LexV2Bot?: LexV2Bot;
 }
 
-export namespace LexBotConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LexBotConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBotsResponse {
   /**
    * <p>The names and Regions of the Amazon Lex or Amazon Lex V2 bots associated with the specified
@@ -6657,15 +4896,6 @@ export interface ListBotsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListBotsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListContactFlowModulesRequest {
@@ -6689,15 +4919,6 @@ export interface ListContactFlowModulesRequest {
    * <p>The state of the contact flow module.</p>
    */
   ContactFlowModuleState?: ContactFlowModuleState | string;
-}
-
-export namespace ListContactFlowModulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContactFlowModulesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6725,15 +4946,6 @@ export interface ContactFlowModuleSummary {
   State?: ContactFlowModuleState | string;
 }
 
-export namespace ContactFlowModuleSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContactFlowModuleSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListContactFlowModulesResponse {
   /**
    * <p>Information about the contact flow module.</p>
@@ -6744,15 +4956,6 @@ export interface ListContactFlowModulesResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListContactFlowModulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContactFlowModulesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListContactFlowsRequest {
@@ -6776,15 +4979,6 @@ export interface ListContactFlowsRequest {
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListContactFlowsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContactFlowsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6819,15 +5013,6 @@ export interface ContactFlowSummary {
   ContactFlowState?: ContactFlowState | string;
 }
 
-export namespace ContactFlowSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContactFlowSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListContactFlowsResponse {
   /**
    * <p>Information about the contact flows.</p>
@@ -6838,15 +5023,6 @@ export interface ListContactFlowsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListContactFlowsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContactFlowsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ReferenceType {
@@ -6885,15 +5061,6 @@ export interface ListContactReferencesRequest {
   NextToken?: string;
 }
 
-export namespace ListContactReferencesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContactReferencesRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ReferenceStatus {
   APPROVED = "APPROVED",
   REJECTED = "REJECTED",
@@ -6920,15 +5087,6 @@ export interface AttachmentReference {
   Status?: ReferenceStatus | string;
 }
 
-export namespace AttachmentReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachmentReference): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a reference when the <code>referenceType</code> is <code>DATE</code>.
  *    Otherwise, null.</p>
@@ -6943,15 +5101,6 @@ export interface DateReference {
    * <p>A valid date.</p>
    */
   Value?: string;
-}
-
-export namespace DateReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DateReference): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6970,15 +5119,6 @@ export interface EmailReference {
   Value?: string;
 }
 
-export namespace EmailReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmailReference): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a reference when the <code>referenceType</code> is <code>NUMBER</code>.
  *    Otherwise, null.</p>
@@ -6993,15 +5133,6 @@ export interface NumberReference {
    * <p>A valid number.</p>
    */
   Value?: string;
-}
-
-export namespace NumberReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NumberReference): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7020,15 +5151,6 @@ export interface StringReference {
   Value?: string;
 }
 
-export namespace StringReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StringReference): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The URL reference.</p>
  */
@@ -7042,15 +5164,6 @@ export interface UrlReference {
    * <p>A valid URL.</p>
    */
   Value?: string;
-}
-
-export namespace UrlReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UrlReference): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7180,19 +5293,6 @@ export namespace ReferenceSummary {
     if (value.Email !== undefined) return visitor.Email(value.Email);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReferenceSummary): any => {
-    if (obj.Url !== undefined) return { Url: UrlReference.filterSensitiveLog(obj.Url) };
-    if (obj.Attachment !== undefined) return { Attachment: AttachmentReference.filterSensitiveLog(obj.Attachment) };
-    if (obj.String !== undefined) return { String: StringReference.filterSensitiveLog(obj.String) };
-    if (obj.Number !== undefined) return { Number: NumberReference.filterSensitiveLog(obj.Number) };
-    if (obj.Date !== undefined) return { Date: DateReference.filterSensitiveLog(obj.Date) };
-    if (obj.Email !== undefined) return { Email: EmailReference.filterSensitiveLog(obj.Email) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export interface ListContactReferencesResponse {
@@ -7208,18 +5308,6 @@ export interface ListContactReferencesResponse {
    *          </important>
    */
   NextToken?: string;
-}
-
-export namespace ListContactReferencesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContactReferencesResponse): any => ({
-    ...obj,
-    ...(obj.ReferenceSummaryList && {
-      ReferenceSummaryList: obj.ReferenceSummaryList.map((item) => ReferenceSummary.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListDefaultVocabulariesRequest {
@@ -7245,15 +5333,6 @@ export interface ListDefaultVocabulariesRequest {
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDefaultVocabulariesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDefaultVocabulariesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7283,15 +5362,6 @@ export interface DefaultVocabulary {
   VocabularyName: string | undefined;
 }
 
-export namespace DefaultVocabulary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefaultVocabulary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDefaultVocabulariesResponse {
   /**
    * <p>A list of default vocabularies.</p>
@@ -7302,15 +5372,6 @@ export interface ListDefaultVocabulariesResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDefaultVocabulariesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDefaultVocabulariesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListHoursOfOperationsRequest {
@@ -7329,15 +5390,6 @@ export interface ListHoursOfOperationsRequest {
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListHoursOfOperationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHoursOfOperationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7360,15 +5412,6 @@ export interface HoursOfOperationSummary {
   Name?: string;
 }
 
-export namespace HoursOfOperationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HoursOfOperationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListHoursOfOperationsResponse {
   /**
    * <p>Information about the hours of operation.</p>
@@ -7379,15 +5422,6 @@ export interface ListHoursOfOperationsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListHoursOfOperationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHoursOfOperationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListInstanceAttributesRequest {
@@ -7408,15 +5442,6 @@ export interface ListInstanceAttributesRequest {
   MaxResults?: number;
 }
 
-export namespace ListInstanceAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInstanceAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInstanceAttributesResponse {
   /**
    * <p>The attribute types.</p>
@@ -7427,15 +5452,6 @@ export interface ListInstanceAttributesResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListInstanceAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInstanceAttributesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListInstancesRequest {
@@ -7449,15 +5465,6 @@ export interface ListInstancesRequest {
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInstancesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7510,16 +5517,6 @@ export interface InstanceSummary {
   OutboundCallsEnabled?: boolean;
 }
 
-export namespace InstanceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceSummary): any => ({
-    ...obj,
-    ...(obj.InstanceAlias && { InstanceAlias: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListInstancesResponse {
   /**
    * <p>Information about the instances.</p>
@@ -7530,18 +5527,6 @@ export interface ListInstancesResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListInstancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInstancesResponse): any => ({
-    ...obj,
-    ...(obj.InstanceSummaryList && {
-      InstanceSummaryList: obj.InstanceSummaryList.map((item) => InstanceSummary.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListInstanceStorageConfigsRequest {
@@ -7567,15 +5552,6 @@ export interface ListInstanceStorageConfigsRequest {
   MaxResults?: number;
 }
 
-export namespace ListInstanceStorageConfigsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInstanceStorageConfigsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInstanceStorageConfigsResponse {
   /**
    * <p>A valid storage type.</p>
@@ -7586,15 +5562,6 @@ export interface ListInstanceStorageConfigsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListInstanceStorageConfigsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInstanceStorageConfigsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListIntegrationAssociationsRequest {
@@ -7618,15 +5585,6 @@ export interface ListIntegrationAssociationsRequest {
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListIntegrationAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIntegrationAssociationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7674,15 +5632,6 @@ export interface IntegrationAssociationSummary {
   SourceType?: SourceType | string;
 }
 
-export namespace IntegrationAssociationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntegrationAssociationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListIntegrationAssociationsResponse {
   /**
    * <p>The associations.</p>
@@ -7693,15 +5642,6 @@ export interface ListIntegrationAssociationsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListIntegrationAssociationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIntegrationAssociationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLambdaFunctionsRequest {
@@ -7722,15 +5662,6 @@ export interface ListLambdaFunctionsRequest {
   MaxResults?: number;
 }
 
-export namespace ListLambdaFunctionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLambdaFunctionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLambdaFunctionsResponse {
   /**
    * <p>The Lambdafunction ARNs associated with the specified instance.</p>
@@ -7741,15 +5672,6 @@ export interface ListLambdaFunctionsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLambdaFunctionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLambdaFunctionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLexBotsRequest {
@@ -7771,15 +5693,6 @@ export interface ListLexBotsRequest {
   MaxResults?: number;
 }
 
-export namespace ListLexBotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLexBotsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLexBotsResponse {
   /**
    * <p>The names and Regions of the Amazon Lex bots associated with the specified instance.</p>
@@ -7790,15 +5703,6 @@ export interface ListLexBotsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLexBotsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLexBotsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPhoneNumbersRequest {
@@ -7827,15 +5731,6 @@ export interface ListPhoneNumbersRequest {
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListPhoneNumbersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPhoneNumbersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7868,15 +5763,6 @@ export interface PhoneNumberSummary {
   PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
 }
 
-export namespace PhoneNumberSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhoneNumberSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPhoneNumbersResponse {
   /**
    * <p>Information about the phone numbers.</p>
@@ -7887,15 +5773,6 @@ export interface ListPhoneNumbersResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPhoneNumbersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPhoneNumbersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPhoneNumbersV2Request {
@@ -7930,15 +5807,6 @@ export interface ListPhoneNumbersV2Request {
    * <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
    */
   PhoneNumberPrefix?: string;
-}
-
-export namespace ListPhoneNumbersV2Request {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPhoneNumbersV2Request): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7976,15 +5844,6 @@ export interface ListPhoneNumbersSummary {
   TargetArn?: string;
 }
 
-export namespace ListPhoneNumbersSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPhoneNumbersSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPhoneNumbersV2Response {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -7995,15 +5854,6 @@ export interface ListPhoneNumbersV2Response {
    * <p>Information about phone numbers that have been claimed to your Amazon Connect instances.</p>
    */
   ListPhoneNumbersSummaryList?: ListPhoneNumbersSummary[];
-}
-
-export namespace ListPhoneNumbersV2Response {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPhoneNumbersV2Response): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPromptsRequest {
@@ -8022,15 +5872,6 @@ export interface ListPromptsRequest {
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListPromptsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPromptsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8053,15 +5894,6 @@ export interface PromptSummary {
   Name?: string;
 }
 
-export namespace PromptSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PromptSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPromptsResponse {
   /**
    * <p>Information about the prompts.</p>
@@ -8072,15 +5904,6 @@ export interface ListPromptsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPromptsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPromptsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListQueueQuickConnectsRequest {
@@ -8104,15 +5927,6 @@ export interface ListQueueQuickConnectsRequest {
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListQueueQuickConnectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueueQuickConnectsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8141,15 +5955,6 @@ export interface QuickConnectSummary {
   QuickConnectType?: QuickConnectType | string;
 }
 
-export namespace QuickConnectSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QuickConnectSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListQueueQuickConnectsResponse {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -8162,11 +5967,1756 @@ export interface ListQueueQuickConnectsResponse {
   QuickConnectSummaryList?: QuickConnectSummary[];
 }
 
-export namespace ListQueueQuickConnectsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueueQuickConnectsResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const QueueReferenceFilterSensitiveLog = (obj: QueueReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AgentContactReferenceFilterSensitiveLog = (obj: AgentContactReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AgentInfoFilterSensitiveLog = (obj: AgentInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AgentStatusFilterSensitiveLog = (obj: AgentStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AgentStatusReferenceFilterSensitiveLog = (obj: AgentStatusReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AgentStatusSummaryFilterSensitiveLog = (obj: AgentStatusSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateApprovedOriginRequestFilterSensitiveLog = (obj: AssociateApprovedOriginRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LexBotFilterSensitiveLog = (obj: LexBot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LexV2BotFilterSensitiveLog = (obj: LexV2Bot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateBotRequestFilterSensitiveLog = (obj: AssociateBotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateDefaultVocabularyRequestFilterSensitiveLog = (obj: AssociateDefaultVocabularyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateDefaultVocabularyResponseFilterSensitiveLog = (obj: AssociateDefaultVocabularyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisFirehoseConfigFilterSensitiveLog = (obj: KinesisFirehoseConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisStreamConfigFilterSensitiveLog = (obj: KinesisStreamConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionConfigFilterSensitiveLog = (obj: EncryptionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisVideoStreamConfigFilterSensitiveLog = (obj: KinesisVideoStreamConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ConfigFilterSensitiveLog = (obj: S3Config): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceStorageConfigFilterSensitiveLog = (obj: InstanceStorageConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateInstanceStorageConfigRequestFilterSensitiveLog = (
+  obj: AssociateInstanceStorageConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateInstanceStorageConfigResponseFilterSensitiveLog = (
+  obj: AssociateInstanceStorageConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateLambdaFunctionRequestFilterSensitiveLog = (obj: AssociateLambdaFunctionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateLexBotRequestFilterSensitiveLog = (obj: AssociateLexBotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociatePhoneNumberContactFlowRequestFilterSensitiveLog = (
+  obj: AssociatePhoneNumberContactFlowRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateQueueQuickConnectsRequestFilterSensitiveLog = (obj: AssociateQueueQuickConnectsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoutingProfileQueueReferenceFilterSensitiveLog = (obj: RoutingProfileQueueReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoutingProfileQueueConfigFilterSensitiveLog = (obj: RoutingProfileQueueConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateRoutingProfileQueuesRequestFilterSensitiveLog = (
+  obj: AssociateRoutingProfileQueuesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateSecurityKeyRequestFilterSensitiveLog = (obj: AssociateSecurityKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateSecurityKeyResponseFilterSensitiveLog = (obj: AssociateSecurityKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClaimPhoneNumberRequestFilterSensitiveLog = (obj: ClaimPhoneNumberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClaimPhoneNumberResponseFilterSensitiveLog = (obj: ClaimPhoneNumberResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAgentStatusRequestFilterSensitiveLog = (obj: CreateAgentStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAgentStatusResponseFilterSensitiveLog = (obj: CreateAgentStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContactFlowRequestFilterSensitiveLog = (obj: CreateContactFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContactFlowResponseFilterSensitiveLog = (obj: CreateContactFlowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProblemDetailFilterSensitiveLog = (obj: ProblemDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContactFlowModuleRequestFilterSensitiveLog = (obj: CreateContactFlowModuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContactFlowModuleResponseFilterSensitiveLog = (obj: CreateContactFlowModuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HoursOfOperationTimeSliceFilterSensitiveLog = (obj: HoursOfOperationTimeSlice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HoursOfOperationConfigFilterSensitiveLog = (obj: HoursOfOperationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHoursOfOperationRequestFilterSensitiveLog = (obj: CreateHoursOfOperationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHoursOfOperationResponseFilterSensitiveLog = (obj: CreateHoursOfOperationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInstanceRequestFilterSensitiveLog = (obj: CreateInstanceRequest): any => ({
+  ...obj,
+  ...(obj.InstanceAlias && { InstanceAlias: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateInstanceResponseFilterSensitiveLog = (obj: CreateInstanceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIntegrationAssociationRequestFilterSensitiveLog = (
+  obj: CreateIntegrationAssociationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIntegrationAssociationResponseFilterSensitiveLog = (
+  obj: CreateIntegrationAssociationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutboundCallerConfigFilterSensitiveLog = (obj: OutboundCallerConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateQueueRequestFilterSensitiveLog = (obj: CreateQueueRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateQueueResponseFilterSensitiveLog = (obj: CreateQueueResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PhoneNumberQuickConnectConfigFilterSensitiveLog = (obj: PhoneNumberQuickConnectConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueueQuickConnectConfigFilterSensitiveLog = (obj: QueueQuickConnectConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserQuickConnectConfigFilterSensitiveLog = (obj: UserQuickConnectConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QuickConnectConfigFilterSensitiveLog = (obj: QuickConnectConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateQuickConnectRequestFilterSensitiveLog = (obj: CreateQuickConnectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateQuickConnectResponseFilterSensitiveLog = (obj: CreateQuickConnectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaConcurrencyFilterSensitiveLog = (obj: MediaConcurrency): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRoutingProfileRequestFilterSensitiveLog = (obj: CreateRoutingProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRoutingProfileResponseFilterSensitiveLog = (obj: CreateRoutingProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSecurityProfileRequestFilterSensitiveLog = (obj: CreateSecurityProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSecurityProfileResponseFilterSensitiveLog = (obj: CreateSecurityProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskTemplateFieldIdentifierFilterSensitiveLog = (obj: TaskTemplateFieldIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InvisibleFieldInfoFilterSensitiveLog = (obj: InvisibleFieldInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReadOnlyFieldInfoFilterSensitiveLog = (obj: ReadOnlyFieldInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequiredFieldInfoFilterSensitiveLog = (obj: RequiredFieldInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskTemplateConstraintsFilterSensitiveLog = (obj: TaskTemplateConstraints): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskTemplateDefaultFieldValueFilterSensitiveLog = (obj: TaskTemplateDefaultFieldValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskTemplateDefaultsFilterSensitiveLog = (obj: TaskTemplateDefaults): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskTemplateFieldFilterSensitiveLog = (obj: TaskTemplateField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTaskTemplateRequestFilterSensitiveLog = (obj: CreateTaskTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTaskTemplateResponseFilterSensitiveLog = (obj: CreateTaskTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PropertyValidationExceptionPropertyFilterSensitiveLog = (
+  obj: PropertyValidationExceptionProperty
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUseCaseRequestFilterSensitiveLog = (obj: CreateUseCaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUseCaseResponseFilterSensitiveLog = (obj: CreateUseCaseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserIdentityInfoFilterSensitiveLog = (obj: UserIdentityInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserPhoneConfigFilterSensitiveLog = (obj: UserPhoneConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserHierarchyGroupRequestFilterSensitiveLog = (obj: CreateUserHierarchyGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserHierarchyGroupResponseFilterSensitiveLog = (obj: CreateUserHierarchyGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVocabularyRequestFilterSensitiveLog = (obj: CreateVocabularyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVocabularyResponseFilterSensitiveLog = (obj: CreateVocabularyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContactFlowRequestFilterSensitiveLog = (obj: DeleteContactFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContactFlowModuleRequestFilterSensitiveLog = (obj: DeleteContactFlowModuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContactFlowModuleResponseFilterSensitiveLog = (obj: DeleteContactFlowModuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteHoursOfOperationRequestFilterSensitiveLog = (obj: DeleteHoursOfOperationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInstanceRequestFilterSensitiveLog = (obj: DeleteInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIntegrationAssociationRequestFilterSensitiveLog = (
+  obj: DeleteIntegrationAssociationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteQuickConnectRequestFilterSensitiveLog = (obj: DeleteQuickConnectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSecurityProfileRequestFilterSensitiveLog = (obj: DeleteSecurityProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTaskTemplateRequestFilterSensitiveLog = (obj: DeleteTaskTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTaskTemplateResponseFilterSensitiveLog = (obj: DeleteTaskTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUseCaseRequestFilterSensitiveLog = (obj: DeleteUseCaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserHierarchyGroupRequestFilterSensitiveLog = (obj: DeleteUserHierarchyGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVocabularyRequestFilterSensitiveLog = (obj: DeleteVocabularyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVocabularyResponseFilterSensitiveLog = (obj: DeleteVocabularyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAgentStatusRequestFilterSensitiveLog = (obj: DescribeAgentStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAgentStatusResponseFilterSensitiveLog = (obj: DescribeAgentStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeContactRequestFilterSensitiveLog = (obj: DescribeContactRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueueInfoFilterSensitiveLog = (obj: QueueInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContactFilterSensitiveLog = (obj: Contact): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeContactResponseFilterSensitiveLog = (obj: DescribeContactResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeContactFlowRequestFilterSensitiveLog = (obj: DescribeContactFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContactFlowFilterSensitiveLog = (obj: ContactFlow): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeContactFlowResponseFilterSensitiveLog = (obj: DescribeContactFlowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeContactFlowModuleRequestFilterSensitiveLog = (obj: DescribeContactFlowModuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContactFlowModuleFilterSensitiveLog = (obj: ContactFlowModule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeContactFlowModuleResponseFilterSensitiveLog = (obj: DescribeContactFlowModuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHoursOfOperationRequestFilterSensitiveLog = (obj: DescribeHoursOfOperationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HoursOfOperationFilterSensitiveLog = (obj: HoursOfOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHoursOfOperationResponseFilterSensitiveLog = (obj: DescribeHoursOfOperationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstanceRequestFilterSensitiveLog = (obj: DescribeInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceStatusReasonFilterSensitiveLog = (obj: InstanceStatusReason): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
+  ...obj,
+  ...(obj.InstanceAlias && { InstanceAlias: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstanceResponseFilterSensitiveLog = (obj: DescribeInstanceResponse): any => ({
+  ...obj,
+  ...(obj.Instance && { Instance: InstanceFilterSensitiveLog(obj.Instance) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstanceAttributeRequestFilterSensitiveLog = (obj: DescribeInstanceAttributeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributeFilterSensitiveLog = (obj: Attribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstanceAttributeResponseFilterSensitiveLog = (obj: DescribeInstanceAttributeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstanceStorageConfigRequestFilterSensitiveLog = (
+  obj: DescribeInstanceStorageConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstanceStorageConfigResponseFilterSensitiveLog = (
+  obj: DescribeInstanceStorageConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePhoneNumberRequestFilterSensitiveLog = (obj: DescribePhoneNumberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PhoneNumberStatusFilterSensitiveLog = (obj: PhoneNumberStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClaimedPhoneNumberSummaryFilterSensitiveLog = (obj: ClaimedPhoneNumberSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePhoneNumberResponseFilterSensitiveLog = (obj: DescribePhoneNumberResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeQueueRequestFilterSensitiveLog = (obj: DescribeQueueRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueueFilterSensitiveLog = (obj: Queue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeQueueResponseFilterSensitiveLog = (obj: DescribeQueueResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeQuickConnectRequestFilterSensitiveLog = (obj: DescribeQuickConnectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QuickConnectFilterSensitiveLog = (obj: QuickConnect): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeQuickConnectResponseFilterSensitiveLog = (obj: DescribeQuickConnectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRoutingProfileRequestFilterSensitiveLog = (obj: DescribeRoutingProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoutingProfileFilterSensitiveLog = (obj: RoutingProfile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRoutingProfileResponseFilterSensitiveLog = (obj: DescribeRoutingProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSecurityProfileRequestFilterSensitiveLog = (obj: DescribeSecurityProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecurityProfileFilterSensitiveLog = (obj: SecurityProfile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSecurityProfileResponseFilterSensitiveLog = (obj: DescribeSecurityProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserRequestFilterSensitiveLog = (obj: DescribeUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserFilterSensitiveLog = (obj: User): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserResponseFilterSensitiveLog = (obj: DescribeUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserHierarchyGroupRequestFilterSensitiveLog = (obj: DescribeUserHierarchyGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HierarchyGroupSummaryFilterSensitiveLog = (obj: HierarchyGroupSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HierarchyPathFilterSensitiveLog = (obj: HierarchyPath): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HierarchyGroupFilterSensitiveLog = (obj: HierarchyGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserHierarchyGroupResponseFilterSensitiveLog = (obj: DescribeUserHierarchyGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserHierarchyStructureRequestFilterSensitiveLog = (
+  obj: DescribeUserHierarchyStructureRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HierarchyLevelFilterSensitiveLog = (obj: HierarchyLevel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HierarchyStructureFilterSensitiveLog = (obj: HierarchyStructure): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserHierarchyStructureResponseFilterSensitiveLog = (
+  obj: DescribeUserHierarchyStructureResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVocabularyRequestFilterSensitiveLog = (obj: DescribeVocabularyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VocabularyFilterSensitiveLog = (obj: Vocabulary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVocabularyResponseFilterSensitiveLog = (obj: DescribeVocabularyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateApprovedOriginRequestFilterSensitiveLog = (obj: DisassociateApprovedOriginRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateBotRequestFilterSensitiveLog = (obj: DisassociateBotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateInstanceStorageConfigRequestFilterSensitiveLog = (
+  obj: DisassociateInstanceStorageConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateLambdaFunctionRequestFilterSensitiveLog = (obj: DisassociateLambdaFunctionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateLexBotRequestFilterSensitiveLog = (obj: DisassociateLexBotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociatePhoneNumberContactFlowRequestFilterSensitiveLog = (
+  obj: DisassociatePhoneNumberContactFlowRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateQueueQuickConnectsRequestFilterSensitiveLog = (
+  obj: DisassociateQueueQuickConnectsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateRoutingProfileQueuesRequestFilterSensitiveLog = (
+  obj: DisassociateRoutingProfileQueuesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateSecurityKeyRequestFilterSensitiveLog = (obj: DisassociateSecurityKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContactAttributesRequestFilterSensitiveLog = (obj: GetContactAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContactAttributesResponseFilterSensitiveLog = (obj: GetContactAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CurrentMetricFilterSensitiveLog = (obj: CurrentMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FiltersFilterSensitiveLog = (obj: Filters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCurrentMetricDataRequestFilterSensitiveLog = (obj: GetCurrentMetricDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CurrentMetricDataFilterSensitiveLog = (obj: CurrentMetricData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionsFilterSensitiveLog = (obj: Dimensions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CurrentMetricResultFilterSensitiveLog = (obj: CurrentMetricResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCurrentMetricDataResponseFilterSensitiveLog = (obj: GetCurrentMetricDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContactFilterFilterSensitiveLog = (obj: ContactFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserDataFiltersFilterSensitiveLog = (obj: UserDataFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCurrentUserDataRequestFilterSensitiveLog = (obj: GetCurrentUserDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HierarchyGroupSummaryReferenceFilterSensitiveLog = (obj: HierarchyGroupSummaryReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HierarchyPathReferenceFilterSensitiveLog = (obj: HierarchyPathReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoutingProfileReferenceFilterSensitiveLog = (obj: RoutingProfileReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserReferenceFilterSensitiveLog = (obj: UserReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserDataFilterSensitiveLog = (obj: UserData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCurrentUserDataResponseFilterSensitiveLog = (obj: GetCurrentUserDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFederationTokenRequestFilterSensitiveLog = (obj: GetFederationTokenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
+  ...obj,
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+  ...(obj.RefreshToken && { RefreshToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetFederationTokenResponseFilterSensitiveLog = (obj: GetFederationTokenResponse): any => ({
+  ...obj,
+  ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
+});
+
+/**
+ * @internal
+ */
+export const ThresholdFilterSensitiveLog = (obj: Threshold): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HistoricalMetricFilterSensitiveLog = (obj: HistoricalMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMetricDataRequestFilterSensitiveLog = (obj: GetMetricDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HistoricalMetricDataFilterSensitiveLog = (obj: HistoricalMetricData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HistoricalMetricResultFilterSensitiveLog = (obj: HistoricalMetricResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMetricDataResponseFilterSensitiveLog = (obj: GetMetricDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTaskTemplateRequestFilterSensitiveLog = (obj: GetTaskTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTaskTemplateResponseFilterSensitiveLog = (obj: GetTaskTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAgentStatusRequestFilterSensitiveLog = (obj: ListAgentStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAgentStatusResponseFilterSensitiveLog = (obj: ListAgentStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApprovedOriginsRequestFilterSensitiveLog = (obj: ListApprovedOriginsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApprovedOriginsResponseFilterSensitiveLog = (obj: ListApprovedOriginsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBotsRequestFilterSensitiveLog = (obj: ListBotsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LexBotConfigFilterSensitiveLog = (obj: LexBotConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBotsResponseFilterSensitiveLog = (obj: ListBotsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContactFlowModulesRequestFilterSensitiveLog = (obj: ListContactFlowModulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContactFlowModuleSummaryFilterSensitiveLog = (obj: ContactFlowModuleSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContactFlowModulesResponseFilterSensitiveLog = (obj: ListContactFlowModulesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContactFlowsRequestFilterSensitiveLog = (obj: ListContactFlowsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContactFlowSummaryFilterSensitiveLog = (obj: ContactFlowSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContactFlowsResponseFilterSensitiveLog = (obj: ListContactFlowsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContactReferencesRequestFilterSensitiveLog = (obj: ListContactReferencesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachmentReferenceFilterSensitiveLog = (obj: AttachmentReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DateReferenceFilterSensitiveLog = (obj: DateReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EmailReferenceFilterSensitiveLog = (obj: EmailReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NumberReferenceFilterSensitiveLog = (obj: NumberReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StringReferenceFilterSensitiveLog = (obj: StringReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UrlReferenceFilterSensitiveLog = (obj: UrlReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReferenceSummaryFilterSensitiveLog = (obj: ReferenceSummary): any => {
+  if (obj.Url !== undefined) return { Url: UrlReferenceFilterSensitiveLog(obj.Url) };
+  if (obj.Attachment !== undefined) return { Attachment: AttachmentReferenceFilterSensitiveLog(obj.Attachment) };
+  if (obj.String !== undefined) return { String: StringReferenceFilterSensitiveLog(obj.String) };
+  if (obj.Number !== undefined) return { Number: NumberReferenceFilterSensitiveLog(obj.Number) };
+  if (obj.Date !== undefined) return { Date: DateReferenceFilterSensitiveLog(obj.Date) };
+  if (obj.Email !== undefined) return { Email: EmailReferenceFilterSensitiveLog(obj.Email) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ListContactReferencesResponseFilterSensitiveLog = (obj: ListContactReferencesResponse): any => ({
+  ...obj,
+  ...(obj.ReferenceSummaryList && {
+    ReferenceSummaryList: obj.ReferenceSummaryList.map((item) => ReferenceSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListDefaultVocabulariesRequestFilterSensitiveLog = (obj: ListDefaultVocabulariesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefaultVocabularyFilterSensitiveLog = (obj: DefaultVocabulary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDefaultVocabulariesResponseFilterSensitiveLog = (obj: ListDefaultVocabulariesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHoursOfOperationsRequestFilterSensitiveLog = (obj: ListHoursOfOperationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HoursOfOperationSummaryFilterSensitiveLog = (obj: HoursOfOperationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHoursOfOperationsResponseFilterSensitiveLog = (obj: ListHoursOfOperationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInstanceAttributesRequestFilterSensitiveLog = (obj: ListInstanceAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInstanceAttributesResponseFilterSensitiveLog = (obj: ListInstanceAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInstancesRequestFilterSensitiveLog = (obj: ListInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceSummaryFilterSensitiveLog = (obj: InstanceSummary): any => ({
+  ...obj,
+  ...(obj.InstanceAlias && { InstanceAlias: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListInstancesResponseFilterSensitiveLog = (obj: ListInstancesResponse): any => ({
+  ...obj,
+  ...(obj.InstanceSummaryList && {
+    InstanceSummaryList: obj.InstanceSummaryList.map((item) => InstanceSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListInstanceStorageConfigsRequestFilterSensitiveLog = (obj: ListInstanceStorageConfigsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInstanceStorageConfigsResponseFilterSensitiveLog = (obj: ListInstanceStorageConfigsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIntegrationAssociationsRequestFilterSensitiveLog = (obj: ListIntegrationAssociationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntegrationAssociationSummaryFilterSensitiveLog = (obj: IntegrationAssociationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIntegrationAssociationsResponseFilterSensitiveLog = (
+  obj: ListIntegrationAssociationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLambdaFunctionsRequestFilterSensitiveLog = (obj: ListLambdaFunctionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLambdaFunctionsResponseFilterSensitiveLog = (obj: ListLambdaFunctionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLexBotsRequestFilterSensitiveLog = (obj: ListLexBotsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLexBotsResponseFilterSensitiveLog = (obj: ListLexBotsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPhoneNumbersRequestFilterSensitiveLog = (obj: ListPhoneNumbersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PhoneNumberSummaryFilterSensitiveLog = (obj: PhoneNumberSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPhoneNumbersResponseFilterSensitiveLog = (obj: ListPhoneNumbersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPhoneNumbersV2RequestFilterSensitiveLog = (obj: ListPhoneNumbersV2Request): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPhoneNumbersSummaryFilterSensitiveLog = (obj: ListPhoneNumbersSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPhoneNumbersV2ResponseFilterSensitiveLog = (obj: ListPhoneNumbersV2Response): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPromptsRequestFilterSensitiveLog = (obj: ListPromptsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PromptSummaryFilterSensitiveLog = (obj: PromptSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPromptsResponseFilterSensitiveLog = (obj: ListPromptsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQueueQuickConnectsRequestFilterSensitiveLog = (obj: ListQueueQuickConnectsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QuickConnectSummaryFilterSensitiveLog = (obj: QuickConnectSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQueueQuickConnectsResponseFilterSensitiveLog = (obj: ListQueueQuickConnectsResponse): any => ({
+  ...obj,
+});

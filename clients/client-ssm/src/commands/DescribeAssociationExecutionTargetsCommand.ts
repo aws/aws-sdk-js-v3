@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeAssociationExecutionTargetsRequest,
+  DescribeAssociationExecutionTargetsRequestFilterSensitiveLog,
   DescribeAssociationExecutionTargetsResult,
+  DescribeAssociationExecutionTargetsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAssociationExecutionTargetsCommand,
@@ -77,8 +79,8 @@ export class DescribeAssociationExecutionTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAssociationExecutionTargetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAssociationExecutionTargetsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAssociationExecutionTargetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAssociationExecutionTargetsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

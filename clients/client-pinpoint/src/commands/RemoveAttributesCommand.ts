@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RemoveAttributesRequest, RemoveAttributesResponse } from "../models/models_1";
+import {
+  RemoveAttributesRequest,
+  RemoveAttributesRequestFilterSensitiveLog,
+  RemoveAttributesResponse,
+  RemoveAttributesResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1RemoveAttributesCommand,
@@ -72,8 +77,8 @@ export class RemoveAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RemoveAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RemoveAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

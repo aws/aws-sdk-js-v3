@@ -13,8 +13,8 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { UpdateInputRequest } from "../models/models_1";
-import { UpdateInputResponse } from "../models/models_2";
+import { UpdateInputRequest, UpdateInputRequestFilterSensitiveLog } from "../models/models_1";
+import { UpdateInputResponse, UpdateInputResponseFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateInputCommand,
   serializeAws_restJson1UpdateInputCommand,
@@ -73,8 +73,8 @@ export class UpdateInputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInputRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateInputResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateInputRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateInputResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

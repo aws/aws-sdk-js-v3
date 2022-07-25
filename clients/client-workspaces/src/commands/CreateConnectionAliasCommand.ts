@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateConnectionAliasRequest, CreateConnectionAliasResult } from "../models/models_0";
+import {
+  CreateConnectionAliasRequest,
+  CreateConnectionAliasRequestFilterSensitiveLog,
+  CreateConnectionAliasResult,
+  CreateConnectionAliasResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateConnectionAliasCommand,
   serializeAws_json1_1CreateConnectionAliasCommand,
@@ -74,8 +79,8 @@ export class CreateConnectionAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConnectionAliasRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateConnectionAliasResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateConnectionAliasRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateConnectionAliasResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

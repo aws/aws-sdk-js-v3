@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { DescribeConditionalForwardersRequest, DescribeConditionalForwardersResult } from "../models/models_0";
+import {
+  DescribeConditionalForwardersRequest,
+  DescribeConditionalForwardersRequestFilterSensitiveLog,
+  DescribeConditionalForwardersResult,
+  DescribeConditionalForwardersResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeConditionalForwardersCommand,
   serializeAws_json1_1DescribeConditionalForwardersCommand,
@@ -76,8 +81,8 @@ export class DescribeConditionalForwardersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConditionalForwardersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConditionalForwardersResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeConditionalForwardersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeConditionalForwardersResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

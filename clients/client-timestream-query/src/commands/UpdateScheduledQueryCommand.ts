@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateScheduledQueryRequest } from "../models/models_0";
+import { UpdateScheduledQueryRequest, UpdateScheduledQueryRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateScheduledQueryCommand,
   serializeAws_json1_0UpdateScheduledQueryCommand,
@@ -76,7 +76,7 @@ export class UpdateScheduledQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateScheduledQueryRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateScheduledQueryRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

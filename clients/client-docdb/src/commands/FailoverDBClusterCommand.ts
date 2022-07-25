@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { FailoverDBClusterMessage, FailoverDBClusterResult } from "../models/models_0";
+import {
+  FailoverDBClusterMessage,
+  FailoverDBClusterMessageFilterSensitiveLog,
+  FailoverDBClusterResult,
+  FailoverDBClusterResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryFailoverDBClusterCommand,
   serializeAws_queryFailoverDBClusterCommand,
@@ -74,8 +79,8 @@ export class FailoverDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FailoverDBClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: FailoverDBClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: FailoverDBClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: FailoverDBClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

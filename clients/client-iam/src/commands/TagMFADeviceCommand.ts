@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagMFADeviceRequest } from "../models/models_0";
+import { TagMFADeviceRequest, TagMFADeviceRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryTagMFADeviceCommand, serializeAws_queryTagMFADeviceCommand } from "../protocols/Aws_query";
 
 export interface TagMFADeviceCommandInput extends TagMFADeviceRequest {}
@@ -105,7 +105,7 @@ export class TagMFADeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagMFADeviceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: TagMFADeviceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

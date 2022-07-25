@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartSigningJobRequest, StartSigningJobResponse } from "../models/models_0";
+import {
+  StartSigningJobRequest,
+  StartSigningJobRequestFilterSensitiveLog,
+  StartSigningJobResponse,
+  StartSigningJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartSigningJobCommand,
   serializeAws_restJson1StartSigningJobCommand,
@@ -99,8 +104,8 @@ export class StartSigningJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSigningJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartSigningJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartSigningJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartSigningJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

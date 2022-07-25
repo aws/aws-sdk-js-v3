@@ -34,30 +34,12 @@ export interface AssociateTeamMemberRequest {
   remoteAccessAllowed?: boolean;
 }
 
-export namespace AssociateTeamMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateTeamMemberRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateTeamMemberResult {
   /**
    * <p>The user- or system-generated token from the initial request that can be used to repeat
    *       the request.</p>
    */
   clientRequestToken?: string;
-}
-
-export namespace AssociateTeamMemberResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateTeamMemberResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -205,15 +187,6 @@ export interface CodeCommitCodeDestination {
   name: string | undefined;
 }
 
-export namespace CodeCommitCodeDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeCommitCodeDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the
  *       project request will be uploaded after project creation.</p>
@@ -257,16 +230,6 @@ export interface GitHubCodeDestination {
   token: string | undefined;
 }
 
-export namespace GitHubCodeDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GitHubCodeDestination): any => ({
-    ...obj,
-    ...(obj.token && { token: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the
  *       source code files provided with the project request are placed in the repository.</p>
@@ -283,16 +246,6 @@ export interface CodeDestination {
    *       project request will be uploaded after project creation.</p>
    */
   gitHub?: GitHubCodeDestination;
-}
-
-export namespace CodeDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeDestination): any => ({
-    ...obj,
-    ...(obj.gitHub && { gitHub: GitHubCodeDestination.filterSensitiveLog(obj.gitHub) }),
-  });
 }
 
 /**
@@ -313,15 +266,6 @@ export interface S3Location {
   bucketKey?: string;
 }
 
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The location where the source code files provided with the project request are
  *       stored. AWS CodeStar retrieves the files during project creation.</p>
@@ -332,15 +276,6 @@ export interface CodeSource {
    *       project request are stored. </p>
    */
   s3: S3Location | undefined;
-}
-
-export namespace CodeSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -362,16 +297,6 @@ export interface Code {
   destination: CodeDestination | undefined;
 }
 
-export namespace Code {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Code): any => ({
-    ...obj,
-    ...(obj.destination && { destination: CodeDestination.filterSensitiveLog(obj.destination) }),
-  });
-}
-
 /**
  * <p>The Amazon S3 location where the toolchain template file provided with the
  *       project request is stored. AWS CodeStar retrieves the file during project creation.</p>
@@ -382,15 +307,6 @@ export interface ToolchainSource {
    *       request is stored.</p>
    */
   s3: S3Location | undefined;
-}
-
-export namespace ToolchainSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ToolchainSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -415,16 +331,6 @@ export interface Toolchain {
    *       provisioning, if any.</p>
    */
   stackParameters?: Record<string, string>;
-}
-
-export namespace Toolchain {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Toolchain): any => ({
-    ...obj,
-    ...(obj.stackParameters && { stackParameters: SENSITIVE_STRING }),
-  });
 }
 
 export interface CreateProjectRequest {
@@ -467,19 +373,6 @@ export interface CreateProjectRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
-    ...obj,
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.sourceCode && { sourceCode: obj.sourceCode.map((item) => Code.filterSensitiveLog(item)) }),
-    ...(obj.toolchain && { toolchain: Toolchain.filterSensitiveLog(obj.toolchain) }),
-  });
-}
-
 export interface CreateProjectResult {
   /**
    * <p>The ID of the project.</p>
@@ -501,15 +394,6 @@ export interface CreateProjectResult {
    * <p>Reserved for future use.</p>
    */
   projectTemplateId?: string;
-}
-
-export namespace CreateProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -577,17 +461,6 @@ export interface CreateUserProfileRequest {
   sshPublicKey?: string;
 }
 
-export namespace CreateUserProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserProfileRequest): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateUserProfileResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the user in IAM.</p>
@@ -620,17 +493,6 @@ export interface CreateUserProfileResult {
    * <p>The date the user profile was last modified, in timestamp format.</p>
    */
   lastModifiedTimestamp?: Date;
-}
-
-export namespace CreateUserProfileResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserProfileResult): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -674,15 +536,6 @@ export interface DeleteProjectRequest {
   deleteStack?: boolean;
 }
 
-export namespace DeleteProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProjectResult {
   /**
    * <p>The ID of the primary stack in AWS CloudFormation that will be deleted as part of
@@ -696,29 +549,11 @@ export interface DeleteProjectResult {
   projectArn?: string;
 }
 
-export namespace DeleteProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUserProfileRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.</p>
    */
   userArn: string | undefined;
-}
-
-export namespace DeleteUserProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserProfileRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteUserProfileResult {
@@ -728,29 +563,11 @@ export interface DeleteUserProfileResult {
   userArn: string | undefined;
 }
 
-export namespace DeleteUserProfileResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserProfileResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProjectRequest {
   /**
    * <p>The ID of the project.</p>
    */
   id: string | undefined;
-}
-
-export namespace DescribeProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -768,15 +585,6 @@ export interface ProjectStatus {
    *       failure.</p>
    */
   reason?: string;
-}
-
-export namespace ProjectStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectStatus): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeProjectResult {
@@ -828,31 +636,11 @@ export interface DescribeProjectResult {
   status?: ProjectStatus;
 }
 
-export namespace DescribeProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectResult): any => ({
-    ...obj,
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeUserProfileRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the user.</p>
    */
   userArn: string | undefined;
-}
-
-export namespace DescribeUserProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserProfileRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeUserProfileResult {
@@ -899,17 +687,6 @@ export interface DescribeUserProfileResult {
   lastModifiedTimestamp: Date | undefined;
 }
 
-export namespace DescribeUserProfileResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserProfileResult): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The user profile was not found.</p>
  */
@@ -942,25 +719,7 @@ export interface DisassociateTeamMemberRequest {
   userArn: string | undefined;
 }
 
-export namespace DisassociateTeamMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateTeamMemberRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateTeamMemberResult {}
-
-export namespace DisassociateTeamMemberResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateTeamMemberResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The next token is not valid.</p>
@@ -994,15 +753,6 @@ export interface ListProjectsRequest {
   maxResults?: number;
 }
 
-export namespace ListProjectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the metadata for a project.</p>
  */
@@ -1018,15 +768,6 @@ export interface ProjectSummary {
   projectArn?: string;
 }
 
-export namespace ProjectSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProjectsResult {
   /**
    * <p>A list of projects.</p>
@@ -1038,15 +779,6 @@ export interface ListProjectsResult {
    *       more results to be returned.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListProjectsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourcesRequest {
@@ -1067,15 +799,6 @@ export interface ListResourcesRequest {
   maxResults?: number;
 }
 
-export namespace ListResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a resource for a project.</p>
  */
@@ -1084,15 +807,6 @@ export interface Resource {
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   id: string | undefined;
-}
-
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourcesResult {
@@ -1106,15 +820,6 @@ export interface ListResourcesResult {
    *       more results to be returned.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListResourcesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForProjectRequest {
@@ -1134,15 +839,6 @@ export interface ListTagsForProjectRequest {
   maxResults?: number;
 }
 
-export namespace ListTagsForProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForProjectResult {
   /**
    * <p>The tags for the project.</p>
@@ -1153,15 +849,6 @@ export interface ListTagsForProjectResult {
    * <p>Reserved for future use.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListTagsForProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForProjectResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTeamMembersRequest {
@@ -1180,15 +867,6 @@ export interface ListTeamMembersRequest {
    * <p>The maximum number of team members you want returned in a response.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListTeamMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTeamMembersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1214,15 +892,6 @@ export interface TeamMember {
   remoteAccessAllowed?: boolean;
 }
 
-export namespace TeamMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TeamMember): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTeamMembersResult {
   /**
    * <p>A list of team member objects for the project.</p>
@@ -1236,15 +905,6 @@ export interface ListTeamMembersResult {
   nextToken?: string;
 }
 
-export namespace ListTeamMembersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTeamMembersResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListUserProfilesRequest {
   /**
    * <p>The continuation token for the next set of results, if the results cannot be returned
@@ -1256,15 +916,6 @@ export interface ListUserProfilesRequest {
    * <p>The maximum number of results to return in a response.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListUserProfilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUserProfilesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1301,17 +952,6 @@ export interface UserProfileSummary {
   sshPublicKey?: string;
 }
 
-export namespace UserProfileSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserProfileSummary): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListUserProfilesResult {
   /**
    * <p>All the user profiles configured in AWS CodeStar for an AWS account.</p>
@@ -1323,18 +963,6 @@ export interface ListUserProfilesResult {
    *       more results to be returned.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListUserProfilesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUserProfilesResult): any => ({
-    ...obj,
-    ...(obj.userProfiles && {
-      userProfiles: obj.userProfiles.map((item) => UserProfileSummary.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface TagProjectRequest {
@@ -1349,29 +977,11 @@ export interface TagProjectRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagProjectResult {
   /**
    * <p>The tags for the project.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace TagProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagProjectResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagProjectRequest {
@@ -1386,25 +996,7 @@ export interface UntagProjectRequest {
   tags: string[] | undefined;
 }
 
-export namespace UntagProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagProjectResult {}
-
-export namespace UntagProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagProjectResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateProjectRequest {
   /**
@@ -1423,27 +1015,7 @@ export interface UpdateProjectRequest {
   description?: string;
 }
 
-export namespace UpdateProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
-    ...obj,
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateProjectResult {}
-
-export namespace UpdateProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The specified team member was not found.</p>
@@ -1491,15 +1063,6 @@ export interface UpdateTeamMemberRequest {
   remoteAccessAllowed?: boolean;
 }
 
-export namespace UpdateTeamMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTeamMemberRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTeamMemberResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the user whose team membership attributes were
@@ -1517,15 +1080,6 @@ export interface UpdateTeamMemberResult {
    *       public key associated with the user's profile.</p>
    */
   remoteAccessAllowed?: boolean;
-}
-
-export namespace UpdateTeamMemberResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTeamMemberResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateUserProfileRequest {
@@ -1552,17 +1106,6 @@ export interface UpdateUserProfileRequest {
    *       private key for SSH access.</p>
    */
   sshPublicKey?: string;
-}
-
-export namespace UpdateUserProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserProfileRequest): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-  });
 }
 
 export interface UpdateUserProfileResult {
@@ -1600,13 +1143,370 @@ export interface UpdateUserProfileResult {
   lastModifiedTimestamp?: Date;
 }
 
-export namespace UpdateUserProfileResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserProfileResult): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-  });
-}
+/**
+ * @internal
+ */
+export const AssociateTeamMemberRequestFilterSensitiveLog = (obj: AssociateTeamMemberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateTeamMemberResultFilterSensitiveLog = (obj: AssociateTeamMemberResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeCommitCodeDestinationFilterSensitiveLog = (obj: CodeCommitCodeDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GitHubCodeDestinationFilterSensitiveLog = (obj: GitHubCodeDestination): any => ({
+  ...obj,
+  ...(obj.token && { token: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CodeDestinationFilterSensitiveLog = (obj: CodeDestination): any => ({
+  ...obj,
+  ...(obj.gitHub && { gitHub: GitHubCodeDestinationFilterSensitiveLog(obj.gitHub) }),
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeSourceFilterSensitiveLog = (obj: CodeSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeFilterSensitiveLog = (obj: Code): any => ({
+  ...obj,
+  ...(obj.destination && { destination: CodeDestinationFilterSensitiveLog(obj.destination) }),
+});
+
+/**
+ * @internal
+ */
+export const ToolchainSourceFilterSensitiveLog = (obj: ToolchainSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ToolchainFilterSensitiveLog = (obj: Toolchain): any => ({
+  ...obj,
+  ...(obj.stackParameters && { stackParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateProjectRequestFilterSensitiveLog = (obj: CreateProjectRequest): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.sourceCode && { sourceCode: obj.sourceCode.map((item) => CodeFilterSensitiveLog(item)) }),
+  ...(obj.toolchain && { toolchain: ToolchainFilterSensitiveLog(obj.toolchain) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateProjectResultFilterSensitiveLog = (obj: CreateProjectResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserProfileRequestFilterSensitiveLog = (obj: CreateUserProfileRequest): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateUserProfileResultFilterSensitiveLog = (obj: CreateUserProfileResult): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectRequestFilterSensitiveLog = (obj: DeleteProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectResultFilterSensitiveLog = (obj: DeleteProjectResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserProfileRequestFilterSensitiveLog = (obj: DeleteUserProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserProfileResultFilterSensitiveLog = (obj: DeleteUserProfileResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProjectRequestFilterSensitiveLog = (obj: DescribeProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectStatusFilterSensitiveLog = (obj: ProjectStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProjectResultFilterSensitiveLog = (obj: DescribeProjectResult): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserProfileRequestFilterSensitiveLog = (obj: DescribeUserProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserProfileResultFilterSensitiveLog = (obj: DescribeUserProfileResult): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DisassociateTeamMemberRequestFilterSensitiveLog = (obj: DisassociateTeamMemberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateTeamMemberResultFilterSensitiveLog = (obj: DisassociateTeamMemberResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProjectsRequestFilterSensitiveLog = (obj: ListProjectsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectSummaryFilterSensitiveLog = (obj: ProjectSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProjectsResultFilterSensitiveLog = (obj: ListProjectsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesRequestFilterSensitiveLog = (obj: ListResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesResultFilterSensitiveLog = (obj: ListResourcesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForProjectRequestFilterSensitiveLog = (obj: ListTagsForProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForProjectResultFilterSensitiveLog = (obj: ListTagsForProjectResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTeamMembersRequestFilterSensitiveLog = (obj: ListTeamMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TeamMemberFilterSensitiveLog = (obj: TeamMember): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTeamMembersResultFilterSensitiveLog = (obj: ListTeamMembersResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUserProfilesRequestFilterSensitiveLog = (obj: ListUserProfilesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserProfileSummaryFilterSensitiveLog = (obj: UserProfileSummary): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListUserProfilesResultFilterSensitiveLog = (obj: ListUserProfilesResult): any => ({
+  ...obj,
+  ...(obj.userProfiles && { userProfiles: obj.userProfiles.map((item) => UserProfileSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const TagProjectRequestFilterSensitiveLog = (obj: TagProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagProjectResultFilterSensitiveLog = (obj: TagProjectResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagProjectRequestFilterSensitiveLog = (obj: UntagProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagProjectResultFilterSensitiveLog = (obj: UntagProjectResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectRequestFilterSensitiveLog = (obj: UpdateProjectRequest): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectResultFilterSensitiveLog = (obj: UpdateProjectResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTeamMemberRequestFilterSensitiveLog = (obj: UpdateTeamMemberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTeamMemberResultFilterSensitiveLog = (obj: UpdateTeamMemberResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserProfileRequestFilterSensitiveLog = (obj: UpdateUserProfileRequest): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserProfileResultFilterSensitiveLog = (obj: UpdateUserProfileResult): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+});

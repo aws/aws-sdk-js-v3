@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateConfigurationSetSendingEnabledRequest } from "../models/models_0";
+import {
+  UpdateConfigurationSetSendingEnabledRequest,
+  UpdateConfigurationSetSendingEnabledRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryUpdateConfigurationSetSendingEnabledCommand,
   serializeAws_queryUpdateConfigurationSetSendingEnabledCommand,
@@ -77,7 +80,7 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfigurationSetSendingEnabledRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateConfigurationSetSendingEnabledRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

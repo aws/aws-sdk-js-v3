@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { UpdateEventSourcesConfigRequest, UpdateEventSourcesConfigResponse } from "../models/models_0";
+import {
+  UpdateEventSourcesConfigRequest,
+  UpdateEventSourcesConfigRequestFilterSensitiveLog,
+  UpdateEventSourcesConfigResponse,
+  UpdateEventSourcesConfigResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateEventSourcesConfigCommand,
   serializeAws_restJson1UpdateEventSourcesConfigCommand,
@@ -74,8 +79,8 @@ export class UpdateEventSourcesConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEventSourcesConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEventSourcesConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateEventSourcesConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateEventSourcesConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

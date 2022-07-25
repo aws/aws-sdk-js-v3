@@ -33,15 +33,6 @@ export interface CellOutput {
   Tags?: Record<string, string>;
 }
 
-export namespace CellOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CellOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Readiness rule information, including the resource type, rule ID, and rule description.</p>
  */
@@ -62,15 +53,6 @@ export interface ListRulesOutput {
   RuleId: string | undefined;
 }
 
-export namespace ListRulesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRulesOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information relating to readiness check status.</p>
  */
@@ -79,15 +61,6 @@ export interface Message {
    * <p>The text of a readiness check message.</p>
    */
   MessageText?: string;
-}
-
-export namespace Message {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Message): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -115,15 +88,6 @@ export interface ReadinessCheckOutput {
   Tags?: Record<string, string>;
 }
 
-export namespace ReadinessCheckOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReadinessCheckOutput): any => ({
-    ...obj,
-  });
-}
-
 export enum Readiness {
   NOT_AUTHORIZED = "NOT_AUTHORIZED",
   NOT_READY = "NOT_READY",
@@ -146,15 +110,6 @@ export interface ReadinessCheckSummary {
   ReadinessCheckName?: string;
 }
 
-export namespace ReadinessCheckSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReadinessCheckSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Recommendations that are provided to make an application more recovery resilient.</p>
  */
@@ -163,15 +118,6 @@ export interface Recommendation {
    * <p>Text of the recommendations that are provided to make an application more recovery resilient.</p>
    */
   RecommendationText: string | undefined;
-}
-
-export namespace Recommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Recommendation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -199,15 +145,6 @@ export interface RecoveryGroupOutput {
   Tags?: Record<string, string>;
 }
 
-export namespace RecoveryGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecoveryGroupOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Network Load Balancer resource that a DNS target resource points to.</p>
  */
@@ -216,15 +153,6 @@ export interface NLBResource {
    * <p>The Network Load Balancer resource Amazon Resource Name (ARN).</p>
    */
   Arn?: string;
-}
-
-export namespace NLBResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NLBResource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -242,15 +170,6 @@ export interface R53ResourceRecord {
   RecordSetId?: string;
 }
 
-export namespace R53ResourceRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: R53ResourceRecord): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The target resource that the Route 53 record points to.</p>
  */
@@ -264,15 +183,6 @@ export interface TargetResource {
    * <p>The Route 53 resource.</p>
    */
   R53Resource?: R53ResourceRecord;
-}
-
-export namespace TargetResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetResource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -305,15 +215,6 @@ export interface DNSTargetResource {
   TargetResource?: TargetResource;
 }
 
-export namespace DNSTargetResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DNSTargetResource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource element of a resource set.</p>
  */
@@ -339,15 +240,6 @@ export interface Resource {
   ResourceArn?: string;
 }
 
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a successful Resource request, with status for an individual resource.</p>
  */
@@ -371,15 +263,6 @@ export interface ResourceResult {
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn?: string;
-}
-
-export namespace ResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -412,15 +295,6 @@ export interface ResourceSetOutput {
   Tags?: Record<string, string>;
 }
 
-export namespace ResourceSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceSetOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a successful Rule request, with status for an individual rule.</p>
  */
@@ -444,15 +318,6 @@ export interface RuleResult {
    * <p>The identifier of the rule.</p>
    */
   RuleId: string | undefined;
-}
-
-export namespace RuleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -514,15 +379,6 @@ export interface CreateCellRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateCellRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCellRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCellResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the cell.</p>
@@ -548,15 +404,6 @@ export interface CreateCellResponse {
    * <p>Tags on the resources.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateCellResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCellResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -629,29 +476,11 @@ export interface CreateCrossAccountAuthorizationRequest {
   CrossAccountAuthorization: string | undefined;
 }
 
-export namespace CreateCrossAccountAuthorizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCrossAccountAuthorizationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCrossAccountAuthorizationResponse {
   /**
    * <p>The cross-account authorization.</p>
    */
   CrossAccountAuthorization?: string;
-}
-
-export namespace CreateCrossAccountAuthorizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCrossAccountAuthorizationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateReadinessCheckRequest {
@@ -669,15 +498,6 @@ export interface CreateReadinessCheckRequest {
    * <p>A collection of tags associated with a resource.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateReadinessCheckRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReadinessCheckRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateReadinessCheckResponse {
@@ -702,15 +522,6 @@ export interface CreateReadinessCheckResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateReadinessCheckResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReadinessCheckResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRecoveryGroupRequest {
   /**
    * <p>A list of the cell Amazon Resource Names (ARNs) in the recovery group.</p>
@@ -726,15 +537,6 @@ export interface CreateRecoveryGroupRequest {
    * <p>A collection of tags associated with a resource.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateRecoveryGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRecoveryGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRecoveryGroupResponse {
@@ -759,15 +561,6 @@ export interface CreateRecoveryGroupResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateRecoveryGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRecoveryGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateResourceSetRequest {
   /**
    * <p>The name of the resource set to create.</p>
@@ -788,15 +581,6 @@ export interface CreateResourceSetRequest {
    * <p>A tag to associate with the parameters for a resource set.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateResourceSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceSetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateResourceSetResponse {
@@ -826,29 +610,11 @@ export interface CreateResourceSetResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateResourceSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceSetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCellRequest {
   /**
    * <p>The name of the cell.</p>
    */
   CellName: string | undefined;
-}
-
-export namespace DeleteCellRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCellRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -879,40 +645,13 @@ export interface DeleteCrossAccountAuthorizationRequest {
   CrossAccountAuthorization: string | undefined;
 }
 
-export namespace DeleteCrossAccountAuthorizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCrossAccountAuthorizationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCrossAccountAuthorizationResponse {}
-
-export namespace DeleteCrossAccountAuthorizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCrossAccountAuthorizationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteReadinessCheckRequest {
   /**
    * <p>Name of a readiness check.</p>
    */
   ReadinessCheckName: string | undefined;
-}
-
-export namespace DeleteReadinessCheckRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReadinessCheckRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRecoveryGroupRequest {
@@ -922,29 +661,11 @@ export interface DeleteRecoveryGroupRequest {
   RecoveryGroupName: string | undefined;
 }
 
-export namespace DeleteRecoveryGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRecoveryGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourceSetRequest {
   /**
    * <p>Name of a resource set.</p>
    */
   ResourceSetName: string | undefined;
-}
-
-export namespace DeleteResourceSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourceSetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetArchitectureRecommendationsRequest {
@@ -964,15 +685,6 @@ export interface GetArchitectureRecommendationsRequest {
   RecoveryGroupName: string | undefined;
 }
 
-export namespace GetArchitectureRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetArchitectureRecommendationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetArchitectureRecommendationsResponse {
   /**
    * <p>The time that a recovery group was last assessed for recommendations, in UTC ISO-8601 format.</p>
@@ -990,29 +702,11 @@ export interface GetArchitectureRecommendationsResponse {
   Recommendations?: Recommendation[];
 }
 
-export namespace GetArchitectureRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetArchitectureRecommendationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCellRequest {
   /**
    * <p>The name of the cell.</p>
    */
   CellName: string | undefined;
-}
-
-export namespace GetCellRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCellRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCellResponse {
@@ -1042,15 +736,6 @@ export interface GetCellResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace GetCellResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCellResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCellReadinessSummaryRequest {
   /**
    * <p>The name of the cell.</p>
@@ -1066,15 +751,6 @@ export interface GetCellReadinessSummaryRequest {
    * <p>The token that identifies which batch of results you want to see.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetCellReadinessSummaryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCellReadinessSummaryRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCellReadinessSummaryResponse {
@@ -1094,29 +770,11 @@ export interface GetCellReadinessSummaryResponse {
   ReadinessChecks?: ReadinessCheckSummary[];
 }
 
-export namespace GetCellReadinessSummaryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCellReadinessSummaryResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetReadinessCheckRequest {
   /**
    * <p>Name of a readiness check.</p>
    */
   ReadinessCheckName: string | undefined;
-}
-
-export namespace GetReadinessCheckRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReadinessCheckRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetReadinessCheckResponse {
@@ -1141,15 +799,6 @@ export interface GetReadinessCheckResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace GetReadinessCheckResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReadinessCheckResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetReadinessCheckResourceStatusRequest {
   /**
    * <p>The number of objects that you want to return with this call.</p>
@@ -1172,15 +821,6 @@ export interface GetReadinessCheckResourceStatusRequest {
   ResourceIdentifier: string | undefined;
 }
 
-export namespace GetReadinessCheckResourceStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReadinessCheckResourceStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetReadinessCheckResourceStatusResponse {
   /**
    * <p>The token that identifies which batch of results you want to see.</p>
@@ -1198,15 +838,6 @@ export interface GetReadinessCheckResourceStatusResponse {
   Rules?: RuleResult[];
 }
 
-export namespace GetReadinessCheckResourceStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReadinessCheckResourceStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetReadinessCheckStatusRequest {
   /**
    * <p>The number of objects that you want to return with this call.</p>
@@ -1222,15 +853,6 @@ export interface GetReadinessCheckStatusRequest {
    * <p>Name of a readiness check.</p>
    */
   ReadinessCheckName: string | undefined;
-}
-
-export namespace GetReadinessCheckStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReadinessCheckStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetReadinessCheckStatusResponse {
@@ -1255,29 +877,11 @@ export interface GetReadinessCheckStatusResponse {
   Resources?: ResourceResult[];
 }
 
-export namespace GetReadinessCheckStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReadinessCheckStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRecoveryGroupRequest {
   /**
    * <p>The name of a recovery group.</p>
    */
   RecoveryGroupName: string | undefined;
-}
-
-export namespace GetRecoveryGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecoveryGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRecoveryGroupResponse {
@@ -1302,15 +906,6 @@ export interface GetRecoveryGroupResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace GetRecoveryGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecoveryGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRecoveryGroupReadinessSummaryRequest {
   /**
    * <p>The number of objects that you want to return with this call.</p>
@@ -1326,15 +921,6 @@ export interface GetRecoveryGroupReadinessSummaryRequest {
    * <p>The name of a recovery group.</p>
    */
   RecoveryGroupName: string | undefined;
-}
-
-export namespace GetRecoveryGroupReadinessSummaryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecoveryGroupReadinessSummaryRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRecoveryGroupReadinessSummaryResponse {
@@ -1354,29 +940,11 @@ export interface GetRecoveryGroupReadinessSummaryResponse {
   ReadinessChecks?: ReadinessCheckSummary[];
 }
 
-export namespace GetRecoveryGroupReadinessSummaryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecoveryGroupReadinessSummaryResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourceSetRequest {
   /**
    * <p>Name of a resource set.</p>
    */
   ResourceSetName: string | undefined;
-}
-
-export namespace GetResourceSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceSetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourceSetResponse {
@@ -1406,15 +974,6 @@ export interface GetResourceSetResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace GetResourceSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceSetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCellsRequest {
   /**
    * <p>The number of objects that you want to return with this call.</p>
@@ -1425,15 +984,6 @@ export interface ListCellsRequest {
    * <p>The token that identifies which batch of results you want to see.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListCellsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCellsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCellsResponse {
@@ -1448,15 +998,6 @@ export interface ListCellsResponse {
   NextToken?: string;
 }
 
-export namespace ListCellsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCellsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCrossAccountAuthorizationsRequest {
   /**
    * <p>The number of objects that you want to return with this call.</p>
@@ -1467,15 +1008,6 @@ export interface ListCrossAccountAuthorizationsRequest {
    * <p>The token that identifies which batch of results you want to see.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListCrossAccountAuthorizationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCrossAccountAuthorizationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCrossAccountAuthorizationsResponse {
@@ -1490,15 +1022,6 @@ export interface ListCrossAccountAuthorizationsResponse {
   NextToken?: string;
 }
 
-export namespace ListCrossAccountAuthorizationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCrossAccountAuthorizationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListReadinessChecksRequest {
   /**
    * <p>The number of objects that you want to return with this call.</p>
@@ -1509,15 +1032,6 @@ export interface ListReadinessChecksRequest {
    * <p>The token that identifies which batch of results you want to see.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListReadinessChecksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReadinessChecksRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListReadinessChecksResponse {
@@ -1532,15 +1046,6 @@ export interface ListReadinessChecksResponse {
   ReadinessChecks?: ReadinessCheckOutput[];
 }
 
-export namespace ListReadinessChecksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReadinessChecksResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRecoveryGroupsRequest {
   /**
    * <p>The number of objects that you want to return with this call.</p>
@@ -1551,15 +1056,6 @@ export interface ListRecoveryGroupsRequest {
    * <p>The token that identifies which batch of results you want to see.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListRecoveryGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecoveryGroupsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRecoveryGroupsResponse {
@@ -1574,15 +1070,6 @@ export interface ListRecoveryGroupsResponse {
   RecoveryGroups?: RecoveryGroupOutput[];
 }
 
-export namespace ListRecoveryGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecoveryGroupsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourceSetsRequest {
   /**
    * <p>The number of objects that you want to return with this call.</p>
@@ -1595,15 +1082,6 @@ export interface ListResourceSetsRequest {
   NextToken?: string;
 }
 
-export namespace ListResourceSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceSetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourceSetsResponse {
   /**
    * <p>The token that identifies which batch of results you want to see.</p>
@@ -1614,15 +1092,6 @@ export interface ListResourceSetsResponse {
    * <p>A list of resource sets associated with the account.</p>
    */
   ResourceSets?: ResourceSetOutput[];
-}
-
-export namespace ListResourceSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRulesRequest {
@@ -1642,15 +1111,6 @@ export interface ListRulesRequest {
   ResourceType?: string;
 }
 
-export namespace ListRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRulesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRulesResponse {
   /**
    * <p>The token that identifies which batch of results you want to see.</p>
@@ -1663,15 +1123,6 @@ export interface ListRulesResponse {
   Rules?: ListRulesOutput[];
 }
 
-export namespace ListRulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRulesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourcesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for a resource.</p>
@@ -1679,29 +1130,11 @@ export interface ListTagsForResourcesRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourcesResponse {
   /**
    * <p></p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -1716,25 +1149,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1748,15 +1163,6 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCellRequest {
   /**
    * <p>The name of the cell.</p>
@@ -1767,15 +1173,6 @@ export interface UpdateCellRequest {
    * <p>A list of cell Amazon Resource Names (ARNs), which completely replaces the previous list.</p>
    */
   Cells: string[] | undefined;
-}
-
-export namespace UpdateCellRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCellRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateCellResponse {
@@ -1805,15 +1202,6 @@ export interface UpdateCellResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace UpdateCellResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCellResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Name of a readiness check to describe.</p>
  */
@@ -1827,15 +1215,6 @@ export interface UpdateReadinessCheckRequest {
    * <p>The name of the resource set to be checked.</p>
    */
   ResourceSetName: string | undefined;
-}
-
-export namespace UpdateReadinessCheckRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReadinessCheckRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateReadinessCheckResponse {
@@ -1860,15 +1239,6 @@ export interface UpdateReadinessCheckResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace UpdateReadinessCheckResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReadinessCheckResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Name of a recovery group.</p>
  */
@@ -1882,15 +1252,6 @@ export interface UpdateRecoveryGroupRequest {
    * <p>The name of a recovery group.</p>
    */
   RecoveryGroupName: string | undefined;
-}
-
-export namespace UpdateRecoveryGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRecoveryGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRecoveryGroupResponse {
@@ -1915,15 +1276,6 @@ export interface UpdateRecoveryGroupResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace UpdateRecoveryGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRecoveryGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Name of a resource set.</p>
  */
@@ -1942,15 +1294,6 @@ export interface UpdateResourceSetRequest {
    * <p>A list of resource objects.</p>
    */
   Resources: Resource[] | undefined;
-}
-
-export namespace UpdateResourceSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceSetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateResourceSetResponse {
@@ -1980,11 +1323,544 @@ export interface UpdateResourceSetResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace UpdateResourceSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceSetResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CellOutputFilterSensitiveLog = (obj: CellOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRulesOutputFilterSensitiveLog = (obj: ListRulesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageFilterSensitiveLog = (obj: Message): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReadinessCheckOutputFilterSensitiveLog = (obj: ReadinessCheckOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReadinessCheckSummaryFilterSensitiveLog = (obj: ReadinessCheckSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationFilterSensitiveLog = (obj: Recommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecoveryGroupOutputFilterSensitiveLog = (obj: RecoveryGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NLBResourceFilterSensitiveLog = (obj: NLBResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const R53ResourceRecordFilterSensitiveLog = (obj: R53ResourceRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetResourceFilterSensitiveLog = (obj: TargetResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DNSTargetResourceFilterSensitiveLog = (obj: DNSTargetResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceResultFilterSensitiveLog = (obj: ResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceSetOutputFilterSensitiveLog = (obj: ResourceSetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleResultFilterSensitiveLog = (obj: RuleResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCellRequestFilterSensitiveLog = (obj: CreateCellRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCellResponseFilterSensitiveLog = (obj: CreateCellResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCrossAccountAuthorizationRequestFilterSensitiveLog = (
+  obj: CreateCrossAccountAuthorizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCrossAccountAuthorizationResponseFilterSensitiveLog = (
+  obj: CreateCrossAccountAuthorizationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReadinessCheckRequestFilterSensitiveLog = (obj: CreateReadinessCheckRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReadinessCheckResponseFilterSensitiveLog = (obj: CreateReadinessCheckResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRecoveryGroupRequestFilterSensitiveLog = (obj: CreateRecoveryGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRecoveryGroupResponseFilterSensitiveLog = (obj: CreateRecoveryGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceSetRequestFilterSensitiveLog = (obj: CreateResourceSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceSetResponseFilterSensitiveLog = (obj: CreateResourceSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCellRequestFilterSensitiveLog = (obj: DeleteCellRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCrossAccountAuthorizationRequestFilterSensitiveLog = (
+  obj: DeleteCrossAccountAuthorizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCrossAccountAuthorizationResponseFilterSensitiveLog = (
+  obj: DeleteCrossAccountAuthorizationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReadinessCheckRequestFilterSensitiveLog = (obj: DeleteReadinessCheckRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRecoveryGroupRequestFilterSensitiveLog = (obj: DeleteRecoveryGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourceSetRequestFilterSensitiveLog = (obj: DeleteResourceSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetArchitectureRecommendationsRequestFilterSensitiveLog = (
+  obj: GetArchitectureRecommendationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetArchitectureRecommendationsResponseFilterSensitiveLog = (
+  obj: GetArchitectureRecommendationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCellRequestFilterSensitiveLog = (obj: GetCellRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCellResponseFilterSensitiveLog = (obj: GetCellResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCellReadinessSummaryRequestFilterSensitiveLog = (obj: GetCellReadinessSummaryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCellReadinessSummaryResponseFilterSensitiveLog = (obj: GetCellReadinessSummaryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReadinessCheckRequestFilterSensitiveLog = (obj: GetReadinessCheckRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReadinessCheckResponseFilterSensitiveLog = (obj: GetReadinessCheckResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReadinessCheckResourceStatusRequestFilterSensitiveLog = (
+  obj: GetReadinessCheckResourceStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReadinessCheckResourceStatusResponseFilterSensitiveLog = (
+  obj: GetReadinessCheckResourceStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReadinessCheckStatusRequestFilterSensitiveLog = (obj: GetReadinessCheckStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReadinessCheckStatusResponseFilterSensitiveLog = (obj: GetReadinessCheckStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecoveryGroupRequestFilterSensitiveLog = (obj: GetRecoveryGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecoveryGroupResponseFilterSensitiveLog = (obj: GetRecoveryGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecoveryGroupReadinessSummaryRequestFilterSensitiveLog = (
+  obj: GetRecoveryGroupReadinessSummaryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecoveryGroupReadinessSummaryResponseFilterSensitiveLog = (
+  obj: GetRecoveryGroupReadinessSummaryResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceSetRequestFilterSensitiveLog = (obj: GetResourceSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceSetResponseFilterSensitiveLog = (obj: GetResourceSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCellsRequestFilterSensitiveLog = (obj: ListCellsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCellsResponseFilterSensitiveLog = (obj: ListCellsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCrossAccountAuthorizationsRequestFilterSensitiveLog = (
+  obj: ListCrossAccountAuthorizationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCrossAccountAuthorizationsResponseFilterSensitiveLog = (
+  obj: ListCrossAccountAuthorizationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReadinessChecksRequestFilterSensitiveLog = (obj: ListReadinessChecksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReadinessChecksResponseFilterSensitiveLog = (obj: ListReadinessChecksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecoveryGroupsRequestFilterSensitiveLog = (obj: ListRecoveryGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecoveryGroupsResponseFilterSensitiveLog = (obj: ListRecoveryGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceSetsRequestFilterSensitiveLog = (obj: ListResourceSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceSetsResponseFilterSensitiveLog = (obj: ListResourceSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRulesRequestFilterSensitiveLog = (obj: ListRulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRulesResponseFilterSensitiveLog = (obj: ListRulesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourcesRequestFilterSensitiveLog = (obj: ListTagsForResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourcesResponseFilterSensitiveLog = (obj: ListTagsForResourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCellRequestFilterSensitiveLog = (obj: UpdateCellRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCellResponseFilterSensitiveLog = (obj: UpdateCellResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateReadinessCheckRequestFilterSensitiveLog = (obj: UpdateReadinessCheckRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateReadinessCheckResponseFilterSensitiveLog = (obj: UpdateReadinessCheckResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRecoveryGroupRequestFilterSensitiveLog = (obj: UpdateRecoveryGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRecoveryGroupResponseFilterSensitiveLog = (obj: UpdateRecoveryGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceSetRequestFilterSensitiveLog = (obj: UpdateResourceSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceSetResponseFilterSensitiveLog = (obj: UpdateResourceSetResponse): any => ({
+  ...obj,
+});

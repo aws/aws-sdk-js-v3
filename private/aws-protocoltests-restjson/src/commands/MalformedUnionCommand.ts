@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedUnionInput } from "../models/models_0";
+import { MalformedUnionInput, MalformedUnionInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedUnionCommand,
   serializeAws_restJson1MalformedUnionCommand,
@@ -55,7 +55,7 @@ export class MalformedUnionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedUnionInput.filterSensitiveLog,
+      inputFilterSensitiveLog: MalformedUnionInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

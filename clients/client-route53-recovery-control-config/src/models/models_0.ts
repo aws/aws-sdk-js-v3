@@ -18,15 +18,6 @@ export interface ClusterEndpoint {
   Region?: string;
 }
 
-export namespace ClusterEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterEndpoint): any => ({
-    ...obj,
-  });
-}
-
 export enum Status {
   DEPLOYED = "DEPLOYED",
   PENDING = "PENDING",
@@ -56,15 +47,6 @@ export interface Cluster {
    * <p>Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    */
   Status?: Status | string;
-}
-
-export namespace Cluster {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Cluster): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -102,15 +84,6 @@ export interface ControlPanel {
   Status?: Status | string;
 }
 
-export namespace ControlPanel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ControlPanel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A routing control has one of two states: ON and OFF. You can map the routing control state to the state of an Amazon Route 53 health check, which can be used to control traffic routing.</p>
  */
@@ -134,15 +107,6 @@ export interface RoutingControl {
    * <p>The deployment status of a routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    */
   Status?: Status | string;
-}
-
-export namespace RoutingControl {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoutingControl): any => ({
-    ...obj,
-  });
 }
 
 export enum RuleType {
@@ -169,15 +133,6 @@ export interface RuleConfig {
    * <p>A rule can be one of the following: ATLEAST, AND, or OR.</p>
    */
   Type: RuleType | string | undefined;
-}
-
-export namespace RuleConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -218,15 +173,6 @@ export interface AssertionRule {
    * <p>An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.</p>
    */
   WaitPeriodMs: number | undefined;
-}
-
-export namespace AssertionRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssertionRule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -274,15 +220,6 @@ export interface GatingRule {
   WaitPeriodMs: number | undefined;
 }
 
-export namespace GatingRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GatingRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A safety rule. A safety rule can be an assertion rule or a gating rule.</p>
  */
@@ -296,15 +233,6 @@ export interface Rule {
    * <p>A gating rule verifies that a gating routing control or set of gating rounting controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.</p> <p>For example, if you specify one gating routing control and you set the Type in the rule configuration to OR, that indicates that you must set the gating routing control to On for the rule to evaluate as true; that is, for the gating control "switch" to be "On". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.</p>
    */
   GATING?: GatingRule;
-}
-
-export namespace Rule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Rule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -348,15 +276,6 @@ export interface AssertionRuleUpdate {
   WaitPeriodMs: number | undefined;
 }
 
-export namespace AssertionRuleUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssertionRuleUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>409 response - ConflictException. You might be using a predefined variable.</p>
  */
@@ -398,29 +317,11 @@ export interface CreateClusterRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateClusterResponse {
   /**
    * <p>The cluster that was created.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace CreateClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateClusterResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -553,29 +454,11 @@ export interface CreateControlPanelRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateControlPanelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateControlPanelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateControlPanelResponse {
   /**
    * <p>Information about a control panel.</p>
    */
   ControlPanel?: ControlPanel;
-}
-
-export namespace CreateControlPanelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateControlPanelResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -603,29 +486,11 @@ export interface CreateRoutingControlRequest {
   RoutingControlName: string | undefined;
 }
 
-export namespace CreateRoutingControlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRoutingControlRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRoutingControlResponse {
   /**
    * <p>The routing control that is created.</p>
    */
   RoutingControl?: RoutingControl;
-}
-
-export namespace CreateRoutingControlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRoutingControlResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -656,15 +521,6 @@ export interface NewAssertionRule {
    * <p>An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.</p>
    */
   WaitPeriodMs: number | undefined;
-}
-
-export namespace NewAssertionRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NewAssertionRule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -702,15 +558,6 @@ export interface NewGatingRule {
   WaitPeriodMs: number | undefined;
 }
 
-export namespace NewGatingRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NewGatingRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request body that you include when you create a safety rule.</p>
  */
@@ -736,15 +583,6 @@ export interface CreateSafetyRuleRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateSafetyRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSafetyRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSafetyRuleResponse {
   /**
    * <p>The assertion rule created.</p>
@@ -757,15 +595,6 @@ export interface CreateSafetyRuleResponse {
   GatingRule?: GatingRule;
 }
 
-export namespace CreateSafetyRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSafetyRuleResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteClusterRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster that you're deleting.</p>
@@ -773,25 +602,7 @@ export interface DeleteClusterRequest {
   ClusterArn: string | undefined;
 }
 
-export namespace DeleteClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteClusterResponse {}
-
-export namespace DeleteClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClusterResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteControlPanelRequest {
   /**
@@ -800,25 +611,7 @@ export interface DeleteControlPanelRequest {
   ControlPanelArn: string | undefined;
 }
 
-export namespace DeleteControlPanelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteControlPanelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteControlPanelResponse {}
-
-export namespace DeleteControlPanelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteControlPanelResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteRoutingControlRequest {
   /**
@@ -827,25 +620,7 @@ export interface DeleteRoutingControlRequest {
   RoutingControlArn: string | undefined;
 }
 
-export namespace DeleteRoutingControlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRoutingControlRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRoutingControlResponse {}
-
-export namespace DeleteRoutingControlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRoutingControlResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteSafetyRuleRequest {
   /**
@@ -854,40 +629,13 @@ export interface DeleteSafetyRuleRequest {
   SafetyRuleArn: string | undefined;
 }
 
-export namespace DeleteSafetyRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSafetyRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSafetyRuleResponse {}
-
-export namespace DeleteSafetyRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSafetyRuleResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeClusterRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    */
   ClusterArn: string | undefined;
-}
-
-export namespace DescribeClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClusterRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeClusterResponse {
@@ -897,29 +645,11 @@ export interface DescribeClusterResponse {
   Cluster?: Cluster;
 }
 
-export namespace DescribeClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClusterResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeControlPanelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the control panel.</p>
    */
   ControlPanelArn: string | undefined;
-}
-
-export namespace DescribeControlPanelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeControlPanelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeControlPanelResponse {
@@ -929,29 +659,11 @@ export interface DescribeControlPanelResponse {
   ControlPanel?: ControlPanel;
 }
 
-export namespace DescribeControlPanelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeControlPanelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRoutingControlRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the routing control.</p>
    */
   RoutingControlArn: string | undefined;
-}
-
-export namespace DescribeRoutingControlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRoutingControlRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRoutingControlResponse {
@@ -961,29 +673,11 @@ export interface DescribeRoutingControlResponse {
   RoutingControl?: RoutingControl;
 }
 
-export namespace DescribeRoutingControlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRoutingControlResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSafetyRuleRequest {
   /**
    * <p>The ARN of the safety rule.</p>
    */
   SafetyRuleArn: string | undefined;
-}
-
-export namespace DescribeSafetyRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSafetyRuleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSafetyRuleResponse {
@@ -996,15 +690,6 @@ export interface DescribeSafetyRuleResponse {
    * <p>The gating rule in the response.</p>
    */
   GatingRule?: GatingRule;
-}
-
-export namespace DescribeSafetyRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSafetyRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1027,15 +712,6 @@ export interface GatingRuleUpdate {
   WaitPeriodMs: number | undefined;
 }
 
-export namespace GatingRuleUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GatingRuleUpdate): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssociatedRoute53HealthChecksRequest {
   /**
    * <p>The number of objects that you want to return with this call.</p>
@@ -1053,15 +729,6 @@ export interface ListAssociatedRoute53HealthChecksRequest {
   RoutingControlArn: string | undefined;
 }
 
-export namespace ListAssociatedRoute53HealthChecksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedRoute53HealthChecksRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssociatedRoute53HealthChecksResponse {
   /**
    * <p>Identifiers for the health checks.</p>
@@ -1072,15 +739,6 @@ export interface ListAssociatedRoute53HealthChecksResponse {
    * <p>Next token for listing health checks.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAssociatedRoute53HealthChecksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedRoute53HealthChecksResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListClustersRequest {
@@ -1095,15 +753,6 @@ export interface ListClustersRequest {
   NextToken?: string;
 }
 
-export namespace ListClustersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClustersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListClustersResponse {
   /**
    * <p>An array of the clusters in an account.</p>
@@ -1114,15 +763,6 @@ export interface ListClustersResponse {
    * <p>The token that identifies which batch of results you want to see.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListClustersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClustersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListControlPanelsRequest {
@@ -1142,15 +782,6 @@ export interface ListControlPanelsRequest {
   NextToken?: string;
 }
 
-export namespace ListControlPanelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListControlPanelsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListControlPanelsResponse {
   /**
    * <p>The result of a successful ListControlPanel request.</p>
@@ -1161,15 +792,6 @@ export interface ListControlPanelsResponse {
    * <p>The token that identifies which batch of results you want to see.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListControlPanelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListControlPanelsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRoutingControlsRequest {
@@ -1189,15 +811,6 @@ export interface ListRoutingControlsRequest {
   NextToken?: string;
 }
 
-export namespace ListRoutingControlsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRoutingControlsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRoutingControlsResponse {
   /**
    * <p>The token that identifies which batch of results you want to see.</p>
@@ -1208,15 +821,6 @@ export interface ListRoutingControlsResponse {
    * <p>An array of routing controls.</p>
    */
   RoutingControls?: RoutingControl[];
-}
-
-export namespace ListRoutingControlsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRoutingControlsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSafetyRulesRequest {
@@ -1236,15 +840,6 @@ export interface ListSafetyRulesRequest {
   NextToken?: string;
 }
 
-export namespace ListSafetyRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSafetyRulesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSafetyRulesResponse {
   /**
    * <p>The token that identifies which batch of results you want to see.</p>
@@ -1257,15 +852,6 @@ export interface ListSafetyRulesResponse {
   SafetyRules?: Rule[];
 }
 
-export namespace ListSafetyRulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSafetyRulesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the resource that's tagged.</p>
@@ -1273,29 +859,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with the resource.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1313,25 +881,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1345,25 +895,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The details of the control panel that you're updating.</p>
@@ -1380,29 +912,11 @@ export interface UpdateControlPanelRequest {
   ControlPanelName: string | undefined;
 }
 
-export namespace UpdateControlPanelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateControlPanelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateControlPanelResponse {
   /**
    * <p>The control panel to update.</p>
    */
   ControlPanel?: ControlPanel;
-}
-
-export namespace UpdateControlPanelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateControlPanelResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1420,29 +934,11 @@ export interface UpdateRoutingControlRequest {
   RoutingControlName: string | undefined;
 }
 
-export namespace UpdateRoutingControlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRoutingControlRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRoutingControlResponse {
   /**
    * <p>The routing control that was updated.</p>
    */
   RoutingControl?: RoutingControl;
-}
-
-export namespace UpdateRoutingControlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRoutingControlResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1460,15 +956,6 @@ export interface UpdateSafetyRuleRequest {
   GatingRuleUpdate?: GatingRuleUpdate;
 }
 
-export namespace UpdateSafetyRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSafetyRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSafetyRuleResponse {
   /**
    * <p>The assertion rule updated.</p>
@@ -1481,11 +968,412 @@ export interface UpdateSafetyRuleResponse {
   GatingRule?: GatingRule;
 }
 
-export namespace UpdateSafetyRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSafetyRuleResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ClusterEndpointFilterSensitiveLog = (obj: ClusterEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterFilterSensitiveLog = (obj: Cluster): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ControlPanelFilterSensitiveLog = (obj: ControlPanel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoutingControlFilterSensitiveLog = (obj: RoutingControl): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleConfigFilterSensitiveLog = (obj: RuleConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssertionRuleFilterSensitiveLog = (obj: AssertionRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GatingRuleFilterSensitiveLog = (obj: GatingRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleFilterSensitiveLog = (obj: Rule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssertionRuleUpdateFilterSensitiveLog = (obj: AssertionRuleUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterRequestFilterSensitiveLog = (obj: CreateClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterResponseFilterSensitiveLog = (obj: CreateClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateControlPanelRequestFilterSensitiveLog = (obj: CreateControlPanelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateControlPanelResponseFilterSensitiveLog = (obj: CreateControlPanelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRoutingControlRequestFilterSensitiveLog = (obj: CreateRoutingControlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRoutingControlResponseFilterSensitiveLog = (obj: CreateRoutingControlResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NewAssertionRuleFilterSensitiveLog = (obj: NewAssertionRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NewGatingRuleFilterSensitiveLog = (obj: NewGatingRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSafetyRuleRequestFilterSensitiveLog = (obj: CreateSafetyRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSafetyRuleResponseFilterSensitiveLog = (obj: CreateSafetyRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteClusterRequestFilterSensitiveLog = (obj: DeleteClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteClusterResponseFilterSensitiveLog = (obj: DeleteClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteControlPanelRequestFilterSensitiveLog = (obj: DeleteControlPanelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteControlPanelResponseFilterSensitiveLog = (obj: DeleteControlPanelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRoutingControlRequestFilterSensitiveLog = (obj: DeleteRoutingControlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRoutingControlResponseFilterSensitiveLog = (obj: DeleteRoutingControlResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSafetyRuleRequestFilterSensitiveLog = (obj: DeleteSafetyRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSafetyRuleResponseFilterSensitiveLog = (obj: DeleteSafetyRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClusterRequestFilterSensitiveLog = (obj: DescribeClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClusterResponseFilterSensitiveLog = (obj: DescribeClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeControlPanelRequestFilterSensitiveLog = (obj: DescribeControlPanelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeControlPanelResponseFilterSensitiveLog = (obj: DescribeControlPanelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRoutingControlRequestFilterSensitiveLog = (obj: DescribeRoutingControlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRoutingControlResponseFilterSensitiveLog = (obj: DescribeRoutingControlResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSafetyRuleRequestFilterSensitiveLog = (obj: DescribeSafetyRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSafetyRuleResponseFilterSensitiveLog = (obj: DescribeSafetyRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GatingRuleUpdateFilterSensitiveLog = (obj: GatingRuleUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociatedRoute53HealthChecksRequestFilterSensitiveLog = (
+  obj: ListAssociatedRoute53HealthChecksRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociatedRoute53HealthChecksResponseFilterSensitiveLog = (
+  obj: ListAssociatedRoute53HealthChecksResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClustersRequestFilterSensitiveLog = (obj: ListClustersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClustersResponseFilterSensitiveLog = (obj: ListClustersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListControlPanelsRequestFilterSensitiveLog = (obj: ListControlPanelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListControlPanelsResponseFilterSensitiveLog = (obj: ListControlPanelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRoutingControlsRequestFilterSensitiveLog = (obj: ListRoutingControlsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRoutingControlsResponseFilterSensitiveLog = (obj: ListRoutingControlsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSafetyRulesRequestFilterSensitiveLog = (obj: ListSafetyRulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSafetyRulesResponseFilterSensitiveLog = (obj: ListSafetyRulesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateControlPanelRequestFilterSensitiveLog = (obj: UpdateControlPanelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateControlPanelResponseFilterSensitiveLog = (obj: UpdateControlPanelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRoutingControlRequestFilterSensitiveLog = (obj: UpdateRoutingControlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRoutingControlResponseFilterSensitiveLog = (obj: UpdateRoutingControlResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSafetyRuleRequestFilterSensitiveLog = (obj: UpdateSafetyRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSafetyRuleResponseFilterSensitiveLog = (obj: UpdateSafetyRuleResponse): any => ({
+  ...obj,
+});

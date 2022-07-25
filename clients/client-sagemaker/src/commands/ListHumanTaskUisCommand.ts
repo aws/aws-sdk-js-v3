@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListHumanTaskUisRequest, ListHumanTaskUisResponse } from "../models/models_2";
+import {
+  ListHumanTaskUisRequest,
+  ListHumanTaskUisRequestFilterSensitiveLog,
+  ListHumanTaskUisResponse,
+  ListHumanTaskUisResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1ListHumanTaskUisCommand,
   serializeAws_json1_1ListHumanTaskUisCommand,
@@ -72,8 +77,8 @@ export class ListHumanTaskUisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHumanTaskUisRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListHumanTaskUisResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHumanTaskUisRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListHumanTaskUisResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

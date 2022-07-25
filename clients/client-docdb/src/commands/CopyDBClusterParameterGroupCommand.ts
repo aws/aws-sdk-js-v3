@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { CopyDBClusterParameterGroupMessage, CopyDBClusterParameterGroupResult } from "../models/models_0";
+import {
+  CopyDBClusterParameterGroupMessage,
+  CopyDBClusterParameterGroupMessageFilterSensitiveLog,
+  CopyDBClusterParameterGroupResult,
+  CopyDBClusterParameterGroupResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCopyDBClusterParameterGroupCommand,
   serializeAws_queryCopyDBClusterParameterGroupCommand,
@@ -72,8 +77,8 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyDBClusterParameterGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CopyDBClusterParameterGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CopyDBClusterParameterGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CopyDBClusterParameterGroupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

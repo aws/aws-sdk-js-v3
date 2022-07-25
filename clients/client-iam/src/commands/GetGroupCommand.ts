@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetGroupRequest, GetGroupResponse } from "../models/models_0";
+import {
+  GetGroupRequest,
+  GetGroupRequestFilterSensitiveLog,
+  GetGroupResponse,
+  GetGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryGetGroupCommand, serializeAws_queryGetGroupCommand } from "../protocols/Aws_query";
 
 export interface GetGroupCommandInput extends GetGroupRequest {}
@@ -66,8 +71,8 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

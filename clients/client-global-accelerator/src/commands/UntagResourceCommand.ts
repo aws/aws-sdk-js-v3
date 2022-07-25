@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
+import {
+  UntagResourceRequest,
+  UntagResourceRequestFilterSensitiveLog,
+  UntagResourceResponse,
+  UntagResourceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UntagResourceCommand,
   serializeAws_json1_1UntagResourceCommand,
@@ -79,8 +84,8 @@ export class UntagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UntagResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UntagResourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

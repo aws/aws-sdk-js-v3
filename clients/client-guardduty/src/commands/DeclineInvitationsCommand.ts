@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { DeclineInvitationsRequest, DeclineInvitationsResponse } from "../models/models_0";
+import {
+  DeclineInvitationsRequest,
+  DeclineInvitationsRequestFilterSensitiveLog,
+  DeclineInvitationsResponse,
+  DeclineInvitationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeclineInvitationsCommand,
   serializeAws_restJson1DeclineInvitationsCommand,
@@ -73,8 +78,8 @@ export class DeclineInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeclineInvitationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeclineInvitationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeclineInvitationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeclineInvitationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

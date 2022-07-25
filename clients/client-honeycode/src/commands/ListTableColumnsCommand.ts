@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
-import { ListTableColumnsRequest, ListTableColumnsResult } from "../models/models_0";
+import {
+  ListTableColumnsRequest,
+  ListTableColumnsRequestFilterSensitiveLog,
+  ListTableColumnsResult,
+  ListTableColumnsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListTableColumnsCommand,
   serializeAws_restJson1ListTableColumnsCommand,
@@ -74,8 +79,8 @@ export class ListTableColumnsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTableColumnsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTableColumnsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTableColumnsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTableColumnsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

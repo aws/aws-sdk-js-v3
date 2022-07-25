@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateDeviceMetadataRequest, UpdateDeviceMetadataResponse } from "../models/models_0";
+import {
+  UpdateDeviceMetadataRequest,
+  UpdateDeviceMetadataRequestFilterSensitiveLog,
+  UpdateDeviceMetadataResponse,
+  UpdateDeviceMetadataResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
   deserializeAws_restJson1UpdateDeviceMetadataCommand,
@@ -72,8 +77,8 @@ export class UpdateDeviceMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDeviceMetadataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDeviceMetadataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDeviceMetadataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDeviceMetadataResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

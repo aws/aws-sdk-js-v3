@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { DescribeQueryRequest, DescribeQueryResponse } from "../models/models_0";
+import {
+  DescribeQueryRequest,
+  DescribeQueryRequestFilterSensitiveLog,
+  DescribeQueryResponse,
+  DescribeQueryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeQueryCommand,
   serializeAws_json1_1DescribeQueryCommand,
@@ -73,8 +78,8 @@ export class DescribeQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeQueryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeQueryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeQueryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeQueryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

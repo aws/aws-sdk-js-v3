@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { RevokeGrantRequest } from "../models/models_0";
+import { RevokeGrantRequest, RevokeGrantRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1RevokeGrantCommand,
   serializeAws_json1_1RevokeGrantCommand,
@@ -115,7 +115,7 @@ export class RevokeGrantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeGrantRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokeGrantRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

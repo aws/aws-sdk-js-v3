@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { NestedStructuresInput } from "../models/models_0";
+import { NestedStructuresInput, NestedStructuresInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryNestedStructuresCommand,
   serializeAws_queryNestedStructuresCommand,
@@ -72,7 +72,7 @@ export class NestedStructuresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NestedStructuresInput.filterSensitiveLog,
+      inputFilterSensitiveLog: NestedStructuresInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

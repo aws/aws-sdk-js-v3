@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
-import { PutAlternateContactRequest } from "../models/models_0";
+import { PutAlternateContactRequest, PutAlternateContactRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1PutAlternateContactCommand,
   serializeAws_restJson1PutAlternateContactCommand,
@@ -80,7 +80,7 @@ export class PutAlternateContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAlternateContactRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAlternateContactRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

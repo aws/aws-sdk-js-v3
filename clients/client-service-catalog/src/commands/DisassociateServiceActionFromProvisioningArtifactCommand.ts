@@ -14,7 +14,9 @@ import {
 
 import {
   DisassociateServiceActionFromProvisioningArtifactInput,
+  DisassociateServiceActionFromProvisioningArtifactInputFilterSensitiveLog,
   DisassociateServiceActionFromProvisioningArtifactOutput,
+  DisassociateServiceActionFromProvisioningArtifactOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand,
@@ -81,8 +83,8 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateServiceActionFromProvisioningArtifactInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateServiceActionFromProvisioningArtifactOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateServiceActionFromProvisioningArtifactInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateServiceActionFromProvisioningArtifactOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

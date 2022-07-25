@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateCrossAccountAuthorizationRequest, CreateCrossAccountAuthorizationResponse } from "../models/models_0";
+import {
+  CreateCrossAccountAuthorizationRequest,
+  CreateCrossAccountAuthorizationRequestFilterSensitiveLog,
+  CreateCrossAccountAuthorizationResponse,
+  CreateCrossAccountAuthorizationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateCrossAccountAuthorizationCommand,
   serializeAws_restJson1CreateCrossAccountAuthorizationCommand,
@@ -78,8 +83,8 @@ export class CreateCrossAccountAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCrossAccountAuthorizationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateCrossAccountAuthorizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCrossAccountAuthorizationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateCrossAccountAuthorizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

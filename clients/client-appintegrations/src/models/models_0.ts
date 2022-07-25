@@ -44,15 +44,6 @@ export interface ScheduleConfiguration {
   ScheduleExpression?: string;
 }
 
-export namespace ScheduleConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDataIntegrationRequest {
   /**
    * <p>The name of the DataIntegration.</p>
@@ -89,15 +80,6 @@ export interface CreateDataIntegrationRequest {
    *             request.</p>
    */
   ClientToken?: string;
-}
-
-export namespace CreateDataIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataIntegrationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDataIntegrationResponse {
@@ -146,15 +128,6 @@ export interface CreateDataIntegrationResponse {
    *             request.</p>
    */
   ClientToken?: string;
-}
-
-export namespace CreateDataIntegrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataIntegrationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -272,15 +245,6 @@ export interface EventFilter {
   Source: string | undefined;
 }
 
-export namespace EventFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateEventIntegrationRequest {
   /**
    * <p>The name of the event integration.</p>
@@ -314,29 +278,11 @@ export interface CreateEventIntegrationRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateEventIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEventIntegrationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateEventIntegrationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the event integration. </p>
    */
   EventIntegrationArn?: string;
-}
-
-export namespace CreateEventIntegrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEventIntegrationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDataIntegrationRequest {
@@ -346,25 +292,7 @@ export interface DeleteDataIntegrationRequest {
   DataIntegrationIdentifier: string | undefined;
 }
 
-export namespace DeleteDataIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataIntegrationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDataIntegrationResponse {}
-
-export namespace DeleteDataIntegrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataIntegrationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The specified resource was not found.</p>
@@ -394,40 +322,13 @@ export interface DeleteEventIntegrationRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteEventIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEventIntegrationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEventIntegrationResponse {}
-
-export namespace DeleteEventIntegrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEventIntegrationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetDataIntegrationRequest {
   /**
    * <p>A unique identifier.</p>
    */
   Identifier: string | undefined;
-}
-
-export namespace GetDataIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataIntegrationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDataIntegrationResponse {
@@ -472,29 +373,11 @@ export interface GetDataIntegrationResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace GetDataIntegrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataIntegrationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEventIntegrationRequest {
   /**
    * <p>The name of the event integration. </p>
    */
   Name: string | undefined;
-}
-
-export namespace GetEventIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEventIntegrationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEventIntegrationResponse {
@@ -529,15 +412,6 @@ export interface GetEventIntegrationResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace GetEventIntegrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEventIntegrationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDataIntegrationAssociationsRequest {
   /**
    * <p>A unique identifier for the DataIntegration.</p>
@@ -554,15 +428,6 @@ export interface ListDataIntegrationAssociationsRequest {
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListDataIntegrationAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataIntegrationAssociationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -586,15 +451,6 @@ export interface DataIntegrationAssociationSummary {
   ClientId?: string;
 }
 
-export namespace DataIntegrationAssociationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataIntegrationAssociationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDataIntegrationAssociationsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) and unique ID of the DataIntegration association.</p>
@@ -605,15 +461,6 @@ export interface ListDataIntegrationAssociationsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDataIntegrationAssociationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataIntegrationAssociationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDataIntegrationsRequest {
@@ -627,15 +474,6 @@ export interface ListDataIntegrationsRequest {
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListDataIntegrationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataIntegrationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -658,15 +496,6 @@ export interface DataIntegrationSummary {
   SourceURI?: string;
 }
 
-export namespace DataIntegrationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataIntegrationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDataIntegrationsResponse {
   /**
    * <p>The DataIntegrations associated with this account.</p>
@@ -677,15 +506,6 @@ export interface ListDataIntegrationsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDataIntegrationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataIntegrationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEventIntegrationAssociationsRequest {
@@ -704,15 +524,6 @@ export interface ListEventIntegrationAssociationsRequest {
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListEventIntegrationAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventIntegrationAssociationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -750,15 +561,6 @@ export interface EventIntegrationAssociation {
   ClientAssociationMetadata?: Record<string, string>;
 }
 
-export namespace EventIntegrationAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventIntegrationAssociation): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEventIntegrationAssociationsResponse {
   /**
    * <p>The event integration associations.</p>
@@ -769,15 +571,6 @@ export interface ListEventIntegrationAssociationsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListEventIntegrationAssociationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventIntegrationAssociationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEventIntegrationsRequest {
@@ -791,15 +584,6 @@ export interface ListEventIntegrationsRequest {
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListEventIntegrationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventIntegrationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -837,15 +621,6 @@ export interface EventIntegration {
   Tags?: Record<string, string>;
 }
 
-export namespace EventIntegration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventIntegration): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEventIntegrationsResponse {
   /**
    * <p>The event integrations.</p>
@@ -858,15 +633,6 @@ export interface ListEventIntegrationsResponse {
   NextToken?: string;
 }
 
-export namespace ListEventIntegrationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventIntegrationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. </p>
@@ -874,29 +640,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -911,25 +659,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -943,25 +673,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDataIntegrationRequest {
   /**
@@ -980,25 +692,7 @@ export interface UpdateDataIntegrationRequest {
   Description?: string;
 }
 
-export namespace UpdateDataIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataIntegrationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDataIntegrationResponse {}
-
-export namespace UpdateDataIntegrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataIntegrationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateEventIntegrationRequest {
   /**
@@ -1012,22 +706,264 @@ export interface UpdateEventIntegrationRequest {
   Description?: string;
 }
 
-export namespace UpdateEventIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEventIntegrationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEventIntegrationResponse {}
 
-export namespace UpdateEventIntegrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEventIntegrationResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ScheduleConfigurationFilterSensitiveLog = (obj: ScheduleConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataIntegrationRequestFilterSensitiveLog = (obj: CreateDataIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataIntegrationResponseFilterSensitiveLog = (obj: CreateDataIntegrationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventFilterFilterSensitiveLog = (obj: EventFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEventIntegrationRequestFilterSensitiveLog = (obj: CreateEventIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEventIntegrationResponseFilterSensitiveLog = (obj: CreateEventIntegrationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDataIntegrationRequestFilterSensitiveLog = (obj: DeleteDataIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDataIntegrationResponseFilterSensitiveLog = (obj: DeleteDataIntegrationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEventIntegrationRequestFilterSensitiveLog = (obj: DeleteEventIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEventIntegrationResponseFilterSensitiveLog = (obj: DeleteEventIntegrationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataIntegrationRequestFilterSensitiveLog = (obj: GetDataIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataIntegrationResponseFilterSensitiveLog = (obj: GetDataIntegrationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEventIntegrationRequestFilterSensitiveLog = (obj: GetEventIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEventIntegrationResponseFilterSensitiveLog = (obj: GetEventIntegrationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataIntegrationAssociationsRequestFilterSensitiveLog = (
+  obj: ListDataIntegrationAssociationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataIntegrationAssociationSummaryFilterSensitiveLog = (obj: DataIntegrationAssociationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataIntegrationAssociationsResponseFilterSensitiveLog = (
+  obj: ListDataIntegrationAssociationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataIntegrationsRequestFilterSensitiveLog = (obj: ListDataIntegrationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataIntegrationSummaryFilterSensitiveLog = (obj: DataIntegrationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataIntegrationsResponseFilterSensitiveLog = (obj: ListDataIntegrationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventIntegrationAssociationsRequestFilterSensitiveLog = (
+  obj: ListEventIntegrationAssociationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventIntegrationAssociationFilterSensitiveLog = (obj: EventIntegrationAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventIntegrationAssociationsResponseFilterSensitiveLog = (
+  obj: ListEventIntegrationAssociationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventIntegrationsRequestFilterSensitiveLog = (obj: ListEventIntegrationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventIntegrationFilterSensitiveLog = (obj: EventIntegration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventIntegrationsResponseFilterSensitiveLog = (obj: ListEventIntegrationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataIntegrationRequestFilterSensitiveLog = (obj: UpdateDataIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataIntegrationResponseFilterSensitiveLog = (obj: UpdateDataIntegrationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEventIntegrationRequestFilterSensitiveLog = (obj: UpdateEventIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEventIntegrationResponseFilterSensitiveLog = (obj: UpdateEventIntegrationResponse): any => ({
+  ...obj,
+});

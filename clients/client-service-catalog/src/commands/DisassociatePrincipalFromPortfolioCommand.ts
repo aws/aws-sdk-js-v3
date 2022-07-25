@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociatePrincipalFromPortfolioInput, DisassociatePrincipalFromPortfolioOutput } from "../models/models_0";
+import {
+  DisassociatePrincipalFromPortfolioInput,
+  DisassociatePrincipalFromPortfolioInputFilterSensitiveLog,
+  DisassociatePrincipalFromPortfolioOutput,
+  DisassociatePrincipalFromPortfolioOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommand,
   serializeAws_json1_1DisassociatePrincipalFromPortfolioCommand,
@@ -75,8 +80,8 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociatePrincipalFromPortfolioInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociatePrincipalFromPortfolioOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociatePrincipalFromPortfolioInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociatePrincipalFromPortfolioOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

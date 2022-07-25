@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { PutImageScanningConfigurationRequest, PutImageScanningConfigurationResponse } from "../models/models_0";
+import {
+  PutImageScanningConfigurationRequest,
+  PutImageScanningConfigurationRequestFilterSensitiveLog,
+  PutImageScanningConfigurationResponse,
+  PutImageScanningConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutImageScanningConfigurationCommand,
   serializeAws_json1_1PutImageScanningConfigurationCommand,
@@ -79,8 +84,8 @@ export class PutImageScanningConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutImageScanningConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutImageScanningConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutImageScanningConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutImageScanningConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

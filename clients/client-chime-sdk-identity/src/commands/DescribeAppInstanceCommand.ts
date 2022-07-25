@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
-import { DescribeAppInstanceRequest, DescribeAppInstanceResponse } from "../models/models_0";
+import {
+  DescribeAppInstanceRequest,
+  DescribeAppInstanceRequestFilterSensitiveLog,
+  DescribeAppInstanceResponse,
+  DescribeAppInstanceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAppInstanceCommand,
   serializeAws_restJson1DescribeAppInstanceCommand,
@@ -72,8 +77,8 @@ export class DescribeAppInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAppInstanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAppInstanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAppInstanceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAppInstanceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

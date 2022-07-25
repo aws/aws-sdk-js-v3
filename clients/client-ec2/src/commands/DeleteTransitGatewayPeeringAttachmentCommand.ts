@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteTransitGatewayPeeringAttachmentRequest,
+  DeleteTransitGatewayPeeringAttachmentRequestFilterSensitiveLog,
   DeleteTransitGatewayPeeringAttachmentResult,
+  DeleteTransitGatewayPeeringAttachmentResultFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand,
@@ -78,8 +80,8 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTransitGatewayPeeringAttachmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTransitGatewayPeeringAttachmentResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTransitGatewayPeeringAttachmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTransitGatewayPeeringAttachmentResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

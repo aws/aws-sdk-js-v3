@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { CreateDomainNameRequest, DomainName } from "../models/models_0";
+import {
+  CreateDomainNameRequest,
+  CreateDomainNameRequestFilterSensitiveLog,
+  DomainName,
+  DomainNameFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDomainNameCommand,
   serializeAws_restJson1CreateDomainNameCommand,
@@ -72,8 +77,8 @@ export class CreateDomainNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDomainNameRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DomainName.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDomainNameRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DomainNameFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

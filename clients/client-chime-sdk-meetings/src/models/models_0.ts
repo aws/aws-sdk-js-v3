@@ -51,15 +51,6 @@ export interface AttendeeCapabilities {
   Content: MediaCapabilities | string | undefined;
 }
 
-export namespace AttendeeCapabilities {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttendeeCapabilities): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An Amazon Chime SDK meeting attendee. Includes a unique
  *            <code>AttendeeId</code> and <code>JoinToken</code>. The
@@ -118,17 +109,6 @@ export interface Attendee {
   Capabilities?: AttendeeCapabilities;
 }
 
-export namespace Attendee {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Attendee): any => ({
-    ...obj,
-    ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
-    ...(obj.JoinToken && { JoinToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>A structure that contains one or more attendee IDs.</p>
  */
@@ -137,15 +117,6 @@ export interface AttendeeIdItem {
    * <p>A list of one or more attendee IDs.</p>
    */
   AttendeeId: string | undefined;
-}
-
-export namespace AttendeeIdItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttendeeIdItem): any => ({
-    ...obj,
-  });
 }
 
 export enum MeetingFeatureStatus {
@@ -161,15 +132,6 @@ export interface AudioFeatures {
    * <p>Makes echo reduction available to clients who connect to the meeting.</p>
    */
   EchoReduction?: MeetingFeatureStatus | string;
-}
-
-export namespace AudioFeatures {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioFeatures): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -215,16 +177,6 @@ export interface CreateAttendeeRequestItem {
   Capabilities?: AttendeeCapabilities;
 }
 
-export namespace CreateAttendeeRequestItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAttendeeRequestItem): any => ({
-    ...obj,
-    ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
-  });
-}
-
 export interface BatchCreateAttendeeRequest {
   /**
    * <p>The Amazon Chime SDK ID of the meeting to which you're adding attendees.</p>
@@ -235,18 +187,6 @@ export interface BatchCreateAttendeeRequest {
    * <p>The attendee information, including attendees' IDs and join tokens.</p>
    */
   Attendees: CreateAttendeeRequestItem[] | undefined;
-}
-
-export namespace BatchCreateAttendeeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCreateAttendeeRequest): any => ({
-    ...obj,
-    ...(obj.Attendees && {
-      Attendees: obj.Attendees.map((item) => CreateAttendeeRequestItem.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 /**
@@ -269,16 +209,6 @@ export interface CreateAttendeeError {
   ErrorMessage?: string;
 }
 
-export namespace CreateAttendeeError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAttendeeError): any => ({
-    ...obj,
-    ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
-  });
-}
-
 export interface BatchCreateAttendeeResponse {
   /**
    * <p>The attendee information, including attendees' IDs and join tokens.</p>
@@ -289,17 +219,6 @@ export interface BatchCreateAttendeeResponse {
    * <p>If the action fails for one or more of the attendees in the request, a list of the attendees is returned, along with error codes and error messages.</p>
    */
   Errors?: CreateAttendeeError[];
-}
-
-export namespace BatchCreateAttendeeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCreateAttendeeResponse): any => ({
-    ...obj,
-    ...(obj.Attendees && { Attendees: obj.Attendees.map((item) => Attendee.filterSensitiveLog(item)) }),
-    ...(obj.Errors && { Errors: obj.Errors.map((item) => CreateAttendeeError.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -543,15 +462,6 @@ export interface BatchUpdateAttendeeCapabilitiesExceptRequest {
   Capabilities: AttendeeCapabilities | undefined;
 }
 
-export namespace BatchUpdateAttendeeCapabilitiesExceptRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateAttendeeCapabilitiesExceptRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Multiple instances of the same request have been made simultaneously.</p>
  */
@@ -617,31 +527,11 @@ export interface CreateAttendeeRequest {
   Capabilities?: AttendeeCapabilities;
 }
 
-export namespace CreateAttendeeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAttendeeRequest): any => ({
-    ...obj,
-    ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateAttendeeResponse {
   /**
    * <p>The attendee information, including attendee ID and join token.</p>
    */
   Attendee?: Attendee;
-}
-
-export namespace CreateAttendeeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAttendeeResponse): any => ({
-    ...obj,
-    ...(obj.Attendee && { Attendee: Attendee.filterSensitiveLog(obj.Attendee) }),
-  });
 }
 
 /**
@@ -652,15 +542,6 @@ export interface MeetingFeaturesConfiguration {
    * <p>The configuration settings for the audio features available to a meeting. </p>
    */
   Audio?: AudioFeatures;
-}
-
-export namespace MeetingFeaturesConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MeetingFeaturesConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -681,18 +562,6 @@ export interface NotificationsConfiguration {
    * <p>The ARN of the SQS queue.</p>
    */
   SqsQueueArn?: string;
-}
-
-export namespace NotificationsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationsConfiguration): any => ({
-    ...obj,
-    ...(obj.LambdaFunctionArn && { LambdaFunctionArn: SENSITIVE_STRING }),
-    ...(obj.SnsTopicArn && { SnsTopicArn: SENSITIVE_STRING }),
-    ...(obj.SqsQueueArn && { SqsQueueArn: SENSITIVE_STRING }),
-  });
 }
 
 export interface CreateMeetingRequest {
@@ -760,21 +629,6 @@ export interface CreateMeetingRequest {
   TenantIds?: string[];
 }
 
-export namespace CreateMeetingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMeetingRequest): any => ({
-    ...obj,
-    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
-    ...(obj.MeetingHostId && { MeetingHostId: SENSITIVE_STRING }),
-    ...(obj.ExternalMeetingId && { ExternalMeetingId: SENSITIVE_STRING }),
-    ...(obj.NotificationsConfiguration && {
-      NotificationsConfiguration: NotificationsConfiguration.filterSensitiveLog(obj.NotificationsConfiguration),
-    }),
-  });
-}
-
 /**
  * <p>A set of endpoints used by clients to connect to the media service group for an Amazon Chime SDK meeting.</p>
  */
@@ -818,15 +672,6 @@ export interface MediaPlacement {
    * <p>The event ingestion URL.</p>
    */
   EventIngestionUrl?: string;
-}
-
-export namespace MediaPlacement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaPlacement): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -880,33 +725,12 @@ export interface Meeting {
   TenantIds?: string[];
 }
 
-export namespace Meeting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Meeting): any => ({
-    ...obj,
-    ...(obj.MeetingHostId && { MeetingHostId: SENSITIVE_STRING }),
-    ...(obj.ExternalMeetingId && { ExternalMeetingId: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateMeetingResponse {
   /**
    * <p>The meeting information, including the meeting ID and
    *            <code>MediaPlacement</code>.</p>
    */
   Meeting?: Meeting;
-}
-
-export namespace CreateMeetingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMeetingResponse): any => ({
-    ...obj,
-    ...(obj.Meeting && { Meeting: Meeting.filterSensitiveLog(obj.Meeting) }),
-  });
 }
 
 export interface CreateMeetingWithAttendeesRequest {
@@ -979,24 +803,6 @@ export interface CreateMeetingWithAttendeesRequest {
   TenantIds?: string[];
 }
 
-export namespace CreateMeetingWithAttendeesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMeetingWithAttendeesRequest): any => ({
-    ...obj,
-    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
-    ...(obj.MeetingHostId && { MeetingHostId: SENSITIVE_STRING }),
-    ...(obj.ExternalMeetingId && { ExternalMeetingId: SENSITIVE_STRING }),
-    ...(obj.NotificationsConfiguration && {
-      NotificationsConfiguration: NotificationsConfiguration.filterSensitiveLog(obj.NotificationsConfiguration),
-    }),
-    ...(obj.Attendees && {
-      Attendees: obj.Attendees.map((item) => CreateAttendeeRequestItem.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface CreateMeetingWithAttendeesResponse {
   /**
    * <p>The meeting information, including the meeting ID and
@@ -1015,18 +821,6 @@ export interface CreateMeetingWithAttendeesResponse {
   Errors?: CreateAttendeeError[];
 }
 
-export namespace CreateMeetingWithAttendeesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMeetingWithAttendeesResponse): any => ({
-    ...obj,
-    ...(obj.Meeting && { Meeting: Meeting.filterSensitiveLog(obj.Meeting) }),
-    ...(obj.Attendees && { Attendees: obj.Attendees.map((item) => Attendee.filterSensitiveLog(item)) }),
-    ...(obj.Errors && { Errors: obj.Errors.map((item) => CreateAttendeeError.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface DeleteAttendeeRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
@@ -1039,29 +833,11 @@ export interface DeleteAttendeeRequest {
   AttendeeId: string | undefined;
 }
 
-export namespace DeleteAttendeeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAttendeeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteMeetingRequest {
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
    */
   MeetingId: string | undefined;
-}
-
-export namespace DeleteMeetingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMeetingRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAttendeeRequest {
@@ -1076,30 +852,11 @@ export interface GetAttendeeRequest {
   AttendeeId: string | undefined;
 }
 
-export namespace GetAttendeeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAttendeeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAttendeeResponse {
   /**
    * <p>The Amazon Chime SDK attendee information.</p>
    */
   Attendee?: Attendee;
-}
-
-export namespace GetAttendeeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAttendeeResponse): any => ({
-    ...obj,
-    ...(obj.Attendee && { Attendee: Attendee.filterSensitiveLog(obj.Attendee) }),
-  });
 }
 
 export interface GetMeetingRequest {
@@ -1109,30 +866,11 @@ export interface GetMeetingRequest {
   MeetingId: string | undefined;
 }
 
-export namespace GetMeetingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMeetingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMeetingResponse {
   /**
    * <p>The Amazon Chime SDK meeting information.</p>
    */
   Meeting?: Meeting;
-}
-
-export namespace GetMeetingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMeetingResponse): any => ({
-    ...obj,
-    ...(obj.Meeting && { Meeting: Meeting.filterSensitiveLog(obj.Meeting) }),
-  });
 }
 
 export interface ListAttendeesRequest {
@@ -1152,15 +890,6 @@ export interface ListAttendeesRequest {
   MaxResults?: number;
 }
 
-export namespace ListAttendeesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAttendeesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAttendeesResponse {
   /**
    * <p>The Amazon Chime SDK attendee information.</p>
@@ -1171,16 +900,6 @@ export interface ListAttendeesResponse {
    * <p>The token to use to retrieve the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAttendeesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAttendeesResponse): any => ({
-    ...obj,
-    ...(obj.Attendees && { Attendees: obj.Attendees.map((item) => Attendee.filterSensitiveLog(item)) }),
-  });
 }
 
 export enum TranscribeMedicalContentIdentificationType {
@@ -1248,15 +967,6 @@ export interface EngineTranscribeMedicalSettings {
    * <p>Set this field to <code>PHI</code> to identify personal health information in the transcription output.</p>
    */
   ContentIdentificationType?: TranscribeMedicalContentIdentificationType | string;
-}
-
-export namespace EngineTranscribeMedicalSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EngineTranscribeMedicalSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum TranscribeContentIdentificationType {
@@ -1395,15 +1105,6 @@ export interface EngineTranscribeSettings {
   PreferredLanguage?: TranscribeLanguageCode | string;
 }
 
-export namespace EngineTranscribeSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EngineTranscribeSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration for the current transcription operation. Must contain <code>EngineTranscribeSettings</code> or <code>EngineTranscribeMedicalSettings</code>.</p>
  */
@@ -1419,15 +1120,6 @@ export interface TranscriptionConfiguration {
   EngineTranscribeMedicalSettings?: EngineTranscribeMedicalSettings;
 }
 
-export namespace TranscriptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TranscriptionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface StartMeetingTranscriptionRequest {
   /**
    * <p>The unique ID of the meeting being transcribed.</p>
@@ -1441,29 +1133,11 @@ export interface StartMeetingTranscriptionRequest {
   TranscriptionConfiguration: TranscriptionConfiguration | undefined;
 }
 
-export namespace StartMeetingTranscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMeetingTranscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopMeetingTranscriptionRequest {
   /**
    * <p>The unique ID of the meeting for which you stop transcription.</p>
    */
   MeetingId: string | undefined;
-}
-
-export namespace StopMeetingTranscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopMeetingTranscriptionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAttendeeCapabilitiesRequest {
@@ -1483,15 +1157,6 @@ export interface UpdateAttendeeCapabilitiesRequest {
   Capabilities: AttendeeCapabilities | undefined;
 }
 
-export namespace UpdateAttendeeCapabilitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAttendeeCapabilitiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAttendeeCapabilitiesResponse {
   /**
    * <p>The updated attendee data.</p>
@@ -1499,12 +1164,277 @@ export interface UpdateAttendeeCapabilitiesResponse {
   Attendee?: Attendee;
 }
 
-export namespace UpdateAttendeeCapabilitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAttendeeCapabilitiesResponse): any => ({
-    ...obj,
-    ...(obj.Attendee && { Attendee: Attendee.filterSensitiveLog(obj.Attendee) }),
-  });
-}
+/**
+ * @internal
+ */
+export const AttendeeCapabilitiesFilterSensitiveLog = (obj: AttendeeCapabilities): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttendeeFilterSensitiveLog = (obj: Attendee): any => ({
+  ...obj,
+  ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
+  ...(obj.JoinToken && { JoinToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AttendeeIdItemFilterSensitiveLog = (obj: AttendeeIdItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioFeaturesFilterSensitiveLog = (obj: AudioFeatures): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAttendeeRequestItemFilterSensitiveLog = (obj: CreateAttendeeRequestItem): any => ({
+  ...obj,
+  ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateAttendeeRequestFilterSensitiveLog = (obj: BatchCreateAttendeeRequest): any => ({
+  ...obj,
+  ...(obj.Attendees && { Attendees: obj.Attendees.map((item) => CreateAttendeeRequestItemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAttendeeErrorFilterSensitiveLog = (obj: CreateAttendeeError): any => ({
+  ...obj,
+  ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateAttendeeResponseFilterSensitiveLog = (obj: BatchCreateAttendeeResponse): any => ({
+  ...obj,
+  ...(obj.Attendees && { Attendees: obj.Attendees.map((item) => AttendeeFilterSensitiveLog(item)) }),
+  ...(obj.Errors && { Errors: obj.Errors.map((item) => CreateAttendeeErrorFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateAttendeeCapabilitiesExceptRequestFilterSensitiveLog = (
+  obj: BatchUpdateAttendeeCapabilitiesExceptRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAttendeeRequestFilterSensitiveLog = (obj: CreateAttendeeRequest): any => ({
+  ...obj,
+  ...(obj.ExternalUserId && { ExternalUserId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAttendeeResponseFilterSensitiveLog = (obj: CreateAttendeeResponse): any => ({
+  ...obj,
+  ...(obj.Attendee && { Attendee: AttendeeFilterSensitiveLog(obj.Attendee) }),
+});
+
+/**
+ * @internal
+ */
+export const MeetingFeaturesConfigurationFilterSensitiveLog = (obj: MeetingFeaturesConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationsConfigurationFilterSensitiveLog = (obj: NotificationsConfiguration): any => ({
+  ...obj,
+  ...(obj.LambdaFunctionArn && { LambdaFunctionArn: SENSITIVE_STRING }),
+  ...(obj.SnsTopicArn && { SnsTopicArn: SENSITIVE_STRING }),
+  ...(obj.SqsQueueArn && { SqsQueueArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMeetingRequestFilterSensitiveLog = (obj: CreateMeetingRequest): any => ({
+  ...obj,
+  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+  ...(obj.MeetingHostId && { MeetingHostId: SENSITIVE_STRING }),
+  ...(obj.ExternalMeetingId && { ExternalMeetingId: SENSITIVE_STRING }),
+  ...(obj.NotificationsConfiguration && {
+    NotificationsConfiguration: NotificationsConfigurationFilterSensitiveLog(obj.NotificationsConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const MediaPlacementFilterSensitiveLog = (obj: MediaPlacement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MeetingFilterSensitiveLog = (obj: Meeting): any => ({
+  ...obj,
+  ...(obj.MeetingHostId && { MeetingHostId: SENSITIVE_STRING }),
+  ...(obj.ExternalMeetingId && { ExternalMeetingId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMeetingResponseFilterSensitiveLog = (obj: CreateMeetingResponse): any => ({
+  ...obj,
+  ...(obj.Meeting && { Meeting: MeetingFilterSensitiveLog(obj.Meeting) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMeetingWithAttendeesRequestFilterSensitiveLog = (obj: CreateMeetingWithAttendeesRequest): any => ({
+  ...obj,
+  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+  ...(obj.MeetingHostId && { MeetingHostId: SENSITIVE_STRING }),
+  ...(obj.ExternalMeetingId && { ExternalMeetingId: SENSITIVE_STRING }),
+  ...(obj.NotificationsConfiguration && {
+    NotificationsConfiguration: NotificationsConfigurationFilterSensitiveLog(obj.NotificationsConfiguration),
+  }),
+  ...(obj.Attendees && { Attendees: obj.Attendees.map((item) => CreateAttendeeRequestItemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMeetingWithAttendeesResponseFilterSensitiveLog = (obj: CreateMeetingWithAttendeesResponse): any => ({
+  ...obj,
+  ...(obj.Meeting && { Meeting: MeetingFilterSensitiveLog(obj.Meeting) }),
+  ...(obj.Attendees && { Attendees: obj.Attendees.map((item) => AttendeeFilterSensitiveLog(item)) }),
+  ...(obj.Errors && { Errors: obj.Errors.map((item) => CreateAttendeeErrorFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteAttendeeRequestFilterSensitiveLog = (obj: DeleteAttendeeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMeetingRequestFilterSensitiveLog = (obj: DeleteMeetingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAttendeeRequestFilterSensitiveLog = (obj: GetAttendeeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAttendeeResponseFilterSensitiveLog = (obj: GetAttendeeResponse): any => ({
+  ...obj,
+  ...(obj.Attendee && { Attendee: AttendeeFilterSensitiveLog(obj.Attendee) }),
+});
+
+/**
+ * @internal
+ */
+export const GetMeetingRequestFilterSensitiveLog = (obj: GetMeetingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMeetingResponseFilterSensitiveLog = (obj: GetMeetingResponse): any => ({
+  ...obj,
+  ...(obj.Meeting && { Meeting: MeetingFilterSensitiveLog(obj.Meeting) }),
+});
+
+/**
+ * @internal
+ */
+export const ListAttendeesRequestFilterSensitiveLog = (obj: ListAttendeesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAttendeesResponseFilterSensitiveLog = (obj: ListAttendeesResponse): any => ({
+  ...obj,
+  ...(obj.Attendees && { Attendees: obj.Attendees.map((item) => AttendeeFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const EngineTranscribeMedicalSettingsFilterSensitiveLog = (obj: EngineTranscribeMedicalSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EngineTranscribeSettingsFilterSensitiveLog = (obj: EngineTranscribeSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TranscriptionConfigurationFilterSensitiveLog = (obj: TranscriptionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMeetingTranscriptionRequestFilterSensitiveLog = (obj: StartMeetingTranscriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopMeetingTranscriptionRequestFilterSensitiveLog = (obj: StopMeetingTranscriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAttendeeCapabilitiesRequestFilterSensitiveLog = (obj: UpdateAttendeeCapabilitiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAttendeeCapabilitiesResponseFilterSensitiveLog = (obj: UpdateAttendeeCapabilitiesResponse): any => ({
+  ...obj,
+  ...(obj.Attendee && { Attendee: AttendeeFilterSensitiveLog(obj.Attendee) }),
+});

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListPhoneNumbersOptedOutInput, ListPhoneNumbersOptedOutResponse } from "../models/models_0";
+import {
+  ListPhoneNumbersOptedOutInput,
+  ListPhoneNumbersOptedOutInputFilterSensitiveLog,
+  ListPhoneNumbersOptedOutResponse,
+  ListPhoneNumbersOptedOutResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryListPhoneNumbersOptedOutCommand,
   serializeAws_queryListPhoneNumbersOptedOutCommand,
@@ -79,8 +84,8 @@ export class ListPhoneNumbersOptedOutCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPhoneNumbersOptedOutInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPhoneNumbersOptedOutResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPhoneNumbersOptedOutInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPhoneNumbersOptedOutResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

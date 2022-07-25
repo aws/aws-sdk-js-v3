@@ -17,15 +17,6 @@ export interface AcknowledgeFlow {
   enabled: boolean | undefined;
 }
 
-export namespace AcknowledgeFlow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcknowledgeFlow): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information needed to clear the timer.</p>
  */
@@ -34,15 +25,6 @@ export interface ClearTimerAction {
    * <p>The name of the timer to clear.</p>
    */
   timerName: string | undefined;
-}
-
-export namespace ClearTimerAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClearTimerAction): any => ({
-    ...obj,
-  });
 }
 
 export enum PayloadType {
@@ -72,15 +54,6 @@ export interface Payload {
    *       <code>JSON</code>.</p>
    */
   type: PayloadType | string | undefined;
-}
-
-export namespace Payload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Payload): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -241,15 +214,6 @@ export interface DynamoDBAction {
   payload?: Payload;
 }
 
-export namespace DynamoDBAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DynamoDBAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines an action to write to the Amazon DynamoDB table that you created. The default action
  *       payload contains all the information about the detector model instance and the event that
@@ -315,15 +279,6 @@ export interface DynamoDBv2Action {
   payload?: Payload;
 }
 
-export namespace DynamoDBv2Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DynamoDBv2Action): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Sends information about the detector model instance and the event that triggered the
  *       action to an Amazon Kinesis Data Firehose delivery stream.</p>
@@ -348,15 +303,6 @@ export interface FirehoseAction {
   payload?: Payload;
 }
 
-export namespace FirehoseAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirehoseAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Sends an AWS IoT Events input, passing in information about the detector model instance and the
  *       event that triggered the action.</p>
@@ -371,15 +317,6 @@ export interface IotEventsAction {
    * <p>You can configure the action payload when you send a message to an AWS IoT Events input.</p>
    */
   payload?: Payload;
-}
-
-export namespace IotEventsAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotEventsAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -427,15 +364,6 @@ export interface AssetPropertyTimestamp {
    *       between 0-999999999.</p>
    */
   offsetInNanos?: string;
-}
-
-export namespace AssetPropertyTimestamp {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssetPropertyTimestamp): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -502,15 +430,6 @@ export interface AssetPropertyVariant {
   booleanValue?: string;
 }
 
-export namespace AssetPropertyVariant {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssetPropertyVariant): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that contains value information. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html">AssetPropertyValue</a> in the <i>AWS IoT SiteWise API Reference</i>.</p>
  *          <p>You must use expressions for all parameters in <code>AssetPropertyValue</code>. The
@@ -551,15 +470,6 @@ export interface AssetPropertyValue {
    *         <code>'BAD'</code>, or <code>'UNCERTAIN'</code>.</p>
    */
   quality?: string;
-}
-
-export namespace AssetPropertyValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssetPropertyValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -629,15 +539,6 @@ export interface IotSiteWiseAction {
   propertyValue?: AssetPropertyValue;
 }
 
-export namespace IotSiteWiseAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotSiteWiseAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information required to publish the MQTT message through the AWS IoT message broker.</p>
  */
@@ -656,15 +557,6 @@ export interface IotTopicPublishAction {
   payload?: Payload;
 }
 
-export namespace IotTopicPublishAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotTopicPublishAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Calls a Lambda function, passing in information about the detector model instance and the
  *       event that triggered the action.</p>
@@ -681,15 +573,6 @@ export interface LambdaAction {
   payload?: Payload;
 }
 
-export namespace LambdaAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information required to reset the timer. The timer is reset to the previously evaluated
  *       result of the duration. The duration expression isn't reevaluated when you reset the
@@ -700,15 +583,6 @@ export interface ResetTimerAction {
    * <p>The name of the timer to reset.</p>
    */
   timerName: string | undefined;
-}
-
-export namespace ResetTimerAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetTimerAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -738,15 +612,6 @@ export interface SetTimerAction {
   durationExpression?: string;
 }
 
-export namespace SetTimerAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetTimerAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the variable and its new value.</p>
  */
@@ -760,15 +625,6 @@ export interface SetVariableAction {
    * <p>The new value of the variable.</p>
    */
   value: string | undefined;
-}
-
-export namespace SetVariableAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetVariableAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -785,15 +641,6 @@ export interface SNSTopicPublishAction {
    *       notification.</p>
    */
   payload?: Payload;
-}
-
-export namespace SNSTopicPublishAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSTopicPublishAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -817,15 +664,6 @@ export interface SqsAction {
    *       queue.</p>
    */
   payload?: Payload;
-}
-
-export namespace SqsAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqsAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -911,15 +749,6 @@ export interface Action {
    *       action to an asset property in AWS IoT SiteWise .</p>
    */
   iotSiteWise?: IotSiteWiseAction;
-}
-
-export namespace Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Action): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1104,15 +933,6 @@ export interface AlarmAction {
   iotSiteWise?: IotSiteWiseAction;
 }
 
-export namespace AlarmAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the default alarm state.
  * The configuration applies to all alarms that were created based on this alarm model.</p>
@@ -1124,15 +944,6 @@ export interface InitializationConfiguration {
    *         <code>TRUE</code>.</p>
    */
   disabledOnInitialization: boolean | undefined;
-}
-
-export namespace InitializationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitializationConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1151,15 +962,6 @@ export interface AlarmCapabilities {
   acknowledgeFlow?: AcknowledgeFlow;
 }
 
-export namespace AlarmCapabilities {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmCapabilities): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about one or more alarm actions.</p>
  */
@@ -1169,15 +971,6 @@ export interface AlarmEventActions {
    *       changes.</p>
    */
   alarmActions?: AlarmAction[];
-}
-
-export namespace AlarmEventActions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmEventActions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1198,15 +991,6 @@ export interface AlarmModelSummary {
    * <p>The name of the alarm model.</p>
    */
   alarmModelName?: string;
-}
-
-export namespace AlarmModelSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmModelSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum AlarmModelVersionStatus {
@@ -1284,15 +1068,6 @@ export interface AlarmModelVersionSummary {
   statusMessage?: string;
 }
 
-export namespace AlarmModelVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmModelVersionSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies an AWS Lambda function to manage alarm notifications.
  * You can create one or use the <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html">AWS Lambda function provided by AWS IoT Events</a>.</p>
@@ -1303,15 +1078,6 @@ export interface NotificationTargetActions {
    *       event that triggered the action.</p>
    */
   lambdaAction?: LambdaAction;
-}
-
-export namespace NotificationTargetActions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationTargetActions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1327,15 +1093,6 @@ export interface EmailContent {
    * <p>The message that you want to send. The message can be up to 200 characters.</p>
    */
   additionalMessage?: string;
-}
-
-export namespace EmailContent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmailContent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1355,15 +1112,6 @@ export interface SSOIdentity {
   userId?: string;
 }
 
-export namespace SSOIdentity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SSOIdentity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The information that identifies the recipient.</p>
  */
@@ -1372,15 +1120,6 @@ export interface RecipientDetail {
    * <p>The AWS Single Sign-On (AWS SSO) authentication information.</p>
    */
   ssoIdentity?: SSOIdentity;
-}
-
-export namespace RecipientDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecipientDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1394,15 +1133,6 @@ export interface EmailRecipients {
    * <p>Specifies one or more recipients who receive the email.</p>
    */
   to?: RecipientDetail[];
-}
-
-export namespace EmailRecipients {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmailRecipients): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1432,15 +1162,6 @@ export interface EmailConfiguration {
   recipients: EmailRecipients | undefined;
 }
 
-export namespace EmailConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmailConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the configuration information of SMS notifications.</p>
  */
@@ -1462,15 +1183,6 @@ export interface SMSConfiguration {
    *          </important>
    */
   recipients: RecipientDetail[] | undefined;
-}
-
-export namespace SMSConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SMSConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1495,15 +1207,6 @@ export interface NotificationAction {
   emailConfigurations?: EmailConfiguration[];
 }
 
-export namespace NotificationAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about one or more notification actions.</p>
  */
@@ -1513,15 +1216,6 @@ export interface AlarmNotification {
    * The settings apply to all alarms that were created based on this alarm model.</p>
    */
   notificationActions?: NotificationAction[];
-}
-
-export namespace AlarmNotification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmNotification): any => ({
-    ...obj,
-  });
 }
 
 export enum ComparisonOperator {
@@ -1555,15 +1249,6 @@ export interface SimpleRule {
   threshold: string | undefined;
 }
 
-export namespace SimpleRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SimpleRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines when your alarm is invoked.</p>
  */
@@ -1572,15 +1257,6 @@ export interface AlarmRule {
    * <p>A rule that compares an input property value to a threshold value with a comparison operator.</p>
    */
   simpleRule?: SimpleRule;
-}
-
-export namespace AlarmRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmRule): any => ({
-    ...obj,
-  });
 }
 
 export enum AnalysisResultLevel {
@@ -1599,15 +1275,6 @@ export interface AnalysisResultLocation {
    *       identifies the error field in your detector model.</p>
    */
   path?: string;
-}
-
-export namespace AnalysisResultLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalysisResultLocation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1697,15 +1364,6 @@ export interface AnalysisResult {
   locations?: AnalysisResultLocation[];
 }
 
-export namespace AnalysisResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalysisResult): any => ({
-    ...obj,
-  });
-}
-
 export enum AnalysisStatus {
   COMPLETE = "COMPLETE",
   FAILED = "FAILED",
@@ -1731,15 +1389,6 @@ export interface Attribute {
   jsonPath: string | undefined;
 }
 
-export namespace Attribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Attribute): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Metadata that can be used to manage the resource.</p>
  */
@@ -1753,15 +1402,6 @@ export interface Tag {
    * <p>The tag's value.</p>
    */
   value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAlarmModelRequest {
@@ -1822,15 +1462,6 @@ export interface CreateAlarmModelRequest {
   alarmCapabilities?: AlarmCapabilities;
 }
 
-export namespace CreateAlarmModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAlarmModelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAlarmModelResponse {
   /**
    * <p>The time the alarm model was created, in the Unix epoch format.</p>
@@ -1877,15 +1508,6 @@ export interface CreateAlarmModelResponse {
    *          </ul>
    */
   status?: AlarmModelVersionStatus | string;
-}
-
-export namespace CreateAlarmModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAlarmModelResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2056,15 +1678,6 @@ export interface Event {
   actions?: Action[];
 }
 
-export namespace Event {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Event): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>When entering this state, perform these <code>actions</code> if the <code>condition</code>
  *       is TRUE.</p>
@@ -2077,15 +1690,6 @@ export interface OnEnterLifecycle {
   events?: Event[];
 }
 
-export namespace OnEnterLifecycle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OnEnterLifecycle): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>When exiting this state, perform these <code>actions</code> if the specified
  *         <code>condition</code> is <code>TRUE</code>.</p>
@@ -2096,15 +1700,6 @@ export interface OnExitLifecycle {
    *         <code>condition</code> is <code>TRUE</code>.</p>
    */
   events?: Event[];
-}
-
-export namespace OnExitLifecycle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OnExitLifecycle): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2134,15 +1729,6 @@ export interface TransitionEvent {
   nextState: string | undefined;
 }
 
-export namespace TransitionEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransitionEvent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the actions performed when the <code>condition</code> evaluates to TRUE.</p>
  */
@@ -2157,15 +1743,6 @@ export interface OnInputLifecycle {
    *       evaluates to TRUE.</p>
    */
   transitionEvents?: TransitionEvent[];
-}
-
-export namespace OnInputLifecycle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OnInputLifecycle): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2196,15 +1773,6 @@ export interface State {
   onExit?: OnExitLifecycle;
 }
 
-export namespace State {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: State): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information that defines how a detector operates.</p>
  */
@@ -2218,15 +1786,6 @@ export interface DetectorModelDefinition {
    * <p>The state that is entered at the creation of each detector (instance).</p>
    */
   initialStateName: string | undefined;
-}
-
-export namespace DetectorModelDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorModelDefinition): any => ({
-    ...obj,
-  });
 }
 
 export enum EvaluationMethod {
@@ -2274,15 +1833,6 @@ export interface CreateDetectorModelRequest {
    *     </p>
    */
   evaluationMethod?: EvaluationMethod | string;
-}
-
-export namespace CreateDetectorModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDetectorModelRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DetectorModelVersionStatus {
@@ -2357,29 +1907,11 @@ export interface DetectorModelConfiguration {
   evaluationMethod?: EvaluationMethod | string;
 }
 
-export namespace DetectorModelConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorModelConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDetectorModelResponse {
   /**
    * <p>Information about how the detector model is configured.</p>
    */
   detectorModelConfiguration?: DetectorModelConfiguration;
-}
-
-export namespace CreateDetectorModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDetectorModelResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2394,15 +1926,6 @@ export interface InputDefinition {
    *       this input. </p>
    */
   attributes: Attribute[] | undefined;
-}
-
-export namespace InputDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDefinition): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateInputRequest {
@@ -2425,15 +1948,6 @@ export interface CreateInputRequest {
    * <p>Metadata that can be used to manage the input.</p>
    */
   tags?: Tag[];
-}
-
-export namespace CreateInputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInputRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum InputStatus {
@@ -2478,29 +1992,11 @@ export interface InputConfiguration {
   status: InputStatus | string | undefined;
 }
 
-export namespace InputConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateInputResponse {
   /**
    * <p>Information about the configuration of the input.</p>
    */
   inputConfiguration?: InputConfiguration;
-}
-
-export namespace CreateInputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInputResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAlarmModelRequest {
@@ -2510,25 +2006,7 @@ export interface DeleteAlarmModelRequest {
   alarmModelName: string | undefined;
 }
 
-export namespace DeleteAlarmModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAlarmModelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAlarmModelResponse {}
-
-export namespace DeleteAlarmModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAlarmModelResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The resource was not found.</p>
@@ -2556,25 +2034,7 @@ export interface DeleteDetectorModelRequest {
   detectorModelName: string | undefined;
 }
 
-export namespace DeleteDetectorModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDetectorModelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDetectorModelResponse {}
-
-export namespace DeleteDetectorModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDetectorModelResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteInputRequest {
   /**
@@ -2583,25 +2043,7 @@ export interface DeleteInputRequest {
   inputName: string | undefined;
 }
 
-export namespace DeleteInputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInputRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteInputResponse {}
-
-export namespace DeleteInputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInputResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeAlarmModelRequest {
   /**
@@ -2613,15 +2055,6 @@ export interface DescribeAlarmModelRequest {
    * <p>The version of the alarm model.</p>
    */
   alarmModelVersion?: string;
-}
-
-export namespace DescribeAlarmModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAlarmModelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAlarmModelResponse {
@@ -2726,15 +2159,6 @@ export interface DescribeAlarmModelResponse {
   alarmCapabilities?: AlarmCapabilities;
 }
 
-export namespace DescribeAlarmModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAlarmModelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDetectorModelRequest {
   /**
    * <p>The name of the detector model.</p>
@@ -2745,15 +2169,6 @@ export interface DescribeDetectorModelRequest {
    * <p>The version of the detector model.</p>
    */
   detectorModelVersion?: string;
-}
-
-export namespace DescribeDetectorModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDetectorModelRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2771,15 +2186,6 @@ export interface DetectorModel {
   detectorModelConfiguration?: DetectorModelConfiguration;
 }
 
-export namespace DetectorModel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorModel): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDetectorModelResponse {
   /**
    * <p>Information about the detector model.</p>
@@ -2787,29 +2193,11 @@ export interface DescribeDetectorModelResponse {
   detectorModel?: DetectorModel;
 }
 
-export namespace DescribeDetectorModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDetectorModelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDetectorModelAnalysisRequest {
   /**
    * <p>The ID of the analysis result that you want to retrieve.</p>
    */
   analysisId: string | undefined;
-}
-
-export namespace DescribeDetectorModelAnalysisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDetectorModelAnalysisRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDetectorModelAnalysisResponse {
@@ -2835,29 +2223,11 @@ export interface DescribeDetectorModelAnalysisResponse {
   status?: AnalysisStatus | string;
 }
 
-export namespace DescribeDetectorModelAnalysisResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDetectorModelAnalysisResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeInputRequest {
   /**
    * <p>The name of the input.</p>
    */
   inputName: string | undefined;
-}
-
-export namespace DescribeInputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInputRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2875,15 +2245,6 @@ export interface Input {
   inputDefinition?: InputDefinition;
 }
 
-export namespace Input {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Input): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeInputResponse {
   /**
    * <p>Information about the input.</p>
@@ -2891,25 +2252,7 @@ export interface DescribeInputResponse {
   input?: Input;
 }
 
-export namespace DescribeInputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInputResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLoggingOptionsRequest {}
-
-export namespace DescribeLoggingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoggingOptionsRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The detector model and the specific detectors (instances) for which the logging level is
@@ -2926,15 +2269,6 @@ export interface DetectorDebugOption {
    *       detector model).</p>
    */
   keyValue?: string;
-}
-
-export namespace DetectorDebugOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorDebugOption): any => ({
-    ...obj,
-  });
 }
 
 export enum LoggingLevel {
@@ -2969,29 +2303,11 @@ export interface LoggingOptions {
   detectorDebugOptions?: DetectorDebugOption[];
 }
 
-export namespace LoggingOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingOptions): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLoggingOptionsResponse {
   /**
    * <p>The current settings of the AWS IoT Events logging options.</p>
    */
   loggingOptions?: LoggingOptions;
-}
-
-export namespace DescribeLoggingOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoggingOptionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3031,15 +2347,6 @@ export interface DetectorModelSummary {
    * <p>The time the detector model was created.</p>
    */
   creationTime?: Date;
-}
-
-export namespace DetectorModelSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorModelSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3088,15 +2395,6 @@ export interface DetectorModelVersionSummary {
   evaluationMethod?: EvaluationMethod | string;
 }
 
-export namespace DetectorModelVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorModelVersionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDetectorModelAnalysisResultsRequest {
   /**
    * <p>The ID of the analysis result that you want to retrieve.</p>
@@ -3114,15 +2412,6 @@ export interface GetDetectorModelAnalysisResultsRequest {
   maxResults?: number;
 }
 
-export namespace GetDetectorModelAnalysisResultsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDetectorModelAnalysisResultsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDetectorModelAnalysisResultsResponse {
   /**
    * <p>Contains information about one or more analysis results.</p>
@@ -3134,15 +2423,6 @@ export interface GetDetectorModelAnalysisResultsResponse {
    * or <code>null</code> if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace GetDetectorModelAnalysisResultsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDetectorModelAnalysisResultsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3157,15 +2437,6 @@ export interface IotEventsInputIdentifier {
    *     </p>
    */
   inputName: string | undefined;
-}
-
-export namespace IotEventsInputIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotEventsInputIdentifier): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3189,15 +2460,6 @@ export interface IotSiteWiseAssetModelPropertyIdentifier {
   propertyId: string | undefined;
 }
 
-export namespace IotSiteWiseAssetModelPropertyIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotSiteWiseAssetModelPropertyIdentifier): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       The identifer of the input routed from AWS IoT SiteWise.
@@ -3210,15 +2472,6 @@ export interface IotSiteWiseInputIdentifier {
    *     </p>
    */
   iotSiteWiseAssetModelPropertyIdentifier?: IotSiteWiseAssetModelPropertyIdentifier;
-}
-
-export namespace IotSiteWiseInputIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotSiteWiseInputIdentifier): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3240,15 +2493,6 @@ export interface InputIdentifier {
    *     </p>
    */
   iotSiteWiseInputIdentifier?: IotSiteWiseInputIdentifier;
-}
-
-export namespace InputIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputIdentifier): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3286,15 +2530,6 @@ export interface InputSummary {
   status?: InputStatus | string;
 }
 
-export namespace InputSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAlarmModelsRequest {
   /**
    * <p>The token that you can use to return the next set of results.</p>
@@ -3305,15 +2540,6 @@ export interface ListAlarmModelsRequest {
    * <p>The maximum number of results to be returned per request.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListAlarmModelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlarmModelsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAlarmModelsResponse {
@@ -3327,15 +2553,6 @@ export interface ListAlarmModelsResponse {
    * or <code>null</code> if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAlarmModelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlarmModelsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAlarmModelVersionsRequest {
@@ -3355,15 +2572,6 @@ export interface ListAlarmModelVersionsRequest {
   maxResults?: number;
 }
 
-export namespace ListAlarmModelVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlarmModelVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAlarmModelVersionsResponse {
   /**
    * <p>A list that summarizes each alarm model version.</p>
@@ -3375,15 +2583,6 @@ export interface ListAlarmModelVersionsResponse {
    * or <code>null</code> if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAlarmModelVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlarmModelVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDetectorModelsRequest {
@@ -3398,15 +2597,6 @@ export interface ListDetectorModelsRequest {
   maxResults?: number;
 }
 
-export namespace ListDetectorModelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDetectorModelsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDetectorModelsResponse {
   /**
    * <p>Summary information about the detector models.</p>
@@ -3418,15 +2608,6 @@ export interface ListDetectorModelsResponse {
    * or <code>null</code> if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListDetectorModelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDetectorModelsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDetectorModelVersionsRequest {
@@ -3446,15 +2627,6 @@ export interface ListDetectorModelVersionsRequest {
   maxResults?: number;
 }
 
-export namespace ListDetectorModelVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDetectorModelVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDetectorModelVersionsResponse {
   /**
    * <p>Summary information about the detector model versions.</p>
@@ -3466,15 +2638,6 @@ export interface ListDetectorModelVersionsResponse {
    * or <code>null</code> if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListDetectorModelVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDetectorModelVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListInputRoutingsRequest {
@@ -3500,15 +2663,6 @@ export interface ListInputRoutingsRequest {
   nextToken?: string;
 }
 
-export namespace ListInputRoutingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInputRoutingsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Contains information about the routed resource.
@@ -3530,15 +2684,6 @@ export interface RoutedResource {
   arn?: string;
 }
 
-export namespace RoutedResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoutedResource): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInputRoutingsResponse {
   /**
    * <p>
@@ -3556,15 +2701,6 @@ export interface ListInputRoutingsResponse {
   nextToken?: string;
 }
 
-export namespace ListInputRoutingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInputRoutingsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInputsRequest {
   /**
    * <p>The token that you can use to return the next set of results.</p>
@@ -3575,15 +2711,6 @@ export interface ListInputsRequest {
    * <p>The maximum number of results to be returned per request.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListInputsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInputsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListInputsResponse {
@@ -3599,29 +2726,11 @@ export interface ListInputsResponse {
   nextToken?: string;
 }
 
-export namespace ListInputsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInputsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -3631,29 +2740,11 @@ export interface ListTagsForResourceResponse {
   tags?: Tag[];
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PutLoggingOptionsRequest {
   /**
    * <p>The new values of the AWS IoT Events logging options.</p>
    */
   loggingOptions: LoggingOptions | undefined;
-}
-
-export namespace PutLoggingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLoggingOptionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StartDetectorModelAnalysisRequest {
@@ -3663,29 +2754,11 @@ export interface StartDetectorModelAnalysisRequest {
   detectorModelDefinition: DetectorModelDefinition | undefined;
 }
 
-export namespace StartDetectorModelAnalysisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDetectorModelAnalysisRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartDetectorModelAnalysisResponse {
   /**
    * <p>The ID that you can use to retrieve the analysis result.</p>
    */
   analysisId?: string;
-}
-
-export namespace StartDetectorModelAnalysisResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDetectorModelAnalysisResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -3700,25 +2773,7 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -3732,25 +2787,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateAlarmModelRequest {
   /**
@@ -3792,15 +2829,6 @@ export interface UpdateAlarmModelRequest {
    * <p>Contains the configuration information of alarm state changes.</p>
    */
   alarmCapabilities?: AlarmCapabilities;
-}
-
-export namespace UpdateAlarmModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAlarmModelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAlarmModelResponse {
@@ -3851,15 +2879,6 @@ export interface UpdateAlarmModelResponse {
   status?: AlarmModelVersionStatus | string;
 }
 
-export namespace UpdateAlarmModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAlarmModelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDetectorModelRequest {
   /**
    * <p>The name of the detector model that is updated.</p>
@@ -3888,29 +2907,11 @@ export interface UpdateDetectorModelRequest {
   evaluationMethod?: EvaluationMethod | string;
 }
 
-export namespace UpdateDetectorModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDetectorModelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDetectorModelResponse {
   /**
    * <p>Information about how the detector model is configured.</p>
    */
   detectorModelConfiguration?: DetectorModelConfiguration;
-}
-
-export namespace UpdateDetectorModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDetectorModelResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateInputRequest {
@@ -3930,15 +2931,6 @@ export interface UpdateInputRequest {
   inputDefinition: InputDefinition | undefined;
 }
 
-export namespace UpdateInputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInputRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateInputResponse {
   /**
    * <p>Information about the configuration of the input.</p>
@@ -3946,11 +2938,803 @@ export interface UpdateInputResponse {
   inputConfiguration?: InputConfiguration;
 }
 
-export namespace UpdateInputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInputResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcknowledgeFlowFilterSensitiveLog = (obj: AcknowledgeFlow): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClearTimerActionFilterSensitiveLog = (obj: ClearTimerAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PayloadFilterSensitiveLog = (obj: Payload): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DynamoDBActionFilterSensitiveLog = (obj: DynamoDBAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DynamoDBv2ActionFilterSensitiveLog = (obj: DynamoDBv2Action): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirehoseActionFilterSensitiveLog = (obj: FirehoseAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IotEventsActionFilterSensitiveLog = (obj: IotEventsAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssetPropertyTimestampFilterSensitiveLog = (obj: AssetPropertyTimestamp): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssetPropertyVariantFilterSensitiveLog = (obj: AssetPropertyVariant): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssetPropertyValueFilterSensitiveLog = (obj: AssetPropertyValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IotSiteWiseActionFilterSensitiveLog = (obj: IotSiteWiseAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IotTopicPublishActionFilterSensitiveLog = (obj: IotTopicPublishAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaActionFilterSensitiveLog = (obj: LambdaAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetTimerActionFilterSensitiveLog = (obj: ResetTimerAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetTimerActionFilterSensitiveLog = (obj: SetTimerAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetVariableActionFilterSensitiveLog = (obj: SetVariableAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SNSTopicPublishActionFilterSensitiveLog = (obj: SNSTopicPublishAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SqsActionFilterSensitiveLog = (obj: SqsAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionFilterSensitiveLog = (obj: Action): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmActionFilterSensitiveLog = (obj: AlarmAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitializationConfigurationFilterSensitiveLog = (obj: InitializationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmCapabilitiesFilterSensitiveLog = (obj: AlarmCapabilities): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmEventActionsFilterSensitiveLog = (obj: AlarmEventActions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmModelSummaryFilterSensitiveLog = (obj: AlarmModelSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmModelVersionSummaryFilterSensitiveLog = (obj: AlarmModelVersionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationTargetActionsFilterSensitiveLog = (obj: NotificationTargetActions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EmailContentFilterSensitiveLog = (obj: EmailContent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SSOIdentityFilterSensitiveLog = (obj: SSOIdentity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecipientDetailFilterSensitiveLog = (obj: RecipientDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EmailRecipientsFilterSensitiveLog = (obj: EmailRecipients): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EmailConfigurationFilterSensitiveLog = (obj: EmailConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SMSConfigurationFilterSensitiveLog = (obj: SMSConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationActionFilterSensitiveLog = (obj: NotificationAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmNotificationFilterSensitiveLog = (obj: AlarmNotification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SimpleRuleFilterSensitiveLog = (obj: SimpleRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmRuleFilterSensitiveLog = (obj: AlarmRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisResultLocationFilterSensitiveLog = (obj: AnalysisResultLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisResultFilterSensitiveLog = (obj: AnalysisResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributeFilterSensitiveLog = (obj: Attribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAlarmModelRequestFilterSensitiveLog = (obj: CreateAlarmModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAlarmModelResponseFilterSensitiveLog = (obj: CreateAlarmModelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventFilterSensitiveLog = (obj: Event): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OnEnterLifecycleFilterSensitiveLog = (obj: OnEnterLifecycle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OnExitLifecycleFilterSensitiveLog = (obj: OnExitLifecycle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransitionEventFilterSensitiveLog = (obj: TransitionEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OnInputLifecycleFilterSensitiveLog = (obj: OnInputLifecycle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StateFilterSensitiveLog = (obj: State): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectorModelDefinitionFilterSensitiveLog = (obj: DetectorModelDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDetectorModelRequestFilterSensitiveLog = (obj: CreateDetectorModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectorModelConfigurationFilterSensitiveLog = (obj: DetectorModelConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDetectorModelResponseFilterSensitiveLog = (obj: CreateDetectorModelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDefinitionFilterSensitiveLog = (obj: InputDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInputRequestFilterSensitiveLog = (obj: CreateInputRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputConfigurationFilterSensitiveLog = (obj: InputConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInputResponseFilterSensitiveLog = (obj: CreateInputResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAlarmModelRequestFilterSensitiveLog = (obj: DeleteAlarmModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAlarmModelResponseFilterSensitiveLog = (obj: DeleteAlarmModelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDetectorModelRequestFilterSensitiveLog = (obj: DeleteDetectorModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDetectorModelResponseFilterSensitiveLog = (obj: DeleteDetectorModelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInputRequestFilterSensitiveLog = (obj: DeleteInputRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInputResponseFilterSensitiveLog = (obj: DeleteInputResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAlarmModelRequestFilterSensitiveLog = (obj: DescribeAlarmModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAlarmModelResponseFilterSensitiveLog = (obj: DescribeAlarmModelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDetectorModelRequestFilterSensitiveLog = (obj: DescribeDetectorModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectorModelFilterSensitiveLog = (obj: DetectorModel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDetectorModelResponseFilterSensitiveLog = (obj: DescribeDetectorModelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDetectorModelAnalysisRequestFilterSensitiveLog = (
+  obj: DescribeDetectorModelAnalysisRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDetectorModelAnalysisResponseFilterSensitiveLog = (
+  obj: DescribeDetectorModelAnalysisResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInputRequestFilterSensitiveLog = (obj: DescribeInputRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputFilterSensitiveLog = (obj: Input): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInputResponseFilterSensitiveLog = (obj: DescribeInputResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoggingOptionsRequestFilterSensitiveLog = (obj: DescribeLoggingOptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectorDebugOptionFilterSensitiveLog = (obj: DetectorDebugOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingOptionsFilterSensitiveLog = (obj: LoggingOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoggingOptionsResponseFilterSensitiveLog = (obj: DescribeLoggingOptionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectorModelSummaryFilterSensitiveLog = (obj: DetectorModelSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectorModelVersionSummaryFilterSensitiveLog = (obj: DetectorModelVersionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDetectorModelAnalysisResultsRequestFilterSensitiveLog = (
+  obj: GetDetectorModelAnalysisResultsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDetectorModelAnalysisResultsResponseFilterSensitiveLog = (
+  obj: GetDetectorModelAnalysisResultsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IotEventsInputIdentifierFilterSensitiveLog = (obj: IotEventsInputIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IotSiteWiseAssetModelPropertyIdentifierFilterSensitiveLog = (
+  obj: IotSiteWiseAssetModelPropertyIdentifier
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IotSiteWiseInputIdentifierFilterSensitiveLog = (obj: IotSiteWiseInputIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputIdentifierFilterSensitiveLog = (obj: InputIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputSummaryFilterSensitiveLog = (obj: InputSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAlarmModelsRequestFilterSensitiveLog = (obj: ListAlarmModelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAlarmModelsResponseFilterSensitiveLog = (obj: ListAlarmModelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAlarmModelVersionsRequestFilterSensitiveLog = (obj: ListAlarmModelVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAlarmModelVersionsResponseFilterSensitiveLog = (obj: ListAlarmModelVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDetectorModelsRequestFilterSensitiveLog = (obj: ListDetectorModelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDetectorModelsResponseFilterSensitiveLog = (obj: ListDetectorModelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDetectorModelVersionsRequestFilterSensitiveLog = (obj: ListDetectorModelVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDetectorModelVersionsResponseFilterSensitiveLog = (obj: ListDetectorModelVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInputRoutingsRequestFilterSensitiveLog = (obj: ListInputRoutingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoutedResourceFilterSensitiveLog = (obj: RoutedResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInputRoutingsResponseFilterSensitiveLog = (obj: ListInputRoutingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInputsRequestFilterSensitiveLog = (obj: ListInputsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInputsResponseFilterSensitiveLog = (obj: ListInputsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutLoggingOptionsRequestFilterSensitiveLog = (obj: PutLoggingOptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDetectorModelAnalysisRequestFilterSensitiveLog = (obj: StartDetectorModelAnalysisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDetectorModelAnalysisResponseFilterSensitiveLog = (obj: StartDetectorModelAnalysisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAlarmModelRequestFilterSensitiveLog = (obj: UpdateAlarmModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAlarmModelResponseFilterSensitiveLog = (obj: UpdateAlarmModelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDetectorModelRequestFilterSensitiveLog = (obj: UpdateDetectorModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDetectorModelResponseFilterSensitiveLog = (obj: UpdateDetectorModelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInputRequestFilterSensitiveLog = (obj: UpdateInputRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInputResponseFilterSensitiveLog = (obj: UpdateInputResponse): any => ({
+  ...obj,
+});

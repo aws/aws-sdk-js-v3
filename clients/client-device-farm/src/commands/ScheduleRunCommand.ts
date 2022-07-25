@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { ScheduleRunRequest, ScheduleRunResult } from "../models/models_0";
+import {
+  ScheduleRunRequest,
+  ScheduleRunRequestFilterSensitiveLog,
+  ScheduleRunResult,
+  ScheduleRunResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ScheduleRunCommand,
   serializeAws_json1_1ScheduleRunCommand,
@@ -72,8 +77,8 @@ export class ScheduleRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScheduleRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ScheduleRunResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ScheduleRunRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ScheduleRunResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

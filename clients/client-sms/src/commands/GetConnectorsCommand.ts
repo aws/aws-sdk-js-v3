@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetConnectorsRequest, GetConnectorsResponse } from "../models/models_0";
+import {
+  GetConnectorsRequest,
+  GetConnectorsRequestFilterSensitiveLog,
+  GetConnectorsResponse,
+  GetConnectorsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetConnectorsCommand,
   serializeAws_json1_1GetConnectorsCommand,
@@ -72,8 +77,8 @@ export class GetConnectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectorsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectorsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetConnectorsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetConnectorsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

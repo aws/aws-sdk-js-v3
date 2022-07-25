@@ -14,7 +14,9 @@ import {
 
 import {
   GetServiceQuotaIncreaseRequestFromTemplateRequest,
+  GetServiceQuotaIncreaseRequestFromTemplateRequestFilterSensitiveLog,
   GetServiceQuotaIncreaseRequestFromTemplateResponse,
+  GetServiceQuotaIncreaseRequestFromTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand,
@@ -82,8 +84,8 @@ export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceQuotaIncreaseRequestFromTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceQuotaIncreaseRequestFromTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetServiceQuotaIncreaseRequestFromTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetServiceQuotaIncreaseRequestFromTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

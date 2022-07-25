@@ -14,7 +14,9 @@ import {
 
 import {
   DeleteAppReplicationConfigurationRequest,
+  DeleteAppReplicationConfigurationRequestFilterSensitiveLog,
   DeleteAppReplicationConfigurationResponse,
+  DeleteAppReplicationConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAppReplicationConfigurationCommand,
@@ -77,8 +79,8 @@ export class DeleteAppReplicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppReplicationConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppReplicationConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAppReplicationConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAppReplicationConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

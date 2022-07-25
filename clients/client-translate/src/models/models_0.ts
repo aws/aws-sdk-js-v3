@@ -18,15 +18,6 @@ export interface Term {
   TargetText?: string;
 }
 
-export namespace Term {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Term): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The custom terminology applied to the input text by Amazon Translate for the translated text
  *       response. This is optional in the response and will only be present if you specified
@@ -46,15 +37,6 @@ export interface AppliedTerminology {
    *       applied will be the first 250 terms in the source text. </p>
    */
   Terms?: Term[];
-}
-
-export namespace AppliedTerminology {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppliedTerminology): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -97,15 +79,6 @@ export interface EncryptionKey {
   Id: string | undefined;
 }
 
-export namespace EncryptionKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionKey): any => ({
-    ...obj,
-  });
-}
-
 export enum ParallelDataFormat {
   CSV = "CSV",
   TMX = "TMX",
@@ -126,15 +99,6 @@ export interface ParallelDataConfig {
    * <p>The format of the parallel data input file.</p>
    */
   Format: ParallelDataFormat | string | undefined;
-}
-
-export namespace ParallelDataConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParallelDataConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateParallelDataRequest {
@@ -166,15 +130,6 @@ export interface CreateParallelDataRequest {
   ClientToken?: string;
 }
 
-export namespace CreateParallelDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateParallelDataRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ParallelDataStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -194,15 +149,6 @@ export interface CreateParallelDataResponse {
    *       status is <code>ACTIVE</code>.</p>
    */
   Status?: ParallelDataStatus | string;
-}
-
-export namespace CreateParallelDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateParallelDataResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -343,15 +289,6 @@ export interface DeleteParallelDataRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteParallelDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteParallelDataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteParallelDataResponse {
   /**
    * <p>The name of the parallel data resource that is being deleted.</p>
@@ -362,15 +299,6 @@ export interface DeleteParallelDataResponse {
    * <p>The status of the parallel data deletion.</p>
    */
   Status?: ParallelDataStatus | string;
-}
-
-export namespace DeleteParallelDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteParallelDataResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -403,30 +331,12 @@ export interface DeleteTerminologyRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteTerminologyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTerminologyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTextTranslationJobRequest {
   /**
    * <p>The identifier that Amazon Translate generated for the job. The <a>StartTextTranslationJob</a> operation returns this identifier in its
    *       response.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace DescribeTextTranslationJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTextTranslationJobRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -493,15 +403,6 @@ export interface InputDataConfig {
   ContentType: string | undefined;
 }
 
-export namespace InputDataConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDataConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of documents successfully and unsuccessfully processed during a translation
  *       job.</p>
@@ -521,15 +422,6 @@ export interface JobDetails {
    * <p>The number of documents used as input in a translation job.</p>
    */
   InputDocumentsCount?: number;
-}
-
-export namespace JobDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum JobStatus {
@@ -556,15 +448,6 @@ export interface OutputDataConfig {
    * <p>The encryption key used to encrypt this object.</p>
    */
   EncryptionKey?: EncryptionKey;
-}
-
-export namespace OutputDataConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputDataConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum Formality {
@@ -605,15 +488,6 @@ export interface TranslationSettings {
    *         Languages and Language Codes in the Amazon Translate Developer Guide</a>.</p>
    */
   Profanity?: Profanity | string;
-}
-
-export namespace TranslationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TranslationSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -703,15 +577,6 @@ export interface TextTranslationJobProperties {
   Settings?: TranslationSettings;
 }
 
-export namespace TextTranslationJobProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextTranslationJobProperties): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTextTranslationJobResponse {
   /**
    * <p>An object that contains the properties associated with an asynchronous batch translation
@@ -720,29 +585,11 @@ export interface DescribeTextTranslationJobResponse {
   TextTranslationJobProperties?: TextTranslationJobProperties;
 }
 
-export namespace DescribeTextTranslationJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTextTranslationJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetParallelDataRequest {
   /**
    * <p>The name of the parallel data resource that is being retrieved.</p>
    */
   Name: string | undefined;
-}
-
-export namespace GetParallelDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetParallelDataRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -770,15 +617,6 @@ export interface ParallelDataDataLocation {
    *          </important>
    */
   Location: string | undefined;
-}
-
-export namespace ParallelDataDataLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParallelDataDataLocation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -878,15 +716,6 @@ export interface ParallelDataProperties {
   LatestUpdateAttemptAt?: Date;
 }
 
-export namespace ParallelDataProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParallelDataProperties): any => ({
-    ...obj,
-  });
-}
-
 export interface GetParallelDataResponse {
   /**
    * <p>The properties of the parallel data resource that is being retrieved.</p>
@@ -927,15 +756,6 @@ export interface GetParallelDataResponse {
   LatestUpdateAttemptAuxiliaryDataLocation?: ParallelDataDataLocation;
 }
 
-export namespace GetParallelDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetParallelDataResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum TerminologyDataFormat {
   CSV = "CSV",
   TMX = "TMX",
@@ -957,15 +777,6 @@ export interface GetTerminologyRequest {
    *       Amazon Translate throws an error.</p>
    */
   TerminologyDataFormat?: TerminologyDataFormat | string;
-}
-
-export namespace GetTerminologyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTerminologyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -993,15 +804,6 @@ export interface TerminologyDataLocation {
    *          </important>
    */
   Location: string | undefined;
-}
-
-export namespace TerminologyDataLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminologyDataLocation): any => ({
-    ...obj,
-  });
 }
 
 export enum Directionality {
@@ -1099,15 +901,6 @@ export interface TerminologyProperties {
   Format?: TerminologyDataFormat | string;
 }
 
-export namespace TerminologyProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminologyProperties): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTerminologyResponse {
   /**
    * <p>The properties of the custom terminology being retrieved.</p>
@@ -1138,15 +931,6 @@ export interface GetTerminologyResponse {
    *       expiration.</p>
    */
   AuxiliaryDataLocation?: TerminologyDataLocation;
-}
-
-export namespace GetTerminologyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTerminologyResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum MergeStrategy {
@@ -1194,16 +978,6 @@ export interface TerminologyData {
   Directionality?: Directionality | string;
 }
 
-export namespace TerminologyData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminologyData): any => ({
-    ...obj,
-    ...(obj.File && { File: SENSITIVE_STRING }),
-  });
-}
-
 export interface ImportTerminologyRequest {
   /**
    * <p>The name of the custom terminology being imported.</p>
@@ -1233,16 +1007,6 @@ export interface ImportTerminologyRequest {
   EncryptionKey?: EncryptionKey;
 }
 
-export namespace ImportTerminologyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportTerminologyRequest): any => ({
-    ...obj,
-    ...(obj.TerminologyData && { TerminologyData: TerminologyData.filterSensitiveLog(obj.TerminologyData) }),
-  });
-}
-
 export interface ImportTerminologyResponse {
   /**
    * <p>The properties of the custom terminology being imported.</p>
@@ -1256,15 +1020,6 @@ export interface ImportTerminologyResponse {
    *       expiration.</p>
    */
   AuxiliaryDataLocation?: TerminologyDataLocation;
-}
-
-export namespace ImportTerminologyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportTerminologyResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum DisplayLanguageCode {
@@ -1298,15 +1053,6 @@ export interface ListLanguagesRequest {
   MaxResults?: number;
 }
 
-export namespace ListLanguagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLanguagesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A supported language.</p>
  */
@@ -1320,15 +1066,6 @@ export interface Language {
    * <p>Language code for the supported language.</p>
    */
   LanguageCode: string | undefined;
-}
-
-export namespace Language {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Language): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLanguagesResponse {
@@ -1347,15 +1084,6 @@ export interface ListLanguagesResponse {
    *       in the next request to fetch the next group of supported languages.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLanguagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLanguagesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1396,15 +1124,6 @@ export interface ListParallelDataRequest {
   MaxResults?: number;
 }
 
-export namespace ListParallelDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListParallelDataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListParallelDataResponse {
   /**
    * <p>The properties of the parallel data resources returned by this request.</p>
@@ -1416,15 +1135,6 @@ export interface ListParallelDataResponse {
    *       response. This value is null if there are no additional pages.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListParallelDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListParallelDataResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTerminologiesRequest {
@@ -1440,15 +1150,6 @@ export interface ListTerminologiesRequest {
   MaxResults?: number;
 }
 
-export namespace ListTerminologiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTerminologiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTerminologiesResponse {
   /**
    * <p>The properties list of the custom terminologies returned on the list request.</p>
@@ -1460,15 +1161,6 @@ export interface ListTerminologiesResponse {
    *       group of custom terminologies.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTerminologiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTerminologiesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1522,15 +1214,6 @@ export interface TextTranslationJobFilter {
   SubmittedAfterTime?: Date;
 }
 
-export namespace TextTranslationJobFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextTranslationJobFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTextTranslationJobsRequest {
   /**
    * <p>The parameters that specify which batch translation jobs to retrieve. Filters include job
@@ -1549,15 +1232,6 @@ export interface ListTextTranslationJobsRequest {
   MaxResults?: number;
 }
 
-export namespace ListTextTranslationJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTextTranslationJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTextTranslationJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
@@ -1569,15 +1243,6 @@ export interface ListTextTranslationJobsResponse {
    *       when there are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTextTranslationJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTextTranslationJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartTextTranslationJobRequest {
@@ -1651,15 +1316,6 @@ export interface StartTextTranslationJobRequest {
   Settings?: TranslationSettings;
 }
 
-export namespace StartTextTranslationJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTextTranslationJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartTextTranslationJobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this ID with the
@@ -1707,15 +1363,6 @@ export interface StartTextTranslationJobResponse {
   JobStatus?: JobStatus | string;
 }
 
-export namespace StartTextTranslationJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTextTranslationJobResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon Translate does not support translation from the language of the source text into the requested
  *       target language. For more information, see <a>how-to-error-msg</a>. </p>
@@ -1756,15 +1403,6 @@ export interface StopTextTranslationJobRequest {
   JobId: string | undefined;
 }
 
-export namespace StopTextTranslationJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopTextTranslationJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopTextTranslationJobResponse {
   /**
    * <p>The job ID of the stopped batch translation job.</p>
@@ -1776,15 +1414,6 @@ export interface StopTextTranslationJobResponse {
    *         <code>STOPPED</code>.</p>
    */
   JobStatus?: JobStatus | string;
-}
-
-export namespace StopTextTranslationJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopTextTranslationJobResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1901,15 +1530,6 @@ export interface TranslateTextRequest {
   Settings?: TranslationSettings;
 }
 
-export namespace TranslateTextRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TranslateTextRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TranslateTextResponse {
   /**
    * <p>The translated text.</p>
@@ -1938,15 +1558,6 @@ export interface TranslateTextResponse {
   AppliedSettings?: TranslationSettings;
 }
 
-export namespace TranslateTextResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TranslateTextResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateParallelDataRequest {
   /**
    * <p>The name of the parallel data resource being updated.</p>
@@ -1968,15 +1579,6 @@ export interface UpdateParallelDataRequest {
    *       Amazon Translate through an AWS SDK.</p>
    */
   ClientToken?: string;
-}
-
-export namespace UpdateParallelDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateParallelDataRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateParallelDataResponse {
@@ -2004,11 +1606,319 @@ export interface UpdateParallelDataResponse {
   LatestUpdateAttemptAt?: Date;
 }
 
-export namespace UpdateParallelDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateParallelDataResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TermFilterSensitiveLog = (obj: Term): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppliedTerminologyFilterSensitiveLog = (obj: AppliedTerminology): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionKeyFilterSensitiveLog = (obj: EncryptionKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParallelDataConfigFilterSensitiveLog = (obj: ParallelDataConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateParallelDataRequestFilterSensitiveLog = (obj: CreateParallelDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateParallelDataResponseFilterSensitiveLog = (obj: CreateParallelDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteParallelDataRequestFilterSensitiveLog = (obj: DeleteParallelDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteParallelDataResponseFilterSensitiveLog = (obj: DeleteParallelDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTerminologyRequestFilterSensitiveLog = (obj: DeleteTerminologyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTextTranslationJobRequestFilterSensitiveLog = (obj: DescribeTextTranslationJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDataConfigFilterSensitiveLog = (obj: InputDataConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobDetailsFilterSensitiveLog = (obj: JobDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputDataConfigFilterSensitiveLog = (obj: OutputDataConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TranslationSettingsFilterSensitiveLog = (obj: TranslationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextTranslationJobPropertiesFilterSensitiveLog = (obj: TextTranslationJobProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTextTranslationJobResponseFilterSensitiveLog = (obj: DescribeTextTranslationJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetParallelDataRequestFilterSensitiveLog = (obj: GetParallelDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParallelDataDataLocationFilterSensitiveLog = (obj: ParallelDataDataLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParallelDataPropertiesFilterSensitiveLog = (obj: ParallelDataProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetParallelDataResponseFilterSensitiveLog = (obj: GetParallelDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTerminologyRequestFilterSensitiveLog = (obj: GetTerminologyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminologyDataLocationFilterSensitiveLog = (obj: TerminologyDataLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminologyPropertiesFilterSensitiveLog = (obj: TerminologyProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTerminologyResponseFilterSensitiveLog = (obj: GetTerminologyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminologyDataFilterSensitiveLog = (obj: TerminologyData): any => ({
+  ...obj,
+  ...(obj.File && { File: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ImportTerminologyRequestFilterSensitiveLog = (obj: ImportTerminologyRequest): any => ({
+  ...obj,
+  ...(obj.TerminologyData && { TerminologyData: TerminologyDataFilterSensitiveLog(obj.TerminologyData) }),
+});
+
+/**
+ * @internal
+ */
+export const ImportTerminologyResponseFilterSensitiveLog = (obj: ImportTerminologyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLanguagesRequestFilterSensitiveLog = (obj: ListLanguagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LanguageFilterSensitiveLog = (obj: Language): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLanguagesResponseFilterSensitiveLog = (obj: ListLanguagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListParallelDataRequestFilterSensitiveLog = (obj: ListParallelDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListParallelDataResponseFilterSensitiveLog = (obj: ListParallelDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTerminologiesRequestFilterSensitiveLog = (obj: ListTerminologiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTerminologiesResponseFilterSensitiveLog = (obj: ListTerminologiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextTranslationJobFilterFilterSensitiveLog = (obj: TextTranslationJobFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTextTranslationJobsRequestFilterSensitiveLog = (obj: ListTextTranslationJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTextTranslationJobsResponseFilterSensitiveLog = (obj: ListTextTranslationJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTextTranslationJobRequestFilterSensitiveLog = (obj: StartTextTranslationJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTextTranslationJobResponseFilterSensitiveLog = (obj: StartTextTranslationJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopTextTranslationJobRequestFilterSensitiveLog = (obj: StopTextTranslationJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopTextTranslationJobResponseFilterSensitiveLog = (obj: StopTextTranslationJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TranslateTextRequestFilterSensitiveLog = (obj: TranslateTextRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TranslateTextResponseFilterSensitiveLog = (obj: TranslateTextResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateParallelDataRequestFilterSensitiveLog = (obj: UpdateParallelDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateParallelDataResponseFilterSensitiveLog = (obj: UpdateParallelDataResponse): any => ({
+  ...obj,
+});

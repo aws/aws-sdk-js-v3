@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetUserSettingsRequest, GetUserSettingsResponse } from "../models/models_1";
+import {
+  GetUserSettingsRequest,
+  GetUserSettingsRequestFilterSensitiveLog,
+  GetUserSettingsResponse,
+  GetUserSettingsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1GetUserSettingsCommand,
   serializeAws_restJson1GetUserSettingsCommand,
@@ -72,8 +77,8 @@ export class GetUserSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUserSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetUserSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetUserSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetUserSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

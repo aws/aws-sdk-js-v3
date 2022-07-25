@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBClusterSnapshotMessage, DescribeDBClusterSnapshotsMessage } from "../models/models_0";
+import {
+  DBClusterSnapshotMessage,
+  DBClusterSnapshotMessageFilterSensitiveLog,
+  DescribeDBClusterSnapshotsMessage,
+  DescribeDBClusterSnapshotsMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeDBClusterSnapshotsCommand,
   serializeAws_queryDescribeDBClusterSnapshotsCommand,
@@ -78,8 +83,8 @@ export class DescribeDBClusterSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBClusterSnapshotsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterSnapshotMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDBClusterSnapshotsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterSnapshotMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

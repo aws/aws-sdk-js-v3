@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateHITRequest, CreateHITResponse } from "../models/models_0";
+import {
+  CreateHITRequest,
+  CreateHITRequestFilterSensitiveLog,
+  CreateHITResponse,
+  CreateHITResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { deserializeAws_json1_1CreateHITCommand, serializeAws_json1_1CreateHITCommand } from "../protocols/Aws_json1_1";
 
@@ -85,8 +90,8 @@ export class CreateHITCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHITRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateHITResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateHITRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateHITResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

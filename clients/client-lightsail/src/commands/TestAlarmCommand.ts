@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { TestAlarmRequest, TestAlarmResult } from "../models/models_1";
+import {
+  TestAlarmRequest,
+  TestAlarmRequestFilterSensitiveLog,
+  TestAlarmResult,
+  TestAlarmResultFilterSensitiveLog,
+} from "../models/models_1";
 import { deserializeAws_json1_1TestAlarmCommand, serializeAws_json1_1TestAlarmCommand } from "../protocols/Aws_json1_1";
 
 export interface TestAlarmCommandInput extends TestAlarmRequest {}
@@ -76,8 +81,8 @@ export class TestAlarmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestAlarmRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TestAlarmResult.filterSensitiveLog,
+      inputFilterSensitiveLog: TestAlarmRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TestAlarmResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

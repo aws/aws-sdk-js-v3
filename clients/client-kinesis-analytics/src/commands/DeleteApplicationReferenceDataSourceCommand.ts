@@ -15,7 +15,9 @@ import {
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
 import {
   DeleteApplicationReferenceDataSourceRequest,
+  DeleteApplicationReferenceDataSourceRequestFilterSensitiveLog,
   DeleteApplicationReferenceDataSourceResponse,
+  DeleteApplicationReferenceDataSourceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommand,
@@ -85,8 +87,8 @@ export class DeleteApplicationReferenceDataSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationReferenceDataSourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApplicationReferenceDataSourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApplicationReferenceDataSourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApplicationReferenceDataSourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import { DeleteSceneRequest, DeleteSceneResponse } from "../models/models_0";
+import {
+  DeleteSceneRequest,
+  DeleteSceneRequestFilterSensitiveLog,
+  DeleteSceneResponse,
+  DeleteSceneResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSceneCommand,
   serializeAws_restJson1DeleteSceneCommand,
@@ -72,8 +77,8 @@ export class DeleteSceneCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSceneRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSceneResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSceneRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSceneResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

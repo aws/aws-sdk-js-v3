@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import { ListJobsByPipelineRequest, ListJobsByPipelineResponse } from "../models/models_0";
+import {
+  ListJobsByPipelineRequest,
+  ListJobsByPipelineRequestFilterSensitiveLog,
+  ListJobsByPipelineResponse,
+  ListJobsByPipelineResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListJobsByPipelineCommand,
   serializeAws_restJson1ListJobsByPipelineCommand,
@@ -78,8 +83,8 @@ export class ListJobsByPipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJobsByPipelineRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListJobsByPipelineResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListJobsByPipelineRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListJobsByPipelineResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

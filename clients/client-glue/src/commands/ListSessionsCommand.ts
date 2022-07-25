@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { ListSessionsRequest, ListSessionsResponse } from "../models/models_1";
+import {
+  ListSessionsRequest,
+  ListSessionsRequestFilterSensitiveLog,
+  ListSessionsResponse,
+  ListSessionsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1ListSessionsCommand,
   serializeAws_json1_1ListSessionsCommand,
@@ -72,8 +77,8 @@ export class ListSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSessionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSessionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSessionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSessionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

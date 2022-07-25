@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { ListAppsListsRequest, ListAppsListsResponse } from "../models/models_0";
+import {
+  ListAppsListsRequest,
+  ListAppsListsRequestFilterSensitiveLog,
+  ListAppsListsResponse,
+  ListAppsListsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListAppsListsCommand,
   serializeAws_json1_1ListAppsListsCommand,
@@ -72,8 +77,8 @@ export class ListAppsListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppsListsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAppsListsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAppsListsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAppsListsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

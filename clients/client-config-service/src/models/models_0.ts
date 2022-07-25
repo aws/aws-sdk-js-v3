@@ -25,15 +25,6 @@ export interface AccountAggregationSource {
   AwsRegions?: string[];
 }
 
-export namespace AccountAggregationSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountAggregationSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of Amazon Web Services resources or Config rules responsible for
  * 			the current compliance of the item, up to a maximum
@@ -50,15 +41,6 @@ export interface ComplianceContributorCount {
    * <p>Indicates whether the maximum count is reached.</p>
    */
   CapExceeded?: boolean;
-}
-
-export namespace ComplianceContributorCount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplianceContributorCount): any => ({
-    ...obj,
-  });
 }
 
 export enum ComplianceType {
@@ -100,15 +82,6 @@ export interface Compliance {
   ComplianceContributorCount?: ComplianceContributorCount;
 }
 
-export namespace Compliance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Compliance): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates whether an Config rule is compliant based on
  * 			account ID, region, compliance, and rule name.</p>
@@ -138,15 +111,6 @@ export interface AggregateComplianceByConfigRule {
    * <p>The source region from where the data is aggregated.</p>
    */
   AwsRegion?: string;
-}
-
-export namespace AggregateComplianceByConfigRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregateComplianceByConfigRule): any => ({
-    ...obj,
-  });
 }
 
 export enum ConformancePackComplianceType {
@@ -185,15 +149,6 @@ export interface AggregateConformancePackCompliance {
   TotalRuleCount?: number;
 }
 
-export namespace AggregateConformancePackCompliance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregateConformancePackCompliance): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides aggregate compliance of the conformance pack. Indicates whether a conformance pack is compliant based on the name of the conformance pack, account ID, and region.</p>
  * 		       <p>A conformance pack is compliant if all of the rules in a conformance packs are compliant. It is noncompliant if any of the rules are not compliant.
@@ -222,15 +177,6 @@ export interface AggregateComplianceByConformancePack {
   AwsRegion?: string;
 }
 
-export namespace AggregateComplianceByConformancePack {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregateComplianceByConformancePack): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of Config rules or Amazon Web Services resources that are
  * 			compliant and noncompliant.</p>
@@ -257,15 +203,6 @@ export interface ComplianceSummary {
   ComplianceSummaryTimestamp?: Date;
 }
 
-export namespace ComplianceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplianceSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns the number of compliant and noncompliant rules for one
  * 			or more accounts and regions in an aggregator.</p>
@@ -284,15 +221,6 @@ export interface AggregateComplianceCount {
   ComplianceSummary?: ComplianceSummary;
 }
 
-export namespace AggregateComplianceCount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregateComplianceCount): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of conformance packs that are compliant and noncompliant.</p>
  */
@@ -306,15 +234,6 @@ export interface AggregateConformancePackComplianceCount {
    * <p>Number of noncompliant conformance packs.</p>
    */
   NonCompliantConformancePackCount?: number;
-}
-
-export namespace AggregateConformancePackComplianceCount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregateConformancePackComplianceCount): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -342,15 +261,6 @@ export interface AggregateConformancePackComplianceFilters {
   AwsRegion?: string;
 }
 
-export namespace AggregateConformancePackComplianceFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregateConformancePackComplianceFilters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides a summary of compliance based on either account ID or region. </p>
  */
@@ -366,15 +276,6 @@ export interface AggregateConformancePackComplianceSummary {
   GroupName?: string;
 }
 
-export namespace AggregateConformancePackComplianceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregateConformancePackComplianceSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Filters the results based on account ID and region. </p>
  */
@@ -388,15 +289,6 @@ export interface AggregateConformancePackComplianceSummaryFilters {
    * <p>The source Amazon Web Services Region from where the data is aggregated.</p>
    */
   AwsRegion?: string;
-}
-
-export namespace AggregateConformancePackComplianceSummaryFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregateConformancePackComplianceSummaryFilters): any => ({
-    ...obj,
-  });
 }
 
 export enum AggregateConformancePackComplianceSummaryGroupKey {
@@ -472,15 +364,6 @@ export interface AggregatedSourceStatus {
   LastErrorMessage?: string;
 }
 
-export namespace AggregatedSourceStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregatedSourceStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Identifies an Config rule that evaluated an Amazon Web Services resource,
  * 			and provides the type and ID of the resource that the rule
@@ -504,15 +387,6 @@ export interface EvaluationResultQualifier {
   ResourceId?: string;
 }
 
-export namespace EvaluationResultQualifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluationResultQualifier): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Uniquely identifies an evaluation result.</p>
  */
@@ -530,15 +404,6 @@ export interface EvaluationResultIdentifier {
    * 			event triggered the evaluation.</p>
    */
   OrderingTimestamp?: Date;
-}
-
-export namespace EvaluationResultIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluationResultIdentifier): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -589,15 +454,6 @@ export interface AggregateEvaluationResult {
    * <p>The source region from where the data is aggregated.</p>
    */
   AwsRegion?: string;
-}
-
-export namespace AggregateEvaluationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregateEvaluationResult): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceType {
@@ -768,15 +624,6 @@ export interface AggregateResourceIdentifier {
   ResourceName?: string;
 }
 
-export namespace AggregateResourceIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregateResourceIdentifier): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that represents the authorizations granted to
  * 			aggregator accounts and regions.</p>
@@ -804,15 +651,6 @@ export interface AggregationAuthorization {
    * 			created.</p>
    */
   CreationTime?: Date;
-}
-
-export namespace AggregationAuthorization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregationAuthorization): any => ({
-    ...obj,
-  });
 }
 
 export enum ConfigurationItemStatus {
@@ -922,15 +760,6 @@ export interface BaseConfigurationItem {
   supplementaryConfiguration?: Record<string, string>;
 }
 
-export namespace BaseConfigurationItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BaseConfigurationItem): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetAggregateResourceConfigRequest {
   /**
    * <p>The name of the configuration aggregator.</p>
@@ -943,15 +772,6 @@ export interface BatchGetAggregateResourceConfigRequest {
   ResourceIdentifiers: AggregateResourceIdentifier[] | undefined;
 }
 
-export namespace BatchGetAggregateResourceConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetAggregateResourceConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetAggregateResourceConfigResponse {
   /**
    * <p>A list that contains the current configuration of one or more resources.</p>
@@ -962,15 +782,6 @@ export interface BatchGetAggregateResourceConfigResponse {
    * <p>A list of resource identifiers that were not processed with current scope. The list is empty if all the resources are processed.</p>
    */
   UnprocessedResourceIdentifiers?: AggregateResourceIdentifier[];
-}
-
-export namespace BatchGetAggregateResourceConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetAggregateResourceConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1029,15 +840,6 @@ export interface ResourceKey {
   resourceId: string | undefined;
 }
 
-export namespace ResourceKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceKey): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetResourceConfigRequest {
   /**
    * <p>A list of resource keys to be processed with the current
@@ -1045,15 +847,6 @@ export interface BatchGetResourceConfigRequest {
    * 			resource ID.</p>
    */
   resourceKeys: ResourceKey[] | undefined;
-}
-
-export namespace BatchGetResourceConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetResourceConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchGetResourceConfigResponse {
@@ -1073,15 +866,6 @@ export interface BatchGetResourceConfigResponse {
    * 			empty unprocessedResourceKeys list. </p>
    */
   unprocessedResourceKeys?: ResourceKey[];
-}
-
-export namespace BatchGetResourceConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetResourceConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1128,15 +912,6 @@ export interface ComplianceByConfigRule {
   Compliance?: Compliance;
 }
 
-export namespace ComplianceByConfigRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplianceByConfigRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates whether an Amazon Web Services resource that is evaluated according
  * 			to one or more Config rules is compliant. A resource is
@@ -1161,15 +936,6 @@ export interface ComplianceByResource {
   Compliance?: Compliance;
 }
 
-export namespace ComplianceByResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplianceByResource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of Amazon Web Services resources of a specific type that are
  * 			compliant or noncompliant, up to a maximum of 100 for
@@ -1186,15 +952,6 @@ export interface ComplianceSummaryByResourceType {
    * 			up to a maximum of 100 for each.</p>
    */
   ComplianceSummary?: ComplianceSummary;
-}
-
-export namespace ComplianceSummaryByResourceType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplianceSummaryByResourceType): any => ({
-    ...obj,
-  });
 }
 
 export enum DeliveryStatus {
@@ -1239,15 +996,6 @@ export interface ConfigExportDeliveryInfo {
    * <p>The time that the next delivery occurs.</p>
    */
   nextDeliveryTime?: Date;
-}
-
-export namespace ConfigExportDeliveryInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigExportDeliveryInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum ConfigRuleState {
@@ -1306,15 +1054,6 @@ export interface Scope {
   ComplianceResourceId?: string;
 }
 
-export namespace Scope {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scope): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the runtime system, policy definition, and whether debug logging enabled. You can
  * 			specify the following CustomPolicyDetails parameter values
@@ -1337,15 +1076,6 @@ export interface CustomPolicyDetails {
    * <p>The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is <code>false</code>.</p>
    */
   EnableDebugLogDelivery?: boolean;
-}
-
-export namespace CustomPolicyDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomPolicyDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum Owner {
@@ -1447,15 +1177,6 @@ export interface SourceDetail {
   MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
 }
 
-export namespace SourceDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the CustomPolicyDetails, the rule owner (Amazon Web Services or customer), the rule
  * 			identifier, and the events that cause the evaluation of your Amazon Web Services
@@ -1494,15 +1215,6 @@ export interface Source {
    * <p>Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to <code>CUSTOM_POLICY</code>.</p>
    */
   CustomPolicyDetails?: CustomPolicyDetails;
-}
-
-export namespace Source {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Source): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1635,15 +1347,6 @@ export interface ConfigRule {
   CreatedBy?: string;
 }
 
-export namespace ConfigRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Filters the compliance results based on account ID, region,
  * 			compliance type, and rule name.</p>
@@ -1676,15 +1379,6 @@ export interface ConfigRuleComplianceFilters {
   AwsRegion?: string;
 }
 
-export namespace ConfigRuleComplianceFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigRuleComplianceFilters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Filters the results based on the account IDs and
  * 			regions.</p>
@@ -1699,15 +1393,6 @@ export interface ConfigRuleComplianceSummaryFilters {
    * <p>The source region where the data is aggregated.</p>
    */
   AwsRegion?: string;
-}
-
-export namespace ConfigRuleComplianceSummaryFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigRuleComplianceSummaryFilters): any => ({
-    ...obj,
-  });
 }
 
 export enum ConfigRuleComplianceSummaryGroupKey {
@@ -1821,15 +1506,6 @@ export interface ConfigRuleEvaluationStatus {
   LastDebugLogDeliveryTime?: Date;
 }
 
-export namespace ConfigRuleEvaluationStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigRuleEvaluationStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides options for how often Config delivers
  * 			configuration snapshots to the Amazon S3 bucket in your delivery
@@ -1902,15 +1578,6 @@ export interface ConfigSnapshotDeliveryProperties {
   deliveryFrequency?: MaximumExecutionFrequency | string;
 }
 
-export namespace ConfigSnapshotDeliveryProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigSnapshotDeliveryProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list that contains the status of the delivery of the
  * 			configuration stream notification to the Amazon SNS topic.</p>
@@ -1941,15 +1608,6 @@ export interface ConfigStreamDeliveryInfo {
   lastStatusChangeTime?: Date;
 }
 
-export namespace ConfigStreamDeliveryInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigStreamDeliveryInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This object contains regions to set up the aggregator and an IAM
  * 			role to retrieve organization details.</p>
@@ -1971,15 +1629,6 @@ export interface OrganizationAggregationSource {
    * 			regions.</p>
    */
   AllAwsRegions?: boolean;
-}
-
-export namespace OrganizationAggregationSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationAggregationSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2027,15 +1676,6 @@ export interface ConfigurationAggregator {
   CreatedBy?: string;
 }
 
-export namespace ConfigurationAggregator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationAggregator): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The relationship of the related resource to the main
  * 			resource.</p>
@@ -2062,15 +1702,6 @@ export interface Relationship {
    * <p>The type of relationship with the related resource.</p>
    */
   relationshipName?: string;
-}
-
-export namespace Relationship {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Relationship): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2207,15 +1838,6 @@ export interface ConfigurationItem {
   supplementaryConfiguration?: Record<string, string>;
 }
 
-export namespace ConfigurationItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationItem): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the types of Amazon Web Services resource for which Config
  * 			records configuration changes.</p>
@@ -2296,15 +1918,6 @@ export interface RecordingGroup {
   resourceTypes?: (ResourceType | string)[];
 }
 
-export namespace RecordingGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordingGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that represents the recording of configuration
  * 			changes of an Amazon Web Services resource.</p>
@@ -2331,15 +1944,6 @@ export interface ConfigurationRecorder {
    * 			records configuration changes.</p>
    */
   recordingGroup?: RecordingGroup;
-}
-
-export namespace ConfigurationRecorder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationRecorder): any => ({
-    ...obj,
-  });
 }
 
 export enum RecorderStatus {
@@ -2395,15 +1999,6 @@ export interface ConfigurationRecorderStatus {
   lastStatusChangeTime?: Date;
 }
 
-export namespace ConfigurationRecorderStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationRecorderStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Filters the conformance pack by compliance types and Config rule names.</p>
  */
@@ -2418,15 +2013,6 @@ export interface ConformancePackComplianceFilters {
    * 		       <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
    */
   ComplianceType?: ConformancePackComplianceType | string;
-}
-
-export namespace ConformancePackComplianceFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConformancePackComplianceFilters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2444,15 +2030,6 @@ export interface ConformancePackComplianceSummary {
   ConformancePackComplianceStatus: ConformancePackComplianceType | string | undefined;
 }
 
-export namespace ConformancePackComplianceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConformancePackComplianceSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input parameters in the form of key-value pairs for the conformance pack, both of which you define.
  * 			Keys can have a maximum character length of 255 characters, and values can have a maximum length of 4096 characters.</p>
@@ -2467,15 +2044,6 @@ export interface ConformancePackInputParameter {
    * <p>Another part of the key-value pair. </p>
    */
   ParameterValue: string | undefined;
-}
-
-export namespace ConformancePackInputParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConformancePackInputParameter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2529,15 +2097,6 @@ export interface ConformancePackDetail {
   CreatedBy?: string;
 }
 
-export namespace ConformancePackDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConformancePackDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Filters a conformance pack by Config rule names, compliance types, Amazon Web Services resource types, and resource IDs.</p>
  */
@@ -2565,15 +2124,6 @@ export interface ConformancePackEvaluationFilters {
    *          </note>
    */
   ResourceIds?: string[];
-}
-
-export namespace ConformancePackEvaluationFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConformancePackEvaluationFilters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2606,15 +2156,6 @@ export interface ConformancePackEvaluationResult {
   Annotation?: string;
 }
 
-export namespace ConformancePackEvaluationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConformancePackEvaluationResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Compliance information of one or more Config rules within a conformance pack. You can filter using Config rule names and compliance types.</p>
  */
@@ -2635,15 +2176,6 @@ export interface ConformancePackRuleCompliance {
    * 			A control can align with a specific compliance regime or map to internal controls defined by an organization.</p>
    */
   Controls?: string[];
-}
-
-export namespace ConformancePackRuleCompliance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConformancePackRuleCompliance): any => ({
-    ...obj,
-  });
 }
 
 export enum ConformancePackState {
@@ -2717,15 +2249,6 @@ export interface ConformancePackStatusDetail {
   LastUpdateCompletedTime?: Date;
 }
 
-export namespace ConformancePackStatusDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConformancePackStatusDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have specified a template that is not valid or supported.</p>
  */
@@ -2758,15 +2281,6 @@ export interface DeleteAggregationAuthorizationRequest {
   AuthorizedAwsRegion: string | undefined;
 }
 
-export namespace DeleteAggregationAuthorizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAggregationAuthorizationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more of the specified parameters are invalid. Verify
  * 			that your parameters are valid and try again.</p>
@@ -2796,15 +2310,6 @@ export interface DeleteConfigRuleRequest {
    * 			delete.</p>
    */
   ConfigRuleName: string | undefined;
-}
-
-export namespace DeleteConfigRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigRuleRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2875,15 +2380,6 @@ export interface DeleteConfigurationAggregatorRequest {
   ConfigurationAggregatorName: string | undefined;
 }
 
-export namespace DeleteConfigurationAggregatorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationAggregatorRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request object for the
  * 				<code>DeleteConfigurationRecorder</code> action.</p>
@@ -2895,15 +2391,6 @@ export interface DeleteConfigurationRecorderRequest {
    * 				<code>DescribeConfigurationRecorders</code> action.</p>
    */
   ConfigurationRecorderName: string | undefined;
-}
-
-export namespace DeleteConfigurationRecorderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationRecorderRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2931,15 +2418,6 @@ export interface DeleteConformancePackRequest {
    * <p>Name of the conformance pack you want to delete.</p>
    */
   ConformancePackName: string | undefined;
-}
-
-export namespace DeleteConformancePackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConformancePackRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2971,15 +2449,6 @@ export interface DeleteDeliveryChannelRequest {
    * <p>The name of the delivery channel to delete.</p>
    */
   DeliveryChannelName: string | undefined;
-}
-
-export namespace DeleteDeliveryChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeliveryChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3033,44 +2502,17 @@ export interface DeleteEvaluationResultsRequest {
   ConfigRuleName: string | undefined;
 }
 
-export namespace DeleteEvaluationResultsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEvaluationResultsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output when you delete the evaluation results for the
  * 			specified Config rule.</p>
  */
 export interface DeleteEvaluationResultsResponse {}
 
-export namespace DeleteEvaluationResultsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEvaluationResultsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteOrganizationConfigRuleRequest {
   /**
    * <p>The name of organization Config rule that you want to delete.</p>
    */
   OrganizationConfigRuleName: string | undefined;
-}
-
-export namespace DeleteOrganizationConfigRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOrganizationConfigRuleRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3136,15 +2578,6 @@ export interface DeleteOrganizationConformancePackRequest {
   OrganizationConformancePackName: string | undefined;
 }
 
-export namespace DeleteOrganizationConformancePackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOrganizationConformancePackRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Config organization conformance pack that you passed in the filter does not exist.</p>
  * 		       <p>For DeleteOrganizationConformancePack, you tried to delete an organization conformance pack that does not exist.</p>
@@ -3178,15 +2611,6 @@ export interface DeletePendingAggregationRequestRequest {
   RequesterAwsRegion: string | undefined;
 }
 
-export namespace DeletePendingAggregationRequestRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePendingAggregationRequestRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRemediationConfigurationRequest {
   /**
    * <p>The name of the Config rule for which you want to delete remediation configuration.</p>
@@ -3199,25 +2623,7 @@ export interface DeleteRemediationConfigurationRequest {
   ResourceType?: string;
 }
 
-export namespace DeleteRemediationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRemediationConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRemediationConfigurationResponse {}
-
-export namespace DeleteRemediationConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRemediationConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Indicates one of the following errors:</p>
@@ -3313,15 +2719,6 @@ export interface RemediationExceptionResourceKey {
   ResourceId?: string;
 }
 
-export namespace RemediationExceptionResourceKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemediationExceptionResourceKey): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRemediationExceptionsRequest {
   /**
    * <p>The name of the Config rule for which you want to delete remediation exception configuration.</p>
@@ -3332,15 +2729,6 @@ export interface DeleteRemediationExceptionsRequest {
    * <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys. </p>
    */
   ResourceKeys: RemediationExceptionResourceKey[] | undefined;
-}
-
-export namespace DeleteRemediationExceptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRemediationExceptionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3358,29 +2746,11 @@ export interface FailedDeleteRemediationExceptionsBatch {
   FailedItems?: RemediationExceptionResourceKey[];
 }
 
-export namespace FailedDeleteRemediationExceptionsBatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedDeleteRemediationExceptionsBatch): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRemediationExceptionsResponse {
   /**
    * <p>Returns a list of failed delete remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
    */
   FailedBatches?: FailedDeleteRemediationExceptionsBatch[];
-}
-
-export namespace DeleteRemediationExceptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRemediationExceptionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3414,15 +2784,6 @@ export interface DeleteResourceConfigRequest {
   ResourceId: string | undefined;
 }
 
-export namespace DeleteResourceConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourceConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There is no configuration recorder running.</p>
  */
@@ -3447,15 +2808,6 @@ export interface DeleteRetentionConfigurationRequest {
    * <p>The name of the retention configuration to delete.</p>
    */
   RetentionConfigurationName: string | undefined;
-}
-
-export namespace DeleteRetentionConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRetentionConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3484,25 +2836,7 @@ export interface DeleteStoredQueryRequest {
   QueryName: string | undefined;
 }
 
-export namespace DeleteStoredQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStoredQueryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStoredQueryResponse {}
-
-export namespace DeleteStoredQueryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStoredQueryResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>You have specified a resource that does not exist.</p>
@@ -3535,15 +2869,6 @@ export interface DeliverConfigSnapshotRequest {
   deliveryChannelName: string | undefined;
 }
 
-export namespace DeliverConfigSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeliverConfigSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for the <a>DeliverConfigSnapshot</a>
  * 			action, in JSON format.</p>
@@ -3553,15 +2878,6 @@ export interface DeliverConfigSnapshotResponse {
    * <p>The ID of the snapshot that is being created.</p>
    */
   configSnapshotId?: string;
-}
-
-export namespace DeliverConfigSnapshotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeliverConfigSnapshotResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3617,15 +2933,6 @@ export interface DeliveryChannel {
   configSnapshotDeliveryProperties?: ConfigSnapshotDeliveryProperties;
 }
 
-export namespace DeliveryChannel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeliveryChannel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The status of a specified delivery channel.</p>
  * 		       <p>Valid values: <code>Success</code> | <code>Failure</code>
@@ -3657,15 +2964,6 @@ export interface DeliveryChannelStatus {
   configStreamDeliveryInfo?: ConfigStreamDeliveryInfo;
 }
 
-export namespace DeliveryChannelStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeliveryChannelStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAggregateComplianceByConfigRulesRequest {
   /**
    * <p>The name of the configuration aggregator.</p>
@@ -3693,15 +2991,6 @@ export interface DescribeAggregateComplianceByConfigRulesRequest {
   NextToken?: string;
 }
 
-export namespace DescribeAggregateComplianceByConfigRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAggregateComplianceByConfigRulesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAggregateComplianceByConfigRulesResponse {
   /**
    * <p>Returns a list of AggregateComplianceByConfigRule
@@ -3714,15 +3003,6 @@ export interface DescribeAggregateComplianceByConfigRulesResponse {
    * 			to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeAggregateComplianceByConfigRulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAggregateComplianceByConfigRulesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3787,15 +3067,6 @@ export interface DescribeAggregateComplianceByConformancePacksRequest {
   NextToken?: string;
 }
 
-export namespace DescribeAggregateComplianceByConformancePacksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAggregateComplianceByConformancePacksRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAggregateComplianceByConformancePacksResponse {
   /**
    * <p>Returns the <code>AggregateComplianceByConformancePack</code> object.</p>
@@ -3806,15 +3077,6 @@ export interface DescribeAggregateComplianceByConformancePacksResponse {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeAggregateComplianceByConformancePacksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAggregateComplianceByConformancePacksResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAggregationAuthorizationsRequest {
@@ -3832,15 +3094,6 @@ export interface DescribeAggregationAuthorizationsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeAggregationAuthorizationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAggregationAuthorizationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAggregationAuthorizationsResponse {
   /**
    * <p>Returns a list of authorizations granted to various aggregator
@@ -3853,15 +3106,6 @@ export interface DescribeAggregationAuthorizationsResponse {
    * 			to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeAggregationAuthorizationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAggregationAuthorizationsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3888,15 +3132,6 @@ export interface DescribeComplianceByConfigRuleRequest {
   NextToken?: string;
 }
 
-export namespace DescribeComplianceByConfigRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeComplianceByConfigRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -3912,15 +3147,6 @@ export interface DescribeComplianceByConfigRuleResponse {
    * 			page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeComplianceByConfigRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeComplianceByConfigRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3964,15 +3190,6 @@ export interface DescribeComplianceByResourceRequest {
   NextToken?: string;
 }
 
-export namespace DescribeComplianceByResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeComplianceByResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -3988,15 +3205,6 @@ export interface DescribeComplianceByResourceResponse {
    * 			page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeComplianceByResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeComplianceByResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4031,15 +3239,6 @@ export interface DescribeConfigRuleEvaluationStatusRequest {
   Limit?: number;
 }
 
-export namespace DescribeConfigRuleEvaluationStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigRuleEvaluationStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -4054,15 +3253,6 @@ export interface DescribeConfigRuleEvaluationStatusResponse {
    * 			page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeConfigRuleEvaluationStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigRuleEvaluationStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4084,15 +3274,6 @@ export interface DescribeConfigRulesRequest {
   NextToken?: string;
 }
 
-export namespace DescribeConfigRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigRulesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -4107,15 +3288,6 @@ export interface DescribeConfigRulesResponse {
    * 			page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeConfigRulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigRulesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConfigurationAggregatorsRequest {
@@ -4138,15 +3310,6 @@ export interface DescribeConfigurationAggregatorsRequest {
   Limit?: number;
 }
 
-export namespace DescribeConfigurationAggregatorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationAggregatorsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConfigurationAggregatorsResponse {
   /**
    * <p>Returns a ConfigurationAggregators object.</p>
@@ -4158,15 +3321,6 @@ export interface DescribeConfigurationAggregatorsResponse {
    * 			to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeConfigurationAggregatorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationAggregatorsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConfigurationAggregatorSourcesStatusRequest {
@@ -4208,15 +3362,6 @@ export interface DescribeConfigurationAggregatorSourcesStatusRequest {
   Limit?: number;
 }
 
-export namespace DescribeConfigurationAggregatorSourcesStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationAggregatorSourcesStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConfigurationAggregatorSourcesStatusResponse {
   /**
    * <p>Returns an AggregatedSourceStatus object.
@@ -4231,15 +3376,6 @@ export interface DescribeConfigurationAggregatorSourcesStatusResponse {
   NextToken?: string;
 }
 
-export namespace DescribeConfigurationAggregatorSourcesStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationAggregatorSourcesStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the <a>DescribeConfigurationRecorders</a> action.</p>
  */
@@ -4248,15 +3384,6 @@ export interface DescribeConfigurationRecordersRequest {
    * <p>A list of configuration recorder names.</p>
    */
   ConfigurationRecorderNames?: string[];
-}
-
-export namespace DescribeConfigurationRecordersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationRecordersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4268,15 +3395,6 @@ export interface DescribeConfigurationRecordersResponse {
    * 			configuration recorders.</p>
    */
   ConfigurationRecorders?: ConfigurationRecorder[];
-}
-
-export namespace DescribeConfigurationRecordersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationRecordersResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4292,15 +3410,6 @@ export interface DescribeConfigurationRecorderStatusRequest {
   ConfigurationRecorderNames?: string[];
 }
 
-export namespace DescribeConfigurationRecorderStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationRecorderStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for the <a>DescribeConfigurationRecorderStatus</a> action, in JSON
  * 			format.</p>
@@ -4311,15 +3420,6 @@ export interface DescribeConfigurationRecorderStatusResponse {
    * 			recorders.</p>
    */
   ConfigurationRecordersStatus?: ConfigurationRecorderStatus[];
-}
-
-export namespace DescribeConfigurationRecorderStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationRecorderStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConformancePackComplianceRequest {
@@ -4344,15 +3444,6 @@ export interface DescribeConformancePackComplianceRequest {
   NextToken?: string;
 }
 
-export namespace DescribeConformancePackComplianceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConformancePackComplianceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConformancePackComplianceResponse {
   /**
    * <p>Name of the conformance pack.</p>
@@ -4368,15 +3459,6 @@ export interface DescribeConformancePackComplianceResponse {
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeConformancePackComplianceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConformancePackComplianceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4415,15 +3497,6 @@ export interface DescribeConformancePacksRequest {
   NextToken?: string;
 }
 
-export namespace DescribeConformancePacksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConformancePacksRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConformancePacksResponse {
   /**
    * <p>Returns a list of <code>ConformancePackDetail</code> objects.</p>
@@ -4434,15 +3507,6 @@ export interface DescribeConformancePacksResponse {
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeConformancePacksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConformancePacksResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConformancePackStatusRequest {
@@ -4462,15 +3526,6 @@ export interface DescribeConformancePackStatusRequest {
   NextToken?: string;
 }
 
-export namespace DescribeConformancePackStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConformancePackStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConformancePackStatusResponse {
   /**
    * <p>A list of <code>ConformancePackStatusDetail</code> objects.</p>
@@ -4483,15 +3538,6 @@ export interface DescribeConformancePackStatusResponse {
   NextToken?: string;
 }
 
-export namespace DescribeConformancePackStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConformancePackStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the <a>DescribeDeliveryChannels</a>
  * 			action.</p>
@@ -4501,15 +3547,6 @@ export interface DescribeDeliveryChannelsRequest {
    * <p>A list of delivery channel names.</p>
    */
   DeliveryChannelNames?: string[];
-}
-
-export namespace DescribeDeliveryChannelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeliveryChannelsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4524,15 +3561,6 @@ export interface DescribeDeliveryChannelsResponse {
   DeliveryChannels?: DeliveryChannel[];
 }
 
-export namespace DescribeDeliveryChannelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeliveryChannelsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the <a>DeliveryChannelStatus</a>
  * 			action.</p>
@@ -4544,15 +3572,6 @@ export interface DescribeDeliveryChannelStatusRequest {
   DeliveryChannelNames?: string[];
 }
 
-export namespace DescribeDeliveryChannelStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeliveryChannelStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for the <a>DescribeDeliveryChannelStatus</a> action.</p>
  */
@@ -4562,15 +3581,6 @@ export interface DescribeDeliveryChannelStatusResponse {
    * 			channel.</p>
    */
   DeliveryChannelsStatus?: DeliveryChannelStatus[];
-}
-
-export namespace DescribeDeliveryChannelStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeliveryChannelStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeOrganizationConfigRulesRequest {
@@ -4588,15 +3598,6 @@ export interface DescribeOrganizationConfigRulesRequest {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeOrganizationConfigRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationConfigRulesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum OrganizationConfigRuleTriggerTypeNoSN {
@@ -4677,15 +3678,6 @@ export interface OrganizationCustomPolicyRuleMetadataNoPolicy {
    * <p>A list of accounts that you can enable debug logging for your organization Config Custom Policy rule. List is null when debug logging is enabled for all accounts.</p>
    */
   DebugLogDeliveryAccounts?: string[];
-}
-
-export namespace OrganizationCustomPolicyRuleMetadataNoPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationCustomPolicyRuleMetadataNoPolicy): any => ({
-    ...obj,
-  });
 }
 
 export enum OrganizationConfigRuleTriggerType {
@@ -4769,15 +3761,6 @@ export interface OrganizationCustomRuleMetadata {
   TagValueScope?: string;
 }
 
-export namespace OrganizationCustomRuleMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationCustomRuleMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that specifies organization managed rule metadata such as resource type and ID of Amazon Web Services resource along with the rule identifier.
  * 			It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
@@ -4832,15 +3815,6 @@ export interface OrganizationManagedRuleMetadata {
   TagValueScope?: string;
 }
 
-export namespace OrganizationManagedRuleMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationManagedRuleMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An organization Config rule that has information about Config rules that Config creates in member accounts.</p>
  */
@@ -4884,15 +3858,6 @@ export interface OrganizationConfigRule {
   OrganizationCustomPolicyRuleMetadata?: OrganizationCustomPolicyRuleMetadataNoPolicy;
 }
 
-export namespace OrganizationConfigRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationConfigRule): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOrganizationConfigRulesResponse {
   /**
    * <p>Returns a list of <code>OrganizationConfigRule</code> objects.</p>
@@ -4903,15 +3868,6 @@ export interface DescribeOrganizationConfigRulesResponse {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeOrganizationConfigRulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationConfigRulesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeOrganizationConfigRuleStatusesRequest {
@@ -4929,15 +3885,6 @@ export interface DescribeOrganizationConfigRuleStatusesRequest {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeOrganizationConfigRuleStatusesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationConfigRuleStatusesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum OrganizationRuleStatus {
@@ -5024,15 +3971,6 @@ export interface OrganizationConfigRuleStatus {
   LastUpdateTime?: Date;
 }
 
-export namespace OrganizationConfigRuleStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationConfigRuleStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOrganizationConfigRuleStatusesResponse {
   /**
    * <p>A list of <code>OrganizationConfigRuleStatus</code> objects.</p>
@@ -5043,15 +3981,6 @@ export interface DescribeOrganizationConfigRuleStatusesResponse {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeOrganizationConfigRuleStatusesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationConfigRuleStatusesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeOrganizationConformancePacksRequest {
@@ -5071,15 +4000,6 @@ export interface DescribeOrganizationConformancePacksRequest {
    * 			paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeOrganizationConformancePacksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationConformancePacksRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5128,15 +4048,6 @@ export interface OrganizationConformancePack {
   LastUpdateTime: Date | undefined;
 }
 
-export namespace OrganizationConformancePack {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationConformancePack): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOrganizationConformancePacksResponse {
   /**
    * <p>Returns a list of OrganizationConformancePacks objects.</p>
@@ -5148,15 +4059,6 @@ export interface DescribeOrganizationConformancePacksResponse {
    * 			paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeOrganizationConformancePacksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationConformancePacksResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeOrganizationConformancePackStatusesRequest {
@@ -5176,15 +4078,6 @@ export interface DescribeOrganizationConformancePackStatusesRequest {
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeOrganizationConformancePackStatusesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationConformancePackStatusesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum OrganizationResourceStatus {
@@ -5277,15 +4170,6 @@ export interface OrganizationConformancePackStatus {
   LastUpdateTime?: Date;
 }
 
-export namespace OrganizationConformancePackStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationConformancePackStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOrganizationConformancePackStatusesResponse {
   /**
    * <p>A list of <code>OrganizationConformancePackStatus</code> objects. </p>
@@ -5296,15 +4180,6 @@ export interface DescribeOrganizationConformancePackStatusesResponse {
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeOrganizationConformancePackStatusesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationConformancePackStatusesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePendingAggregationRequestsRequest {
@@ -5320,15 +4195,6 @@ export interface DescribePendingAggregationRequestsRequest {
    * 			to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribePendingAggregationRequestsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePendingAggregationRequestsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5349,15 +4215,6 @@ export interface PendingAggregationRequest {
   RequesterAwsRegion?: string;
 }
 
-export namespace PendingAggregationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingAggregationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePendingAggregationRequestsResponse {
   /**
    * <p>Returns a PendingAggregationRequests object.</p>
@@ -5371,29 +4228,11 @@ export interface DescribePendingAggregationRequestsResponse {
   NextToken?: string;
 }
 
-export namespace DescribePendingAggregationRequestsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePendingAggregationRequestsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRemediationConfigurationsRequest {
   /**
    * <p>A list of Config rule names of remediation configurations for which you want details. </p>
    */
   ConfigRuleNames: string[] | undefined;
-}
-
-export namespace DescribeRemediationConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRemediationConfigurationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5413,15 +4252,6 @@ export interface SsmControls {
   ErrorPercentage?: number;
 }
 
-export namespace SsmControls {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SsmControls): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The controls that Config uses for executing remediations.</p>
  */
@@ -5430,15 +4260,6 @@ export interface ExecutionControls {
    * <p>A SsmControls object.</p>
    */
   SsmControls?: SsmControls;
-}
-
-export namespace ExecutionControls {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionControls): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceValueType {
@@ -5455,15 +4276,6 @@ export interface ResourceValue {
   Value: ResourceValueType | string | undefined;
 }
 
-export namespace ResourceValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceValue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The static value of the resource.</p>
  */
@@ -5472,15 +4284,6 @@ export interface StaticValue {
    * <p>A list of values. For example, the ARN of the assumed role. </p>
    */
   Values: string[] | undefined;
-}
-
-export namespace StaticValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StaticValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5496,15 +4299,6 @@ export interface RemediationParameterValue {
    * <p>The value is static and does not change at run-time.</p>
    */
   StaticValue?: StaticValue;
-}
-
-export namespace RemediationParameterValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemediationParameterValue): any => ({
-    ...obj,
-  });
 }
 
 export enum RemediationTargetType {
@@ -5585,29 +4379,11 @@ export interface RemediationConfiguration {
   CreatedByService?: string;
 }
 
-export namespace RemediationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemediationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRemediationConfigurationsResponse {
   /**
    * <p>Returns a remediation configuration object.</p>
    */
   RemediationConfigurations?: RemediationConfiguration[];
-}
-
-export namespace DescribeRemediationConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRemediationConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRemediationExceptionsRequest {
@@ -5630,15 +4406,6 @@ export interface DescribeRemediationExceptionsRequest {
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeRemediationExceptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRemediationExceptionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5671,15 +4438,6 @@ export interface RemediationException {
   ExpirationTime?: Date;
 }
 
-export namespace RemediationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemediationException): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRemediationExceptionsResponse {
   /**
    * <p>Returns a list of remediation exception objects.</p>
@@ -5690,15 +4448,6 @@ export interface DescribeRemediationExceptionsResponse {
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeRemediationExceptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRemediationExceptionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRemediationExecutionStatusRequest {
@@ -5721,15 +4470,6 @@ export interface DescribeRemediationExecutionStatusRequest {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeRemediationExecutionStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRemediationExecutionStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum RemediationExecutionState {
@@ -5775,15 +4515,6 @@ export interface RemediationExecutionStep {
   StopTime?: Date;
 }
 
-export namespace RemediationExecutionStep {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemediationExecutionStep): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides details of the current status of the invoked remediation action for that resource.</p>
  */
@@ -5815,15 +4546,6 @@ export interface RemediationExecutionStatus {
   LastUpdatedTime?: Date;
 }
 
-export namespace RemediationExecutionStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemediationExecutionStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRemediationExecutionStatusResponse {
   /**
    * <p>Returns a list of remediation execution statuses objects.</p>
@@ -5834,15 +4556,6 @@ export interface DescribeRemediationExecutionStatusResponse {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeRemediationExecutionStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRemediationExecutionStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRetentionConfigurationsRequest {
@@ -5865,15 +4578,6 @@ export interface DescribeRetentionConfigurationsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeRetentionConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRetentionConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object with the name of the retention configuration and the retention period in days. The object stores the configuration for data retention in Config.</p>
  */
@@ -5892,15 +4596,6 @@ export interface RetentionConfiguration {
   RetentionPeriodInDays: number | undefined;
 }
 
-export namespace RetentionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetentionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRetentionConfigurationsResponse {
   /**
    * <p>Returns a retention configuration object.</p>
@@ -5913,15 +4608,6 @@ export interface DescribeRetentionConfigurationsResponse {
    * 			response. </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeRetentionConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRetentionConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5971,15 +4657,6 @@ export interface Evaluation {
   OrderingTimestamp: Date | undefined;
 }
 
-export namespace Evaluation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Evaluation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The details of an Config evaluation. Provides the Amazon Web Services
  * 			resource that was evaluated, the compliance of the resource, related
@@ -6027,15 +4704,6 @@ export interface EvaluationResult {
   ResultToken?: string;
 }
 
-export namespace EvaluationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluationResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Identifies an Amazon Web Services resource and indicates whether it complies with the Config rule that it was evaluated against.</p>
  */
@@ -6066,15 +4734,6 @@ export interface ExternalEvaluation {
   OrderingTimestamp: Date | undefined;
 }
 
-export namespace ExternalEvaluation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExternalEvaluation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>List of each of the failed remediations with specific reasons.</p>
  */
@@ -6088,15 +4747,6 @@ export interface FailedRemediationBatch {
    * <p>Returns remediation configurations of the failed items.</p>
    */
   FailedItems?: RemediationConfiguration[];
-}
-
-export namespace FailedRemediationBatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedRemediationBatch): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6114,15 +4764,6 @@ export interface FailedRemediationExceptionBatch {
   FailedItems?: RemediationException[];
 }
 
-export namespace FailedRemediationExceptionBatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedRemediationExceptionBatch): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the fields such as name of the field.</p>
  */
@@ -6131,15 +4772,6 @@ export interface FieldInfo {
    * <p>Name of the field.</p>
    */
   Name?: string;
-}
-
-export namespace FieldInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldInfo): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAggregateComplianceDetailsByConfigRuleRequest {
@@ -6191,15 +4823,6 @@ export interface GetAggregateComplianceDetailsByConfigRuleRequest {
   NextToken?: string;
 }
 
-export namespace GetAggregateComplianceDetailsByConfigRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAggregateComplianceDetailsByConfigRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAggregateComplianceDetailsByConfigRuleResponse {
   /**
    * <p>Returns an AggregateEvaluationResults object.</p>
@@ -6211,15 +4834,6 @@ export interface GetAggregateComplianceDetailsByConfigRuleResponse {
    * 			to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetAggregateComplianceDetailsByConfigRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAggregateComplianceDetailsByConfigRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAggregateConfigRuleComplianceSummaryRequest {
@@ -6253,15 +4867,6 @@ export interface GetAggregateConfigRuleComplianceSummaryRequest {
   NextToken?: string;
 }
 
-export namespace GetAggregateConfigRuleComplianceSummaryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAggregateConfigRuleComplianceSummaryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAggregateConfigRuleComplianceSummaryResponse {
   /**
    * <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
@@ -6278,15 +4883,6 @@ export interface GetAggregateConfigRuleComplianceSummaryResponse {
    * 			to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetAggregateConfigRuleComplianceSummaryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAggregateConfigRuleComplianceSummaryResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAggregateConformancePackComplianceSummaryRequest {
@@ -6316,15 +4912,6 @@ export interface GetAggregateConformancePackComplianceSummaryRequest {
   NextToken?: string;
 }
 
-export namespace GetAggregateConformancePackComplianceSummaryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAggregateConformancePackComplianceSummaryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAggregateConformancePackComplianceSummaryResponse {
   /**
    * <p>Returns a list of <code>AggregateConformancePackComplianceSummary</code> object.</p>
@@ -6340,15 +4927,6 @@ export interface GetAggregateConformancePackComplianceSummaryResponse {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetAggregateConformancePackComplianceSummaryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAggregateConformancePackComplianceSummaryResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6369,15 +4947,6 @@ export interface ResourceCountFilters {
    * <p>The region where the account is located.</p>
    */
   Region?: string;
-}
-
-export namespace ResourceCountFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceCountFilters): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceCountGroupKey {
@@ -6413,15 +4982,6 @@ export interface GetAggregateDiscoveredResourceCountsRequest {
   NextToken?: string;
 }
 
-export namespace GetAggregateDiscoveredResourceCountsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAggregateDiscoveredResourceCountsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The count of resources that are grouped by the group name.</p>
  */
@@ -6435,15 +4995,6 @@ export interface GroupedResourceCount {
    * <p>The number of resources in the group.</p>
    */
   ResourceCount: number | undefined;
-}
-
-export namespace GroupedResourceCount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupedResourceCount): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAggregateDiscoveredResourceCountsResponse {
@@ -6468,15 +5019,6 @@ export interface GetAggregateDiscoveredResourceCountsResponse {
   NextToken?: string;
 }
 
-export namespace GetAggregateDiscoveredResourceCountsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAggregateDiscoveredResourceCountsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAggregateResourceConfigRequest {
   /**
    * <p>The name of the configuration aggregator.</p>
@@ -6489,29 +5031,11 @@ export interface GetAggregateResourceConfigRequest {
   ResourceIdentifier: AggregateResourceIdentifier | undefined;
 }
 
-export namespace GetAggregateResourceConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAggregateResourceConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAggregateResourceConfigResponse {
   /**
    * <p>Returns a <code>ConfigurationItem</code> object.</p>
    */
   ConfigurationItem?: ConfigurationItem;
-}
-
-export namespace GetAggregateResourceConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAggregateResourceConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6586,15 +5110,6 @@ export interface GetComplianceDetailsByConfigRuleRequest {
   NextToken?: string;
 }
 
-export namespace GetComplianceDetailsByConfigRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComplianceDetailsByConfigRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -6610,15 +5125,6 @@ export interface GetComplianceDetailsByConfigRuleResponse {
    * 			page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetComplianceDetailsByConfigRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComplianceDetailsByConfigRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6653,15 +5159,6 @@ export interface GetComplianceDetailsByResourceRequest {
   NextToken?: string;
 }
 
-export namespace GetComplianceDetailsByResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComplianceDetailsByResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -6678,15 +5175,6 @@ export interface GetComplianceDetailsByResourceResponse {
   NextToken?: string;
 }
 
-export namespace GetComplianceDetailsByResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComplianceDetailsByResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -6697,15 +5185,6 @@ export interface GetComplianceSummaryByConfigRuleResponse {
    * 			each.</p>
    */
   ComplianceSummary?: ComplianceSummary;
-}
-
-export namespace GetComplianceSummaryByConfigRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComplianceSummaryByConfigRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6724,15 +5203,6 @@ export interface GetComplianceSummaryByResourceTypeRequest {
   ResourceTypes?: string[];
 }
 
-export namespace GetComplianceSummaryByResourceTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComplianceSummaryByResourceTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -6744,15 +5214,6 @@ export interface GetComplianceSummaryByResourceTypeResponse {
    * 			maximum number returned is 100.</p>
    */
   ComplianceSummariesByResourceType?: ComplianceSummaryByResourceType[];
-}
-
-export namespace GetComplianceSummaryByResourceTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComplianceSummaryByResourceTypeResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetConformancePackComplianceDetailsRequest {
@@ -6777,15 +5238,6 @@ export interface GetConformancePackComplianceDetailsRequest {
   NextToken?: string;
 }
 
-export namespace GetConformancePackComplianceDetailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConformancePackComplianceDetailsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetConformancePackComplianceDetailsResponse {
   /**
    * <p>Name of the conformance pack.</p>
@@ -6801,15 +5253,6 @@ export interface GetConformancePackComplianceDetailsResponse {
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetConformancePackComplianceDetailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConformancePackComplianceDetailsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetConformancePackComplianceSummaryRequest {
@@ -6829,15 +5272,6 @@ export interface GetConformancePackComplianceSummaryRequest {
   NextToken?: string;
 }
 
-export namespace GetConformancePackComplianceSummaryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConformancePackComplianceSummaryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetConformancePackComplianceSummaryResponse {
   /**
    * <p>A list of <code>ConformancePackComplianceSummary</code> objects. </p>
@@ -6850,15 +5284,6 @@ export interface GetConformancePackComplianceSummaryResponse {
   NextToken?: string;
 }
 
-export namespace GetConformancePackComplianceSummaryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConformancePackComplianceSummaryResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCustomRulePolicyRequest {
   /**
    * <p>The name of your Config Custom Policy rule.</p>
@@ -6866,29 +5291,11 @@ export interface GetCustomRulePolicyRequest {
   ConfigRuleName?: string;
 }
 
-export namespace GetCustomRulePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCustomRulePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCustomRulePolicyResponse {
   /**
    * <p>The policy definition containing the logic for your Config Custom Policy rule.</p>
    */
   PolicyText?: string;
-}
-
-export namespace GetCustomRulePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCustomRulePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDiscoveredResourceCountsRequest {
@@ -6926,15 +5333,6 @@ export interface GetDiscoveredResourceCountsRequest {
   nextToken?: string;
 }
 
-export namespace GetDiscoveredResourceCountsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDiscoveredResourceCountsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains the resource type and the number of
  * 			resources.</p>
@@ -6950,15 +5348,6 @@ export interface ResourceCount {
    * <p>The number of resources.</p>
    */
   count?: number;
-}
-
-export namespace ResourceCount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceCount): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDiscoveredResourceCountsResponse {
@@ -7005,15 +5394,6 @@ export interface GetDiscoveredResourceCountsResponse {
    * 			page of results in a paginated response.</p>
    */
   nextToken?: string;
-}
-
-export namespace GetDiscoveredResourceCountsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDiscoveredResourceCountsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum MemberAccountRuleStatus {
@@ -7086,15 +5466,6 @@ export interface StatusDetailFilters {
   MemberAccountRuleStatus?: MemberAccountRuleStatus | string;
 }
 
-export namespace StatusDetailFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatusDetailFilters): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOrganizationConfigRuleDetailedStatusRequest {
   /**
    * <p>The name of your organization Config rule for which you want status details for member accounts.</p>
@@ -7115,15 +5486,6 @@ export interface GetOrganizationConfigRuleDetailedStatusRequest {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-}
-
-export namespace GetOrganizationConfigRuleDetailedStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOrganizationConfigRuleDetailedStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7204,15 +5566,6 @@ export interface MemberAccountStatus {
   LastUpdateTime?: Date;
 }
 
-export namespace MemberAccountStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemberAccountStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOrganizationConfigRuleDetailedStatusResponse {
   /**
    * <p>A list of <code>MemberAccountStatus</code> objects.</p>
@@ -7223,15 +5576,6 @@ export interface GetOrganizationConfigRuleDetailedStatusResponse {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-}
-
-export namespace GetOrganizationConfigRuleDetailedStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOrganizationConfigRuleDetailedStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum OrganizationResourceDetailedStatus {
@@ -7304,15 +5648,6 @@ export interface OrganizationResourceDetailedStatusFilters {
   Status?: OrganizationResourceDetailedStatus | string;
 }
 
-export namespace OrganizationResourceDetailedStatusFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationResourceDetailedStatusFilters): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOrganizationConformancePackDetailedStatusRequest {
   /**
    * <p>The name of organization conformance pack for which you want status details for member accounts.</p>
@@ -7334,15 +5669,6 @@ export interface GetOrganizationConformancePackDetailedStatusRequest {
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-}
-
-export namespace GetOrganizationConformancePackDetailedStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOrganizationConformancePackDetailedStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7427,15 +5753,6 @@ export interface OrganizationConformancePackDetailedStatus {
   LastUpdateTime?: Date;
 }
 
-export namespace OrganizationConformancePackDetailedStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationConformancePackDetailedStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOrganizationConformancePackDetailedStatusResponse {
   /**
    * <p>A list of <code>OrganizationConformancePackDetailedStatus</code> objects. </p>
@@ -7448,15 +5765,6 @@ export interface GetOrganizationConformancePackDetailedStatusResponse {
   NextToken?: string;
 }
 
-export namespace GetOrganizationConformancePackDetailedStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOrganizationConformancePackDetailedStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOrganizationCustomRulePolicyRequest {
   /**
    * <p>The name of your organization Config Custom Policy rule. </p>
@@ -7464,29 +5772,11 @@ export interface GetOrganizationCustomRulePolicyRequest {
   OrganizationConfigRuleName: string | undefined;
 }
 
-export namespace GetOrganizationCustomRulePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOrganizationCustomRulePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOrganizationCustomRulePolicyResponse {
   /**
    * <p>The policy definition containing the logic for your organization Config Custom Policy rule.</p>
    */
   PolicyText?: string;
-}
-
-export namespace GetOrganizationCustomRulePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOrganizationCustomRulePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7541,15 +5831,6 @@ export interface GetResourceConfigHistoryRequest {
   nextToken?: string;
 }
 
-export namespace GetResourceConfigHistoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceConfigHistoryRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for the <a>GetResourceConfigHistory</a>
  * 			action.</p>
@@ -7566,15 +5847,6 @@ export interface GetResourceConfigHistoryResponse {
    * 			page of results in a paginated response.</p>
    */
   nextToken?: string;
-}
-
-export namespace GetResourceConfigHistoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceConfigHistoryResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7602,15 +5874,6 @@ export interface GetStoredQueryRequest {
    * <p>The name of the query.</p>
    */
   QueryName: string | undefined;
-}
-
-export namespace GetStoredQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStoredQueryRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7650,29 +5913,11 @@ export interface StoredQuery {
   Expression?: string;
 }
 
-export namespace StoredQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StoredQuery): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStoredQueryResponse {
   /**
    * <p>Returns a <code>StoredQuery</code> object.</p>
    */
   StoredQuery?: StoredQuery;
-}
-
-export namespace GetStoredQueryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStoredQueryResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7916,15 +6161,6 @@ export interface ResourceFilters {
   Region?: string;
 }
 
-export namespace ResourceFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceFilters): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAggregateDiscoveredResourcesRequest {
   /**
    * <p>The name of the configuration aggregator. </p>
@@ -7952,15 +6188,6 @@ export interface ListAggregateDiscoveredResourcesRequest {
   NextToken?: string;
 }
 
-export namespace ListAggregateDiscoveredResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAggregateDiscoveredResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAggregateDiscoveredResourcesResponse {
   /**
    * <p>Returns a list of <code>ResourceIdentifiers</code> objects.</p>
@@ -7971,15 +6198,6 @@ export interface ListAggregateDiscoveredResourcesResponse {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAggregateDiscoveredResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAggregateDiscoveredResourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8027,15 +6245,6 @@ export interface ListDiscoveredResourcesRequest {
   nextToken?: string;
 }
 
-export namespace ListDiscoveredResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDiscoveredResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The details that identify a resource that is discovered by Config, including the resource type, ID, and (if available) the
  * 			custom resource name.</p>
@@ -8063,15 +6272,6 @@ export interface ResourceIdentifier {
   resourceDeletionTime?: Date;
 }
 
-export namespace ResourceIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceIdentifier): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -8089,15 +6289,6 @@ export interface ListDiscoveredResourcesResponse {
   nextToken?: string;
 }
 
-export namespace ListDiscoveredResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDiscoveredResourcesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStoredQueriesRequest {
   /**
    * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.</p>
@@ -8108,15 +6299,6 @@ export interface ListStoredQueriesRequest {
    * <p>The maximum number of results to be returned with a single call.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListStoredQueriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStoredQueriesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8144,15 +6326,6 @@ export interface StoredQueryMetadata {
   Description?: string;
 }
 
-export namespace StoredQueryMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StoredQueryMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStoredQueriesResponse {
   /**
    * <p>A list of <code>StoredQueryMetadata</code> objects.</p>
@@ -8165,15 +6338,6 @@ export interface ListStoredQueriesResponse {
    * 			If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListStoredQueriesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStoredQueriesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -8193,15 +6357,6 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The tags for the resource. The metadata that you apply to a resource to help you categorize and organize them.
  * 			Each tag consists of a key and an optional value, both of which you define.
@@ -8219,15 +6374,6 @@ export interface Tag {
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
@@ -8238,15 +6384,6 @@ export interface ListTagsForResourceResponse {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8588,15 +6725,6 @@ export interface OrganizationCustomPolicyRuleMetadata {
   DebugLogDeliveryAccounts?: string[];
 }
 
-export namespace OrganizationCustomPolicyRuleMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationCustomPolicyRuleMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAggregationAuthorizationRequest {
   /**
    * <p>The 12-digit account ID of the account authorized to aggregate data.</p>
@@ -8614,15 +6742,6 @@ export interface PutAggregationAuthorizationRequest {
   Tags?: Tag[];
 }
 
-export namespace PutAggregationAuthorizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAggregationAuthorizationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAggregationAuthorizationResponse {
   /**
    * <p>Returns an AggregationAuthorization object.
@@ -8630,15 +6749,6 @@ export interface PutAggregationAuthorizationResponse {
    * 		</p>
    */
   AggregationAuthorization?: AggregationAuthorization;
-}
-
-export namespace PutAggregationAuthorizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAggregationAuthorizationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutConfigRuleRequest {
@@ -8651,15 +6761,6 @@ export interface PutConfigRuleRequest {
    * <p>An array of tag object.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace PutConfigRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigRuleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutConfigurationAggregatorRequest {
@@ -8686,29 +6787,11 @@ export interface PutConfigurationAggregatorRequest {
   Tags?: Tag[];
 }
 
-export namespace PutConfigurationAggregatorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationAggregatorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutConfigurationAggregatorResponse {
   /**
    * <p>Returns a ConfigurationAggregator object.</p>
    */
   ConfigurationAggregator?: ConfigurationAggregator;
-}
-
-export namespace PutConfigurationAggregatorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationAggregatorResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8721,15 +6804,6 @@ export interface PutConfigurationRecorderRequest {
    * 			configuration change made to the resources.</p>
    */
   ConfigurationRecorder: ConfigurationRecorder | undefined;
-}
-
-export namespace PutConfigurationRecorderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationRecorderRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutConformancePackRequest {
@@ -8776,29 +6850,11 @@ export interface PutConformancePackRequest {
   ConformancePackInputParameters?: ConformancePackInputParameter[];
 }
 
-export namespace PutConformancePackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConformancePackRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutConformancePackResponse {
   /**
    * <p>ARN of the conformance pack.</p>
    */
   ConformancePackArn?: string;
-}
-
-export namespace PutConformancePackResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConformancePackResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8812,15 +6868,6 @@ export interface PutDeliveryChannelRequest {
    * 			SNS topic.</p>
    */
   DeliveryChannel: DeliveryChannel | undefined;
-}
-
-export namespace PutDeliveryChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDeliveryChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8857,15 +6904,6 @@ export interface PutEvaluationsRequest {
   TestMode?: boolean;
 }
 
-export namespace PutEvaluationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEvaluationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -8875,15 +6913,6 @@ export interface PutEvaluationsResponse {
    * 			error.</p>
    */
   FailedEvaluations?: Evaluation[];
-}
-
-export namespace PutEvaluationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEvaluationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutExternalEvaluationRequest {
@@ -8898,22 +6927,1739 @@ export interface PutExternalEvaluationRequest {
   ExternalEvaluation: ExternalEvaluation | undefined;
 }
 
-export namespace PutExternalEvaluationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutExternalEvaluationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutExternalEvaluationResponse {}
 
-export namespace PutExternalEvaluationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutExternalEvaluationResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccountAggregationSourceFilterSensitiveLog = (obj: AccountAggregationSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComplianceContributorCountFilterSensitiveLog = (obj: ComplianceContributorCount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComplianceFilterSensitiveLog = (obj: Compliance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregateComplianceByConfigRuleFilterSensitiveLog = (obj: AggregateComplianceByConfigRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregateConformancePackComplianceFilterSensitiveLog = (obj: AggregateConformancePackCompliance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregateComplianceByConformancePackFilterSensitiveLog = (
+  obj: AggregateComplianceByConformancePack
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComplianceSummaryFilterSensitiveLog = (obj: ComplianceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregateComplianceCountFilterSensitiveLog = (obj: AggregateComplianceCount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregateConformancePackComplianceCountFilterSensitiveLog = (
+  obj: AggregateConformancePackComplianceCount
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregateConformancePackComplianceFiltersFilterSensitiveLog = (
+  obj: AggregateConformancePackComplianceFilters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregateConformancePackComplianceSummaryFilterSensitiveLog = (
+  obj: AggregateConformancePackComplianceSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregateConformancePackComplianceSummaryFiltersFilterSensitiveLog = (
+  obj: AggregateConformancePackComplianceSummaryFilters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregatedSourceStatusFilterSensitiveLog = (obj: AggregatedSourceStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluationResultQualifierFilterSensitiveLog = (obj: EvaluationResultQualifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluationResultIdentifierFilterSensitiveLog = (obj: EvaluationResultIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregateEvaluationResultFilterSensitiveLog = (obj: AggregateEvaluationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregateResourceIdentifierFilterSensitiveLog = (obj: AggregateResourceIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregationAuthorizationFilterSensitiveLog = (obj: AggregationAuthorization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BaseConfigurationItemFilterSensitiveLog = (obj: BaseConfigurationItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetAggregateResourceConfigRequestFilterSensitiveLog = (
+  obj: BatchGetAggregateResourceConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetAggregateResourceConfigResponseFilterSensitiveLog = (
+  obj: BatchGetAggregateResourceConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceKeyFilterSensitiveLog = (obj: ResourceKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetResourceConfigRequestFilterSensitiveLog = (obj: BatchGetResourceConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetResourceConfigResponseFilterSensitiveLog = (obj: BatchGetResourceConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComplianceByConfigRuleFilterSensitiveLog = (obj: ComplianceByConfigRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComplianceByResourceFilterSensitiveLog = (obj: ComplianceByResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComplianceSummaryByResourceTypeFilterSensitiveLog = (obj: ComplianceSummaryByResourceType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigExportDeliveryInfoFilterSensitiveLog = (obj: ConfigExportDeliveryInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScopeFilterSensitiveLog = (obj: Scope): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomPolicyDetailsFilterSensitiveLog = (obj: CustomPolicyDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceDetailFilterSensitiveLog = (obj: SourceDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceFilterSensitiveLog = (obj: Source): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigRuleFilterSensitiveLog = (obj: ConfigRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigRuleComplianceFiltersFilterSensitiveLog = (obj: ConfigRuleComplianceFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigRuleComplianceSummaryFiltersFilterSensitiveLog = (obj: ConfigRuleComplianceSummaryFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigRuleEvaluationStatusFilterSensitiveLog = (obj: ConfigRuleEvaluationStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigSnapshotDeliveryPropertiesFilterSensitiveLog = (obj: ConfigSnapshotDeliveryProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigStreamDeliveryInfoFilterSensitiveLog = (obj: ConfigStreamDeliveryInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationAggregationSourceFilterSensitiveLog = (obj: OrganizationAggregationSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationAggregatorFilterSensitiveLog = (obj: ConfigurationAggregator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelationshipFilterSensitiveLog = (obj: Relationship): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationItemFilterSensitiveLog = (obj: ConfigurationItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordingGroupFilterSensitiveLog = (obj: RecordingGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationRecorderFilterSensitiveLog = (obj: ConfigurationRecorder): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationRecorderStatusFilterSensitiveLog = (obj: ConfigurationRecorderStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConformancePackComplianceFiltersFilterSensitiveLog = (obj: ConformancePackComplianceFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConformancePackComplianceSummaryFilterSensitiveLog = (obj: ConformancePackComplianceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConformancePackInputParameterFilterSensitiveLog = (obj: ConformancePackInputParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConformancePackDetailFilterSensitiveLog = (obj: ConformancePackDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConformancePackEvaluationFiltersFilterSensitiveLog = (obj: ConformancePackEvaluationFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConformancePackEvaluationResultFilterSensitiveLog = (obj: ConformancePackEvaluationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConformancePackRuleComplianceFilterSensitiveLog = (obj: ConformancePackRuleCompliance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConformancePackStatusDetailFilterSensitiveLog = (obj: ConformancePackStatusDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAggregationAuthorizationRequestFilterSensitiveLog = (
+  obj: DeleteAggregationAuthorizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigRuleRequestFilterSensitiveLog = (obj: DeleteConfigRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationAggregatorRequestFilterSensitiveLog = (
+  obj: DeleteConfigurationAggregatorRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationRecorderRequestFilterSensitiveLog = (obj: DeleteConfigurationRecorderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConformancePackRequestFilterSensitiveLog = (obj: DeleteConformancePackRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeliveryChannelRequestFilterSensitiveLog = (obj: DeleteDeliveryChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEvaluationResultsRequestFilterSensitiveLog = (obj: DeleteEvaluationResultsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEvaluationResultsResponseFilterSensitiveLog = (obj: DeleteEvaluationResultsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOrganizationConfigRuleRequestFilterSensitiveLog = (
+  obj: DeleteOrganizationConfigRuleRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOrganizationConformancePackRequestFilterSensitiveLog = (
+  obj: DeleteOrganizationConformancePackRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePendingAggregationRequestRequestFilterSensitiveLog = (
+  obj: DeletePendingAggregationRequestRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRemediationConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteRemediationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRemediationConfigurationResponseFilterSensitiveLog = (
+  obj: DeleteRemediationConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemediationExceptionResourceKeyFilterSensitiveLog = (obj: RemediationExceptionResourceKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRemediationExceptionsRequestFilterSensitiveLog = (obj: DeleteRemediationExceptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedDeleteRemediationExceptionsBatchFilterSensitiveLog = (
+  obj: FailedDeleteRemediationExceptionsBatch
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRemediationExceptionsResponseFilterSensitiveLog = (
+  obj: DeleteRemediationExceptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourceConfigRequestFilterSensitiveLog = (obj: DeleteResourceConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRetentionConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteRetentionConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStoredQueryRequestFilterSensitiveLog = (obj: DeleteStoredQueryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStoredQueryResponseFilterSensitiveLog = (obj: DeleteStoredQueryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeliverConfigSnapshotRequestFilterSensitiveLog = (obj: DeliverConfigSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeliverConfigSnapshotResponseFilterSensitiveLog = (obj: DeliverConfigSnapshotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeliveryChannelFilterSensitiveLog = (obj: DeliveryChannel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeliveryChannelStatusFilterSensitiveLog = (obj: DeliveryChannelStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAggregateComplianceByConfigRulesRequestFilterSensitiveLog = (
+  obj: DescribeAggregateComplianceByConfigRulesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAggregateComplianceByConfigRulesResponseFilterSensitiveLog = (
+  obj: DescribeAggregateComplianceByConfigRulesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAggregateComplianceByConformancePacksRequestFilterSensitiveLog = (
+  obj: DescribeAggregateComplianceByConformancePacksRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAggregateComplianceByConformancePacksResponseFilterSensitiveLog = (
+  obj: DescribeAggregateComplianceByConformancePacksResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAggregationAuthorizationsRequestFilterSensitiveLog = (
+  obj: DescribeAggregationAuthorizationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAggregationAuthorizationsResponseFilterSensitiveLog = (
+  obj: DescribeAggregationAuthorizationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeComplianceByConfigRuleRequestFilterSensitiveLog = (
+  obj: DescribeComplianceByConfigRuleRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeComplianceByConfigRuleResponseFilterSensitiveLog = (
+  obj: DescribeComplianceByConfigRuleResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeComplianceByResourceRequestFilterSensitiveLog = (
+  obj: DescribeComplianceByResourceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeComplianceByResourceResponseFilterSensitiveLog = (
+  obj: DescribeComplianceByResourceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigRuleEvaluationStatusRequestFilterSensitiveLog = (
+  obj: DescribeConfigRuleEvaluationStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigRuleEvaluationStatusResponseFilterSensitiveLog = (
+  obj: DescribeConfigRuleEvaluationStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigRulesRequestFilterSensitiveLog = (obj: DescribeConfigRulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigRulesResponseFilterSensitiveLog = (obj: DescribeConfigRulesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationAggregatorsRequestFilterSensitiveLog = (
+  obj: DescribeConfigurationAggregatorsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationAggregatorsResponseFilterSensitiveLog = (
+  obj: DescribeConfigurationAggregatorsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationAggregatorSourcesStatusRequestFilterSensitiveLog = (
+  obj: DescribeConfigurationAggregatorSourcesStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationAggregatorSourcesStatusResponseFilterSensitiveLog = (
+  obj: DescribeConfigurationAggregatorSourcesStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationRecordersRequestFilterSensitiveLog = (
+  obj: DescribeConfigurationRecordersRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationRecordersResponseFilterSensitiveLog = (
+  obj: DescribeConfigurationRecordersResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationRecorderStatusRequestFilterSensitiveLog = (
+  obj: DescribeConfigurationRecorderStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationRecorderStatusResponseFilterSensitiveLog = (
+  obj: DescribeConfigurationRecorderStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConformancePackComplianceRequestFilterSensitiveLog = (
+  obj: DescribeConformancePackComplianceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConformancePackComplianceResponseFilterSensitiveLog = (
+  obj: DescribeConformancePackComplianceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConformancePacksRequestFilterSensitiveLog = (obj: DescribeConformancePacksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConformancePacksResponseFilterSensitiveLog = (obj: DescribeConformancePacksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConformancePackStatusRequestFilterSensitiveLog = (
+  obj: DescribeConformancePackStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConformancePackStatusResponseFilterSensitiveLog = (
+  obj: DescribeConformancePackStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeliveryChannelsRequestFilterSensitiveLog = (obj: DescribeDeliveryChannelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeliveryChannelsResponseFilterSensitiveLog = (obj: DescribeDeliveryChannelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeliveryChannelStatusRequestFilterSensitiveLog = (
+  obj: DescribeDeliveryChannelStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeliveryChannelStatusResponseFilterSensitiveLog = (
+  obj: DescribeDeliveryChannelStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationConfigRulesRequestFilterSensitiveLog = (
+  obj: DescribeOrganizationConfigRulesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationCustomPolicyRuleMetadataNoPolicyFilterSensitiveLog = (
+  obj: OrganizationCustomPolicyRuleMetadataNoPolicy
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationCustomRuleMetadataFilterSensitiveLog = (obj: OrganizationCustomRuleMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationManagedRuleMetadataFilterSensitiveLog = (obj: OrganizationManagedRuleMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationConfigRuleFilterSensitiveLog = (obj: OrganizationConfigRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationConfigRulesResponseFilterSensitiveLog = (
+  obj: DescribeOrganizationConfigRulesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationConfigRuleStatusesRequestFilterSensitiveLog = (
+  obj: DescribeOrganizationConfigRuleStatusesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationConfigRuleStatusFilterSensitiveLog = (obj: OrganizationConfigRuleStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationConfigRuleStatusesResponseFilterSensitiveLog = (
+  obj: DescribeOrganizationConfigRuleStatusesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationConformancePacksRequestFilterSensitiveLog = (
+  obj: DescribeOrganizationConformancePacksRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationConformancePackFilterSensitiveLog = (obj: OrganizationConformancePack): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationConformancePacksResponseFilterSensitiveLog = (
+  obj: DescribeOrganizationConformancePacksResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationConformancePackStatusesRequestFilterSensitiveLog = (
+  obj: DescribeOrganizationConformancePackStatusesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationConformancePackStatusFilterSensitiveLog = (obj: OrganizationConformancePackStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationConformancePackStatusesResponseFilterSensitiveLog = (
+  obj: DescribeOrganizationConformancePackStatusesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePendingAggregationRequestsRequestFilterSensitiveLog = (
+  obj: DescribePendingAggregationRequestsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingAggregationRequestFilterSensitiveLog = (obj: PendingAggregationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePendingAggregationRequestsResponseFilterSensitiveLog = (
+  obj: DescribePendingAggregationRequestsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRemediationConfigurationsRequestFilterSensitiveLog = (
+  obj: DescribeRemediationConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SsmControlsFilterSensitiveLog = (obj: SsmControls): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutionControlsFilterSensitiveLog = (obj: ExecutionControls): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceValueFilterSensitiveLog = (obj: ResourceValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StaticValueFilterSensitiveLog = (obj: StaticValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemediationParameterValueFilterSensitiveLog = (obj: RemediationParameterValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemediationConfigurationFilterSensitiveLog = (obj: RemediationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRemediationConfigurationsResponseFilterSensitiveLog = (
+  obj: DescribeRemediationConfigurationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRemediationExceptionsRequestFilterSensitiveLog = (
+  obj: DescribeRemediationExceptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemediationExceptionFilterSensitiveLog = (obj: RemediationException): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRemediationExceptionsResponseFilterSensitiveLog = (
+  obj: DescribeRemediationExceptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRemediationExecutionStatusRequestFilterSensitiveLog = (
+  obj: DescribeRemediationExecutionStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemediationExecutionStepFilterSensitiveLog = (obj: RemediationExecutionStep): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemediationExecutionStatusFilterSensitiveLog = (obj: RemediationExecutionStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRemediationExecutionStatusResponseFilterSensitiveLog = (
+  obj: DescribeRemediationExecutionStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRetentionConfigurationsRequestFilterSensitiveLog = (
+  obj: DescribeRetentionConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetentionConfigurationFilterSensitiveLog = (obj: RetentionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRetentionConfigurationsResponseFilterSensitiveLog = (
+  obj: DescribeRetentionConfigurationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluationFilterSensitiveLog = (obj: Evaluation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluationResultFilterSensitiveLog = (obj: EvaluationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExternalEvaluationFilterSensitiveLog = (obj: ExternalEvaluation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedRemediationBatchFilterSensitiveLog = (obj: FailedRemediationBatch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedRemediationExceptionBatchFilterSensitiveLog = (obj: FailedRemediationExceptionBatch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FieldInfoFilterSensitiveLog = (obj: FieldInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAggregateComplianceDetailsByConfigRuleRequestFilterSensitiveLog = (
+  obj: GetAggregateComplianceDetailsByConfigRuleRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAggregateComplianceDetailsByConfigRuleResponseFilterSensitiveLog = (
+  obj: GetAggregateComplianceDetailsByConfigRuleResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAggregateConfigRuleComplianceSummaryRequestFilterSensitiveLog = (
+  obj: GetAggregateConfigRuleComplianceSummaryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAggregateConfigRuleComplianceSummaryResponseFilterSensitiveLog = (
+  obj: GetAggregateConfigRuleComplianceSummaryResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAggregateConformancePackComplianceSummaryRequestFilterSensitiveLog = (
+  obj: GetAggregateConformancePackComplianceSummaryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAggregateConformancePackComplianceSummaryResponseFilterSensitiveLog = (
+  obj: GetAggregateConformancePackComplianceSummaryResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceCountFiltersFilterSensitiveLog = (obj: ResourceCountFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAggregateDiscoveredResourceCountsRequestFilterSensitiveLog = (
+  obj: GetAggregateDiscoveredResourceCountsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupedResourceCountFilterSensitiveLog = (obj: GroupedResourceCount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAggregateDiscoveredResourceCountsResponseFilterSensitiveLog = (
+  obj: GetAggregateDiscoveredResourceCountsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAggregateResourceConfigRequestFilterSensitiveLog = (obj: GetAggregateResourceConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAggregateResourceConfigResponseFilterSensitiveLog = (obj: GetAggregateResourceConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComplianceDetailsByConfigRuleRequestFilterSensitiveLog = (
+  obj: GetComplianceDetailsByConfigRuleRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComplianceDetailsByConfigRuleResponseFilterSensitiveLog = (
+  obj: GetComplianceDetailsByConfigRuleResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComplianceDetailsByResourceRequestFilterSensitiveLog = (
+  obj: GetComplianceDetailsByResourceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComplianceDetailsByResourceResponseFilterSensitiveLog = (
+  obj: GetComplianceDetailsByResourceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComplianceSummaryByConfigRuleResponseFilterSensitiveLog = (
+  obj: GetComplianceSummaryByConfigRuleResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComplianceSummaryByResourceTypeRequestFilterSensitiveLog = (
+  obj: GetComplianceSummaryByResourceTypeRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComplianceSummaryByResourceTypeResponseFilterSensitiveLog = (
+  obj: GetComplianceSummaryByResourceTypeResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConformancePackComplianceDetailsRequestFilterSensitiveLog = (
+  obj: GetConformancePackComplianceDetailsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConformancePackComplianceDetailsResponseFilterSensitiveLog = (
+  obj: GetConformancePackComplianceDetailsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConformancePackComplianceSummaryRequestFilterSensitiveLog = (
+  obj: GetConformancePackComplianceSummaryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConformancePackComplianceSummaryResponseFilterSensitiveLog = (
+  obj: GetConformancePackComplianceSummaryResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCustomRulePolicyRequestFilterSensitiveLog = (obj: GetCustomRulePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCustomRulePolicyResponseFilterSensitiveLog = (obj: GetCustomRulePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiscoveredResourceCountsRequestFilterSensitiveLog = (obj: GetDiscoveredResourceCountsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceCountFilterSensitiveLog = (obj: ResourceCount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiscoveredResourceCountsResponseFilterSensitiveLog = (
+  obj: GetDiscoveredResourceCountsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatusDetailFiltersFilterSensitiveLog = (obj: StatusDetailFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOrganizationConfigRuleDetailedStatusRequestFilterSensitiveLog = (
+  obj: GetOrganizationConfigRuleDetailedStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberAccountStatusFilterSensitiveLog = (obj: MemberAccountStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOrganizationConfigRuleDetailedStatusResponseFilterSensitiveLog = (
+  obj: GetOrganizationConfigRuleDetailedStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationResourceDetailedStatusFiltersFilterSensitiveLog = (
+  obj: OrganizationResourceDetailedStatusFilters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOrganizationConformancePackDetailedStatusRequestFilterSensitiveLog = (
+  obj: GetOrganizationConformancePackDetailedStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationConformancePackDetailedStatusFilterSensitiveLog = (
+  obj: OrganizationConformancePackDetailedStatus
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOrganizationConformancePackDetailedStatusResponseFilterSensitiveLog = (
+  obj: GetOrganizationConformancePackDetailedStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOrganizationCustomRulePolicyRequestFilterSensitiveLog = (
+  obj: GetOrganizationCustomRulePolicyRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOrganizationCustomRulePolicyResponseFilterSensitiveLog = (
+  obj: GetOrganizationCustomRulePolicyResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceConfigHistoryRequestFilterSensitiveLog = (obj: GetResourceConfigHistoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceConfigHistoryResponseFilterSensitiveLog = (obj: GetResourceConfigHistoryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStoredQueryRequestFilterSensitiveLog = (obj: GetStoredQueryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StoredQueryFilterSensitiveLog = (obj: StoredQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStoredQueryResponseFilterSensitiveLog = (obj: GetStoredQueryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFiltersFilterSensitiveLog = (obj: ResourceFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAggregateDiscoveredResourcesRequestFilterSensitiveLog = (
+  obj: ListAggregateDiscoveredResourcesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAggregateDiscoveredResourcesResponseFilterSensitiveLog = (
+  obj: ListAggregateDiscoveredResourcesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDiscoveredResourcesRequestFilterSensitiveLog = (obj: ListDiscoveredResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceIdentifierFilterSensitiveLog = (obj: ResourceIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDiscoveredResourcesResponseFilterSensitiveLog = (obj: ListDiscoveredResourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStoredQueriesRequestFilterSensitiveLog = (obj: ListStoredQueriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StoredQueryMetadataFilterSensitiveLog = (obj: StoredQueryMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStoredQueriesResponseFilterSensitiveLog = (obj: ListStoredQueriesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationCustomPolicyRuleMetadataFilterSensitiveLog = (
+  obj: OrganizationCustomPolicyRuleMetadata
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAggregationAuthorizationRequestFilterSensitiveLog = (obj: PutAggregationAuthorizationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAggregationAuthorizationResponseFilterSensitiveLog = (
+  obj: PutAggregationAuthorizationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigRuleRequestFilterSensitiveLog = (obj: PutConfigRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationAggregatorRequestFilterSensitiveLog = (obj: PutConfigurationAggregatorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationAggregatorResponseFilterSensitiveLog = (obj: PutConfigurationAggregatorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationRecorderRequestFilterSensitiveLog = (obj: PutConfigurationRecorderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConformancePackRequestFilterSensitiveLog = (obj: PutConformancePackRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConformancePackResponseFilterSensitiveLog = (obj: PutConformancePackResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDeliveryChannelRequestFilterSensitiveLog = (obj: PutDeliveryChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEvaluationsRequestFilterSensitiveLog = (obj: PutEvaluationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEvaluationsResponseFilterSensitiveLog = (obj: PutEvaluationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutExternalEvaluationRequestFilterSensitiveLog = (obj: PutExternalEvaluationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutExternalEvaluationResponseFilterSensitiveLog = (obj: PutExternalEvaluationResponse): any => ({
+  ...obj,
+});

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { GetResourceLogLevelRequest, GetResourceLogLevelResponse } from "../models/models_0";
+import {
+  GetResourceLogLevelRequest,
+  GetResourceLogLevelRequestFilterSensitiveLog,
+  GetResourceLogLevelResponse,
+  GetResourceLogLevelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetResourceLogLevelCommand,
   serializeAws_restJson1GetResourceLogLevelCommand,
@@ -73,8 +78,8 @@ export class GetResourceLogLevelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceLogLevelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceLogLevelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetResourceLogLevelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetResourceLogLevelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

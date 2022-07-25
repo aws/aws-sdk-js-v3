@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { ListCoverageStatisticsRequest, ListCoverageStatisticsResponse } from "../models/models_0";
+import {
+  ListCoverageStatisticsRequest,
+  ListCoverageStatisticsRequestFilterSensitiveLog,
+  ListCoverageStatisticsResponse,
+  ListCoverageStatisticsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListCoverageStatisticsCommand,
   serializeAws_restJson1ListCoverageStatisticsCommand,
@@ -72,8 +77,8 @@ export class ListCoverageStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCoverageStatisticsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListCoverageStatisticsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCoverageStatisticsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListCoverageStatisticsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

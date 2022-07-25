@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { CopySnapshotRequest, CopySnapshotResult } from "../models/models_0";
+import {
+  CopySnapshotRequest,
+  CopySnapshotRequestFilterSensitiveLog,
+  CopySnapshotResult,
+  CopySnapshotResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CopySnapshotCommand,
   serializeAws_json1_1CopySnapshotCommand,
@@ -81,8 +86,8 @@ export class CopySnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopySnapshotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CopySnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CopySnapshotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CopySnapshotResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

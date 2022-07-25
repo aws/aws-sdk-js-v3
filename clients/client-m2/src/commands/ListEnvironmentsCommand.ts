@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import { ListEnvironmentsRequest, ListEnvironmentsResponse } from "../models/models_0";
+import {
+  ListEnvironmentsRequest,
+  ListEnvironmentsRequestFilterSensitiveLog,
+  ListEnvironmentsResponse,
+  ListEnvironmentsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListEnvironmentsCommand,
   serializeAws_restJson1ListEnvironmentsCommand,
@@ -72,8 +77,8 @@ export class ListEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnvironmentsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListEnvironmentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEnvironmentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListEnvironmentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

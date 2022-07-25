@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteHostedZoneRequest, DeleteHostedZoneResponse } from "../models/models_0";
+import {
+  DeleteHostedZoneRequest,
+  DeleteHostedZoneRequestFilterSensitiveLog,
+  DeleteHostedZoneResponse,
+  DeleteHostedZoneResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteHostedZoneCommand,
   serializeAws_restXmlDeleteHostedZoneCommand,
@@ -115,8 +120,8 @@ export class DeleteHostedZoneCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHostedZoneRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteHostedZoneResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteHostedZoneRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteHostedZoneResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

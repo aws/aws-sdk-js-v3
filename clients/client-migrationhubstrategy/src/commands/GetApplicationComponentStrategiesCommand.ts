@@ -19,7 +19,9 @@ import {
 } from "../MigrationHubStrategyClient";
 import {
   GetApplicationComponentStrategiesRequest,
+  GetApplicationComponentStrategiesRequestFilterSensitiveLog,
   GetApplicationComponentStrategiesResponse,
+  GetApplicationComponentStrategiesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1GetApplicationComponentStrategiesCommand,
@@ -82,8 +84,8 @@ export class GetApplicationComponentStrategiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApplicationComponentStrategiesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetApplicationComponentStrategiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetApplicationComponentStrategiesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetApplicationComponentStrategiesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

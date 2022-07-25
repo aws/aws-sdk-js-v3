@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { GetNotificationChannelRequest, GetNotificationChannelResponse } from "../models/models_0";
+import {
+  GetNotificationChannelRequest,
+  GetNotificationChannelRequestFilterSensitiveLog,
+  GetNotificationChannelResponse,
+  GetNotificationChannelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetNotificationChannelCommand,
   serializeAws_json1_1GetNotificationChannelCommand,
@@ -74,8 +79,8 @@ export class GetNotificationChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNotificationChannelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetNotificationChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetNotificationChannelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetNotificationChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

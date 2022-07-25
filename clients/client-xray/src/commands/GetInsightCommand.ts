@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetInsightRequest, GetInsightResult } from "../models/models_0";
+import {
+  GetInsightRequest,
+  GetInsightRequestFilterSensitiveLog,
+  GetInsightResult,
+  GetInsightResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetInsightCommand,
   serializeAws_restJson1GetInsightCommand,
@@ -74,8 +79,8 @@ export class GetInsightCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInsightRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetInsightResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInsightRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetInsightResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

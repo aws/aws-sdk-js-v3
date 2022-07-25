@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { DeletePartnerEventSourceRequest } from "../models/models_0";
+import { DeletePartnerEventSourceRequest, DeletePartnerEventSourceRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePartnerEventSourceCommand,
   serializeAws_json1_1DeletePartnerEventSourceCommand,
@@ -76,7 +76,7 @@ export class DeletePartnerEventSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePartnerEventSourceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePartnerEventSourceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

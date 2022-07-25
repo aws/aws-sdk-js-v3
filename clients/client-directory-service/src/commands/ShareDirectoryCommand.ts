@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { ShareDirectoryRequest, ShareDirectoryResult } from "../models/models_0";
+import {
+  ShareDirectoryRequest,
+  ShareDirectoryRequestFilterSensitiveLog,
+  ShareDirectoryResult,
+  ShareDirectoryResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ShareDirectoryCommand,
   serializeAws_json1_1ShareDirectoryCommand,
@@ -84,8 +89,8 @@ export class ShareDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ShareDirectoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ShareDirectoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ShareDirectoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ShareDirectoryResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

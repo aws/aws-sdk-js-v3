@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { GetAppRequest, GetAppResult } from "../models/models_0";
+import {
+  GetAppRequest,
+  GetAppRequestFilterSensitiveLog,
+  GetAppResult,
+  GetAppResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_restJson1GetAppCommand, serializeAws_restJson1GetAppCommand } from "../protocols/Aws_restJson1";
 
 export interface GetAppCommandInput extends GetAppRequest {}
@@ -65,8 +70,8 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAppResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAppRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAppResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

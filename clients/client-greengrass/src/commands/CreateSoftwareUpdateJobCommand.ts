@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { CreateSoftwareUpdateJobRequest, CreateSoftwareUpdateJobResponse } from "../models/models_0";
+import {
+  CreateSoftwareUpdateJobRequest,
+  CreateSoftwareUpdateJobRequestFilterSensitiveLog,
+  CreateSoftwareUpdateJobResponse,
+  CreateSoftwareUpdateJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSoftwareUpdateJobCommand,
   serializeAws_restJson1CreateSoftwareUpdateJobCommand,
@@ -72,8 +77,8 @@ export class CreateSoftwareUpdateJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSoftwareUpdateJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSoftwareUpdateJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSoftwareUpdateJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSoftwareUpdateJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

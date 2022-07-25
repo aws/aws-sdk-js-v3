@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { GetSuiteRequest, GetSuiteResult } from "../models/models_0";
+import {
+  GetSuiteRequest,
+  GetSuiteRequestFilterSensitiveLog,
+  GetSuiteResult,
+  GetSuiteResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1GetSuiteCommand, serializeAws_json1_1GetSuiteCommand } from "../protocols/Aws_json1_1";
 
 export interface GetSuiteCommandInput extends GetSuiteRequest {}
@@ -69,8 +74,8 @@ export class GetSuiteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSuiteRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSuiteResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSuiteRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSuiteResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

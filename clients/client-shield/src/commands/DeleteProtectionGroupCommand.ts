@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteProtectionGroupRequest, DeleteProtectionGroupResponse } from "../models/models_0";
+import {
+  DeleteProtectionGroupRequest,
+  DeleteProtectionGroupRequestFilterSensitiveLog,
+  DeleteProtectionGroupResponse,
+  DeleteProtectionGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteProtectionGroupCommand,
   serializeAws_json1_1DeleteProtectionGroupCommand,
@@ -72,8 +77,8 @@ export class DeleteProtectionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProtectionGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProtectionGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteProtectionGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteProtectionGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,9 @@ import {
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import {
   IncreaseNodeGroupsInGlobalReplicationGroupMessage,
+  IncreaseNodeGroupsInGlobalReplicationGroupMessageFilterSensitiveLog,
   IncreaseNodeGroupsInGlobalReplicationGroupResult,
+  IncreaseNodeGroupsInGlobalReplicationGroupResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand,
@@ -81,8 +83,8 @@ export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IncreaseNodeGroupsInGlobalReplicationGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: IncreaseNodeGroupsInGlobalReplicationGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: IncreaseNodeGroupsInGlobalReplicationGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: IncreaseNodeGroupsInGlobalReplicationGroupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -43,15 +43,6 @@ export interface BuildSuggestersRequest {
   DomainName: string | undefined;
 }
 
-export namespace BuildSuggestersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuildSuggestersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>BuildSuggester</code> request. Contains a list of the fields used for suggestions.</p>
  */
@@ -60,15 +51,6 @@ export interface BuildSuggestersResponse {
    * <p>A list of field names.</p>
    */
   FieldNames?: string[];
-}
-
-export namespace BuildSuggestersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuildSuggestersResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -172,15 +154,6 @@ export interface CreateDomainRequest {
   DomainName: string | undefined;
 }
 
-export namespace CreateDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The endpoint to which service requests can be submitted.</p>
  */
@@ -191,27 +164,9 @@ export interface ServiceEndpoint {
   Endpoint?: string;
 }
 
-export namespace ServiceEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceEndpoint): any => ({
-    ...obj,
-  });
-}
-
 export interface Limits {
   MaximumReplicationCount: number | undefined;
   MaximumPartitionCount: number | undefined;
-}
-
-export namespace Limits {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Limits): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -281,15 +236,6 @@ export interface DomainStatus {
   Limits?: Limits;
 }
 
-export namespace DomainStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>CreateDomainRequest</code>. Contains the status of a newly created domain.</p>
  */
@@ -298,15 +244,6 @@ export interface CreateDomainResponse {
    * <p>The current status of the search domain.</p>
    */
   DomainStatus?: DomainStatus;
-}
-
-export namespace CreateDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -401,15 +338,6 @@ export interface AnalysisOptions {
   AlgorithmicStemming?: AlgorithmicStemming | string;
 }
 
-export namespace AnalysisOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalysisOptions): any => ({
-    ...obj,
-  });
-}
-
 export type AnalysisSchemeLanguage =
   | "ar"
   | "bg"
@@ -468,15 +396,6 @@ export interface AnalysisScheme {
   AnalysisOptions?: AnalysisOptions;
 }
 
-export namespace AnalysisScheme {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalysisScheme): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the parameters to the <code><a>DefineAnalysisScheme</a></code> operation. Specifies the name of the domain you want to update and the analysis scheme configuration.</p>
  */
@@ -490,15 +409,6 @@ export interface DefineAnalysisSchemeRequest {
    * <p>Configuration information for an analysis scheme. Each analysis scheme has a unique name and specifies the language of the text to be processed. The following options can be configured for an analysis scheme: <code>Synonyms</code>, <code>Stopwords</code>, <code>StemmingDictionary</code>, <code>JapaneseTokenizationDictionary</code> and <code>AlgorithmicStemming</code>.</p>
    */
   AnalysisScheme: AnalysisScheme | undefined;
-}
-
-export namespace DefineAnalysisSchemeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefineAnalysisSchemeRequest): any => ({
-    ...obj,
-  });
 }
 
 export type OptionState = "Active" | "FailedToValidate" | "Processing" | "RequiresIndexDocuments";
@@ -538,15 +448,6 @@ export interface OptionStatus {
   PendingDeletion?: boolean;
 }
 
-export namespace OptionStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptionStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The status and configuration of an  <code>AnalysisScheme</code>.</p>
  */
@@ -562,15 +463,6 @@ export interface AnalysisSchemeStatus {
   Status: OptionStatus | undefined;
 }
 
-export namespace AnalysisSchemeStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalysisSchemeStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code><a>DefineAnalysisScheme</a></code> request. Contains the status of the newly-configured analysis scheme.</p>
  */
@@ -579,15 +471,6 @@ export interface DefineAnalysisSchemeResponse {
    * <p>The status and configuration of an  <code>AnalysisScheme</code>.</p>
    */
   AnalysisScheme: AnalysisSchemeStatus | undefined;
-}
-
-export namespace DefineAnalysisSchemeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefineAnalysisSchemeResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -636,15 +519,6 @@ export interface Expression {
   ExpressionValue: string | undefined;
 }
 
-export namespace Expression {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Expression): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the parameters to the <code><a>DefineExpression</a></code> operation. Specifies the name of the domain you want to update and the expression you want to configure.</p>
  */
@@ -658,15 +532,6 @@ export interface DefineExpressionRequest {
    * <p>A named expression that can be evaluated at search time. Can be used to sort the search results, define other expressions, or return computed information in the search results.  </p>
    */
   Expression: Expression | undefined;
-}
-
-export namespace DefineExpressionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefineExpressionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -684,15 +549,6 @@ export interface ExpressionStatus {
   Status: OptionStatus | undefined;
 }
 
-export namespace ExpressionStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpressionStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DefineExpression</code> request. Contains the status of the newly-configured expression.</p>
  */
@@ -701,15 +557,6 @@ export interface DefineExpressionResponse {
    * <p>The value of an <code>Expression</code> and its current status.</p>
    */
   Expression: ExpressionStatus | undefined;
-}
-
-export namespace DefineExpressionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefineExpressionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -740,15 +587,6 @@ export interface DateArrayOptions {
    * <p>Whether the contents of the field can be returned in the search results.</p>
    */
   ReturnEnabled?: boolean;
-}
-
-export namespace DateArrayOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DateArrayOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -799,15 +637,6 @@ export interface DateOptions {
   SortEnabled?: boolean;
 }
 
-export namespace DateOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DateOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Options for a field that contains an array of double-precision 64-bit floating point values.  Present if <code>IndexFieldType</code> specifies the field is of type <code>double-array</code>.  All options are enabled by default.</p>
  */
@@ -836,15 +665,6 @@ export interface DoubleArrayOptions {
    * <p>Whether the contents of the field can be returned in the search results.</p>
    */
   ReturnEnabled?: boolean;
-}
-
-export namespace DoubleArrayOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DoubleArrayOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -880,15 +700,6 @@ export interface DoubleOptions {
    * <p>Whether the field can be used to sort the search results.</p>
    */
   SortEnabled?: boolean;
-}
-
-export namespace DoubleOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DoubleOptions): any => ({
-    ...obj,
-  });
 }
 
 export type IndexFieldType =
@@ -934,15 +745,6 @@ export interface IntArrayOptions {
   ReturnEnabled?: boolean;
 }
 
-export namespace IntArrayOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntArrayOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Options for a 64-bit signed integer field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>int</code>. All options are enabled by default.</p>
  */
@@ -976,15 +778,6 @@ export interface IntOptions {
    * <p>Whether the field can be used to sort the search results.</p>
    */
   SortEnabled?: boolean;
-}
-
-export namespace IntOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1035,15 +828,6 @@ export interface LatLonOptions {
   SortEnabled?: boolean;
 }
 
-export namespace LatLonOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LatLonOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Options for a field that contains an array of literal strings.  Present if <code>IndexFieldType</code> specifies the field is of type <code>literal-array</code>. All options are enabled by default.</p>
  */
@@ -1072,15 +856,6 @@ export interface LiteralArrayOptions {
    * <p>Whether the contents of the field can be returned in the search results.</p>
    */
   ReturnEnabled?: boolean;
-}
-
-export namespace LiteralArrayOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LiteralArrayOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1131,15 +906,6 @@ export interface LiteralOptions {
   SortEnabled?: boolean;
 }
 
-export namespace LiteralOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LiteralOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Options for a field that contains an array of text strings.  Present if <code>IndexFieldType</code> specifies the field is of type <code>text-array</code>. A <code>text-array</code> field is always searchable. All options are enabled by default.</p>
  */
@@ -1168,15 +934,6 @@ export interface TextArrayOptions {
    * <p>The name of an analysis scheme for a  <code>text-array</code> field.</p>
    */
   AnalysisScheme?: string;
-}
-
-export namespace TextArrayOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextArrayOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1225,15 +982,6 @@ export interface TextOptions {
    * <p>The name of an analysis scheme for a  <code>text</code> field.</p>
    */
   AnalysisScheme?: string;
-}
-
-export namespace TextOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1319,15 +1067,6 @@ export interface IndexField {
   DateArrayOptions?: DateArrayOptions;
 }
 
-export namespace IndexField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IndexField): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the parameters to the <code><a>DefineIndexField</a></code> operation. Specifies the name of the domain you want to update and the index field configuration.</p>
  */
@@ -1341,15 +1080,6 @@ export interface DefineIndexFieldRequest {
    * <p>The index field and field options you want to configure. </p>
    */
   IndexField: IndexField | undefined;
-}
-
-export namespace DefineIndexFieldRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefineIndexFieldRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1367,15 +1097,6 @@ export interface IndexFieldStatus {
   Status: OptionStatus | undefined;
 }
 
-export namespace IndexFieldStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IndexFieldStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code><a>DefineIndexField</a></code> request. Contains the status of the newly-configured index field.</p>
  */
@@ -1384,15 +1105,6 @@ export interface DefineIndexFieldResponse {
    * <p>The value of an <code>IndexField</code> and its current status.</p>
    */
   IndexField: IndexFieldStatus | undefined;
-}
-
-export namespace DefineIndexFieldResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefineIndexFieldResponse): any => ({
-    ...obj,
-  });
 }
 
 export type SuggesterFuzzyMatching = "high" | "low" | "none";
@@ -1423,15 +1135,6 @@ export interface DocumentSuggesterOptions {
   SortExpression?: string;
 }
 
-export namespace DocumentSuggesterOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentSuggesterOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration information for a search suggester. Each suggester has a unique name and specifies the text field you want to use for suggestions. The following options can be configured for a suggester: <code>FuzzyMatching</code>, <code>SortExpression</code>. </p>
  */
@@ -1446,15 +1149,6 @@ export interface Suggester {
    * <p>Options for a search suggester.</p>
    */
   DocumentSuggesterOptions: DocumentSuggesterOptions | undefined;
-}
-
-export namespace Suggester {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Suggester): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1472,15 +1166,6 @@ export interface DefineSuggesterRequest {
   Suggester: Suggester | undefined;
 }
 
-export namespace DefineSuggesterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefineSuggesterRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The value of a <code>Suggester</code> and its current status.</p>
  */
@@ -1496,15 +1181,6 @@ export interface SuggesterStatus {
   Status: OptionStatus | undefined;
 }
 
-export namespace SuggesterStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuggesterStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DefineSuggester</code> request. Contains the status of the newly-configured suggester.</p>
  */
@@ -1513,15 +1189,6 @@ export interface DefineSuggesterResponse {
    * <p>The value of a <code>Suggester</code> and its current status.</p>
    */
   Suggester: SuggesterStatus | undefined;
-}
-
-export namespace DefineSuggesterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefineSuggesterResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1539,15 +1206,6 @@ export interface DeleteAnalysisSchemeRequest {
   AnalysisSchemeName: string | undefined;
 }
 
-export namespace DeleteAnalysisSchemeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAnalysisSchemeRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DeleteAnalysisScheme</code> request. Contains the status of the deleted analysis scheme.</p>
  */
@@ -1556,15 +1214,6 @@ export interface DeleteAnalysisSchemeResponse {
    * <p>The status of the analysis scheme being deleted.</p>
    */
   AnalysisScheme: AnalysisSchemeStatus | undefined;
-}
-
-export namespace DeleteAnalysisSchemeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAnalysisSchemeResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1577,15 +1226,6 @@ export interface DeleteDomainRequest {
   DomainName: string | undefined;
 }
 
-export namespace DeleteDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DeleteDomain</code> request. Contains the status of a newly deleted domain, or no status if the domain has already been completely deleted.</p>
  */
@@ -1594,15 +1234,6 @@ export interface DeleteDomainResponse {
    * <p>The current status of the search domain.</p>
    */
   DomainStatus?: DomainStatus;
-}
-
-export namespace DeleteDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1620,15 +1251,6 @@ export interface DeleteExpressionRequest {
   ExpressionName: string | undefined;
 }
 
-export namespace DeleteExpressionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteExpressionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code><a>DeleteExpression</a></code> request. Specifies the expression being deleted.</p>
  */
@@ -1637,15 +1259,6 @@ export interface DeleteExpressionResponse {
    * <p>The status of the expression being deleted.</p>
    */
   Expression: ExpressionStatus | undefined;
-}
-
-export namespace DeleteExpressionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteExpressionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1663,15 +1276,6 @@ export interface DeleteIndexFieldRequest {
   IndexFieldName: string | undefined;
 }
 
-export namespace DeleteIndexFieldRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIndexFieldRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code><a>DeleteIndexField</a></code> request.</p>
  */
@@ -1680,15 +1284,6 @@ export interface DeleteIndexFieldResponse {
    * <p>The status of the index field being deleted.</p>
    */
   IndexField: IndexFieldStatus | undefined;
-}
-
-export namespace DeleteIndexFieldResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIndexFieldResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1706,15 +1301,6 @@ export interface DeleteSuggesterRequest {
   SuggesterName: string | undefined;
 }
 
-export namespace DeleteSuggesterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSuggesterRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DeleteSuggester</code> request. Contains the status of the deleted suggester.</p>
  */
@@ -1723,15 +1309,6 @@ export interface DeleteSuggesterResponse {
    * <p>The status of the suggester being deleted.</p>
    */
   Suggester: SuggesterStatus | undefined;
-}
-
-export namespace DeleteSuggesterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSuggesterResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1754,15 +1331,6 @@ export interface DescribeAnalysisSchemesRequest {
   Deployed?: boolean;
 }
 
-export namespace DescribeAnalysisSchemesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAnalysisSchemesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DescribeAnalysisSchemes</code> request. Contains the analysis schemes configured for the domain specified in the request.</p>
  */
@@ -1771,15 +1339,6 @@ export interface DescribeAnalysisSchemesResponse {
    * <p>The analysis scheme descriptions.</p>
    */
   AnalysisSchemes: AnalysisSchemeStatus[] | undefined;
-}
-
-export namespace DescribeAnalysisSchemesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAnalysisSchemesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1797,15 +1356,6 @@ export interface DescribeAvailabilityOptionsRequest {
   Deployed?: boolean;
 }
 
-export namespace DescribeAvailabilityOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAvailabilityOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The status and configuration of the domain's availability options.</p>
  */
@@ -1821,15 +1371,6 @@ export interface AvailabilityOptionsStatus {
   Status: OptionStatus | undefined;
 }
 
-export namespace AvailabilityOptionsStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailabilityOptionsStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DescribeAvailabilityOptions</code> request. Indicates whether or not the Multi-AZ option is enabled for the domain specified in the request. </p>
  */
@@ -1838,15 +1379,6 @@ export interface DescribeAvailabilityOptionsResponse {
    * <p>The availability options configured for the domain. Indicates whether Multi-AZ is enabled for the domain. </p>
    */
   AvailabilityOptions?: AvailabilityOptionsStatus;
-}
-
-export namespace DescribeAvailabilityOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAvailabilityOptionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1894,15 +1426,6 @@ export interface DescribeDomainEndpointOptionsRequest {
   Deployed?: boolean;
 }
 
-export namespace DescribeDomainEndpointOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainEndpointOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum TLSSecurityPolicy {
   POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
   POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07",
@@ -1923,15 +1446,6 @@ export interface DomainEndpointOptions {
   TLSSecurityPolicy?: TLSSecurityPolicy | string;
 }
 
-export namespace DomainEndpointOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainEndpointOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration and status of the domain's endpoint options.</p>
  */
@@ -1947,15 +1461,6 @@ export interface DomainEndpointOptionsStatus {
   Status: OptionStatus | undefined;
 }
 
-export namespace DomainEndpointOptionsStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainEndpointOptionsStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DescribeDomainEndpointOptions</code> request. Contains the status and configuration of a search domain's endpoint options. </p>
  */
@@ -1964,15 +1469,6 @@ export interface DescribeDomainEndpointOptionsResponse {
    * <p>The status and configuration of a search domain's endpoint options.</p>
    */
   DomainEndpointOptions?: DomainEndpointOptionsStatus;
-}
-
-export namespace DescribeDomainEndpointOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainEndpointOptionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1985,15 +1481,6 @@ export interface DescribeDomainsRequest {
   DomainNames?: string[];
 }
 
-export namespace DescribeDomainsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DescribeDomains</code> request. Contains the status of the domains specified in the request or all domains owned by the account.</p>
  */
@@ -2002,15 +1489,6 @@ export interface DescribeDomainsResponse {
    * <p>A list that contains the status of each requested domain.</p>
    */
   DomainStatusList: DomainStatus[] | undefined;
-}
-
-export namespace DescribeDomainsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2034,15 +1512,6 @@ export interface DescribeExpressionsRequest {
   Deployed?: boolean;
 }
 
-export namespace DescribeExpressionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExpressionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DescribeExpressions</code> request. Contains the expressions configured for the domain specified in the request.</p>
  */
@@ -2051,15 +1520,6 @@ export interface DescribeExpressionsResponse {
    * <p>The expressions configured for the domain.</p>
    */
   Expressions: ExpressionStatus[] | undefined;
-}
-
-export namespace DescribeExpressionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExpressionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2082,15 +1542,6 @@ export interface DescribeIndexFieldsRequest {
   Deployed?: boolean;
 }
 
-export namespace DescribeIndexFieldsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIndexFieldsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DescribeIndexFields</code> request. Contains the index fields configured for the domain specified in the request.</p>
  */
@@ -2101,15 +1552,6 @@ export interface DescribeIndexFieldsResponse {
   IndexFields: IndexFieldStatus[] | undefined;
 }
 
-export namespace DescribeIndexFieldsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIndexFieldsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the parameters to the <code><a>DescribeScalingParameters</a></code> operation. Specifies the name of the domain you want to describe. </p>
  */
@@ -2118,15 +1560,6 @@ export interface DescribeScalingParametersRequest {
    * <p>A string that represents the name of a domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace DescribeScalingParametersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScalingParametersRequest): any => ({
-    ...obj,
-  });
 }
 
 export type PartitionInstanceType =
@@ -2169,15 +1602,6 @@ export interface ScalingParameters {
   DesiredPartitionCount?: number;
 }
 
-export namespace ScalingParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalingParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The status and configuration of a search domain's scaling parameters. </p>
  */
@@ -2193,15 +1617,6 @@ export interface ScalingParametersStatus {
   Status: OptionStatus | undefined;
 }
 
-export namespace ScalingParametersStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalingParametersStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DescribeScalingParameters</code> request. Contains the scaling parameters configured for the domain specified in the request.</p>
  */
@@ -2210,15 +1625,6 @@ export interface DescribeScalingParametersResponse {
    * <p>The status and configuration of a search domain's scaling parameters. </p>
    */
   ScalingParameters: ScalingParametersStatus | undefined;
-}
-
-export namespace DescribeScalingParametersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScalingParametersResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2236,15 +1642,6 @@ export interface DescribeServiceAccessPoliciesRequest {
   Deployed?: boolean;
 }
 
-export namespace DescribeServiceAccessPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServiceAccessPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configured access rules for the domain's document and search endpoints, and the current status of those rules.</p>
  */
@@ -2260,15 +1657,6 @@ export interface AccessPoliciesStatus {
   Status: OptionStatus | undefined;
 }
 
-export namespace AccessPoliciesStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessPoliciesStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DescribeServiceAccessPolicies</code> request.</p>
  */
@@ -2277,15 +1665,6 @@ export interface DescribeServiceAccessPoliciesResponse {
    * <p>The access rules configured for the domain specified in the request.</p>
    */
   AccessPolicies: AccessPoliciesStatus | undefined;
-}
-
-export namespace DescribeServiceAccessPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServiceAccessPoliciesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2308,15 +1687,6 @@ export interface DescribeSuggestersRequest {
   Deployed?: boolean;
 }
 
-export namespace DescribeSuggestersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSuggestersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>DescribeSuggesters</code> request.</p>
  */
@@ -2325,15 +1695,6 @@ export interface DescribeSuggestersResponse {
    * <p>The suggesters configured for the domain specified in the request.</p>
    */
   Suggesters: SuggesterStatus[] | undefined;
-}
-
-export namespace DescribeSuggestersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSuggestersResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2346,15 +1707,6 @@ export interface IndexDocumentsRequest {
   DomainName: string | undefined;
 }
 
-export namespace IndexDocumentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IndexDocumentsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of an <code>IndexDocuments</code> request. Contains the status of the indexing operation, including the fields being indexed.</p>
  */
@@ -2365,15 +1717,6 @@ export interface IndexDocumentsResponse {
   FieldNames?: string[];
 }
 
-export namespace IndexDocumentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IndexDocumentsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>ListDomainNames</code> request. Contains a list of the domains owned by an account.</p>
  */
@@ -2382,15 +1725,6 @@ export interface ListDomainNamesResponse {
    * <p>The names of the search domains owned by an account.</p>
    */
   DomainNames?: Record<string, string>;
-}
-
-export namespace ListDomainNamesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainNamesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2408,15 +1742,6 @@ export interface UpdateAvailabilityOptionsRequest {
   MultiAZ: boolean | undefined;
 }
 
-export namespace UpdateAvailabilityOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAvailabilityOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>UpdateAvailabilityOptions</code> request. Contains the status of the domain's availability options. </p>
  */
@@ -2425,15 +1750,6 @@ export interface UpdateAvailabilityOptionsResponse {
    * <p>The newly-configured availability options. Indicates whether Multi-AZ is enabled for the domain. </p>
    */
   AvailabilityOptions?: AvailabilityOptionsStatus;
-}
-
-export namespace UpdateAvailabilityOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAvailabilityOptionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2451,15 +1767,6 @@ export interface UpdateDomainEndpointOptionsRequest {
   DomainEndpointOptions: DomainEndpointOptions | undefined;
 }
 
-export namespace UpdateDomainEndpointOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainEndpointOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>UpdateDomainEndpointOptions</code> request. Contains the configuration and status of the domain's endpoint options. </p>
  */
@@ -2468,15 +1775,6 @@ export interface UpdateDomainEndpointOptionsResponse {
    * <p>The newly-configured domain endpoint options.</p>
    */
   DomainEndpointOptions?: DomainEndpointOptionsStatus;
-}
-
-export namespace UpdateDomainEndpointOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainEndpointOptionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2494,15 +1792,6 @@ export interface UpdateScalingParametersRequest {
   ScalingParameters: ScalingParameters | undefined;
 }
 
-export namespace UpdateScalingParametersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateScalingParametersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a <code>UpdateScalingParameters</code> request. Contains the status of the newly-configured scaling parameters.</p>
  */
@@ -2511,15 +1800,6 @@ export interface UpdateScalingParametersResponse {
    * <p>The status and configuration of a search domain's scaling parameters. </p>
    */
   ScalingParameters: ScalingParametersStatus | undefined;
-}
-
-export namespace UpdateScalingParametersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateScalingParametersResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2537,15 +1817,6 @@ export interface UpdateServiceAccessPoliciesRequest {
   AccessPolicies: string | undefined;
 }
 
-export namespace UpdateServiceAccessPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceAccessPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of an <code>UpdateServiceAccessPolicies</code> request. Contains the new access policies.</p>
  */
@@ -2556,11 +1827,590 @@ export interface UpdateServiceAccessPoliciesResponse {
   AccessPolicies: AccessPoliciesStatus | undefined;
 }
 
-export namespace UpdateServiceAccessPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceAccessPoliciesResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const BuildSuggestersRequestFilterSensitiveLog = (obj: BuildSuggestersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuildSuggestersResponseFilterSensitiveLog = (obj: BuildSuggestersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainRequestFilterSensitiveLog = (obj: CreateDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceEndpointFilterSensitiveLog = (obj: ServiceEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LimitsFilterSensitiveLog = (obj: Limits): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainStatusFilterSensitiveLog = (obj: DomainStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainResponseFilterSensitiveLog = (obj: CreateDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisOptionsFilterSensitiveLog = (obj: AnalysisOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisSchemeFilterSensitiveLog = (obj: AnalysisScheme): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefineAnalysisSchemeRequestFilterSensitiveLog = (obj: DefineAnalysisSchemeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OptionStatusFilterSensitiveLog = (obj: OptionStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisSchemeStatusFilterSensitiveLog = (obj: AnalysisSchemeStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefineAnalysisSchemeResponseFilterSensitiveLog = (obj: DefineAnalysisSchemeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExpressionFilterSensitiveLog = (obj: Expression): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefineExpressionRequestFilterSensitiveLog = (obj: DefineExpressionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExpressionStatusFilterSensitiveLog = (obj: ExpressionStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefineExpressionResponseFilterSensitiveLog = (obj: DefineExpressionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DateArrayOptionsFilterSensitiveLog = (obj: DateArrayOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DateOptionsFilterSensitiveLog = (obj: DateOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DoubleArrayOptionsFilterSensitiveLog = (obj: DoubleArrayOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DoubleOptionsFilterSensitiveLog = (obj: DoubleOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntArrayOptionsFilterSensitiveLog = (obj: IntArrayOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntOptionsFilterSensitiveLog = (obj: IntOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LatLonOptionsFilterSensitiveLog = (obj: LatLonOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LiteralArrayOptionsFilterSensitiveLog = (obj: LiteralArrayOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LiteralOptionsFilterSensitiveLog = (obj: LiteralOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextArrayOptionsFilterSensitiveLog = (obj: TextArrayOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextOptionsFilterSensitiveLog = (obj: TextOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IndexFieldFilterSensitiveLog = (obj: IndexField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefineIndexFieldRequestFilterSensitiveLog = (obj: DefineIndexFieldRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IndexFieldStatusFilterSensitiveLog = (obj: IndexFieldStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefineIndexFieldResponseFilterSensitiveLog = (obj: DefineIndexFieldResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentSuggesterOptionsFilterSensitiveLog = (obj: DocumentSuggesterOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuggesterFilterSensitiveLog = (obj: Suggester): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefineSuggesterRequestFilterSensitiveLog = (obj: DefineSuggesterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuggesterStatusFilterSensitiveLog = (obj: SuggesterStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefineSuggesterResponseFilterSensitiveLog = (obj: DefineSuggesterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAnalysisSchemeRequestFilterSensitiveLog = (obj: DeleteAnalysisSchemeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAnalysisSchemeResponseFilterSensitiveLog = (obj: DeleteAnalysisSchemeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainRequestFilterSensitiveLog = (obj: DeleteDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainResponseFilterSensitiveLog = (obj: DeleteDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteExpressionRequestFilterSensitiveLog = (obj: DeleteExpressionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteExpressionResponseFilterSensitiveLog = (obj: DeleteExpressionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIndexFieldRequestFilterSensitiveLog = (obj: DeleteIndexFieldRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIndexFieldResponseFilterSensitiveLog = (obj: DeleteIndexFieldResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSuggesterRequestFilterSensitiveLog = (obj: DeleteSuggesterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSuggesterResponseFilterSensitiveLog = (obj: DeleteSuggesterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAnalysisSchemesRequestFilterSensitiveLog = (obj: DescribeAnalysisSchemesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAnalysisSchemesResponseFilterSensitiveLog = (obj: DescribeAnalysisSchemesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAvailabilityOptionsRequestFilterSensitiveLog = (obj: DescribeAvailabilityOptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvailabilityOptionsStatusFilterSensitiveLog = (obj: AvailabilityOptionsStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAvailabilityOptionsResponseFilterSensitiveLog = (
+  obj: DescribeAvailabilityOptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainEndpointOptionsRequestFilterSensitiveLog = (
+  obj: DescribeDomainEndpointOptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainEndpointOptionsFilterSensitiveLog = (obj: DomainEndpointOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainEndpointOptionsStatusFilterSensitiveLog = (obj: DomainEndpointOptionsStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainEndpointOptionsResponseFilterSensitiveLog = (
+  obj: DescribeDomainEndpointOptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainsRequestFilterSensitiveLog = (obj: DescribeDomainsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainsResponseFilterSensitiveLog = (obj: DescribeDomainsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExpressionsRequestFilterSensitiveLog = (obj: DescribeExpressionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExpressionsResponseFilterSensitiveLog = (obj: DescribeExpressionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIndexFieldsRequestFilterSensitiveLog = (obj: DescribeIndexFieldsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIndexFieldsResponseFilterSensitiveLog = (obj: DescribeIndexFieldsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScalingParametersRequestFilterSensitiveLog = (obj: DescribeScalingParametersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalingParametersFilterSensitiveLog = (obj: ScalingParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalingParametersStatusFilterSensitiveLog = (obj: ScalingParametersStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScalingParametersResponseFilterSensitiveLog = (obj: DescribeScalingParametersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServiceAccessPoliciesRequestFilterSensitiveLog = (
+  obj: DescribeServiceAccessPoliciesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessPoliciesStatusFilterSensitiveLog = (obj: AccessPoliciesStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServiceAccessPoliciesResponseFilterSensitiveLog = (
+  obj: DescribeServiceAccessPoliciesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSuggestersRequestFilterSensitiveLog = (obj: DescribeSuggestersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSuggestersResponseFilterSensitiveLog = (obj: DescribeSuggestersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IndexDocumentsRequestFilterSensitiveLog = (obj: IndexDocumentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IndexDocumentsResponseFilterSensitiveLog = (obj: IndexDocumentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainNamesResponseFilterSensitiveLog = (obj: ListDomainNamesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAvailabilityOptionsRequestFilterSensitiveLog = (obj: UpdateAvailabilityOptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAvailabilityOptionsResponseFilterSensitiveLog = (obj: UpdateAvailabilityOptionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainEndpointOptionsRequestFilterSensitiveLog = (obj: UpdateDomainEndpointOptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainEndpointOptionsResponseFilterSensitiveLog = (
+  obj: UpdateDomainEndpointOptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateScalingParametersRequestFilterSensitiveLog = (obj: UpdateScalingParametersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateScalingParametersResponseFilterSensitiveLog = (obj: UpdateScalingParametersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceAccessPoliciesRequestFilterSensitiveLog = (obj: UpdateServiceAccessPoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceAccessPoliciesResponseFilterSensitiveLog = (
+  obj: UpdateServiceAccessPoliciesResponse
+): any => ({
+  ...obj,
+});

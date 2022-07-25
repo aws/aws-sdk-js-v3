@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateIpGroupsRequest, DisassociateIpGroupsResult } from "../models/models_0";
+import {
+  DisassociateIpGroupsRequest,
+  DisassociateIpGroupsRequestFilterSensitiveLog,
+  DisassociateIpGroupsResult,
+  DisassociateIpGroupsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateIpGroupsCommand,
   serializeAws_json1_1DisassociateIpGroupsCommand,
@@ -72,8 +77,8 @@ export class DisassociateIpGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateIpGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateIpGroupsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateIpGroupsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateIpGroupsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

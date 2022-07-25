@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { TransferContactRequest, TransferContactResponse } from "../models/models_1";
+import {
+  TransferContactRequest,
+  TransferContactRequestFilterSensitiveLog,
+  TransferContactResponse,
+  TransferContactResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1TransferContactCommand,
   serializeAws_restJson1TransferContactCommand,
@@ -95,8 +100,8 @@ export class TransferContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TransferContactRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TransferContactResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TransferContactRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TransferContactResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

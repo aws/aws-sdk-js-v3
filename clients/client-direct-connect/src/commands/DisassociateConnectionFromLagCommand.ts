@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { Connection, DisassociateConnectionFromLagRequest } from "../models/models_0";
+import {
+  Connection,
+  ConnectionFilterSensitiveLog,
+  DisassociateConnectionFromLagRequest,
+  DisassociateConnectionFromLagRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateConnectionFromLagCommand,
   serializeAws_json1_1DisassociateConnectionFromLagCommand,
@@ -81,8 +86,8 @@ export class DisassociateConnectionFromLagCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateConnectionFromLagRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Connection.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateConnectionFromLagRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ConnectionFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

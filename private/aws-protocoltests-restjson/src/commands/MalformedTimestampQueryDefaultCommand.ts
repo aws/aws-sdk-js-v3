@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedTimestampQueryDefaultInput } from "../models/models_0";
+import {
+  MalformedTimestampQueryDefaultInput,
+  MalformedTimestampQueryDefaultInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedTimestampQueryDefaultCommand,
   serializeAws_restJson1MalformedTimestampQueryDefaultCommand,
@@ -55,7 +58,7 @@ export class MalformedTimestampQueryDefaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedTimestampQueryDefaultInput.filterSensitiveLog,
+      inputFilterSensitiveLog: MalformedTimestampQueryDefaultInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

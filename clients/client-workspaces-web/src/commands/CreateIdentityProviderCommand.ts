@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateIdentityProviderRequest, CreateIdentityProviderResponse } from "../models/models_0";
+import {
+  CreateIdentityProviderRequest,
+  CreateIdentityProviderRequestFilterSensitiveLog,
+  CreateIdentityProviderResponse,
+  CreateIdentityProviderResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateIdentityProviderCommand,
   serializeAws_restJson1CreateIdentityProviderCommand,
@@ -72,8 +77,8 @@ export class CreateIdentityProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIdentityProviderRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateIdentityProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateIdentityProviderRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateIdentityProviderResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

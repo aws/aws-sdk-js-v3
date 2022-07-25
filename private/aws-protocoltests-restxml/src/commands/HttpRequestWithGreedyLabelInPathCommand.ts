@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HttpRequestWithGreedyLabelInPathInput } from "../models/models_0";
+import {
+  HttpRequestWithGreedyLabelInPathInput,
+  HttpRequestWithGreedyLabelInPathInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlHttpRequestWithGreedyLabelInPathCommand,
   serializeAws_restXmlHttpRequestWithGreedyLabelInPathCommand,
@@ -55,7 +58,7 @@ export class HttpRequestWithGreedyLabelInPathCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpRequestWithGreedyLabelInPathInput.filterSensitiveLog,
+      inputFilterSensitiveLog: HttpRequestWithGreedyLabelInPathInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

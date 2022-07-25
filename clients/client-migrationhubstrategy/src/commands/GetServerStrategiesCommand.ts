@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import { GetServerStrategiesRequest, GetServerStrategiesResponse } from "../models/models_0";
+import {
+  GetServerStrategiesRequest,
+  GetServerStrategiesRequestFilterSensitiveLog,
+  GetServerStrategiesResponse,
+  GetServerStrategiesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetServerStrategiesCommand,
   serializeAws_restJson1GetServerStrategiesCommand,
@@ -76,8 +81,8 @@ export class GetServerStrategiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServerStrategiesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetServerStrategiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetServerStrategiesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetServerStrategiesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

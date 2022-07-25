@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DeleteCustomVocabularyRequest, DeleteCustomVocabularyResponse } from "../models/models_0";
+import {
+  DeleteCustomVocabularyRequest,
+  DeleteCustomVocabularyRequestFilterSensitiveLog,
+  DeleteCustomVocabularyResponse,
+  DeleteCustomVocabularyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCustomVocabularyCommand,
   serializeAws_restJson1DeleteCustomVocabularyCommand,
@@ -73,8 +78,8 @@ export class DeleteCustomVocabularyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomVocabularyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomVocabularyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCustomVocabularyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCustomVocabularyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

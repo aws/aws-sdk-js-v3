@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { NullOperationInputOutput } from "../models/models_0";
+import { NullOperationInputOutput, NullOperationInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1NullOperationCommand,
   serializeAws_json1_1NullOperationCommand,
@@ -55,8 +55,8 @@ export class NullOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NullOperationInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: NullOperationInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: NullOperationInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: NullOperationInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

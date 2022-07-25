@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { ListLayerVersionsRequest, ListLayerVersionsResponse } from "../models/models_0";
+import {
+  ListLayerVersionsRequest,
+  ListLayerVersionsRequestFilterSensitiveLog,
+  ListLayerVersionsResponse,
+  ListLayerVersionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListLayerVersionsCommand,
   serializeAws_restJson1ListLayerVersionsCommand,
@@ -75,8 +80,8 @@ export class ListLayerVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLayerVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListLayerVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListLayerVersionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListLayerVersionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

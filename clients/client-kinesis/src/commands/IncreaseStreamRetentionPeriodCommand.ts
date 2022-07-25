@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { IncreaseStreamRetentionPeriodInput } from "../models/models_0";
+import {
+  IncreaseStreamRetentionPeriodInput,
+  IncreaseStreamRetentionPeriodInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1IncreaseStreamRetentionPeriodCommand,
   serializeAws_json1_1IncreaseStreamRetentionPeriodCommand,
@@ -80,7 +83,7 @@ export class IncreaseStreamRetentionPeriodCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IncreaseStreamRetentionPeriodInput.filterSensitiveLog,
+      inputFilterSensitiveLog: IncreaseStreamRetentionPeriodInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

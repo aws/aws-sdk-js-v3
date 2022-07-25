@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { UpdateFindingsFilterRequest, UpdateFindingsFilterResponse } from "../models/models_0";
+import {
+  UpdateFindingsFilterRequest,
+  UpdateFindingsFilterRequestFilterSensitiveLog,
+  UpdateFindingsFilterResponse,
+  UpdateFindingsFilterResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFindingsFilterCommand,
   serializeAws_restJson1UpdateFindingsFilterCommand,
@@ -72,8 +77,8 @@ export class UpdateFindingsFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFindingsFilterRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFindingsFilterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFindingsFilterRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFindingsFilterResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

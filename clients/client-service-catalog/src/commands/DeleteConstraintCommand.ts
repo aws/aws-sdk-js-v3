@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteConstraintInput, DeleteConstraintOutput } from "../models/models_0";
+import {
+  DeleteConstraintInput,
+  DeleteConstraintInputFilterSensitiveLog,
+  DeleteConstraintOutput,
+  DeleteConstraintOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteConstraintCommand,
   serializeAws_json1_1DeleteConstraintCommand,
@@ -73,8 +78,8 @@ export class DeleteConstraintCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConstraintInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConstraintOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteConstraintInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteConstraintOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

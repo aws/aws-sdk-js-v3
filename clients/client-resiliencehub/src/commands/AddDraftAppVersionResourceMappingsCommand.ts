@@ -14,7 +14,9 @@ import {
 
 import {
   AddDraftAppVersionResourceMappingsRequest,
+  AddDraftAppVersionResourceMappingsRequestFilterSensitiveLog,
   AddDraftAppVersionResourceMappingsResponse,
+  AddDraftAppVersionResourceMappingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1AddDraftAppVersionResourceMappingsCommand,
@@ -77,8 +79,8 @@ export class AddDraftAppVersionResourceMappingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddDraftAppVersionResourceMappingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AddDraftAppVersionResourceMappingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddDraftAppVersionResourceMappingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AddDraftAppVersionResourceMappingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

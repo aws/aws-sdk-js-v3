@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteApnsVoipChannelRequest, DeleteApnsVoipChannelResponse } from "../models/models_0";
+import {
+  DeleteApnsVoipChannelRequest,
+  DeleteApnsVoipChannelRequestFilterSensitiveLog,
+  DeleteApnsVoipChannelResponse,
+  DeleteApnsVoipChannelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1DeleteApnsVoipChannelCommand,
@@ -72,8 +77,8 @@ export class DeleteApnsVoipChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApnsVoipChannelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApnsVoipChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApnsVoipChannelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApnsVoipChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

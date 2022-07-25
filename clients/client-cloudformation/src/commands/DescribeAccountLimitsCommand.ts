@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { DescribeAccountLimitsInput, DescribeAccountLimitsOutput } from "../models/models_0";
+import {
+  DescribeAccountLimitsInput,
+  DescribeAccountLimitsInputFilterSensitiveLog,
+  DescribeAccountLimitsOutput,
+  DescribeAccountLimitsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeAccountLimitsCommand,
   serializeAws_queryDescribeAccountLimitsCommand,
@@ -74,8 +79,8 @@ export class DescribeAccountLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountLimitsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountLimitsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAccountLimitsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAccountLimitsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

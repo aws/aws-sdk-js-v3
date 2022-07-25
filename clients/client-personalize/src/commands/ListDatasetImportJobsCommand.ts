@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListDatasetImportJobsRequest, ListDatasetImportJobsResponse } from "../models/models_0";
+import {
+  ListDatasetImportJobsRequest,
+  ListDatasetImportJobsRequestFilterSensitiveLog,
+  ListDatasetImportJobsResponse,
+  ListDatasetImportJobsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1ListDatasetImportJobsCommand,
@@ -76,8 +81,8 @@ export class ListDatasetImportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatasetImportJobsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDatasetImportJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDatasetImportJobsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDatasetImportJobsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssociateVPCWithHostedZoneRequest, AssociateVPCWithHostedZoneResponse } from "../models/models_0";
+import {
+  AssociateVPCWithHostedZoneRequest,
+  AssociateVPCWithHostedZoneRequestFilterSensitiveLog,
+  AssociateVPCWithHostedZoneResponse,
+  AssociateVPCWithHostedZoneResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlAssociateVPCWithHostedZoneCommand,
   serializeAws_restXmlAssociateVPCWithHostedZoneCommand,
@@ -107,8 +112,8 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateVPCWithHostedZoneRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateVPCWithHostedZoneResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateVPCWithHostedZoneRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateVPCWithHostedZoneResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

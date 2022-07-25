@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetBucketPolicyStatusOutput, GetBucketPolicyStatusRequest } from "../models/models_0";
+import {
+  GetBucketPolicyStatusOutput,
+  GetBucketPolicyStatusOutputFilterSensitiveLog,
+  GetBucketPolicyStatusRequest,
+  GetBucketPolicyStatusRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketPolicyStatusCommand,
   serializeAws_restXmlGetBucketPolicyStatusCommand,
@@ -104,8 +109,8 @@ export class GetBucketPolicyStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketPolicyStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketPolicyStatusOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketPolicyStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketPolicyStatusOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

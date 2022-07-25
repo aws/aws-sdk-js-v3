@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { JsonEnumsInputOutput } from "../models/models_0";
+import { JsonEnumsInputOutput, JsonEnumsInputOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_json1_1JsonEnumsCommand, serializeAws_json1_1JsonEnumsCommand } from "../protocols/Aws_json1_1";
 
 export interface JsonEnumsCommandInput extends JsonEnumsInputOutput {}
@@ -69,8 +69,8 @@ export class JsonEnumsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: JsonEnumsInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: JsonEnumsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: JsonEnumsInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: JsonEnumsInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeFolderContentsRequest, DescribeFolderContentsResponse } from "../models/models_0";
+import {
+  DescribeFolderContentsRequest,
+  DescribeFolderContentsRequestFilterSensitiveLog,
+  DescribeFolderContentsResponse,
+  DescribeFolderContentsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeFolderContentsCommand,
   serializeAws_restJson1DescribeFolderContentsCommand,
@@ -77,8 +82,8 @@ export class DescribeFolderContentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFolderContentsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFolderContentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFolderContentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFolderContentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

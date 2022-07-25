@@ -14,7 +14,9 @@ import {
 
 import {
   DeleteCustomVerificationEmailTemplateRequest,
+  DeleteCustomVerificationEmailTemplateRequestFilterSensitiveLog,
   DeleteCustomVerificationEmailTemplateResponse,
+  DeleteCustomVerificationEmailTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCustomVerificationEmailTemplateCommand,
@@ -81,8 +83,8 @@ export class DeleteCustomVerificationEmailTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomVerificationEmailTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomVerificationEmailTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCustomVerificationEmailTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCustomVerificationEmailTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

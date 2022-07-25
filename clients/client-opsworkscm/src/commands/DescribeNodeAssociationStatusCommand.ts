@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeNodeAssociationStatusRequest, DescribeNodeAssociationStatusResponse } from "../models/models_0";
+import {
+  DescribeNodeAssociationStatusRequest,
+  DescribeNodeAssociationStatusRequestFilterSensitiveLog,
+  DescribeNodeAssociationStatusResponse,
+  DescribeNodeAssociationStatusResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
   deserializeAws_json1_1DescribeNodeAssociationStatusCommand,
@@ -80,8 +85,8 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNodeAssociationStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNodeAssociationStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeNodeAssociationStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNodeAssociationStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

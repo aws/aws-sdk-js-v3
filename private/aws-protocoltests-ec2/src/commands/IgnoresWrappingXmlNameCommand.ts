@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { IgnoresWrappingXmlNameOutput } from "../models/models_0";
+import { IgnoresWrappingXmlNameOutput, IgnoresWrappingXmlNameOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_ec2IgnoresWrappingXmlNameCommand,
   serializeAws_ec2IgnoresWrappingXmlNameCommand,
@@ -75,7 +75,7 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: IgnoresWrappingXmlNameOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: IgnoresWrappingXmlNameOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

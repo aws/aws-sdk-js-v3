@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { DeleteFunctionCodeSigningConfigRequest } from "../models/models_0";
+import {
+  DeleteFunctionCodeSigningConfigRequest,
+  DeleteFunctionCodeSigningConfigRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFunctionCodeSigningConfigCommand,
   serializeAws_restJson1DeleteFunctionCodeSigningConfigCommand,
@@ -72,7 +75,7 @@ export class DeleteFunctionCodeSigningConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFunctionCodeSigningConfigRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFunctionCodeSigningConfigRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

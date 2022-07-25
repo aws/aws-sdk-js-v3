@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeSpotFleetRequestHistoryRequest, DescribeSpotFleetRequestHistoryResponse } from "../models/models_4";
+import {
+  DescribeSpotFleetRequestHistoryRequest,
+  DescribeSpotFleetRequestHistoryRequestFilterSensitiveLog,
+  DescribeSpotFleetRequestHistoryResponse,
+  DescribeSpotFleetRequestHistoryResponseFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeSpotFleetRequestHistoryCommand,
   serializeAws_ec2DescribeSpotFleetRequestHistoryCommand,
@@ -80,8 +85,8 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSpotFleetRequestHistoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSpotFleetRequestHistoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSpotFleetRequestHistoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSpotFleetRequestHistoryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

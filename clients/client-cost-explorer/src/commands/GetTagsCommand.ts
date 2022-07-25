@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { GetTagsRequest, GetTagsResponse } from "../models/models_0";
+import {
+  GetTagsRequest,
+  GetTagsRequestFilterSensitiveLog,
+  GetTagsResponse,
+  GetTagsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1GetTagsCommand, serializeAws_json1_1GetTagsCommand } from "../protocols/Aws_json1_1";
 
 export interface GetTagsCommandInput extends GetTagsRequest {}
@@ -69,8 +74,8 @@ export class GetTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

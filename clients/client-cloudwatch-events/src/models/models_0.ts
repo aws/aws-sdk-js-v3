@@ -10,15 +10,6 @@ export interface ActivateEventSourceRequest {
   Name: string | undefined;
 }
 
-export namespace ActivateEventSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivateEventSourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There is concurrent modification on a rule, target, archive, or replay.</p>
  */
@@ -179,15 +170,6 @@ export interface ApiDestination {
   LastModifiedTime?: Date;
 }
 
-export namespace ApiDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiDestination): any => ({
-    ...obj,
-  });
-}
-
 export enum ArchiveState {
   CREATE_FAILED = "CREATE_FAILED",
   CREATING = "CREATING",
@@ -243,15 +225,6 @@ export interface Archive {
   CreationTime?: Date;
 }
 
-export namespace Archive {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Archive): any => ({
-    ...obj,
-  });
-}
-
 export enum AssignPublicIp {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -262,15 +235,6 @@ export interface CancelReplayRequest {
    * <p>The name of the replay to cancel.</p>
    */
   ReplayName: string | undefined;
-}
-
-export namespace CancelReplayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelReplayRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ReplayState {
@@ -297,15 +261,6 @@ export interface CancelReplayResponse {
    * <p>The reason that the replay is in the current state.</p>
    */
   StateReason?: string;
-}
-
-export namespace CancelReplayResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelReplayResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -361,15 +316,6 @@ export interface CreateApiDestinationRequest {
   InvocationRateLimitPerSecond?: number;
 }
 
-export namespace CreateApiDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApiDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateApiDestinationResponse {
   /**
    * <p>The ARN of the API destination that was created by the request.</p>
@@ -390,15 +336,6 @@ export interface CreateApiDestinationResponse {
    * <p>A time stamp indicating the time that the API destination was last modified.</p>
    */
   LastModifiedTime?: Date;
-}
-
-export namespace CreateApiDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApiDestinationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -468,15 +405,6 @@ export interface CreateArchiveRequest {
   RetentionDays?: number;
 }
 
-export namespace CreateArchiveRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateArchiveRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateArchiveResponse {
   /**
    * <p>The ARN of the archive that was created.</p>
@@ -497,15 +425,6 @@ export interface CreateArchiveResponse {
    * <p>The time at which the archive was created.</p>
    */
   CreationTime?: Date;
-}
-
-export namespace CreateArchiveResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateArchiveResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -548,15 +467,6 @@ export interface CreateConnectionApiKeyAuthRequestParameters {
   ApiKeyValue: string | undefined;
 }
 
-export namespace CreateConnectionApiKeyAuthRequestParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectionApiKeyAuthRequestParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the Basic authorization parameters to use for the connection.</p>
  */
@@ -570,15 +480,6 @@ export interface CreateConnectionBasicAuthRequestParameters {
    * <p>The password associated with the user name to use for Basic authorization.</p>
    */
   Password: string | undefined;
-}
-
-export namespace CreateConnectionBasicAuthRequestParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectionBasicAuthRequestParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -602,15 +503,6 @@ export interface ConnectionBodyParameter {
   IsValueSecret?: boolean;
 }
 
-export namespace ConnectionBodyParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionBodyParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Additional parameter included in the header. You can include up to 100 additional header
  *       parameters per request. An event payload cannot exceed 64 KB.</p>
@@ -630,15 +522,6 @@ export interface ConnectionHeaderParameter {
    * <p>Specified whether the value is a secret.</p>
    */
   IsValueSecret?: boolean;
-}
-
-export namespace ConnectionHeaderParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionHeaderParameter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -663,15 +546,6 @@ export interface ConnectionQueryStringParameter {
   IsValueSecret?: boolean;
 }
 
-export namespace ConnectionQueryStringParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionQueryStringParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains additional parameters for the connection.</p>
  */
@@ -692,15 +566,6 @@ export interface ConnectionHttpParameters {
   BodyParameters?: ConnectionBodyParameter[];
 }
 
-export namespace ConnectionHttpParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionHttpParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the Basic authorization parameters to use for the connection.</p>
  */
@@ -715,15 +580,6 @@ export interface CreateConnectionOAuthClientRequestParameters {
    *       connection.</p>
    */
   ClientSecret: string | undefined;
-}
-
-export namespace CreateConnectionOAuthClientRequestParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectionOAuthClientRequestParameters): any => ({
-    ...obj,
-  });
 }
 
 export enum ConnectionOAuthHttpMethod {
@@ -760,15 +616,6 @@ export interface CreateConnectionOAuthRequestParameters {
   OAuthHttpParameters?: ConnectionHttpParameters;
 }
 
-export namespace CreateConnectionOAuthRequestParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectionOAuthRequestParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the authorization parameters for the connection.</p>
  */
@@ -800,15 +647,6 @@ export interface CreateConnectionAuthRequestParameters {
   InvocationHttpParameters?: ConnectionHttpParameters;
 }
 
-export namespace CreateConnectionAuthRequestParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectionAuthRequestParameters): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateConnectionRequest {
   /**
    * <p>The name for the connection to create.</p>
@@ -830,15 +668,6 @@ export interface CreateConnectionRequest {
    *       authorization parameters to use to authorize with the endpoint. </p>
    */
   AuthParameters: CreateConnectionAuthRequestParameters | undefined;
-}
-
-export namespace CreateConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectionRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ConnectionState {
@@ -873,15 +702,6 @@ export interface CreateConnectionResponse {
   LastModifiedTime?: Date;
 }
 
-export namespace CreateConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A key-value pair associated with an Amazon Web Services resource. In EventBridge, rules and event buses
  *       support tagging.</p>
@@ -897,15 +717,6 @@ export interface Tag {
    * <p>The value for the specified tag key.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateEventBusRequest {
@@ -931,29 +742,11 @@ export interface CreateEventBusRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateEventBusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEventBusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateEventBusResponse {
   /**
    * <p>The ARN of the new event bus.</p>
    */
   EventBusArn?: string;
-}
-
-export namespace CreateEventBusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEventBusResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePartnerEventSourceRequest {
@@ -974,29 +767,11 @@ export interface CreatePartnerEventSourceRequest {
   Account: string | undefined;
 }
 
-export namespace CreatePartnerEventSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePartnerEventSourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePartnerEventSourceResponse {
   /**
    * <p>The ARN of the partner event source.</p>
    */
   EventSourceArn?: string;
-}
-
-export namespace CreatePartnerEventSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePartnerEventSourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeactivateEventSourceRequest {
@@ -1006,29 +781,11 @@ export interface DeactivateEventSourceRequest {
   Name: string | undefined;
 }
 
-export namespace DeactivateEventSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeactivateEventSourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeauthorizeConnectionRequest {
   /**
    * <p>The name of the connection to remove authorization from.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DeauthorizeConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeauthorizeConnectionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeauthorizeConnectionResponse {
@@ -1058,15 +815,6 @@ export interface DeauthorizeConnectionResponse {
   LastAuthorizedTime?: Date;
 }
 
-export namespace DeauthorizeConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeauthorizeConnectionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteApiDestinationRequest {
   /**
    * <p>The name of the destination to delete.</p>
@@ -1074,25 +822,7 @@ export interface DeleteApiDestinationRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteApiDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApiDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteApiDestinationResponse {}
-
-export namespace DeleteApiDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApiDestinationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteArchiveRequest {
   /**
@@ -1101,40 +831,13 @@ export interface DeleteArchiveRequest {
   ArchiveName: string | undefined;
 }
 
-export namespace DeleteArchiveRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteArchiveRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteArchiveResponse {}
-
-export namespace DeleteArchiveResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteArchiveResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteConnectionRequest {
   /**
    * <p>The name of the connection to delete.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DeleteConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteConnectionResponse {
@@ -1166,29 +869,11 @@ export interface DeleteConnectionResponse {
   LastAuthorizedTime?: Date;
 }
 
-export namespace DeleteConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEventBusRequest {
   /**
    * <p>The name of the event bus to delete.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DeleteEventBusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEventBusRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeletePartnerEventSourceRequest {
@@ -1201,15 +886,6 @@ export interface DeletePartnerEventSourceRequest {
    * <p>The Amazon Web Services account ID of the Amazon Web Services customer that the event source was created for.</p>
    */
   Account: string | undefined;
-}
-
-export namespace DeletePartnerEventSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePartnerEventSourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRuleRequest {
@@ -1232,15 +908,6 @@ export interface DeleteRuleRequest {
    *       field of the response.</p>
    */
   Force?: boolean;
-}
-
-export namespace DeleteRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1272,15 +939,6 @@ export interface DescribeApiDestinationRequest {
    * <p>The name of the API destination to retrieve.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DescribeApiDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApiDestinationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeApiDestinationResponse {
@@ -1340,29 +998,11 @@ export interface DescribeApiDestinationResponse {
   LastModifiedTime?: Date;
 }
 
-export namespace DescribeApiDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApiDestinationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeArchiveRequest {
   /**
    * <p>The name of the archive to retrieve.</p>
    */
   ArchiveName: string | undefined;
-}
-
-export namespace DescribeArchiveRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeArchiveRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeArchiveResponse {
@@ -1422,29 +1062,11 @@ export interface DescribeArchiveResponse {
   CreationTime?: Date;
 }
 
-export namespace DescribeArchiveResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeArchiveResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConnectionRequest {
   /**
    * <p>The name of the connection to retrieve.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DescribeConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1459,15 +1081,6 @@ export interface ConnectionApiKeyAuthResponseParameters {
   ApiKeyName?: string;
 }
 
-export namespace ConnectionApiKeyAuthResponseParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionApiKeyAuthResponseParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the authorization parameters for the connection if Basic is specified as the
  *       authorization type.</p>
@@ -1479,15 +1092,6 @@ export interface ConnectionBasicAuthResponseParameters {
   Username?: string;
 }
 
-export namespace ConnectionBasicAuthResponseParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionBasicAuthResponseParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the client response parameters for the connection when OAuth is specified as the
  *       authorization type.</p>
@@ -1497,15 +1101,6 @@ export interface ConnectionOAuthClientResponseParameters {
    * <p>The client ID associated with the response to the connection request.</p>
    */
   ClientID?: string;
-}
-
-export namespace ConnectionOAuthClientResponseParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionOAuthClientResponseParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1534,15 +1129,6 @@ export interface ConnectionOAuthResponseParameters {
   OAuthHttpParameters?: ConnectionHttpParameters;
 }
 
-export namespace ConnectionOAuthResponseParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionOAuthResponseParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the authorization parameters to use for the connection.</p>
  */
@@ -1567,15 +1153,6 @@ export interface ConnectionAuthResponseParameters {
    *       the HTTP endpoint.</p>
    */
   InvocationHttpParameters?: ConnectionHttpParameters;
-}
-
-export namespace ConnectionAuthResponseParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionAuthResponseParameters): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConnectionResponse {
@@ -1636,30 +1213,12 @@ export interface DescribeConnectionResponse {
   LastAuthorizedTime?: Date;
 }
 
-export namespace DescribeConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEventBusRequest {
   /**
    * <p>The name or ARN of the event bus to show details for. If you omit this, the default event
    *       bus is displayed.</p>
    */
   Name?: string;
-}
-
-export namespace DescribeEventBusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventBusRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeEventBusResponse {
@@ -1680,29 +1239,11 @@ export interface DescribeEventBusResponse {
   Policy?: string;
 }
 
-export namespace DescribeEventBusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventBusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEventSourceRequest {
   /**
    * <p>The name of the partner event source to display the details of.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DescribeEventSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventSourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum EventSourceState {
@@ -1747,29 +1288,11 @@ export interface DescribeEventSourceResponse {
   State?: EventSourceState | string;
 }
 
-export namespace DescribeEventSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventSourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePartnerEventSourceRequest {
   /**
    * <p>The name of the event source to display.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DescribePartnerEventSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePartnerEventSourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePartnerEventSourceResponse {
@@ -1784,29 +1307,11 @@ export interface DescribePartnerEventSourceResponse {
   Name?: string;
 }
 
-export namespace DescribePartnerEventSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePartnerEventSourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeReplayRequest {
   /**
    * <p>The name of the replay to retrieve.</p>
    */
   ReplayName: string | undefined;
-}
-
-export namespace DescribeReplayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReplayRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1823,15 +1328,6 @@ export interface ReplayDestination {
    * <p>A list of ARNs for rules to replay events to.</p>
    */
   FilterArns?: string[];
-}
-
-export namespace ReplayDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplayDestination): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeReplayResponse {
@@ -1896,15 +1392,6 @@ export interface DescribeReplayResponse {
   ReplayEndTime?: Date;
 }
 
-export namespace DescribeReplayResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReplayResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRuleRequest {
   /**
    * <p>The name of the rule.</p>
@@ -1916,15 +1403,6 @@ export interface DescribeRuleRequest {
    *       event bus is used.</p>
    */
   EventBusName?: string;
-}
-
-export namespace DescribeRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRuleRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum RuleState {
@@ -1990,15 +1468,6 @@ export interface DescribeRuleResponse {
   CreatedBy?: string;
 }
 
-export namespace DescribeRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRuleResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableRuleRequest {
   /**
    * <p>The name of the rule.</p>
@@ -2012,15 +1481,6 @@ export interface DisableRuleRequest {
   EventBusName?: string;
 }
 
-export namespace DisableRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableRuleRequest {
   /**
    * <p>The name of the rule.</p>
@@ -2032,15 +1492,6 @@ export interface EnableRuleRequest {
    *       event bus is used.</p>
    */
   EventBusName?: string;
-}
-
-export namespace EnableRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableRuleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListApiDestinationsRequest {
@@ -2066,15 +1517,6 @@ export interface ListApiDestinationsRequest {
   Limit?: number;
 }
 
-export namespace ListApiDestinationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApiDestinationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApiDestinationsResponse {
   /**
    * <p>An array of <code>ApiDestination</code> objects that include information about an API
@@ -2086,15 +1528,6 @@ export interface ListApiDestinationsResponse {
    * <p>A token you can use in a subsequent request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListApiDestinationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApiDestinationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListArchivesRequest {
@@ -2125,15 +1558,6 @@ export interface ListArchivesRequest {
   Limit?: number;
 }
 
-export namespace ListArchivesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListArchivesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListArchivesResponse {
   /**
    * <p>An array of <code>Archive</code> objects that include details about an archive.</p>
@@ -2144,15 +1568,6 @@ export interface ListArchivesResponse {
    * <p>The token returned by a previous call to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListArchivesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListArchivesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListConnectionsRequest {
@@ -2176,15 +1591,6 @@ export interface ListConnectionsRequest {
    * <p>The maximum number of connections to return.</p>
    */
   Limit?: number;
-}
-
-export namespace ListConnectionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConnectionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2232,15 +1638,6 @@ export interface Connection {
   LastAuthorizedTime?: Date;
 }
 
-export namespace Connection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Connection): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConnectionsResponse {
   /**
    * <p>An array of connections objects that include details about the connections.</p>
@@ -2251,15 +1648,6 @@ export interface ListConnectionsResponse {
    * <p>A token you can use in a subsequent request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListConnectionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConnectionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEventBusesRequest {
@@ -2280,15 +1668,6 @@ export interface ListEventBusesRequest {
    *       of results.</p>
    */
   Limit?: number;
-}
-
-export namespace ListEventBusesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventBusesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2316,15 +1695,6 @@ export interface EventBus {
   Policy?: string;
 }
 
-export namespace EventBus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventBus): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEventBusesResponse {
   /**
    * <p>This list of event buses.</p>
@@ -2335,15 +1705,6 @@ export interface ListEventBusesResponse {
    * <p>A token you can use in a subsequent operation to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListEventBusesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventBusesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEventSourcesRequest {
@@ -2364,15 +1725,6 @@ export interface ListEventSourcesRequest {
    *       of results.</p>
    */
   Limit?: number;
-}
-
-export namespace ListEventSourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventSourcesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2416,15 +1768,6 @@ export interface EventSource {
   State?: EventSourceState | string;
 }
 
-export namespace EventSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventSource): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEventSourcesResponse {
   /**
    * <p>The list of event sources.</p>
@@ -2435,15 +1778,6 @@ export interface ListEventSourcesResponse {
    * <p>A token you can use in a subsequent operation to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListEventSourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventSourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPartnerEventSourceAccountsRequest {
@@ -2464,15 +1798,6 @@ export interface ListPartnerEventSourceAccountsRequest {
    *       of results.</p>
    */
   Limit?: number;
-}
-
-export namespace ListPartnerEventSourceAccountsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPartnerEventSourceAccountsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2504,15 +1829,6 @@ export interface PartnerEventSourceAccount {
   State?: EventSourceState | string;
 }
 
-export namespace PartnerEventSourceAccount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PartnerEventSourceAccount): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPartnerEventSourceAccountsResponse {
   /**
    * <p>The list of partner event sources returned by the operation.</p>
@@ -2523,15 +1839,6 @@ export interface ListPartnerEventSourceAccountsResponse {
    * <p>A token you can use in a subsequent operation to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPartnerEventSourceAccountsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPartnerEventSourceAccountsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPartnerEventSourcesRequest {
@@ -2555,15 +1862,6 @@ export interface ListPartnerEventSourcesRequest {
   Limit?: number;
 }
 
-export namespace ListPartnerEventSourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPartnerEventSourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A partner event source is created by an SaaS partner. If a customer creates a partner
  *       event bus that matches this event source, that Amazon Web Services account can receive events from the
@@ -2581,15 +1879,6 @@ export interface PartnerEventSource {
   Name?: string;
 }
 
-export namespace PartnerEventSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PartnerEventSource): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPartnerEventSourcesResponse {
   /**
    * <p>The list of partner event sources returned by the operation.</p>
@@ -2600,15 +1889,6 @@ export interface ListPartnerEventSourcesResponse {
    * <p>A token you can use in a subsequent operation to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPartnerEventSourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPartnerEventSourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListReplaysRequest {
@@ -2637,15 +1917,6 @@ export interface ListReplaysRequest {
    * <p>The maximum number of replays to retrieve.</p>
    */
   Limit?: number;
-}
-
-export namespace ListReplaysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReplaysRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2700,15 +1971,6 @@ export interface Replay {
   ReplayEndTime?: Date;
 }
 
-export namespace Replay {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Replay): any => ({
-    ...obj,
-  });
-}
-
 export interface ListReplaysResponse {
   /**
    * <p>An array of <code>Replay</code> objects that contain information about the replay.</p>
@@ -2719,15 +1981,6 @@ export interface ListReplaysResponse {
    * <p>The token returned by a previous call to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListReplaysResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReplaysResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRuleNamesByTargetRequest {
@@ -2753,15 +2006,6 @@ export interface ListRuleNamesByTargetRequest {
   Limit?: number;
 }
 
-export namespace ListRuleNamesByTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRuleNamesByTargetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRuleNamesByTargetResponse {
   /**
    * <p>The names of the rules that can invoke the given target.</p>
@@ -2773,15 +2017,6 @@ export interface ListRuleNamesByTargetResponse {
    *       the value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListRuleNamesByTargetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRuleNamesByTargetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRulesRequest {
@@ -2805,15 +2040,6 @@ export interface ListRulesRequest {
    * <p>The maximum number of results to return.</p>
    */
   Limit?: number;
-}
-
-export namespace ListRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRulesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2873,15 +2099,6 @@ export interface Rule {
   EventBusName?: string;
 }
 
-export namespace Rule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Rule): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRulesResponse {
   /**
    * <p>The rules that match the specified criteria.</p>
@@ -2895,15 +2112,6 @@ export interface ListRulesResponse {
   NextToken?: string;
 }
 
-export namespace ListRulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRulesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the EventBridge resource for which you want to view tags.</p>
@@ -2911,29 +2119,11 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tag keys and values associated with the resource you specified</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTargetsByRuleRequest {
@@ -2959,15 +2149,6 @@ export interface ListTargetsByRuleRequest {
   Limit?: number;
 }
 
-export namespace ListTargetsByRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTargetsByRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The array properties for the submitted job, such as the size of the array. The array size
  *       can be between 2 and 10,000. If you specify array properties for a job, it becomes an array
@@ -2981,15 +2162,6 @@ export interface BatchArrayProperties {
   Size?: number;
 }
 
-export namespace BatchArrayProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchArrayProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The retry strategy to use for failed jobs, if the target is an Batch job. If you
  *       specify a retry strategy here, it overrides the retry strategy defined in the job
@@ -3000,15 +2172,6 @@ export interface BatchRetryStrategy {
    * <p>The number of times to attempt to retry, if the job fails. Valid values are 1–10.</p>
    */
   Attempts?: number;
-}
-
-export namespace BatchRetryStrategy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchRetryStrategy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3042,15 +2205,6 @@ export interface BatchParameters {
   RetryStrategy?: BatchRetryStrategy;
 }
 
-export namespace BatchParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A <code>DeadLetterConfig</code> object that contains information about a dead-letter queue
  *       configuration.</p>
@@ -3060,15 +2214,6 @@ export interface DeadLetterConfig {
    * <p>The ARN of the SQS queue specified as the target for the dead-letter queue.</p>
    */
   Arn?: string;
-}
-
-export namespace DeadLetterConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeadLetterConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3093,15 +2238,6 @@ export interface CapacityProviderStrategyItem {
    *       If no value is specified, the default value of 0 is used. </p>
    */
   base?: number;
-}
-
-export namespace CapacityProviderStrategyItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CapacityProviderStrategyItem): any => ({
-    ...obj,
-  });
 }
 
 export enum LaunchType {
@@ -3137,15 +2273,6 @@ export interface AwsVpcConfiguration {
   AssignPublicIp?: AssignPublicIp | string;
 }
 
-export namespace AwsVpcConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsVpcConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This structure specifies the network configuration for an ECS task.</p>
  */
@@ -3156,15 +2283,6 @@ export interface NetworkConfiguration {
    *       use the <code>awsvpc</code> network mode.</p>
    */
   awsvpcConfiguration?: AwsVpcConfiguration;
-}
-
-export namespace NetworkConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum PlacementConstraintType {
@@ -3190,15 +2308,6 @@ export interface PlacementConstraint {
    *     </p>
    */
   expression?: string;
-}
-
-export namespace PlacementConstraint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlacementConstraint): any => ({
-    ...obj,
-  });
 }
 
 export enum PlacementStrategyType {
@@ -3230,15 +2339,6 @@ export interface PlacementStrategy {
    *       strategy, this field is not used. </p>
    */
   field?: string;
-}
-
-export namespace PlacementStrategy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlacementStrategy): any => ({
-    ...obj,
-  });
 }
 
 export enum PropagateTags {
@@ -3349,15 +2449,6 @@ export interface EcsParameters {
   Tags?: Tag[];
 }
 
-export namespace EcsParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EcsParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>These are custom parameter to be used when the target is an API Gateway REST APIs or
  *       EventBridge ApiDestinations. In the latter case, these are merged with any
@@ -3382,15 +2473,6 @@ export interface HttpParameters {
    *       REST API or EventBridge ApiDestination.</p>
    */
   QueryStringParameters?: Record<string, string>;
-}
-
-export namespace HttpParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3482,15 +2564,6 @@ export interface InputTransformer {
   InputTemplate: string | undefined;
 }
 
-export namespace InputTransformer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputTransformer): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This object enables you to specify a JSON path to extract from the event and use as the
  *       partition key for the Amazon Kinesis data stream, so that you can control the shard to which
@@ -3504,15 +2577,6 @@ export interface KinesisParameters {
    *         Concepts</a> in the <i>Amazon Kinesis Streams Developer Guide</i>.</p>
    */
   PartitionKeyPath: string | undefined;
-}
-
-export namespace KinesisParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3554,15 +2618,6 @@ export interface RedshiftDataParameters {
   WithEvent?: boolean;
 }
 
-export namespace RedshiftDataParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftDataParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A <code>RetryPolicy</code> object that includes information about the retry policy
  *       settings.</p>
@@ -3579,15 +2634,6 @@ export interface RetryPolicy {
    * <p>The maximum amount of time, in seconds, to continue to make retry attempts.</p>
    */
   MaximumEventAgeInSeconds?: number;
-}
-
-export namespace RetryPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetryPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3612,15 +2658,6 @@ export interface RunCommandTarget {
   Values: string[] | undefined;
 }
 
-export namespace RunCommandTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RunCommandTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This parameter contains the criteria (either InstanceIds or a tag) used to specify which
  *       EC2 instances are to be sent the command. </p>
@@ -3631,15 +2668,6 @@ export interface RunCommandParameters {
    *       array of InstanceIds or a tag.</p>
    */
   RunCommandTargets: RunCommandTarget[] | undefined;
-}
-
-export namespace RunCommandParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RunCommandParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3658,15 +2686,6 @@ export interface SageMakerPipelineParameter {
   Value: string | undefined;
 }
 
-export namespace SageMakerPipelineParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SageMakerPipelineParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>These are custom parameters to use when the target is a SageMaker Model Building Pipeline
  *       that starts based on EventBridge events.</p>
@@ -3678,15 +2697,6 @@ export interface SageMakerPipelineParameters {
   PipelineParameterList?: SageMakerPipelineParameter[];
 }
 
-export namespace SageMakerPipelineParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SageMakerPipelineParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This structure includes the custom parameter to be used when the target is an SQS FIFO
  *       queue.</p>
@@ -3696,15 +2706,6 @@ export interface SqsParameters {
    * <p>The FIFO message group ID to use as the target.</p>
    */
   MessageGroupId?: string;
-}
-
-export namespace SqsParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqsParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3831,15 +2832,6 @@ export interface Target {
   RetryPolicy?: RetryPolicy;
 }
 
-export namespace Target {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Target): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTargetsByRuleResponse {
   /**
    * <p>The targets assigned to the rule.</p>
@@ -3851,15 +2843,6 @@ export interface ListTargetsByRuleResponse {
    *       the value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTargetsByRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTargetsByRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3908,15 +2891,6 @@ export interface PutEventsRequestEntry {
   TraceHeader?: string;
 }
 
-export namespace PutEventsRequestEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEventsRequestEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface PutEventsRequest {
   /**
    * <p>The entry that defines an event in your system. You can specify several parameters for the
@@ -3924,15 +2898,6 @@ export interface PutEventsRequest {
    *       on.</p>
    */
   Entries: PutEventsRequestEntry[] | undefined;
-}
-
-export namespace PutEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEventsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3955,15 +2920,6 @@ export interface PutEventsResultEntry {
   ErrorMessage?: string;
 }
 
-export namespace PutEventsResultEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEventsResultEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface PutEventsResponse {
   /**
    * <p>The number of failed entries.</p>
@@ -3976,15 +2932,6 @@ export interface PutEventsResponse {
    *       message to identify the problem with the entry.</p>
    */
   Entries?: PutEventsResultEntry[];
-}
-
-export namespace PutEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEventsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4019,29 +2966,11 @@ export interface PutPartnerEventsRequestEntry {
   Detail?: string;
 }
 
-export namespace PutPartnerEventsRequestEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPartnerEventsRequestEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface PutPartnerEventsRequest {
   /**
    * <p>The list of events to write to the event bus.</p>
    */
   Entries: PutPartnerEventsRequestEntry[] | undefined;
-}
-
-export namespace PutPartnerEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPartnerEventsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4064,15 +2993,6 @@ export interface PutPartnerEventsResultEntry {
   ErrorMessage?: string;
 }
 
-export namespace PutPartnerEventsResultEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPartnerEventsResultEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface PutPartnerEventsResponse {
   /**
    * <p>The number of events from this operation that could not be written to the partner event
@@ -4085,15 +3005,6 @@ export interface PutPartnerEventsResponse {
    *       bus.</p>
    */
   Entries?: PutPartnerEventsResultEntry[];
-}
-
-export namespace PutPartnerEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPartnerEventsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4144,15 +3055,6 @@ export interface Condition {
    *       organization.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Condition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Condition): any => ({
-    ...obj,
-  });
 }
 
 export interface PutPermissionRequest {
@@ -4208,15 +3110,6 @@ export interface PutPermissionRequest {
   Policy?: string;
 }
 
-export namespace PutPermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPermissionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutRuleRequest {
   /**
    * <p>The name of the rule that you are creating or updating.</p>
@@ -4265,29 +3158,11 @@ export interface PutRuleRequest {
   EventBusName?: string;
 }
 
-export namespace PutRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutRuleResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
    */
   RuleArn?: string;
-}
-
-export namespace PutRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutTargetsRequest {
@@ -4306,15 +3181,6 @@ export interface PutTargetsRequest {
    * <p>The targets to update or add to the rule.</p>
    */
   Targets: Target[] | undefined;
-}
-
-export namespace PutTargetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutTargetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4339,15 +3205,6 @@ export interface PutTargetsResultEntry {
   ErrorMessage?: string;
 }
 
-export namespace PutTargetsResultEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutTargetsResultEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface PutTargetsResponse {
   /**
    * <p>The number of failed entries.</p>
@@ -4358,15 +3215,6 @@ export interface PutTargetsResponse {
    * <p>The failed target entries.</p>
    */
   FailedEntries?: PutTargetsResultEntry[];
-}
-
-export namespace PutTargetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutTargetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RemovePermissionRequest {
@@ -4386,15 +3234,6 @@ export interface RemovePermissionRequest {
    *       bus is used.</p>
    */
   EventBusName?: string;
-}
-
-export namespace RemovePermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemovePermissionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveTargetsRequest {
@@ -4424,15 +3263,6 @@ export interface RemoveTargetsRequest {
   Force?: boolean;
 }
 
-export namespace RemoveTargetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTargetsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a target that failed to be removed from a rule.</p>
  */
@@ -4455,15 +3285,6 @@ export interface RemoveTargetsResultEntry {
   ErrorMessage?: string;
 }
 
-export namespace RemoveTargetsResultEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTargetsResultEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveTargetsResponse {
   /**
    * <p>The number of failed entries.</p>
@@ -4474,15 +3295,6 @@ export interface RemoveTargetsResponse {
    * <p>The failed target entries.</p>
    */
   FailedEntries?: RemoveTargetsResultEntry[];
-}
-
-export namespace RemoveTargetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTargetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartReplayRequest {
@@ -4520,15 +3332,6 @@ export interface StartReplayRequest {
   Destination: ReplayDestination | undefined;
 }
 
-export namespace StartReplayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartReplayRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartReplayResponse {
   /**
    * <p>The ARN of the replay.</p>
@@ -4551,15 +3354,6 @@ export interface StartReplayResponse {
   ReplayStartTime?: Date;
 }
 
-export namespace StartReplayResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartReplayResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the EventBridge resource that you're adding tags to.</p>
@@ -4572,25 +3366,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TestEventPatternRequest {
   /**
@@ -4644,29 +3420,11 @@ export interface TestEventPatternRequest {
   Event: string | undefined;
 }
 
-export namespace TestEventPatternRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestEventPatternRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TestEventPatternResponse {
   /**
    * <p>Indicates whether the event matches the event pattern.</p>
    */
   Result?: boolean;
-}
-
-export namespace TestEventPatternResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestEventPatternResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {
@@ -4681,25 +3439,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateApiDestinationRequest {
   /**
@@ -4733,15 +3473,6 @@ export interface UpdateApiDestinationRequest {
   InvocationRateLimitPerSecond?: number;
 }
 
-export namespace UpdateApiDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApiDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApiDestinationResponse {
   /**
    * <p>The ARN of the API destination that was updated.</p>
@@ -4762,15 +3493,6 @@ export interface UpdateApiDestinationResponse {
    * <p>A time stamp for the time that the API destination was last modified.</p>
    */
   LastModifiedTime?: Date;
-}
-
-export namespace UpdateApiDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApiDestinationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateArchiveRequest {
@@ -4795,15 +3517,6 @@ export interface UpdateArchiveRequest {
   RetentionDays?: number;
 }
 
-export namespace UpdateArchiveRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateArchiveRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateArchiveResponse {
   /**
    * <p>The ARN of the archive.</p>
@@ -4826,15 +3539,6 @@ export interface UpdateArchiveResponse {
   CreationTime?: Date;
 }
 
-export namespace UpdateArchiveResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateArchiveResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the API key authorization parameters to use to update the connection.</p>
  */
@@ -4848,15 +3552,6 @@ export interface UpdateConnectionApiKeyAuthRequestParameters {
    * <p>The value associated with teh API key to use for authorization.</p>
    */
   ApiKeyValue?: string;
-}
-
-export namespace UpdateConnectionApiKeyAuthRequestParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectionApiKeyAuthRequestParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4874,15 +3569,6 @@ export interface UpdateConnectionBasicAuthRequestParameters {
   Password?: string;
 }
 
-export namespace UpdateConnectionBasicAuthRequestParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectionBasicAuthRequestParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the OAuth authorization parameters to use for the connection.</p>
  */
@@ -4896,15 +3582,6 @@ export interface UpdateConnectionOAuthClientRequestParameters {
    * <p>The client secret assciated with the client ID to use for OAuth authorization.</p>
    */
   ClientSecret?: string;
-}
-
-export namespace UpdateConnectionOAuthClientRequestParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectionOAuthClientRequestParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4933,15 +3610,6 @@ export interface UpdateConnectionOAuthRequestParameters {
    * <p>The additional HTTP parameters used for the OAuth authorization request.</p>
    */
   OAuthHttpParameters?: ConnectionHttpParameters;
-}
-
-export namespace UpdateConnectionOAuthRequestParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectionOAuthRequestParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4973,15 +3641,6 @@ export interface UpdateConnectionAuthRequestParameters {
   InvocationHttpParameters?: ConnectionHttpParameters;
 }
 
-export namespace UpdateConnectionAuthRequestParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectionAuthRequestParameters): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateConnectionRequest {
   /**
    * <p>The name of the connection to update.</p>
@@ -5002,15 +3661,6 @@ export interface UpdateConnectionRequest {
    * <p>The authorization parameters to use for the connection.</p>
    */
   AuthParameters?: UpdateConnectionAuthRequestParameters;
-}
-
-export namespace UpdateConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateConnectionResponse {
@@ -5040,11 +3690,1089 @@ export interface UpdateConnectionResponse {
   LastAuthorizedTime?: Date;
 }
 
-export namespace UpdateConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectionResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ActivateEventSourceRequestFilterSensitiveLog = (obj: ActivateEventSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApiDestinationFilterSensitiveLog = (obj: ApiDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArchiveFilterSensitiveLog = (obj: Archive): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelReplayRequestFilterSensitiveLog = (obj: CancelReplayRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelReplayResponseFilterSensitiveLog = (obj: CancelReplayResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApiDestinationRequestFilterSensitiveLog = (obj: CreateApiDestinationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApiDestinationResponseFilterSensitiveLog = (obj: CreateApiDestinationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateArchiveRequestFilterSensitiveLog = (obj: CreateArchiveRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateArchiveResponseFilterSensitiveLog = (obj: CreateArchiveResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionApiKeyAuthRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionApiKeyAuthRequestParameters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionBasicAuthRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionBasicAuthRequestParameters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionBodyParameterFilterSensitiveLog = (obj: ConnectionBodyParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionHeaderParameterFilterSensitiveLog = (obj: ConnectionHeaderParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionQueryStringParameterFilterSensitiveLog = (obj: ConnectionQueryStringParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionHttpParametersFilterSensitiveLog = (obj: ConnectionHttpParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionOAuthClientRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionOAuthClientRequestParameters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionOAuthRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionOAuthRequestParameters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionAuthRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionAuthRequestParameters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionRequestFilterSensitiveLog = (obj: CreateConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionResponseFilterSensitiveLog = (obj: CreateConnectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEventBusRequestFilterSensitiveLog = (obj: CreateEventBusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEventBusResponseFilterSensitiveLog = (obj: CreateEventBusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePartnerEventSourceRequestFilterSensitiveLog = (obj: CreatePartnerEventSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePartnerEventSourceResponseFilterSensitiveLog = (obj: CreatePartnerEventSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeactivateEventSourceRequestFilterSensitiveLog = (obj: DeactivateEventSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeauthorizeConnectionRequestFilterSensitiveLog = (obj: DeauthorizeConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeauthorizeConnectionResponseFilterSensitiveLog = (obj: DeauthorizeConnectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApiDestinationRequestFilterSensitiveLog = (obj: DeleteApiDestinationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApiDestinationResponseFilterSensitiveLog = (obj: DeleteApiDestinationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteArchiveRequestFilterSensitiveLog = (obj: DeleteArchiveRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteArchiveResponseFilterSensitiveLog = (obj: DeleteArchiveResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectionRequestFilterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectionResponseFilterSensitiveLog = (obj: DeleteConnectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEventBusRequestFilterSensitiveLog = (obj: DeleteEventBusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePartnerEventSourceRequestFilterSensitiveLog = (obj: DeletePartnerEventSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRuleRequestFilterSensitiveLog = (obj: DeleteRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeApiDestinationRequestFilterSensitiveLog = (obj: DescribeApiDestinationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeApiDestinationResponseFilterSensitiveLog = (obj: DescribeApiDestinationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeArchiveRequestFilterSensitiveLog = (obj: DescribeArchiveRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeArchiveResponseFilterSensitiveLog = (obj: DescribeArchiveResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectionRequestFilterSensitiveLog = (obj: DescribeConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionApiKeyAuthResponseParametersFilterSensitiveLog = (
+  obj: ConnectionApiKeyAuthResponseParameters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionBasicAuthResponseParametersFilterSensitiveLog = (
+  obj: ConnectionBasicAuthResponseParameters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionOAuthClientResponseParametersFilterSensitiveLog = (
+  obj: ConnectionOAuthClientResponseParameters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionOAuthResponseParametersFilterSensitiveLog = (obj: ConnectionOAuthResponseParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionAuthResponseParametersFilterSensitiveLog = (obj: ConnectionAuthResponseParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectionResponseFilterSensitiveLog = (obj: DescribeConnectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventBusRequestFilterSensitiveLog = (obj: DescribeEventBusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventBusResponseFilterSensitiveLog = (obj: DescribeEventBusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventSourceRequestFilterSensitiveLog = (obj: DescribeEventSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventSourceResponseFilterSensitiveLog = (obj: DescribeEventSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePartnerEventSourceRequestFilterSensitiveLog = (obj: DescribePartnerEventSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePartnerEventSourceResponseFilterSensitiveLog = (obj: DescribePartnerEventSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReplayRequestFilterSensitiveLog = (obj: DescribeReplayRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplayDestinationFilterSensitiveLog = (obj: ReplayDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReplayResponseFilterSensitiveLog = (obj: DescribeReplayResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRuleRequestFilterSensitiveLog = (obj: DescribeRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRuleResponseFilterSensitiveLog = (obj: DescribeRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableRuleRequestFilterSensitiveLog = (obj: DisableRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableRuleRequestFilterSensitiveLog = (obj: EnableRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApiDestinationsRequestFilterSensitiveLog = (obj: ListApiDestinationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApiDestinationsResponseFilterSensitiveLog = (obj: ListApiDestinationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListArchivesRequestFilterSensitiveLog = (obj: ListArchivesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListArchivesResponseFilterSensitiveLog = (obj: ListArchivesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConnectionsRequestFilterSensitiveLog = (obj: ListConnectionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionFilterSensitiveLog = (obj: Connection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConnectionsResponseFilterSensitiveLog = (obj: ListConnectionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventBusesRequestFilterSensitiveLog = (obj: ListEventBusesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventBusFilterSensitiveLog = (obj: EventBus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventBusesResponseFilterSensitiveLog = (obj: ListEventBusesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventSourcesRequestFilterSensitiveLog = (obj: ListEventSourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventSourceFilterSensitiveLog = (obj: EventSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventSourcesResponseFilterSensitiveLog = (obj: ListEventSourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPartnerEventSourceAccountsRequestFilterSensitiveLog = (
+  obj: ListPartnerEventSourceAccountsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PartnerEventSourceAccountFilterSensitiveLog = (obj: PartnerEventSourceAccount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPartnerEventSourceAccountsResponseFilterSensitiveLog = (
+  obj: ListPartnerEventSourceAccountsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPartnerEventSourcesRequestFilterSensitiveLog = (obj: ListPartnerEventSourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PartnerEventSourceFilterSensitiveLog = (obj: PartnerEventSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPartnerEventSourcesResponseFilterSensitiveLog = (obj: ListPartnerEventSourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReplaysRequestFilterSensitiveLog = (obj: ListReplaysRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplayFilterSensitiveLog = (obj: Replay): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReplaysResponseFilterSensitiveLog = (obj: ListReplaysResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRuleNamesByTargetRequestFilterSensitiveLog = (obj: ListRuleNamesByTargetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRuleNamesByTargetResponseFilterSensitiveLog = (obj: ListRuleNamesByTargetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRulesRequestFilterSensitiveLog = (obj: ListRulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleFilterSensitiveLog = (obj: Rule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRulesResponseFilterSensitiveLog = (obj: ListRulesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsByRuleRequestFilterSensitiveLog = (obj: ListTargetsByRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchArrayPropertiesFilterSensitiveLog = (obj: BatchArrayProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchRetryStrategyFilterSensitiveLog = (obj: BatchRetryStrategy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchParametersFilterSensitiveLog = (obj: BatchParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeadLetterConfigFilterSensitiveLog = (obj: DeadLetterConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CapacityProviderStrategyItemFilterSensitiveLog = (obj: CapacityProviderStrategyItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsVpcConfigurationFilterSensitiveLog = (obj: AwsVpcConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkConfigurationFilterSensitiveLog = (obj: NetworkConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlacementConstraintFilterSensitiveLog = (obj: PlacementConstraint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlacementStrategyFilterSensitiveLog = (obj: PlacementStrategy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EcsParametersFilterSensitiveLog = (obj: EcsParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpParametersFilterSensitiveLog = (obj: HttpParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputTransformerFilterSensitiveLog = (obj: InputTransformer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisParametersFilterSensitiveLog = (obj: KinesisParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedshiftDataParametersFilterSensitiveLog = (obj: RedshiftDataParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetryPolicyFilterSensitiveLog = (obj: RetryPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RunCommandTargetFilterSensitiveLog = (obj: RunCommandTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RunCommandParametersFilterSensitiveLog = (obj: RunCommandParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SageMakerPipelineParameterFilterSensitiveLog = (obj: SageMakerPipelineParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SageMakerPipelineParametersFilterSensitiveLog = (obj: SageMakerPipelineParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SqsParametersFilterSensitiveLog = (obj: SqsParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetFilterSensitiveLog = (obj: Target): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsByRuleResponseFilterSensitiveLog = (obj: ListTargetsByRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEventsRequestEntryFilterSensitiveLog = (obj: PutEventsRequestEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEventsRequestFilterSensitiveLog = (obj: PutEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEventsResultEntryFilterSensitiveLog = (obj: PutEventsResultEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEventsResponseFilterSensitiveLog = (obj: PutEventsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPartnerEventsRequestEntryFilterSensitiveLog = (obj: PutPartnerEventsRequestEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPartnerEventsRequestFilterSensitiveLog = (obj: PutPartnerEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPartnerEventsResultEntryFilterSensitiveLog = (obj: PutPartnerEventsResultEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPartnerEventsResponseFilterSensitiveLog = (obj: PutPartnerEventsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConditionFilterSensitiveLog = (obj: Condition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPermissionRequestFilterSensitiveLog = (obj: PutPermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRuleRequestFilterSensitiveLog = (obj: PutRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRuleResponseFilterSensitiveLog = (obj: PutRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutTargetsRequestFilterSensitiveLog = (obj: PutTargetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutTargetsResultEntryFilterSensitiveLog = (obj: PutTargetsResultEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutTargetsResponseFilterSensitiveLog = (obj: PutTargetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemovePermissionRequestFilterSensitiveLog = (obj: RemovePermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTargetsRequestFilterSensitiveLog = (obj: RemoveTargetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTargetsResultEntryFilterSensitiveLog = (obj: RemoveTargetsResultEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTargetsResponseFilterSensitiveLog = (obj: RemoveTargetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartReplayRequestFilterSensitiveLog = (obj: StartReplayRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartReplayResponseFilterSensitiveLog = (obj: StartReplayResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestEventPatternRequestFilterSensitiveLog = (obj: TestEventPatternRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestEventPatternResponseFilterSensitiveLog = (obj: TestEventPatternResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApiDestinationRequestFilterSensitiveLog = (obj: UpdateApiDestinationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApiDestinationResponseFilterSensitiveLog = (obj: UpdateApiDestinationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateArchiveRequestFilterSensitiveLog = (obj: UpdateArchiveRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateArchiveResponseFilterSensitiveLog = (obj: UpdateArchiveResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionApiKeyAuthRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionApiKeyAuthRequestParameters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionBasicAuthRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionBasicAuthRequestParameters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionOAuthClientRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionOAuthClientRequestParameters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionOAuthRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionOAuthRequestParameters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionAuthRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionAuthRequestParameters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionRequestFilterSensitiveLog = (obj: UpdateConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionResponseFilterSensitiveLog = (obj: UpdateConnectionResponse): any => ({
+  ...obj,
+});

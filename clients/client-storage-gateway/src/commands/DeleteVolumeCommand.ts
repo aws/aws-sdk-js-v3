@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteVolumeInput, DeleteVolumeOutput } from "../models/models_0";
+import {
+  DeleteVolumeInput,
+  DeleteVolumeInputFilterSensitiveLog,
+  DeleteVolumeOutput,
+  DeleteVolumeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteVolumeCommand,
   serializeAws_json1_1DeleteVolumeCommand,
@@ -84,8 +89,8 @@ export class DeleteVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVolumeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVolumeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVolumeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVolumeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

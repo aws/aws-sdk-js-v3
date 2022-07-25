@@ -14,7 +14,9 @@ import {
 
 import {
   DeleteEmailMonitoringConfigurationRequest,
+  DeleteEmailMonitoringConfigurationRequestFilterSensitiveLog,
   DeleteEmailMonitoringConfigurationResponse,
+  DeleteEmailMonitoringConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommand,
@@ -77,8 +79,8 @@ export class DeleteEmailMonitoringConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEmailMonitoringConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEmailMonitoringConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEmailMonitoringConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEmailMonitoringConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

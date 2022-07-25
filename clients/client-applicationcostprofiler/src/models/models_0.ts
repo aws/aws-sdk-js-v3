@@ -29,29 +29,11 @@ export interface DeleteReportDefinitionRequest {
   reportId: string | undefined;
 }
 
-export namespace DeleteReportDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReportDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteReportDefinitionResult {
   /**
    * <p>ID of the report that was deleted.</p>
    */
   reportId?: string;
-}
-
-export namespace DeleteReportDefinitionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReportDefinitionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -118,15 +100,6 @@ export interface GetReportDefinitionRequest {
   reportId: string | undefined;
 }
 
-export namespace GetReportDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReportDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the Amazon Simple Storage Service (Amazon S3) location where AWS Application Cost Profiler
  *       reports are generated and then written to.</p>
@@ -141,15 +114,6 @@ export interface S3Location {
    * <p>Prefix for the location to write to.</p>
    */
   prefix: string | undefined;
-}
-
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-  });
 }
 
 export enum Format {
@@ -200,15 +164,6 @@ export interface GetReportDefinitionResult {
   lastUpdated: Date | undefined;
 }
 
-export namespace GetReportDefinitionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReportDefinitionResult): any => ({
-    ...obj,
-  });
-}
-
 export enum S3BucketRegion {
   AF_SOUTH_1 = "af-south-1",
   AP_EAST_1 = "ap-east-1",
@@ -239,15 +194,6 @@ export interface SourceS3Location {
   region?: S3BucketRegion | string;
 }
 
-export namespace SourceS3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceS3Location): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportApplicationUsageRequest {
   /**
    * <p>Amazon S3 location to import application usage data from.</p>
@@ -255,29 +201,11 @@ export interface ImportApplicationUsageRequest {
   sourceS3Location: SourceS3Location | undefined;
 }
 
-export namespace ImportApplicationUsageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportApplicationUsageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportApplicationUsageResult {
   /**
    * <p>ID of the import request.</p>
    */
   importId: string | undefined;
-}
-
-export namespace ImportApplicationUsageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportApplicationUsageResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListReportDefinitionsRequest {
@@ -290,15 +218,6 @@ export interface ListReportDefinitionsRequest {
    * <p>The maximum number of results to return.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListReportDefinitionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReportDefinitionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -341,15 +260,6 @@ export interface ReportDefinition {
   lastUpdatedAt?: Date;
 }
 
-export namespace ReportDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportDefinition): any => ({
-    ...obj,
-  });
-}
-
 export interface ListReportDefinitionsResult {
   /**
    * <p>The retrieved reports.</p>
@@ -360,15 +270,6 @@ export interface ListReportDefinitionsResult {
    * <p>The value of the next token, if it exists. Null if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListReportDefinitionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReportDefinitionsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface PutReportDefinitionRequest {
@@ -400,29 +301,11 @@ export interface PutReportDefinitionRequest {
   destinationS3Location: S3Location | undefined;
 }
 
-export namespace PutReportDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutReportDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutReportDefinitionResult {
   /**
    * <p>ID of the report.</p>
    */
   reportId?: string;
-}
-
-export namespace PutReportDefinitionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutReportDefinitionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -472,15 +355,6 @@ export interface UpdateReportDefinitionRequest {
   destinationS3Location: S3Location | undefined;
 }
 
-export namespace UpdateReportDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReportDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateReportDefinitionResult {
   /**
    * <p>ID of the report.</p>
@@ -488,11 +362,107 @@ export interface UpdateReportDefinitionResult {
   reportId?: string;
 }
 
-export namespace UpdateReportDefinitionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReportDefinitionResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DeleteReportDefinitionRequestFilterSensitiveLog = (obj: DeleteReportDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReportDefinitionResultFilterSensitiveLog = (obj: DeleteReportDefinitionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReportDefinitionRequestFilterSensitiveLog = (obj: GetReportDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReportDefinitionResultFilterSensitiveLog = (obj: GetReportDefinitionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceS3LocationFilterSensitiveLog = (obj: SourceS3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportApplicationUsageRequestFilterSensitiveLog = (obj: ImportApplicationUsageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportApplicationUsageResultFilterSensitiveLog = (obj: ImportApplicationUsageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReportDefinitionsRequestFilterSensitiveLog = (obj: ListReportDefinitionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportDefinitionFilterSensitiveLog = (obj: ReportDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReportDefinitionsResultFilterSensitiveLog = (obj: ListReportDefinitionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutReportDefinitionRequestFilterSensitiveLog = (obj: PutReportDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutReportDefinitionResultFilterSensitiveLog = (obj: PutReportDefinitionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateReportDefinitionRequestFilterSensitiveLog = (obj: UpdateReportDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateReportDefinitionResultFilterSensitiveLog = (obj: UpdateReportDefinitionResult): any => ({
+  ...obj,
+});

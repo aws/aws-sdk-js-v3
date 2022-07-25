@@ -24,15 +24,6 @@ export interface Alarm {
   AlarmARN: string | undefined;
 }
 
-export namespace Alarm {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Alarm): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Concurrent updates caused an exception, for example, if you request an update to an
  *          Application Auto Scaling resource that already has a pending update.</p>
@@ -265,25 +256,7 @@ export interface DeleteScalingPolicyRequest {
   ScalableDimension: ScalableDimension | string | undefined;
 }
 
-export namespace DeleteScalingPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScalingPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteScalingPolicyResponse {}
-
-export namespace DeleteScalingPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScalingPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The service encountered an internal error.</p>
@@ -523,25 +496,7 @@ export interface DeleteScheduledActionRequest {
   ScalableDimension: ScalableDimension | string | undefined;
 }
 
-export namespace DeleteScheduledActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScheduledActionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteScheduledActionResponse {}
-
-export namespace DeleteScheduledActionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScheduledActionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeregisterScalableTargetRequest {
   /**
@@ -709,25 +664,7 @@ export interface DeregisterScalableTargetRequest {
   ScalableDimension: ScalableDimension | string | undefined;
 }
 
-export namespace DeregisterScalableTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterScalableTargetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterScalableTargetResponse {}
-
-export namespace DeregisterScalableTargetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterScalableTargetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeScalableTargetsRequest {
   /**
@@ -911,15 +848,6 @@ export interface DescribeScalableTargetsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeScalableTargetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScalableTargetsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies whether the scaling activities for a scalable target are in a suspended state.
  *       </p>
@@ -945,15 +873,6 @@ export interface SuspendedState {
    *             <code>false</code>. </p>
    */
   ScheduledScalingSuspended?: boolean;
-}
-
-export namespace SuspendedState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuspendedState): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1152,15 +1071,6 @@ export interface ScalableTarget {
   SuspendedState?: SuspendedState;
 }
 
-export namespace ScalableTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalableTarget): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeScalableTargetsResponse {
   /**
    * <p>The scalable targets that match the request parameters.</p>
@@ -1172,15 +1082,6 @@ export interface DescribeScalableTargetsResponse {
    *          there are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeScalableTargetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScalableTargetsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1384,15 +1285,6 @@ export interface DescribeScalingActivitiesRequest {
    * <p>The token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeScalingActivitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScalingActivitiesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ScalingActivityStatusCode {
@@ -1612,15 +1504,6 @@ export interface ScalingActivity {
   Details?: string;
 }
 
-export namespace ScalingActivity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalingActivity): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeScalingActivitiesResponse {
   /**
    * <p>A list of scaling activity objects.</p>
@@ -1632,15 +1515,6 @@ export interface DescribeScalingActivitiesResponse {
    *          there are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeScalingActivitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScalingActivitiesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeScalingPoliciesRequest {
@@ -1830,15 +1704,6 @@ export interface DescribeScalingPoliciesRequest {
   NextToken?: string;
 }
 
-export namespace DescribeScalingPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScalingPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum PolicyType {
   StepScaling = "StepScaling",
   TargetTrackingScaling = "TargetTrackingScaling",
@@ -1912,15 +1777,6 @@ export interface StepAdjustment {
    *          exact capacity, you must specify a positive value.</p>
    */
   ScalingAdjustment: number | undefined;
-}
-
-export namespace StepAdjustment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StepAdjustment): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2030,15 +1886,6 @@ export interface StepScalingPolicyConfiguration {
   MetricAggregationType?: MetricAggregationType | string;
 }
 
-export namespace StepScalingPolicyConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StepScalingPolicyConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the dimension names and values associated with a metric.</p>
  */
@@ -2052,15 +1899,6 @@ export interface MetricDimension {
    * <p>The value of the dimension.</p>
    */
   Value: string | undefined;
-}
-
-export namespace MetricDimension {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricDimension): any => ({
-    ...obj,
-  });
 }
 
 export enum MetricStatistic {
@@ -2122,15 +1960,6 @@ export interface CustomizedMetricSpecification {
    * <p>The unit of the metric.</p>
    */
   Unit?: string;
-}
-
-export namespace CustomizedMetricSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomizedMetricSpecification): any => ({
-    ...obj,
-  });
 }
 
 export enum MetricType {
@@ -2196,15 +2025,6 @@ export interface PredefinedMetricSpecification {
    *             the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
    */
   ResourceLabel?: string;
-}
-
-export namespace PredefinedMetricSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredefinedMetricSpecification): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2356,15 +2176,6 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *          value is <code>false</code>.</p>
    */
   DisableScaleIn?: boolean;
-}
-
-export namespace TargetTrackingScalingPolicyConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetTrackingScalingPolicyConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2573,15 +2384,6 @@ export interface ScalingPolicy {
   CreationTime: Date | undefined;
 }
 
-export namespace ScalingPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalingPolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeScalingPoliciesResponse {
   /**
    * <p>Information about the scaling policies.</p>
@@ -2593,15 +2395,6 @@ export interface DescribeScalingPoliciesResponse {
    *          there are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeScalingPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScalingPoliciesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2815,15 +2608,6 @@ export interface DescribeScheduledActionsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeScheduledActionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScheduledActionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the minimum and maximum capacity for a scheduled action.</p>
  */
@@ -2846,15 +2630,6 @@ export interface ScalableTargetAction {
    *             Quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   MaxCapacity?: number;
-}
-
-export namespace ScalableTargetAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalableTargetAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3090,15 +2865,6 @@ export interface ScheduledAction {
   CreationTime: Date | undefined;
 }
 
-export namespace ScheduledAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledAction): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeScheduledActionsResponse {
   /**
    * <p>Information about the scheduled actions.</p>
@@ -3110,15 +2876,6 @@ export interface DescribeScheduledActionsResponse {
    *          there are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeScheduledActionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScheduledActionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3340,15 +3097,6 @@ export interface PutScalingPolicyRequest {
   TargetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration;
 }
 
-export namespace PutScalingPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutScalingPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutScalingPolicyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the resulting scaling policy.</p>
@@ -3359,15 +3107,6 @@ export interface PutScalingPolicyResponse {
    * <p>The CloudWatch alarms created for the target tracking scaling policy.</p>
    */
   Alarms?: Alarm[];
-}
-
-export namespace PutScalingPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutScalingPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutScheduledActionRequest {
@@ -3593,25 +3332,7 @@ export interface PutScheduledActionRequest {
   ScalableTargetAction?: ScalableTargetAction;
 }
 
-export namespace PutScheduledActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutScheduledActionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutScheduledActionResponse {}
-
-export namespace PutScheduledActionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutScheduledActionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface RegisterScalableTargetRequest {
   /**
@@ -3838,22 +3559,237 @@ export interface RegisterScalableTargetRequest {
   SuspendedState?: SuspendedState;
 }
 
-export namespace RegisterScalableTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterScalableTargetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterScalableTargetResponse {}
 
-export namespace RegisterScalableTargetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterScalableTargetResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AlarmFilterSensitiveLog = (obj: Alarm): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteScalingPolicyRequestFilterSensitiveLog = (obj: DeleteScalingPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteScalingPolicyResponseFilterSensitiveLog = (obj: DeleteScalingPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteScheduledActionRequestFilterSensitiveLog = (obj: DeleteScheduledActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteScheduledActionResponseFilterSensitiveLog = (obj: DeleteScheduledActionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterScalableTargetRequestFilterSensitiveLog = (obj: DeregisterScalableTargetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterScalableTargetResponseFilterSensitiveLog = (obj: DeregisterScalableTargetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScalableTargetsRequestFilterSensitiveLog = (obj: DescribeScalableTargetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuspendedStateFilterSensitiveLog = (obj: SuspendedState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalableTargetFilterSensitiveLog = (obj: ScalableTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScalableTargetsResponseFilterSensitiveLog = (obj: DescribeScalableTargetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScalingActivitiesRequestFilterSensitiveLog = (obj: DescribeScalingActivitiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalingActivityFilterSensitiveLog = (obj: ScalingActivity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScalingActivitiesResponseFilterSensitiveLog = (obj: DescribeScalingActivitiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScalingPoliciesRequestFilterSensitiveLog = (obj: DescribeScalingPoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StepAdjustmentFilterSensitiveLog = (obj: StepAdjustment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StepScalingPolicyConfigurationFilterSensitiveLog = (obj: StepScalingPolicyConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricDimensionFilterSensitiveLog = (obj: MetricDimension): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomizedMetricSpecificationFilterSensitiveLog = (obj: CustomizedMetricSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredefinedMetricSpecificationFilterSensitiveLog = (obj: PredefinedMetricSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetTrackingScalingPolicyConfigurationFilterSensitiveLog = (
+  obj: TargetTrackingScalingPolicyConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalingPolicyFilterSensitiveLog = (obj: ScalingPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScalingPoliciesResponseFilterSensitiveLog = (obj: DescribeScalingPoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScheduledActionsRequestFilterSensitiveLog = (obj: DescribeScheduledActionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalableTargetActionFilterSensitiveLog = (obj: ScalableTargetAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledActionFilterSensitiveLog = (obj: ScheduledAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScheduledActionsResponseFilterSensitiveLog = (obj: DescribeScheduledActionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutScalingPolicyRequestFilterSensitiveLog = (obj: PutScalingPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutScalingPolicyResponseFilterSensitiveLog = (obj: PutScalingPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutScheduledActionRequestFilterSensitiveLog = (obj: PutScheduledActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutScheduledActionResponseFilterSensitiveLog = (obj: PutScheduledActionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterScalableTargetRequestFilterSensitiveLog = (obj: RegisterScalableTargetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterScalableTargetResponseFilterSensitiveLog = (obj: RegisterScalableTargetResponse): any => ({
+  ...obj,
+});

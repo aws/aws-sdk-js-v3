@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBClusterMessage, DescribeDBClustersMessage } from "../models/models_0";
+import {
+  DBClusterMessage,
+  DBClusterMessageFilterSensitiveLog,
+  DescribeDBClustersMessage,
+  DescribeDBClustersMessageFilterSensitiveLog,
+} from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryDescribeDBClustersCommand,
@@ -78,8 +83,8 @@ export class DescribeDBClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBClustersMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDBClustersMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

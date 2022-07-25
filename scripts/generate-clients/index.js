@@ -3,6 +3,7 @@ const yargs = require("yargs");
 const path = require("path");
 const { emptyDirSync, rmdirSync } = require("fs-extra");
 const { generateClients, generateGenericClient, generateProtocolTests } = require("./code-gen");
+const { codeOrdering } = require("./code-ordering");
 const { copyToClients, copyServerTests } = require("./copy-to-clients");
 const {
   CODE_GEN_SDK_OUTPUT_DIR,
@@ -70,9 +71,12 @@ const {
       await generateProtocolTests();
     }
 
+    await codeOrdering(CODE_GEN_SDK_OUTPUT_DIR);
     await eslintFixCode();
     await prettifyCode(CODE_GEN_SDK_OUTPUT_DIR);
+
     if (!noPrivateClients) {
+      await codeOrdering(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR);
       await prettifyCode(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR);
       await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
     }

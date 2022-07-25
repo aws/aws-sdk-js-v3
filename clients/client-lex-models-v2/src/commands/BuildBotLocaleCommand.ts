@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { BuildBotLocaleRequest, BuildBotLocaleResponse } from "../models/models_0";
+import {
+  BuildBotLocaleRequest,
+  BuildBotLocaleRequestFilterSensitiveLog,
+  BuildBotLocaleResponse,
+  BuildBotLocaleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BuildBotLocaleCommand,
   serializeAws_restJson1BuildBotLocaleCommand,
@@ -74,8 +79,8 @@ export class BuildBotLocaleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BuildBotLocaleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BuildBotLocaleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BuildBotLocaleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BuildBotLocaleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

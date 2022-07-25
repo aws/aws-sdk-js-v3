@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { GetRunRequest, GetRunResult } from "../models/models_0";
+import {
+  GetRunRequest,
+  GetRunRequestFilterSensitiveLog,
+  GetRunResult,
+  GetRunResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1GetRunCommand, serializeAws_json1_1GetRunCommand } from "../protocols/Aws_json1_1";
 
 export interface GetRunCommandInput extends GetRunRequest {}
@@ -65,8 +70,8 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRunResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRunRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRunResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

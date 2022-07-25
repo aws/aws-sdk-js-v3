@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ExportClientVpnClientConfigurationRequest,
+  ExportClientVpnClientConfigurationRequestFilterSensitiveLog,
   ExportClientVpnClientConfigurationResult,
+  ExportClientVpnClientConfigurationResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
   deserializeAws_ec2ExportClientVpnClientConfigurationCommand,
@@ -79,8 +81,8 @@ export class ExportClientVpnClientConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportClientVpnClientConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ExportClientVpnClientConfigurationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ExportClientVpnClientConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ExportClientVpnClientConfigurationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

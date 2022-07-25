@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteGlobalNetworkRequest, DeleteGlobalNetworkResponse } from "../models/models_0";
+import {
+  DeleteGlobalNetworkRequest,
+  DeleteGlobalNetworkRequestFilterSensitiveLog,
+  DeleteGlobalNetworkResponse,
+  DeleteGlobalNetworkResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1DeleteGlobalNetworkCommand,
@@ -73,8 +78,8 @@ export class DeleteGlobalNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGlobalNetworkRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGlobalNetworkResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGlobalNetworkRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGlobalNetworkResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

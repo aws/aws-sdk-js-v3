@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { PutReplicationConfigurationRequest, PutReplicationConfigurationResponse } from "../models/models_0";
+import {
+  PutReplicationConfigurationRequest,
+  PutReplicationConfigurationRequestFilterSensitiveLog,
+  PutReplicationConfigurationResponse,
+  PutReplicationConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutReplicationConfigurationCommand,
   serializeAws_json1_1PutReplicationConfigurationCommand,
@@ -84,8 +89,8 @@ export class PutReplicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutReplicationConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutReplicationConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutReplicationConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutReplicationConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

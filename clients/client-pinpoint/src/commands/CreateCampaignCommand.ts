@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateCampaignRequest, CreateCampaignResponse } from "../models/models_0";
+import {
+  CreateCampaignRequest,
+  CreateCampaignRequestFilterSensitiveLog,
+  CreateCampaignResponse,
+  CreateCampaignResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1CreateCampaignCommand,
@@ -72,8 +77,8 @@ export class CreateCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCampaignRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateCampaignResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCampaignRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateCampaignResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

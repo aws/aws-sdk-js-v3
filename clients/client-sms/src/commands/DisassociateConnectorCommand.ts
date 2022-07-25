@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateConnectorRequest, DisassociateConnectorResponse } from "../models/models_0";
+import {
+  DisassociateConnectorRequest,
+  DisassociateConnectorRequestFilterSensitiveLog,
+  DisassociateConnectorResponse,
+  DisassociateConnectorResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateConnectorCommand,
   serializeAws_json1_1DisassociateConnectorCommand,
@@ -74,8 +79,8 @@ export class DisassociateConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateConnectorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateConnectorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateConnectorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateConnectorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

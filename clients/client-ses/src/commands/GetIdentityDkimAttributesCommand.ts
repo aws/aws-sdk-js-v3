@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetIdentityDkimAttributesRequest, GetIdentityDkimAttributesResponse } from "../models/models_0";
+import {
+  GetIdentityDkimAttributesRequest,
+  GetIdentityDkimAttributesRequestFilterSensitiveLog,
+  GetIdentityDkimAttributesResponse,
+  GetIdentityDkimAttributesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetIdentityDkimAttributesCommand,
   serializeAws_queryGetIdentityDkimAttributesCommand,
@@ -94,8 +99,8 @@ export class GetIdentityDkimAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityDkimAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetIdentityDkimAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIdentityDkimAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetIdentityDkimAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

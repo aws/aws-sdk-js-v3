@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { GetBlobInput, GetBlobOutput } from "../models/models_0";
+import {
+  GetBlobInput,
+  GetBlobInputFilterSensitiveLog,
+  GetBlobOutput,
+  GetBlobOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1GetBlobCommand, serializeAws_json1_1GetBlobCommand } from "../protocols/Aws_json1_1";
 
 export interface GetBlobCommandInput extends GetBlobInput {}
@@ -69,8 +74,8 @@ export class GetBlobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBlobInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBlobOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBlobInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBlobOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

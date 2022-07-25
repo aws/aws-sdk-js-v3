@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { UpdateContributorInsightsInput, UpdateContributorInsightsOutput } from "../models/models_0";
+import {
+  UpdateContributorInsightsInput,
+  UpdateContributorInsightsInputFilterSensitiveLog,
+  UpdateContributorInsightsOutput,
+  UpdateContributorInsightsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateContributorInsightsCommand,
   serializeAws_json1_0UpdateContributorInsightsCommand,
@@ -78,8 +83,8 @@ export class UpdateContributorInsightsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContributorInsightsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContributorInsightsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateContributorInsightsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateContributorInsightsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeElasticIpsRequest, DescribeElasticIpsResult } from "../models/models_0";
+import {
+  DescribeElasticIpsRequest,
+  DescribeElasticIpsRequestFilterSensitiveLog,
+  DescribeElasticIpsResult,
+  DescribeElasticIpsResultFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1DescribeElasticIpsCommand,
@@ -80,8 +85,8 @@ export class DescribeElasticIpsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeElasticIpsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeElasticIpsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeElasticIpsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeElasticIpsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

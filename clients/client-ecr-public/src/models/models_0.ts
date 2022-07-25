@@ -21,15 +21,6 @@ export interface AuthorizationData {
   expiresAt?: Date;
 }
 
-export namespace AuthorizationData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizationData): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchCheckLayerAvailabilityRequest {
   /**
    * <p>The AWS account ID associated with the public registry that contains the image layers to
@@ -46,15 +37,6 @@ export interface BatchCheckLayerAvailabilityRequest {
    * <p>The digests of the image layers to check.</p>
    */
   layerDigests: string[] | undefined;
-}
-
-export namespace BatchCheckLayerAvailabilityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCheckLayerAvailabilityRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum LayerFailureCode {
@@ -80,15 +62,6 @@ export interface LayerFailure {
    * <p>The reason for the failure.</p>
    */
   failureReason?: string;
-}
-
-export namespace LayerFailure {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LayerFailure): any => ({
-    ...obj,
-  });
 }
 
 export enum LayerAvailability {
@@ -123,15 +96,6 @@ export interface Layer {
   mediaType?: string;
 }
 
-export namespace Layer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Layer): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchCheckLayerAvailabilityResponse {
   /**
    * <p>A list of image layer objects corresponding to the image layer references in the
@@ -143,15 +107,6 @@ export interface BatchCheckLayerAvailabilityResponse {
    * <p>Any failures associated with the call.</p>
    */
   failures?: LayerFailure[];
-}
-
-export namespace BatchCheckLayerAvailabilityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCheckLayerAvailabilityResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -247,15 +202,6 @@ export interface ImageIdentifier {
   imageTag?: string;
 }
 
-export namespace ImageIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageIdentifier): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteImageRequest {
   /**
    * <p>The AWS account ID associated with the registry that contains the image to delete.
@@ -274,15 +220,6 @@ export interface BatchDeleteImageRequest {
    *             <code>imageDigest=digest</code>.</p>
    */
   imageIds: ImageIdentifier[] | undefined;
-}
-
-export namespace BatchDeleteImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteImageRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ImageFailureCode {
@@ -315,15 +252,6 @@ export interface ImageFailure {
   failureReason?: string;
 }
 
-export namespace ImageFailure {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageFailure): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteImageResponse {
   /**
    * <p>The image IDs of the deleted images.</p>
@@ -334,15 +262,6 @@ export interface BatchDeleteImageResponse {
    * <p>Any failures associated with the call.</p>
    */
   failures?: ImageFailure[];
-}
-
-export namespace BatchDeleteImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteImageResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CompleteLayerUploadRequest {
@@ -370,15 +289,6 @@ export interface CompleteLayerUploadRequest {
   layerDigests: string[] | undefined;
 }
 
-export namespace CompleteLayerUploadRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompleteLayerUploadRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CompleteLayerUploadResponse {
   /**
    * <p>The public registry ID associated with the request.</p>
@@ -399,15 +309,6 @@ export interface CompleteLayerUploadResponse {
    * <p>The <code>sha256</code> digest of the image layer.</p>
    */
   layerDigest?: string;
-}
-
-export namespace CompleteLayerUploadResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompleteLayerUploadResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -619,15 +520,6 @@ export interface RepositoryCatalogDataInput {
   usageText?: string;
 }
 
-export namespace RepositoryCatalogDataInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryCatalogDataInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The metadata that you apply to a resource to help you categorize and organize them. Each
  *          tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
@@ -644,15 +536,6 @@ export interface Tag {
    *          descriptor within a tag category (key).</p>
    */
   Value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRepositoryRequest {
@@ -676,15 +559,6 @@ export interface CreateRepositoryRequest {
    *          Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
    */
   tags?: Tag[];
-}
-
-export namespace CreateRepositoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRepositoryRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -738,15 +612,6 @@ export interface RepositoryCatalogData {
   marketplaceCertified?: boolean;
 }
 
-export namespace RepositoryCatalogData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryCatalogData): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing a repository.</p>
  */
@@ -779,15 +644,6 @@ export interface Repository {
   createdAt?: Date;
 }
 
-export namespace Repository {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Repository): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRepositoryResponse {
   /**
    * <p>The repository that was created.</p>
@@ -799,15 +655,6 @@ export interface CreateRepositoryResponse {
    *          Amazon ECR Public Gallery.</p>
    */
   catalogData?: RepositoryCatalogData;
-}
-
-export namespace CreateRepositoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRepositoryResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -907,29 +754,11 @@ export interface DeleteRepositoryRequest {
   force?: boolean;
 }
 
-export namespace DeleteRepositoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRepositoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRepositoryResponse {
   /**
    * <p>The repository that was deleted.</p>
    */
   repository?: Repository;
-}
-
-export namespace DeleteRepositoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRepositoryResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -966,15 +795,6 @@ export interface DeleteRepositoryPolicyRequest {
   repositoryName: string | undefined;
 }
 
-export namespace DeleteRepositoryPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRepositoryPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRepositoryPolicyResponse {
   /**
    * <p>The registry ID associated with the request.</p>
@@ -990,15 +810,6 @@ export interface DeleteRepositoryPolicyResponse {
    * <p>The JSON repository policy that was deleted from the repository.</p>
    */
   policyText?: string;
-}
-
-export namespace DeleteRepositoryPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRepositoryPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1062,15 +873,6 @@ export interface DescribeImagesRequest {
   maxResults?: number;
 }
 
-export namespace DescribeImagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImagesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that describes an image returned by a <a>DescribeImages</a>
  *          operation.</p>
@@ -1127,15 +929,6 @@ export interface ImageDetail {
   artifactMediaType?: string;
 }
 
-export namespace ImageDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeImagesResponse {
   /**
    * <p>A list of <a>ImageDetail</a> objects that contain data about the
@@ -1150,15 +943,6 @@ export interface DescribeImagesResponse {
    *          This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeImagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImagesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1216,15 +1000,6 @@ export interface DescribeImageTagsRequest {
   maxResults?: number;
 }
 
-export namespace DescribeImageTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImageTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that describes the image tag details returned by a <a>DescribeImageTags</a> action.</p>
  */
@@ -1264,15 +1039,6 @@ export interface ReferencedImageDetail {
   artifactMediaType?: string;
 }
 
-export namespace ReferencedImageDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReferencedImageDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing the image tag details for an image.</p>
  */
@@ -1293,15 +1059,6 @@ export interface ImageTagDetail {
   imageDetail?: ReferencedImageDetail;
 }
 
-export namespace ImageTagDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageTagDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeImageTagsResponse {
   /**
    * <p>The image tag details for the images in the requested repository.</p>
@@ -1315,15 +1072,6 @@ export interface DescribeImageTagsResponse {
    *          This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeImageTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImageTagsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRegistriesRequest {
@@ -1350,15 +1098,6 @@ export interface DescribeRegistriesRequest {
    *          results and a <code>nextToken</code> value, if applicable.</p>
    */
   maxResults?: number;
-}
-
-export namespace DescribeRegistriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRegistriesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum RegistryAliasStatus {
@@ -1403,15 +1142,6 @@ export interface RegistryAlias {
   defaultRegistryAlias: boolean | undefined;
 }
 
-export namespace RegistryAlias {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegistryAlias): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The details of a public registry.</p>
  */
@@ -1445,15 +1175,6 @@ export interface Registry {
   aliases: RegistryAlias[] | undefined;
 }
 
-export namespace Registry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Registry): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRegistriesResponse {
   /**
    * <p>An object containing the details for a public registry.</p>
@@ -1468,15 +1189,6 @@ export interface DescribeRegistriesResponse {
    *          are no more results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeRegistriesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRegistriesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRepositoriesRequest {
@@ -1520,15 +1232,6 @@ export interface DescribeRepositoriesRequest {
   maxResults?: number;
 }
 
-export namespace DescribeRepositoriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRepositoriesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRepositoriesResponse {
   /**
    * <p>A list of repository objects corresponding to valid repositories.</p>
@@ -1545,25 +1248,7 @@ export interface DescribeRepositoriesResponse {
   nextToken?: string;
 }
 
-export namespace DescribeRepositoriesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRepositoriesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAuthorizationTokenRequest {}
-
-export namespace GetAuthorizationTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAuthorizationTokenRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetAuthorizationTokenResponse {
   /**
@@ -1572,25 +1257,7 @@ export interface GetAuthorizationTokenResponse {
   authorizationData?: AuthorizationData;
 }
 
-export namespace GetAuthorizationTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAuthorizationTokenResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRegistryCatalogDataRequest {}
-
-export namespace GetRegistryCatalogDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRegistryCatalogDataRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The metadata for a public registry.</p>
@@ -1606,29 +1273,11 @@ export interface RegistryCatalogData {
   displayName?: string;
 }
 
-export namespace RegistryCatalogData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegistryCatalogData): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRegistryCatalogDataResponse {
   /**
    * <p>The catalog metadata for the public registry.</p>
    */
   registryCatalogData: RegistryCatalogData | undefined;
-}
-
-export namespace GetRegistryCatalogDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRegistryCatalogDataResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRepositoryCatalogDataRequest {
@@ -1644,29 +1293,11 @@ export interface GetRepositoryCatalogDataRequest {
   repositoryName: string | undefined;
 }
 
-export namespace GetRepositoryCatalogDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRepositoryCatalogDataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRepositoryCatalogDataResponse {
   /**
    * <p>The catalog metadata for the repository.</p>
    */
   catalogData?: RepositoryCatalogData;
-}
-
-export namespace GetRepositoryCatalogDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRepositoryCatalogDataResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRepositoryPolicyRequest {
@@ -1680,15 +1311,6 @@ export interface GetRepositoryPolicyRequest {
    * <p>The name of the repository with the policy to retrieve.</p>
    */
   repositoryName: string | undefined;
-}
-
-export namespace GetRepositoryPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRepositoryPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRepositoryPolicyResponse {
@@ -1707,15 +1329,6 @@ export interface GetRepositoryPolicyResponse {
    *          JSON format.</p>
    */
   policyText?: string;
-}
-
-export namespace GetRepositoryPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRepositoryPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1746,15 +1359,6 @@ export interface Image {
    * <p>The manifest media type of the image.</p>
    */
   imageManifestMediaType?: string;
-}
-
-export namespace Image {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Image): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1830,15 +1434,6 @@ export interface InitiateLayerUploadRequest {
   repositoryName: string | undefined;
 }
 
-export namespace InitiateLayerUploadRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitiateLayerUploadRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface InitiateLayerUploadResponse {
   /**
    * <p>The upload ID for the layer upload. This parameter is passed to further <a>UploadLayerPart</a> and <a>CompleteLayerUpload</a> operations.</p>
@@ -1849,15 +1444,6 @@ export interface InitiateLayerUploadResponse {
    * <p>The size, in bytes, that Amazon ECR expects future layer part uploads to be.</p>
    */
   partSize?: number;
-}
-
-export namespace InitiateLayerUploadResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitiateLayerUploadResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1932,29 +1518,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
    */
   tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutImageRequest {
@@ -1993,29 +1561,11 @@ export interface PutImageRequest {
   imageDigest?: string;
 }
 
-export namespace PutImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutImageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutImageResponse {
   /**
    * <p>Details of the image uploaded.</p>
    */
   image?: Image;
-}
-
-export namespace PutImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutImageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2049,29 +1599,11 @@ export interface PutRegistryCatalogDataRequest {
   displayName?: string;
 }
 
-export namespace PutRegistryCatalogDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRegistryCatalogDataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutRegistryCatalogDataResponse {
   /**
    * <p>The catalog data for the public registry.</p>
    */
   registryCatalogData: RegistryCatalogData | undefined;
-}
-
-export namespace PutRegistryCatalogDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRegistryCatalogDataResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutRepositoryCatalogDataRequest {
@@ -2093,29 +1625,11 @@ export interface PutRepositoryCatalogDataRequest {
   catalogData: RepositoryCatalogDataInput | undefined;
 }
 
-export namespace PutRepositoryCatalogDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRepositoryCatalogDataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutRepositoryCatalogDataResponse {
   /**
    * <p>The catalog data for the repository.</p>
    */
   catalogData?: RepositoryCatalogData;
-}
-
-export namespace PutRepositoryCatalogDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRepositoryCatalogDataResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SetRepositoryPolicyRequest {
@@ -2145,15 +1659,6 @@ export interface SetRepositoryPolicyRequest {
   force?: boolean;
 }
 
-export namespace SetRepositoryPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetRepositoryPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SetRepositoryPolicyResponse {
   /**
    * <p>The registry ID associated with the request.</p>
@@ -2171,15 +1676,6 @@ export interface SetRepositoryPolicyResponse {
   policyText?: string;
 }
 
-export namespace SetRepositoryPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetRepositoryPolicyResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to which to add tags. Currently, the
@@ -2194,25 +1690,7 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2227,25 +1705,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UploadLayerPartRequest {
   /**
@@ -2281,15 +1741,6 @@ export interface UploadLayerPartRequest {
   layerPartBlob: Uint8Array | undefined;
 }
 
-export namespace UploadLayerPartRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadLayerPartRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UploadLayerPartResponse {
   /**
    * <p>The registry ID associated with the request.</p>
@@ -2312,11 +1763,438 @@ export interface UploadLayerPartResponse {
   lastByteReceived?: number;
 }
 
-export namespace UploadLayerPartResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadLayerPartResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AuthorizationDataFilterSensitiveLog = (obj: AuthorizationData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchCheckLayerAvailabilityRequestFilterSensitiveLog = (obj: BatchCheckLayerAvailabilityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LayerFailureFilterSensitiveLog = (obj: LayerFailure): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LayerFilterSensitiveLog = (obj: Layer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchCheckLayerAvailabilityResponseFilterSensitiveLog = (
+  obj: BatchCheckLayerAvailabilityResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageIdentifierFilterSensitiveLog = (obj: ImageIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteImageRequestFilterSensitiveLog = (obj: BatchDeleteImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageFailureFilterSensitiveLog = (obj: ImageFailure): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteImageResponseFilterSensitiveLog = (obj: BatchDeleteImageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompleteLayerUploadRequestFilterSensitiveLog = (obj: CompleteLayerUploadRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompleteLayerUploadResponseFilterSensitiveLog = (obj: CompleteLayerUploadResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositoryCatalogDataInputFilterSensitiveLog = (obj: RepositoryCatalogDataInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRepositoryRequestFilterSensitiveLog = (obj: CreateRepositoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositoryCatalogDataFilterSensitiveLog = (obj: RepositoryCatalogData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositoryFilterSensitiveLog = (obj: Repository): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRepositoryResponseFilterSensitiveLog = (obj: CreateRepositoryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRepositoryRequestFilterSensitiveLog = (obj: DeleteRepositoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRepositoryResponseFilterSensitiveLog = (obj: DeleteRepositoryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRepositoryPolicyRequestFilterSensitiveLog = (obj: DeleteRepositoryPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRepositoryPolicyResponseFilterSensitiveLog = (obj: DeleteRepositoryPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImagesRequestFilterSensitiveLog = (obj: DescribeImagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageDetailFilterSensitiveLog = (obj: ImageDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImagesResponseFilterSensitiveLog = (obj: DescribeImagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImageTagsRequestFilterSensitiveLog = (obj: DescribeImageTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReferencedImageDetailFilterSensitiveLog = (obj: ReferencedImageDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageTagDetailFilterSensitiveLog = (obj: ImageTagDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImageTagsResponseFilterSensitiveLog = (obj: DescribeImageTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRegistriesRequestFilterSensitiveLog = (obj: DescribeRegistriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegistryAliasFilterSensitiveLog = (obj: RegistryAlias): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegistryFilterSensitiveLog = (obj: Registry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRegistriesResponseFilterSensitiveLog = (obj: DescribeRegistriesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRepositoriesRequestFilterSensitiveLog = (obj: DescribeRepositoriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRepositoriesResponseFilterSensitiveLog = (obj: DescribeRepositoriesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAuthorizationTokenRequestFilterSensitiveLog = (obj: GetAuthorizationTokenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAuthorizationTokenResponseFilterSensitiveLog = (obj: GetAuthorizationTokenResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRegistryCatalogDataRequestFilterSensitiveLog = (obj: GetRegistryCatalogDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegistryCatalogDataFilterSensitiveLog = (obj: RegistryCatalogData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRegistryCatalogDataResponseFilterSensitiveLog = (obj: GetRegistryCatalogDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRepositoryCatalogDataRequestFilterSensitiveLog = (obj: GetRepositoryCatalogDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRepositoryCatalogDataResponseFilterSensitiveLog = (obj: GetRepositoryCatalogDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRepositoryPolicyRequestFilterSensitiveLog = (obj: GetRepositoryPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRepositoryPolicyResponseFilterSensitiveLog = (obj: GetRepositoryPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageFilterSensitiveLog = (obj: Image): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitiateLayerUploadRequestFilterSensitiveLog = (obj: InitiateLayerUploadRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitiateLayerUploadResponseFilterSensitiveLog = (obj: InitiateLayerUploadResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutImageRequestFilterSensitiveLog = (obj: PutImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutImageResponseFilterSensitiveLog = (obj: PutImageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRegistryCatalogDataRequestFilterSensitiveLog = (obj: PutRegistryCatalogDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRegistryCatalogDataResponseFilterSensitiveLog = (obj: PutRegistryCatalogDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRepositoryCatalogDataRequestFilterSensitiveLog = (obj: PutRepositoryCatalogDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRepositoryCatalogDataResponseFilterSensitiveLog = (obj: PutRepositoryCatalogDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetRepositoryPolicyRequestFilterSensitiveLog = (obj: SetRepositoryPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetRepositoryPolicyResponseFilterSensitiveLog = (obj: SetRepositoryPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadLayerPartRequestFilterSensitiveLog = (obj: UploadLayerPartRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadLayerPartResponseFilterSensitiveLog = (obj: UploadLayerPartResponse): any => ({
+  ...obj,
+});

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreatePartitionIndexRequest, CreatePartitionIndexResponse } from "../models/models_0";
+import {
+  CreatePartitionIndexRequest,
+  CreatePartitionIndexRequestFilterSensitiveLog,
+  CreatePartitionIndexResponse,
+  CreatePartitionIndexResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePartitionIndexCommand,
   serializeAws_json1_1CreatePartitionIndexCommand,
@@ -72,8 +77,8 @@ export class CreatePartitionIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePartitionIndexRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreatePartitionIndexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePartitionIndexRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreatePartitionIndexResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

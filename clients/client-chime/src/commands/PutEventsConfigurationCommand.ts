@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { PutEventsConfigurationRequest, PutEventsConfigurationResponse } from "../models/models_1";
+import {
+  PutEventsConfigurationRequest,
+  PutEventsConfigurationRequestFilterSensitiveLog,
+  PutEventsConfigurationResponse,
+  PutEventsConfigurationResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1PutEventsConfigurationCommand,
   serializeAws_restJson1PutEventsConfigurationCommand,
@@ -74,8 +79,8 @@ export class PutEventsConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEventsConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutEventsConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutEventsConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutEventsConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

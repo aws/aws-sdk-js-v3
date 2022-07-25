@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { DeletePullThroughCacheRuleRequest, DeletePullThroughCacheRuleResponse } from "../models/models_0";
+import {
+  DeletePullThroughCacheRuleRequest,
+  DeletePullThroughCacheRuleRequestFilterSensitiveLog,
+  DeletePullThroughCacheRuleResponse,
+  DeletePullThroughCacheRuleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePullThroughCacheRuleCommand,
   serializeAws_json1_1DeletePullThroughCacheRuleCommand,
@@ -72,8 +77,8 @@ export class DeletePullThroughCacheRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePullThroughCacheRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePullThroughCacheRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePullThroughCacheRuleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePullThroughCacheRuleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

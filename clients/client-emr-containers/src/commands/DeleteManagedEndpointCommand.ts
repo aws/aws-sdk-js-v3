@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import { DeleteManagedEndpointRequest, DeleteManagedEndpointResponse } from "../models/models_0";
+import {
+  DeleteManagedEndpointRequest,
+  DeleteManagedEndpointRequestFilterSensitiveLog,
+  DeleteManagedEndpointResponse,
+  DeleteManagedEndpointResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteManagedEndpointCommand,
   serializeAws_restJson1DeleteManagedEndpointCommand,
@@ -72,8 +77,8 @@ export class DeleteManagedEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteManagedEndpointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteManagedEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteManagedEndpointRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteManagedEndpointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

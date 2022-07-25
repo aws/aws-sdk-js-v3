@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { UntagLogGroupRequest } from "../models/models_0";
+import { UntagLogGroupRequest, UntagLogGroupRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1UntagLogGroupCommand,
   serializeAws_json1_1UntagLogGroupCommand,
@@ -78,7 +78,7 @@ export class UntagLogGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagLogGroupRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagLogGroupRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

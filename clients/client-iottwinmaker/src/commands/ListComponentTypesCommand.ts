@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import { ListComponentTypesRequest, ListComponentTypesResponse } from "../models/models_0";
+import {
+  ListComponentTypesRequest,
+  ListComponentTypesRequestFilterSensitiveLog,
+  ListComponentTypesResponse,
+  ListComponentTypesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListComponentTypesCommand,
   serializeAws_restJson1ListComponentTypesCommand,
@@ -72,8 +77,8 @@ export class ListComponentTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListComponentTypesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListComponentTypesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListComponentTypesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListComponentTypesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

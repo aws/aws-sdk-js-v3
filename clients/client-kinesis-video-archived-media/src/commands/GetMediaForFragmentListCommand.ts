@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import { GetMediaForFragmentListInput, GetMediaForFragmentListOutput } from "../models/models_0";
+import {
+  GetMediaForFragmentListInput,
+  GetMediaForFragmentListInputFilterSensitiveLog,
+  GetMediaForFragmentListOutput,
+  GetMediaForFragmentListOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetMediaForFragmentListCommand,
   serializeAws_restJson1GetMediaForFragmentListCommand,
@@ -112,8 +117,8 @@ export class GetMediaForFragmentListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMediaForFragmentListInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMediaForFragmentListOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMediaForFragmentListInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMediaForFragmentListOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

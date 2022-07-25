@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { DeleteSourceServerRequest, DeleteSourceServerResponse } from "../models/models_0";
+import {
+  DeleteSourceServerRequest,
+  DeleteSourceServerRequestFilterSensitiveLog,
+  DeleteSourceServerResponse,
+  DeleteSourceServerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSourceServerCommand,
   serializeAws_restJson1DeleteSourceServerCommand,
@@ -72,8 +77,8 @@ export class DeleteSourceServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSourceServerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSourceServerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSourceServerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSourceServerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

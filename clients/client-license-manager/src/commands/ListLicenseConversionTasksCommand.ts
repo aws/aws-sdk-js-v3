@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import { ListLicenseConversionTasksRequest, ListLicenseConversionTasksResponse } from "../models/models_0";
+import {
+  ListLicenseConversionTasksRequest,
+  ListLicenseConversionTasksRequestFilterSensitiveLog,
+  ListLicenseConversionTasksResponse,
+  ListLicenseConversionTasksResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListLicenseConversionTasksCommand,
   serializeAws_json1_1ListLicenseConversionTasksCommand,
@@ -72,8 +77,8 @@ export class ListLicenseConversionTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLicenseConversionTasksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListLicenseConversionTasksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListLicenseConversionTasksRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListLicenseConversionTasksResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

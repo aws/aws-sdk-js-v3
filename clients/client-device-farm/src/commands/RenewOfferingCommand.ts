@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { RenewOfferingRequest, RenewOfferingResult } from "../models/models_0";
+import {
+  RenewOfferingRequest,
+  RenewOfferingRequestFilterSensitiveLog,
+  RenewOfferingResult,
+  RenewOfferingResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RenewOfferingCommand,
   serializeAws_json1_1RenewOfferingCommand,
@@ -74,8 +79,8 @@ export class RenewOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RenewOfferingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RenewOfferingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RenewOfferingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RenewOfferingResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

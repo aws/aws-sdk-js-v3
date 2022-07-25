@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { GetUserAttributeVerificationCodeRequest, GetUserAttributeVerificationCodeResponse } from "../models/models_0";
+import {
+  GetUserAttributeVerificationCodeRequest,
+  GetUserAttributeVerificationCodeRequestFilterSensitiveLog,
+  GetUserAttributeVerificationCodeResponse,
+  GetUserAttributeVerificationCodeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetUserAttributeVerificationCodeCommand,
   serializeAws_json1_1GetUserAttributeVerificationCodeCommand,
@@ -98,8 +103,8 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUserAttributeVerificationCodeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetUserAttributeVerificationCodeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetUserAttributeVerificationCodeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetUserAttributeVerificationCodeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

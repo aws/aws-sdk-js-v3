@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { LabelParameterVersionRequest, LabelParameterVersionResult } from "../models/models_1";
+import {
+  LabelParameterVersionRequest,
+  LabelParameterVersionRequestFilterSensitiveLog,
+  LabelParameterVersionResult,
+  LabelParameterVersionResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1LabelParameterVersionCommand,
   serializeAws_json1_1LabelParameterVersionCommand,
@@ -108,8 +113,8 @@ export class LabelParameterVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LabelParameterVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: LabelParameterVersionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: LabelParameterVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: LabelParameterVersionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

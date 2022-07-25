@@ -43,29 +43,11 @@ export interface AssociateGatewayToServerInput {
   ServerArn: string | undefined;
 }
 
-export namespace AssociateGatewayToServerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateGatewayToServerInput): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateGatewayToServerOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of a gateway.</p>
    */
   GatewayArn?: string;
-}
-
-export namespace AssociateGatewayToServerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateGatewayToServerOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -170,15 +152,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGatewayInput {
   /**
    * <p>The activation key of the created gateway.</p>
@@ -201,29 +174,11 @@ export interface CreateGatewayInput {
   Tags?: Tag[];
 }
 
-export namespace CreateGatewayInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGatewayInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGatewayOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway you create.</p>
    */
   GatewayArn?: string;
-}
-
-export namespace CreateGatewayOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGatewayOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteGatewayInput {
@@ -233,29 +188,11 @@ export interface DeleteGatewayInput {
   GatewayArn: string | undefined;
 }
 
-export namespace DeleteGatewayInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGatewayInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGatewayOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway you deleted.</p>
    */
   GatewayArn?: string;
-}
-
-export namespace DeleteGatewayOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGatewayOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -292,15 +229,6 @@ export interface DisassociateGatewayFromServerInput {
   GatewayArn: string | undefined;
 }
 
-export namespace DisassociateGatewayFromServerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateGatewayFromServerInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateGatewayFromServerOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway you disassociated.</p>
@@ -308,29 +236,11 @@ export interface DisassociateGatewayFromServerOutput {
   GatewayArn?: string;
 }
 
-export namespace DisassociateGatewayFromServerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateGatewayFromServerOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGatewayInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway.</p>
    */
   GatewayArn: string | undefined;
-}
-
-export namespace GetGatewayInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGatewayInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -379,30 +289,12 @@ export interface GatewayDetails {
   VpcEndpoint?: string;
 }
 
-export namespace GatewayDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GatewayDetails): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGatewayOutput {
   /**
    * <p>By providing the ARN (Amazon Resource Name), this
    *       API returns the gateway.</p>
    */
   Gateway?: GatewayDetails;
-}
-
-export namespace GetGatewayOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGatewayOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGatewaysInput {
@@ -418,15 +310,6 @@ export interface ListGatewaysInput {
    *       token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListGatewaysInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGatewaysInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -462,15 +345,6 @@ export interface Gateway {
   LastSeenTime?: Date;
 }
 
-export namespace Gateway {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Gateway): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGatewaysOutput {
   /**
    * <p>A list of your gateways.</p>
@@ -484,15 +358,6 @@ export interface ListGatewaysOutput {
    *       token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListGatewaysOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGatewaysOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface PutMaintenanceStartTimeInput {
@@ -524,30 +389,12 @@ export interface PutMaintenanceStartTimeInput {
   DayOfMonth?: number;
 }
 
-export namespace PutMaintenanceStartTimeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutMaintenanceStartTimeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PutMaintenanceStartTimeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of a gateway for which you set the maintenance start
    *       time.</p>
    */
   GatewayArn?: string;
-}
-
-export namespace PutMaintenanceStartTimeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutMaintenanceStartTimeOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface TestHypervisorConfigurationInput {
@@ -573,27 +420,7 @@ export interface TestHypervisorConfigurationInput {
   Password?: string;
 }
 
-export namespace TestHypervisorConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestHypervisorConfigurationInput): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 export interface TestHypervisorConfigurationOutput {}
-
-export namespace TestHypervisorConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestHypervisorConfigurationOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateGatewayInformationInput {
   /**
@@ -607,29 +434,11 @@ export interface UpdateGatewayInformationInput {
   GatewayDisplayName?: string;
 }
 
-export namespace UpdateGatewayInformationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGatewayInformationInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGatewayInformationOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway you updated.</p>
    */
   GatewayArn?: string;
-}
-
-export namespace UpdateGatewayInformationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGatewayInformationOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateGatewaySoftwareNowInput {
@@ -640,30 +449,12 @@ export interface UpdateGatewaySoftwareNowInput {
   GatewayArn: string | undefined;
 }
 
-export namespace UpdateGatewaySoftwareNowInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGatewaySoftwareNowInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGatewaySoftwareNowOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway
    *       you updated.</p>
    */
   GatewayArn?: string;
-}
-
-export namespace UpdateGatewaySoftwareNowOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGatewaySoftwareNowOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteHypervisorInput {
@@ -673,29 +464,11 @@ export interface DeleteHypervisorInput {
   HypervisorArn: string | undefined;
 }
 
-export namespace DeleteHypervisorInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHypervisorInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteHypervisorOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor you deleted.</p>
    */
   HypervisorArn?: string;
-}
-
-export namespace DeleteHypervisorOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHypervisorOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ImportHypervisorConfigurationInput {
@@ -731,31 +504,11 @@ export interface ImportHypervisorConfigurationInput {
   Tags?: Tag[];
 }
 
-export namespace ImportHypervisorConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportHypervisorConfigurationInput): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 export interface ImportHypervisorConfigurationOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor you disassociated.</p>
    */
   HypervisorArn?: string;
-}
-
-export namespace ImportHypervisorConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportHypervisorConfigurationOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListHypervisorsInput {
@@ -771,15 +524,6 @@ export interface ListHypervisorsInput {
    *       token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListHypervisorsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHypervisorsInput): any => ({
-    ...obj,
-  });
 }
 
 export enum HypervisorState {
@@ -823,15 +567,6 @@ export interface Hypervisor {
   State?: HypervisorState | string;
 }
 
-export namespace Hypervisor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Hypervisor): any => ({
-    ...obj,
-  });
-}
-
 export interface ListHypervisorsOutput {
   /**
    * <p>A list of your <code>Hypervisor</code> objects, ordered by their Amazon Resource Names
@@ -846,15 +581,6 @@ export interface ListHypervisorsOutput {
    *       token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListHypervisorsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHypervisorsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateHypervisorInput {
@@ -885,17 +611,6 @@ export interface UpdateHypervisorInput {
   Name?: string;
 }
 
-export namespace UpdateHypervisorInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateHypervisorInput): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateHypervisorOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the hypervisor you updated.</p>
@@ -903,29 +618,11 @@ export interface UpdateHypervisorOutput {
   HypervisorArn?: string;
 }
 
-export namespace UpdateHypervisorOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateHypervisorOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource's tags to list.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceOutput {
@@ -938,15 +635,6 @@ export interface ListTagsForResourceOutput {
    * <p>A list of the resource's tags.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListVirtualMachinesInput {
@@ -962,15 +650,6 @@ export interface ListVirtualMachinesInput {
    *       token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListVirtualMachinesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVirtualMachinesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1009,15 +688,6 @@ export interface VirtualMachine {
   LastBackupDate?: Date;
 }
 
-export namespace VirtualMachine {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VirtualMachine): any => ({
-    ...obj,
-  });
-}
-
 export interface ListVirtualMachinesOutput {
   /**
    * <p>A list of your <code>VirtualMachine</code> objects, ordered by their Amazon Resource Names
@@ -1034,15 +704,6 @@ export interface ListVirtualMachinesOutput {
   NextToken?: string;
 }
 
-export namespace ListVirtualMachinesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVirtualMachinesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
@@ -1055,29 +716,11 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource you tagged.</p>
    */
   ResourceARN?: string;
-}
-
-export namespace TagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceInput {
@@ -1092,15 +735,6 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource from which you removed tags.</p>
@@ -1108,11 +742,299 @@ export interface UntagResourceOutput {
   ResourceARN?: string;
 }
 
-export namespace UntagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AssociateGatewayToServerInputFilterSensitiveLog = (obj: AssociateGatewayToServerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateGatewayToServerOutputFilterSensitiveLog = (obj: AssociateGatewayToServerOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGatewayInputFilterSensitiveLog = (obj: CreateGatewayInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGatewayOutputFilterSensitiveLog = (obj: CreateGatewayOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGatewayInputFilterSensitiveLog = (obj: DeleteGatewayInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGatewayOutputFilterSensitiveLog = (obj: DeleteGatewayOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateGatewayFromServerInputFilterSensitiveLog = (obj: DisassociateGatewayFromServerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateGatewayFromServerOutputFilterSensitiveLog = (
+  obj: DisassociateGatewayFromServerOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGatewayInputFilterSensitiveLog = (obj: GetGatewayInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GatewayDetailsFilterSensitiveLog = (obj: GatewayDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGatewayOutputFilterSensitiveLog = (obj: GetGatewayOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGatewaysInputFilterSensitiveLog = (obj: ListGatewaysInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GatewayFilterSensitiveLog = (obj: Gateway): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGatewaysOutputFilterSensitiveLog = (obj: ListGatewaysOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMaintenanceStartTimeInputFilterSensitiveLog = (obj: PutMaintenanceStartTimeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMaintenanceStartTimeOutputFilterSensitiveLog = (obj: PutMaintenanceStartTimeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestHypervisorConfigurationInputFilterSensitiveLog = (obj: TestHypervisorConfigurationInput): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TestHypervisorConfigurationOutputFilterSensitiveLog = (obj: TestHypervisorConfigurationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGatewayInformationInputFilterSensitiveLog = (obj: UpdateGatewayInformationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGatewayInformationOutputFilterSensitiveLog = (obj: UpdateGatewayInformationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGatewaySoftwareNowInputFilterSensitiveLog = (obj: UpdateGatewaySoftwareNowInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGatewaySoftwareNowOutputFilterSensitiveLog = (obj: UpdateGatewaySoftwareNowOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteHypervisorInputFilterSensitiveLog = (obj: DeleteHypervisorInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteHypervisorOutputFilterSensitiveLog = (obj: DeleteHypervisorOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportHypervisorConfigurationInputFilterSensitiveLog = (obj: ImportHypervisorConfigurationInput): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ImportHypervisorConfigurationOutputFilterSensitiveLog = (
+  obj: ImportHypervisorConfigurationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHypervisorsInputFilterSensitiveLog = (obj: ListHypervisorsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HypervisorFilterSensitiveLog = (obj: Hypervisor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHypervisorsOutputFilterSensitiveLog = (obj: ListHypervisorsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHypervisorInputFilterSensitiveLog = (obj: UpdateHypervisorInput): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateHypervisorOutputFilterSensitiveLog = (obj: UpdateHypervisorOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVirtualMachinesInputFilterSensitiveLog = (obj: ListVirtualMachinesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VirtualMachineFilterSensitiveLog = (obj: VirtualMachine): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVirtualMachinesOutputFilterSensitiveLog = (obj: ListVirtualMachinesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
+  ...obj,
+});

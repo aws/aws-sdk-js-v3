@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListLaunchProfileMembersRequest, ListLaunchProfileMembersResponse } from "../models/models_0";
+import {
+  ListLaunchProfileMembersRequest,
+  ListLaunchProfileMembersRequestFilterSensitiveLog,
+  ListLaunchProfileMembersResponse,
+  ListLaunchProfileMembersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1ListLaunchProfileMembersCommand,
@@ -72,8 +77,8 @@ export class ListLaunchProfileMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLaunchProfileMembersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListLaunchProfileMembersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListLaunchProfileMembersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListLaunchProfileMembersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

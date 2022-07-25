@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteBandwidthRateLimitInput, DeleteBandwidthRateLimitOutput } from "../models/models_0";
+import {
+  DeleteBandwidthRateLimitInput,
+  DeleteBandwidthRateLimitInputFilterSensitiveLog,
+  DeleteBandwidthRateLimitOutput,
+  DeleteBandwidthRateLimitOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteBandwidthRateLimitCommand,
   serializeAws_json1_1DeleteBandwidthRateLimitCommand,
@@ -76,8 +81,8 @@ export class DeleteBandwidthRateLimitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBandwidthRateLimitInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBandwidthRateLimitOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBandwidthRateLimitInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBandwidthRateLimitOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

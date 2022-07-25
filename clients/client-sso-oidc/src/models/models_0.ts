@@ -95,15 +95,6 @@ export interface CreateTokenRequest {
   redirectUri?: string;
 }
 
-export namespace CreateTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTokenRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTokenResponse {
   /**
    * <p>An opaque token to access AWS SSO resources assigned to a user.</p>
@@ -131,15 +122,6 @@ export interface CreateTokenResponse {
    * <p>The identifier of the user that associated with the access token, if present.</p>
    */
   idToken?: string;
-}
-
-export namespace CreateTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTokenResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -394,15 +376,6 @@ export interface RegisterClientRequest {
   scopes?: string[];
 }
 
-export namespace RegisterClientRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterClientRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterClientResponse {
   /**
    * <p>The unique identifier string for each client. This client uses this identifier to get
@@ -437,15 +410,6 @@ export interface RegisterClientResponse {
   tokenEndpoint?: string;
 }
 
-export namespace RegisterClientResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterClientResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StartDeviceAuthorizationRequest {
   /**
    * <p>The unique identifier string for the client that is registered with AWS SSO. This value
@@ -465,15 +429,6 @@ export interface StartDeviceAuthorizationRequest {
    *         the User Portal</a> in the <i>AWS Single Sign-On User Guide</i>.</p>
    */
   startUrl: string | undefined;
-}
-
-export namespace StartDeviceAuthorizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDeviceAuthorizationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StartDeviceAuthorizationResponse {
@@ -510,11 +465,44 @@ export interface StartDeviceAuthorizationResponse {
   interval?: number;
 }
 
-export namespace StartDeviceAuthorizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDeviceAuthorizationResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CreateTokenRequestFilterSensitiveLog = (obj: CreateTokenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTokenResponseFilterSensitiveLog = (obj: CreateTokenResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterClientRequestFilterSensitiveLog = (obj: RegisterClientRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterClientResponseFilterSensitiveLog = (obj: RegisterClientResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDeviceAuthorizationRequestFilterSensitiveLog = (obj: StartDeviceAuthorizationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDeviceAuthorizationResponseFilterSensitiveLog = (obj: StartDeviceAuthorizationResponse): any => ({
+  ...obj,
+});

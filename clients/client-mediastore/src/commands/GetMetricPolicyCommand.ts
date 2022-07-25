@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import { GetMetricPolicyInput, GetMetricPolicyOutput } from "../models/models_0";
+import {
+  GetMetricPolicyInput,
+  GetMetricPolicyInputFilterSensitiveLog,
+  GetMetricPolicyOutput,
+  GetMetricPolicyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetMetricPolicyCommand,
   serializeAws_json1_1GetMetricPolicyCommand,
@@ -72,8 +77,8 @@ export class GetMetricPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMetricPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMetricPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMetricPolicyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMetricPolicyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

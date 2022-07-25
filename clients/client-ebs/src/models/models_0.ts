@@ -50,15 +50,6 @@ export interface Block {
   BlockToken?: string;
 }
 
-export namespace Block {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Block): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A block of data in an Amazon Elastic Block Store snapshot that is different from another snapshot of
  *             the same volume/snapshot lineage.</p>
@@ -81,15 +72,6 @@ export interface ChangedBlock {
    *             the <code>ListChangedBlocks</code> operation.</p>
    */
   SecondBlockToken?: string;
-}
-
-export namespace ChangedBlock {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangedBlock): any => ({
-    ...obj,
-  });
 }
 
 export enum ChecksumAggregationMethod {
@@ -134,15 +116,6 @@ export interface CompleteSnapshotRequest {
   ChecksumAggregationMethod?: ChecksumAggregationMethod | string;
 }
 
-export namespace CompleteSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompleteSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum Status {
   COMPLETED = "completed",
   ERROR = "error",
@@ -154,15 +127,6 @@ export interface CompleteSnapshotResponse {
    * <p>The status of the snapshot.</p>
    */
   Status?: Status | string;
-}
-
-export namespace CompleteSnapshotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompleteSnapshotResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -395,15 +359,6 @@ export interface GetSnapshotBlockRequest {
   BlockToken: string | undefined;
 }
 
-export namespace GetSnapshotBlockRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSnapshotBlockRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSnapshotBlockResponse {
   /**
    * <p>The size of the data in the block.</p>
@@ -424,16 +379,6 @@ export interface GetSnapshotBlockResponse {
    * <p>The algorithm used to generate the checksum for the block, such as SHA256.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
-}
-
-export namespace GetSnapshotBlockResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSnapshotBlockResponse): any => ({
-    ...obj,
-    ...(obj.BlockData && { BlockData: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListChangedBlocksRequest {
@@ -484,15 +429,6 @@ export interface ListChangedBlocksRequest {
   StartingBlockIndex?: number;
 }
 
-export namespace ListChangedBlocksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChangedBlocksRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListChangedBlocksResponse {
   /**
    * <p>An array of objects containing information about the changed blocks.</p>
@@ -519,16 +455,6 @@ export interface ListChangedBlocksResponse {
    *             are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListChangedBlocksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChangedBlocksResponse): any => ({
-    ...obj,
-    ...(obj.ChangedBlocks && { ChangedBlocks: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListSnapshotBlocksRequest {
@@ -565,15 +491,6 @@ export interface ListSnapshotBlocksRequest {
   StartingBlockIndex?: number;
 }
 
-export namespace ListSnapshotBlocksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSnapshotBlocksRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSnapshotBlocksResponse {
   /**
    * <p>An array of objects containing information about the blocks.</p>
@@ -600,16 +517,6 @@ export interface ListSnapshotBlocksResponse {
    *             are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListSnapshotBlocksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSnapshotBlocksResponse): any => ({
-    ...obj,
-    ...(obj.Blocks && { Blocks: SENSITIVE_STRING }),
-  });
 }
 
 export interface PutSnapshotBlockRequest {
@@ -675,16 +582,6 @@ export interface PutSnapshotBlockRequest {
   ChecksumAlgorithm: ChecksumAlgorithm | string | undefined;
 }
 
-export namespace PutSnapshotBlockRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutSnapshotBlockRequest): any => ({
-    ...obj,
-    ...(obj.BlockData && { BlockData: SENSITIVE_STRING }),
-  });
-}
-
 export interface PutSnapshotBlockResponse {
   /**
    * <p>The SHA256 checksum generated for the block data by Amazon EBS.</p>
@@ -695,15 +592,6 @@ export interface PutSnapshotBlockResponse {
    * <p>The algorithm used by Amazon EBS to generate the checksum.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
-}
-
-export namespace PutSnapshotBlockResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutSnapshotBlockResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -719,15 +607,6 @@ export interface Tag {
    * <p>The value of the tag.</p>
    */
   Value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface StartSnapshotRequest {
@@ -846,16 +725,6 @@ export interface StartSnapshotRequest {
   Timeout?: number;
 }
 
-export namespace StartSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSnapshotRequest): any => ({
-    ...obj,
-    ...(obj.KmsKeyArn && { KmsKeyArn: SENSITIVE_STRING }),
-  });
-}
-
 export interface StartSnapshotResponse {
   /**
    * <p>The description of the snapshot.</p>
@@ -910,12 +779,113 @@ export interface StartSnapshotResponse {
   KmsKeyArn?: string;
 }
 
-export namespace StartSnapshotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSnapshotResponse): any => ({
-    ...obj,
-    ...(obj.KmsKeyArn && { KmsKeyArn: SENSITIVE_STRING }),
-  });
-}
+/**
+ * @internal
+ */
+export const BlockFilterSensitiveLog = (obj: Block): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangedBlockFilterSensitiveLog = (obj: ChangedBlock): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompleteSnapshotRequestFilterSensitiveLog = (obj: CompleteSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompleteSnapshotResponseFilterSensitiveLog = (obj: CompleteSnapshotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSnapshotBlockRequestFilterSensitiveLog = (obj: GetSnapshotBlockRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSnapshotBlockResponseFilterSensitiveLog = (obj: GetSnapshotBlockResponse): any => ({
+  ...obj,
+  ...(obj.BlockData && { BlockData: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListChangedBlocksRequestFilterSensitiveLog = (obj: ListChangedBlocksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChangedBlocksResponseFilterSensitiveLog = (obj: ListChangedBlocksResponse): any => ({
+  ...obj,
+  ...(obj.ChangedBlocks && { ChangedBlocks: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListSnapshotBlocksRequestFilterSensitiveLog = (obj: ListSnapshotBlocksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSnapshotBlocksResponseFilterSensitiveLog = (obj: ListSnapshotBlocksResponse): any => ({
+  ...obj,
+  ...(obj.Blocks && { Blocks: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutSnapshotBlockRequestFilterSensitiveLog = (obj: PutSnapshotBlockRequest): any => ({
+  ...obj,
+  ...(obj.BlockData && { BlockData: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutSnapshotBlockResponseFilterSensitiveLog = (obj: PutSnapshotBlockResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSnapshotRequestFilterSensitiveLog = (obj: StartSnapshotRequest): any => ({
+  ...obj,
+  ...(obj.KmsKeyArn && { KmsKeyArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartSnapshotResponseFilterSensitiveLog = (obj: StartSnapshotResponse): any => ({
+  ...obj,
+  ...(obj.KmsKeyArn && { KmsKeyArn: SENSITIVE_STRING }),
+});

@@ -14,7 +14,9 @@ import {
 
 import {
   ListProvisioningArtifactsForServiceActionInput,
+  ListProvisioningArtifactsForServiceActionInputFilterSensitiveLog,
   ListProvisioningArtifactsForServiceActionOutput,
+  ListProvisioningArtifactsForServiceActionOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand,
@@ -81,8 +83,8 @@ export class ListProvisioningArtifactsForServiceActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProvisioningArtifactsForServiceActionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListProvisioningArtifactsForServiceActionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListProvisioningArtifactsForServiceActionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListProvisioningArtifactsForServiceActionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

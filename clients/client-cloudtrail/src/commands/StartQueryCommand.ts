@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { StartQueryRequest, StartQueryResponse } from "../models/models_0";
+import {
+  StartQueryRequest,
+  StartQueryRequestFilterSensitiveLog,
+  StartQueryResponse,
+  StartQueryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartQueryCommand,
   serializeAws_json1_1StartQueryCommand,
@@ -73,8 +78,8 @@ export class StartQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartQueryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartQueryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartQueryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartQueryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

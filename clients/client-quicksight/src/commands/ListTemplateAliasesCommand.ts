@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListTemplateAliasesRequest, ListTemplateAliasesResponse } from "../models/models_1";
+import {
+  ListTemplateAliasesRequest,
+  ListTemplateAliasesRequestFilterSensitiveLog,
+  ListTemplateAliasesResponse,
+  ListTemplateAliasesResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListTemplateAliasesCommand,
   serializeAws_restJson1ListTemplateAliasesCommand,
@@ -72,8 +77,8 @@ export class ListTemplateAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTemplateAliasesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTemplateAliasesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTemplateAliasesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTemplateAliasesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

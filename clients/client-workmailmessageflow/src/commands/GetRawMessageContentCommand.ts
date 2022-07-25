@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetRawMessageContentRequest, GetRawMessageContentResponse } from "../models/models_0";
+import {
+  GetRawMessageContentRequest,
+  GetRawMessageContentRequestFilterSensitiveLog,
+  GetRawMessageContentResponse,
+  GetRawMessageContentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetRawMessageContentCommand,
   serializeAws_restJson1GetRawMessageContentCommand,
@@ -76,8 +81,8 @@ export class GetRawMessageContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRawMessageContentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRawMessageContentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRawMessageContentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRawMessageContentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { DeleteNamedQueryInput, DeleteNamedQueryOutput } from "../models/models_0";
+import {
+  DeleteNamedQueryInput,
+  DeleteNamedQueryInputFilterSensitiveLog,
+  DeleteNamedQueryOutput,
+  DeleteNamedQueryOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteNamedQueryCommand,
   serializeAws_json1_1DeleteNamedQueryCommand,
@@ -76,8 +81,8 @@ export class DeleteNamedQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNamedQueryInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNamedQueryOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteNamedQueryInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteNamedQueryOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

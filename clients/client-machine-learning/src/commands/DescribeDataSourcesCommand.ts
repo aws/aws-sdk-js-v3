@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { DescribeDataSourcesInput, DescribeDataSourcesOutput } from "../models/models_0";
+import {
+  DescribeDataSourcesInput,
+  DescribeDataSourcesInputFilterSensitiveLog,
+  DescribeDataSourcesOutput,
+  DescribeDataSourcesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDataSourcesCommand,
   serializeAws_json1_1DescribeDataSourcesCommand,
@@ -72,8 +77,8 @@ export class DescribeDataSourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDataSourcesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDataSourcesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDataSourcesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDataSourcesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

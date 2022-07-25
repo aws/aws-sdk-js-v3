@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { JsonTimestampsInputOutput } from "../models/models_0";
+import { JsonTimestampsInputOutput, JsonTimestampsInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1JsonTimestampsCommand,
   serializeAws_restJson1JsonTimestampsCommand,
@@ -74,8 +74,8 @@ export class JsonTimestampsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: JsonTimestampsInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: JsonTimestampsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: JsonTimestampsInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: JsonTimestampsInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

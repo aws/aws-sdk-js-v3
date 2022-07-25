@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { BatchDeleteRequest, BatchDeleteResponse } from "../models/models_1";
+import {
+  BatchDeleteRequest,
+  BatchDeleteRequestFilterSensitiveLog,
+  BatchDeleteResponse,
+  BatchDeleteResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1BatchDeleteCommand,
   serializeAws_restJson1BatchDeleteCommand,
@@ -72,8 +77,8 @@ export class BatchDeleteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDeleteRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeleteResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

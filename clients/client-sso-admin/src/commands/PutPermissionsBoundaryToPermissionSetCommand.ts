@@ -14,7 +14,9 @@ import {
 
 import {
   PutPermissionsBoundaryToPermissionSetRequest,
+  PutPermissionsBoundaryToPermissionSetRequestFilterSensitiveLog,
   PutPermissionsBoundaryToPermissionSetResponse,
+  PutPermissionsBoundaryToPermissionSetResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1PutPermissionsBoundaryToPermissionSetCommand,
@@ -78,8 +80,8 @@ export class PutPermissionsBoundaryToPermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPermissionsBoundaryToPermissionSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutPermissionsBoundaryToPermissionSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutPermissionsBoundaryToPermissionSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutPermissionsBoundaryToPermissionSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateAutomaticTapeCreationPolicyInput, UpdateAutomaticTapeCreationPolicyOutput } from "../models/models_0";
+import {
+  UpdateAutomaticTapeCreationPolicyInput,
+  UpdateAutomaticTapeCreationPolicyInputFilterSensitiveLog,
+  UpdateAutomaticTapeCreationPolicyOutput,
+  UpdateAutomaticTapeCreationPolicyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand,
   serializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand,
@@ -82,8 +87,8 @@ export class UpdateAutomaticTapeCreationPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAutomaticTapeCreationPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAutomaticTapeCreationPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAutomaticTapeCreationPolicyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAutomaticTapeCreationPolicyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

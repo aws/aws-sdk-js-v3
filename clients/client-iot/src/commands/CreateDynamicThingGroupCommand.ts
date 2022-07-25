@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { CreateDynamicThingGroupRequest, CreateDynamicThingGroupResponse } from "../models/models_0";
+import {
+  CreateDynamicThingGroupRequest,
+  CreateDynamicThingGroupRequestFilterSensitiveLog,
+  CreateDynamicThingGroupResponse,
+  CreateDynamicThingGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDynamicThingGroupCommand,
   serializeAws_restJson1CreateDynamicThingGroupCommand,
@@ -73,8 +78,8 @@ export class CreateDynamicThingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDynamicThingGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDynamicThingGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDynamicThingGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDynamicThingGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

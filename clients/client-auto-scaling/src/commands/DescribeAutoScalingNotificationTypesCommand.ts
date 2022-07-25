@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeAutoScalingNotificationTypesAnswer } from "../models/models_0";
+import {
+  DescribeAutoScalingNotificationTypesAnswer,
+  DescribeAutoScalingNotificationTypesAnswerFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeAutoScalingNotificationTypesCommand,
   serializeAws_queryDescribeAutoScalingNotificationTypesCommand,
@@ -75,7 +78,7 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeAutoScalingNotificationTypesAnswer.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAutoScalingNotificationTypesAnswerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

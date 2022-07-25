@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeSavingsPlansOfferingRatesRequest,
+  DescribeSavingsPlansOfferingRatesRequestFilterSensitiveLog,
   DescribeSavingsPlansOfferingRatesResponse,
+  DescribeSavingsPlansOfferingRatesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeSavingsPlansOfferingRatesCommand,
@@ -77,8 +79,8 @@ export class DescribeSavingsPlansOfferingRatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSavingsPlansOfferingRatesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSavingsPlansOfferingRatesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSavingsPlansOfferingRatesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSavingsPlansOfferingRatesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

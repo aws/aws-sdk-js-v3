@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DeleteSlotTypeRequest } from "../models/models_0";
+import { DeleteSlotTypeRequest, DeleteSlotTypeRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSlotTypeCommand,
   serializeAws_restJson1DeleteSlotTypeCommand,
@@ -76,7 +76,7 @@ export class DeleteSlotTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSlotTypeRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSlotTypeRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

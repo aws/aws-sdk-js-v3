@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateServerRequest, CreateServerResponse } from "../models/models_0";
+import {
+  CreateServerRequest,
+  CreateServerRequestFilterSensitiveLog,
+  CreateServerResponse,
+  CreateServerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateServerCommand,
   serializeAws_json1_1CreateServerCommand,
@@ -75,8 +80,8 @@ export class CreateServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateServerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateServerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateServerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateServerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

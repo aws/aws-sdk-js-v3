@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { EmptyInputAndEmptyOutputInput, EmptyInputAndEmptyOutputOutput } from "../models/models_0";
+import {
+  EmptyInputAndEmptyOutputInput,
+  EmptyInputAndEmptyOutputInputFilterSensitiveLog,
+  EmptyInputAndEmptyOutputOutput,
+  EmptyInputAndEmptyOutputOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_ec2EmptyInputAndEmptyOutputCommand,
   serializeAws_ec2EmptyInputAndEmptyOutputCommand,
@@ -75,8 +80,8 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EmptyInputAndEmptyOutputInput.filterSensitiveLog,
-      outputFilterSensitiveLog: EmptyInputAndEmptyOutputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: EmptyInputAndEmptyOutputInputFilterSensitiveLog,
+      outputFilterSensitiveLog: EmptyInputAndEmptyOutputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

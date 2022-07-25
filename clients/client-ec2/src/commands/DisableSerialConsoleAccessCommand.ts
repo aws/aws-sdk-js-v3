@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisableSerialConsoleAccessRequest, DisableSerialConsoleAccessResult } from "../models/models_4";
+import {
+  DisableSerialConsoleAccessRequest,
+  DisableSerialConsoleAccessRequestFilterSensitiveLog,
+  DisableSerialConsoleAccessResult,
+  DisableSerialConsoleAccessResultFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2DisableSerialConsoleAccessCommand,
   serializeAws_ec2DisableSerialConsoleAccessCommand,
@@ -75,8 +80,8 @@ export class DisableSerialConsoleAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableSerialConsoleAccessRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableSerialConsoleAccessResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableSerialConsoleAccessRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisableSerialConsoleAccessResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

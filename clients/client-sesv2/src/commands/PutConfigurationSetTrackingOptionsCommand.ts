@@ -14,7 +14,9 @@ import {
 
 import {
   PutConfigurationSetTrackingOptionsRequest,
+  PutConfigurationSetTrackingOptionsRequestFilterSensitiveLog,
   PutConfigurationSetTrackingOptionsResponse,
+  PutConfigurationSetTrackingOptionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommand,
@@ -78,8 +80,8 @@ export class PutConfigurationSetTrackingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConfigurationSetTrackingOptionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutConfigurationSetTrackingOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutConfigurationSetTrackingOptionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutConfigurationSetTrackingOptionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

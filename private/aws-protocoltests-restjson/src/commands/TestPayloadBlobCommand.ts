@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TestPayloadBlobInputOutput } from "../models/models_0";
+import { TestPayloadBlobInputOutput, TestPayloadBlobInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1TestPayloadBlobCommand,
   serializeAws_restJson1TestPayloadBlobCommand,
@@ -79,8 +79,8 @@ export class TestPayloadBlobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestPayloadBlobInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: TestPayloadBlobInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: TestPayloadBlobInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: TestPayloadBlobInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

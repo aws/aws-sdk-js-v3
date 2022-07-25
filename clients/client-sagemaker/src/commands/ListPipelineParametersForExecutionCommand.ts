@@ -14,7 +14,9 @@ import {
 
 import {
   ListPipelineParametersForExecutionRequest,
+  ListPipelineParametersForExecutionRequestFilterSensitiveLog,
   ListPipelineParametersForExecutionResponse,
+  ListPipelineParametersForExecutionResponseFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_json1_1ListPipelineParametersForExecutionCommand,
@@ -77,8 +79,8 @@ export class ListPipelineParametersForExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPipelineParametersForExecutionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPipelineParametersForExecutionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPipelineParametersForExecutionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPipelineParametersForExecutionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

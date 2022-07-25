@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { AutoScalingInstancesType, DescribeAutoScalingInstancesType } from "../models/models_0";
+import {
+  AutoScalingInstancesType,
+  AutoScalingInstancesTypeFilterSensitiveLog,
+  DescribeAutoScalingInstancesType,
+  DescribeAutoScalingInstancesTypeFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeAutoScalingInstancesCommand,
   serializeAws_queryDescribeAutoScalingInstancesCommand,
@@ -72,8 +77,8 @@ export class DescribeAutoScalingInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAutoScalingInstancesType.filterSensitiveLog,
-      outputFilterSensitiveLog: AutoScalingInstancesType.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAutoScalingInstancesTypeFilterSensitiveLog,
+      outputFilterSensitiveLog: AutoScalingInstancesTypeFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

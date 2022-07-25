@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetDiscoveredSchemaRequest, GetDiscoveredSchemaResponse } from "../models/models_0";
+import {
+  GetDiscoveredSchemaRequest,
+  GetDiscoveredSchemaRequestFilterSensitiveLog,
+  GetDiscoveredSchemaResponse,
+  GetDiscoveredSchemaResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetDiscoveredSchemaCommand,
   serializeAws_restJson1GetDiscoveredSchemaCommand,
@@ -72,8 +77,8 @@ export class GetDiscoveredSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDiscoveredSchemaRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDiscoveredSchemaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDiscoveredSchemaRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDiscoveredSchemaResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

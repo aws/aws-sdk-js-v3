@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { DeleteFuotaTaskRequest, DeleteFuotaTaskResponse } from "../models/models_0";
+import {
+  DeleteFuotaTaskRequest,
+  DeleteFuotaTaskRequestFilterSensitiveLog,
+  DeleteFuotaTaskResponse,
+  DeleteFuotaTaskResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFuotaTaskCommand,
   serializeAws_restJson1DeleteFuotaTaskCommand,
@@ -72,8 +77,8 @@ export class DeleteFuotaTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFuotaTaskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFuotaTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFuotaTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFuotaTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

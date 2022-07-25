@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { DeleteRepositoryRequest, DeleteRepositoryResult } from "../models/models_0";
+import {
+  DeleteRepositoryRequest,
+  DeleteRepositoryRequestFilterSensitiveLog,
+  DeleteRepositoryResult,
+  DeleteRepositoryResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRepositoryCommand,
   serializeAws_restJson1DeleteRepositoryCommand,
@@ -74,8 +79,8 @@ export class DeleteRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRepositoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRepositoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRepositoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRepositoryResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

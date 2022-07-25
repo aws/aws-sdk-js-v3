@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListCustomMetricsRequest, ListCustomMetricsResponse } from "../models/models_1";
+import {
+  ListCustomMetricsRequest,
+  ListCustomMetricsRequestFilterSensitiveLog,
+  ListCustomMetricsResponse,
+  ListCustomMetricsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListCustomMetricsCommand,
   serializeAws_restJson1ListCustomMetricsCommand,
@@ -75,8 +80,8 @@ export class ListCustomMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCustomMetricsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListCustomMetricsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCustomMetricsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListCustomMetricsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

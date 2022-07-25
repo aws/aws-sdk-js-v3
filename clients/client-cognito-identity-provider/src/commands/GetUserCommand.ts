@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { GetUserRequest, GetUserResponse } from "../models/models_0";
+import {
+  GetUserRequest,
+  GetUserRequestFilterSensitiveLog,
+  GetUserResponse,
+  GetUserResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1GetUserCommand, serializeAws_json1_1GetUserCommand } from "../protocols/Aws_json1_1";
 
 export interface GetUserCommandInput extends GetUserRequest {}
@@ -73,8 +78,8 @@ export class GetUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUserRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetUserRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UploadPartOutput, UploadPartRequest } from "../models/models_1";
+import {
+  UploadPartOutput,
+  UploadPartOutputFilterSensitiveLog,
+  UploadPartRequest,
+  UploadPartRequestFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlUploadPartCommand,
   serializeAws_restXmlUploadPartCommand,
@@ -230,8 +235,8 @@ export class UploadPartCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UploadPartRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UploadPartOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UploadPartRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UploadPartOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { DeleteTypedLinkFacetRequest, DeleteTypedLinkFacetResponse } from "../models/models_0";
+import {
+  DeleteTypedLinkFacetRequest,
+  DeleteTypedLinkFacetRequestFilterSensitiveLog,
+  DeleteTypedLinkFacetResponse,
+  DeleteTypedLinkFacetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteTypedLinkFacetCommand,
   serializeAws_restJson1DeleteTypedLinkFacetCommand,
@@ -72,8 +77,8 @@ export class DeleteTypedLinkFacetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTypedLinkFacetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTypedLinkFacetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTypedLinkFacetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTypedLinkFacetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

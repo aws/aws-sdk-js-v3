@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisableVpcClassicLinkRequest, DisableVpcClassicLinkResult } from "../models/models_4";
+import {
+  DisableVpcClassicLinkRequest,
+  DisableVpcClassicLinkRequestFilterSensitiveLog,
+  DisableVpcClassicLinkResult,
+  DisableVpcClassicLinkResultFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2DisableVpcClassicLinkCommand,
   serializeAws_ec2DisableVpcClassicLinkCommand,
@@ -72,8 +77,8 @@ export class DisableVpcClassicLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableVpcClassicLinkRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableVpcClassicLinkResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableVpcClassicLinkRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisableVpcClassicLinkResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

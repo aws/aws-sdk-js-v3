@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { UntagResourceInput, UntagResourceOutput } from "../models/models_0";
+import {
+  UntagResourceInput,
+  UntagResourceInputFilterSensitiveLog,
+  UntagResourceOutput,
+  UntagResourceOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryUntagResourceCommand,
   serializeAws_queryUntagResourceCommand,
@@ -72,8 +77,8 @@ export class UntagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UntagResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagResourceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UntagResourceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

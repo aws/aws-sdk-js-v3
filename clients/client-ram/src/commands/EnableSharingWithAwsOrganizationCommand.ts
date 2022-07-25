@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { EnableSharingWithAwsOrganizationRequest, EnableSharingWithAwsOrganizationResponse } from "../models/models_0";
+import {
+  EnableSharingWithAwsOrganizationRequest,
+  EnableSharingWithAwsOrganizationRequestFilterSensitiveLog,
+  EnableSharingWithAwsOrganizationResponse,
+  EnableSharingWithAwsOrganizationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1EnableSharingWithAwsOrganizationCommand,
   serializeAws_restJson1EnableSharingWithAwsOrganizationCommand,
@@ -82,8 +87,8 @@ export class EnableSharingWithAwsOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableSharingWithAwsOrganizationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: EnableSharingWithAwsOrganizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableSharingWithAwsOrganizationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: EnableSharingWithAwsOrganizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

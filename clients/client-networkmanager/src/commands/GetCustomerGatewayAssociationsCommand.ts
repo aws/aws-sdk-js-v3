@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetCustomerGatewayAssociationsRequest, GetCustomerGatewayAssociationsResponse } from "../models/models_0";
+import {
+  GetCustomerGatewayAssociationsRequest,
+  GetCustomerGatewayAssociationsRequestFilterSensitiveLog,
+  GetCustomerGatewayAssociationsResponse,
+  GetCustomerGatewayAssociationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1GetCustomerGatewayAssociationsCommand,
@@ -75,8 +80,8 @@ export class GetCustomerGatewayAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCustomerGatewayAssociationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCustomerGatewayAssociationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCustomerGatewayAssociationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCustomerGatewayAssociationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

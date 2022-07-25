@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetSMSAttributesInput, SetSMSAttributesResponse } from "../models/models_0";
+import {
+  SetSMSAttributesInput,
+  SetSMSAttributesInputFilterSensitiveLog,
+  SetSMSAttributesResponse,
+  SetSMSAttributesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_querySetSMSAttributesCommand,
   serializeAws_querySetSMSAttributesCommand,
@@ -82,8 +87,8 @@ export class SetSMSAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetSMSAttributesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: SetSMSAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SetSMSAttributesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: SetSMSAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

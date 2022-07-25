@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateStudioLifecycleConfigRequest, CreateStudioLifecycleConfigResponse } from "../models/models_1";
+import {
+  CreateStudioLifecycleConfigRequest,
+  CreateStudioLifecycleConfigRequestFilterSensitiveLog,
+  CreateStudioLifecycleConfigResponse,
+  CreateStudioLifecycleConfigResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1CreateStudioLifecycleConfigCommand,
   serializeAws_json1_1CreateStudioLifecycleConfigCommand,
@@ -74,8 +79,8 @@ export class CreateStudioLifecycleConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStudioLifecycleConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateStudioLifecycleConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateStudioLifecycleConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateStudioLifecycleConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

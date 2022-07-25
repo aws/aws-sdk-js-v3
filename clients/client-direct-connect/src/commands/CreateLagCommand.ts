@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { CreateLagRequest, Lag } from "../models/models_0";
+import { CreateLagRequest, CreateLagRequestFilterSensitiveLog, Lag, LagFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_json1_1CreateLagCommand, serializeAws_json1_1CreateLagCommand } from "../protocols/Aws_json1_1";
 
 export interface CreateLagCommandInput extends CreateLagRequest {}
@@ -86,8 +86,8 @@ export class CreateLagCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLagRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Lag.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLagRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: LagFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

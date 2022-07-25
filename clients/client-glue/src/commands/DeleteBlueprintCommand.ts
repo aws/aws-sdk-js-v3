@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeleteBlueprintRequest, DeleteBlueprintResponse } from "../models/models_0";
+import {
+  DeleteBlueprintRequest,
+  DeleteBlueprintRequestFilterSensitiveLog,
+  DeleteBlueprintResponse,
+  DeleteBlueprintResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteBlueprintCommand,
   serializeAws_json1_1DeleteBlueprintCommand,
@@ -72,8 +77,8 @@ export class DeleteBlueprintCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBlueprintRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBlueprintResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBlueprintRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBlueprintResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

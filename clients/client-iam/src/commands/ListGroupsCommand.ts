@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ListGroupsRequest, ListGroupsResponse } from "../models/models_0";
+import {
+  ListGroupsRequest,
+  ListGroupsRequestFilterSensitiveLog,
+  ListGroupsResponse,
+  ListGroupsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryListGroupsCommand, serializeAws_queryListGroupsCommand } from "../protocols/Aws_query";
 
 export interface ListGroupsCommandInput extends ListGroupsRequest {}
@@ -71,8 +76,8 @@ export class ListGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListGroupsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListGroupsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

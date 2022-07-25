@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListHoursOfOperationsRequest, ListHoursOfOperationsResponse } from "../models/models_0";
+import {
+  ListHoursOfOperationsRequest,
+  ListHoursOfOperationsRequestFilterSensitiveLog,
+  ListHoursOfOperationsResponse,
+  ListHoursOfOperationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListHoursOfOperationsCommand,
   serializeAws_restJson1ListHoursOfOperationsCommand,
@@ -74,8 +79,8 @@ export class ListHoursOfOperationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHoursOfOperationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListHoursOfOperationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHoursOfOperationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListHoursOfOperationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateScriptRequest, CreateScriptResponse } from "../models/models_0";
+import {
+  CreateScriptRequest,
+  CreateScriptRequestFilterSensitiveLog,
+  CreateScriptResponse,
+  CreateScriptResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateScriptCommand,
   serializeAws_json1_1CreateScriptCommand,
@@ -72,8 +77,8 @@ export class CreateScriptCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateScriptRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateScriptResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateScriptRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateScriptResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

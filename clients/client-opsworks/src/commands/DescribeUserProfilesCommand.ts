@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeUserProfilesRequest, DescribeUserProfilesResult } from "../models/models_0";
+import {
+  DescribeUserProfilesRequest,
+  DescribeUserProfilesRequestFilterSensitiveLog,
+  DescribeUserProfilesResult,
+  DescribeUserProfilesResultFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1DescribeUserProfilesCommand,
@@ -76,8 +81,8 @@ export class DescribeUserProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserProfilesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserProfilesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeUserProfilesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeUserProfilesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

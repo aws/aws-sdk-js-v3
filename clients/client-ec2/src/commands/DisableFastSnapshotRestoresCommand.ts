@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisableFastSnapshotRestoresRequest, DisableFastSnapshotRestoresResult } from "../models/models_4";
+import {
+  DisableFastSnapshotRestoresRequest,
+  DisableFastSnapshotRestoresRequestFilterSensitiveLog,
+  DisableFastSnapshotRestoresResult,
+  DisableFastSnapshotRestoresResultFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2DisableFastSnapshotRestoresCommand,
   serializeAws_ec2DisableFastSnapshotRestoresCommand,
@@ -72,8 +77,8 @@ export class DisableFastSnapshotRestoresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableFastSnapshotRestoresRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableFastSnapshotRestoresResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableFastSnapshotRestoresRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisableFastSnapshotRestoresResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ResumeSessionRequest, ResumeSessionResponse } from "../models/models_1";
+import {
+  ResumeSessionRequest,
+  ResumeSessionRequestFilterSensitiveLog,
+  ResumeSessionResponse,
+  ResumeSessionResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1ResumeSessionCommand,
   serializeAws_json1_1ResumeSessionCommand,
@@ -77,8 +82,8 @@ export class ResumeSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResumeSessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResumeSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResumeSessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResumeSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

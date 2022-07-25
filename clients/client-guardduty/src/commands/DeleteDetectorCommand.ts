@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { DeleteDetectorRequest, DeleteDetectorResponse } from "../models/models_0";
+import {
+  DeleteDetectorRequest,
+  DeleteDetectorRequestFilterSensitiveLog,
+  DeleteDetectorResponse,
+  DeleteDetectorResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDetectorCommand,
   serializeAws_restJson1DeleteDetectorCommand,
@@ -72,8 +77,8 @@ export class DeleteDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDetectorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDetectorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDetectorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDetectorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

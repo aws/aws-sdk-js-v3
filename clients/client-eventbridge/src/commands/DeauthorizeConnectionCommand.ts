@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { DeauthorizeConnectionRequest, DeauthorizeConnectionResponse } from "../models/models_0";
+import {
+  DeauthorizeConnectionRequest,
+  DeauthorizeConnectionRequestFilterSensitiveLog,
+  DeauthorizeConnectionResponse,
+  DeauthorizeConnectionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeauthorizeConnectionCommand,
   serializeAws_json1_1DeauthorizeConnectionCommand,
@@ -73,8 +78,8 @@ export class DeauthorizeConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeauthorizeConnectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeauthorizeConnectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeauthorizeConnectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeauthorizeConnectionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

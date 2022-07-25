@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteHsmClientCertificateMessage } from "../models/models_0";
+import {
+  DeleteHsmClientCertificateMessage,
+  DeleteHsmClientCertificateMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteHsmClientCertificateCommand,
   serializeAws_queryDeleteHsmClientCertificateCommand,
@@ -72,7 +75,7 @@ export class DeleteHsmClientCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHsmClientCertificateMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteHsmClientCertificateMessageFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

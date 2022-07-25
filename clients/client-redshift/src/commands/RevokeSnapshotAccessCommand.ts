@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RevokeSnapshotAccessMessage, RevokeSnapshotAccessResult } from "../models/models_1";
+import {
+  RevokeSnapshotAccessMessage,
+  RevokeSnapshotAccessMessageFilterSensitiveLog,
+  RevokeSnapshotAccessResult,
+  RevokeSnapshotAccessResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryRevokeSnapshotAccessCommand,
   serializeAws_queryRevokeSnapshotAccessCommand,
@@ -78,8 +83,8 @@ export class RevokeSnapshotAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeSnapshotAccessMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: RevokeSnapshotAccessResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokeSnapshotAccessMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: RevokeSnapshotAccessResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteOrganizationalUnitRequest } from "../models/models_0";
+import { DeleteOrganizationalUnitRequest, DeleteOrganizationalUnitRequestFilterSensitiveLog } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1DeleteOrganizationalUnitCommand,
@@ -74,7 +74,7 @@ export class DeleteOrganizationalUnitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOrganizationalUnitRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteOrganizationalUnitRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

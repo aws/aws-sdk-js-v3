@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import { ListVpcConnectorsRequest, ListVpcConnectorsResponse } from "../models/models_0";
+import {
+  ListVpcConnectorsRequest,
+  ListVpcConnectorsRequestFilterSensitiveLog,
+  ListVpcConnectorsResponse,
+  ListVpcConnectorsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0ListVpcConnectorsCommand,
   serializeAws_json1_0ListVpcConnectorsCommand,
@@ -72,8 +77,8 @@ export class ListVpcConnectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVpcConnectorsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListVpcConnectorsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListVpcConnectorsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListVpcConnectorsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

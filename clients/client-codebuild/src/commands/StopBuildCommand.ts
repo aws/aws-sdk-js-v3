@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { StopBuildInput, StopBuildOutput } from "../models/models_0";
+import {
+  StopBuildInput,
+  StopBuildInputFilterSensitiveLog,
+  StopBuildOutput,
+  StopBuildOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1StopBuildCommand, serializeAws_json1_1StopBuildCommand } from "../protocols/Aws_json1_1";
 
 export interface StopBuildCommandInput extends StopBuildInput {}
@@ -69,8 +74,8 @@ export class StopBuildCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopBuildInput.filterSensitiveLog,
-      outputFilterSensitiveLog: StopBuildOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StopBuildInputFilterSensitiveLog,
+      outputFilterSensitiveLog: StopBuildOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

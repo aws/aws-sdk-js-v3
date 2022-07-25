@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutAccountDetailsRequest, PutAccountDetailsResponse } from "../models/models_0";
+import {
+  PutAccountDetailsRequest,
+  PutAccountDetailsRequestFilterSensitiveLog,
+  PutAccountDetailsResponse,
+  PutAccountDetailsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutAccountDetailsCommand,
   serializeAws_restJson1PutAccountDetailsCommand,
@@ -72,8 +77,8 @@ export class PutAccountDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccountDetailsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutAccountDetailsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAccountDetailsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutAccountDetailsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

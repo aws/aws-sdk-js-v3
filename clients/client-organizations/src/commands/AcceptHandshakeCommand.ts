@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AcceptHandshakeRequest, AcceptHandshakeResponse } from "../models/models_0";
+import {
+  AcceptHandshakeRequest,
+  AcceptHandshakeRequestFilterSensitiveLog,
+  AcceptHandshakeResponse,
+  AcceptHandshakeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1AcceptHandshakeCommand,
@@ -102,8 +107,8 @@ export class AcceptHandshakeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptHandshakeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AcceptHandshakeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AcceptHandshakeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AcceptHandshakeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

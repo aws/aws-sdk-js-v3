@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { CreateUploadUrlRequest, CreateUploadUrlResponse } from "../models/models_0";
+import {
+  CreateUploadUrlRequest,
+  CreateUploadUrlRequestFilterSensitiveLog,
+  CreateUploadUrlResponse,
+  CreateUploadUrlResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateUploadUrlCommand,
   serializeAws_restJson1CreateUploadUrlCommand,
@@ -73,8 +78,8 @@ export class CreateUploadUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUploadUrlRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateUploadUrlResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateUploadUrlRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateUploadUrlResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

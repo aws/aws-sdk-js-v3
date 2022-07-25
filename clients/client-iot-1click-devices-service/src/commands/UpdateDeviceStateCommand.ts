@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import { UpdateDeviceStateRequest, UpdateDeviceStateResponse } from "../models/models_0";
+import {
+  UpdateDeviceStateRequest,
+  UpdateDeviceStateRequestFilterSensitiveLog,
+  UpdateDeviceStateResponse,
+  UpdateDeviceStateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDeviceStateCommand,
   serializeAws_restJson1UpdateDeviceStateCommand,
@@ -77,8 +82,8 @@ export class UpdateDeviceStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDeviceStateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDeviceStateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDeviceStateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDeviceStateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

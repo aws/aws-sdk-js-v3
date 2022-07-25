@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetSoftwareUpdatesRequest, GetSoftwareUpdatesResult } from "../models/models_0";
+import {
+  GetSoftwareUpdatesRequest,
+  GetSoftwareUpdatesRequestFilterSensitiveLog,
+  GetSoftwareUpdatesResult,
+  GetSoftwareUpdatesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetSoftwareUpdatesCommand,
   serializeAws_json1_1GetSoftwareUpdatesCommand,
@@ -73,8 +78,8 @@ export class GetSoftwareUpdatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSoftwareUpdatesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSoftwareUpdatesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSoftwareUpdatesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSoftwareUpdatesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

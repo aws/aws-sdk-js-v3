@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateStandardsControlRequest, UpdateStandardsControlResponse } from "../models/models_2";
+import {
+  UpdateStandardsControlRequest,
+  UpdateStandardsControlRequestFilterSensitiveLog,
+  UpdateStandardsControlResponse,
+  UpdateStandardsControlResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateStandardsControlCommand,
   serializeAws_restJson1UpdateStandardsControlCommand,
@@ -73,8 +78,8 @@ export class UpdateStandardsControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStandardsControlRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStandardsControlResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateStandardsControlRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateStandardsControlResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

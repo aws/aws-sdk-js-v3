@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { QueryListsInput } from "../models/models_0";
+import { QueryListsInput, QueryListsInputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryQueryListsCommand, serializeAws_queryQueryListsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
@@ -69,7 +69,7 @@ export class QueryListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryListsInput.filterSensitiveLog,
+      inputFilterSensitiveLog: QueryListsInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

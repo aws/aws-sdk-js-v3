@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { ListResourceTagsRequest, ListResourceTagsResponse } from "../models/models_0";
+import {
+  ListResourceTagsRequest,
+  ListResourceTagsRequestFilterSensitiveLog,
+  ListResourceTagsResponse,
+  ListResourceTagsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListResourceTagsCommand,
   serializeAws_json1_1ListResourceTagsCommand,
@@ -106,8 +111,8 @@ export class ListResourceTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListResourceTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListResourceTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

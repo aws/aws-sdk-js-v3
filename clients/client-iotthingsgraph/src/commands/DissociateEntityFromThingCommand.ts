@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { DissociateEntityFromThingRequest, DissociateEntityFromThingResponse } from "../models/models_0";
+import {
+  DissociateEntityFromThingRequest,
+  DissociateEntityFromThingRequestFilterSensitiveLog,
+  DissociateEntityFromThingResponse,
+  DissociateEntityFromThingResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DissociateEntityFromThingCommand,
   serializeAws_json1_1DissociateEntityFromThingCommand,
@@ -73,8 +78,8 @@ export class DissociateEntityFromThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DissociateEntityFromThingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DissociateEntityFromThingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DissociateEntityFromThingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DissociateEntityFromThingResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

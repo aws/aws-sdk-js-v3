@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SendPipelineExecutionStepSuccessRequest, SendPipelineExecutionStepSuccessResponse } from "../models/models_3";
+import {
+  SendPipelineExecutionStepSuccessRequest,
+  SendPipelineExecutionStepSuccessRequestFilterSensitiveLog,
+  SendPipelineExecutionStepSuccessResponse,
+  SendPipelineExecutionStepSuccessResponseFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_json1_1SendPipelineExecutionStepSuccessCommand,
   serializeAws_json1_1SendPipelineExecutionStepSuccessCommand,
@@ -76,8 +81,8 @@ export class SendPipelineExecutionStepSuccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendPipelineExecutionStepSuccessRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendPipelineExecutionStepSuccessResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SendPipelineExecutionStepSuccessRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SendPipelineExecutionStepSuccessResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

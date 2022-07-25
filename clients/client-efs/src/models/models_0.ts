@@ -72,15 +72,6 @@ export interface PosixUser {
   SecondaryGids?: number[];
 }
 
-export namespace PosixUser {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PosixUser): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Required if the <code>RootDirectory</code> > <code>Path</code> specified does not exist.
  *       Specifies the POSIX IDs and permissions to apply to the access point's <code>RootDirectory</code> > <code>Path</code>.
@@ -112,15 +103,6 @@ export interface CreationInfo {
   Permissions: string | undefined;
 }
 
-export namespace CreationInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreationInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the directory on the Amazon EFS file system that the access point provides access to.
  *       The access point exposes the specified file system path as
@@ -149,15 +131,6 @@ export interface RootDirectory {
   CreationInfo?: CreationInfo;
 }
 
-export namespace RootDirectory {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RootDirectory): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A tag is a key-value pair. Allowed characters are letters, white space, and numbers that
  *       can be represented in UTF-8, and the following characters:<code> + - = . _ : /</code>.</p>
@@ -172,15 +145,6 @@ export interface Tag {
    * <p>The value of the tag key.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -237,15 +201,6 @@ export interface AccessPointDescription {
    * <p>Identifies the lifecycle phase of the access point.</p>
    */
   LifeCycleState?: LifeCycleState | string;
-}
-
-export namespace AccessPointDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessPointDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -402,30 +357,12 @@ export interface BackupPolicy {
   Status: Status | string | undefined;
 }
 
-export namespace BackupPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackupPolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface BackupPolicyDescription {
   /**
    * <p>Describes the file system's backup policy, indicating whether automatic backups are
    *       turned on or off.</p>
    */
   BackupPolicy?: BackupPolicy;
-}
-
-export namespace BackupPolicyDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackupPolicyDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -502,15 +439,6 @@ export interface CreateAccessPointRequest {
    *       using the access point will fail.</p>
    */
   RootDirectory?: RootDirectory;
-}
-
-export namespace CreateAccessPointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccessPointRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -782,15 +710,6 @@ export interface CreateFileSystemRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateFileSystemRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFileSystemRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if the file system you are trying to create already exists, with the
  *             creation token you provided.</p>
@@ -862,15 +781,6 @@ export interface FileSystemSize {
    *       class.</p>
    */
   ValueInStandard?: number;
-}
-
-export namespace FileSystemSize {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSystemSize): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -986,15 +896,6 @@ export interface FileSystemDescription {
    *       objects.</p>
    */
   Tags: Tag[] | undefined;
-}
-
-export namespace FileSystemDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSystemDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1170,15 +1071,6 @@ export interface CreateMountTargetRequest {
   SecurityGroups?: string[];
 }
 
-export namespace CreateMountTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMountTargetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if the request specified an <code>IpAddress</code> that is already in use
  *             in the subnet.</p>
@@ -1308,15 +1200,6 @@ export interface MountTargetDescription {
    * <p>The virtual private cloud (VPC) ID that the mount target is configured in.</p>
    */
   VpcId?: string;
-}
-
-export namespace MountTargetDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MountTargetDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1545,15 +1428,6 @@ export interface DestinationToCreate {
   KmsKeyId?: string;
 }
 
-export namespace DestinationToCreate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationToCreate): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateReplicationConfigurationRequest {
   /**
    * <p>Specifies the Amazon EFS file system that you want to replicate. This file system cannot already be
@@ -1565,15 +1439,6 @@ export interface CreateReplicationConfigurationRequest {
    * <p>An array of destination configuration objects. Only one destination configuration object is supported.</p>
    */
   Destinations: DestinationToCreate[] | undefined;
-}
-
-export namespace CreateReplicationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReplicationConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ReplicationStatus {
@@ -1614,15 +1479,6 @@ export interface Destination {
   LastReplicatedTimestamp?: Date;
 }
 
-export namespace Destination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Destination): any => ({
-    ...obj,
-  });
-}
-
 export interface ReplicationConfigurationDescription {
   /**
    * <p>The ID of the source Amazon EFS file system that is being replicated.</p>
@@ -1654,15 +1510,6 @@ export interface ReplicationConfigurationDescription {
    * <p>An array of destination objects. Only one destination object is supported.</p>
    */
   Destinations: Destination[] | undefined;
-}
-
-export namespace ReplicationConfigurationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationConfigurationDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1752,29 +1599,11 @@ export interface CreateTagsRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace CreateTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAccessPointRequest {
   /**
    * <p>The ID of the access point that you want to delete.</p>
    */
   AccessPointId: string | undefined;
-}
-
-export namespace DeleteAccessPointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccessPointRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1785,15 +1614,6 @@ export interface DeleteFileSystemRequest {
    * <p>The ID of the file system you want to delete.</p>
    */
   FileSystemId: string | undefined;
-}
-
-export namespace DeleteFileSystemRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFileSystemRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1838,15 +1658,6 @@ export interface DeleteFileSystemPolicyRequest {
   FileSystemId: string | undefined;
 }
 
-export namespace DeleteFileSystemPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFileSystemPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1855,15 +1666,6 @@ export interface DeleteMountTargetRequest {
    * <p>The ID of the mount target to delete (String).</p>
    */
   MountTargetId: string | undefined;
-}
-
-export namespace DeleteMountTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMountTargetRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1945,15 +1747,6 @@ export interface DeleteReplicationConfigurationRequest {
   SourceFileSystemId: string | undefined;
 }
 
-export namespace DeleteReplicationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReplicationConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1967,15 +1760,6 @@ export interface DeleteTagsRequest {
    * <p>A list of tag keys to delete.</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace DeleteTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAccessPointsRequest {
@@ -2004,15 +1788,6 @@ export interface DescribeAccessPointsRequest {
   FileSystemId?: string;
 }
 
-export namespace DescribeAccessPointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccessPointsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccessPointsResponse {
   /**
    * <p>An array of access point descriptions.</p>
@@ -2024,15 +1799,6 @@ export interface DescribeAccessPointsResponse {
    *       You can use the NextMarker in the subsequent request to fetch the additional descriptions.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeAccessPointsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccessPointsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAccountPreferencesRequest {
@@ -2048,15 +1814,6 @@ export interface DescribeAccountPreferencesRequest {
    *       The default value is 100. </p>
    */
   MaxResults?: number;
-}
-
-export namespace DescribeAccountPreferencesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountPreferencesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceIdType {
@@ -2084,15 +1841,6 @@ export interface ResourceIdPreference {
   Resources?: (Resource | string)[];
 }
 
-export namespace ResourceIdPreference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceIdPreference): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccountPreferencesResponse {
   /**
    * <p>Describes the resource ID preference setting for the Amazon Web Services account associated with the user making the request, in the current Amazon Web Services Region.</p>
@@ -2106,29 +1854,11 @@ export interface DescribeAccountPreferencesResponse {
   NextToken?: string;
 }
 
-export namespace DescribeAccountPreferencesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountPreferencesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeBackupPolicyRequest {
   /**
    * <p>Specifies which EFS file system to retrieve the <code>BackupPolicy</code> for.</p>
    */
   FileSystemId: string | undefined;
-}
-
-export namespace DescribeBackupPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBackupPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2173,15 +1903,6 @@ export interface DescribeFileSystemPolicyRequest {
   FileSystemId: string | undefined;
 }
 
-export namespace DescribeFileSystemPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFileSystemPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface FileSystemPolicyDescription {
   /**
    * <p>Specifies the EFS file system to which the <code>FileSystemPolicy</code> applies.</p>
@@ -2192,15 +1913,6 @@ export interface FileSystemPolicyDescription {
    * <p>The JSON formatted <code>FileSystemPolicy</code> for the EFS file system.</p>
    */
   Policy?: string;
-}
-
-export namespace FileSystemPolicyDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSystemPolicyDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2234,15 +1946,6 @@ export interface DescribeFileSystemsRequest {
   FileSystemId?: string;
 }
 
-export namespace DescribeFileSystemsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFileSystemsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFileSystemsResponse {
   /**
    * <p>Present if provided by caller in the request (String).</p>
@@ -2261,30 +1964,12 @@ export interface DescribeFileSystemsResponse {
   NextMarker?: string;
 }
 
-export namespace DescribeFileSystemsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFileSystemsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLifecycleConfigurationRequest {
   /**
    * <p>The ID of the file system whose <code>LifecycleConfiguration</code> object you want to
    *       retrieve (String).</p>
    */
   FileSystemId: string | undefined;
-}
-
-export namespace DescribeLifecycleConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLifecycleConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum TransitionToIARules {
@@ -2331,30 +2016,12 @@ export interface LifecyclePolicy {
   TransitionToPrimaryStorageClass?: TransitionToPrimaryStorageClassRules | string;
 }
 
-export namespace LifecyclePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecyclePolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface LifecycleConfigurationDescription {
   /**
    * <p>An array of lifecycle management policies. EFS supports a maximum of one
    *       policy per file system.</p>
    */
   LifecyclePolicies?: LifecyclePolicy[];
-}
-
-export namespace LifecycleConfigurationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecycleConfigurationDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2394,15 +2061,6 @@ export interface DescribeMountTargetsRequest {
   AccessPointId?: string;
 }
 
-export namespace DescribeMountTargetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMountTargetsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -2427,15 +2085,6 @@ export interface DescribeMountTargetsResponse {
   NextMarker?: string;
 }
 
-export namespace DescribeMountTargetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMountTargetsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -2446,29 +2095,11 @@ export interface DescribeMountTargetSecurityGroupsRequest {
   MountTargetId: string | undefined;
 }
 
-export namespace DescribeMountTargetSecurityGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMountTargetSecurityGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeMountTargetSecurityGroupsResponse {
   /**
    * <p>An array of security groups.</p>
    */
   SecurityGroups: string[] | undefined;
-}
-
-export namespace DescribeMountTargetSecurityGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMountTargetSecurityGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2529,15 +2160,6 @@ export interface DescribeReplicationConfigurationsRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeReplicationConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReplicationConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeReplicationConfigurationsResponse {
   /**
    * <p>The collection of replication configurations that is returned.</p>
@@ -2549,15 +2171,6 @@ export interface DescribeReplicationConfigurationsResponse {
    *       request to fetch the additional descriptions.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeReplicationConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReplicationConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2584,15 +2197,6 @@ export interface DescribeTagsRequest {
   FileSystemId: string | undefined;
 }
 
-export namespace DescribeTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -2615,15 +2219,6 @@ export interface DescribeTagsResponse {
    *       in your next request to retrieve the next set of tags.</p>
    */
   NextMarker?: string;
-}
-
-export namespace DescribeTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2680,15 +2275,6 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>An array of the tags for the specified EFS resource.</p>
@@ -2700,15 +2286,6 @@ export interface ListTagsForResourceResponse {
    *             <code>NextToken</code> is present if the response payload is paginated. You can use <code>NextToken</code> in a subsequent request to fetch the next page of access point descriptions.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2726,15 +2303,6 @@ export interface ModifyMountTargetSecurityGroupsRequest {
   SecurityGroups?: string[];
 }
 
-export namespace ModifyMountTargetSecurityGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyMountTargetSecurityGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAccountPreferencesRequest {
   /**
    * <p>Specifies the EFS resource ID preference to set for the user's Amazon Web Services account,
@@ -2749,29 +2317,11 @@ export interface PutAccountPreferencesRequest {
   ResourceIdType: ResourceIdType | string | undefined;
 }
 
-export namespace PutAccountPreferencesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccountPreferencesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAccountPreferencesResponse {
   /**
    * <p>Describes the resource type and its ID preference for the user's Amazon Web Services account, in the current Amazon Web Services Region.</p>
    */
   ResourceIdPreference?: ResourceIdPreference;
-}
-
-export namespace PutAccountPreferencesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccountPreferencesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutBackupPolicyRequest {
@@ -2784,15 +2334,6 @@ export interface PutBackupPolicyRequest {
    * <p>The backup policy included in the <code>PutBackupPolicy</code> request.</p>
    */
   BackupPolicy: BackupPolicy | undefined;
-}
-
-export namespace PutBackupPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBackupPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutFileSystemPolicyRequest {
@@ -2819,15 +2360,6 @@ export interface PutFileSystemPolicyRequest {
    *     </p>
    */
   BypassPolicyLockoutSafetyCheck?: boolean;
-}
-
-export namespace PutFileSystemPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFileSystemPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutLifecycleConfigurationRequest {
@@ -2862,15 +2394,6 @@ export interface PutLifecycleConfigurationRequest {
   LifecyclePolicies: LifecyclePolicy[] | undefined;
 }
 
-export namespace PutLifecycleConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLifecycleConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The ID specifying the EFS resource that you want to create a tag for.</p>
@@ -2884,15 +2407,6 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * <p>Specifies the EFS resource that you want to remove tags from.</p>
@@ -2904,15 +2418,6 @@ export interface UntagResourceRequest {
    *       resource.</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2974,11 +2479,412 @@ export interface UpdateFileSystemRequest {
   ProvisionedThroughputInMibps?: number;
 }
 
-export namespace UpdateFileSystemRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFileSystemRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const PosixUserFilterSensitiveLog = (obj: PosixUser): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreationInfoFilterSensitiveLog = (obj: CreationInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RootDirectoryFilterSensitiveLog = (obj: RootDirectory): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessPointDescriptionFilterSensitiveLog = (obj: AccessPointDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackupPolicyFilterSensitiveLog = (obj: BackupPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackupPolicyDescriptionFilterSensitiveLog = (obj: BackupPolicyDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAccessPointRequestFilterSensitiveLog = (obj: CreateAccessPointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFileSystemRequestFilterSensitiveLog = (obj: CreateFileSystemRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileSystemSizeFilterSensitiveLog = (obj: FileSystemSize): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileSystemDescriptionFilterSensitiveLog = (obj: FileSystemDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMountTargetRequestFilterSensitiveLog = (obj: CreateMountTargetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MountTargetDescriptionFilterSensitiveLog = (obj: MountTargetDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationToCreateFilterSensitiveLog = (obj: DestinationToCreate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReplicationConfigurationRequestFilterSensitiveLog = (
+  obj: CreateReplicationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationFilterSensitiveLog = (obj: Destination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationConfigurationDescriptionFilterSensitiveLog = (
+  obj: ReplicationConfigurationDescription
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTagsRequestFilterSensitiveLog = (obj: CreateTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccessPointRequestFilterSensitiveLog = (obj: DeleteAccessPointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFileSystemRequestFilterSensitiveLog = (obj: DeleteFileSystemRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFileSystemPolicyRequestFilterSensitiveLog = (obj: DeleteFileSystemPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMountTargetRequestFilterSensitiveLog = (obj: DeleteMountTargetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReplicationConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteReplicationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTagsRequestFilterSensitiveLog = (obj: DeleteTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccessPointsRequestFilterSensitiveLog = (obj: DescribeAccessPointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccessPointsResponseFilterSensitiveLog = (obj: DescribeAccessPointsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountPreferencesRequestFilterSensitiveLog = (obj: DescribeAccountPreferencesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceIdPreferenceFilterSensitiveLog = (obj: ResourceIdPreference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountPreferencesResponseFilterSensitiveLog = (obj: DescribeAccountPreferencesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBackupPolicyRequestFilterSensitiveLog = (obj: DescribeBackupPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFileSystemPolicyRequestFilterSensitiveLog = (obj: DescribeFileSystemPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileSystemPolicyDescriptionFilterSensitiveLog = (obj: FileSystemPolicyDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFileSystemsRequestFilterSensitiveLog = (obj: DescribeFileSystemsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFileSystemsResponseFilterSensitiveLog = (obj: DescribeFileSystemsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLifecycleConfigurationRequestFilterSensitiveLog = (
+  obj: DescribeLifecycleConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecyclePolicyFilterSensitiveLog = (obj: LifecyclePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecycleConfigurationDescriptionFilterSensitiveLog = (obj: LifecycleConfigurationDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMountTargetsRequestFilterSensitiveLog = (obj: DescribeMountTargetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMountTargetsResponseFilterSensitiveLog = (obj: DescribeMountTargetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMountTargetSecurityGroupsRequestFilterSensitiveLog = (
+  obj: DescribeMountTargetSecurityGroupsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMountTargetSecurityGroupsResponseFilterSensitiveLog = (
+  obj: DescribeMountTargetSecurityGroupsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReplicationConfigurationsRequestFilterSensitiveLog = (
+  obj: DescribeReplicationConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReplicationConfigurationsResponseFilterSensitiveLog = (
+  obj: DescribeReplicationConfigurationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTagsRequestFilterSensitiveLog = (obj: DescribeTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTagsResponseFilterSensitiveLog = (obj: DescribeTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyMountTargetSecurityGroupsRequestFilterSensitiveLog = (
+  obj: ModifyMountTargetSecurityGroupsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAccountPreferencesRequestFilterSensitiveLog = (obj: PutAccountPreferencesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAccountPreferencesResponseFilterSensitiveLog = (obj: PutAccountPreferencesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBackupPolicyRequestFilterSensitiveLog = (obj: PutBackupPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutFileSystemPolicyRequestFilterSensitiveLog = (obj: PutFileSystemPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutLifecycleConfigurationRequestFilterSensitiveLog = (obj: PutLifecycleConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFileSystemRequestFilterSensitiveLog = (obj: UpdateFileSystemRequest): any => ({
+  ...obj,
+});

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ReleasePhoneNumberRequest } from "../models/models_1";
+import { ReleasePhoneNumberRequest, ReleasePhoneNumberRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1ReleasePhoneNumberCommand,
   serializeAws_restJson1ReleasePhoneNumberCommand,
@@ -72,7 +72,7 @@ export class ReleasePhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReleasePhoneNumberRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ReleasePhoneNumberRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

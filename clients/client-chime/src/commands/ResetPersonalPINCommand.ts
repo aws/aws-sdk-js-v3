@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { ResetPersonalPINRequest, ResetPersonalPINResponse } from "../models/models_1";
+import {
+  ResetPersonalPINRequest,
+  ResetPersonalPINRequestFilterSensitiveLog,
+  ResetPersonalPINResponse,
+  ResetPersonalPINResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ResetPersonalPINCommand,
   serializeAws_restJson1ResetPersonalPINCommand,
@@ -73,8 +78,8 @@ export class ResetPersonalPINCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetPersonalPINRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResetPersonalPINResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetPersonalPINRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResetPersonalPINResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

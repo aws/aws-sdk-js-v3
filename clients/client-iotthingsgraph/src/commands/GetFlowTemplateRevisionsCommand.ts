@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { GetFlowTemplateRevisionsRequest, GetFlowTemplateRevisionsResponse } from "../models/models_0";
+import {
+  GetFlowTemplateRevisionsRequest,
+  GetFlowTemplateRevisionsRequestFilterSensitiveLog,
+  GetFlowTemplateRevisionsResponse,
+  GetFlowTemplateRevisionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetFlowTemplateRevisionsCommand,
   serializeAws_json1_1GetFlowTemplateRevisionsCommand,
@@ -73,8 +78,8 @@ export class GetFlowTemplateRevisionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFlowTemplateRevisionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetFlowTemplateRevisionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFlowTemplateRevisionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetFlowTemplateRevisionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

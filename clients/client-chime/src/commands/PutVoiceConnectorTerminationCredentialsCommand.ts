@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { PutVoiceConnectorTerminationCredentialsRequest } from "../models/models_1";
+import {
+  PutVoiceConnectorTerminationCredentialsRequest,
+  PutVoiceConnectorTerminationCredentialsRequestFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand,
   serializeAws_restJson1PutVoiceConnectorTerminationCredentialsCommand,
@@ -76,7 +79,7 @@ export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutVoiceConnectorTerminationCredentialsRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutVoiceConnectorTerminationCredentialsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

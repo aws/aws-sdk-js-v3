@@ -22,15 +22,6 @@ export interface AcceptEulasRequest {
   studioId: string | undefined;
 }
 
-export namespace AcceptEulasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptEulasRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The acceptance of a EULA, required to use Amazon-provided streaming images.</p>
  */
@@ -61,29 +52,11 @@ export interface EulaAcceptance {
   eulaId?: string;
 }
 
-export namespace EulaAcceptance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EulaAcceptance): any => ({
-    ...obj,
-  });
-}
-
 export interface AcceptEulasResponse {
   /**
    * <p>A collection of EULA acceptances.</p>
    */
   eulaAcceptances?: EulaAcceptance[];
-}
-
-export namespace AcceptEulasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptEulasResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -324,15 +297,6 @@ export interface ActiveDirectoryComputerAttribute {
   value?: string;
 }
 
-export namespace ActiveDirectoryComputerAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActiveDirectoryComputerAttribute): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
  *             resource.</p>
@@ -356,16 +320,6 @@ export interface ActiveDirectoryConfiguration {
   organizationalUnitDistinguishedName?: string;
 }
 
-export namespace ActiveDirectoryConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActiveDirectoryConfiguration): any => ({
-    ...obj,
-    ...(obj.computerAttributes && { computerAttributes: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The configuration for a render farm that is associated with a studio resource.</p>
  */
@@ -381,16 +335,6 @@ export interface ComputeFarmConfiguration {
    *             resource.</p>
    */
   endpoint?: string;
-}
-
-export namespace ComputeFarmConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComputeFarmConfiguration): any => ({
-    ...obj,
-    ...(obj.endpoint && { endpoint: SENSITIVE_STRING }),
-  });
 }
 
 export enum StreamingClipboardMode {
@@ -427,17 +371,6 @@ export interface StreamingSessionStorageRoot {
   windows?: string;
 }
 
-export namespace StreamingSessionStorageRoot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingSessionStorageRoot): any => ({
-    ...obj,
-    ...(obj.linux && { linux: SENSITIVE_STRING }),
-    ...(obj.windows && { windows: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The configuration for a streaming session’s upload storage.</p>
  */
@@ -452,16 +385,6 @@ export interface StreamConfigurationSessionStorage {
    *                 <code>UPLOAD</code>.</p>
    */
   mode: (StreamingSessionStorageMode | string)[] | undefined;
-}
-
-export namespace StreamConfigurationSessionStorage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamConfigurationSessionStorage): any => ({
-    ...obj,
-    ...(obj.root && { root: StreamingSessionStorageRoot.filterSensitiveLog(obj.root) }),
-  });
 }
 
 /**
@@ -516,18 +439,6 @@ export interface StreamConfigurationCreate {
   sessionStorage?: StreamConfigurationSessionStorage;
 }
 
-export namespace StreamConfigurationCreate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamConfigurationCreate): any => ({
-    ...obj,
-    ...(obj.sessionStorage && {
-      sessionStorage: StreamConfigurationSessionStorage.filterSensitiveLog(obj.sessionStorage),
-    }),
-  });
-}
-
 export interface CreateLaunchProfileRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -579,20 +490,6 @@ export interface CreateLaunchProfileRequest {
    *             resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateLaunchProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLaunchProfileRequest): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.streamConfiguration && {
-      streamConfiguration: StreamConfigurationCreate.filterSensitiveLog(obj.streamConfiguration),
-    }),
-  });
 }
 
 export enum LaunchProfileState {
@@ -673,18 +570,6 @@ export interface StreamConfiguration {
   sessionStorage?: StreamConfigurationSessionStorage;
 }
 
-export namespace StreamConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamConfiguration): any => ({
-    ...obj,
-    ...(obj.sessionStorage && {
-      sessionStorage: StreamConfigurationSessionStorage.filterSensitiveLog(obj.sessionStorage),
-    }),
-  });
-}
-
 export enum LaunchProfileValidationState {
   VALIDATION_FAILED = "VALIDATION_FAILED",
   VALIDATION_FAILED_INTERNAL_SERVER_ERROR = "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
@@ -736,15 +621,6 @@ export interface ValidationResult {
    * <p>The status message for the validation result.</p>
    */
   statusMessage: string | undefined;
-}
-
-export namespace ValidationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -847,35 +723,11 @@ export interface LaunchProfile {
   validationResults?: ValidationResult[];
 }
 
-export namespace LaunchProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchProfile): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.streamConfiguration && {
-      streamConfiguration: StreamConfiguration.filterSensitiveLog(obj.streamConfiguration),
-    }),
-  });
-}
-
 export interface CreateLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
    */
   launchProfile?: LaunchProfile;
-}
-
-export namespace CreateLaunchProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLaunchProfileResponse): any => ({
-    ...obj,
-    ...(obj.launchProfile && { launchProfile: LaunchProfile.filterSensitiveLog(obj.launchProfile) }),
-  });
 }
 
 export interface CreateStreamingImageRequest {
@@ -913,17 +765,6 @@ export interface CreateStreamingImageRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateStreamingImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingImageRequest): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-  });
-}
-
 export enum StreamingImageEncryptionConfigurationKeyType {
   CUSTOMER_MANAGED_KEY = "CUSTOMER_MANAGED_KEY",
 }
@@ -941,15 +782,6 @@ export interface StreamingImageEncryptionConfiguration {
    * <p>The type of KMS key that is used to encrypt studio data.</p>
    */
   keyType: StreamingImageEncryptionConfigurationKeyType | string | undefined;
-}
-
-export namespace StreamingImageEncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingImageEncryptionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum StreamingImageState {
@@ -1053,32 +885,11 @@ export interface StreamingImage {
   tags?: Record<string, string>;
 }
 
-export namespace StreamingImage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingImage): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateStreamingImageResponse {
   /**
    * <p>The streaming image.</p>
    */
   streamingImage?: StreamingImage;
-}
-
-export namespace CreateStreamingImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingImageResponse): any => ({
-    ...obj,
-    ...(obj.streamingImage && { streamingImage: StreamingImage.filterSensitiveLog(obj.streamingImage) }),
-  });
 }
 
 export interface CreateStreamingSessionRequest {
@@ -1121,15 +932,6 @@ export interface CreateStreamingSessionRequest {
    *             resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateStreamingSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingSessionRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum StreamingSessionState {
@@ -1276,29 +1078,11 @@ export interface StreamingSession {
   stopAt?: Date;
 }
 
-export namespace StreamingSession {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingSession): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateStreamingSessionResponse {
   /**
    * <p>The session.</p>
    */
   session?: StreamingSession;
-}
-
-export namespace CreateStreamingSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingSessionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateStreamingSessionStreamRequest {
@@ -1323,15 +1107,6 @@ export interface CreateStreamingSessionStreamRequest {
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
-}
-
-export namespace CreateStreamingSessionStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingSessionStreamRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum StreamingSessionStreamState {
@@ -1402,31 +1177,11 @@ export interface StreamingSessionStream {
   url?: string;
 }
 
-export namespace StreamingSessionStream {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingSessionStream): any => ({
-    ...obj,
-    ...(obj.url && { url: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateStreamingSessionStreamResponse {
   /**
    * <p>The stream.</p>
    */
   stream?: StreamingSessionStream;
-}
-
-export namespace CreateStreamingSessionStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingSessionStreamResponse): any => ({
-    ...obj,
-    ...(obj.stream && { stream: StreamingSessionStream.filterSensitiveLog(obj.stream) }),
-  });
 }
 
 export enum StudioEncryptionConfigurationKeyType {
@@ -1447,15 +1202,6 @@ export interface StudioEncryptionConfiguration {
    * <p>The type of KMS key that is used to encrypt studio data.</p>
    */
   keyType: StudioEncryptionConfigurationKeyType | string | undefined;
-}
-
-export namespace StudioEncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StudioEncryptionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateStudioRequest {
@@ -1499,16 +1245,6 @@ export interface CreateStudioRequest {
    *             portal.</p>
    */
   userRoleArn: string | undefined;
-}
-
-export namespace CreateStudioRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStudioRequest): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-  });
 }
 
 export enum StudioState {
@@ -1645,31 +1381,11 @@ export interface Studio {
   userRoleArn?: string;
 }
 
-export namespace Studio {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Studio): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateStudioResponse {
   /**
    * <p>Information about a studio.</p>
    */
   studio?: Studio;
-}
-
-export namespace CreateStudioResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStudioResponse): any => ({
-    ...obj,
-    ...(obj.studio && { studio: Studio.filterSensitiveLog(obj.studio) }),
-  });
 }
 
 /**
@@ -1682,16 +1398,6 @@ export interface LicenseServiceConfiguration {
    *             resource.</p>
    */
   endpoint?: string;
-}
-
-export namespace LicenseServiceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LicenseServiceConfiguration): any => ({
-    ...obj,
-    ...(obj.endpoint && { endpoint: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1726,18 +1432,6 @@ export interface SharedFileSystemConfiguration {
   windowsMountDrive?: string;
 }
 
-export namespace SharedFileSystemConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SharedFileSystemConfiguration): any => ({
-    ...obj,
-    ...(obj.endpoint && { endpoint: SENSITIVE_STRING }),
-    ...(obj.linuxMountPoint && { linuxMountPoint: SENSITIVE_STRING }),
-    ...(obj.shareName && { shareName: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The configuration of the studio component, based on component type.</p>
  */
@@ -1764,29 +1458,6 @@ export interface StudioComponentConfiguration {
    *             resource.</p>
    */
   sharedFileSystemConfiguration?: SharedFileSystemConfiguration;
-}
-
-export namespace StudioComponentConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StudioComponentConfiguration): any => ({
-    ...obj,
-    ...(obj.activeDirectoryConfiguration && {
-      activeDirectoryConfiguration: ActiveDirectoryConfiguration.filterSensitiveLog(obj.activeDirectoryConfiguration),
-    }),
-    ...(obj.computeFarmConfiguration && {
-      computeFarmConfiguration: ComputeFarmConfiguration.filterSensitiveLog(obj.computeFarmConfiguration),
-    }),
-    ...(obj.licenseServiceConfiguration && {
-      licenseServiceConfiguration: LicenseServiceConfiguration.filterSensitiveLog(obj.licenseServiceConfiguration),
-    }),
-    ...(obj.sharedFileSystemConfiguration && {
-      sharedFileSystemConfiguration: SharedFileSystemConfiguration.filterSensitiveLog(
-        obj.sharedFileSystemConfiguration
-      ),
-    }),
-  });
 }
 
 export enum LaunchProfilePlatform {
@@ -1825,16 +1496,6 @@ export interface StudioComponentInitializationScript {
   script?: string;
 }
 
-export namespace StudioComponentInitializationScript {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StudioComponentInitializationScript): any => ({
-    ...obj,
-    ...(obj.script && { script: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>A parameter for a studio component script, in the form of a key:value pair.</p>
  */
@@ -1848,15 +1509,6 @@ export interface ScriptParameterKeyValue {
    * <p>A script parameter value.</p>
    */
   value?: string;
-}
-
-export namespace ScriptParameterKeyValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScriptParameterKeyValue): any => ({
-    ...obj,
-  });
 }
 
 export enum StudioComponentSubtype {
@@ -1942,24 +1594,6 @@ export interface CreateStudioComponentRequest {
    * <p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>
    */
   runtimeRoleArn?: string;
-}
-
-export namespace CreateStudioComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStudioComponentRequest): any => ({
-    ...obj,
-    ...(obj.configuration && { configuration: StudioComponentConfiguration.filterSensitiveLog(obj.configuration) }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.initializationScripts && {
-      initializationScripts: obj.initializationScripts.map((item) =>
-        StudioComponentInitializationScript.filterSensitiveLog(item)
-      ),
-    }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.scriptParameters && { scriptParameters: SENSITIVE_STRING }),
-  });
 }
 
 export enum StudioComponentState {
@@ -2100,39 +1734,11 @@ export interface StudioComponent {
   runtimeRoleArn?: string;
 }
 
-export namespace StudioComponent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StudioComponent): any => ({
-    ...obj,
-    ...(obj.configuration && { configuration: StudioComponentConfiguration.filterSensitiveLog(obj.configuration) }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.initializationScripts && {
-      initializationScripts: obj.initializationScripts.map((item) =>
-        StudioComponentInitializationScript.filterSensitiveLog(item)
-      ),
-    }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.scriptParameters && { scriptParameters: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
    */
   studioComponent?: StudioComponent;
-}
-
-export namespace CreateStudioComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStudioComponentResponse): any => ({
-    ...obj,
-    ...(obj.studioComponent && { studioComponent: StudioComponent.filterSensitiveLog(obj.studioComponent) }),
-  });
 }
 
 export interface DeleteLaunchProfileRequest {
@@ -2154,30 +1760,11 @@ export interface DeleteLaunchProfileRequest {
   studioId: string | undefined;
 }
 
-export namespace DeleteLaunchProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLaunchProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
    */
   launchProfile?: LaunchProfile;
-}
-
-export namespace DeleteLaunchProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLaunchProfileResponse): any => ({
-    ...obj,
-    ...(obj.launchProfile && { launchProfile: LaunchProfile.filterSensitiveLog(obj.launchProfile) }),
-  });
 }
 
 export interface DeleteLaunchProfileMemberRequest {
@@ -2204,25 +1791,7 @@ export interface DeleteLaunchProfileMemberRequest {
   studioId: string | undefined;
 }
 
-export namespace DeleteLaunchProfileMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLaunchProfileMemberRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLaunchProfileMemberResponse {}
-
-export namespace DeleteLaunchProfileMemberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLaunchProfileMemberResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteStreamingImageRequest {
   /**
@@ -2243,30 +1812,11 @@ export interface DeleteStreamingImageRequest {
   studioId: string | undefined;
 }
 
-export namespace DeleteStreamingImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamingImageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStreamingImageResponse {
   /**
    * <p>The streaming image.</p>
    */
   streamingImage?: StreamingImage;
-}
-
-export namespace DeleteStreamingImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamingImageResponse): any => ({
-    ...obj,
-    ...(obj.streamingImage && { streamingImage: StreamingImage.filterSensitiveLog(obj.streamingImage) }),
-  });
 }
 
 export interface DeleteStreamingSessionRequest {
@@ -2288,29 +1838,11 @@ export interface DeleteStreamingSessionRequest {
   studioId: string | undefined;
 }
 
-export namespace DeleteStreamingSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamingSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStreamingSessionResponse {
   /**
    * <p>The session.</p>
    */
   session?: StreamingSession;
-}
-
-export namespace DeleteStreamingSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamingSessionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteStudioRequest {
@@ -2327,30 +1859,11 @@ export interface DeleteStudioRequest {
   studioId: string | undefined;
 }
 
-export namespace DeleteStudioRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStudioRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStudioResponse {
   /**
    * <p>Information about a studio.</p>
    */
   studio: Studio | undefined;
-}
-
-export namespace DeleteStudioResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStudioResponse): any => ({
-    ...obj,
-    ...(obj.studio && { studio: Studio.filterSensitiveLog(obj.studio) }),
-  });
 }
 
 export interface DeleteStudioComponentRequest {
@@ -2372,30 +1885,11 @@ export interface DeleteStudioComponentRequest {
   studioId: string | undefined;
 }
 
-export namespace DeleteStudioComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStudioComponentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
    */
   studioComponent?: StudioComponent;
-}
-
-export namespace DeleteStudioComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStudioComponentResponse): any => ({
-    ...obj,
-    ...(obj.studioComponent && { studioComponent: StudioComponent.filterSensitiveLog(obj.studioComponent) }),
-  });
 }
 
 export interface DeleteStudioMemberRequest {
@@ -2417,25 +1911,7 @@ export interface DeleteStudioMemberRequest {
   studioId: string | undefined;
 }
 
-export namespace DeleteStudioMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStudioMemberRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStudioMemberResponse {}
-
-export namespace DeleteStudioMemberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStudioMemberResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a EULA resource.</p>
@@ -2467,15 +1943,6 @@ export interface Eula {
   updatedAt?: Date;
 }
 
-export namespace Eula {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Eula): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEulaAcceptancesRequest {
   /**
    * <p>The list of EULA IDs that have been previously accepted.</p>
@@ -2493,15 +1960,6 @@ export interface ListEulaAcceptancesRequest {
   studioId: string | undefined;
 }
 
-export namespace ListEulaAcceptancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEulaAcceptancesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEulaAcceptancesResponse {
   /**
    * <p>A collection of EULA acceptances.</p>
@@ -2514,15 +1972,6 @@ export interface ListEulaAcceptancesResponse {
   nextToken?: string;
 }
 
-export namespace ListEulaAcceptancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEulaAcceptancesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEulaRequest {
   /**
    * <p>The EULA ID.</p>
@@ -2530,29 +1979,11 @@ export interface GetEulaRequest {
   eulaId: string | undefined;
 }
 
-export namespace GetEulaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEulaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEulaResponse {
   /**
    * <p>The EULA.</p>
    */
   eula?: Eula;
-}
-
-export namespace GetEulaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEulaResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEulasRequest {
@@ -2567,15 +1998,6 @@ export interface ListEulasRequest {
   nextToken?: string;
 }
 
-export namespace ListEulasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEulasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEulasResponse {
   /**
    * <p>A collection of EULA resources.</p>
@@ -2586,15 +2008,6 @@ export interface ListEulasResponse {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListEulasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEulasResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLaunchProfileRequest {
@@ -2609,30 +2022,11 @@ export interface GetLaunchProfileRequest {
   studioId: string | undefined;
 }
 
-export namespace GetLaunchProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
    */
   launchProfile?: LaunchProfile;
-}
-
-export namespace GetLaunchProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchProfileResponse): any => ({
-    ...obj,
-    ...(obj.launchProfile && { launchProfile: LaunchProfile.filterSensitiveLog(obj.launchProfile) }),
-  });
 }
 
 export interface GetLaunchProfileDetailsRequest {
@@ -2645,15 +2039,6 @@ export interface GetLaunchProfileDetailsRequest {
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
-}
-
-export namespace GetLaunchProfileDetailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchProfileDetailsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2706,17 +2091,6 @@ export interface StudioComponentSummary {
   updatedBy?: string;
 }
 
-export namespace StudioComponentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StudioComponentSummary): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetLaunchProfileDetailsResponse {
   /**
    * <p>The launch profile.</p>
@@ -2732,24 +2106,6 @@ export interface GetLaunchProfileDetailsResponse {
    * <p>A collection of studio component summaries.</p>
    */
   studioComponentSummaries?: StudioComponentSummary[];
-}
-
-export namespace GetLaunchProfileDetailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchProfileDetailsResponse): any => ({
-    ...obj,
-    ...(obj.launchProfile && { launchProfile: LaunchProfile.filterSensitiveLog(obj.launchProfile) }),
-    ...(obj.streamingImages && {
-      streamingImages: obj.streamingImages.map((item) => StreamingImage.filterSensitiveLog(item)),
-    }),
-    ...(obj.studioComponentSummaries && {
-      studioComponentSummaries: obj.studioComponentSummaries.map((item) =>
-        StudioComponentSummary.filterSensitiveLog(item)
-      ),
-    }),
-  });
 }
 
 export interface GetLaunchProfileInitializationRequest {
@@ -2777,15 +2133,6 @@ export interface GetLaunchProfileInitializationRequest {
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
-}
-
-export namespace GetLaunchProfileInitializationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchProfileInitializationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2830,17 +2177,6 @@ export interface LaunchProfileInitializationActiveDirectory {
   studioComponentName?: string;
 }
 
-export namespace LaunchProfileInitializationActiveDirectory {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchProfileInitializationActiveDirectory): any => ({
-    ...obj,
-    ...(obj.computerAttributes && { computerAttributes: SENSITIVE_STRING }),
-    ...(obj.studioComponentName && { studioComponentName: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The Launch Profile Initialization Script is used when start streaming session
  *             runs.</p>
@@ -2870,17 +2206,6 @@ export interface LaunchProfileInitializationScript {
    * <p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>
    */
   runtimeRoleArn?: string;
-}
-
-export namespace LaunchProfileInitializationScript {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchProfileInitializationScript): any => ({
-    ...obj,
-    ...(obj.script && { script: SENSITIVE_STRING }),
-    ...(obj.studioComponentName && { studioComponentName: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -2937,46 +2262,11 @@ export interface LaunchProfileInitialization {
   userInitializationScripts?: LaunchProfileInitializationScript[];
 }
 
-export namespace LaunchProfileInitialization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchProfileInitialization): any => ({
-    ...obj,
-    ...(obj.activeDirectory && {
-      activeDirectory: LaunchProfileInitializationActiveDirectory.filterSensitiveLog(obj.activeDirectory),
-    }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.systemInitializationScripts && {
-      systemInitializationScripts: obj.systemInitializationScripts.map((item) =>
-        LaunchProfileInitializationScript.filterSensitiveLog(item)
-      ),
-    }),
-    ...(obj.userInitializationScripts && {
-      userInitializationScripts: obj.userInitializationScripts.map((item) =>
-        LaunchProfileInitializationScript.filterSensitiveLog(item)
-      ),
-    }),
-  });
-}
-
 export interface GetLaunchProfileInitializationResponse {
   /**
    * <p>The launch profile initialization.</p>
    */
   launchProfileInitialization?: LaunchProfileInitialization;
-}
-
-export namespace GetLaunchProfileInitializationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchProfileInitializationResponse): any => ({
-    ...obj,
-    ...(obj.launchProfileInitialization && {
-      launchProfileInitialization: LaunchProfileInitialization.filterSensitiveLog(obj.launchProfileInitialization),
-    }),
-  });
 }
 
 export interface GetLaunchProfileMemberRequest {
@@ -2994,15 +2284,6 @@ export interface GetLaunchProfileMemberRequest {
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
-}
-
-export namespace GetLaunchProfileMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchProfileMemberRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum LaunchProfilePersona {
@@ -3059,29 +2340,11 @@ export interface LaunchProfileMembership {
   sid?: string;
 }
 
-export namespace LaunchProfileMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchProfileMembership): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLaunchProfileMemberResponse {
   /**
    * <p>The member.</p>
    */
   member?: LaunchProfileMembership;
-}
-
-export namespace GetLaunchProfileMemberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchProfileMemberResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetStreamingImageRequest {
@@ -3096,30 +2359,11 @@ export interface GetStreamingImageRequest {
   studioId: string | undefined;
 }
 
-export namespace GetStreamingImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamingImageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStreamingImageResponse {
   /**
    * <p>The streaming image.</p>
    */
   streamingImage?: StreamingImage;
-}
-
-export namespace GetStreamingImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamingImageResponse): any => ({
-    ...obj,
-    ...(obj.streamingImage && { streamingImage: StreamingImage.filterSensitiveLog(obj.streamingImage) }),
-  });
 }
 
 export interface GetStreamingSessionRequest {
@@ -3134,29 +2378,11 @@ export interface GetStreamingSessionRequest {
   studioId: string | undefined;
 }
 
-export namespace GetStreamingSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamingSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStreamingSessionResponse {
   /**
    * <p>The session.</p>
    */
   session?: StreamingSession;
-}
-
-export namespace GetStreamingSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamingSessionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetStreamingSessionStreamRequest {
@@ -3176,30 +2402,11 @@ export interface GetStreamingSessionStreamRequest {
   studioId: string | undefined;
 }
 
-export namespace GetStreamingSessionStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamingSessionStreamRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStreamingSessionStreamResponse {
   /**
    * <p>The stream.</p>
    */
   stream?: StreamingSessionStream;
-}
-
-export namespace GetStreamingSessionStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamingSessionStreamResponse): any => ({
-    ...obj,
-    ...(obj.stream && { stream: StreamingSessionStream.filterSensitiveLog(obj.stream) }),
-  });
 }
 
 export interface GetStudioRequest {
@@ -3209,30 +2416,11 @@ export interface GetStudioRequest {
   studioId: string | undefined;
 }
 
-export namespace GetStudioRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStudioRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStudioResponse {
   /**
    * <p>Information about a studio.</p>
    */
   studio: Studio | undefined;
-}
-
-export namespace GetStudioResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStudioResponse): any => ({
-    ...obj,
-    ...(obj.studio && { studio: Studio.filterSensitiveLog(obj.studio) }),
-  });
 }
 
 export interface GetStudioComponentRequest {
@@ -3247,30 +2435,11 @@ export interface GetStudioComponentRequest {
   studioId: string | undefined;
 }
 
-export namespace GetStudioComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStudioComponentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
    */
   studioComponent?: StudioComponent;
-}
-
-export namespace GetStudioComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStudioComponentResponse): any => ({
-    ...obj,
-    ...(obj.studioComponent && { studioComponent: StudioComponent.filterSensitiveLog(obj.studioComponent) }),
-  });
 }
 
 export interface GetStudioMemberRequest {
@@ -3283,15 +2452,6 @@ export interface GetStudioMemberRequest {
    * <p>The studio ID. </p>
    */
   studioId: string | undefined;
-}
-
-export namespace GetStudioMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStudioMemberRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum StudioPersona {
@@ -3332,29 +2492,11 @@ export interface StudioMembership {
   sid?: string;
 }
 
-export namespace StudioMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StudioMembership): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStudioMemberResponse {
   /**
    * <p>The member.</p>
    */
   member?: StudioMembership;
-}
-
-export namespace GetStudioMemberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStudioMemberResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLaunchProfileMembersRequest {
@@ -3379,15 +2521,6 @@ export interface ListLaunchProfileMembersRequest {
   studioId: string | undefined;
 }
 
-export namespace ListLaunchProfileMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLaunchProfileMembersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLaunchProfileMembersResponse {
   /**
    * <p>A list of members.</p>
@@ -3398,15 +2531,6 @@ export interface ListLaunchProfileMembersResponse {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListLaunchProfileMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLaunchProfileMembersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLaunchProfilesRequest {
@@ -3436,15 +2560,6 @@ export interface ListLaunchProfilesRequest {
   studioId: string | undefined;
 }
 
-export namespace ListLaunchProfilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLaunchProfilesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLaunchProfilesResponse {
   /**
    * <p>A collection of launch profiles.</p>
@@ -3455,18 +2570,6 @@ export interface ListLaunchProfilesResponse {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListLaunchProfilesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLaunchProfilesResponse): any => ({
-    ...obj,
-    ...(obj.launchProfiles && {
-      launchProfiles: obj.launchProfiles.map((item) => LaunchProfile.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 /**
@@ -3482,15 +2585,6 @@ export interface NewLaunchProfileMember {
    * <p>The principal ID.</p>
    */
   principalId: string | undefined;
-}
-
-export namespace NewLaunchProfileMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NewLaunchProfileMember): any => ({
-    ...obj,
-  });
 }
 
 export interface PutLaunchProfileMembersRequest {
@@ -3522,25 +2616,7 @@ export interface PutLaunchProfileMembersRequest {
   studioId: string | undefined;
 }
 
-export namespace PutLaunchProfileMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLaunchProfileMembersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutLaunchProfileMembersResponse {}
-
-export namespace PutLaunchProfileMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLaunchProfileMembersResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateLaunchProfileRequest {
   /**
@@ -3588,35 +2664,11 @@ export interface UpdateLaunchProfileRequest {
   studioId: string | undefined;
 }
 
-export namespace UpdateLaunchProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLaunchProfileRequest): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.streamConfiguration && {
-      streamConfiguration: StreamConfigurationCreate.filterSensitiveLog(obj.streamConfiguration),
-    }),
-  });
-}
-
 export interface UpdateLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
    */
   launchProfile?: LaunchProfile;
-}
-
-export namespace UpdateLaunchProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLaunchProfileResponse): any => ({
-    ...obj,
-    ...(obj.launchProfile && { launchProfile: LaunchProfile.filterSensitiveLog(obj.launchProfile) }),
-  });
 }
 
 export interface UpdateLaunchProfileMemberRequest {
@@ -3648,29 +2700,11 @@ export interface UpdateLaunchProfileMemberRequest {
   studioId: string | undefined;
 }
 
-export namespace UpdateLaunchProfileMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLaunchProfileMemberRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLaunchProfileMemberResponse {
   /**
    * <p>The updated member. </p>
    */
   member?: LaunchProfileMembership;
-}
-
-export namespace UpdateLaunchProfileMemberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLaunchProfileMemberResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListStreamingImagesRequest {
@@ -3690,15 +2724,6 @@ export interface ListStreamingImagesRequest {
   studioId: string | undefined;
 }
 
-export namespace ListStreamingImagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamingImagesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStreamingImagesResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3709,18 +2734,6 @@ export interface ListStreamingImagesResponse {
    * <p>A collection of streaming images.</p>
    */
   streamingImages?: StreamingImage[];
-}
-
-export namespace ListStreamingImagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamingImagesResponse): any => ({
-    ...obj,
-    ...(obj.streamingImages && {
-      streamingImages: obj.streamingImages.map((item) => StreamingImage.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListStreamingSessionsRequest {
@@ -3750,15 +2763,6 @@ export interface ListStreamingSessionsRequest {
   studioId: string | undefined;
 }
 
-export namespace ListStreamingSessionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamingSessionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStreamingSessionsResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3769,15 +2773,6 @@ export interface ListStreamingSessionsResponse {
    * <p>A collection of streaming sessions.</p>
    */
   sessions?: StreamingSession[];
-}
-
-export namespace ListStreamingSessionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamingSessionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListStudioComponentsRequest {
@@ -3807,15 +2802,6 @@ export interface ListStudioComponentsRequest {
   types?: (StudioComponentType | string)[];
 }
 
-export namespace ListStudioComponentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudioComponentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStudioComponentsResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3826,18 +2812,6 @@ export interface ListStudioComponentsResponse {
    * <p>A collection of studio components.</p>
    */
   studioComponents?: StudioComponent[];
-}
-
-export namespace ListStudioComponentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudioComponentsResponse): any => ({
-    ...obj,
-    ...(obj.studioComponents && {
-      studioComponents: obj.studioComponents.map((item) => StudioComponent.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListStudioMembersRequest {
@@ -3857,15 +2831,6 @@ export interface ListStudioMembersRequest {
   studioId: string | undefined;
 }
 
-export namespace ListStudioMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudioMembersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStudioMembersResponse {
   /**
    * <p>A list of admin members.</p>
@@ -3878,29 +2843,11 @@ export interface ListStudioMembersResponse {
   nextToken?: string;
 }
 
-export namespace ListStudioMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudioMembersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStudiosRequest {
   /**
    * <p>The token to request the next page of results. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListStudiosRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudiosRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListStudiosResponse {
@@ -3915,30 +2862,11 @@ export interface ListStudiosResponse {
   studios: Studio[] | undefined;
 }
 
-export namespace ListStudiosResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudiosResponse): any => ({
-    ...obj,
-    ...(obj.studios && { studios: obj.studios.map((item) => Studio.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</p>
    */
   resourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -3947,15 +2875,6 @@ export interface ListTagsForResourceResponse {
    *             resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3971,15 +2890,6 @@ export interface NewStudioMember {
    * <p>The principal ID.</p>
    */
   principalId: string | undefined;
-}
-
-export namespace NewStudioMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NewStudioMember): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateStreamingImageRequest {
@@ -4011,17 +2921,6 @@ export interface UpdateStreamingImageRequest {
   studioId: string | undefined;
 }
 
-export namespace UpdateStreamingImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStreamingImageRequest): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateStreamingImageResponse {
   /**
    * <p>Represents a streaming image resource.</p>
@@ -4034,16 +2933,6 @@ export interface UpdateStreamingImageResponse {
    *             your users require.</p>
    */
   streamingImage?: StreamingImage;
-}
-
-export namespace UpdateStreamingImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStreamingImageResponse): any => ({
-    ...obj,
-    ...(obj.streamingImage && { streamingImage: StreamingImage.filterSensitiveLog(obj.streamingImage) }),
-  });
 }
 
 export interface StartStreamingSessionRequest {
@@ -4065,30 +2954,12 @@ export interface StartStreamingSessionRequest {
   studioId: string | undefined;
 }
 
-export namespace StartStreamingSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartStreamingSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartStreamingSessionResponse {
   /**
    * <p>A streaming session is a virtual workstation created using a particular launch
    *             profile.</p>
    */
   session?: StreamingSession;
-}
-
-export namespace StartStreamingSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartStreamingSessionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StopStreamingSessionRequest {
@@ -4110,30 +2981,12 @@ export interface StopStreamingSessionRequest {
   studioId: string | undefined;
 }
 
-export namespace StopStreamingSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopStreamingSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopStreamingSessionResponse {
   /**
    * <p>A streaming session is a virtual workstation created using a particular launch
    *             profile.</p>
    */
   session?: StreamingSession;
-}
-
-export namespace StopStreamingSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopStreamingSessionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateStudioComponentRequest {
@@ -4205,39 +3058,11 @@ export interface UpdateStudioComponentRequest {
   runtimeRoleArn?: string;
 }
 
-export namespace UpdateStudioComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStudioComponentRequest): any => ({
-    ...obj,
-    ...(obj.configuration && { configuration: StudioComponentConfiguration.filterSensitiveLog(obj.configuration) }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.initializationScripts && {
-      initializationScripts: obj.initializationScripts.map((item) =>
-        StudioComponentInitializationScript.filterSensitiveLog(item)
-      ),
-    }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.scriptParameters && { scriptParameters: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
    */
   studioComponent?: StudioComponent;
-}
-
-export namespace UpdateStudioComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStudioComponentResponse): any => ({
-    ...obj,
-    ...(obj.studioComponent && { studioComponent: StudioComponent.filterSensitiveLog(obj.studioComponent) }),
-  });
 }
 
 export interface PutStudioMembersRequest {
@@ -4264,25 +3089,7 @@ export interface PutStudioMembersRequest {
   studioId: string | undefined;
 }
 
-export namespace PutStudioMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutStudioMembersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutStudioMembersResponse {}
-
-export namespace PutStudioMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutStudioMembersResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface StartStudioSSOConfigurationRepairRequest {
   /**
@@ -4298,30 +3105,11 @@ export interface StartStudioSSOConfigurationRepairRequest {
   studioId: string | undefined;
 }
 
-export namespace StartStudioSSOConfigurationRepairRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartStudioSSOConfigurationRepairRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartStudioSSOConfigurationRepairResponse {
   /**
    * <p>Information about a studio.</p>
    */
   studio: Studio | undefined;
-}
-
-export namespace StartStudioSSOConfigurationRepairResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartStudioSSOConfigurationRepairResponse): any => ({
-    ...obj,
-    ...(obj.studio && { studio: Studio.filterSensitiveLog(obj.studio) }),
-  });
 }
 
 export interface UpdateStudioRequest {
@@ -4355,31 +3143,11 @@ export interface UpdateStudioRequest {
   userRoleArn?: string;
 }
 
-export namespace UpdateStudioRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStudioRequest): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateStudioResponse {
   /**
    * <p>Information about a studio.</p>
    */
   studio: Studio | undefined;
-}
-
-export namespace UpdateStudioResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStudioResponse): any => ({
-    ...obj,
-    ...(obj.studio && { studio: Studio.filterSensitiveLog(obj.studio) }),
-  });
 }
 
 export interface TagResourceRequest {
@@ -4395,25 +3163,7 @@ export interface TagResourceRequest {
   tags?: Record<string, string>;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -4427,22 +3177,1038 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcceptEulasRequestFilterSensitiveLog = (obj: AcceptEulasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EulaAcceptanceFilterSensitiveLog = (obj: EulaAcceptance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptEulasResponseFilterSensitiveLog = (obj: AcceptEulasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActiveDirectoryComputerAttributeFilterSensitiveLog = (obj: ActiveDirectoryComputerAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActiveDirectoryConfigurationFilterSensitiveLog = (obj: ActiveDirectoryConfiguration): any => ({
+  ...obj,
+  ...(obj.computerAttributes && { computerAttributes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ComputeFarmConfigurationFilterSensitiveLog = (obj: ComputeFarmConfiguration): any => ({
+  ...obj,
+  ...(obj.endpoint && { endpoint: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StreamingSessionStorageRootFilterSensitiveLog = (obj: StreamingSessionStorageRoot): any => ({
+  ...obj,
+  ...(obj.linux && { linux: SENSITIVE_STRING }),
+  ...(obj.windows && { windows: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StreamConfigurationSessionStorageFilterSensitiveLog = (obj: StreamConfigurationSessionStorage): any => ({
+  ...obj,
+  ...(obj.root && { root: StreamingSessionStorageRootFilterSensitiveLog(obj.root) }),
+});
+
+/**
+ * @internal
+ */
+export const StreamConfigurationCreateFilterSensitiveLog = (obj: StreamConfigurationCreate): any => ({
+  ...obj,
+  ...(obj.sessionStorage && {
+    sessionStorage: StreamConfigurationSessionStorageFilterSensitiveLog(obj.sessionStorage),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateLaunchProfileRequestFilterSensitiveLog = (obj: CreateLaunchProfileRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.streamConfiguration && {
+    streamConfiguration: StreamConfigurationCreateFilterSensitiveLog(obj.streamConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const StreamConfigurationFilterSensitiveLog = (obj: StreamConfiguration): any => ({
+  ...obj,
+  ...(obj.sessionStorage && {
+    sessionStorage: StreamConfigurationSessionStorageFilterSensitiveLog(obj.sessionStorage),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ValidationResultFilterSensitiveLog = (obj: ValidationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchProfileFilterSensitiveLog = (obj: LaunchProfile): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.streamConfiguration && {
+    streamConfiguration: StreamConfigurationFilterSensitiveLog(obj.streamConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateLaunchProfileResponseFilterSensitiveLog = (obj: CreateLaunchProfileResponse): any => ({
+  ...obj,
+  ...(obj.launchProfile && { launchProfile: LaunchProfileFilterSensitiveLog(obj.launchProfile) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingImageRequestFilterSensitiveLog = (obj: CreateStreamingImageRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StreamingImageEncryptionConfigurationFilterSensitiveLog = (
+  obj: StreamingImageEncryptionConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamingImageFilterSensitiveLog = (obj: StreamingImage): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingImageResponseFilterSensitiveLog = (obj: CreateStreamingImageResponse): any => ({
+  ...obj,
+  ...(obj.streamingImage && { streamingImage: StreamingImageFilterSensitiveLog(obj.streamingImage) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingSessionRequestFilterSensitiveLog = (obj: CreateStreamingSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamingSessionFilterSensitiveLog = (obj: StreamingSession): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingSessionResponseFilterSensitiveLog = (obj: CreateStreamingSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingSessionStreamRequestFilterSensitiveLog = (
+  obj: CreateStreamingSessionStreamRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamingSessionStreamFilterSensitiveLog = (obj: StreamingSessionStream): any => ({
+  ...obj,
+  ...(obj.url && { url: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingSessionStreamResponseFilterSensitiveLog = (
+  obj: CreateStreamingSessionStreamResponse
+): any => ({
+  ...obj,
+  ...(obj.stream && { stream: StreamingSessionStreamFilterSensitiveLog(obj.stream) }),
+});
+
+/**
+ * @internal
+ */
+export const StudioEncryptionConfigurationFilterSensitiveLog = (obj: StudioEncryptionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStudioRequestFilterSensitiveLog = (obj: CreateStudioRequest): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StudioFilterSensitiveLog = (obj: Studio): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateStudioResponseFilterSensitiveLog = (obj: CreateStudioResponse): any => ({
+  ...obj,
+  ...(obj.studio && { studio: StudioFilterSensitiveLog(obj.studio) }),
+});
+
+/**
+ * @internal
+ */
+export const LicenseServiceConfigurationFilterSensitiveLog = (obj: LicenseServiceConfiguration): any => ({
+  ...obj,
+  ...(obj.endpoint && { endpoint: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SharedFileSystemConfigurationFilterSensitiveLog = (obj: SharedFileSystemConfiguration): any => ({
+  ...obj,
+  ...(obj.endpoint && { endpoint: SENSITIVE_STRING }),
+  ...(obj.linuxMountPoint && { linuxMountPoint: SENSITIVE_STRING }),
+  ...(obj.shareName && { shareName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StudioComponentConfigurationFilterSensitiveLog = (obj: StudioComponentConfiguration): any => ({
+  ...obj,
+  ...(obj.activeDirectoryConfiguration && {
+    activeDirectoryConfiguration: ActiveDirectoryConfigurationFilterSensitiveLog(obj.activeDirectoryConfiguration),
+  }),
+  ...(obj.computeFarmConfiguration && {
+    computeFarmConfiguration: ComputeFarmConfigurationFilterSensitiveLog(obj.computeFarmConfiguration),
+  }),
+  ...(obj.licenseServiceConfiguration && {
+    licenseServiceConfiguration: LicenseServiceConfigurationFilterSensitiveLog(obj.licenseServiceConfiguration),
+  }),
+  ...(obj.sharedFileSystemConfiguration && {
+    sharedFileSystemConfiguration: SharedFileSystemConfigurationFilterSensitiveLog(obj.sharedFileSystemConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const StudioComponentInitializationScriptFilterSensitiveLog = (
+  obj: StudioComponentInitializationScript
+): any => ({
+  ...obj,
+  ...(obj.script && { script: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ScriptParameterKeyValueFilterSensitiveLog = (obj: ScriptParameterKeyValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStudioComponentRequestFilterSensitiveLog = (obj: CreateStudioComponentRequest): any => ({
+  ...obj,
+  ...(obj.configuration && { configuration: StudioComponentConfigurationFilterSensitiveLog(obj.configuration) }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.initializationScripts && {
+    initializationScripts: obj.initializationScripts.map((item) =>
+      StudioComponentInitializationScriptFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.scriptParameters && { scriptParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StudioComponentFilterSensitiveLog = (obj: StudioComponent): any => ({
+  ...obj,
+  ...(obj.configuration && { configuration: StudioComponentConfigurationFilterSensitiveLog(obj.configuration) }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.initializationScripts && {
+    initializationScripts: obj.initializationScripts.map((item) =>
+      StudioComponentInitializationScriptFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.scriptParameters && { scriptParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateStudioComponentResponseFilterSensitiveLog = (obj: CreateStudioComponentResponse): any => ({
+  ...obj,
+  ...(obj.studioComponent && { studioComponent: StudioComponentFilterSensitiveLog(obj.studioComponent) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteLaunchProfileRequestFilterSensitiveLog = (obj: DeleteLaunchProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLaunchProfileResponseFilterSensitiveLog = (obj: DeleteLaunchProfileResponse): any => ({
+  ...obj,
+  ...(obj.launchProfile && { launchProfile: LaunchProfileFilterSensitiveLog(obj.launchProfile) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteLaunchProfileMemberRequestFilterSensitiveLog = (obj: DeleteLaunchProfileMemberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLaunchProfileMemberResponseFilterSensitiveLog = (obj: DeleteLaunchProfileMemberResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStreamingImageRequestFilterSensitiveLog = (obj: DeleteStreamingImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStreamingImageResponseFilterSensitiveLog = (obj: DeleteStreamingImageResponse): any => ({
+  ...obj,
+  ...(obj.streamingImage && { streamingImage: StreamingImageFilterSensitiveLog(obj.streamingImage) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteStreamingSessionRequestFilterSensitiveLog = (obj: DeleteStreamingSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStreamingSessionResponseFilterSensitiveLog = (obj: DeleteStreamingSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStudioRequestFilterSensitiveLog = (obj: DeleteStudioRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStudioResponseFilterSensitiveLog = (obj: DeleteStudioResponse): any => ({
+  ...obj,
+  ...(obj.studio && { studio: StudioFilterSensitiveLog(obj.studio) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteStudioComponentRequestFilterSensitiveLog = (obj: DeleteStudioComponentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStudioComponentResponseFilterSensitiveLog = (obj: DeleteStudioComponentResponse): any => ({
+  ...obj,
+  ...(obj.studioComponent && { studioComponent: StudioComponentFilterSensitiveLog(obj.studioComponent) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteStudioMemberRequestFilterSensitiveLog = (obj: DeleteStudioMemberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStudioMemberResponseFilterSensitiveLog = (obj: DeleteStudioMemberResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EulaFilterSensitiveLog = (obj: Eula): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEulaAcceptancesRequestFilterSensitiveLog = (obj: ListEulaAcceptancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEulaAcceptancesResponseFilterSensitiveLog = (obj: ListEulaAcceptancesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEulaRequestFilterSensitiveLog = (obj: GetEulaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEulaResponseFilterSensitiveLog = (obj: GetEulaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEulasRequestFilterSensitiveLog = (obj: ListEulasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEulasResponseFilterSensitiveLog = (obj: ListEulasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLaunchProfileRequestFilterSensitiveLog = (obj: GetLaunchProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLaunchProfileResponseFilterSensitiveLog = (obj: GetLaunchProfileResponse): any => ({
+  ...obj,
+  ...(obj.launchProfile && { launchProfile: LaunchProfileFilterSensitiveLog(obj.launchProfile) }),
+});
+
+/**
+ * @internal
+ */
+export const GetLaunchProfileDetailsRequestFilterSensitiveLog = (obj: GetLaunchProfileDetailsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StudioComponentSummaryFilterSensitiveLog = (obj: StudioComponentSummary): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetLaunchProfileDetailsResponseFilterSensitiveLog = (obj: GetLaunchProfileDetailsResponse): any => ({
+  ...obj,
+  ...(obj.launchProfile && { launchProfile: LaunchProfileFilterSensitiveLog(obj.launchProfile) }),
+  ...(obj.streamingImages && {
+    streamingImages: obj.streamingImages.map((item) => StreamingImageFilterSensitiveLog(item)),
+  }),
+  ...(obj.studioComponentSummaries && {
+    studioComponentSummaries: obj.studioComponentSummaries.map((item) =>
+      StudioComponentSummaryFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetLaunchProfileInitializationRequestFilterSensitiveLog = (
+  obj: GetLaunchProfileInitializationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchProfileInitializationActiveDirectoryFilterSensitiveLog = (
+  obj: LaunchProfileInitializationActiveDirectory
+): any => ({
+  ...obj,
+  ...(obj.computerAttributes && { computerAttributes: SENSITIVE_STRING }),
+  ...(obj.studioComponentName && { studioComponentName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const LaunchProfileInitializationScriptFilterSensitiveLog = (obj: LaunchProfileInitializationScript): any => ({
+  ...obj,
+  ...(obj.script && { script: SENSITIVE_STRING }),
+  ...(obj.studioComponentName && { studioComponentName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const LaunchProfileInitializationFilterSensitiveLog = (obj: LaunchProfileInitialization): any => ({
+  ...obj,
+  ...(obj.activeDirectory && {
+    activeDirectory: LaunchProfileInitializationActiveDirectoryFilterSensitiveLog(obj.activeDirectory),
+  }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.systemInitializationScripts && {
+    systemInitializationScripts: obj.systemInitializationScripts.map((item) =>
+      LaunchProfileInitializationScriptFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.userInitializationScripts && {
+    userInitializationScripts: obj.userInitializationScripts.map((item) =>
+      LaunchProfileInitializationScriptFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetLaunchProfileInitializationResponseFilterSensitiveLog = (
+  obj: GetLaunchProfileInitializationResponse
+): any => ({
+  ...obj,
+  ...(obj.launchProfileInitialization && {
+    launchProfileInitialization: LaunchProfileInitializationFilterSensitiveLog(obj.launchProfileInitialization),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetLaunchProfileMemberRequestFilterSensitiveLog = (obj: GetLaunchProfileMemberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchProfileMembershipFilterSensitiveLog = (obj: LaunchProfileMembership): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLaunchProfileMemberResponseFilterSensitiveLog = (obj: GetLaunchProfileMemberResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStreamingImageRequestFilterSensitiveLog = (obj: GetStreamingImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStreamingImageResponseFilterSensitiveLog = (obj: GetStreamingImageResponse): any => ({
+  ...obj,
+  ...(obj.streamingImage && { streamingImage: StreamingImageFilterSensitiveLog(obj.streamingImage) }),
+});
+
+/**
+ * @internal
+ */
+export const GetStreamingSessionRequestFilterSensitiveLog = (obj: GetStreamingSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStreamingSessionResponseFilterSensitiveLog = (obj: GetStreamingSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStreamingSessionStreamRequestFilterSensitiveLog = (obj: GetStreamingSessionStreamRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStreamingSessionStreamResponseFilterSensitiveLog = (obj: GetStreamingSessionStreamResponse): any => ({
+  ...obj,
+  ...(obj.stream && { stream: StreamingSessionStreamFilterSensitiveLog(obj.stream) }),
+});
+
+/**
+ * @internal
+ */
+export const GetStudioRequestFilterSensitiveLog = (obj: GetStudioRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStudioResponseFilterSensitiveLog = (obj: GetStudioResponse): any => ({
+  ...obj,
+  ...(obj.studio && { studio: StudioFilterSensitiveLog(obj.studio) }),
+});
+
+/**
+ * @internal
+ */
+export const GetStudioComponentRequestFilterSensitiveLog = (obj: GetStudioComponentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStudioComponentResponseFilterSensitiveLog = (obj: GetStudioComponentResponse): any => ({
+  ...obj,
+  ...(obj.studioComponent && { studioComponent: StudioComponentFilterSensitiveLog(obj.studioComponent) }),
+});
+
+/**
+ * @internal
+ */
+export const GetStudioMemberRequestFilterSensitiveLog = (obj: GetStudioMemberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StudioMembershipFilterSensitiveLog = (obj: StudioMembership): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStudioMemberResponseFilterSensitiveLog = (obj: GetStudioMemberResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLaunchProfileMembersRequestFilterSensitiveLog = (obj: ListLaunchProfileMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLaunchProfileMembersResponseFilterSensitiveLog = (obj: ListLaunchProfileMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLaunchProfilesRequestFilterSensitiveLog = (obj: ListLaunchProfilesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLaunchProfilesResponseFilterSensitiveLog = (obj: ListLaunchProfilesResponse): any => ({
+  ...obj,
+  ...(obj.launchProfiles && {
+    launchProfiles: obj.launchProfiles.map((item) => LaunchProfileFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const NewLaunchProfileMemberFilterSensitiveLog = (obj: NewLaunchProfileMember): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutLaunchProfileMembersRequestFilterSensitiveLog = (obj: PutLaunchProfileMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutLaunchProfileMembersResponseFilterSensitiveLog = (obj: PutLaunchProfileMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLaunchProfileRequestFilterSensitiveLog = (obj: UpdateLaunchProfileRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.streamConfiguration && {
+    streamConfiguration: StreamConfigurationCreateFilterSensitiveLog(obj.streamConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateLaunchProfileResponseFilterSensitiveLog = (obj: UpdateLaunchProfileResponse): any => ({
+  ...obj,
+  ...(obj.launchProfile && { launchProfile: LaunchProfileFilterSensitiveLog(obj.launchProfile) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateLaunchProfileMemberRequestFilterSensitiveLog = (obj: UpdateLaunchProfileMemberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLaunchProfileMemberResponseFilterSensitiveLog = (obj: UpdateLaunchProfileMemberResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStreamingImagesRequestFilterSensitiveLog = (obj: ListStreamingImagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStreamingImagesResponseFilterSensitiveLog = (obj: ListStreamingImagesResponse): any => ({
+  ...obj,
+  ...(obj.streamingImages && {
+    streamingImages: obj.streamingImages.map((item) => StreamingImageFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListStreamingSessionsRequestFilterSensitiveLog = (obj: ListStreamingSessionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStreamingSessionsResponseFilterSensitiveLog = (obj: ListStreamingSessionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStudioComponentsRequestFilterSensitiveLog = (obj: ListStudioComponentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStudioComponentsResponseFilterSensitiveLog = (obj: ListStudioComponentsResponse): any => ({
+  ...obj,
+  ...(obj.studioComponents && {
+    studioComponents: obj.studioComponents.map((item) => StudioComponentFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListStudioMembersRequestFilterSensitiveLog = (obj: ListStudioMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStudioMembersResponseFilterSensitiveLog = (obj: ListStudioMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStudiosRequestFilterSensitiveLog = (obj: ListStudiosRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStudiosResponseFilterSensitiveLog = (obj: ListStudiosResponse): any => ({
+  ...obj,
+  ...(obj.studios && { studios: obj.studios.map((item) => StudioFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NewStudioMemberFilterSensitiveLog = (obj: NewStudioMember): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStreamingImageRequestFilterSensitiveLog = (obj: UpdateStreamingImageRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateStreamingImageResponseFilterSensitiveLog = (obj: UpdateStreamingImageResponse): any => ({
+  ...obj,
+  ...(obj.streamingImage && { streamingImage: StreamingImageFilterSensitiveLog(obj.streamingImage) }),
+});
+
+/**
+ * @internal
+ */
+export const StartStreamingSessionRequestFilterSensitiveLog = (obj: StartStreamingSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartStreamingSessionResponseFilterSensitiveLog = (obj: StartStreamingSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopStreamingSessionRequestFilterSensitiveLog = (obj: StopStreamingSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopStreamingSessionResponseFilterSensitiveLog = (obj: StopStreamingSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStudioComponentRequestFilterSensitiveLog = (obj: UpdateStudioComponentRequest): any => ({
+  ...obj,
+  ...(obj.configuration && { configuration: StudioComponentConfigurationFilterSensitiveLog(obj.configuration) }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.initializationScripts && {
+    initializationScripts: obj.initializationScripts.map((item) =>
+      StudioComponentInitializationScriptFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.scriptParameters && { scriptParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateStudioComponentResponseFilterSensitiveLog = (obj: UpdateStudioComponentResponse): any => ({
+  ...obj,
+  ...(obj.studioComponent && { studioComponent: StudioComponentFilterSensitiveLog(obj.studioComponent) }),
+});
+
+/**
+ * @internal
+ */
+export const PutStudioMembersRequestFilterSensitiveLog = (obj: PutStudioMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutStudioMembersResponseFilterSensitiveLog = (obj: PutStudioMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartStudioSSOConfigurationRepairRequestFilterSensitiveLog = (
+  obj: StartStudioSSOConfigurationRepairRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartStudioSSOConfigurationRepairResponseFilterSensitiveLog = (
+  obj: StartStudioSSOConfigurationRepairResponse
+): any => ({
+  ...obj,
+  ...(obj.studio && { studio: StudioFilterSensitiveLog(obj.studio) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateStudioRequestFilterSensitiveLog = (obj: UpdateStudioRequest): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateStudioResponseFilterSensitiveLog = (obj: UpdateStudioResponse): any => ({
+  ...obj,
+  ...(obj.studio && { studio: StudioFilterSensitiveLog(obj.studio) }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

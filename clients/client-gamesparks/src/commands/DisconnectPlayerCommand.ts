@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import { DisconnectPlayerRequest, DisconnectPlayerResult } from "../models/models_0";
+import {
+  DisconnectPlayerRequest,
+  DisconnectPlayerRequestFilterSensitiveLog,
+  DisconnectPlayerResult,
+  DisconnectPlayerResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisconnectPlayerCommand,
   serializeAws_restJson1DisconnectPlayerCommand,
@@ -75,8 +80,8 @@ export class DisconnectPlayerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisconnectPlayerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisconnectPlayerResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisconnectPlayerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisconnectPlayerResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

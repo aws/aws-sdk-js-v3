@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListSizeConstraintSetsRequest, ListSizeConstraintSetsResponse } from "../models/models_0";
+import {
+  ListSizeConstraintSetsRequest,
+  ListSizeConstraintSetsRequestFilterSensitiveLog,
+  ListSizeConstraintSetsResponse,
+  ListSizeConstraintSetsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListSizeConstraintSetsCommand,
   serializeAws_json1_1ListSizeConstraintSetsCommand,
@@ -80,8 +85,8 @@ export class ListSizeConstraintSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSizeConstraintSetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSizeConstraintSetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSizeConstraintSetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSizeConstraintSetsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

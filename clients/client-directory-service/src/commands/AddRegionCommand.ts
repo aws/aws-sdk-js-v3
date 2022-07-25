@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { AddRegionRequest, AddRegionResult } from "../models/models_0";
+import {
+  AddRegionRequest,
+  AddRegionRequestFilterSensitiveLog,
+  AddRegionResult,
+  AddRegionResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1AddRegionCommand, serializeAws_json1_1AddRegionCommand } from "../protocols/Aws_json1_1";
 
 export interface AddRegionCommandInput extends AddRegionRequest {}
@@ -69,8 +74,8 @@ export class AddRegionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddRegionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AddRegionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AddRegionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AddRegionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

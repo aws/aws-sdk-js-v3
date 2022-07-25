@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { GrantPermissionsRequest, GrantPermissionsResponse } from "../models/models_0";
+import {
+  GrantPermissionsRequest,
+  GrantPermissionsRequestFilterSensitiveLog,
+  GrantPermissionsResponse,
+  GrantPermissionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GrantPermissionsCommand,
   serializeAws_restJson1GrantPermissionsCommand,
@@ -73,8 +78,8 @@ export class GrantPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GrantPermissionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GrantPermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GrantPermissionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GrantPermissionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

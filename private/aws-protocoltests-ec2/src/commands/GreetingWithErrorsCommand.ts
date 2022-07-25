@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { GreetingWithErrorsOutput } from "../models/models_0";
+import { GreetingWithErrorsOutput, GreetingWithErrorsOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_ec2GreetingWithErrorsCommand,
   serializeAws_ec2GreetingWithErrorsCommand,
@@ -77,7 +77,7 @@ export class GreetingWithErrorsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GreetingWithErrorsOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: GreetingWithErrorsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

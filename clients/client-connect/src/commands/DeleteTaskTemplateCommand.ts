@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DeleteTaskTemplateRequest, DeleteTaskTemplateResponse } from "../models/models_0";
+import {
+  DeleteTaskTemplateRequest,
+  DeleteTaskTemplateRequestFilterSensitiveLog,
+  DeleteTaskTemplateResponse,
+  DeleteTaskTemplateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteTaskTemplateCommand,
   serializeAws_restJson1DeleteTaskTemplateCommand,
@@ -72,8 +77,8 @@ export class DeleteTaskTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTaskTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTaskTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTaskTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTaskTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

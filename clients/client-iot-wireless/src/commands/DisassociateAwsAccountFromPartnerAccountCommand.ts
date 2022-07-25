@@ -15,7 +15,9 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   DisassociateAwsAccountFromPartnerAccountRequest,
+  DisassociateAwsAccountFromPartnerAccountRequestFilterSensitiveLog,
   DisassociateAwsAccountFromPartnerAccountResponse,
+  DisassociateAwsAccountFromPartnerAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateAwsAccountFromPartnerAccountCommand,
@@ -81,8 +83,8 @@ export class DisassociateAwsAccountFromPartnerAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateAwsAccountFromPartnerAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateAwsAccountFromPartnerAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateAwsAccountFromPartnerAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateAwsAccountFromPartnerAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

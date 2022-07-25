@@ -119,17 +119,6 @@ export interface InvokeEndpointInput {
   InferenceId?: string;
 }
 
-export namespace InvokeEndpointInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvokeEndpointInput): any => ({
-    ...obj,
-    ...(obj.Body && { Body: SENSITIVE_STRING }),
-    ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING }),
-  });
-}
-
 export interface InvokeEndpointOutput {
   /**
    * <p>Includes the inference provided by the model.</p>
@@ -167,17 +156,6 @@ export interface InvokeEndpointOutput {
    *             SDK.</p>
    */
   CustomAttributes?: string;
-}
-
-export namespace InvokeEndpointOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvokeEndpointOutput): any => ({
-    ...obj,
-    ...(obj.Body && { Body: SENSITIVE_STRING }),
-    ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -337,16 +315,6 @@ export interface InvokeEndpointAsyncInput {
   RequestTTLSeconds?: number;
 }
 
-export namespace InvokeEndpointAsyncInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvokeEndpointAsyncInput): any => ({
-    ...obj,
-    ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING }),
-  });
-}
-
 export interface InvokeEndpointAsyncOutput {
   /**
    * <p>Identifier for an inference request. This will be the same as the <code>InferenceId</code> specified
@@ -360,11 +328,35 @@ export interface InvokeEndpointAsyncOutput {
   OutputLocation?: string;
 }
 
-export namespace InvokeEndpointAsyncOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvokeEndpointAsyncOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const InvokeEndpointInputFilterSensitiveLog = (obj: InvokeEndpointInput): any => ({
+  ...obj,
+  ...(obj.Body && { Body: SENSITIVE_STRING }),
+  ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeEndpointOutputFilterSensitiveLog = (obj: InvokeEndpointOutput): any => ({
+  ...obj,
+  ...(obj.Body && { Body: SENSITIVE_STRING }),
+  ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeEndpointAsyncInputFilterSensitiveLog = (obj: InvokeEndpointAsyncInput): any => ({
+  ...obj,
+  ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeEndpointAsyncOutputFilterSensitiveLog = (obj: InvokeEndpointAsyncOutput): any => ({
+  ...obj,
+});

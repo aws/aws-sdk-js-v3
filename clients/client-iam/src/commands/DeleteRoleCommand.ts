@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteRoleRequest } from "../models/models_0";
+import { DeleteRoleRequest, DeleteRoleRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryDeleteRoleCommand, serializeAws_queryDeleteRoleCommand } from "../protocols/Aws_query";
 
 export interface DeleteRoleCommandInput extends DeleteRoleRequest {}
@@ -75,7 +75,7 @@ export class DeleteRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRoleRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRoleRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

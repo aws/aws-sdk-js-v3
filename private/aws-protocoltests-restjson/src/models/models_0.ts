@@ -12,14 +12,12 @@ export interface GreetingStruct {
   hi?: string;
 }
 
-export namespace GreetingStruct {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GreetingStructFilterSensitiveLog = (obj: GreetingStruct): any => ({
+  ...obj,
+});
 
 export enum FooEnum {
   BAR = "Bar",
@@ -51,27 +49,23 @@ export interface AllQueryStringTypesInput {
   queryParamsMapOfStringList?: Record<string, string[]>;
 }
 
-export namespace AllQueryStringTypesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllQueryStringTypesInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AllQueryStringTypesInputFilterSensitiveLog = (obj: AllQueryStringTypesInput): any => ({
+  ...obj,
+});
 
 export interface ComplexNestedErrorData {
   Foo?: string;
 }
 
-export namespace ComplexNestedErrorData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplexNestedErrorData): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ComplexNestedErrorDataFilterSensitiveLog = (obj: ComplexNestedErrorData): any => ({
+  ...obj,
+});
 
 /**
  * This error is thrown when a request is invalid.
@@ -103,89 +97,77 @@ export interface ConstantAndVariableQueryStringInput {
   maybeSet?: string;
 }
 
-export namespace ConstantAndVariableQueryStringInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConstantAndVariableQueryStringInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ConstantAndVariableQueryStringInputFilterSensitiveLog = (
+  obj: ConstantAndVariableQueryStringInput
+): any => ({
+  ...obj,
+});
 
 export interface ConstantQueryStringInput {
   hello: string | undefined;
 }
 
-export namespace ConstantQueryStringInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConstantQueryStringInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ConstantQueryStringInputFilterSensitiveLog = (obj: ConstantQueryStringInput): any => ({
+  ...obj,
+});
 
 export interface DocumentTypeInputOutput {
   stringValue?: string;
   documentValue?: __DocumentType;
 }
 
-export namespace DocumentTypeInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentTypeInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DocumentTypeInputOutputFilterSensitiveLog = (obj: DocumentTypeInputOutput): any => ({
+  ...obj,
+});
 
 export interface DocumentTypeAsPayloadInputOutput {
   documentValue?: __DocumentType;
 }
 
-export namespace DocumentTypeAsPayloadInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentTypeAsPayloadInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DocumentTypeAsPayloadInputOutputFilterSensitiveLog = (obj: DocumentTypeAsPayloadInputOutput): any => ({
+  ...obj,
+});
 
 export interface EmptyInputAndEmptyOutputInput {}
 
-export namespace EmptyInputAndEmptyOutputInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmptyInputAndEmptyOutputInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const EmptyInputAndEmptyOutputInputFilterSensitiveLog = (obj: EmptyInputAndEmptyOutputInput): any => ({
+  ...obj,
+});
 
 export interface EmptyInputAndEmptyOutputOutput {}
 
-export namespace EmptyInputAndEmptyOutputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmptyInputAndEmptyOutputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const EmptyInputAndEmptyOutputOutputFilterSensitiveLog = (obj: EmptyInputAndEmptyOutputOutput): any => ({
+  ...obj,
+});
 
 export interface HostLabelInput {
   label: string | undefined;
 }
 
-export namespace HostLabelInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostLabelInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HostLabelInputFilterSensitiveLog = (obj: HostLabelInput): any => ({
+  ...obj,
+});
 
 export enum StringEnum {
   V = "enumvalue",
@@ -195,14 +177,12 @@ export interface EnumPayloadInput {
   payload?: StringEnum | string;
 }
 
-export namespace EnumPayloadInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnumPayloadInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const EnumPayloadInputFilterSensitiveLog = (obj: EnumPayloadInput): any => ({
+  ...obj,
+});
 
 /**
  * This error has test cases that test some of the dark corners of Amazon service
@@ -228,14 +208,12 @@ export interface GreetingWithErrorsOutput {
   greeting?: string;
 }
 
-export namespace GreetingWithErrorsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GreetingWithErrorsOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GreetingWithErrorsOutputFilterSensitiveLog = (obj: GreetingWithErrorsOutput): any => ({
+  ...obj,
+});
 
 /**
  * This error is thrown when an invalid greeting value is provided.
@@ -262,149 +240,133 @@ export interface HttpChecksumRequiredInputOutput {
   foo?: string;
 }
 
-export namespace HttpChecksumRequiredInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpChecksumRequiredInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HttpChecksumRequiredInputOutputFilterSensitiveLog = (obj: HttpChecksumRequiredInputOutput): any => ({
+  ...obj,
+});
 
 export interface HttpPayloadTraitsInputOutput {
   foo?: string;
   blob?: Uint8Array;
 }
 
-export namespace HttpPayloadTraitsInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpPayloadTraitsInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HttpPayloadTraitsInputOutputFilterSensitiveLog = (obj: HttpPayloadTraitsInputOutput): any => ({
+  ...obj,
+});
 
 export interface HttpPayloadTraitsWithMediaTypeInputOutput {
   foo?: string;
   blob?: Uint8Array;
 }
 
-export namespace HttpPayloadTraitsWithMediaTypeInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpPayloadTraitsWithMediaTypeInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HttpPayloadTraitsWithMediaTypeInputOutputFilterSensitiveLog = (
+  obj: HttpPayloadTraitsWithMediaTypeInputOutput
+): any => ({
+  ...obj,
+});
 
 export interface NestedPayload {
   greeting?: string;
   name?: string;
 }
 
-export namespace NestedPayload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NestedPayload): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const NestedPayloadFilterSensitiveLog = (obj: NestedPayload): any => ({
+  ...obj,
+});
 
 export interface HttpPayloadWithStructureInputOutput {
   nested?: NestedPayload;
 }
 
-export namespace HttpPayloadWithStructureInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpPayloadWithStructureInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HttpPayloadWithStructureInputOutputFilterSensitiveLog = (
+  obj: HttpPayloadWithStructureInputOutput
+): any => ({
+  ...obj,
+});
 
 export interface HttpPrefixHeadersInput {
   foo?: string;
   fooMap?: Record<string, string>;
 }
 
-export namespace HttpPrefixHeadersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpPrefixHeadersInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HttpPrefixHeadersInputFilterSensitiveLog = (obj: HttpPrefixHeadersInput): any => ({
+  ...obj,
+});
 
 export interface HttpPrefixHeadersOutput {
   foo?: string;
   fooMap?: Record<string, string>;
 }
 
-export namespace HttpPrefixHeadersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpPrefixHeadersOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HttpPrefixHeadersOutputFilterSensitiveLog = (obj: HttpPrefixHeadersOutput): any => ({
+  ...obj,
+});
 
 export interface HttpPrefixHeadersInResponseInput {}
 
-export namespace HttpPrefixHeadersInResponseInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpPrefixHeadersInResponseInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HttpPrefixHeadersInResponseInputFilterSensitiveLog = (obj: HttpPrefixHeadersInResponseInput): any => ({
+  ...obj,
+});
 
 export interface HttpPrefixHeadersInResponseOutput {
   prefixHeaders?: Record<string, string>;
 }
 
-export namespace HttpPrefixHeadersInResponseOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpPrefixHeadersInResponseOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HttpPrefixHeadersInResponseOutputFilterSensitiveLog = (obj: HttpPrefixHeadersInResponseOutput): any => ({
+  ...obj,
+});
 
 export interface HttpRequestWithFloatLabelsInput {
   float: number | undefined;
   double: number | undefined;
 }
 
-export namespace HttpRequestWithFloatLabelsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpRequestWithFloatLabelsInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HttpRequestWithFloatLabelsInputFilterSensitiveLog = (obj: HttpRequestWithFloatLabelsInput): any => ({
+  ...obj,
+});
 
 export interface HttpRequestWithGreedyLabelInPathInput {
   foo: string | undefined;
   baz: string | undefined;
 }
 
-export namespace HttpRequestWithGreedyLabelInPathInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpRequestWithGreedyLabelInPathInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HttpRequestWithGreedyLabelInPathInputFilterSensitiveLog = (
+  obj: HttpRequestWithGreedyLabelInPathInput
+): any => ({
+  ...obj,
+});
 
 export interface HttpRequestWithLabelsInput {
   string: string | undefined;
@@ -424,14 +386,12 @@ export interface HttpRequestWithLabelsInput {
   timestamp: Date | undefined;
 }
 
-export namespace HttpRequestWithLabelsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpRequestWithLabelsInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HttpRequestWithLabelsInputFilterSensitiveLog = (obj: HttpRequestWithLabelsInput): any => ({
+  ...obj,
+});
 
 export interface HttpRequestWithLabelsAndTimestampFormatInput {
   memberEpochSeconds: Date | undefined;
@@ -443,66 +403,58 @@ export interface HttpRequestWithLabelsAndTimestampFormatInput {
   targetDateTime: Date | undefined;
 }
 
-export namespace HttpRequestWithLabelsAndTimestampFormatInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpRequestWithLabelsAndTimestampFormatInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HttpRequestWithLabelsAndTimestampFormatInputFilterSensitiveLog = (
+  obj: HttpRequestWithLabelsAndTimestampFormatInput
+): any => ({
+  ...obj,
+});
 
 export interface HttpRequestWithRegexLiteralInput {
   str: string | undefined;
 }
 
-export namespace HttpRequestWithRegexLiteralInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpRequestWithRegexLiteralInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HttpRequestWithRegexLiteralInputFilterSensitiveLog = (obj: HttpRequestWithRegexLiteralInput): any => ({
+  ...obj,
+});
 
 export interface HttpResponseCodeOutput {
   Status?: number;
 }
 
-export namespace HttpResponseCodeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpResponseCodeOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HttpResponseCodeOutputFilterSensitiveLog = (obj: HttpResponseCodeOutput): any => ({
+  ...obj,
+});
 
 export interface StringPayloadInput {
   payload?: string;
 }
 
-export namespace StringPayloadInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StringPayloadInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const StringPayloadInputFilterSensitiveLog = (obj: StringPayloadInput): any => ({
+  ...obj,
+});
 
 export interface IgnoreQueryParamsInResponseOutput {
   baz?: string;
 }
 
-export namespace IgnoreQueryParamsInResponseOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IgnoreQueryParamsInResponseOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const IgnoreQueryParamsInResponseOutputFilterSensitiveLog = (obj: IgnoreQueryParamsInResponseOutput): any => ({
+  ...obj,
+});
 
 export interface InputAndOutputWithHeadersIO {
   headerString?: string;
@@ -523,27 +475,23 @@ export interface InputAndOutputWithHeadersIO {
   headerEnumList?: (FooEnum | string)[];
 }
 
-export namespace InputAndOutputWithHeadersIO {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputAndOutputWithHeadersIO): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const InputAndOutputWithHeadersIOFilterSensitiveLog = (obj: InputAndOutputWithHeadersIO): any => ({
+  ...obj,
+});
 
 export interface JsonBlobsInputOutput {
   data?: Uint8Array;
 }
 
-export namespace JsonBlobsInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JsonBlobsInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const JsonBlobsInputOutputFilterSensitiveLog = (obj: JsonBlobsInputOutput): any => ({
+  ...obj,
+});
 
 export interface JsonEnumsInputOutput {
   fooEnum1?: FooEnum | string;
@@ -554,28 +502,24 @@ export interface JsonEnumsInputOutput {
   fooEnumMap?: Record<string, FooEnum | string>;
 }
 
-export namespace JsonEnumsInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JsonEnumsInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const JsonEnumsInputOutputFilterSensitiveLog = (obj: JsonEnumsInputOutput): any => ({
+  ...obj,
+});
 
 export interface StructureListMember {
   a?: string;
   b?: string;
 }
 
-export namespace StructureListMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StructureListMember): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const StructureListMemberFilterSensitiveLog = (obj: StructureListMember): any => ({
+  ...obj,
+});
 
 export interface JsonListsInputOutput {
   stringList?: string[];
@@ -593,14 +537,12 @@ export interface JsonListsInputOutput {
   structureList?: StructureListMember[];
 }
 
-export namespace JsonListsInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JsonListsInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const JsonListsInputOutputFilterSensitiveLog = (obj: JsonListsInputOutput): any => ({
+  ...obj,
+});
 
 export interface JsonMapsInputOutput {
   denseStructMap?: Record<string, GreetingStruct>;
@@ -615,14 +557,12 @@ export interface JsonMapsInputOutput {
   sparseSetMap?: Record<string, string[]>;
 }
 
-export namespace JsonMapsInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JsonMapsInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const JsonMapsInputOutputFilterSensitiveLog = (obj: JsonMapsInputOutput): any => ({
+  ...obj,
+});
 
 export interface JsonTimestampsInputOutput {
   normal?: Date;
@@ -631,27 +571,23 @@ export interface JsonTimestampsInputOutput {
   httpDate?: Date;
 }
 
-export namespace JsonTimestampsInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JsonTimestampsInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const JsonTimestampsInputOutputFilterSensitiveLog = (obj: JsonTimestampsInputOutput): any => ({
+  ...obj,
+});
 
 export interface RenamedGreeting {
   salutation?: string;
 }
 
-export namespace RenamedGreeting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RenamedGreeting): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const RenamedGreetingFilterSensitiveLog = (obj: RenamedGreeting): any => ({
+  ...obj,
+});
 
 /**
  * A union with a representative set of types for members.
@@ -851,26 +787,24 @@ export namespace MyUnion {
     if (value.renamedStructureValue !== undefined) return visitor.renamedStructureValue(value.renamedStructureValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MyUnion): any => {
-    if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-    if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
-    if (obj.numberValue !== undefined) return { numberValue: obj.numberValue };
-    if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
-    if (obj.timestampValue !== undefined) return { timestampValue: obj.timestampValue };
-    if (obj.enumValue !== undefined) return { enumValue: obj.enumValue };
-    if (obj.listValue !== undefined) return { listValue: obj.listValue };
-    if (obj.mapValue !== undefined) return { mapValue: obj.mapValue };
-    if (obj.structureValue !== undefined)
-      return { structureValue: GreetingStruct.filterSensitiveLog(obj.structureValue) };
-    if (obj.renamedStructureValue !== undefined)
-      return { renamedStructureValue: RenamedGreeting.filterSensitiveLog(obj.renamedStructureValue) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
+/**
+ * @internal
+ */
+export const MyUnionFilterSensitiveLog = (obj: MyUnion): any => {
+  if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
+  if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
+  if (obj.numberValue !== undefined) return { numberValue: obj.numberValue };
+  if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
+  if (obj.timestampValue !== undefined) return { timestampValue: obj.timestampValue };
+  if (obj.enumValue !== undefined) return { enumValue: obj.enumValue };
+  if (obj.listValue !== undefined) return { listValue: obj.listValue };
+  if (obj.mapValue !== undefined) return { mapValue: obj.mapValue };
+  if (obj.structureValue !== undefined) return { structureValue: GreetingStructFilterSensitiveLog(obj.structureValue) };
+  if (obj.renamedStructureValue !== undefined)
+    return { renamedStructureValue: RenamedGreetingFilterSensitiveLog(obj.renamedStructureValue) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
 
 /**
  * A shared structure that contains a single union member.
@@ -882,54 +816,48 @@ export interface UnionInputOutput {
   contents?: MyUnion;
 }
 
-export namespace UnionInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnionInputOutput): any => ({
-    ...obj,
-    ...(obj.contents && { contents: MyUnion.filterSensitiveLog(obj.contents) }),
-  });
-}
+/**
+ * @internal
+ */
+export const UnionInputOutputFilterSensitiveLog = (obj: UnionInputOutput): any => ({
+  ...obj,
+  ...(obj.contents && { contents: MyUnionFilterSensitiveLog(obj.contents) }),
+});
 
 export interface MalformedAcceptWithGenericStringInput {
   payload?: Uint8Array;
 }
 
-export namespace MalformedAcceptWithGenericStringInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedAcceptWithGenericStringInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedAcceptWithGenericStringInputFilterSensitiveLog = (
+  obj: MalformedAcceptWithGenericStringInput
+): any => ({
+  ...obj,
+});
 
 export interface MalformedAcceptWithPayloadOutput {
   payload?: Uint8Array;
 }
 
-export namespace MalformedAcceptWithPayloadOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedAcceptWithPayloadOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedAcceptWithPayloadOutputFilterSensitiveLog = (obj: MalformedAcceptWithPayloadOutput): any => ({
+  ...obj,
+});
 
 export interface MalformedBlobInput {
   blob?: Uint8Array;
 }
 
-export namespace MalformedBlobInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedBlobInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedBlobInputFilterSensitiveLog = (obj: MalformedBlobInput): any => ({
+  ...obj,
+});
 
 export interface MalformedBooleanInput {
   booleanInBody?: boolean;
@@ -938,14 +866,12 @@ export interface MalformedBooleanInput {
   booleanInHeader?: boolean;
 }
 
-export namespace MalformedBooleanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedBooleanInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedBooleanInputFilterSensitiveLog = (obj: MalformedBooleanInput): any => ({
+  ...obj,
+});
 
 export interface MalformedByteInput {
   byteInBody?: number;
@@ -954,40 +880,38 @@ export interface MalformedByteInput {
   byteInHeader?: number;
 }
 
-export namespace MalformedByteInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedByteInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedByteInputFilterSensitiveLog = (obj: MalformedByteInput): any => ({
+  ...obj,
+});
 
 export interface MalformedContentTypeWithGenericStringInput {
   payload?: string;
 }
 
-export namespace MalformedContentTypeWithGenericStringInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedContentTypeWithGenericStringInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedContentTypeWithGenericStringInputFilterSensitiveLog = (
+  obj: MalformedContentTypeWithGenericStringInput
+): any => ({
+  ...obj,
+});
 
 export interface MalformedContentTypeWithPayloadInput {
   payload?: Uint8Array;
 }
 
-export namespace MalformedContentTypeWithPayloadInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedContentTypeWithPayloadInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedContentTypeWithPayloadInputFilterSensitiveLog = (
+  obj: MalformedContentTypeWithPayloadInput
+): any => ({
+  ...obj,
+});
 
 export interface MalformedDoubleInput {
   doubleInBody?: number;
@@ -996,14 +920,12 @@ export interface MalformedDoubleInput {
   doubleInHeader?: number;
 }
 
-export namespace MalformedDoubleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedDoubleInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedDoubleInputFilterSensitiveLog = (obj: MalformedDoubleInput): any => ({
+  ...obj,
+});
 
 export interface MalformedFloatInput {
   floatInBody?: number;
@@ -1012,14 +934,12 @@ export interface MalformedFloatInput {
   floatInHeader?: number;
 }
 
-export namespace MalformedFloatInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedFloatInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedFloatInputFilterSensitiveLog = (obj: MalformedFloatInput): any => ({
+  ...obj,
+});
 
 export interface MalformedIntegerInput {
   integerInBody?: number;
@@ -1028,27 +948,23 @@ export interface MalformedIntegerInput {
   integerInHeader?: number;
 }
 
-export namespace MalformedIntegerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedIntegerInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedIntegerInputFilterSensitiveLog = (obj: MalformedIntegerInput): any => ({
+  ...obj,
+});
 
 export interface MalformedListInput {
   bodyList?: string[];
 }
 
-export namespace MalformedListInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedListInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedListInputFilterSensitiveLog = (obj: MalformedListInput): any => ({
+  ...obj,
+});
 
 export interface MalformedLongInput {
   longInBody?: number;
@@ -1057,55 +973,47 @@ export interface MalformedLongInput {
   longInHeader?: number;
 }
 
-export namespace MalformedLongInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedLongInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedLongInputFilterSensitiveLog = (obj: MalformedLongInput): any => ({
+  ...obj,
+});
 
 export interface MalformedMapInput {
   bodyMap?: Record<string, string>;
 }
 
-export namespace MalformedMapInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedMapInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedMapInputFilterSensitiveLog = (obj: MalformedMapInput): any => ({
+  ...obj,
+});
 
 export interface MalformedRequestBodyInput {
   int?: number;
   float?: number;
 }
 
-export namespace MalformedRequestBodyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedRequestBodyInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedRequestBodyInputFilterSensitiveLog = (obj: MalformedRequestBodyInput): any => ({
+  ...obj,
+});
 
 export interface MalformedSetInput {
   set?: string[];
   blobSet?: Uint8Array[];
 }
 
-export namespace MalformedSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedSetInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedSetInputFilterSensitiveLog = (obj: MalformedSetInput): any => ({
+  ...obj,
+});
 
 export interface MalformedShortInput {
   shortInBody?: number;
@@ -1114,183 +1022,169 @@ export interface MalformedShortInput {
   shortInHeader?: number;
 }
 
-export namespace MalformedShortInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedShortInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedShortInputFilterSensitiveLog = (obj: MalformedShortInput): any => ({
+  ...obj,
+});
 
 export interface MalformedStringInput {
   blob?: __LazyJsonString | string;
 }
 
-export namespace MalformedStringInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedStringInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedStringInputFilterSensitiveLog = (obj: MalformedStringInput): any => ({
+  ...obj,
+});
 
 export interface MalformedTimestampBodyDateTimeInput {
   timestamp: Date | undefined;
 }
 
-export namespace MalformedTimestampBodyDateTimeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedTimestampBodyDateTimeInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedTimestampBodyDateTimeInputFilterSensitiveLog = (
+  obj: MalformedTimestampBodyDateTimeInput
+): any => ({
+  ...obj,
+});
 
 export interface MalformedTimestampBodyDefaultInput {
   timestamp: Date | undefined;
 }
 
-export namespace MalformedTimestampBodyDefaultInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedTimestampBodyDefaultInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedTimestampBodyDefaultInputFilterSensitiveLog = (obj: MalformedTimestampBodyDefaultInput): any => ({
+  ...obj,
+});
 
 export interface MalformedTimestampBodyHttpDateInput {
   timestamp: Date | undefined;
 }
 
-export namespace MalformedTimestampBodyHttpDateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedTimestampBodyHttpDateInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedTimestampBodyHttpDateInputFilterSensitiveLog = (
+  obj: MalformedTimestampBodyHttpDateInput
+): any => ({
+  ...obj,
+});
 
 export interface MalformedTimestampHeaderDateTimeInput {
   timestamp: Date | undefined;
 }
 
-export namespace MalformedTimestampHeaderDateTimeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedTimestampHeaderDateTimeInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedTimestampHeaderDateTimeInputFilterSensitiveLog = (
+  obj: MalformedTimestampHeaderDateTimeInput
+): any => ({
+  ...obj,
+});
 
 export interface MalformedTimestampHeaderDefaultInput {
   timestamp: Date | undefined;
 }
 
-export namespace MalformedTimestampHeaderDefaultInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedTimestampHeaderDefaultInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedTimestampHeaderDefaultInputFilterSensitiveLog = (
+  obj: MalformedTimestampHeaderDefaultInput
+): any => ({
+  ...obj,
+});
 
 export interface MalformedTimestampHeaderEpochInput {
   timestamp: Date | undefined;
 }
 
-export namespace MalformedTimestampHeaderEpochInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedTimestampHeaderEpochInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedTimestampHeaderEpochInputFilterSensitiveLog = (obj: MalformedTimestampHeaderEpochInput): any => ({
+  ...obj,
+});
 
 export interface MalformedTimestampPathDefaultInput {
   timestamp: Date | undefined;
 }
 
-export namespace MalformedTimestampPathDefaultInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedTimestampPathDefaultInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedTimestampPathDefaultInputFilterSensitiveLog = (obj: MalformedTimestampPathDefaultInput): any => ({
+  ...obj,
+});
 
 export interface MalformedTimestampPathEpochInput {
   timestamp: Date | undefined;
 }
 
-export namespace MalformedTimestampPathEpochInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedTimestampPathEpochInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedTimestampPathEpochInputFilterSensitiveLog = (obj: MalformedTimestampPathEpochInput): any => ({
+  ...obj,
+});
 
 export interface MalformedTimestampPathHttpDateInput {
   timestamp: Date | undefined;
 }
 
-export namespace MalformedTimestampPathHttpDateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedTimestampPathHttpDateInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedTimestampPathHttpDateInputFilterSensitiveLog = (
+  obj: MalformedTimestampPathHttpDateInput
+): any => ({
+  ...obj,
+});
 
 export interface MalformedTimestampQueryDefaultInput {
   timestamp: Date | undefined;
 }
 
-export namespace MalformedTimestampQueryDefaultInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedTimestampQueryDefaultInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedTimestampQueryDefaultInputFilterSensitiveLog = (
+  obj: MalformedTimestampQueryDefaultInput
+): any => ({
+  ...obj,
+});
 
 export interface MalformedTimestampQueryEpochInput {
   timestamp: Date | undefined;
 }
 
-export namespace MalformedTimestampQueryEpochInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedTimestampQueryEpochInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedTimestampQueryEpochInputFilterSensitiveLog = (obj: MalformedTimestampQueryEpochInput): any => ({
+  ...obj,
+});
 
 export interface MalformedTimestampQueryHttpDateInput {
   timestamp: Date | undefined;
 }
 
-export namespace MalformedTimestampQueryHttpDateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedTimestampQueryHttpDateInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedTimestampQueryHttpDateInputFilterSensitiveLog = (
+  obj: MalformedTimestampQueryHttpDateInput
+): any => ({
+  ...obj,
+});
 
 export type SimpleUnion = SimpleUnion.IntMember | SimpleUnion.StringMember | SimpleUnion.$UnknownMember;
 
@@ -1324,67 +1218,58 @@ export namespace SimpleUnion {
     if (value.string !== undefined) return visitor.string(value.string);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SimpleUnion): any => {
-    if (obj.int !== undefined) return { int: obj.int };
-    if (obj.string !== undefined) return { string: obj.string };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
+/**
+ * @internal
+ */
+export const SimpleUnionFilterSensitiveLog = (obj: SimpleUnion): any => {
+  if (obj.int !== undefined) return { int: obj.int };
+  if (obj.string !== undefined) return { string: obj.string };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
 
 export interface MalformedUnionInput {
   union?: SimpleUnion;
 }
 
-export namespace MalformedUnionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedUnionInput): any => ({
-    ...obj,
-    ...(obj.union && { union: SimpleUnion.filterSensitiveLog(obj.union) }),
-  });
-}
+/**
+ * @internal
+ */
+export const MalformedUnionInputFilterSensitiveLog = (obj: MalformedUnionInput): any => ({
+  ...obj,
+  ...(obj.union && { union: SimpleUnionFilterSensitiveLog(obj.union) }),
+});
 
 export interface MediaTypeHeaderInput {
   json?: __LazyJsonString | string;
 }
 
-export namespace MediaTypeHeaderInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaTypeHeaderInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MediaTypeHeaderInputFilterSensitiveLog = (obj: MediaTypeHeaderInput): any => ({
+  ...obj,
+});
 
 export interface MediaTypeHeaderOutput {
   json?: __LazyJsonString | string;
 }
 
-export namespace MediaTypeHeaderOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaTypeHeaderOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MediaTypeHeaderOutputFilterSensitiveLog = (obj: MediaTypeHeaderOutput): any => ({
+  ...obj,
+});
 
 export interface NoInputAndOutputOutput {}
 
-export namespace NoInputAndOutputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoInputAndOutputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const NoInputAndOutputOutputFilterSensitiveLog = (obj: NoInputAndOutputOutput): any => ({
+  ...obj,
+});
 
 export interface NullAndEmptyHeadersIO {
   a?: string;
@@ -1392,52 +1277,46 @@ export interface NullAndEmptyHeadersIO {
   c?: string[];
 }
 
-export namespace NullAndEmptyHeadersIO {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NullAndEmptyHeadersIO): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const NullAndEmptyHeadersIOFilterSensitiveLog = (obj: NullAndEmptyHeadersIO): any => ({
+  ...obj,
+});
 
 export interface OmitsNullSerializesEmptyStringInput {
   nullValue?: string;
   emptyString?: string;
 }
 
-export namespace OmitsNullSerializesEmptyStringInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OmitsNullSerializesEmptyStringInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const OmitsNullSerializesEmptyStringInputFilterSensitiveLog = (
+  obj: OmitsNullSerializesEmptyStringInput
+): any => ({
+  ...obj,
+});
 
 export interface PayloadConfig {
   data?: number;
 }
 
-export namespace PayloadConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PayloadConfig): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const PayloadConfigFilterSensitiveLog = (obj: PayloadConfig): any => ({
+  ...obj,
+});
 
 export interface Unit {}
 
-export namespace Unit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Unit): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const UnitFilterSensitiveLog = (obj: Unit): any => ({
+  ...obj,
+});
 
 export type PlayerAction = PlayerAction.QuitMember | PlayerAction.$UnknownMember;
 
@@ -1464,84 +1343,73 @@ export namespace PlayerAction {
     if (value.quit !== undefined) return visitor.quit(value.quit);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlayerAction): any => {
-    if (obj.quit !== undefined) return { quit: Unit.filterSensitiveLog(obj.quit) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
+/**
+ * @internal
+ */
+export const PlayerActionFilterSensitiveLog = (obj: PlayerAction): any => {
+  if (obj.quit !== undefined) return { quit: UnitFilterSensitiveLog(obj.quit) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
 
 export interface PostPlayerActionInput {
   action?: PlayerAction;
 }
 
-export namespace PostPlayerActionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostPlayerActionInput): any => ({
-    ...obj,
-    ...(obj.action && { action: PlayerAction.filterSensitiveLog(obj.action) }),
-  });
-}
+/**
+ * @internal
+ */
+export const PostPlayerActionInputFilterSensitiveLog = (obj: PostPlayerActionInput): any => ({
+  ...obj,
+  ...(obj.action && { action: PlayerActionFilterSensitiveLog(obj.action) }),
+});
 
 export interface PostPlayerActionOutput {
   action: PlayerAction | undefined;
 }
 
-export namespace PostPlayerActionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostPlayerActionOutput): any => ({
-    ...obj,
-    ...(obj.action && { action: PlayerAction.filterSensitiveLog(obj.action) }),
-  });
-}
+/**
+ * @internal
+ */
+export const PostPlayerActionOutputFilterSensitiveLog = (obj: PostPlayerActionOutput): any => ({
+  ...obj,
+  ...(obj.action && { action: PlayerActionFilterSensitiveLog(obj.action) }),
+});
 
 export interface QueryIdempotencyTokenAutoFillInput {
   token?: string;
 }
 
-export namespace QueryIdempotencyTokenAutoFillInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryIdempotencyTokenAutoFillInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const QueryIdempotencyTokenAutoFillInputFilterSensitiveLog = (obj: QueryIdempotencyTokenAutoFillInput): any => ({
+  ...obj,
+});
 
 export interface QueryParamsAsStringListMapInput {
   qux?: string;
   foo?: Record<string, string[]>;
 }
 
-export namespace QueryParamsAsStringListMapInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryParamsAsStringListMapInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const QueryParamsAsStringListMapInputFilterSensitiveLog = (obj: QueryParamsAsStringListMapInput): any => ({
+  ...obj,
+});
 
 export interface QueryPrecedenceInput {
   foo?: string;
   baz?: Record<string, string>;
 }
 
-export namespace QueryPrecedenceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryPrecedenceInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const QueryPrecedenceInputFilterSensitiveLog = (obj: QueryPrecedenceInput): any => ({
+  ...obj,
+});
 
 export interface SimpleScalarPropertiesInputOutput {
   foo?: string;
@@ -1556,124 +1424,108 @@ export interface SimpleScalarPropertiesInputOutput {
   doubleValue?: number;
 }
 
-export namespace SimpleScalarPropertiesInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SimpleScalarPropertiesInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const SimpleScalarPropertiesInputOutputFilterSensitiveLog = (obj: SimpleScalarPropertiesInputOutput): any => ({
+  ...obj,
+});
 
 export interface StreamingTraitsInputOutput {
   foo?: string;
   blob?: Readable | ReadableStream | Blob;
 }
 
-export namespace StreamingTraitsInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingTraitsInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const StreamingTraitsInputOutputFilterSensitiveLog = (obj: StreamingTraitsInputOutput): any => ({
+  ...obj,
+});
 
 export interface StreamingTraitsRequireLengthInput {
   foo?: string;
   blob?: Readable | ReadableStream | Blob;
 }
 
-export namespace StreamingTraitsRequireLengthInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingTraitsRequireLengthInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const StreamingTraitsRequireLengthInputFilterSensitiveLog = (obj: StreamingTraitsRequireLengthInput): any => ({
+  ...obj,
+});
 
 export interface StreamingTraitsWithMediaTypeInputOutput {
   foo?: string;
   blob?: Readable | ReadableStream | Blob;
 }
 
-export namespace StreamingTraitsWithMediaTypeInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingTraitsWithMediaTypeInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog = (
+  obj: StreamingTraitsWithMediaTypeInputOutput
+): any => ({
+  ...obj,
+});
 
 export interface TestConfig {
   timeout?: number;
 }
 
-export namespace TestConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestConfig): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TestConfigFilterSensitiveLog = (obj: TestConfig): any => ({
+  ...obj,
+});
 
 export interface TestBodyStructureInputOutput {
   testId?: string;
   testConfig?: TestConfig;
 }
 
-export namespace TestBodyStructureInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestBodyStructureInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TestBodyStructureInputOutputFilterSensitiveLog = (obj: TestBodyStructureInputOutput): any => ({
+  ...obj,
+});
 
 export interface TestNoPayloadInputOutput {
   testId?: string;
 }
 
-export namespace TestNoPayloadInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestNoPayloadInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TestNoPayloadInputOutputFilterSensitiveLog = (obj: TestNoPayloadInputOutput): any => ({
+  ...obj,
+});
 
 export interface TestPayloadBlobInputOutput {
   contentType?: string;
   data?: Uint8Array;
 }
 
-export namespace TestPayloadBlobInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestPayloadBlobInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TestPayloadBlobInputOutputFilterSensitiveLog = (obj: TestPayloadBlobInputOutput): any => ({
+  ...obj,
+});
 
 export interface TestPayloadStructureInputOutput {
   testId?: string;
   payloadConfig?: PayloadConfig;
 }
 
-export namespace TestPayloadStructureInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestPayloadStructureInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TestPayloadStructureInputOutputFilterSensitiveLog = (obj: TestPayloadStructureInputOutput): any => ({
+  ...obj,
+});
 
 export interface TimestampFormatHeadersIO {
   memberEpochSeconds?: Date;
@@ -1685,52 +1537,44 @@ export interface TimestampFormatHeadersIO {
   targetDateTime?: Date;
 }
 
-export namespace TimestampFormatHeadersIO {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestampFormatHeadersIO): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TimestampFormatHeadersIOFilterSensitiveLog = (obj: TimestampFormatHeadersIO): any => ({
+  ...obj,
+});
 
 export interface RecursiveShapesInputOutputNested1 {
   foo?: string;
   nested?: RecursiveShapesInputOutputNested2;
 }
 
-export namespace RecursiveShapesInputOutputNested1 {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecursiveShapesInputOutputNested1): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const RecursiveShapesInputOutputNested1FilterSensitiveLog = (obj: RecursiveShapesInputOutputNested1): any => ({
+  ...obj,
+});
 
 export interface RecursiveShapesInputOutputNested2 {
   bar?: string;
   recursiveMember?: RecursiveShapesInputOutputNested1;
 }
 
-export namespace RecursiveShapesInputOutputNested2 {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecursiveShapesInputOutputNested2): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const RecursiveShapesInputOutputNested2FilterSensitiveLog = (obj: RecursiveShapesInputOutputNested2): any => ({
+  ...obj,
+});
 
 export interface RecursiveShapesInputOutput {
   nested?: RecursiveShapesInputOutputNested1;
 }
 
-export namespace RecursiveShapesInputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecursiveShapesInputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const RecursiveShapesInputOutputFilterSensitiveLog = (obj: RecursiveShapesInputOutput): any => ({
+  ...obj,
+});

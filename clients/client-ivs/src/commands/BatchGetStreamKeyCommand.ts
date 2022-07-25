@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { BatchGetStreamKeyRequest, BatchGetStreamKeyResponse } from "../models/models_0";
+import {
+  BatchGetStreamKeyRequest,
+  BatchGetStreamKeyRequestFilterSensitiveLog,
+  BatchGetStreamKeyResponse,
+  BatchGetStreamKeyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BatchGetStreamKeyCommand,
   serializeAws_restJson1BatchGetStreamKeyCommand,
@@ -72,8 +77,8 @@ export class BatchGetStreamKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetStreamKeyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetStreamKeyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchGetStreamKeyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetStreamKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

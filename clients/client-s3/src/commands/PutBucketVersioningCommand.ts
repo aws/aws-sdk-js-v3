@@ -14,7 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketVersioningRequest } from "../models/models_0";
+import { PutBucketVersioningRequest, PutBucketVersioningRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlPutBucketVersioningCommand,
   serializeAws_restXmlPutBucketVersioningCommand,
@@ -130,7 +130,7 @@ export class PutBucketVersioningCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketVersioningRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutBucketVersioningRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ModifyInstanceCapacityReservationAttributesRequest,
+  ModifyInstanceCapacityReservationAttributesRequestFilterSensitiveLog,
   ModifyInstanceCapacityReservationAttributesResult,
+  ModifyInstanceCapacityReservationAttributesResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
   deserializeAws_ec2ModifyInstanceCapacityReservationAttributesCommand,
@@ -83,8 +85,8 @@ export class ModifyInstanceCapacityReservationAttributesCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyInstanceCapacityReservationAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyInstanceCapacityReservationAttributesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyInstanceCapacityReservationAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyInstanceCapacityReservationAttributesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

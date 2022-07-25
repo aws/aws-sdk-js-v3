@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeAccountAttributesRequest, DescribeAccountAttributesResult } from "../models/models_2";
+import {
+  DescribeAccountAttributesRequest,
+  DescribeAccountAttributesRequestFilterSensitiveLog,
+  DescribeAccountAttributesResult,
+  DescribeAccountAttributesResultFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_ec2DescribeAccountAttributesCommand,
   serializeAws_ec2DescribeAccountAttributesCommand,
@@ -106,8 +111,8 @@ export class DescribeAccountAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountAttributesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAccountAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAccountAttributesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

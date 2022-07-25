@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { DescribeGatewayRouteInput, DescribeGatewayRouteOutput } from "../models/models_0";
+import {
+  DescribeGatewayRouteInput,
+  DescribeGatewayRouteInputFilterSensitiveLog,
+  DescribeGatewayRouteOutput,
+  DescribeGatewayRouteOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeGatewayRouteCommand,
   serializeAws_restJson1DescribeGatewayRouteCommand,
@@ -72,8 +77,8 @@ export class DescribeGatewayRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGatewayRouteInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGatewayRouteOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeGatewayRouteInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeGatewayRouteOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

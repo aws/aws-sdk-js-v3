@@ -15,7 +15,9 @@ import {
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import {
   AuthorizeCacheSecurityGroupIngressMessage,
+  AuthorizeCacheSecurityGroupIngressMessageFilterSensitiveLog,
   AuthorizeCacheSecurityGroupIngressResult,
+  AuthorizeCacheSecurityGroupIngressResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand,
@@ -83,8 +85,8 @@ export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeCacheSecurityGroupIngressMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizeCacheSecurityGroupIngressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AuthorizeCacheSecurityGroupIngressMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: AuthorizeCacheSecurityGroupIngressResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

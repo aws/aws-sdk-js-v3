@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { UpdateGlobalSettingsInput } from "../models/models_0";
+import { UpdateGlobalSettingsInput, UpdateGlobalSettingsInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateGlobalSettingsCommand,
   serializeAws_restJson1UpdateGlobalSettingsCommand,
@@ -74,7 +74,7 @@ export class UpdateGlobalSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGlobalSettingsInput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGlobalSettingsInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

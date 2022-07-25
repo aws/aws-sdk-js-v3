@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { ListStepsInput, ListStepsOutput } from "../models/models_0";
+import {
+  ListStepsInput,
+  ListStepsInputFilterSensitiveLog,
+  ListStepsOutput,
+  ListStepsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1ListStepsCommand, serializeAws_json1_1ListStepsCommand } from "../protocols/Aws_json1_1";
 
 export interface ListStepsCommandInput extends ListStepsInput {}
@@ -70,8 +75,8 @@ export class ListStepsCommand extends $Command<ListStepsCommandInput, ListStepsC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStepsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListStepsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListStepsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListStepsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

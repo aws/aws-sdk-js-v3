@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetDiskSnapshotRequest, GetDiskSnapshotResult } from "../models/models_0";
+import {
+  GetDiskSnapshotRequest,
+  GetDiskSnapshotRequestFilterSensitiveLog,
+  GetDiskSnapshotResult,
+  GetDiskSnapshotResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetDiskSnapshotCommand,
   serializeAws_json1_1GetDiskSnapshotCommand,
@@ -72,8 +77,8 @@ export class GetDiskSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDiskSnapshotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDiskSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDiskSnapshotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDiskSnapshotResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RespondActivityTaskCanceledInput } from "../models/models_0";
+import {
+  RespondActivityTaskCanceledInput,
+  RespondActivityTaskCanceledInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0RespondActivityTaskCanceledCommand,
   serializeAws_json1_0RespondActivityTaskCanceledCommand,
@@ -113,7 +116,7 @@ export class RespondActivityTaskCanceledCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RespondActivityTaskCanceledInput.filterSensitiveLog,
+      inputFilterSensitiveLog: RespondActivityTaskCanceledInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

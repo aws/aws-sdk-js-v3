@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HeadBucketRequest } from "../models/models_0";
+import { HeadBucketRequest, HeadBucketRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlHeadBucketCommand,
   serializeAws_restXmlHeadBucketCommand,
@@ -89,7 +89,7 @@ export class HeadBucketCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HeadBucketRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: HeadBucketRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

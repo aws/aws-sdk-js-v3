@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DetachClassicLinkVpcRequest, DetachClassicLinkVpcResult } from "../models/models_4";
+import {
+  DetachClassicLinkVpcRequest,
+  DetachClassicLinkVpcRequestFilterSensitiveLog,
+  DetachClassicLinkVpcResult,
+  DetachClassicLinkVpcResultFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2DetachClassicLinkVpcCommand,
   serializeAws_ec2DetachClassicLinkVpcCommand,
@@ -72,8 +77,8 @@ export class DetachClassicLinkVpcCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachClassicLinkVpcRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DetachClassicLinkVpcResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachClassicLinkVpcRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DetachClassicLinkVpcResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

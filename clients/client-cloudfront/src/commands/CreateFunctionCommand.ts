@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { CreateFunctionRequest, CreateFunctionResult } from "../models/models_0";
+import {
+  CreateFunctionRequest,
+  CreateFunctionRequestFilterSensitiveLog,
+  CreateFunctionResult,
+  CreateFunctionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlCreateFunctionCommand,
   serializeAws_restXmlCreateFunctionCommand,
@@ -82,8 +87,8 @@ export class CreateFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFunctionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateFunctionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateFunctionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateFunctionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

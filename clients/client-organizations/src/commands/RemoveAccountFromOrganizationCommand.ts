@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RemoveAccountFromOrganizationRequest } from "../models/models_0";
+import {
+  RemoveAccountFromOrganizationRequest,
+  RemoveAccountFromOrganizationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1RemoveAccountFromOrganizationCommand,
@@ -109,7 +112,7 @@ export class RemoveAccountFromOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveAccountFromOrganizationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveAccountFromOrganizationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

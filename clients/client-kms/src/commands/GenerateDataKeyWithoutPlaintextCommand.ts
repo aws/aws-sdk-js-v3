@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { GenerateDataKeyWithoutPlaintextRequest, GenerateDataKeyWithoutPlaintextResponse } from "../models/models_0";
+import {
+  GenerateDataKeyWithoutPlaintextRequest,
+  GenerateDataKeyWithoutPlaintextRequestFilterSensitiveLog,
+  GenerateDataKeyWithoutPlaintextResponse,
+  GenerateDataKeyWithoutPlaintextResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand,
   serializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand,
@@ -144,8 +149,8 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateDataKeyWithoutPlaintextRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GenerateDataKeyWithoutPlaintextResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GenerateDataKeyWithoutPlaintextRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GenerateDataKeyWithoutPlaintextResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

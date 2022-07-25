@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { GetDelegationsRequest, GetDelegationsResponse } from "../models/models_0";
+import {
+  GetDelegationsRequest,
+  GetDelegationsRequestFilterSensitiveLog,
+  GetDelegationsResponse,
+  GetDelegationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetDelegationsCommand,
   serializeAws_restJson1GetDelegationsCommand,
@@ -72,8 +77,8 @@ export class GetDelegationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDelegationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDelegationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDelegationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDelegationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

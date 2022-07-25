@@ -35,15 +35,6 @@ export interface ContainerImage {
   uri: string | undefined;
 }
 
-export namespace ContainerImage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerImage): any => ({
-    ...obj,
-  });
-}
-
 export enum CompressionType {
   GZIP = "GZIP",
   NONE = "NONE",
@@ -72,15 +63,6 @@ export interface ScriptModeConfig {
   compressionType?: CompressionType | string;
 }
 
-export namespace ScriptModeConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScriptModeConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines the Amazon Braket job to be created. Specifies the container image the job uses
  *          and the paths to the Python scripts used for entry and training.</p>
@@ -97,29 +79,11 @@ export interface AlgorithmSpecification {
   containerImage?: ContainerImage;
 }
 
-export namespace AlgorithmSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlgorithmSpecification): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeviceRequest {
   /**
    * <p>The ARN of the device to retrieve.</p>
    */
   deviceArn: string | undefined;
-}
-
-export namespace GetDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DeviceStatus {
@@ -163,15 +127,6 @@ export interface GetDeviceResponse {
    * <p>Details about the capabilities of the device.</p>
    */
   deviceCapabilities: __LazyJsonString | string | undefined;
-}
-
-export namespace GetDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -266,15 +221,6 @@ export interface SearchDevicesFilter {
   values: string[] | undefined;
 }
 
-export namespace SearchDevicesFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchDevicesFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchDevicesRequest {
   /**
    * <p>A token used for pagination of results returned in the response. Use the token returned
@@ -291,15 +237,6 @@ export interface SearchDevicesRequest {
    * <p>The filter values to use to search for a device.</p>
    */
   filters: SearchDevicesFilter[] | undefined;
-}
-
-export namespace SearchDevicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchDevicesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -332,15 +269,6 @@ export interface DeviceSummary {
   deviceStatus: DeviceStatus | string | undefined;
 }
 
-export namespace DeviceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchDevicesResponse {
   /**
    * <p>An array of <code>DeviceSummary</code> objects for devices that match the specified
@@ -356,29 +284,11 @@ export interface SearchDevicesResponse {
   nextToken?: string;
 }
 
-export namespace SearchDevicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchDevicesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelJobRequest {
   /**
    * <p>The ARN of the Amazon Braket job to cancel.</p>
    */
   jobArn: string | undefined;
-}
-
-export namespace CancelJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum CancellationStatus {
@@ -396,15 +306,6 @@ export interface CancelJobResponse {
    * <p>The status of the job cancellation request.</p>
    */
   cancellationStatus: CancellationStatus | string | undefined;
-}
-
-export namespace CancelJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJobResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -443,15 +344,6 @@ export interface JobCheckpointConfig {
   s3Uri: string | undefined;
 }
 
-export namespace JobCheckpointConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobCheckpointConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configures the quantum processing units (QPUs) or simulator used to create and run an
  *          Amazon Braket job.</p>
@@ -462,15 +354,6 @@ export interface DeviceConfig {
    *          Braket job.</p>
    */
   device: string | undefined;
-}
-
-export namespace DeviceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -484,15 +367,6 @@ export interface S3DataSource {
   s3Uri: string | undefined;
 }
 
-export namespace S3DataSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DataSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the source of the data used by the Amazon Braket job.</p>
  */
@@ -501,15 +375,6 @@ export interface DataSource {
    * <p>Information about the data stored in Amazon S3 used by the Amazon Braket job.</p>
    */
   s3DataSource: S3DataSource | undefined;
-}
-
-export namespace DataSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -531,15 +396,6 @@ export interface InputFileConfig {
    * <p>The location of the channel data.</p>
    */
   dataSource: DataSource | undefined;
-}
-
-export namespace InputFileConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputFileConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum _InstanceType {
@@ -607,15 +463,6 @@ export interface InstanceConfig {
   instanceCount?: number;
 }
 
-export namespace InstanceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the path to the S3 location where you want to store job artifacts and the
  *          encryption key used to store them.</p>
@@ -634,15 +481,6 @@ export interface JobOutputDataConfig {
   s3Path: string | undefined;
 }
 
-export namespace JobOutputDataConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobOutputDataConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies limits for how long an Amazon Braket job can run. </p>
  */
@@ -651,15 +489,6 @@ export interface JobStoppingCondition {
    * <p>The maximum length of time, in seconds, that an Amazon Braket job can run.</p>
    */
   maxRuntimeInSeconds?: number;
-}
-
-export namespace JobStoppingCondition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobStoppingCondition): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateJobRequest {
@@ -734,29 +563,11 @@ export interface CreateJobRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateJobResponse {
   /**
    * <p>The ARN of the Amazon Braket job created.</p>
    */
   jobArn: string | undefined;
-}
-
-export namespace CreateJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -804,15 +615,6 @@ export interface GetJobRequest {
   jobArn: string | undefined;
 }
 
-export namespace GetJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum JobEventType {
   CANCELLED = "CANCELLED",
   COMPLETED = "COMPLETED",
@@ -845,15 +647,6 @@ export interface JobEventDetails {
    * <p>A message describing the event that occurred related to the Amazon Braket job.</p>
    */
   message?: string;
-}
-
-export namespace JobEventDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobEventDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum JobPrimaryStatus {
@@ -971,15 +764,6 @@ export interface GetJobResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum SearchJobsFilterOperator {
   BETWEEN = "BETWEEN",
   CONTAINS = "CONTAINS",
@@ -1010,15 +794,6 @@ export interface SearchJobsFilter {
   operator: SearchJobsFilterOperator | string | undefined;
 }
 
-export namespace SearchJobsFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchJobsFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchJobsRequest {
   /**
    * <p>A token used for pagination of results returned in the response. Use the token returned
@@ -1035,15 +810,6 @@ export interface SearchJobsRequest {
    * <p>The filter values to use when searching for a job.</p>
    */
   filters: SearchJobsFilter[] | undefined;
-}
-
-export namespace SearchJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1093,15 +859,6 @@ export interface JobSummary {
   tags?: Record<string, string>;
 }
 
-export namespace JobSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchJobsResponse {
   /**
    * <p>An array of <code>JobSummary</code> objects for devices that match the specified filter
@@ -1117,15 +874,6 @@ export interface SearchJobsResponse {
   nextToken?: string;
 }
 
-export namespace SearchJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchJobsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>Specify the <code>resourceArn</code> for the resource whose tags to display.</p>
@@ -1133,29 +881,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>Displays the key, value pairs of tags associated with this resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CancelQuantumTaskRequest {
@@ -1170,15 +900,6 @@ export interface CancelQuantumTaskRequest {
   clientToken?: string;
 }
 
-export namespace CancelQuantumTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelQuantumTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelQuantumTaskResponse {
   /**
    * <p>The ARN of the task.</p>
@@ -1189,15 +910,6 @@ export interface CancelQuantumTaskResponse {
    * <p>The status of the cancellation request.</p>
    */
   cancellationStatus: CancellationStatus | string | undefined;
-}
-
-export namespace CancelQuantumTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelQuantumTaskResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateQuantumTaskRequest {
@@ -1247,29 +959,11 @@ export interface CreateQuantumTaskRequest {
   jobToken?: string;
 }
 
-export namespace CreateQuantumTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateQuantumTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateQuantumTaskResponse {
   /**
    * <p>The ARN of the task created by the request.</p>
    */
   quantumTaskArn: string | undefined;
-}
-
-export namespace CreateQuantumTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateQuantumTaskResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1296,15 +990,6 @@ export interface GetQuantumTaskRequest {
    * <p>the ARN of the task to retrieve.</p>
    */
   quantumTaskArn: string | undefined;
-}
-
-export namespace GetQuantumTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQuantumTaskRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum QuantumTaskStatus {
@@ -1379,15 +1064,6 @@ export interface GetQuantumTaskResponse {
   jobArn?: string;
 }
 
-export namespace GetQuantumTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQuantumTaskResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum SearchQuantumTasksFilterOperator {
   BETWEEN = "BETWEEN",
   EQUAL = "EQUAL",
@@ -1417,15 +1093,6 @@ export interface SearchQuantumTasksFilter {
   operator: SearchQuantumTasksFilterOperator | string | undefined;
 }
 
-export namespace SearchQuantumTasksFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchQuantumTasksFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchQuantumTasksRequest {
   /**
    * <p>A token used for pagination of results returned in the response. Use the token returned
@@ -1442,15 +1109,6 @@ export interface SearchQuantumTasksRequest {
    * <p>Array of <code>SearchQuantumTasksFilter</code> objects.</p>
    */
   filters: SearchQuantumTasksFilter[] | undefined;
-}
-
-export namespace SearchQuantumTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchQuantumTasksRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1503,15 +1161,6 @@ export interface QuantumTaskSummary {
   tags?: Record<string, string>;
 }
 
-export namespace QuantumTaskSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QuantumTaskSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchQuantumTasksResponse {
   /**
    * <p>An array of <code>QuantumTaskSummary</code> objects for tasks that match the specified
@@ -1527,15 +1176,6 @@ export interface SearchQuantumTasksResponse {
   nextToken?: string;
 }
 
-export namespace SearchQuantumTasksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchQuantumTasksResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>Specify the <code>resourceArn</code> of the resource to which a tag will be
@@ -1549,25 +1189,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1582,22 +1204,312 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ContainerImageFilterSensitiveLog = (obj: ContainerImage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScriptModeConfigFilterSensitiveLog = (obj: ScriptModeConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlgorithmSpecificationFilterSensitiveLog = (obj: AlgorithmSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceRequestFilterSensitiveLog = (obj: GetDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceResponseFilterSensitiveLog = (obj: GetDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchDevicesFilterFilterSensitiveLog = (obj: SearchDevicesFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchDevicesRequestFilterSensitiveLog = (obj: SearchDevicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceSummaryFilterSensitiveLog = (obj: DeviceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchDevicesResponseFilterSensitiveLog = (obj: SearchDevicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelJobRequestFilterSensitiveLog = (obj: CancelJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelJobResponseFilterSensitiveLog = (obj: CancelJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobCheckpointConfigFilterSensitiveLog = (obj: JobCheckpointConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceConfigFilterSensitiveLog = (obj: DeviceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DataSourceFilterSensitiveLog = (obj: S3DataSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSourceFilterSensitiveLog = (obj: DataSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputFileConfigFilterSensitiveLog = (obj: InputFileConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceConfigFilterSensitiveLog = (obj: InstanceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobOutputDataConfigFilterSensitiveLog = (obj: JobOutputDataConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobStoppingConditionFilterSensitiveLog = (obj: JobStoppingCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobResponseFilterSensitiveLog = (obj: CreateJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobRequestFilterSensitiveLog = (obj: GetJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobEventDetailsFilterSensitiveLog = (obj: JobEventDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobResponseFilterSensitiveLog = (obj: GetJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchJobsFilterFilterSensitiveLog = (obj: SearchJobsFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchJobsRequestFilterSensitiveLog = (obj: SearchJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobSummaryFilterSensitiveLog = (obj: JobSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchJobsResponseFilterSensitiveLog = (obj: SearchJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelQuantumTaskRequestFilterSensitiveLog = (obj: CancelQuantumTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelQuantumTaskResponseFilterSensitiveLog = (obj: CancelQuantumTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateQuantumTaskRequestFilterSensitiveLog = (obj: CreateQuantumTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateQuantumTaskResponseFilterSensitiveLog = (obj: CreateQuantumTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQuantumTaskRequestFilterSensitiveLog = (obj: GetQuantumTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQuantumTaskResponseFilterSensitiveLog = (obj: GetQuantumTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchQuantumTasksFilterFilterSensitiveLog = (obj: SearchQuantumTasksFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchQuantumTasksRequestFilterSensitiveLog = (obj: SearchQuantumTasksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QuantumTaskSummaryFilterSensitiveLog = (obj: QuantumTaskSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchQuantumTasksResponseFilterSensitiveLog = (obj: SearchQuantumTasksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

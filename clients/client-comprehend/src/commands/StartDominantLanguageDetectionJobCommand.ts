@@ -15,7 +15,9 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import {
   StartDominantLanguageDetectionJobRequest,
+  StartDominantLanguageDetectionJobRequestFilterSensitiveLog,
   StartDominantLanguageDetectionJobResponse,
+  StartDominantLanguageDetectionJobResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1StartDominantLanguageDetectionJobCommand,
@@ -79,8 +81,8 @@ export class StartDominantLanguageDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDominantLanguageDetectionJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartDominantLanguageDetectionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartDominantLanguageDetectionJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartDominantLanguageDetectionJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

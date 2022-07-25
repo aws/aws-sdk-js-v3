@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListLocalDisksInput, ListLocalDisksOutput } from "../models/models_0";
+import {
+  ListLocalDisksInput,
+  ListLocalDisksInputFilterSensitiveLog,
+  ListLocalDisksOutput,
+  ListLocalDisksOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListLocalDisksCommand,
   serializeAws_json1_1ListLocalDisksCommand,
@@ -80,8 +85,8 @@ export class ListLocalDisksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLocalDisksInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListLocalDisksOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListLocalDisksInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListLocalDisksOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

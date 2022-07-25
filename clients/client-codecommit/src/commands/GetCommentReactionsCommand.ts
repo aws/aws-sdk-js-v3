@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { GetCommentReactionsInput, GetCommentReactionsOutput } from "../models/models_0";
+import {
+  GetCommentReactionsInput,
+  GetCommentReactionsInputFilterSensitiveLog,
+  GetCommentReactionsOutput,
+  GetCommentReactionsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetCommentReactionsCommand,
   serializeAws_json1_1GetCommentReactionsCommand,
@@ -72,8 +77,8 @@ export class GetCommentReactionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCommentReactionsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCommentReactionsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCommentReactionsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCommentReactionsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

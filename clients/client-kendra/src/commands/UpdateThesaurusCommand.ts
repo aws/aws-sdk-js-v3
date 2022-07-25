@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { UpdateThesaurusRequest } from "../models/models_0";
+import { UpdateThesaurusRequest, UpdateThesaurusRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateThesaurusCommand,
   serializeAws_json1_1UpdateThesaurusCommand,
@@ -72,7 +72,7 @@ export class UpdateThesaurusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateThesaurusRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateThesaurusRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

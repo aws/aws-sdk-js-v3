@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { GetImportRequest, GetImportResponse } from "../models/models_0";
+import {
+  GetImportRequest,
+  GetImportRequestFilterSensitiveLog,
+  GetImportResponse,
+  GetImportResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetImportCommand,
   serializeAws_restJson1GetImportCommand,
@@ -77,8 +82,8 @@ export class GetImportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetImportRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetImportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetImportRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetImportResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

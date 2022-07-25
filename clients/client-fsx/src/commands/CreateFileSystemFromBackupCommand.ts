@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CreateFileSystemFromBackupRequest, CreateFileSystemFromBackupResponse } from "../models/models_0";
+import {
+  CreateFileSystemFromBackupRequest,
+  CreateFileSystemFromBackupRequestFilterSensitiveLog,
+  CreateFileSystemFromBackupResponse,
+  CreateFileSystemFromBackupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateFileSystemFromBackupCommand,
   serializeAws_json1_1CreateFileSystemFromBackupCommand,
@@ -108,8 +113,8 @@ export class CreateFileSystemFromBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFileSystemFromBackupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateFileSystemFromBackupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateFileSystemFromBackupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateFileSystemFromBackupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

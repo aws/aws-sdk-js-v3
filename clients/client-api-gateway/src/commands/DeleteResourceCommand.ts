@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteResourceRequest } from "../models/models_0";
+import { DeleteResourceRequest, DeleteResourceRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteResourceCommand,
   serializeAws_restJson1DeleteResourceCommand,
@@ -72,7 +72,7 @@ export class DeleteResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteResourceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

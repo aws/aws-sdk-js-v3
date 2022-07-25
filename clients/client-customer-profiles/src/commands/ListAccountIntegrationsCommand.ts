@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { ListAccountIntegrationsRequest, ListAccountIntegrationsResponse } from "../models/models_0";
+import {
+  ListAccountIntegrationsRequest,
+  ListAccountIntegrationsRequestFilterSensitiveLog,
+  ListAccountIntegrationsResponse,
+  ListAccountIntegrationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListAccountIntegrationsCommand,
   serializeAws_restJson1ListAccountIntegrationsCommand,
@@ -72,8 +77,8 @@ export class ListAccountIntegrationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccountIntegrationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAccountIntegrationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAccountIntegrationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAccountIntegrationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteCustomerGatewayRequest } from "../models/models_2";
+import { DeleteCustomerGatewayRequest, DeleteCustomerGatewayRequestFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteCustomerGatewayCommand,
   serializeAws_ec2DeleteCustomerGatewayCommand,
@@ -73,7 +73,7 @@ export class DeleteCustomerGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomerGatewayRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCustomerGatewayRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

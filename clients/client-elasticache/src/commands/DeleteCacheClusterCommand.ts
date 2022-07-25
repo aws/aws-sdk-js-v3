@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { DeleteCacheClusterMessage, DeleteCacheClusterResult } from "../models/models_0";
+import {
+  DeleteCacheClusterMessage,
+  DeleteCacheClusterMessageFilterSensitiveLog,
+  DeleteCacheClusterResult,
+  DeleteCacheClusterResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteCacheClusterCommand,
   serializeAws_queryDeleteCacheClusterCommand,
@@ -101,8 +106,8 @@ export class DeleteCacheClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCacheClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCacheClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCacheClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCacheClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

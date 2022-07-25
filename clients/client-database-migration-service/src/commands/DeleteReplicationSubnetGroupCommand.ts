@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DeleteReplicationSubnetGroupMessage, DeleteReplicationSubnetGroupResponse } from "../models/models_0";
+import {
+  DeleteReplicationSubnetGroupMessage,
+  DeleteReplicationSubnetGroupMessageFilterSensitiveLog,
+  DeleteReplicationSubnetGroupResponse,
+  DeleteReplicationSubnetGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteReplicationSubnetGroupCommand,
   serializeAws_json1_1DeleteReplicationSubnetGroupCommand,
@@ -78,8 +83,8 @@ export class DeleteReplicationSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReplicationSubnetGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReplicationSubnetGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteReplicationSubnetGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteReplicationSubnetGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

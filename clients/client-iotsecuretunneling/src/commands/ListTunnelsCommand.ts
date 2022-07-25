@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient";
-import { ListTunnelsRequest, ListTunnelsResponse } from "../models/models_0";
+import {
+  ListTunnelsRequest,
+  ListTunnelsRequestFilterSensitiveLog,
+  ListTunnelsResponse,
+  ListTunnelsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListTunnelsCommand,
   serializeAws_json1_1ListTunnelsCommand,
@@ -78,8 +83,8 @@ export class ListTunnelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTunnelsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTunnelsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTunnelsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTunnelsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

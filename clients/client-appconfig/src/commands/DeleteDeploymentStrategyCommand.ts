@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { DeleteDeploymentStrategyRequest } from "../models/models_0";
+import { DeleteDeploymentStrategyRequest, DeleteDeploymentStrategyRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDeploymentStrategyCommand,
   serializeAws_restJson1DeleteDeploymentStrategyCommand,
@@ -73,7 +73,7 @@ export class DeleteDeploymentStrategyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeploymentStrategyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDeploymentStrategyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

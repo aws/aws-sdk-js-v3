@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeTagsRequest, DescribeTagsResult } from "../models/models_4";
+import {
+  DescribeTagsRequest,
+  DescribeTagsRequestFilterSensitiveLog,
+  DescribeTagsResult,
+  DescribeTagsResultFilterSensitiveLog,
+} from "../models/models_4";
 import { deserializeAws_ec2DescribeTagsCommand, serializeAws_ec2DescribeTagsCommand } from "../protocols/Aws_ec2";
 
 export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
@@ -71,8 +76,8 @@ export class DescribeTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTagsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTagsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

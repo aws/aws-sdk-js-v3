@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutRetentionConfigurationRequest, PutRetentionConfigurationResponse } from "../models/models_1";
+import {
+  PutRetentionConfigurationRequest,
+  PutRetentionConfigurationRequestFilterSensitiveLog,
+  PutRetentionConfigurationResponse,
+  PutRetentionConfigurationResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1PutRetentionConfigurationCommand,
   serializeAws_json1_1PutRetentionConfigurationCommand,
@@ -82,8 +87,8 @@ export class PutRetentionConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRetentionConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutRetentionConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutRetentionConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutRetentionConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteVirtualMFADeviceRequest } from "../models/models_0";
+import { DeleteVirtualMFADeviceRequest, DeleteVirtualMFADeviceRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDeleteVirtualMFADeviceCommand,
   serializeAws_queryDeleteVirtualMFADeviceCommand,
@@ -76,7 +76,7 @@ export class DeleteVirtualMFADeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVirtualMFADeviceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVirtualMFADeviceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

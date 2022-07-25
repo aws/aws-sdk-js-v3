@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateAccountPasswordPolicyRequest } from "../models/models_1";
+import {
+  UpdateAccountPasswordPolicyRequest,
+  UpdateAccountPasswordPolicyRequestFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryUpdateAccountPasswordPolicyCommand,
   serializeAws_queryUpdateAccountPasswordPolicyCommand,
@@ -82,7 +85,7 @@ export class UpdateAccountPasswordPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAccountPasswordPolicyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAccountPasswordPolicyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

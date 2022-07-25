@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DeleteSecurityProfileRequest } from "../models/models_0";
+import { DeleteSecurityProfileRequest, DeleteSecurityProfileRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSecurityProfileCommand,
   serializeAws_restJson1DeleteSecurityProfileCommand,
@@ -73,7 +73,7 @@ export class DeleteSecurityProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSecurityProfileRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSecurityProfileRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

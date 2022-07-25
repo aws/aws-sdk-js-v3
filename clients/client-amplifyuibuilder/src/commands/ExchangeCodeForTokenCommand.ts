@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import { ExchangeCodeForTokenRequest, ExchangeCodeForTokenResponse } from "../models/models_0";
+import {
+  ExchangeCodeForTokenRequest,
+  ExchangeCodeForTokenRequestFilterSensitiveLog,
+  ExchangeCodeForTokenResponse,
+  ExchangeCodeForTokenResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ExchangeCodeForTokenCommand,
   serializeAws_restJson1ExchangeCodeForTokenCommand,
@@ -72,8 +77,8 @@ export class ExchangeCodeForTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExchangeCodeForTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ExchangeCodeForTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ExchangeCodeForTokenRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ExchangeCodeForTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

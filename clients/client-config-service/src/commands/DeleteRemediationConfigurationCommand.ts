@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeleteRemediationConfigurationRequest, DeleteRemediationConfigurationResponse } from "../models/models_0";
+import {
+  DeleteRemediationConfigurationRequest,
+  DeleteRemediationConfigurationRequestFilterSensitiveLog,
+  DeleteRemediationConfigurationResponse,
+  DeleteRemediationConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRemediationConfigurationCommand,
   serializeAws_json1_1DeleteRemediationConfigurationCommand,
@@ -74,8 +79,8 @@ export class DeleteRemediationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRemediationConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRemediationConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRemediationConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRemediationConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

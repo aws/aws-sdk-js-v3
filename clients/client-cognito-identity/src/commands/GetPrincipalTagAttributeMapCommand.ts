@@ -14,7 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import { GetPrincipalTagAttributeMapInput, GetPrincipalTagAttributeMapResponse } from "../models/models_0";
+import {
+  GetPrincipalTagAttributeMapInput,
+  GetPrincipalTagAttributeMapInputFilterSensitiveLog,
+  GetPrincipalTagAttributeMapResponse,
+  GetPrincipalTagAttributeMapResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetPrincipalTagAttributeMapCommand,
   serializeAws_json1_1GetPrincipalTagAttributeMapCommand,
@@ -76,8 +81,8 @@ export class GetPrincipalTagAttributeMapCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPrincipalTagAttributeMapInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPrincipalTagAttributeMapResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPrincipalTagAttributeMapInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetPrincipalTagAttributeMapResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { GetFederationTokenRequest, GetFederationTokenResponse } from "../models/models_0";
+import {
+  GetFederationTokenRequest,
+  GetFederationTokenRequestFilterSensitiveLog,
+  GetFederationTokenResponse,
+  GetFederationTokenResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetFederationTokenCommand,
   serializeAws_restJson1GetFederationTokenCommand,
@@ -80,8 +85,8 @@ export class GetFederationTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFederationTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetFederationTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFederationTokenRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetFederationTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

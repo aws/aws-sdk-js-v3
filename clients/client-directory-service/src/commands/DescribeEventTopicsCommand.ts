@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { DescribeEventTopicsRequest, DescribeEventTopicsResult } from "../models/models_0";
+import {
+  DescribeEventTopicsRequest,
+  DescribeEventTopicsRequestFilterSensitiveLog,
+  DescribeEventTopicsResult,
+  DescribeEventTopicsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEventTopicsCommand,
   serializeAws_json1_1DescribeEventTopicsCommand,
@@ -75,8 +80,8 @@ export class DescribeEventTopicsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventTopicsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventTopicsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEventTopicsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEventTopicsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

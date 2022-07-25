@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { GetEffectivePermissionsForPathRequest, GetEffectivePermissionsForPathResponse } from "../models/models_0";
+import {
+  GetEffectivePermissionsForPathRequest,
+  GetEffectivePermissionsForPathRequestFilterSensitiveLog,
+  GetEffectivePermissionsForPathResponse,
+  GetEffectivePermissionsForPathResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetEffectivePermissionsForPathCommand,
   serializeAws_restJson1GetEffectivePermissionsForPathCommand,
@@ -75,8 +80,8 @@ export class GetEffectivePermissionsForPathCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEffectivePermissionsForPathRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetEffectivePermissionsForPathResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEffectivePermissionsForPathRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetEffectivePermissionsForPathResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

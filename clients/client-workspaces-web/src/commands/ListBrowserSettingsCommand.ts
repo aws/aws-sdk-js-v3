@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListBrowserSettingsRequest, ListBrowserSettingsResponse } from "../models/models_0";
+import {
+  ListBrowserSettingsRequest,
+  ListBrowserSettingsRequestFilterSensitiveLog,
+  ListBrowserSettingsResponse,
+  ListBrowserSettingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListBrowserSettingsCommand,
   serializeAws_restJson1ListBrowserSettingsCommand,
@@ -72,8 +77,8 @@ export class ListBrowserSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBrowserSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListBrowserSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBrowserSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListBrowserSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import { DecreaseReplicationFactorRequest, DecreaseReplicationFactorResponse } from "../models/models_0";
+import {
+  DecreaseReplicationFactorRequest,
+  DecreaseReplicationFactorRequestFilterSensitiveLog,
+  DecreaseReplicationFactorResponse,
+  DecreaseReplicationFactorResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DecreaseReplicationFactorCommand,
   serializeAws_json1_1DecreaseReplicationFactorCommand,
@@ -75,8 +80,8 @@ export class DecreaseReplicationFactorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DecreaseReplicationFactorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DecreaseReplicationFactorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DecreaseReplicationFactorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DecreaseReplicationFactorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

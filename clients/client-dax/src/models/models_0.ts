@@ -57,15 +57,6 @@ export interface SSESpecification {
   Enabled: boolean | undefined;
 }
 
-export namespace SSESpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SSESpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A description of a tag.  Every tag is a key-value pair. You can add up to 50 tags to a single
  *             DAX cluster.</p>
@@ -86,15 +77,6 @@ export interface Tag {
    * <p>The value of the tag. Tag values are case-sensitive and can be null. </p>
    */
   Value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateClusterRequest {
@@ -265,15 +247,6 @@ export interface CreateClusterRequest {
   ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType | string;
 }
 
-export namespace CreateClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the information required for client programs to connect to the
  *             endpoint for a DAX cluster.</p>
@@ -294,15 +267,6 @@ export interface Endpoint {
    *             ports are 8111 for the "dax" protocol and 9111 for the "daxs" protocol.</p>
    */
   URL?: string;
-}
-
-export namespace Endpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Endpoint): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -344,15 +308,6 @@ export interface Node {
   ParameterGroupStatus?: string;
 }
 
-export namespace Node {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Node): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a notification topic and its status. Notification topics are used for
  *             publishing DAX events to subscribers using Amazon Simple Notification Service
@@ -370,15 +325,6 @@ export interface NotificationConfiguration {
    *         topic.</p>
    */
   TopicStatus?: string;
-}
-
-export namespace NotificationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -401,15 +347,6 @@ export interface ParameterGroupStatus {
   NodeIdsToReboot?: string[];
 }
 
-export namespace ParameterGroupStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterGroupStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An individual VPC security group and its status.</p>
  */
@@ -423,15 +360,6 @@ export interface SecurityGroupMembership {
    * <p>The status of this security group.</p>
    */
   Status?: string;
-}
-
-export namespace SecurityGroupMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecurityGroupMembership): any => ({
-    ...obj,
-  });
 }
 
 export type SSEStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
@@ -462,15 +390,6 @@ export interface SSEDescription {
    *          </ul>
    */
   Status?: SSEStatus | string;
-}
-
-export namespace SSEDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SSEDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -587,29 +506,11 @@ export interface Cluster {
   ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType | string;
 }
 
-export namespace Cluster {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Cluster): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateClusterResponse {
   /**
    * <p>A description of the DAX cluster that you have created.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace CreateClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateClusterResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -879,15 +780,6 @@ export interface CreateParameterGroupRequest {
   Description?: string;
 }
 
-export namespace CreateParameterGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateParameterGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A named set of parameters that are applied to all of the nodes in a DAX
  *             cluster.</p>
@@ -904,30 +796,12 @@ export interface ParameterGroup {
   Description?: string;
 }
 
-export namespace ParameterGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateParameterGroupResponse {
   /**
    * <p>Represents the output of a <i>CreateParameterGroup</i>
    *             action.</p>
    */
   ParameterGroup?: ParameterGroup;
-}
-
-export namespace CreateParameterGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateParameterGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -985,15 +859,6 @@ export interface CreateSubnetGroupRequest {
   SubnetIds: string[] | undefined;
 }
 
-export namespace CreateSubnetGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSubnetGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the subnet associated with a DAX cluster. This parameter refers to
  *             subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and used with
@@ -1009,15 +874,6 @@ export interface Subnet {
    * <p>The Availability Zone (AZ) for the subnet.</p>
    */
   SubnetAvailabilityZone?: string;
-}
-
-export namespace Subnet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Subnet): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1057,30 +913,12 @@ export interface SubnetGroup {
   Subnets?: Subnet[];
 }
 
-export namespace SubnetGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSubnetGroupResponse {
   /**
    * <p>Represents the output of a <i>CreateSubnetGroup</i>
    *             operation.</p>
    */
   SubnetGroup?: SubnetGroup;
-}
-
-export namespace CreateSubnetGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSubnetGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1202,30 +1040,12 @@ export interface DecreaseReplicationFactorRequest {
   NodeIdsToRemove?: string[];
 }
 
-export namespace DecreaseReplicationFactorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecreaseReplicationFactorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DecreaseReplicationFactorResponse {
   /**
    * <p>A description of the DAX cluster, after you have decreased its replication
    *             factor.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace DecreaseReplicationFactorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecreaseReplicationFactorResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1254,15 +1074,6 @@ export interface DeleteClusterRequest {
   ClusterName: string | undefined;
 }
 
-export namespace DeleteClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteClusterResponse {
   /**
    * <p>A description of the DAX cluster that is being deleted.</p>
@@ -1270,29 +1081,11 @@ export interface DeleteClusterResponse {
   Cluster?: Cluster;
 }
 
-export namespace DeleteClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClusterResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteParameterGroupRequest {
   /**
    * <p>The name of the parameter group to delete.</p>
    */
   ParameterGroupName: string | undefined;
-}
-
-export namespace DeleteParameterGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteParameterGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteParameterGroupResponse {
@@ -1303,29 +1096,11 @@ export interface DeleteParameterGroupResponse {
   DeletionMessage?: string;
 }
 
-export namespace DeleteParameterGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteParameterGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSubnetGroupRequest {
   /**
    * <p>The name of the subnet group to delete.</p>
    */
   SubnetGroupName: string | undefined;
-}
-
-export namespace DeleteSubnetGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSubnetGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteSubnetGroupResponse {
@@ -1334,15 +1109,6 @@ export interface DeleteSubnetGroupResponse {
    *             group).</p>
    */
   DeletionMessage?: string;
-}
-
-export namespace DeleteSubnetGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSubnetGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1387,15 +1153,6 @@ export interface DescribeClustersRequest {
   NextToken?: string;
 }
 
-export namespace DescribeClustersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClustersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeClustersResponse {
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -1407,15 +1164,6 @@ export interface DescribeClustersResponse {
    *             <i>DescribeClusters</i> request.</p>
    */
   Clusters?: Cluster[];
-}
-
-export namespace DescribeClustersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClustersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDefaultParametersRequest {
@@ -1436,15 +1184,6 @@ export interface DescribeDefaultParametersRequest {
   NextToken?: string;
 }
 
-export namespace DescribeDefaultParametersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDefaultParametersRequest): any => ({
-    ...obj,
-  });
-}
-
 export type ChangeType = "IMMEDIATE" | "REQUIRES_REBOOT";
 
 export type IsModifiable = "CONDITIONAL" | "FALSE" | "TRUE";
@@ -1463,15 +1202,6 @@ export interface NodeTypeSpecificValue {
    * <p>The parameter value for this node type.</p>
    */
   Value?: string;
-}
-
-export namespace NodeTypeSpecificValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeTypeSpecificValue): any => ({
-    ...obj,
-  });
 }
 
 export type ParameterType = "DEFAULT" | "NODE_TYPE_SPECIFIC";
@@ -1536,15 +1266,6 @@ export interface Parameter {
   ChangeType?: ChangeType | string;
 }
 
-export namespace Parameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Parameter): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDefaultParametersResponse {
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -1555,15 +1276,6 @@ export interface DescribeDefaultParametersResponse {
    * <p>A list of parameters.  Each element in the list represents one parameter.</p>
    */
   Parameters?: Parameter[];
-}
-
-export namespace DescribeDefaultParametersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDefaultParametersResponse): any => ({
-    ...obj,
-  });
 }
 
 export type SourceType = "CLUSTER" | "PARAMETER_GROUP" | "SUBNET_GROUP";
@@ -1615,15 +1327,6 @@ export interface DescribeEventsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a single occurrence of something interesting within the system. Some
  *             examples of events are creating a DAX cluster, adding or removing a node, or rebooting
@@ -1653,15 +1356,6 @@ export interface Event {
   Date?: Date;
 }
 
-export namespace Event {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Event): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEventsResponse {
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -1672,15 +1366,6 @@ export interface DescribeEventsResponse {
    * <p>An array of events.  Each element in the array represents one event.</p>
    */
   Events?: Event[];
-}
-
-export namespace DescribeEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeParameterGroupsRequest {
@@ -1706,15 +1391,6 @@ export interface DescribeParameterGroupsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeParameterGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeParameterGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeParameterGroupsResponse {
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -1725,15 +1401,6 @@ export interface DescribeParameterGroupsResponse {
    * <p>An array of parameter groups.  Each element in the array represents one parameter group.</p>
    */
   ParameterGroups?: ParameterGroup[];
-}
-
-export namespace DescribeParameterGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeParameterGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeParametersRequest {
@@ -1765,15 +1432,6 @@ export interface DescribeParametersRequest {
   NextToken?: string;
 }
 
-export namespace DescribeParametersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeParametersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeParametersResponse {
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -1784,15 +1442,6 @@ export interface DescribeParametersResponse {
    * <p>A list of parameters within a parameter group.  Each element in the list represents one parameter.</p>
    */
   Parameters?: Parameter[];
-}
-
-export namespace DescribeParametersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeParametersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSubnetGroupsRequest {
@@ -1818,15 +1467,6 @@ export interface DescribeSubnetGroupsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeSubnetGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSubnetGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSubnetGroupsResponse {
   /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -1837,15 +1477,6 @@ export interface DescribeSubnetGroupsResponse {
    * <p>An array of subnet groups.  Each element in the array represents a single subnet group.</p>
    */
   SubnetGroups?: SubnetGroup[];
-}
-
-export namespace DescribeSubnetGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSubnetGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface IncreaseReplicationFactorRequest {
@@ -1867,29 +1498,11 @@ export interface IncreaseReplicationFactorRequest {
   AvailabilityZones?: string[];
 }
 
-export namespace IncreaseReplicationFactorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncreaseReplicationFactorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface IncreaseReplicationFactorResponse {
   /**
    * <p>A description of the DAX cluster. with its new replication factor.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace IncreaseReplicationFactorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncreaseReplicationFactorResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1925,15 +1538,6 @@ export interface ListTagsRequest {
   NextToken?: string;
 }
 
-export namespace ListTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsResponse {
   /**
    * <p>A list of tags currently associated with the DAX cluster.</p>
@@ -1945,15 +1549,6 @@ export interface ListTagsResponse {
    *             <code>ListTags</code> again, with <code>NextToken</code> set to this value.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RebootNodeRequest {
@@ -1968,29 +1563,11 @@ export interface RebootNodeRequest {
   NodeId: string | undefined;
 }
 
-export namespace RebootNodeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootNodeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RebootNodeResponse {
   /**
    * <p>A description of the DAX cluster after a node has been rebooted.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace RebootNodeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootNodeResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -2005,29 +1582,11 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {
   /**
    * <p>The list of tags that are associated with the DAX resource.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2061,29 +1620,11 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {
   /**
    * <p>The tag keys that have been removed from the cluster.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateClusterRequest {
@@ -2128,29 +1669,11 @@ export interface UpdateClusterRequest {
   SecurityGroupIds?: string[];
 }
 
-export namespace UpdateClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateClusterResponse {
   /**
    * <p>A description of the DAX cluster, after it has been modified.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace UpdateClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClusterResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2166,15 +1689,6 @@ export interface ParameterNameValue {
    * <p>The value of the parameter.</p>
    */
   ParameterValue?: string;
-}
-
-export namespace ParameterNameValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterNameValue): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateParameterGroupRequest {
@@ -2194,29 +1708,11 @@ export interface UpdateParameterGroupRequest {
   ParameterNameValues: ParameterNameValue[] | undefined;
 }
 
-export namespace UpdateParameterGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateParameterGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateParameterGroupResponse {
   /**
    * <p>The parameter group that has been modified.</p>
    */
   ParameterGroup?: ParameterGroup;
-}
-
-export namespace UpdateParameterGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateParameterGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2255,15 +1751,6 @@ export interface UpdateSubnetGroupRequest {
   SubnetIds?: string[];
 }
 
-export namespace UpdateSubnetGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSubnetGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSubnetGroupResponse {
   /**
    * <p>The subnet group that has been modified.</p>
@@ -2271,11 +1758,408 @@ export interface UpdateSubnetGroupResponse {
   SubnetGroup?: SubnetGroup;
 }
 
-export namespace UpdateSubnetGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSubnetGroupResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const SSESpecificationFilterSensitiveLog = (obj: SSESpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterRequestFilterSensitiveLog = (obj: CreateClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeFilterSensitiveLog = (obj: Node): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationConfigurationFilterSensitiveLog = (obj: NotificationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterGroupStatusFilterSensitiveLog = (obj: ParameterGroupStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecurityGroupMembershipFilterSensitiveLog = (obj: SecurityGroupMembership): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SSEDescriptionFilterSensitiveLog = (obj: SSEDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterFilterSensitiveLog = (obj: Cluster): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterResponseFilterSensitiveLog = (obj: CreateClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateParameterGroupRequestFilterSensitiveLog = (obj: CreateParameterGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterGroupFilterSensitiveLog = (obj: ParameterGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateParameterGroupResponseFilterSensitiveLog = (obj: CreateParameterGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSubnetGroupRequestFilterSensitiveLog = (obj: CreateSubnetGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubnetFilterSensitiveLog = (obj: Subnet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubnetGroupFilterSensitiveLog = (obj: SubnetGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSubnetGroupResponseFilterSensitiveLog = (obj: CreateSubnetGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecreaseReplicationFactorRequestFilterSensitiveLog = (obj: DecreaseReplicationFactorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecreaseReplicationFactorResponseFilterSensitiveLog = (obj: DecreaseReplicationFactorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteClusterRequestFilterSensitiveLog = (obj: DeleteClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteClusterResponseFilterSensitiveLog = (obj: DeleteClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteParameterGroupRequestFilterSensitiveLog = (obj: DeleteParameterGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteParameterGroupResponseFilterSensitiveLog = (obj: DeleteParameterGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSubnetGroupRequestFilterSensitiveLog = (obj: DeleteSubnetGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSubnetGroupResponseFilterSensitiveLog = (obj: DeleteSubnetGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClustersRequestFilterSensitiveLog = (obj: DescribeClustersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClustersResponseFilterSensitiveLog = (obj: DescribeClustersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDefaultParametersRequestFilterSensitiveLog = (obj: DescribeDefaultParametersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeTypeSpecificValueFilterSensitiveLog = (obj: NodeTypeSpecificValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterFilterSensitiveLog = (obj: Parameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDefaultParametersResponseFilterSensitiveLog = (obj: DescribeDefaultParametersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventsRequestFilterSensitiveLog = (obj: DescribeEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventFilterSensitiveLog = (obj: Event): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventsResponseFilterSensitiveLog = (obj: DescribeEventsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeParameterGroupsRequestFilterSensitiveLog = (obj: DescribeParameterGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeParameterGroupsResponseFilterSensitiveLog = (obj: DescribeParameterGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeParametersRequestFilterSensitiveLog = (obj: DescribeParametersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeParametersResponseFilterSensitiveLog = (obj: DescribeParametersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSubnetGroupsRequestFilterSensitiveLog = (obj: DescribeSubnetGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSubnetGroupsResponseFilterSensitiveLog = (obj: DescribeSubnetGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IncreaseReplicationFactorRequestFilterSensitiveLog = (obj: IncreaseReplicationFactorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IncreaseReplicationFactorResponseFilterSensitiveLog = (obj: IncreaseReplicationFactorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootNodeRequestFilterSensitiveLog = (obj: RebootNodeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootNodeResponseFilterSensitiveLog = (obj: RebootNodeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateClusterRequestFilterSensitiveLog = (obj: UpdateClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateClusterResponseFilterSensitiveLog = (obj: UpdateClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterNameValueFilterSensitiveLog = (obj: ParameterNameValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateParameterGroupRequestFilterSensitiveLog = (obj: UpdateParameterGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateParameterGroupResponseFilterSensitiveLog = (obj: UpdateParameterGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSubnetGroupRequestFilterSensitiveLog = (obj: UpdateSubnetGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSubnetGroupResponseFilterSensitiveLog = (obj: UpdateSubnetGroupResponse): any => ({
+  ...obj,
+});

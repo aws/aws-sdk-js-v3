@@ -23,15 +23,6 @@ export interface AddressBook {
   Description?: string;
 }
 
-export namespace AddressBook {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddressBook): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information related to an address book.</p>
  */
@@ -52,15 +43,6 @@ export interface AddressBookData {
   Description?: string;
 }
 
-export namespace AddressBookData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddressBookData): any => ({
-    ...obj,
-  });
-}
-
 export interface ApproveSkillRequest {
   /**
    * <p>The unique identifier of the skill.</p>
@@ -68,25 +50,7 @@ export interface ApproveSkillRequest {
   SkillId: string | undefined;
 }
 
-export namespace ApproveSkillRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApproveSkillRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ApproveSkillResponse {}
-
-export namespace ApproveSkillResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApproveSkillResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>There is a concurrent modification of resources.</p>
@@ -163,25 +127,7 @@ export interface AssociateContactWithAddressBookRequest {
   AddressBookArn: string | undefined;
 }
 
-export namespace AssociateContactWithAddressBookRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateContactWithAddressBookRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateContactWithAddressBookResponse {}
-
-export namespace AssociateContactWithAddressBookResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateContactWithAddressBookResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface AssociateDeviceWithNetworkProfileRequest {
   /**
@@ -195,25 +141,7 @@ export interface AssociateDeviceWithNetworkProfileRequest {
   NetworkProfileArn: string | undefined;
 }
 
-export namespace AssociateDeviceWithNetworkProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDeviceWithNetworkProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateDeviceWithNetworkProfileResponse {}
-
-export namespace AssociateDeviceWithNetworkProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDeviceWithNetworkProfileResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
@@ -248,25 +176,7 @@ export interface AssociateDeviceWithRoomRequest {
   RoomArn?: string;
 }
 
-export namespace AssociateDeviceWithRoomRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDeviceWithRoomRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateDeviceWithRoomResponse {}
-
-export namespace AssociateDeviceWithRoomResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDeviceWithRoomResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface AssociateSkillGroupWithRoomRequest {
   /**
@@ -280,25 +190,7 @@ export interface AssociateSkillGroupWithRoomRequest {
   RoomArn?: string;
 }
 
-export namespace AssociateSkillGroupWithRoomRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateSkillGroupWithRoomRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateSkillGroupWithRoomResponse {}
-
-export namespace AssociateSkillGroupWithRoomResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateSkillGroupWithRoomResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface AssociateSkillWithSkillGroupRequest {
   /**
@@ -312,25 +204,7 @@ export interface AssociateSkillWithSkillGroupRequest {
   SkillId: string | undefined;
 }
 
-export namespace AssociateSkillWithSkillGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateSkillWithSkillGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateSkillWithSkillGroupResponse {}
-
-export namespace AssociateSkillWithSkillGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateSkillWithSkillGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The skill must be linked to a third-party account.</p>
@@ -360,25 +234,7 @@ export interface AssociateSkillWithUsersRequest {
   SkillId: string | undefined;
 }
 
-export namespace AssociateSkillWithUsersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateSkillWithUsersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateSkillWithUsersResponse {}
-
-export namespace AssociateSkillWithUsersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateSkillWithUsersResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The resource being created already exists.</p>
@@ -416,15 +272,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAddressBookRequest {
   /**
    * <p>The name of the address book.</p>
@@ -448,29 +295,11 @@ export interface CreateAddressBookRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateAddressBookRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAddressBookRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAddressBookResponse {
   /**
    * <p>The ARN of the newly created address book.</p>
    */
   AddressBookArn?: string;
-}
-
-export namespace CreateAddressBookResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAddressBookResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum BusinessReportInterval {
@@ -489,15 +318,6 @@ export interface BusinessReportContentRange {
   Interval: BusinessReportInterval | string | undefined;
 }
 
-export namespace BusinessReportContentRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BusinessReportContentRange): any => ({
-    ...obj,
-  });
-}
-
 export enum BusinessReportFormat {
   CSV = "CSV",
   CSV_ZIP = "CSV_ZIP",
@@ -511,15 +331,6 @@ export interface BusinessReportRecurrence {
    * <p>The start date.</p>
    */
   StartDate?: string;
-}
-
-export namespace BusinessReportRecurrence {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BusinessReportRecurrence): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBusinessReportScheduleRequest {
@@ -567,29 +378,11 @@ export interface CreateBusinessReportScheduleRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateBusinessReportScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBusinessReportScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateBusinessReportScheduleResponse {
   /**
    * <p>The ARN of the business report schedule.</p>
    */
   ScheduleArn?: string;
-}
-
-export namespace CreateBusinessReportScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBusinessReportScheduleResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ConferenceProviderType {
@@ -626,15 +419,6 @@ export interface IPDialIn {
   CommsProtocol: CommsProtocol | string | undefined;
 }
 
-export namespace IPDialIn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IPDialIn): any => ({
-    ...obj,
-  });
-}
-
 export enum RequirePin {
   NO = "NO",
   OPTIONAL = "OPTIONAL",
@@ -664,15 +448,6 @@ export interface MeetingSetting {
   RequirePin: RequirePin | string | undefined;
 }
 
-export namespace MeetingSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MeetingSetting): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The information for public switched telephone network (PSTN) conferencing.</p>
  */
@@ -696,15 +471,6 @@ export interface PSTNDialIn {
    * <p>The delay duration before Alexa enters the conference pin with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.</p>
    */
   OneClickPinDelay: string | undefined;
-}
-
-export namespace PSTNDialIn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PSTNDialIn): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateConferenceProviderRequest {
@@ -744,29 +510,11 @@ export interface CreateConferenceProviderRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateConferenceProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConferenceProviderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateConferenceProviderResponse {
   /**
    * <p>The ARN of the newly-created conference provider.</p>
    */
   ConferenceProviderArn?: string;
-}
-
-export namespace CreateConferenceProviderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConferenceProviderResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum PhoneNumberType {
@@ -790,17 +538,6 @@ export interface PhoneNumber {
   Type: PhoneNumberType | string | undefined;
 }
 
-export namespace PhoneNumber {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhoneNumber): any => ({
-    ...obj,
-    ...(obj.Number && { Number: SENSITIVE_STRING }),
-    ...(obj.Type && { Type: SENSITIVE_STRING }),
-  });
-}
-
 export enum SipType {
   WORK = "WORK",
 }
@@ -818,17 +555,6 @@ export interface SipAddress {
    * <p>The type of the SIP address.</p>
    */
   Type: SipType | string | undefined;
-}
-
-export namespace SipAddress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SipAddress): any => ({
-    ...obj,
-    ...(obj.Uri && { Uri: SENSITIVE_STRING }),
-    ...(obj.Type && { Type: SENSITIVE_STRING }),
-  });
 }
 
 export interface CreateContactRequest {
@@ -878,32 +604,11 @@ export interface CreateContactRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContactRequest): any => ({
-    ...obj,
-    ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-    ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
-    ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateContactResponse {
   /**
    * <p>The ARN of the newly created address book.</p>
    */
   ContactArn?: string;
-}
-
-export namespace CreateContactResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContactResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateGatewayGroupRequest {
@@ -928,29 +633,11 @@ export interface CreateGatewayGroupRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateGatewayGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGatewayGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGatewayGroupResponse {
   /**
    * <p>The ARN of the created gateway group.</p>
    */
   GatewayGroupArn?: string;
-}
-
-export namespace CreateGatewayGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGatewayGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum NetworkEapMethod {
@@ -1028,31 +715,11 @@ export interface CreateNetworkProfileRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateNetworkProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNetworkProfileRequest): any => ({
-    ...obj,
-    ...(obj.CurrentPassword && { CurrentPassword: SENSITIVE_STRING }),
-    ...(obj.NextPassword && { NextPassword: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateNetworkProfileResponse {
   /**
    * <p>The ARN of the network profile associated with a device.</p>
    */
   NetworkProfileArn?: string;
-}
-
-export namespace CreateNetworkProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNetworkProfileResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1131,15 +798,6 @@ export interface CreateEndOfMeetingReminder {
   Enabled: boolean | undefined;
 }
 
-export namespace CreateEndOfMeetingReminder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEndOfMeetingReminder): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Creates settings for the instant booking feature that are applied to a room profile.
  *          When users start their meeting with Alexa, Alexa automatically books the room for the
@@ -1158,15 +816,6 @@ export interface CreateInstantBooking {
   Enabled: boolean | undefined;
 }
 
-export namespace CreateInstantBooking {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstantBooking): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Creates settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released.</p>
  */
@@ -1180,15 +829,6 @@ export interface CreateRequireCheckIn {
    * <p>Whether require check in is enabled or not.</p>
    */
   Enabled: boolean | undefined;
-}
-
-export namespace CreateRequireCheckIn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRequireCheckIn): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1216,15 +856,6 @@ export interface CreateMeetingRoomConfiguration {
    * <p>Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into to make the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.”</p>
    */
   RequireCheckIn?: CreateRequireCheckIn;
-}
-
-export namespace CreateMeetingRoomConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMeetingRoomConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum TemperatureUnit {
@@ -1311,29 +942,11 @@ export interface CreateProfileRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProfileResponse {
   /**
    * <p>The ARN of the newly created room profile in the response.</p>
    */
   ProfileArn?: string;
-}
-
-export namespace CreateProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProfileResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRoomRequest {
@@ -1369,29 +982,11 @@ export interface CreateRoomRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateRoomRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRoomRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRoomResponse {
   /**
    * <p>The ARN of the newly created room in the response.</p>
    */
   RoomArn?: string;
-}
-
-export namespace CreateRoomResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRoomResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSkillGroupRequest {
@@ -1417,29 +1012,11 @@ export interface CreateSkillGroupRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateSkillGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSkillGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSkillGroupResponse {
   /**
    * <p>The ARN of the newly created skill group in the response.</p>
    */
   SkillGroupArn?: string;
-}
-
-export namespace CreateSkillGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSkillGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateUserRequest {
@@ -1475,29 +1052,11 @@ export interface CreateUserRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUserResponse {
   /**
    * <p>The ARN of the newly created user in the response.</p>
    */
   UserArn?: string;
-}
-
-export namespace CreateUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1533,25 +1092,7 @@ export interface DeleteAddressBookRequest {
   AddressBookArn: string | undefined;
 }
 
-export namespace DeleteAddressBookRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAddressBookRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAddressBookResponse {}
-
-export namespace DeleteAddressBookResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAddressBookResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteBusinessReportScheduleRequest {
   /**
@@ -1560,25 +1101,7 @@ export interface DeleteBusinessReportScheduleRequest {
   ScheduleArn: string | undefined;
 }
 
-export namespace DeleteBusinessReportScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBusinessReportScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBusinessReportScheduleResponse {}
-
-export namespace DeleteBusinessReportScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBusinessReportScheduleResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteConferenceProviderRequest {
   /**
@@ -1587,25 +1110,7 @@ export interface DeleteConferenceProviderRequest {
   ConferenceProviderArn: string | undefined;
 }
 
-export namespace DeleteConferenceProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConferenceProviderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteConferenceProviderResponse {}
-
-export namespace DeleteConferenceProviderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConferenceProviderResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteContactRequest {
   /**
@@ -1614,25 +1119,7 @@ export interface DeleteContactRequest {
   ContactArn: string | undefined;
 }
 
-export namespace DeleteContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContactRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteContactResponse {}
-
-export namespace DeleteContactResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContactResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteDeviceRequest {
   /**
@@ -1641,25 +1128,7 @@ export interface DeleteDeviceRequest {
   DeviceArn: string | undefined;
 }
 
-export namespace DeleteDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDeviceResponse {}
-
-export namespace DeleteDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeviceResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum DeviceUsageType {
   VOICE = "VOICE",
@@ -1677,25 +1146,7 @@ export interface DeleteDeviceUsageDataRequest {
   DeviceUsageType: DeviceUsageType | string | undefined;
 }
 
-export namespace DeleteDeviceUsageDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeviceUsageDataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDeviceUsageDataResponse {}
-
-export namespace DeleteDeviceUsageDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeviceUsageDataResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteGatewayGroupRequest {
   /**
@@ -1704,25 +1155,7 @@ export interface DeleteGatewayGroupRequest {
   GatewayGroupArn: string | undefined;
 }
 
-export namespace DeleteGatewayGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGatewayGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGatewayGroupResponse {}
-
-export namespace DeleteGatewayGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGatewayGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Another resource is associated with the resource in the request.</p>
@@ -1752,25 +1185,7 @@ export interface DeleteNetworkProfileRequest {
   NetworkProfileArn: string | undefined;
 }
 
-export namespace DeleteNetworkProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNetworkProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteNetworkProfileResponse {}
-
-export namespace DeleteNetworkProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNetworkProfileResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteProfileRequest {
   /**
@@ -1779,25 +1194,7 @@ export interface DeleteProfileRequest {
   ProfileArn?: string;
 }
 
-export namespace DeleteProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProfileResponse {}
-
-export namespace DeleteProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProfileResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteRoomRequest {
   /**
@@ -1806,25 +1203,7 @@ export interface DeleteRoomRequest {
   RoomArn?: string;
 }
 
-export namespace DeleteRoomRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRoomRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRoomResponse {}
-
-export namespace DeleteRoomResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRoomResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteRoomSkillParameterRequest {
   /**
@@ -1843,25 +1222,7 @@ export interface DeleteRoomSkillParameterRequest {
   ParameterKey: string | undefined;
 }
 
-export namespace DeleteRoomSkillParameterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRoomSkillParameterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRoomSkillParameterResponse {}
-
-export namespace DeleteRoomSkillParameterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRoomSkillParameterResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteSkillAuthorizationRequest {
   /**
@@ -1875,25 +1236,7 @@ export interface DeleteSkillAuthorizationRequest {
   RoomArn?: string;
 }
 
-export namespace DeleteSkillAuthorizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSkillAuthorizationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSkillAuthorizationResponse {}
-
-export namespace DeleteSkillAuthorizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSkillAuthorizationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteSkillGroupRequest {
   /**
@@ -1902,25 +1245,7 @@ export interface DeleteSkillGroupRequest {
   SkillGroupArn?: string;
 }
 
-export namespace DeleteSkillGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSkillGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSkillGroupResponse {}
-
-export namespace DeleteSkillGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSkillGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteUserRequest {
   /**
@@ -1934,25 +1259,7 @@ export interface DeleteUserRequest {
   EnrollmentId: string | undefined;
 }
 
-export namespace DeleteUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUserResponse {}
-
-export namespace DeleteUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateContactFromAddressBookRequest {
   /**
@@ -1966,25 +1273,7 @@ export interface DisassociateContactFromAddressBookRequest {
   AddressBookArn: string | undefined;
 }
 
-export namespace DisassociateContactFromAddressBookRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateContactFromAddressBookRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateContactFromAddressBookResponse {}
-
-export namespace DisassociateContactFromAddressBookResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateContactFromAddressBookResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateDeviceFromRoomRequest {
   /**
@@ -1993,25 +1282,7 @@ export interface DisassociateDeviceFromRoomRequest {
   DeviceArn?: string;
 }
 
-export namespace DisassociateDeviceFromRoomRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDeviceFromRoomRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateDeviceFromRoomResponse {}
-
-export namespace DisassociateDeviceFromRoomResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDeviceFromRoomResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateSkillFromSkillGroupRequest {
   /**
@@ -2025,25 +1296,7 @@ export interface DisassociateSkillFromSkillGroupRequest {
   SkillId: string | undefined;
 }
 
-export namespace DisassociateSkillFromSkillGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateSkillFromSkillGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateSkillFromSkillGroupResponse {}
-
-export namespace DisassociateSkillFromSkillGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateSkillFromSkillGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateSkillFromUsersRequest {
   /**
@@ -2052,25 +1305,7 @@ export interface DisassociateSkillFromUsersRequest {
   SkillId: string | undefined;
 }
 
-export namespace DisassociateSkillFromUsersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateSkillFromUsersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateSkillFromUsersResponse {}
-
-export namespace DisassociateSkillFromUsersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateSkillFromUsersResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateSkillGroupFromRoomRequest {
   /**
@@ -2085,25 +1320,7 @@ export interface DisassociateSkillGroupFromRoomRequest {
   RoomArn?: string;
 }
 
-export namespace DisassociateSkillGroupFromRoomRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateSkillGroupFromRoomRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateSkillGroupFromRoomResponse {}
-
-export namespace DisassociateSkillGroupFromRoomResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateSkillGroupFromRoomResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface ForgetSmartHomeAppliancesRequest {
   /**
@@ -2112,40 +1329,13 @@ export interface ForgetSmartHomeAppliancesRequest {
   RoomArn: string | undefined;
 }
 
-export namespace ForgetSmartHomeAppliancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForgetSmartHomeAppliancesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ForgetSmartHomeAppliancesResponse {}
-
-export namespace ForgetSmartHomeAppliancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForgetSmartHomeAppliancesResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetAddressBookRequest {
   /**
    * <p>The ARN of the address book for which to request details.</p>
    */
   AddressBookArn: string | undefined;
-}
-
-export namespace GetAddressBookRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAddressBookRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAddressBookResponse {
@@ -2155,25 +1345,7 @@ export interface GetAddressBookResponse {
   AddressBook?: AddressBook;
 }
 
-export namespace GetAddressBookResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAddressBookResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetConferencePreferenceRequest {}
-
-export namespace GetConferencePreferenceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConferencePreferenceRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The default conference provider that is used if no other scheduled meetings are
@@ -2186,15 +1358,6 @@ export interface ConferencePreference {
   DefaultConferenceProviderArn?: string;
 }
 
-export namespace ConferencePreference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConferencePreference): any => ({
-    ...obj,
-  });
-}
-
 export interface GetConferencePreferenceResponse {
   /**
    * <p>The conference preference.</p>
@@ -2202,29 +1365,11 @@ export interface GetConferencePreferenceResponse {
   Preference?: ConferencePreference;
 }
 
-export namespace GetConferencePreferenceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConferencePreferenceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetConferenceProviderRequest {
   /**
    * <p>The ARN of the newly created conference provider.</p>
    */
   ConferenceProviderArn: string | undefined;
-}
-
-export namespace GetConferenceProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConferenceProviderRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2262,15 +1407,6 @@ export interface ConferenceProvider {
   MeetingSetting?: MeetingSetting;
 }
 
-export namespace ConferenceProvider {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConferenceProvider): any => ({
-    ...obj,
-  });
-}
-
 export interface GetConferenceProviderResponse {
   /**
    * <p>The conference provider.</p>
@@ -2278,29 +1414,11 @@ export interface GetConferenceProviderResponse {
   ConferenceProvider?: ConferenceProvider;
 }
 
-export namespace GetConferenceProviderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConferenceProviderResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContactRequest {
   /**
    * <p>The ARN of the contact for which to request details.</p>
    */
   ContactArn: string | undefined;
-}
-
-export namespace GetContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContactRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2345,18 +1463,6 @@ export interface Contact {
   SipAddresses?: SipAddress[];
 }
 
-export namespace Contact {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Contact): any => ({
-    ...obj,
-    ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-    ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
-    ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface GetContactResponse {
   /**
    * <p>The details of the requested contact.</p>
@@ -2364,30 +1470,11 @@ export interface GetContactResponse {
   Contact?: Contact;
 }
 
-export namespace GetContactResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContactResponse): any => ({
-    ...obj,
-    ...(obj.Contact && { Contact: Contact.filterSensitiveLog(obj.Contact) }),
-  });
-}
-
 export interface GetDeviceRequest {
   /**
    * <p>The ARN of the device for which to request details. Required.</p>
    */
   DeviceArn?: string;
-}
-
-export namespace GetDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DeviceStatus {
@@ -2449,15 +1536,6 @@ export interface DeviceStatusDetail {
   Code?: DeviceStatusDetailCode | string;
 }
 
-export namespace DeviceStatusDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceStatusDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Detailed information about a device's status.</p>
  */
@@ -2478,15 +1556,6 @@ export interface DeviceStatusInfo {
   ConnectionStatusUpdatedTime?: Date;
 }
 
-export namespace DeviceStatusInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceStatusInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Detailed information about a device's network profile.</p>
  */
@@ -2505,15 +1574,6 @@ export interface DeviceNetworkProfileInfo {
    * <p>The time (in epoch) when the certificate expires.</p>
    */
   CertificateExpirationTime?: Date;
-}
-
-export namespace DeviceNetworkProfileInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceNetworkProfileInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2572,15 +1632,6 @@ export interface Device {
   NetworkProfileInfo?: DeviceNetworkProfileInfo;
 }
 
-export namespace Device {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Device): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeviceResponse {
   /**
    * <p>The details of the device requested. Required.</p>
@@ -2588,29 +1639,11 @@ export interface GetDeviceResponse {
   Device?: Device;
 }
 
-export namespace GetDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGatewayRequest {
   /**
    * <p>The ARN of the gateway to get.</p>
    */
   GatewayArn: string | undefined;
-}
-
-export namespace GetGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGatewayRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2644,15 +1677,6 @@ export interface Gateway {
   SoftwareVersion?: string;
 }
 
-export namespace Gateway {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Gateway): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGatewayResponse {
   /**
    * <p>The details of the gateway.</p>
@@ -2660,29 +1684,11 @@ export interface GetGatewayResponse {
   Gateway?: Gateway;
 }
 
-export namespace GetGatewayResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGatewayResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGatewayGroupRequest {
   /**
    * <p>The ARN of the gateway group to get.</p>
    */
   GatewayGroupArn: string | undefined;
-}
-
-export namespace GetGatewayGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGatewayGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2705,15 +1711,6 @@ export interface GatewayGroup {
   Description?: string;
 }
 
-export namespace GatewayGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GatewayGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGatewayGroupResponse {
   /**
    * <p>The details of the gateway group.</p>
@@ -2721,25 +1718,7 @@ export interface GetGatewayGroupResponse {
   GatewayGroup?: GatewayGroup;
 }
 
-export namespace GetGatewayGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGatewayGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInvitationConfigurationRequest {}
-
-export namespace GetInvitationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInvitationConfigurationRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetInvitationConfigurationResponse {
   /**
@@ -2760,29 +1739,11 @@ export interface GetInvitationConfigurationResponse {
   PrivateSkillIds?: string[];
 }
 
-export namespace GetInvitationConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInvitationConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetNetworkProfileRequest {
   /**
    * <p>The ARN of the network profile associated with a device.</p>
    */
   NetworkProfileArn: string | undefined;
-}
-
-export namespace GetNetworkProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNetworkProfileRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2846,32 +1807,11 @@ export interface NetworkProfile {
   TrustAnchors?: string[];
 }
 
-export namespace NetworkProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkProfile): any => ({
-    ...obj,
-    ...(obj.CurrentPassword && { CurrentPassword: SENSITIVE_STRING }),
-    ...(obj.NextPassword && { NextPassword: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetNetworkProfileResponse {
   /**
    * <p>The network profile associated with a device.</p>
    */
   NetworkProfile?: NetworkProfile;
-}
-
-export namespace GetNetworkProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNetworkProfileResponse): any => ({
-    ...obj,
-    ...(obj.NetworkProfile && { NetworkProfile: NetworkProfile.filterSensitiveLog(obj.NetworkProfile) }),
-  });
 }
 
 /**
@@ -2902,15 +1842,6 @@ export interface GetProfileRequest {
   ProfileArn?: string;
 }
 
-export namespace GetProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Settings for the end of meeting reminder feature that are applied to a room profile. The
  *          end of meeting reminder enables Alexa to remind users when a meeting is ending. </p>
@@ -2932,15 +1863,6 @@ export interface EndOfMeetingReminder {
   Enabled?: boolean;
 }
 
-export namespace EndOfMeetingReminder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndOfMeetingReminder): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Settings for the instant booking feature that are applied to a room profile. When users
  *          start their meeting with Alexa, Alexa  automatically books the room for the configured
@@ -2959,15 +1881,6 @@ export interface InstantBooking {
   Enabled?: boolean;
 }
 
-export namespace InstantBooking {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstantBooking): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released. </p>
  */
@@ -2981,15 +1894,6 @@ export interface RequireCheckIn {
    * <p>Whether require check in is enabled or not.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace RequireCheckIn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequireCheckIn): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3020,15 +1924,6 @@ export interface MeetingRoomConfiguration {
    *          in.” </p>
    */
   RequireCheckIn?: RequireCheckIn;
-}
-
-export namespace MeetingRoomConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MeetingRoomConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3112,15 +2007,6 @@ export interface Profile {
   MeetingRoomConfiguration?: MeetingRoomConfiguration;
 }
 
-export namespace Profile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Profile): any => ({
-    ...obj,
-  });
-}
-
 export interface GetProfileResponse {
   /**
    * <p>The details of the room profile requested. Required.</p>
@@ -3128,29 +2014,11 @@ export interface GetProfileResponse {
   Profile?: Profile;
 }
 
-export namespace GetProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProfileResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRoomRequest {
   /**
    * <p>The ARN of the room for which to request details. Required.</p>
    */
   RoomArn?: string;
-}
-
-export namespace GetRoomRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRoomRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3183,29 +2051,11 @@ export interface Room {
   ProfileArn?: string;
 }
 
-export namespace Room {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Room): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRoomResponse {
   /**
    * <p>The details of the room requested.</p>
    */
   Room?: Room;
-}
-
-export namespace GetRoomResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRoomResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRoomSkillParameterRequest {
@@ -3226,15 +2076,6 @@ export interface GetRoomSkillParameterRequest {
   ParameterKey: string | undefined;
 }
 
-export namespace GetRoomSkillParameterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRoomSkillParameterRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A skill parameter associated with a room.</p>
  */
@@ -3251,15 +2092,6 @@ export interface RoomSkillParameter {
   ParameterValue: string | undefined;
 }
 
-export namespace RoomSkillParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoomSkillParameter): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRoomSkillParameterResponse {
   /**
    * <p>The details of the room skill parameter requested. Required.</p>
@@ -3267,29 +2099,11 @@ export interface GetRoomSkillParameterResponse {
   RoomSkillParameter?: RoomSkillParameter;
 }
 
-export namespace GetRoomSkillParameterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRoomSkillParameterResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSkillGroupRequest {
   /**
    * <p>The ARN of the skill group for which to get details. Required.</p>
    */
   SkillGroupArn?: string;
-}
-
-export namespace GetSkillGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSkillGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3312,29 +2126,11 @@ export interface SkillGroup {
   Description?: string;
 }
 
-export namespace SkillGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SkillGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSkillGroupResponse {
   /**
    * <p>The details of the skill group requested. Required.</p>
    */
   SkillGroup?: SkillGroup;
-}
-
-export namespace GetSkillGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSkillGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBusinessReportSchedulesRequest {
@@ -3347,15 +2143,6 @@ export interface ListBusinessReportSchedulesRequest {
    * <p>The maximum number of schedules listed in the call.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListBusinessReportSchedulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBusinessReportSchedulesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum BusinessReportFailureCode {
@@ -3377,15 +2164,6 @@ export interface BusinessReportS3Location {
    * <p>The S3 bucket name of the output reports.</p>
    */
   BucketName?: string;
-}
-
-export namespace BusinessReportS3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BusinessReportS3Location): any => ({
-    ...obj,
-  });
 }
 
 export enum BusinessReportStatus {
@@ -3423,15 +2201,6 @@ export interface BusinessReport {
    * <p>The download link where a user can download the report.</p>
    */
   DownloadUrl?: string;
-}
-
-export namespace BusinessReport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BusinessReport): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3481,15 +2250,6 @@ export interface BusinessReportSchedule {
   LastBusinessReport?: BusinessReport;
 }
 
-export namespace BusinessReportSchedule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BusinessReportSchedule): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBusinessReportSchedulesResponse {
   /**
    * <p>The schedule of the reports.</p>
@@ -3500,15 +2260,6 @@ export interface ListBusinessReportSchedulesResponse {
    * <p>The token used to list the remaining schedules from the previous API call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListBusinessReportSchedulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBusinessReportSchedulesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListConferenceProvidersRequest {
@@ -3524,15 +2275,6 @@ export interface ListConferenceProvidersRequest {
   MaxResults?: number;
 }
 
-export namespace ListConferenceProvidersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConferenceProvidersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConferenceProvidersResponse {
   /**
    * <p>The conference providers.</p>
@@ -3543,15 +2285,6 @@ export interface ListConferenceProvidersResponse {
    * <p>The tokens used for pagination.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListConferenceProvidersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConferenceProvidersResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum DeviceEventType {
@@ -3589,15 +2322,6 @@ export interface ListDeviceEventsRequest {
   MaxResults?: number;
 }
 
-export namespace ListDeviceEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeviceEventsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The list of device events.</p>
  */
@@ -3618,15 +2342,6 @@ export interface DeviceEvent {
   Timestamp?: Date;
 }
 
-export namespace DeviceEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceEvent): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDeviceEventsResponse {
   /**
    * <p>The device events requested for the device ARN.</p>
@@ -3639,15 +2354,6 @@ export interface ListDeviceEventsResponse {
   NextToken?: string;
 }
 
-export namespace ListDeviceEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeviceEventsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGatewayGroupsRequest {
   /**
    * <p>The token used to paginate though multiple pages of gateway group summaries.</p>
@@ -3658,15 +2364,6 @@ export interface ListGatewayGroupsRequest {
    * <p>The maximum number of gateway group summaries to return. The default is 50.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListGatewayGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGatewayGroupsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3689,15 +2386,6 @@ export interface GatewayGroupSummary {
   Description?: string;
 }
 
-export namespace GatewayGroupSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GatewayGroupSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGatewayGroupsResponse {
   /**
    * <p>The gateway groups in the list.</p>
@@ -3708,15 +2396,6 @@ export interface ListGatewayGroupsResponse {
    * <p>The token used to paginate though multiple pages of gateway group summaries.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListGatewayGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGatewayGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGatewaysRequest {
@@ -3734,15 +2413,6 @@ export interface ListGatewaysRequest {
    * <p>The maximum number of gateway summaries to return. The default is 50.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListGatewaysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGatewaysRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3776,15 +2446,6 @@ export interface GatewaySummary {
   SoftwareVersion?: string;
 }
 
-export namespace GatewaySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GatewaySummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGatewaysResponse {
   /**
    * <p>The gateways in the list.</p>
@@ -3795,15 +2456,6 @@ export interface ListGatewaysResponse {
    * <p>The token used to paginate though multiple pages of gateway summaries.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListGatewaysResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGatewaysResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum EnablementTypeFilter {
@@ -3848,15 +2500,6 @@ export interface ListSkillsRequest {
   MaxResults?: number;
 }
 
-export namespace ListSkillsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSkillsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum EnablementType {
   ENABLED = "ENABLED",
   PENDING = "PENDING",
@@ -3898,15 +2541,6 @@ export interface SkillSummary {
   SkillType?: SkillType | string;
 }
 
-export namespace SkillSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SkillSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSkillsResponse {
   /**
    * <p>The list of enabled skills requested. Required.</p>
@@ -3919,15 +2553,6 @@ export interface ListSkillsResponse {
   NextToken?: string;
 }
 
-export namespace ListSkillsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSkillsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSkillsStoreCategoriesRequest {
   /**
    * <p>The tokens used for pagination.</p>
@@ -3938,15 +2563,6 @@ export interface ListSkillsStoreCategoriesRequest {
    * <p>The maximum number of categories returned, per paginated calls.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListSkillsStoreCategoriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSkillsStoreCategoriesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3965,15 +2581,6 @@ export interface Category {
   CategoryName?: string;
 }
 
-export namespace Category {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Category): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSkillsStoreCategoriesResponse {
   /**
    * <p>The list of categories.</p>
@@ -3984,15 +2591,6 @@ export interface ListSkillsStoreCategoriesResponse {
    * <p>The tokens used for pagination.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListSkillsStoreCategoriesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSkillsStoreCategoriesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSkillsStoreSkillsByCategoryRequest {
@@ -4011,15 +2609,6 @@ export interface ListSkillsStoreSkillsByCategoryRequest {
    * <p>The maximum number of skills returned per paginated calls.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListSkillsStoreSkillsByCategoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSkillsStoreSkillsByCategoryRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4045,15 +2634,6 @@ export interface DeveloperInfo {
    * <p>The website of the developer.</p>
    */
   Url?: string;
-}
-
-export namespace DeveloperInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeveloperInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4115,15 +2695,6 @@ export interface SkillDetails {
   DeveloperInfo?: DeveloperInfo;
 }
 
-export namespace SkillDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SkillDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The detailed information about an Alexa skill.</p>
  */
@@ -4164,15 +2735,6 @@ export interface SkillsStoreSkill {
   SupportsLinking?: boolean;
 }
 
-export namespace SkillsStoreSkill {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SkillsStoreSkill): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSkillsStoreSkillsByCategoryResponse {
   /**
    * <p>The skill store skills.</p>
@@ -4183,15 +2745,6 @@ export interface ListSkillsStoreSkillsByCategoryResponse {
    * <p>The tokens used for pagination.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListSkillsStoreSkillsByCategoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSkillsStoreSkillsByCategoryResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSmartHomeAppliancesRequest {
@@ -4209,15 +2762,6 @@ export interface ListSmartHomeAppliancesRequest {
    * <p>The tokens used for pagination.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListSmartHomeAppliancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSmartHomeAppliancesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4241,15 +2785,6 @@ export interface SmartHomeAppliance {
   ManufacturerName?: string;
 }
 
-export namespace SmartHomeAppliance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SmartHomeAppliance): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSmartHomeAppliancesResponse {
   /**
    * <p>The smart home appliances.</p>
@@ -4260,15 +2795,6 @@ export interface ListSmartHomeAppliancesResponse {
    * <p>The tokens used for pagination.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListSmartHomeAppliancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSmartHomeAppliancesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsRequest {
@@ -4292,15 +2818,6 @@ export interface ListTagsRequest {
   MaxResults?: number;
 }
 
-export namespace ListTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsResponse {
   /**
    * <p>The tags requested for the specified resource.</p>
@@ -4313,15 +2830,6 @@ export interface ListTagsResponse {
   NextToken?: string;
 }
 
-export namespace ListTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PutConferencePreferenceRequest {
   /**
    * <p>The conference preference of a specific conference provider.</p>
@@ -4329,25 +2837,7 @@ export interface PutConferencePreferenceRequest {
   ConferencePreference: ConferencePreference | undefined;
 }
 
-export namespace PutConferencePreferenceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConferencePreferenceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutConferencePreferenceResponse {}
-
-export namespace PutConferencePreferenceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConferencePreferenceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface PutInvitationConfigurationRequest {
   /**
@@ -4368,25 +2858,7 @@ export interface PutInvitationConfigurationRequest {
   PrivateSkillIds?: string[];
 }
 
-export namespace PutInvitationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutInvitationConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutInvitationConfigurationResponse {}
-
-export namespace PutInvitationConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutInvitationConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface PutRoomSkillParameterRequest {
   /**
@@ -4405,25 +2877,7 @@ export interface PutRoomSkillParameterRequest {
   RoomSkillParameter: RoomSkillParameter | undefined;
 }
 
-export namespace PutRoomSkillParameterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRoomSkillParameterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutRoomSkillParameterResponse {}
-
-export namespace PutRoomSkillParameterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRoomSkillParameterResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface PutSkillAuthorizationRequest {
   /**
@@ -4443,26 +2897,7 @@ export interface PutSkillAuthorizationRequest {
   RoomArn?: string;
 }
 
-export namespace PutSkillAuthorizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutSkillAuthorizationRequest): any => ({
-    ...obj,
-    ...(obj.AuthorizationResult && { AuthorizationResult: SENSITIVE_STRING }),
-  });
-}
-
 export interface PutSkillAuthorizationResponse {}
-
-export namespace PutSkillAuthorizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutSkillAuthorizationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The caller has no permissions to operate on the resource involved in the API call.</p>
@@ -4548,29 +2983,11 @@ export interface RegisterAVSDeviceRequest {
   Tags?: Tag[];
 }
 
-export namespace RegisterAVSDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterAVSDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterAVSDeviceResponse {
   /**
    * <p>The ARN of the device.</p>
    */
   DeviceArn?: string;
-}
-
-export namespace RegisterAVSDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterAVSDeviceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RejectSkillRequest {
@@ -4580,25 +2997,7 @@ export interface RejectSkillRequest {
   SkillId: string | undefined;
 }
 
-export namespace RejectSkillRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectSkillRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectSkillResponse {}
-
-export namespace RejectSkillResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectSkillResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface ResolveRoomRequest {
   /**
@@ -4610,15 +3009,6 @@ export interface ResolveRoomRequest {
    * <p>The ARN of the skill that was requested. Required.</p>
    */
   SkillId: string | undefined;
-}
-
-export namespace ResolveRoomRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolveRoomRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ResolveRoomResponse {
@@ -4638,15 +3028,6 @@ export interface ResolveRoomResponse {
   RoomSkillParameters?: RoomSkillParameter[];
 }
 
-export namespace ResolveRoomResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolveRoomResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface RevokeInvitationRequest {
   /**
    * <p>The ARN of the user for whom to revoke an enrollment invitation. Required.</p>
@@ -4659,25 +3040,7 @@ export interface RevokeInvitationRequest {
   EnrollmentId?: string;
 }
 
-export namespace RevokeInvitationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeInvitationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RevokeInvitationResponse {}
-
-export namespace RevokeInvitationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeInvitationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A filter name and value pair that is used to return a more specific list of results.
@@ -4693,15 +3056,6 @@ export interface Filter {
    * <p>The values of a filter.</p>
    */
   Values: string[] | undefined;
-}
-
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
 }
 
 export enum SortValue {
@@ -4722,15 +3076,6 @@ export interface Sort {
    * <p>The sort value of a sort object.</p>
    */
   Value: SortValue | string | undefined;
-}
-
-export namespace Sort {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Sort): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchAddressBooksRequest {
@@ -4761,15 +3106,6 @@ export interface SearchAddressBooksRequest {
   MaxResults?: number;
 }
 
-export namespace SearchAddressBooksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchAddressBooksRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchAddressBooksResponse {
   /**
    * <p>The address books that meet the specified set of filter criteria, in sort
@@ -4786,15 +3122,6 @@ export interface SearchAddressBooksResponse {
    * <p>The total number of address books returned.</p>
    */
   TotalCount?: number;
-}
-
-export namespace SearchAddressBooksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchAddressBooksResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchContactsRequest {
@@ -4823,15 +3150,6 @@ export interface SearchContactsRequest {
    *          results can be retrieved.</p>
    */
   MaxResults?: number;
-}
-
-export namespace SearchContactsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchContactsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4876,18 +3194,6 @@ export interface ContactData {
   SipAddresses?: SipAddress[];
 }
 
-export namespace ContactData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContactData): any => ({
-    ...obj,
-    ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-    ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
-    ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface SearchContactsResponse {
   /**
    * <p>The contacts that meet the specified set of filter criteria, in sort order.</p>
@@ -4903,16 +3209,6 @@ export interface SearchContactsResponse {
    * <p>The total number of contacts returned.</p>
    */
   TotalCount?: number;
-}
-
-export namespace SearchContactsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchContactsResponse): any => ({
-    ...obj,
-    ...(obj.Contacts && { Contacts: obj.Contacts.map((item) => ContactData.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface SearchDevicesRequest {
@@ -4944,15 +3240,6 @@ export interface SearchDevicesRequest {
    *          NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.</p>
    */
   SortCriteria?: Sort[];
-}
-
-export namespace SearchDevicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchDevicesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5025,15 +3312,6 @@ export interface DeviceData {
   CreatedTime?: Date;
 }
 
-export namespace DeviceData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceData): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchDevicesResponse {
   /**
    * <p>The devices that meet the specified set of filter criteria, in sort order.</p>
@@ -5049,15 +3327,6 @@ export interface SearchDevicesResponse {
    * <p>The total number of devices returned.</p>
    */
   TotalCount?: number;
-}
-
-export namespace SearchDevicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchDevicesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchNetworkProfilesRequest {
@@ -5086,15 +3355,6 @@ export interface SearchNetworkProfilesRequest {
    *          includes NetworkProfileName, Ssid, and SecurityType.</p>
    */
   SortCriteria?: Sort[];
-}
-
-export namespace SearchNetworkProfilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchNetworkProfilesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5140,15 +3400,6 @@ export interface NetworkProfileData {
   CertificateAuthorityArn?: string;
 }
 
-export namespace NetworkProfileData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkProfileData): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchNetworkProfilesResponse {
   /**
    * <p>The network profiles that meet the specified set of filter criteria, in sort order. It
@@ -5167,15 +3418,6 @@ export interface SearchNetworkProfilesResponse {
    * <p>The total number of network profiles returned.</p>
    */
   TotalCount?: number;
-}
-
-export namespace SearchNetworkProfilesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchNetworkProfilesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchProfilesRequest {
@@ -5204,15 +3446,6 @@ export interface SearchProfilesRequest {
    *          keys are ProfileName and Address.</p>
    */
   SortCriteria?: Sort[];
-}
-
-export namespace SearchProfilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchProfilesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5266,15 +3499,6 @@ export interface ProfileData {
   Locale?: string;
 }
 
-export namespace ProfileData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProfileData): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchProfilesResponse {
   /**
    * <p>The profiles that meet the specified set of filter criteria, in sort order.</p>
@@ -5290,15 +3514,6 @@ export interface SearchProfilesResponse {
    * <p>The total number of room profiles returned.</p>
    */
   TotalCount?: number;
-}
-
-export namespace SearchProfilesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchProfilesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchRoomsRequest {
@@ -5327,15 +3542,6 @@ export interface SearchRoomsRequest {
    *          are RoomName and ProfileName.</p>
    */
   SortCriteria?: Sort[];
-}
-
-export namespace SearchRoomsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchRoomsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5373,15 +3579,6 @@ export interface RoomData {
   ProfileName?: string;
 }
 
-export namespace RoomData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoomData): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchRoomsResponse {
   /**
    * <p>The rooms that meet the specified set of filter criteria, in sort order.</p>
@@ -5397,15 +3594,6 @@ export interface SearchRoomsResponse {
    * <p>The total number of rooms returned.</p>
    */
   TotalCount?: number;
-}
-
-export namespace SearchRoomsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchRoomsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchSkillGroupsRequest {
@@ -5437,15 +3625,6 @@ export interface SearchSkillGroupsRequest {
   SortCriteria?: Sort[];
 }
 
-export namespace SearchSkillGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchSkillGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The attributes of a skill group.</p>
  */
@@ -5466,15 +3645,6 @@ export interface SkillGroupData {
   Description?: string;
 }
 
-export namespace SkillGroupData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SkillGroupData): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchSkillGroupsResponse {
   /**
    * <p>The skill groups that meet the filter criteria, in sort order.</p>
@@ -5490,15 +3660,6 @@ export interface SearchSkillGroupsResponse {
    * <p>The total number of skill groups returned.</p>
    */
   TotalCount?: number;
-}
-
-export namespace SearchSkillGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchSkillGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchUsersRequest {
@@ -5528,15 +3689,6 @@ export interface SearchUsersRequest {
    *          keys are UserId, FirstName, LastName, Email, and EnrollmentStatus.</p>
    */
   SortCriteria?: Sort[];
-}
-
-export namespace SearchUsersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchUsersRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum EnrollmentStatus {
@@ -5582,15 +3734,6 @@ export interface UserData {
   EnrollmentId?: string;
 }
 
-export namespace UserData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserData): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchUsersResponse {
   /**
    * <p>The users that meet the specified set of filter criteria, in sort order.</p>
@@ -5606,15 +3749,6 @@ export interface SearchUsersResponse {
    * <p>The total number of users returned.</p>
    */
   TotalCount?: number;
-}
-
-export namespace SearchUsersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchUsersResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum Locale {
@@ -5646,15 +3780,6 @@ export interface Audio {
   Location: string | undefined;
 }
 
-export namespace Audio {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Audio): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The SSML message. For more information, see <a href="https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html">SSML Reference</a>.</p>
  */
@@ -5670,15 +3795,6 @@ export interface Ssml {
   Value: string | undefined;
 }
 
-export namespace Ssml {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ssml): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The text message.</p>
  */
@@ -5692,15 +3808,6 @@ export interface Text {
    * <p>The value of the text message.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Text {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Text): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5722,15 +3829,6 @@ export interface Content {
    * <p>The list of audio messages.</p>
    */
   AudioList?: Audio[];
-}
-
-export namespace Content {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Content): any => ({
-    ...obj,
-  });
 }
 
 export interface SendAnnouncementRequest {
@@ -5756,29 +3854,11 @@ export interface SendAnnouncementRequest {
   ClientRequestToken?: string;
 }
 
-export namespace SendAnnouncementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendAnnouncementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendAnnouncementResponse {
   /**
    * <p>The identifier of the announcement.</p>
    */
   AnnouncementArn?: string;
-}
-
-export namespace SendAnnouncementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendAnnouncementResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5809,25 +3889,7 @@ export interface SendInvitationRequest {
   UserArn?: string;
 }
 
-export namespace SendInvitationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendInvitationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendInvitationResponse {}
-
-export namespace SendInvitationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendInvitationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface StartDeviceSyncRequest {
   /**
@@ -5846,25 +3908,7 @@ export interface StartDeviceSyncRequest {
   Features: (Feature | string)[] | undefined;
 }
 
-export namespace StartDeviceSyncRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDeviceSyncRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartDeviceSyncResponse {}
-
-export namespace StartDeviceSyncResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDeviceSyncResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface StartSmartHomeApplianceDiscoveryRequest {
   /**
@@ -5873,25 +3917,7 @@ export interface StartSmartHomeApplianceDiscoveryRequest {
   RoomArn: string | undefined;
 }
 
-export namespace StartSmartHomeApplianceDiscoveryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSmartHomeApplianceDiscoveryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartSmartHomeApplianceDiscoveryResponse {}
-
-export namespace StartSmartHomeApplianceDiscoveryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSmartHomeApplianceDiscoveryResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -5906,25 +3932,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -5939,25 +3947,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The name sent in the request is already in use.</p>
@@ -5997,25 +3987,7 @@ export interface UpdateAddressBookRequest {
   Description?: string;
 }
 
-export namespace UpdateAddressBookRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAddressBookRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAddressBookResponse {}
-
-export namespace UpdateAddressBookResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAddressBookResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateBusinessReportScheduleRequest {
   /**
@@ -6050,25 +4022,7 @@ export interface UpdateBusinessReportScheduleRequest {
   Recurrence?: BusinessReportRecurrence;
 }
 
-export namespace UpdateBusinessReportScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBusinessReportScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateBusinessReportScheduleResponse {}
-
-export namespace UpdateBusinessReportScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBusinessReportScheduleResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateConferenceProviderRequest {
   /**
@@ -6097,25 +4051,7 @@ export interface UpdateConferenceProviderRequest {
   MeetingSetting: MeetingSetting | undefined;
 }
 
-export namespace UpdateConferenceProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConferenceProviderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateConferenceProviderResponse {}
-
-export namespace UpdateConferenceProviderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConferenceProviderResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateContactRequest {
   /**
@@ -6156,28 +4092,7 @@ export interface UpdateContactRequest {
   SipAddresses?: SipAddress[];
 }
 
-export namespace UpdateContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContactRequest): any => ({
-    ...obj,
-    ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-    ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
-    ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface UpdateContactResponse {}
-
-export namespace UpdateContactResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContactResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDeviceRequest {
   /**
@@ -6191,25 +4106,7 @@ export interface UpdateDeviceRequest {
   DeviceName?: string;
 }
 
-export namespace UpdateDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDeviceResponse {}
-
-export namespace UpdateDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeviceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateGatewayRequest {
   /**
@@ -6234,25 +4131,7 @@ export interface UpdateGatewayRequest {
   SoftwareVersion?: string;
 }
 
-export namespace UpdateGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGatewayResponse {}
-
-export namespace UpdateGatewayResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGatewayResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateGatewayGroupRequest {
   /**
@@ -6271,25 +4150,7 @@ export interface UpdateGatewayGroupRequest {
   Description?: string;
 }
 
-export namespace UpdateGatewayGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGatewayGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGatewayGroupResponse {}
-
-export namespace UpdateGatewayGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGatewayGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateNetworkProfileRequest {
   /**
@@ -6332,27 +4193,7 @@ export interface UpdateNetworkProfileRequest {
   TrustAnchors?: string[];
 }
 
-export namespace UpdateNetworkProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNetworkProfileRequest): any => ({
-    ...obj,
-    ...(obj.CurrentPassword && { CurrentPassword: SENSITIVE_STRING }),
-    ...(obj.NextPassword && { NextPassword: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateNetworkProfileResponse {}
-
-export namespace UpdateNetworkProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNetworkProfileResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Settings for the end of meeting reminder feature that are applied to a room profile. The
@@ -6377,15 +4218,6 @@ export interface UpdateEndOfMeetingReminder {
   Enabled?: boolean;
 }
 
-export namespace UpdateEndOfMeetingReminder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEndOfMeetingReminder): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updates settings for the instant booking feature that are applied to a room profile. If
  *          instant booking is enabled, Alexa automatically reserves a room if it is free when a user
@@ -6404,15 +4236,6 @@ export interface UpdateInstantBooking {
   Enabled?: boolean;
 }
 
-export namespace UpdateInstantBooking {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInstantBooking): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updates settings for the require check in feature that are applied to a room profile. Require check in allows a meeting room’s Alexa or AVS device to prompt the user to check in; otherwise, the room will be released. </p>
  */
@@ -6426,15 +4249,6 @@ export interface UpdateRequireCheckIn {
    * <p>Whether require check in is enabled or not.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace UpdateRequireCheckIn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRequireCheckIn): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6462,15 +4276,6 @@ export interface UpdateMeetingRoomConfiguration {
    * <p>Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into to make the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.” </p>
    */
   RequireCheckIn?: UpdateRequireCheckIn;
-}
-
-export namespace UpdateMeetingRoomConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMeetingRoomConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateProfileRequest {
@@ -6546,25 +4351,7 @@ export interface UpdateProfileRequest {
   MeetingRoomConfiguration?: UpdateMeetingRoomConfiguration;
 }
 
-export namespace UpdateProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateProfileResponse {}
-
-export namespace UpdateProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProfileResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateRoomRequest {
   /**
@@ -6593,25 +4380,7 @@ export interface UpdateRoomRequest {
   ProfileArn?: string;
 }
 
-export namespace UpdateRoomRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRoomRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRoomResponse {}
-
-export namespace UpdateRoomResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRoomResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateSkillGroupRequest {
   /**
@@ -6630,22 +4399,1807 @@ export interface UpdateSkillGroupRequest {
   Description?: string;
 }
 
-export namespace UpdateSkillGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSkillGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSkillGroupResponse {}
 
-export namespace UpdateSkillGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSkillGroupResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AddressBookFilterSensitiveLog = (obj: AddressBook): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddressBookDataFilterSensitiveLog = (obj: AddressBookData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApproveSkillRequestFilterSensitiveLog = (obj: ApproveSkillRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApproveSkillResponseFilterSensitiveLog = (obj: ApproveSkillResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateContactWithAddressBookRequestFilterSensitiveLog = (
+  obj: AssociateContactWithAddressBookRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateContactWithAddressBookResponseFilterSensitiveLog = (
+  obj: AssociateContactWithAddressBookResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateDeviceWithNetworkProfileRequestFilterSensitiveLog = (
+  obj: AssociateDeviceWithNetworkProfileRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateDeviceWithNetworkProfileResponseFilterSensitiveLog = (
+  obj: AssociateDeviceWithNetworkProfileResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateDeviceWithRoomRequestFilterSensitiveLog = (obj: AssociateDeviceWithRoomRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateDeviceWithRoomResponseFilterSensitiveLog = (obj: AssociateDeviceWithRoomResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateSkillGroupWithRoomRequestFilterSensitiveLog = (obj: AssociateSkillGroupWithRoomRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateSkillGroupWithRoomResponseFilterSensitiveLog = (
+  obj: AssociateSkillGroupWithRoomResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateSkillWithSkillGroupRequestFilterSensitiveLog = (
+  obj: AssociateSkillWithSkillGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateSkillWithSkillGroupResponseFilterSensitiveLog = (
+  obj: AssociateSkillWithSkillGroupResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateSkillWithUsersRequestFilterSensitiveLog = (obj: AssociateSkillWithUsersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateSkillWithUsersResponseFilterSensitiveLog = (obj: AssociateSkillWithUsersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAddressBookRequestFilterSensitiveLog = (obj: CreateAddressBookRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAddressBookResponseFilterSensitiveLog = (obj: CreateAddressBookResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BusinessReportContentRangeFilterSensitiveLog = (obj: BusinessReportContentRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BusinessReportRecurrenceFilterSensitiveLog = (obj: BusinessReportRecurrence): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBusinessReportScheduleRequestFilterSensitiveLog = (
+  obj: CreateBusinessReportScheduleRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBusinessReportScheduleResponseFilterSensitiveLog = (
+  obj: CreateBusinessReportScheduleResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IPDialInFilterSensitiveLog = (obj: IPDialIn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MeetingSettingFilterSensitiveLog = (obj: MeetingSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PSTNDialInFilterSensitiveLog = (obj: PSTNDialIn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConferenceProviderRequestFilterSensitiveLog = (obj: CreateConferenceProviderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConferenceProviderResponseFilterSensitiveLog = (obj: CreateConferenceProviderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PhoneNumberFilterSensitiveLog = (obj: PhoneNumber): any => ({
+  ...obj,
+  ...(obj.Number && { Number: SENSITIVE_STRING }),
+  ...(obj.Type && { Type: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SipAddressFilterSensitiveLog = (obj: SipAddress): any => ({
+  ...obj,
+  ...(obj.Uri && { Uri: SENSITIVE_STRING }),
+  ...(obj.Type && { Type: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateContactRequestFilterSensitiveLog = (obj: CreateContactRequest): any => ({
+  ...obj,
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+  ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumberFilterSensitiveLog(item)) }),
+  ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddressFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateContactResponseFilterSensitiveLog = (obj: CreateContactResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGatewayGroupRequestFilterSensitiveLog = (obj: CreateGatewayGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGatewayGroupResponseFilterSensitiveLog = (obj: CreateGatewayGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNetworkProfileRequestFilterSensitiveLog = (obj: CreateNetworkProfileRequest): any => ({
+  ...obj,
+  ...(obj.CurrentPassword && { CurrentPassword: SENSITIVE_STRING }),
+  ...(obj.NextPassword && { NextPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateNetworkProfileResponseFilterSensitiveLog = (obj: CreateNetworkProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEndOfMeetingReminderFilterSensitiveLog = (obj: CreateEndOfMeetingReminder): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInstantBookingFilterSensitiveLog = (obj: CreateInstantBooking): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRequireCheckInFilterSensitiveLog = (obj: CreateRequireCheckIn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMeetingRoomConfigurationFilterSensitiveLog = (obj: CreateMeetingRoomConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProfileRequestFilterSensitiveLog = (obj: CreateProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProfileResponseFilterSensitiveLog = (obj: CreateProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRoomRequestFilterSensitiveLog = (obj: CreateRoomRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRoomResponseFilterSensitiveLog = (obj: CreateRoomResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSkillGroupRequestFilterSensitiveLog = (obj: CreateSkillGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSkillGroupResponseFilterSensitiveLog = (obj: CreateSkillGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAddressBookRequestFilterSensitiveLog = (obj: DeleteAddressBookRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAddressBookResponseFilterSensitiveLog = (obj: DeleteAddressBookResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBusinessReportScheduleRequestFilterSensitiveLog = (
+  obj: DeleteBusinessReportScheduleRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBusinessReportScheduleResponseFilterSensitiveLog = (
+  obj: DeleteBusinessReportScheduleResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConferenceProviderRequestFilterSensitiveLog = (obj: DeleteConferenceProviderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConferenceProviderResponseFilterSensitiveLog = (obj: DeleteConferenceProviderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContactRequestFilterSensitiveLog = (obj: DeleteContactRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContactResponseFilterSensitiveLog = (obj: DeleteContactResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeviceRequestFilterSensitiveLog = (obj: DeleteDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeviceResponseFilterSensitiveLog = (obj: DeleteDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeviceUsageDataRequestFilterSensitiveLog = (obj: DeleteDeviceUsageDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeviceUsageDataResponseFilterSensitiveLog = (obj: DeleteDeviceUsageDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGatewayGroupRequestFilterSensitiveLog = (obj: DeleteGatewayGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGatewayGroupResponseFilterSensitiveLog = (obj: DeleteGatewayGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNetworkProfileRequestFilterSensitiveLog = (obj: DeleteNetworkProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNetworkProfileResponseFilterSensitiveLog = (obj: DeleteNetworkProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProfileRequestFilterSensitiveLog = (obj: DeleteProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProfileResponseFilterSensitiveLog = (obj: DeleteProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRoomRequestFilterSensitiveLog = (obj: DeleteRoomRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRoomResponseFilterSensitiveLog = (obj: DeleteRoomResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRoomSkillParameterRequestFilterSensitiveLog = (obj: DeleteRoomSkillParameterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRoomSkillParameterResponseFilterSensitiveLog = (obj: DeleteRoomSkillParameterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSkillAuthorizationRequestFilterSensitiveLog = (obj: DeleteSkillAuthorizationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSkillAuthorizationResponseFilterSensitiveLog = (obj: DeleteSkillAuthorizationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSkillGroupRequestFilterSensitiveLog = (obj: DeleteSkillGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSkillGroupResponseFilterSensitiveLog = (obj: DeleteSkillGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserResponseFilterSensitiveLog = (obj: DeleteUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateContactFromAddressBookRequestFilterSensitiveLog = (
+  obj: DisassociateContactFromAddressBookRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateContactFromAddressBookResponseFilterSensitiveLog = (
+  obj: DisassociateContactFromAddressBookResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateDeviceFromRoomRequestFilterSensitiveLog = (obj: DisassociateDeviceFromRoomRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateDeviceFromRoomResponseFilterSensitiveLog = (obj: DisassociateDeviceFromRoomResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateSkillFromSkillGroupRequestFilterSensitiveLog = (
+  obj: DisassociateSkillFromSkillGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateSkillFromSkillGroupResponseFilterSensitiveLog = (
+  obj: DisassociateSkillFromSkillGroupResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateSkillFromUsersRequestFilterSensitiveLog = (obj: DisassociateSkillFromUsersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateSkillFromUsersResponseFilterSensitiveLog = (obj: DisassociateSkillFromUsersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateSkillGroupFromRoomRequestFilterSensitiveLog = (
+  obj: DisassociateSkillGroupFromRoomRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateSkillGroupFromRoomResponseFilterSensitiveLog = (
+  obj: DisassociateSkillGroupFromRoomResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ForgetSmartHomeAppliancesRequestFilterSensitiveLog = (obj: ForgetSmartHomeAppliancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ForgetSmartHomeAppliancesResponseFilterSensitiveLog = (obj: ForgetSmartHomeAppliancesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAddressBookRequestFilterSensitiveLog = (obj: GetAddressBookRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAddressBookResponseFilterSensitiveLog = (obj: GetAddressBookResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConferencePreferenceRequestFilterSensitiveLog = (obj: GetConferencePreferenceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConferencePreferenceFilterSensitiveLog = (obj: ConferencePreference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConferencePreferenceResponseFilterSensitiveLog = (obj: GetConferencePreferenceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConferenceProviderRequestFilterSensitiveLog = (obj: GetConferenceProviderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConferenceProviderFilterSensitiveLog = (obj: ConferenceProvider): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConferenceProviderResponseFilterSensitiveLog = (obj: GetConferenceProviderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContactRequestFilterSensitiveLog = (obj: GetContactRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContactFilterSensitiveLog = (obj: Contact): any => ({
+  ...obj,
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+  ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumberFilterSensitiveLog(item)) }),
+  ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddressFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetContactResponseFilterSensitiveLog = (obj: GetContactResponse): any => ({
+  ...obj,
+  ...(obj.Contact && { Contact: ContactFilterSensitiveLog(obj.Contact) }),
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceRequestFilterSensitiveLog = (obj: GetDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceStatusDetailFilterSensitiveLog = (obj: DeviceStatusDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceStatusInfoFilterSensitiveLog = (obj: DeviceStatusInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceNetworkProfileInfoFilterSensitiveLog = (obj: DeviceNetworkProfileInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceFilterSensitiveLog = (obj: Device): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceResponseFilterSensitiveLog = (obj: GetDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGatewayRequestFilterSensitiveLog = (obj: GetGatewayRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GatewayFilterSensitiveLog = (obj: Gateway): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGatewayResponseFilterSensitiveLog = (obj: GetGatewayResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGatewayGroupRequestFilterSensitiveLog = (obj: GetGatewayGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GatewayGroupFilterSensitiveLog = (obj: GatewayGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGatewayGroupResponseFilterSensitiveLog = (obj: GetGatewayGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInvitationConfigurationRequestFilterSensitiveLog = (obj: GetInvitationConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInvitationConfigurationResponseFilterSensitiveLog = (obj: GetInvitationConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNetworkProfileRequestFilterSensitiveLog = (obj: GetNetworkProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkProfileFilterSensitiveLog = (obj: NetworkProfile): any => ({
+  ...obj,
+  ...(obj.CurrentPassword && { CurrentPassword: SENSITIVE_STRING }),
+  ...(obj.NextPassword && { NextPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetNetworkProfileResponseFilterSensitiveLog = (obj: GetNetworkProfileResponse): any => ({
+  ...obj,
+  ...(obj.NetworkProfile && { NetworkProfile: NetworkProfileFilterSensitiveLog(obj.NetworkProfile) }),
+});
+
+/**
+ * @internal
+ */
+export const GetProfileRequestFilterSensitiveLog = (obj: GetProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndOfMeetingReminderFilterSensitiveLog = (obj: EndOfMeetingReminder): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstantBookingFilterSensitiveLog = (obj: InstantBooking): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequireCheckInFilterSensitiveLog = (obj: RequireCheckIn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MeetingRoomConfigurationFilterSensitiveLog = (obj: MeetingRoomConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProfileFilterSensitiveLog = (obj: Profile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProfileResponseFilterSensitiveLog = (obj: GetProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRoomRequestFilterSensitiveLog = (obj: GetRoomRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoomFilterSensitiveLog = (obj: Room): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRoomResponseFilterSensitiveLog = (obj: GetRoomResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRoomSkillParameterRequestFilterSensitiveLog = (obj: GetRoomSkillParameterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoomSkillParameterFilterSensitiveLog = (obj: RoomSkillParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRoomSkillParameterResponseFilterSensitiveLog = (obj: GetRoomSkillParameterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSkillGroupRequestFilterSensitiveLog = (obj: GetSkillGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SkillGroupFilterSensitiveLog = (obj: SkillGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSkillGroupResponseFilterSensitiveLog = (obj: GetSkillGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBusinessReportSchedulesRequestFilterSensitiveLog = (obj: ListBusinessReportSchedulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BusinessReportS3LocationFilterSensitiveLog = (obj: BusinessReportS3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BusinessReportFilterSensitiveLog = (obj: BusinessReport): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BusinessReportScheduleFilterSensitiveLog = (obj: BusinessReportSchedule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBusinessReportSchedulesResponseFilterSensitiveLog = (
+  obj: ListBusinessReportSchedulesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConferenceProvidersRequestFilterSensitiveLog = (obj: ListConferenceProvidersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConferenceProvidersResponseFilterSensitiveLog = (obj: ListConferenceProvidersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeviceEventsRequestFilterSensitiveLog = (obj: ListDeviceEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceEventFilterSensitiveLog = (obj: DeviceEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeviceEventsResponseFilterSensitiveLog = (obj: ListDeviceEventsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGatewayGroupsRequestFilterSensitiveLog = (obj: ListGatewayGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GatewayGroupSummaryFilterSensitiveLog = (obj: GatewayGroupSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGatewayGroupsResponseFilterSensitiveLog = (obj: ListGatewayGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGatewaysRequestFilterSensitiveLog = (obj: ListGatewaysRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GatewaySummaryFilterSensitiveLog = (obj: GatewaySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGatewaysResponseFilterSensitiveLog = (obj: ListGatewaysResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSkillsRequestFilterSensitiveLog = (obj: ListSkillsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SkillSummaryFilterSensitiveLog = (obj: SkillSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSkillsResponseFilterSensitiveLog = (obj: ListSkillsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSkillsStoreCategoriesRequestFilterSensitiveLog = (obj: ListSkillsStoreCategoriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CategoryFilterSensitiveLog = (obj: Category): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSkillsStoreCategoriesResponseFilterSensitiveLog = (obj: ListSkillsStoreCategoriesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSkillsStoreSkillsByCategoryRequestFilterSensitiveLog = (
+  obj: ListSkillsStoreSkillsByCategoryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeveloperInfoFilterSensitiveLog = (obj: DeveloperInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SkillDetailsFilterSensitiveLog = (obj: SkillDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SkillsStoreSkillFilterSensitiveLog = (obj: SkillsStoreSkill): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSkillsStoreSkillsByCategoryResponseFilterSensitiveLog = (
+  obj: ListSkillsStoreSkillsByCategoryResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSmartHomeAppliancesRequestFilterSensitiveLog = (obj: ListSmartHomeAppliancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SmartHomeApplianceFilterSensitiveLog = (obj: SmartHomeAppliance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSmartHomeAppliancesResponseFilterSensitiveLog = (obj: ListSmartHomeAppliancesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConferencePreferenceRequestFilterSensitiveLog = (obj: PutConferencePreferenceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConferencePreferenceResponseFilterSensitiveLog = (obj: PutConferencePreferenceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutInvitationConfigurationRequestFilterSensitiveLog = (obj: PutInvitationConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutInvitationConfigurationResponseFilterSensitiveLog = (obj: PutInvitationConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRoomSkillParameterRequestFilterSensitiveLog = (obj: PutRoomSkillParameterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRoomSkillParameterResponseFilterSensitiveLog = (obj: PutRoomSkillParameterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutSkillAuthorizationRequestFilterSensitiveLog = (obj: PutSkillAuthorizationRequest): any => ({
+  ...obj,
+  ...(obj.AuthorizationResult && { AuthorizationResult: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutSkillAuthorizationResponseFilterSensitiveLog = (obj: PutSkillAuthorizationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterAVSDeviceRequestFilterSensitiveLog = (obj: RegisterAVSDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterAVSDeviceResponseFilterSensitiveLog = (obj: RegisterAVSDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectSkillRequestFilterSensitiveLog = (obj: RejectSkillRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectSkillResponseFilterSensitiveLog = (obj: RejectSkillResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolveRoomRequestFilterSensitiveLog = (obj: ResolveRoomRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolveRoomResponseFilterSensitiveLog = (obj: ResolveRoomResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeInvitationRequestFilterSensitiveLog = (obj: RevokeInvitationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeInvitationResponseFilterSensitiveLog = (obj: RevokeInvitationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SortFilterSensitiveLog = (obj: Sort): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchAddressBooksRequestFilterSensitiveLog = (obj: SearchAddressBooksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchAddressBooksResponseFilterSensitiveLog = (obj: SearchAddressBooksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchContactsRequestFilterSensitiveLog = (obj: SearchContactsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContactDataFilterSensitiveLog = (obj: ContactData): any => ({
+  ...obj,
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+  ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumberFilterSensitiveLog(item)) }),
+  ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddressFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SearchContactsResponseFilterSensitiveLog = (obj: SearchContactsResponse): any => ({
+  ...obj,
+  ...(obj.Contacts && { Contacts: obj.Contacts.map((item) => ContactDataFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SearchDevicesRequestFilterSensitiveLog = (obj: SearchDevicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceDataFilterSensitiveLog = (obj: DeviceData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchDevicesResponseFilterSensitiveLog = (obj: SearchDevicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchNetworkProfilesRequestFilterSensitiveLog = (obj: SearchNetworkProfilesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkProfileDataFilterSensitiveLog = (obj: NetworkProfileData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchNetworkProfilesResponseFilterSensitiveLog = (obj: SearchNetworkProfilesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchProfilesRequestFilterSensitiveLog = (obj: SearchProfilesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProfileDataFilterSensitiveLog = (obj: ProfileData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchProfilesResponseFilterSensitiveLog = (obj: SearchProfilesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchRoomsRequestFilterSensitiveLog = (obj: SearchRoomsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoomDataFilterSensitiveLog = (obj: RoomData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchRoomsResponseFilterSensitiveLog = (obj: SearchRoomsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchSkillGroupsRequestFilterSensitiveLog = (obj: SearchSkillGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SkillGroupDataFilterSensitiveLog = (obj: SkillGroupData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchSkillGroupsResponseFilterSensitiveLog = (obj: SearchSkillGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchUsersRequestFilterSensitiveLog = (obj: SearchUsersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserDataFilterSensitiveLog = (obj: UserData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchUsersResponseFilterSensitiveLog = (obj: SearchUsersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioFilterSensitiveLog = (obj: Audio): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SsmlFilterSensitiveLog = (obj: Ssml): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextFilterSensitiveLog = (obj: Text): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContentFilterSensitiveLog = (obj: Content): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendAnnouncementRequestFilterSensitiveLog = (obj: SendAnnouncementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendAnnouncementResponseFilterSensitiveLog = (obj: SendAnnouncementResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendInvitationRequestFilterSensitiveLog = (obj: SendInvitationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendInvitationResponseFilterSensitiveLog = (obj: SendInvitationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDeviceSyncRequestFilterSensitiveLog = (obj: StartDeviceSyncRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDeviceSyncResponseFilterSensitiveLog = (obj: StartDeviceSyncResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSmartHomeApplianceDiscoveryRequestFilterSensitiveLog = (
+  obj: StartSmartHomeApplianceDiscoveryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSmartHomeApplianceDiscoveryResponseFilterSensitiveLog = (
+  obj: StartSmartHomeApplianceDiscoveryResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAddressBookRequestFilterSensitiveLog = (obj: UpdateAddressBookRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAddressBookResponseFilterSensitiveLog = (obj: UpdateAddressBookResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBusinessReportScheduleRequestFilterSensitiveLog = (
+  obj: UpdateBusinessReportScheduleRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBusinessReportScheduleResponseFilterSensitiveLog = (
+  obj: UpdateBusinessReportScheduleResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConferenceProviderRequestFilterSensitiveLog = (obj: UpdateConferenceProviderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConferenceProviderResponseFilterSensitiveLog = (obj: UpdateConferenceProviderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContactRequestFilterSensitiveLog = (obj: UpdateContactRequest): any => ({
+  ...obj,
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+  ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumberFilterSensitiveLog(item)) }),
+  ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddressFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateContactResponseFilterSensitiveLog = (obj: UpdateContactResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeviceRequestFilterSensitiveLog = (obj: UpdateDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeviceResponseFilterSensitiveLog = (obj: UpdateDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGatewayRequestFilterSensitiveLog = (obj: UpdateGatewayRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGatewayResponseFilterSensitiveLog = (obj: UpdateGatewayResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGatewayGroupRequestFilterSensitiveLog = (obj: UpdateGatewayGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGatewayGroupResponseFilterSensitiveLog = (obj: UpdateGatewayGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNetworkProfileRequestFilterSensitiveLog = (obj: UpdateNetworkProfileRequest): any => ({
+  ...obj,
+  ...(obj.CurrentPassword && { CurrentPassword: SENSITIVE_STRING }),
+  ...(obj.NextPassword && { NextPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateNetworkProfileResponseFilterSensitiveLog = (obj: UpdateNetworkProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEndOfMeetingReminderFilterSensitiveLog = (obj: UpdateEndOfMeetingReminder): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInstantBookingFilterSensitiveLog = (obj: UpdateInstantBooking): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRequireCheckInFilterSensitiveLog = (obj: UpdateRequireCheckIn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMeetingRoomConfigurationFilterSensitiveLog = (obj: UpdateMeetingRoomConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProfileRequestFilterSensitiveLog = (obj: UpdateProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProfileResponseFilterSensitiveLog = (obj: UpdateProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRoomRequestFilterSensitiveLog = (obj: UpdateRoomRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRoomResponseFilterSensitiveLog = (obj: UpdateRoomResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSkillGroupRequestFilterSensitiveLog = (obj: UpdateSkillGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSkillGroupResponseFilterSensitiveLog = (obj: UpdateSkillGroupResponse): any => ({
+  ...obj,
+});

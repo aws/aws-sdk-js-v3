@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { UpdateBackupPlanInput, UpdateBackupPlanOutput } from "../models/models_0";
+import {
+  UpdateBackupPlanInput,
+  UpdateBackupPlanInputFilterSensitiveLog,
+  UpdateBackupPlanOutput,
+  UpdateBackupPlanOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateBackupPlanCommand,
   serializeAws_restJson1UpdateBackupPlanCommand,
@@ -74,8 +79,8 @@ export class UpdateBackupPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBackupPlanInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBackupPlanOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateBackupPlanInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBackupPlanOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetMLTaskRunRequest, GetMLTaskRunResponse } from "../models/models_1";
+import {
+  GetMLTaskRunRequest,
+  GetMLTaskRunRequestFilterSensitiveLog,
+  GetMLTaskRunResponse,
+  GetMLTaskRunResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetMLTaskRunCommand,
   serializeAws_json1_1GetMLTaskRunCommand,
@@ -76,8 +81,8 @@ export class GetMLTaskRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMLTaskRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMLTaskRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMLTaskRunRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMLTaskRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DeleteAccessPointRequest } from "../models/models_0";
+import { DeleteAccessPointRequest, DeleteAccessPointRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAccessPointCommand,
   serializeAws_restJson1DeleteAccessPointCommand,
@@ -75,7 +75,7 @@ export class DeleteAccessPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessPointRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAccessPointRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

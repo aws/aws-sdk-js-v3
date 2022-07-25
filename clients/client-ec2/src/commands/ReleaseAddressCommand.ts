@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReleaseAddressRequest } from "../models/models_6";
+import { ReleaseAddressRequest, ReleaseAddressRequestFilterSensitiveLog } from "../models/models_6";
 import { deserializeAws_ec2ReleaseAddressCommand, serializeAws_ec2ReleaseAddressCommand } from "../protocols/Aws_ec2";
 
 export interface ReleaseAddressCommandInput extends ReleaseAddressRequest {}
@@ -83,7 +83,7 @@ export class ReleaseAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReleaseAddressRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ReleaseAddressRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

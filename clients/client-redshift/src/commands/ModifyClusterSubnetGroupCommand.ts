@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifyClusterSubnetGroupMessage, ModifyClusterSubnetGroupResult } from "../models/models_1";
+import {
+  ModifyClusterSubnetGroupMessage,
+  ModifyClusterSubnetGroupMessageFilterSensitiveLog,
+  ModifyClusterSubnetGroupResult,
+  ModifyClusterSubnetGroupResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryModifyClusterSubnetGroupCommand,
   serializeAws_queryModifyClusterSubnetGroupCommand,
@@ -73,8 +78,8 @@ export class ModifyClusterSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClusterSubnetGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyClusterSubnetGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyClusterSubnetGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyClusterSubnetGroupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { AttachThingPrincipalRequest, AttachThingPrincipalResponse } from "../models/models_0";
+import {
+  AttachThingPrincipalRequest,
+  AttachThingPrincipalRequestFilterSensitiveLog,
+  AttachThingPrincipalResponse,
+  AttachThingPrincipalResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1AttachThingPrincipalCommand,
   serializeAws_restJson1AttachThingPrincipalCommand,
@@ -75,8 +80,8 @@ export class AttachThingPrincipalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachThingPrincipalRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AttachThingPrincipalResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachThingPrincipalRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AttachThingPrincipalResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

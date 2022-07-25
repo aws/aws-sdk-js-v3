@@ -19,15 +19,6 @@ export interface ResourceTag {
   ResourceTagValue?: string;
 }
 
-export namespace ResourceTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTag): any => ({
-    ...obj,
-  });
-}
-
 export enum ResourceType {
   EBS_SNAPSHOT = "EBS_SNAPSHOT",
   EC2_IMAGE = "EC2_IMAGE",
@@ -54,15 +45,6 @@ export interface RetentionPeriod {
   RetentionPeriodUnit: RetentionPeriodUnit | string | undefined;
 }
 
-export namespace RetentionPeriod {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetentionPeriod): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the tags to assign to the retention rule.</p>
  */
@@ -76,15 +58,6 @@ export interface Tag {
    * <p>The tag value.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRuleRequest {
@@ -121,15 +94,6 @@ export interface CreateRuleRequest {
    *       resource type in the Region in which the rule is created, even if the resources are not tagged.</p>
    */
   ResourceTags?: ResourceTag[];
-}
-
-export namespace CreateRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum RuleStatus {
@@ -174,15 +138,6 @@ export interface CreateRuleResponse {
    *       state retain resources.</p>
    */
   Status?: RuleStatus | string;
-}
-
-export namespace CreateRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -274,25 +229,7 @@ export interface DeleteRuleRequest {
   Identifier: string | undefined;
 }
 
-export namespace DeleteRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRuleResponse {}
-
-export namespace DeleteRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum ResourceNotFoundExceptionReason {
   RULE_NOT_FOUND = "RULE_NOT_FOUND",
@@ -331,15 +268,6 @@ export interface GetRuleRequest {
   Identifier: string | undefined;
 }
 
-export namespace GetRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRuleResponse {
   /**
    * <p>The unique ID of the retention rule.</p>
@@ -374,15 +302,6 @@ export interface GetRuleResponse {
   Status?: RuleStatus | string;
 }
 
-export namespace GetRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRuleResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRulesRequest {
   /**
    * <p>The maximum number of results to return with a single call.
@@ -411,15 +330,6 @@ export interface ListRulesRequest {
   ResourceTags?: ResourceTag[];
 }
 
-export namespace ListRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRulesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a Recycle Bin retention rule.</p>
  */
@@ -440,15 +350,6 @@ export interface RuleSummary {
   RetentionPeriod?: RetentionPeriod;
 }
 
-export namespace RuleSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRulesResponse {
   /**
    * <p>Information about the retention rules.</p>
@@ -461,15 +362,6 @@ export interface ListRulesResponse {
   NextToken?: string;
 }
 
-export namespace ListRulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRulesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
@@ -477,29 +369,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags assigned to the retention rule.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -514,25 +388,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -546,25 +402,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateRuleRequest {
   /**
@@ -602,15 +440,6 @@ export interface UpdateRuleRequest {
   ResourceTags?: ResourceTag[];
 }
 
-export namespace UpdateRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRuleResponse {
   /**
    * <p>The unique ID of the retention rule.</p>
@@ -645,11 +474,142 @@ export interface UpdateRuleResponse {
   Status?: RuleStatus | string;
 }
 
-export namespace UpdateRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRuleResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ResourceTagFilterSensitiveLog = (obj: ResourceTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetentionPeriodFilterSensitiveLog = (obj: RetentionPeriod): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRuleRequestFilterSensitiveLog = (obj: CreateRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRuleResponseFilterSensitiveLog = (obj: CreateRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRuleRequestFilterSensitiveLog = (obj: DeleteRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRuleResponseFilterSensitiveLog = (obj: DeleteRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRuleRequestFilterSensitiveLog = (obj: GetRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRuleResponseFilterSensitiveLog = (obj: GetRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRulesRequestFilterSensitiveLog = (obj: ListRulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleSummaryFilterSensitiveLog = (obj: RuleSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRulesResponseFilterSensitiveLog = (obj: ListRulesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRuleRequestFilterSensitiveLog = (obj: UpdateRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRuleResponseFilterSensitiveLog = (obj: UpdateRuleResponse): any => ({
+  ...obj,
+});

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListHostedZonesByVPCRequest, ListHostedZonesByVPCResponse } from "../models/models_0";
+import {
+  ListHostedZonesByVPCRequest,
+  ListHostedZonesByVPCRequestFilterSensitiveLog,
+  ListHostedZonesByVPCResponse,
+  ListHostedZonesByVPCResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlListHostedZonesByVPCCommand,
   serializeAws_restXmlListHostedZonesByVPCCommand,
@@ -111,8 +116,8 @@ export class ListHostedZonesByVPCCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHostedZonesByVPCRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListHostedZonesByVPCResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHostedZonesByVPCRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListHostedZonesByVPCResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

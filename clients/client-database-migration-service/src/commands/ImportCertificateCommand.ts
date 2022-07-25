@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { ImportCertificateMessage, ImportCertificateResponse } from "../models/models_0";
+import {
+  ImportCertificateMessage,
+  ImportCertificateMessageFilterSensitiveLog,
+  ImportCertificateResponse,
+  ImportCertificateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ImportCertificateCommand,
   serializeAws_json1_1ImportCertificateCommand,
@@ -76,8 +81,8 @@ export class ImportCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportCertificateMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ImportCertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportCertificateMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ImportCertificateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

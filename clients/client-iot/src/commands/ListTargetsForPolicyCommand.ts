@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListTargetsForPolicyRequest, ListTargetsForPolicyResponse } from "../models/models_1";
+import {
+  ListTargetsForPolicyRequest,
+  ListTargetsForPolicyRequestFilterSensitiveLog,
+  ListTargetsForPolicyResponse,
+  ListTargetsForPolicyResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListTargetsForPolicyCommand,
   serializeAws_restJson1ListTargetsForPolicyCommand,
@@ -73,8 +78,8 @@ export class ListTargetsForPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTargetsForPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTargetsForPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTargetsForPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTargetsForPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

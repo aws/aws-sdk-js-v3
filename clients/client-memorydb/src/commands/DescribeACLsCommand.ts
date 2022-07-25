@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import { DescribeACLsRequest, DescribeACLsResponse } from "../models/models_0";
+import {
+  DescribeACLsRequest,
+  DescribeACLsRequestFilterSensitiveLog,
+  DescribeACLsResponse,
+  DescribeACLsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeACLsCommand,
   serializeAws_json1_1DescribeACLsCommand,
@@ -72,8 +77,8 @@ export class DescribeACLsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeACLsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeACLsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeACLsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeACLsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

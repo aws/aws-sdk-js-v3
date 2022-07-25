@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
-import { BatchCreateTableRowsRequest, BatchCreateTableRowsResult } from "../models/models_0";
+import {
+  BatchCreateTableRowsRequest,
+  BatchCreateTableRowsRequestFilterSensitiveLog,
+  BatchCreateTableRowsResult,
+  BatchCreateTableRowsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BatchCreateTableRowsCommand,
   serializeAws_restJson1BatchCreateTableRowsCommand,
@@ -81,8 +86,8 @@ export class BatchCreateTableRowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchCreateTableRowsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchCreateTableRowsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchCreateTableRowsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchCreateTableRowsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

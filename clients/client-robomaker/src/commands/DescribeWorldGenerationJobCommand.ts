@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeWorldGenerationJobRequest, DescribeWorldGenerationJobResponse } from "../models/models_0";
+import {
+  DescribeWorldGenerationJobRequest,
+  DescribeWorldGenerationJobRequestFilterSensitiveLog,
+  DescribeWorldGenerationJobResponse,
+  DescribeWorldGenerationJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeWorldGenerationJobCommand,
   serializeAws_restJson1DescribeWorldGenerationJobCommand,
@@ -72,8 +77,8 @@ export class DescribeWorldGenerationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorldGenerationJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorldGenerationJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeWorldGenerationJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeWorldGenerationJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

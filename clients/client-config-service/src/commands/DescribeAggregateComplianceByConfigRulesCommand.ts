@@ -15,7 +15,9 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   DescribeAggregateComplianceByConfigRulesRequest,
+  DescribeAggregateComplianceByConfigRulesRequestFilterSensitiveLog,
   DescribeAggregateComplianceByConfigRulesResponse,
+  DescribeAggregateComplianceByConfigRulesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand,
@@ -88,8 +90,8 @@ export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAggregateComplianceByConfigRulesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAggregateComplianceByConfigRulesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAggregateComplianceByConfigRulesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAggregateComplianceByConfigRulesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

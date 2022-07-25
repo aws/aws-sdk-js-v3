@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateDevEndpointRequest, CreateDevEndpointResponse } from "../models/models_0";
+import {
+  CreateDevEndpointRequest,
+  CreateDevEndpointRequestFilterSensitiveLog,
+  CreateDevEndpointResponse,
+  CreateDevEndpointResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDevEndpointCommand,
   serializeAws_json1_1CreateDevEndpointCommand,
@@ -72,8 +77,8 @@ export class CreateDevEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDevEndpointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDevEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDevEndpointRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDevEndpointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { CreateStreamKeyRequest, CreateStreamKeyResponse } from "../models/models_0";
+import {
+  CreateStreamKeyRequest,
+  CreateStreamKeyRequestFilterSensitiveLog,
+  CreateStreamKeyResponse,
+  CreateStreamKeyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateStreamKeyCommand,
   serializeAws_restJson1CreateStreamKeyCommand,
@@ -75,8 +80,8 @@ export class CreateStreamKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStreamKeyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateStreamKeyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateStreamKeyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateStreamKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

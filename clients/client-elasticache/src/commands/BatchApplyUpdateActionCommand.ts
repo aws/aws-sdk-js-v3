@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { BatchApplyUpdateActionMessage, UpdateActionResultsMessage } from "../models/models_0";
+import {
+  BatchApplyUpdateActionMessage,
+  BatchApplyUpdateActionMessageFilterSensitiveLog,
+  UpdateActionResultsMessage,
+  UpdateActionResultsMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryBatchApplyUpdateActionCommand,
   serializeAws_queryBatchApplyUpdateActionCommand,
@@ -72,8 +77,8 @@ export class BatchApplyUpdateActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchApplyUpdateActionMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateActionResultsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchApplyUpdateActionMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateActionResultsMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetDatabaseRequest, GetDatabaseResponse } from "../models/models_1";
+import {
+  GetDatabaseRequest,
+  GetDatabaseRequestFilterSensitiveLog,
+  GetDatabaseResponse,
+  GetDatabaseResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetDatabaseCommand,
   serializeAws_json1_1GetDatabaseCommand,
@@ -72,8 +77,8 @@ export class GetDatabaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDatabaseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDatabaseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDatabaseRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDatabaseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

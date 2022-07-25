@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { UpdateDatasetRequest } from "../models/models_0";
+import { UpdateDatasetRequest, UpdateDatasetRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDatasetCommand,
   serializeAws_restJson1UpdateDatasetCommand,
@@ -72,7 +72,7 @@ export class UpdateDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatasetRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDatasetRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

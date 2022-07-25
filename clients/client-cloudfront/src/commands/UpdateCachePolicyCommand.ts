@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { UpdateCachePolicyRequest, UpdateCachePolicyResult } from "../models/models_1";
+import {
+  UpdateCachePolicyRequest,
+  UpdateCachePolicyRequestFilterSensitiveLog,
+  UpdateCachePolicyResult,
+  UpdateCachePolicyResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlUpdateCachePolicyCommand,
   serializeAws_restXmlUpdateCachePolicyCommand,
@@ -89,8 +94,8 @@ export class UpdateCachePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCachePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCachePolicyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateCachePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateCachePolicyResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

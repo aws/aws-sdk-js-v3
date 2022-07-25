@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetBucketAccessKeysRequest, GetBucketAccessKeysResult } from "../models/models_0";
+import {
+  GetBucketAccessKeysRequest,
+  GetBucketAccessKeysRequestFilterSensitiveLog,
+  GetBucketAccessKeysResult,
+  GetBucketAccessKeysResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetBucketAccessKeysCommand,
   serializeAws_json1_1GetBucketAccessKeysCommand,
@@ -78,8 +83,8 @@ export class GetBucketAccessKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketAccessKeysRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketAccessKeysResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketAccessKeysRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketAccessKeysResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

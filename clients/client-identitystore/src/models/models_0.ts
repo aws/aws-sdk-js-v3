@@ -45,15 +45,6 @@ export interface DescribeGroupRequest {
   GroupId: string | undefined;
 }
 
-export namespace DescribeGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeGroupResponse {
   /**
    * <p>The identifier for a group in the identity store.</p>
@@ -69,15 +60,6 @@ export interface DescribeGroupResponse {
    *          store.</p>
    */
   DisplayName: string | undefined;
-}
-
-export namespace DescribeGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -218,15 +200,6 @@ export interface DescribeUserRequest {
   UserId: string | undefined;
 }
 
-export namespace DescribeUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUserResponse {
   /**
    * <p>Contains the user’s user name value. The length limit is 128 characters. This value can
@@ -240,16 +213,6 @@ export interface DescribeUserResponse {
    * <p>The identifier for a user in the identity store.</p>
    */
   UserId: string | undefined;
-}
-
-export namespace DescribeUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
-    ...obj,
-    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -269,16 +232,6 @@ export interface Filter {
    * <p>Represents the data for an attribute. Each attribute value is described as a name-value pair. </p>
    */
   AttributeValue: string | undefined;
-}
-
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-    ...(obj.AttributeValue && { AttributeValue: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListGroupsRequest {
@@ -312,16 +265,6 @@ export interface ListGroupsRequest {
   Filters?: Filter[];
 }
 
-export namespace ListGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
-    ...obj,
-    ...(obj.Filters && { Filters: obj.Filters.map((item) => Filter.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
  * <p>A group object, which contains a specified group’s metadata and attributes.</p>
  */
@@ -341,15 +284,6 @@ export interface Group {
   DisplayName: string | undefined;
 }
 
-export namespace Group {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Group): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGroupsResponse {
   /**
    * <p>A list of <code>Group</code> objects in the identity store.</p>
@@ -363,15 +297,6 @@ export interface ListGroupsResponse {
    *          returned when it1 is used in the API request to search for the next page.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListUsersRequest {
@@ -405,16 +330,6 @@ export interface ListUsersRequest {
   Filters?: Filter[];
 }
 
-export namespace ListUsersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
-    ...obj,
-    ...(obj.Filters && { Filters: obj.Filters.map((item) => Filter.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
  * <p>A user object, which contains a specified user’s metadata and attributes.</p>
  */
@@ -433,16 +348,6 @@ export interface User {
   UserId: string | undefined;
 }
 
-export namespace User {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: User): any => ({
-    ...obj,
-    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListUsersResponse {
   /**
    * <p>A list of <code>User</code> objects in the identity store.</p>
@@ -458,12 +363,85 @@ export interface ListUsersResponse {
   NextToken?: string;
 }
 
-export namespace ListUsersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
-    ...obj,
-    ...(obj.Users && { Users: obj.Users.map((item) => User.filterSensitiveLog(item)) }),
-  });
-}
+/**
+ * @internal
+ */
+export const DescribeGroupRequestFilterSensitiveLog = (obj: DescribeGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGroupResponseFilterSensitiveLog = (obj: DescribeGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserRequestFilterSensitiveLog = (obj: DescribeUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserResponseFilterSensitiveLog = (obj: DescribeUserResponse): any => ({
+  ...obj,
+  ...(obj.UserName && { UserName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+  ...(obj.AttributeValue && { AttributeValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListGroupsRequestFilterSensitiveLog = (obj: ListGroupsRequest): any => ({
+  ...obj,
+  ...(obj.Filters && { Filters: obj.Filters.map((item) => FilterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GroupFilterSensitiveLog = (obj: Group): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupsResponseFilterSensitiveLog = (obj: ListGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsersRequestFilterSensitiveLog = (obj: ListUsersRequest): any => ({
+  ...obj,
+  ...(obj.Filters && { Filters: obj.Filters.map((item) => FilterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UserFilterSensitiveLog = (obj: User): any => ({
+  ...obj,
+  ...(obj.UserName && { UserName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListUsersResponseFilterSensitiveLog = (obj: ListUsersResponse): any => ({
+  ...obj,
+  ...(obj.Users && { Users: obj.Users.map((item) => UserFilterSensitiveLog(item)) }),
+});

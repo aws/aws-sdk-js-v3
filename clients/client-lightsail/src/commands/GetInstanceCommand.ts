@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetInstanceRequest, GetInstanceResult } from "../models/models_1";
+import {
+  GetInstanceRequest,
+  GetInstanceRequestFilterSensitiveLog,
+  GetInstanceResult,
+  GetInstanceResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetInstanceCommand,
   serializeAws_json1_1GetInstanceCommand,
@@ -73,8 +78,8 @@ export class GetInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInstanceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetInstanceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -55,25 +55,7 @@ export interface UpdateNetworkAnalyzerConfigurationRequest {
   Description?: string;
 }
 
-export namespace UpdateNetworkAnalyzerConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNetworkAnalyzerConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateNetworkAnalyzerConfigurationResponse {}
-
-export namespace UpdateNetworkAnalyzerConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNetworkAnalyzerConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Sidewalk update.</p>
@@ -83,16 +65,6 @@ export interface SidewalkUpdateAccount {
    * <p>The new Sidewalk application server private key.</p>
    */
   AppServerPrivateKey?: string;
-}
-
-export namespace SidewalkUpdateAccount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SidewalkUpdateAccount): any => ({
-    ...obj,
-    ...(obj.AppServerPrivateKey && { AppServerPrivateKey: SENSITIVE_STRING }),
-  });
 }
 
 export interface UpdatePartnerAccountRequest {
@@ -112,26 +84,7 @@ export interface UpdatePartnerAccountRequest {
   PartnerType: PartnerType | string | undefined;
 }
 
-export namespace UpdatePartnerAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePartnerAccountRequest): any => ({
-    ...obj,
-    ...(obj.Sidewalk && { Sidewalk: SidewalkUpdateAccount.filterSensitiveLog(obj.Sidewalk) }),
-  });
-}
-
 export interface UpdatePartnerAccountResponse {}
-
-export namespace UpdatePartnerAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePartnerAccountResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdatePositionRequest {
   /**
@@ -150,25 +103,7 @@ export interface UpdatePositionRequest {
   Position: number[] | undefined;
 }
 
-export namespace UpdatePositionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePositionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePositionResponse {}
-
-export namespace UpdatePositionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePositionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateResourceEventConfigurationRequest {
   /**
@@ -208,25 +143,7 @@ export interface UpdateResourceEventConfigurationRequest {
   ConnectionStatus?: ConnectionStatusEventConfiguration;
 }
 
-export namespace UpdateResourceEventConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceEventConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateResourceEventConfigurationResponse {}
-
-export namespace UpdateResourceEventConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceEventConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>ABP device object for LoRaWAN specification v1.0.x</p>
@@ -236,15 +153,6 @@ export interface UpdateAbpV1_0_x {
    * <p>The FCnt init value.</p>
    */
   FCntStart?: number;
-}
-
-export namespace UpdateAbpV1_0_x {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAbpV1_0_x): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -257,15 +165,6 @@ export interface UpdateAbpV1_1 {
   FCntStart?: number;
 }
 
-export namespace UpdateAbpV1_1 {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAbpV1_1): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Object for updating the FPorts information.</p>
  */
@@ -274,15 +173,6 @@ export interface UpdateFPorts {
    * <p>Positioning FPorts for the ClockSync, Stream, and GNSS functions.</p>
    */
   Positioning?: Positioning;
-}
-
-export namespace UpdateFPorts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFPorts): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -315,15 +205,6 @@ export interface LoRaWANUpdateDevice {
   FPorts?: UpdateFPorts;
 }
 
-export namespace LoRaWANUpdateDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANUpdateDevice): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateWirelessDeviceRequest {
   /**
    * <p>The ID of the resource to update.</p>
@@ -351,25 +232,7 @@ export interface UpdateWirelessDeviceRequest {
   LoRaWAN?: LoRaWANUpdateDevice;
 }
 
-export namespace UpdateWirelessDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWirelessDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateWirelessDeviceResponse {}
-
-export namespace UpdateWirelessDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWirelessDeviceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateWirelessGatewayRequest {
   /**
@@ -398,22 +261,133 @@ export interface UpdateWirelessGatewayRequest {
   NetIdFilters?: string[];
 }
 
-export namespace UpdateWirelessGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWirelessGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateWirelessGatewayResponse {}
 
-export namespace UpdateWirelessGatewayResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWirelessGatewayResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const UpdateNetworkAnalyzerConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateNetworkAnalyzerConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNetworkAnalyzerConfigurationResponseFilterSensitiveLog = (
+  obj: UpdateNetworkAnalyzerConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SidewalkUpdateAccountFilterSensitiveLog = (obj: SidewalkUpdateAccount): any => ({
+  ...obj,
+  ...(obj.AppServerPrivateKey && { AppServerPrivateKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePartnerAccountRequestFilterSensitiveLog = (obj: UpdatePartnerAccountRequest): any => ({
+  ...obj,
+  ...(obj.Sidewalk && { Sidewalk: SidewalkUpdateAccountFilterSensitiveLog(obj.Sidewalk) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePartnerAccountResponseFilterSensitiveLog = (obj: UpdatePartnerAccountResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePositionRequestFilterSensitiveLog = (obj: UpdatePositionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePositionResponseFilterSensitiveLog = (obj: UpdatePositionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceEventConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateResourceEventConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceEventConfigurationResponseFilterSensitiveLog = (
+  obj: UpdateResourceEventConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAbpV1_0_xFilterSensitiveLog = (obj: UpdateAbpV1_0_x): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAbpV1_1FilterSensitiveLog = (obj: UpdateAbpV1_1): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFPortsFilterSensitiveLog = (obj: UpdateFPorts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANUpdateDeviceFilterSensitiveLog = (obj: LoRaWANUpdateDevice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWirelessDeviceRequestFilterSensitiveLog = (obj: UpdateWirelessDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWirelessDeviceResponseFilterSensitiveLog = (obj: UpdateWirelessDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWirelessGatewayRequestFilterSensitiveLog = (obj: UpdateWirelessGatewayRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWirelessGatewayResponseFilterSensitiveLog = (obj: UpdateWirelessGatewayResponse): any => ({
+  ...obj,
+});

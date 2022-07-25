@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutRetentionPolicyRequest, PutRetentionPolicyResponse } from "../models/models_0";
+import {
+  PutRetentionPolicyRequest,
+  PutRetentionPolicyRequestFilterSensitiveLog,
+  PutRetentionPolicyResponse,
+  PutRetentionPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutRetentionPolicyCommand,
   serializeAws_json1_1PutRetentionPolicyCommand,
@@ -72,8 +77,8 @@ export class PutRetentionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRetentionPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutRetentionPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutRetentionPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutRetentionPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

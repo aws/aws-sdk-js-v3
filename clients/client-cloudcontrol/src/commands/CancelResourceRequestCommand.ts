@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
-import { CancelResourceRequestInput, CancelResourceRequestOutput } from "../models/models_0";
+import {
+  CancelResourceRequestInput,
+  CancelResourceRequestInputFilterSensitiveLog,
+  CancelResourceRequestOutput,
+  CancelResourceRequestOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0CancelResourceRequestCommand,
   serializeAws_json1_0CancelResourceRequestCommand,
@@ -75,8 +80,8 @@ export class CancelResourceRequestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelResourceRequestInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelResourceRequestOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelResourceRequestInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelResourceRequestOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

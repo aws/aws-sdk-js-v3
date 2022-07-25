@@ -15,7 +15,9 @@ import {
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
 import {
   DeleteApplicationCloudWatchLoggingOptionRequest,
+  DeleteApplicationCloudWatchLoggingOptionRequestFilterSensitiveLog,
   DeleteApplicationCloudWatchLoggingOptionResponse,
+  DeleteApplicationCloudWatchLoggingOptionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand,
@@ -86,8 +88,8 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationCloudWatchLoggingOptionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApplicationCloudWatchLoggingOptionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApplicationCloudWatchLoggingOptionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApplicationCloudWatchLoggingOptionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

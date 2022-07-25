@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UntagResourceInput, UntagResourceOutput } from "../models/models_0";
+import {
+  UntagResourceInput,
+  UntagResourceInputFilterSensitiveLog,
+  UntagResourceOutput,
+  UntagResourceOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0UntagResourceCommand,
   serializeAws_json1_0UntagResourceCommand,
@@ -73,8 +78,8 @@ export class UntagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UntagResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagResourceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UntagResourceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { DescribeTestCasesInput, DescribeTestCasesOutput } from "../models/models_0";
+import {
+  DescribeTestCasesInput,
+  DescribeTestCasesInputFilterSensitiveLog,
+  DescribeTestCasesOutput,
+  DescribeTestCasesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTestCasesCommand,
   serializeAws_json1_1DescribeTestCasesCommand,
@@ -74,8 +79,8 @@ export class DescribeTestCasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTestCasesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTestCasesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTestCasesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTestCasesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

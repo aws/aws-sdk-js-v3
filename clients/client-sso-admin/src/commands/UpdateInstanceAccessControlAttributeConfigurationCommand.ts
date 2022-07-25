@@ -14,7 +14,9 @@ import {
 
 import {
   UpdateInstanceAccessControlAttributeConfigurationRequest,
+  UpdateInstanceAccessControlAttributeConfigurationRequestFilterSensitiveLog,
   UpdateInstanceAccessControlAttributeConfigurationResponse,
+  UpdateInstanceAccessControlAttributeConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationCommand,
@@ -86,8 +88,8 @@ export class UpdateInstanceAccessControlAttributeConfigurationCommand extends $C
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInstanceAccessControlAttributeConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateInstanceAccessControlAttributeConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateInstanceAccessControlAttributeConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateInstanceAccessControlAttributeConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

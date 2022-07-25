@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import { ListDataSetImportHistoryRequest, ListDataSetImportHistoryResponse } from "../models/models_0";
+import {
+  ListDataSetImportHistoryRequest,
+  ListDataSetImportHistoryRequestFilterSensitiveLog,
+  ListDataSetImportHistoryResponse,
+  ListDataSetImportHistoryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListDataSetImportHistoryCommand,
   serializeAws_restJson1ListDataSetImportHistoryCommand,
@@ -72,8 +77,8 @@ export class ListDataSetImportHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataSetImportHistoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDataSetImportHistoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDataSetImportHistoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDataSetImportHistoryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

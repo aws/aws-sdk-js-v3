@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { BatchWriteRequest, BatchWriteResponse } from "../models/models_0";
+import {
+  BatchWriteRequest,
+  BatchWriteRequestFilterSensitiveLog,
+  BatchWriteResponse,
+  BatchWriteResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BatchWriteCommand,
   serializeAws_restJson1BatchWriteCommand,
@@ -73,8 +78,8 @@ export class BatchWriteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchWriteRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchWriteResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchWriteRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchWriteResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

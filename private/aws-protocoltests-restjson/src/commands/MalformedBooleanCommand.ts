@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedBooleanInput } from "../models/models_0";
+import { MalformedBooleanInput, MalformedBooleanInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedBooleanCommand,
   serializeAws_restJson1MalformedBooleanCommand,
@@ -55,7 +55,7 @@ export class MalformedBooleanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedBooleanInput.filterSensitiveLog,
+      inputFilterSensitiveLog: MalformedBooleanInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

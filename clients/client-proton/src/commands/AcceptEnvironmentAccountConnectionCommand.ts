@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AcceptEnvironmentAccountConnectionInput, AcceptEnvironmentAccountConnectionOutput } from "../models/models_0";
+import {
+  AcceptEnvironmentAccountConnectionInput,
+  AcceptEnvironmentAccountConnectionInputFilterSensitiveLog,
+  AcceptEnvironmentAccountConnectionOutput,
+  AcceptEnvironmentAccountConnectionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0AcceptEnvironmentAccountConnectionCommand,
   serializeAws_json1_0AcceptEnvironmentAccountConnectionCommand,
@@ -77,8 +82,8 @@ export class AcceptEnvironmentAccountConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptEnvironmentAccountConnectionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: AcceptEnvironmentAccountConnectionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AcceptEnvironmentAccountConnectionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: AcceptEnvironmentAccountConnectionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

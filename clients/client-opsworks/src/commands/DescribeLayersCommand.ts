@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeLayersRequest, DescribeLayersResult } from "../models/models_0";
+import {
+  DescribeLayersRequest,
+  DescribeLayersRequestFilterSensitiveLog,
+  DescribeLayersResult,
+  DescribeLayersResultFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1DescribeLayersCommand,
@@ -80,8 +85,8 @@ export class DescribeLayersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLayersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLayersResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLayersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLayersResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { PutDataCatalogEncryptionSettingsRequest, PutDataCatalogEncryptionSettingsResponse } from "../models/models_1";
+import {
+  PutDataCatalogEncryptionSettingsRequest,
+  PutDataCatalogEncryptionSettingsRequestFilterSensitiveLog,
+  PutDataCatalogEncryptionSettingsResponse,
+  PutDataCatalogEncryptionSettingsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommand,
   serializeAws_json1_1PutDataCatalogEncryptionSettingsCommand,
@@ -75,8 +80,8 @@ export class PutDataCatalogEncryptionSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDataCatalogEncryptionSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutDataCatalogEncryptionSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutDataCatalogEncryptionSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutDataCatalogEncryptionSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

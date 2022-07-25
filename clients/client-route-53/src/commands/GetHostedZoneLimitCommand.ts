@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetHostedZoneLimitRequest, GetHostedZoneLimitResponse } from "../models/models_0";
+import {
+  GetHostedZoneLimitRequest,
+  GetHostedZoneLimitRequestFilterSensitiveLog,
+  GetHostedZoneLimitResponse,
+  GetHostedZoneLimitResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlGetHostedZoneLimitCommand,
   serializeAws_restXmlGetHostedZoneLimitCommand,
@@ -78,8 +83,8 @@ export class GetHostedZoneLimitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHostedZoneLimitRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetHostedZoneLimitResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetHostedZoneLimitRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetHostedZoneLimitResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

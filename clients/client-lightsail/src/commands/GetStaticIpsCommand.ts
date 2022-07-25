@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetStaticIpsRequest, GetStaticIpsResult } from "../models/models_1";
+import {
+  GetStaticIpsRequest,
+  GetStaticIpsRequestFilterSensitiveLog,
+  GetStaticIpsResult,
+  GetStaticIpsResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetStaticIpsCommand,
   serializeAws_json1_1GetStaticIpsCommand,
@@ -72,8 +77,8 @@ export class GetStaticIpsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStaticIpsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetStaticIpsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetStaticIpsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetStaticIpsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

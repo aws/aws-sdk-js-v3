@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { BatchDetectSentimentRequest, BatchDetectSentimentResponse } from "../models/models_0";
+import {
+  BatchDetectSentimentRequest,
+  BatchDetectSentimentRequestFilterSensitiveLog,
+  BatchDetectSentimentResponse,
+  BatchDetectSentimentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDetectSentimentCommand,
   serializeAws_json1_1BatchDetectSentimentCommand,
@@ -74,8 +79,8 @@ export class BatchDetectSentimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDetectSentimentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchDetectSentimentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDetectSentimentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchDetectSentimentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

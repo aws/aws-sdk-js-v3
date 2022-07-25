@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetTextMessageSpendLimitOverrideRequest, SetTextMessageSpendLimitOverrideResult } from "../models/models_0";
+import {
+  SetTextMessageSpendLimitOverrideRequest,
+  SetTextMessageSpendLimitOverrideRequestFilterSensitiveLog,
+  SetTextMessageSpendLimitOverrideResult,
+  SetTextMessageSpendLimitOverrideResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -80,8 +85,8 @@ export class SetTextMessageSpendLimitOverrideCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetTextMessageSpendLimitOverrideRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SetTextMessageSpendLimitOverrideResult.filterSensitiveLog,
+      inputFilterSensitiveLog: SetTextMessageSpendLimitOverrideRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SetTextMessageSpendLimitOverrideResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

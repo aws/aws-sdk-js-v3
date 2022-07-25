@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import { ResetParameterGroupRequest, ResetParameterGroupResponse } from "../models/models_0";
+import {
+  ResetParameterGroupRequest,
+  ResetParameterGroupRequestFilterSensitiveLog,
+  ResetParameterGroupResponse,
+  ResetParameterGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ResetParameterGroupCommand,
   serializeAws_json1_1ResetParameterGroupCommand,
@@ -72,8 +77,8 @@ export class ResetParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetParameterGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResetParameterGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetParameterGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResetParameterGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

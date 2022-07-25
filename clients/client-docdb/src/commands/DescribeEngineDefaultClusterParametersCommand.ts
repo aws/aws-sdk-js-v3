@@ -15,7 +15,9 @@ import {
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import {
   DescribeEngineDefaultClusterParametersMessage,
+  DescribeEngineDefaultClusterParametersMessageFilterSensitiveLog,
   DescribeEngineDefaultClusterParametersResult,
+  DescribeEngineDefaultClusterParametersResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryDescribeEngineDefaultClusterParametersCommand,
@@ -79,8 +81,8 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEngineDefaultClusterParametersMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEngineDefaultClusterParametersResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEngineDefaultClusterParametersMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEngineDefaultClusterParametersResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

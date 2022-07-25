@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { DeleteMulticastGroupRequest, DeleteMulticastGroupResponse } from "../models/models_0";
+import {
+  DeleteMulticastGroupRequest,
+  DeleteMulticastGroupRequestFilterSensitiveLog,
+  DeleteMulticastGroupResponse,
+  DeleteMulticastGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMulticastGroupCommand,
   serializeAws_restJson1DeleteMulticastGroupCommand,
@@ -72,8 +77,8 @@ export class DeleteMulticastGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMulticastGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMulticastGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMulticastGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMulticastGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

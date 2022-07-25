@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AttachVolumeInput, AttachVolumeOutput } from "../models/models_0";
+import {
+  AttachVolumeInput,
+  AttachVolumeInputFilterSensitiveLog,
+  AttachVolumeOutput,
+  AttachVolumeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AttachVolumeCommand,
   serializeAws_json1_1AttachVolumeCommand,
@@ -75,8 +80,8 @@ export class AttachVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachVolumeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: AttachVolumeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachVolumeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: AttachVolumeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

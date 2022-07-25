@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
-import { CreatePackagingConfigurationRequest, CreatePackagingConfigurationResponse } from "../models/models_0";
+import {
+  CreatePackagingConfigurationRequest,
+  CreatePackagingConfigurationRequestFilterSensitiveLog,
+  CreatePackagingConfigurationResponse,
+  CreatePackagingConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreatePackagingConfigurationCommand,
   serializeAws_restJson1CreatePackagingConfigurationCommand,
@@ -74,8 +79,8 @@ export class CreatePackagingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePackagingConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreatePackagingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePackagingConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreatePackagingConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

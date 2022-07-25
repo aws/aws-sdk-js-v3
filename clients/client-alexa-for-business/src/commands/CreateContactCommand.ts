@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { CreateContactRequest, CreateContactResponse } from "../models/models_0";
+import {
+  CreateContactRequest,
+  CreateContactRequestFilterSensitiveLog,
+  CreateContactResponse,
+  CreateContactResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateContactCommand,
   serializeAws_json1_1CreateContactCommand,
@@ -72,8 +77,8 @@ export class CreateContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateContactRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateContactResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateContactRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateContactResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

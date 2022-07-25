@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetInstanceTypesFromInstanceRequirementsRequest,
+  GetInstanceTypesFromInstanceRequirementsRequestFilterSensitiveLog,
   GetInstanceTypesFromInstanceRequirementsResult,
+  GetInstanceTypesFromInstanceRequirementsResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
   deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand,
@@ -90,8 +92,8 @@ export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstanceTypesFromInstanceRequirementsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetInstanceTypesFromInstanceRequirementsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInstanceTypesFromInstanceRequirementsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetInstanceTypesFromInstanceRequirementsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

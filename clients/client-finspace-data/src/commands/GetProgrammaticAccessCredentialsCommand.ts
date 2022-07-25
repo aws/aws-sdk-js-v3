@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import { GetProgrammaticAccessCredentialsRequest, GetProgrammaticAccessCredentialsResponse } from "../models/models_0";
+import {
+  GetProgrammaticAccessCredentialsRequest,
+  GetProgrammaticAccessCredentialsRequestFilterSensitiveLog,
+  GetProgrammaticAccessCredentialsResponse,
+  GetProgrammaticAccessCredentialsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetProgrammaticAccessCredentialsCommand,
   serializeAws_restJson1GetProgrammaticAccessCredentialsCommand,
@@ -74,8 +79,8 @@ export class GetProgrammaticAccessCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProgrammaticAccessCredentialsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetProgrammaticAccessCredentialsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetProgrammaticAccessCredentialsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetProgrammaticAccessCredentialsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { RegisterClusterRequest, RegisterClusterResponse } from "../models/models_0";
+import {
+  RegisterClusterRequest,
+  RegisterClusterRequestFilterSensitiveLog,
+  RegisterClusterResponse,
+  RegisterClusterResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RegisterClusterCommand,
   serializeAws_restJson1RegisterClusterCommand,
@@ -85,8 +90,8 @@ export class RegisterClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterClusterRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterClusterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterClusterRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RegisterClusterResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import { ListFragmentsInput, ListFragmentsOutput } from "../models/models_0";
+import {
+  ListFragmentsInput,
+  ListFragmentsInputFilterSensitiveLog,
+  ListFragmentsOutput,
+  ListFragmentsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListFragmentsCommand,
   serializeAws_restJson1ListFragmentsCommand,
@@ -112,8 +117,8 @@ export class ListFragmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFragmentsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListFragmentsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFragmentsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListFragmentsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

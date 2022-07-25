@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteMobileDeviceAccessRuleRequest, DeleteMobileDeviceAccessRuleResponse } from "../models/models_0";
+import {
+  DeleteMobileDeviceAccessRuleRequest,
+  DeleteMobileDeviceAccessRuleRequestFilterSensitiveLog,
+  DeleteMobileDeviceAccessRuleResponse,
+  DeleteMobileDeviceAccessRuleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteMobileDeviceAccessRuleCommand,
   serializeAws_json1_1DeleteMobileDeviceAccessRuleCommand,
@@ -77,8 +82,8 @@ export class DeleteMobileDeviceAccessRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMobileDeviceAccessRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMobileDeviceAccessRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMobileDeviceAccessRuleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMobileDeviceAccessRuleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListGeoMatchSetsRequest, ListGeoMatchSetsResponse } from "../models/models_0";
+import {
+  ListGeoMatchSetsRequest,
+  ListGeoMatchSetsRequestFilterSensitiveLog,
+  ListGeoMatchSetsResponse,
+  ListGeoMatchSetsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListGeoMatchSetsCommand,
   serializeAws_json1_1ListGeoMatchSetsCommand,
@@ -80,8 +85,8 @@ export class ListGeoMatchSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGeoMatchSetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListGeoMatchSetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListGeoMatchSetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListGeoMatchSetsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

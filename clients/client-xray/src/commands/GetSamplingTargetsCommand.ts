@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetSamplingTargetsRequest, GetSamplingTargetsResult } from "../models/models_0";
+import {
+  GetSamplingTargetsRequest,
+  GetSamplingTargetsRequestFilterSensitiveLog,
+  GetSamplingTargetsResult,
+  GetSamplingTargetsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetSamplingTargetsCommand,
   serializeAws_restJson1GetSamplingTargetsCommand,
@@ -73,8 +78,8 @@ export class GetSamplingTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSamplingTargetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSamplingTargetsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSamplingTargetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSamplingTargetsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

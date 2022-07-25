@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDashboardRequest, DeleteDashboardResponse } from "../models/models_0";
+import {
+  DeleteDashboardRequest,
+  DeleteDashboardRequestFilterSensitiveLog,
+  DeleteDashboardResponse,
+  DeleteDashboardResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDashboardCommand,
   serializeAws_restJson1DeleteDashboardCommand,
@@ -72,8 +77,8 @@ export class DeleteDashboardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDashboardRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDashboardResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDashboardRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDashboardResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DeletePolicyType } from "../models/models_0";
+import { DeletePolicyType, DeletePolicyTypeFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryDeletePolicyCommand, serializeAws_queryDeletePolicyCommand } from "../protocols/Aws_query";
 
 export interface DeletePolicyCommandInput extends DeletePolicyType {}
@@ -74,7 +74,7 @@ export class DeletePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePolicyType.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePolicyTypeFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

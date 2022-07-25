@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteSipRuleRequest } from "../models/models_0";
+import { DeleteSipRuleRequest, DeleteSipRuleRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSipRuleCommand,
   serializeAws_restJson1DeleteSipRuleCommand,
@@ -72,7 +72,7 @@ export class DeleteSipRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSipRuleRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSipRuleRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

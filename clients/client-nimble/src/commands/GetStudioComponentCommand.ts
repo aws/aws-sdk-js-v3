@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetStudioComponentRequest, GetStudioComponentResponse } from "../models/models_0";
+import {
+  GetStudioComponentRequest,
+  GetStudioComponentRequestFilterSensitiveLog,
+  GetStudioComponentResponse,
+  GetStudioComponentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1GetStudioComponentCommand,
@@ -72,8 +77,8 @@ export class GetStudioComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStudioComponentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetStudioComponentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetStudioComponentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetStudioComponentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

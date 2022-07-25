@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { ExecutePolicyType } from "../models/models_0";
+import { ExecutePolicyType, ExecutePolicyTypeFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryExecutePolicyCommand,
   serializeAws_queryExecutePolicyCommand,
@@ -73,7 +73,7 @@ export class ExecutePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecutePolicyType.filterSensitiveLog,
+      inputFilterSensitiveLog: ExecutePolicyTypeFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

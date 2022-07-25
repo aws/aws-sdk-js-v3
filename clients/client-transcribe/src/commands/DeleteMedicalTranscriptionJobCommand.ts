@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteMedicalTranscriptionJobRequest } from "../models/models_0";
+import {
+  DeleteMedicalTranscriptionJobRequest,
+  DeleteMedicalTranscriptionJobRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteMedicalTranscriptionJobCommand,
   serializeAws_json1_1DeleteMedicalTranscriptionJobCommand,
@@ -74,7 +77,7 @@ export class DeleteMedicalTranscriptionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMedicalTranscriptionJobRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMedicalTranscriptionJobRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

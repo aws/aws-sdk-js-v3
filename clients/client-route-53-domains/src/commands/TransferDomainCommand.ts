@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TransferDomainRequest, TransferDomainResponse } from "../models/models_0";
+import {
+  TransferDomainRequest,
+  TransferDomainRequestFilterSensitiveLog,
+  TransferDomainResponse,
+  TransferDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1TransferDomainCommand,
   serializeAws_json1_1TransferDomainCommand,
@@ -105,8 +110,8 @@ export class TransferDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TransferDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TransferDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TransferDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TransferDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

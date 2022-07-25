@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListEventTrackersRequest, ListEventTrackersResponse } from "../models/models_0";
+import {
+  ListEventTrackersRequest,
+  ListEventTrackersRequestFilterSensitiveLog,
+  ListEventTrackersResponse,
+  ListEventTrackersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1ListEventTrackersCommand,
@@ -75,8 +80,8 @@ export class ListEventTrackersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventTrackersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListEventTrackersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEventTrackersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListEventTrackersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

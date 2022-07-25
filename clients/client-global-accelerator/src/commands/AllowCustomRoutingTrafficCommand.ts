@@ -17,7 +17,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { AllowCustomRoutingTrafficRequest } from "../models/models_0";
+import {
+  AllowCustomRoutingTrafficRequest,
+  AllowCustomRoutingTrafficRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AllowCustomRoutingTrafficCommand,
   serializeAws_json1_1AllowCustomRoutingTrafficCommand,
@@ -81,7 +84,7 @@ export class AllowCustomRoutingTrafficCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AllowCustomRoutingTrafficRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AllowCustomRoutingTrafficRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

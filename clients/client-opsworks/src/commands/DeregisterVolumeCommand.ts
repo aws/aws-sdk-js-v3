@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeregisterVolumeRequest } from "../models/models_0";
+import { DeregisterVolumeRequest, DeregisterVolumeRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1DeregisterVolumeCommand,
@@ -79,7 +79,7 @@ export class DeregisterVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterVolumeRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterVolumeRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

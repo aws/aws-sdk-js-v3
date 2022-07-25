@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetAccountSendingEnabledResponse } from "../models/models_0";
+import {
+  GetAccountSendingEnabledResponse,
+  GetAccountSendingEnabledResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetAccountSendingEnabledCommand,
   serializeAws_queryGetAccountSendingEnabledCommand,
@@ -74,7 +77,7 @@ export class GetAccountSendingEnabledCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetAccountSendingEnabledResponse.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAccountSendingEnabledResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

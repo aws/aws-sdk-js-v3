@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBStreamsClient";
-import { DescribeStreamInput, DescribeStreamOutput } from "../models/models_0";
+import {
+  DescribeStreamInput,
+  DescribeStreamInputFilterSensitiveLog,
+  DescribeStreamOutput,
+  DescribeStreamOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeStreamCommand,
   serializeAws_json1_0DescribeStreamCommand,
@@ -80,8 +85,8 @@ export class DescribeStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStreamInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStreamOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeStreamInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeStreamOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

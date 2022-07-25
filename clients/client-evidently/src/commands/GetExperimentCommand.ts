@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import { GetExperimentRequest, GetExperimentResponse } from "../models/models_0";
+import {
+  GetExperimentRequest,
+  GetExperimentRequestFilterSensitiveLog,
+  GetExperimentResponse,
+  GetExperimentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetExperimentCommand,
   serializeAws_restJson1GetExperimentCommand,
@@ -73,8 +78,8 @@ export class GetExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExperimentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetExperimentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetExperimentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetExperimentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

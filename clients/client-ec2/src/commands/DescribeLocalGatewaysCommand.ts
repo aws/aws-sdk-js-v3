@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeLocalGatewaysRequest, DescribeLocalGatewaysResult } from "../models/models_3";
+import {
+  DescribeLocalGatewaysRequest,
+  DescribeLocalGatewaysRequestFilterSensitiveLog,
+  DescribeLocalGatewaysResult,
+  DescribeLocalGatewaysResultFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeLocalGatewaysCommand,
   serializeAws_ec2DescribeLocalGatewaysCommand,
@@ -73,8 +78,8 @@ export class DescribeLocalGatewaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocalGatewaysRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLocalGatewaysResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLocalGatewaysRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLocalGatewaysResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

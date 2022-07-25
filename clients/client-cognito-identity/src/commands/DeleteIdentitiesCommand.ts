@@ -14,7 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import { DeleteIdentitiesInput, DeleteIdentitiesResponse } from "../models/models_0";
+import {
+  DeleteIdentitiesInput,
+  DeleteIdentitiesInputFilterSensitiveLog,
+  DeleteIdentitiesResponse,
+  DeleteIdentitiesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteIdentitiesCommand,
   serializeAws_json1_1DeleteIdentitiesCommand,
@@ -76,8 +81,8 @@ export class DeleteIdentitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIdentitiesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIdentitiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteIdentitiesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteIdentitiesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -23,15 +23,6 @@ export interface AnomalyScore {
   CurrentScore: number | undefined;
 }
 
-export namespace AnomalyScore {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalyScore): any => ({
-    ...obj,
-  });
-}
-
 export enum AnomalyFeedbackType {
   NO = "NO",
   PLANNED_ACTIVITY = "PLANNED_ACTIVITY",
@@ -51,15 +42,6 @@ export interface Impact {
    * <p>The cumulative dollar value that's observed for an anomaly. </p>
    */
   TotalImpact?: number;
-}
-
-export namespace Impact {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Impact): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -86,15 +68,6 @@ export interface RootCause {
    * <p>The <code>UsageType</code> value that's associated with the cost anomaly. </p>
    */
   UsageType?: string;
-}
-
-export namespace RootCause {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RootCause): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -150,15 +123,6 @@ export interface Anomaly {
   Feedback?: AnomalyFeedbackType | string;
 }
 
-export namespace Anomaly {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Anomaly): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The time period for an anomaly. </p>
  */
@@ -172,15 +136,6 @@ export interface AnomalyDateInterval {
    * <p>The last date an anomaly was observed. </p>
    */
   EndDate?: string;
-}
-
-export namespace AnomalyDateInterval {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalyDateInterval): any => ({
-    ...obj,
-  });
 }
 
 export enum MonitorDimension {
@@ -225,15 +180,6 @@ export interface CostCategoryValues {
    *         </p>
    */
   MatchOptions?: (MatchOption | string)[];
-}
-
-export namespace CostCategoryValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CostCategoryValues): any => ({
-    ...obj,
-  });
 }
 
 export enum Dimension {
@@ -297,15 +243,6 @@ export interface DimensionValues {
   MatchOptions?: (MatchOption | string)[];
 }
 
-export namespace DimensionValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DimensionValues): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The values that are available for a tag.</p>
  *         <p>If <code>Values</code> and <code>Key</code> aren't specified, the <code>ABSENT</code>
@@ -334,15 +271,6 @@ export interface TagValues {
    *             <code>CASE_SENSITIVE</code>.</p>
    */
   MatchOptions?: (MatchOption | string)[];
-}
-
-export namespace TagValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagValues): any => ({
-    ...obj,
-  });
 }
 
 export enum MonitorType {
@@ -385,15 +313,6 @@ export interface Subscriber {
    * <p>Indicates if the subscriber accepts the notifications. </p>
    */
   Status?: SubscriberStatus | string;
-}
-
-export namespace Subscriber {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Subscriber): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -439,15 +358,6 @@ export interface AnomalySubscription {
   SubscriptionName: string | undefined;
 }
 
-export namespace AnomalySubscription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalySubscription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The tag structure that contains a tag key and value. </p>
  *         <note>
@@ -472,29 +382,11 @@ export interface ResourceTag {
   Value: string | undefined;
 }
 
-export namespace ResourceTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTag): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAnomalyMonitorResponse {
   /**
    * <p>The unique identifier of your newly created cost anomaly detection monitor.</p>
    */
   MonitorArn: string | undefined;
-}
-
-export namespace CreateAnomalyMonitorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAnomalyMonitorResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -558,29 +450,11 @@ export interface CreateAnomalySubscriptionRequest {
   ResourceTags?: ResourceTag[];
 }
 
-export namespace CreateAnomalySubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAnomalySubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAnomalySubscriptionResponse {
   /**
    * <p>The unique identifier of your newly created cost anomaly subscription. </p>
    */
   SubscriptionArn: string | undefined;
-}
-
-export namespace CreateAnomalySubscriptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAnomalySubscriptionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -635,15 +509,6 @@ export interface CostCategoryInheritedValueDimension {
   DimensionKey?: string;
 }
 
-export namespace CostCategoryInheritedValueDimension {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CostCategoryInheritedValueDimension): any => ({
-    ...obj,
-  });
-}
-
 export enum CostCategoryRuleType {
   INHERITED_VALUE = "INHERITED_VALUE",
   REGULAR = "REGULAR",
@@ -676,15 +541,6 @@ export interface CostCategorySplitChargeRuleParameter {
    * <p>The parameter values. </p>
    */
   Values: string[] | undefined;
-}
-
-export namespace CostCategorySplitChargeRuleParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CostCategorySplitChargeRuleParameter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -723,15 +579,6 @@ export interface CostCategorySplitChargeRule {
   Parameters?: CostCategorySplitChargeRuleParameter[];
 }
 
-export namespace CostCategorySplitChargeRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CostCategorySplitChargeRule): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCostCategoryDefinitionResponse {
   /**
    * <p>The unique identifier for your newly created Cost Category. </p>
@@ -742,15 +589,6 @@ export interface CreateCostCategoryDefinitionResponse {
    * <p>The Cost Category's effective start date. </p>
    */
   EffectiveStart?: string;
-}
-
-export namespace CreateCostCategoryDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCostCategoryDefinitionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -782,25 +620,7 @@ export interface DeleteAnomalyMonitorRequest {
   MonitorArn: string | undefined;
 }
 
-export namespace DeleteAnomalyMonitorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAnomalyMonitorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAnomalyMonitorResponse {}
-
-export namespace DeleteAnomalyMonitorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAnomalyMonitorResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteAnomalySubscriptionRequest {
   /**
@@ -809,25 +629,7 @@ export interface DeleteAnomalySubscriptionRequest {
   SubscriptionArn: string | undefined;
 }
 
-export namespace DeleteAnomalySubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAnomalySubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAnomalySubscriptionResponse {}
-
-export namespace DeleteAnomalySubscriptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAnomalySubscriptionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The cost anomaly subscription does not exist for the account.
@@ -858,15 +660,6 @@ export interface DeleteCostCategoryDefinitionRequest {
   CostCategoryArn: string | undefined;
 }
 
-export namespace DeleteCostCategoryDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCostCategoryDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCostCategoryDefinitionResponse {
   /**
    * <p>The unique identifier for your Cost Category. </p>
@@ -878,15 +671,6 @@ export interface DeleteCostCategoryDefinitionResponse {
    *       this date is categorized by the deleted Cost Category. </p>
    */
   EffectiveEnd?: string;
-}
-
-export namespace DeleteCostCategoryDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCostCategoryDefinitionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -926,15 +710,6 @@ export interface DescribeCostCategoryDefinitionRequest {
   EffectiveOn?: string;
 }
 
-export namespace DescribeCostCategoryDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCostCategoryDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum CostCategoryStatusComponent {
   COST_EXPLORER = "COST_EXPLORER",
 }
@@ -958,15 +733,6 @@ export interface CostCategoryProcessingStatus {
    * <p>The process status for a specific cost category. </p>
    */
   Status?: CostCategoryStatus | string;
-}
-
-export namespace CostCategoryProcessingStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CostCategoryProcessingStatus): any => ({
-    ...obj,
-  });
 }
 
 export enum NumericOperator {
@@ -996,15 +762,6 @@ export interface TotalImpactFilter {
    * <p>The upper bound dollar value that's used in the filter. </p>
    */
   EndValue?: number;
-}
-
-export namespace TotalImpactFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TotalImpactFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAnomaliesRequest {
@@ -1044,15 +801,6 @@ export interface GetAnomaliesRequest {
   MaxResults?: number;
 }
 
-export namespace GetAnomaliesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAnomaliesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAnomaliesResponse {
   /**
    * <p>A list of cost anomalies. </p>
@@ -1064,15 +812,6 @@ export interface GetAnomaliesResponse {
    *       the response from a previous call has more results than the maximum page size. </p>
    */
   NextPageToken?: string;
-}
-
-export namespace GetAnomaliesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAnomaliesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1114,15 +853,6 @@ export interface GetAnomalyMonitorsRequest {
   MaxResults?: number;
 }
 
-export namespace GetAnomalyMonitorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAnomalyMonitorsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAnomalySubscriptionsRequest {
   /**
    * <p>A list of cost anomaly subscription ARNs. </p>
@@ -1146,15 +876,6 @@ export interface GetAnomalySubscriptionsRequest {
   MaxResults?: number;
 }
 
-export namespace GetAnomalySubscriptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAnomalySubscriptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAnomalySubscriptionsResponse {
   /**
    * <p>A list of cost anomaly subscriptions that includes the detailed metadata for each one. </p>
@@ -1166,15 +887,6 @@ export interface GetAnomalySubscriptionsResponse {
    *       the response from a previous call has more results than the maximum page size. </p>
    */
   NextPageToken?: string;
-}
-
-export namespace GetAnomalySubscriptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAnomalySubscriptionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1247,15 +959,6 @@ export interface GroupDefinition {
   Key?: string;
 }
 
-export namespace GroupDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The time period of the request. </p>
  */
@@ -1276,15 +979,6 @@ export interface DateInterval {
   End: string | undefined;
 }
 
-export namespace DateInterval {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DateInterval): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The metadata of a specific type that you can use to filter and group your results. You
  *             can use <code>GetDimensionValues</code> to find specific values.</p>
@@ -1299,15 +993,6 @@ export interface DimensionValuesWithAttributes {
    * <p>The attribute that applies to a specific <code>Dimension</code>.</p>
    */
   Attributes?: Record<string, string>;
-}
-
-export namespace DimensionValuesWithAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DimensionValuesWithAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1325,15 +1010,6 @@ export interface MetricValue {
   Unit?: string;
 }
 
-export namespace MetricValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricValue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One level of grouped data in the results.</p>
  */
@@ -1347,15 +1023,6 @@ export interface Group {
    * <p>The metrics that are included in this group.</p>
    */
   Metrics?: Record<string, MetricValue>;
-}
-
-export namespace Group {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Group): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1383,15 +1050,6 @@ export interface ResultByTime {
   Estimated?: boolean;
 }
 
-export namespace ResultByTime {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResultByTime): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCostAndUsageResponse {
   /**
    * <p>The token for the next set of retrievable results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
@@ -1412,15 +1070,6 @@ export interface GetCostAndUsageResponse {
    * <p>The attributes that apply to a specific dimension value. For example, if the value is a linked account, the attribute is that account name.</p>
    */
   DimensionValueAttributes?: DimensionValuesWithAttributes[];
-}
-
-export namespace GetCostAndUsageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCostAndUsageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1468,15 +1117,6 @@ export interface GetCostAndUsageWithResourcesResponse {
   DimensionValueAttributes?: DimensionValuesWithAttributes[];
 }
 
-export namespace GetCostAndUsageWithResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCostAndUsageWithResourcesResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum SortOrder {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
@@ -1495,15 +1135,6 @@ export interface SortDefinition {
    * <p>The order that's used to sort the data.</p>
    */
   SortOrder?: SortOrder | string;
-}
-
-export namespace SortDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SortDefinition): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCostCategoriesResponse {
@@ -1534,15 +1165,6 @@ export interface GetCostCategoriesResponse {
    * <p>The total number of objects.</p>
    */
   TotalSize: number | undefined;
-}
-
-export namespace GetCostCategoriesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCostCategoriesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum Metric {
@@ -1580,15 +1202,6 @@ export interface ForecastResult {
   PredictionIntervalUpperBound?: string;
 }
 
-export namespace ForecastResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForecastResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCostForecastResponse {
   /**
    * <p>How much you are forecasted to spend over the forecast period, in <code>USD</code>.</p>
@@ -1600,15 +1213,6 @@ export interface GetCostForecastResponse {
    * 			this is a list of months.</p>
    */
   ForecastResultsByTime?: ForecastResult[];
-}
-
-export namespace GetCostForecastResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCostForecastResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum Context {
@@ -1747,15 +1351,6 @@ export interface GetDimensionValuesResponse {
   NextPageToken?: string;
 }
 
-export namespace GetDimensionValuesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDimensionValuesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>How much it costs to run an instance.</p>
  */
@@ -1764,15 +1359,6 @@ export interface CoverageCost {
    * <p>How much an On-Demand Instance costs.</p>
    */
   OnDemandCost?: string;
-}
-
-export namespace CoverageCost {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CoverageCost): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1798,15 +1384,6 @@ export interface CoverageHours {
    * <p>The percentage of instance hours that a reservation covered.</p>
    */
   CoverageHoursPercentage?: string;
-}
-
-export namespace CoverageHours {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CoverageHours): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1845,15 +1422,6 @@ export interface CoverageNormalizedUnits {
   CoverageNormalizedUnitsPercentage?: string;
 }
 
-export namespace CoverageNormalizedUnits {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CoverageNormalizedUnits): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The amount of instance usage that a reservation covered.</p>
  */
@@ -1874,15 +1442,6 @@ export interface Coverage {
   CoverageCost?: CoverageCost;
 }
 
-export namespace Coverage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Coverage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A group of reservations that share a set of attributes.</p>
  */
@@ -1896,15 +1455,6 @@ export interface ReservationCoverageGroup {
    * <p>How much instance usage this group of reservations covered.</p>
    */
   Coverage?: Coverage;
-}
-
-export namespace ReservationCoverageGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservationCoverageGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1927,15 +1477,6 @@ export interface CoverageByTime {
   Total?: Coverage;
 }
 
-export namespace CoverageByTime {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CoverageByTime): any => ({
-    ...obj,
-  });
-}
-
 export interface GetReservationCoverageResponse {
   /**
    * <p>The amount of time that your reservations covered.</p>
@@ -1951,15 +1492,6 @@ export interface GetReservationCoverageResponse {
    * <p>The token for the next set of retrievable results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace GetReservationCoverageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReservationCoverageResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum LookbackPeriodInDays {
@@ -1994,15 +1526,6 @@ export interface EC2Specification {
   OfferingClass?: OfferingClass | string;
 }
 
-export namespace EC2Specification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2Specification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Hardware specifications for the service that you want recommendations for.</p>
  */
@@ -2012,15 +1535,6 @@ export interface ServiceSpecification {
    *             recommendations for.</p>
    */
   EC2Specification?: EC2Specification;
-}
-
-export namespace ServiceSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceSpecification): any => ({
-    ...obj,
-  });
 }
 
 export enum TermInYears {
@@ -2041,15 +1555,6 @@ export interface ReservationPurchaseRecommendationMetadata {
    * <p>The timestamp for when Amazon Web Services made this recommendation.</p>
    */
   GenerationTimestamp?: string;
-}
-
-export namespace ReservationPurchaseRecommendationMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservationPurchaseRecommendationMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2099,15 +1604,6 @@ export interface EC2InstanceDetails {
   SizeFlexEligible?: boolean;
 }
 
-export namespace EC2InstanceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2InstanceDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the Amazon ElastiCache instances that Amazon Web Services recommends that
  *             you purchase.</p>
@@ -2144,15 +1640,6 @@ export interface ElastiCacheInstanceDetails {
   SizeFlexEligible?: boolean;
 }
 
-export namespace ElastiCacheInstanceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElastiCacheInstanceDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the Amazon OpenSearch Service instances that Amazon Web Services recommends that you
  *             purchase.</p>
@@ -2182,15 +1669,6 @@ export interface ESInstanceDetails {
    * <p>Determines whether the recommended reservation is size flexible.</p>
    */
   SizeFlexEligible?: boolean;
-}
-
-export namespace ESInstanceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ESInstanceDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2245,15 +1723,6 @@ export interface RDSInstanceDetails {
   SizeFlexEligible?: boolean;
 }
 
-export namespace RDSInstanceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RDSInstanceDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the Amazon Redshift instances that Amazon Web Services recommends that
  *             you purchase.</p>
@@ -2283,15 +1752,6 @@ export interface RedshiftInstanceDetails {
    * <p>Determines whether the recommended reservation is size flexible.</p>
    */
   SizeFlexEligible?: boolean;
-}
-
-export namespace RedshiftInstanceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftInstanceDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2324,15 +1784,6 @@ export interface InstanceDetails {
    * <p>The Amazon OpenSearch Service instances that Amazon Web Services recommends that you purchase.</p>
    */
   ESInstanceDetails?: ESInstanceDetails;
-}
-
-export namespace InstanceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2456,15 +1907,6 @@ export interface ReservationPurchaseRecommendationDetail {
   RecurringStandardMonthlyCost?: string;
 }
 
-export namespace ReservationPurchaseRecommendationDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservationPurchaseRecommendationDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A summary about this recommendation, such as the currency code, the amount that
  *                 Amazon Web Services estimates that you could save, and the total amount of
@@ -2487,15 +1929,6 @@ export interface ReservationPurchaseRecommendationSummary {
    * <p>The currency code used for this recommendation.</p>
    */
   CurrencyCode?: string;
-}
-
-export namespace ReservationPurchaseRecommendationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservationPurchaseRecommendationSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2542,15 +1975,6 @@ export interface ReservationPurchaseRecommendation {
   RecommendationSummary?: ReservationPurchaseRecommendationSummary;
 }
 
-export namespace ReservationPurchaseRecommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservationPurchaseRecommendation): any => ({
-    ...obj,
-  });
-}
-
 export interface GetReservationPurchaseRecommendationResponse {
   /**
    * <p>Information about this specific recommendation call, such as the time stamp for when Cost Explorer generated this recommendation.</p>
@@ -2566,15 +1990,6 @@ export interface GetReservationPurchaseRecommendationResponse {
    * <p>The pagination token for the next set of retrievable results.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace GetReservationPurchaseRecommendationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReservationPurchaseRecommendationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2679,15 +2094,6 @@ export interface ReservationAggregates {
   UnrealizedSavings?: string;
 }
 
-export namespace ReservationAggregates {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservationAggregates): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A group of reservations that share a set of attributes.</p>
  */
@@ -2713,15 +2119,6 @@ export interface ReservationUtilizationGroup {
   Utilization?: ReservationAggregates;
 }
 
-export namespace ReservationUtilizationGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservationUtilizationGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The amount of utilization, in hours.</p>
  */
@@ -2742,15 +2139,6 @@ export interface UtilizationByTime {
   Total?: ReservationAggregates;
 }
 
-export namespace UtilizationByTime {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UtilizationByTime): any => ({
-    ...obj,
-  });
-}
-
 export interface GetReservationUtilizationResponse {
   /**
    * <p>The amount of time that you used your Reserved Instances (RIs).</p>
@@ -2766,15 +2154,6 @@ export interface GetReservationUtilizationResponse {
    * <p>The token for the next set of retrievable results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace GetReservationUtilizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReservationUtilizationResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum RecommendationTarget {
@@ -2805,15 +2184,6 @@ export interface RightsizingRecommendationConfiguration {
   BenefitsConsidered: boolean | undefined;
 }
 
-export namespace RightsizingRecommendationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RightsizingRecommendationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Metadata for this recommendation set.</p>
  */
@@ -2838,15 +2208,6 @@ export interface RightsizingRecommendationMetadata {
    * <p>Additional metadata that might be applicable to the recommendation.</p>
    */
   AdditionalMetadata?: string;
-}
-
-export namespace RightsizingRecommendationMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RightsizingRecommendationMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2901,15 +2262,6 @@ export interface EC2ResourceDetails {
   Vcpu?: string;
 }
 
-export namespace EC2ResourceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2ResourceDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details for the resource.</p>
  */
@@ -2918,15 +2270,6 @@ export interface ResourceDetails {
    * <p>Details for the Amazon EC2 resource.</p>
    */
   EC2ResourceDetails?: EC2ResourceDetails;
-}
-
-export namespace ResourceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2955,15 +2298,6 @@ export interface DiskResourceUtilization {
   DiskWriteBytesPerSecond?: string;
 }
 
-export namespace DiskResourceUtilization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiskResourceUtilization): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The EBS field that contains a list of EBS metrics that are associated with the current
  *             instance. </p>
@@ -2990,15 +2324,6 @@ export interface EBSResourceUtilization {
   EbsWriteBytesPerSecond?: string;
 }
 
-export namespace EBSResourceUtilization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EBSResourceUtilization): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The network field that contains a list of network metrics that are associated with the
  *             current instance. </p>
@@ -3023,15 +2348,6 @@ export interface NetworkResourceUtilization {
    * <p>The network outbound packets that are measured in packets per second. </p>
    */
   NetworkPacketsOutPerSecond?: string;
-}
-
-export namespace NetworkResourceUtilization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkResourceUtilization): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3073,15 +2389,6 @@ export interface EC2ResourceUtilization {
   NetworkResourceUtilization?: NetworkResourceUtilization;
 }
 
-export namespace EC2ResourceUtilization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2ResourceUtilization): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Resource utilization of current resource. </p>
  */
@@ -3090,15 +2397,6 @@ export interface ResourceUtilization {
    * <p>The utilization of current Amazon EC2 instance. </p>
    */
   EC2ResourceUtilization?: EC2ResourceUtilization;
-}
-
-export namespace ResourceUtilization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceUtilization): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3162,15 +2460,6 @@ export interface CurrentInstance {
    *             instance.</p>
    */
   CurrencyCode?: string;
-}
-
-export namespace CurrentInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CurrentInstance): any => ({
-    ...obj,
-  });
 }
 
 export enum FindingReasonCode {
@@ -3243,15 +2532,6 @@ export interface TargetInstance {
   PlatformDifferences?: (PlatformDifference | string)[];
 }
 
-export namespace TargetInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetInstance): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details for the modification recommendation.</p>
  */
@@ -3261,15 +2541,6 @@ export interface ModifyRecommendationDetail {
    *             recommendation.</p>
    */
   TargetInstances?: TargetInstance[];
-}
-
-export namespace ModifyRecommendationDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyRecommendationDetail): any => ({
-    ...obj,
-  });
 }
 
 export enum RightsizingType {
@@ -3291,15 +2562,6 @@ export interface TerminateRecommendationDetail {
    *             instance.</p>
    */
   CurrencyCode?: string;
-}
-
-export namespace TerminateRecommendationDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateRecommendationDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3339,15 +2601,6 @@ export interface RightsizingRecommendation {
   FindingReasonCodes?: (FindingReasonCode | string)[];
 }
 
-export namespace RightsizingRecommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RightsizingRecommendation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The summary of rightsizing recommendations </p>
  */
@@ -3372,15 +2625,6 @@ export interface RightsizingRecommendationSummary {
    *             total On-Demand costs that are associated with these instances.</p>
    */
   SavingsPercentage?: string;
-}
-
-export namespace RightsizingRecommendationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RightsizingRecommendationSummary): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRightsizingRecommendationResponse {
@@ -3414,15 +2658,6 @@ export interface GetRightsizingRecommendationResponse {
   Configuration?: RightsizingRecommendationConfiguration;
 }
 
-export namespace GetRightsizingRecommendationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRightsizingRecommendationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specific coverage percentage, On-Demand costs, and spend covered by Savings Plans, and
  *             total Savings Plans costs for an account.</p>
@@ -3451,15 +2686,6 @@ export interface SavingsPlansCoverageData {
   CoveragePercentage?: string;
 }
 
-export namespace SavingsPlansCoverageData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlansCoverageData): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The amount of Savings Plans eligible usage that's covered by Savings Plans. All
  *             calculations consider the On-Demand equivalent of your Savings Plans usage.</p>
@@ -3481,15 +2707,6 @@ export interface SavingsPlansCoverage {
   TimePeriod?: DateInterval;
 }
 
-export namespace SavingsPlansCoverage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlansCoverage): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSavingsPlansCoverageResponse {
   /**
    * <p>The amount of spend that your Savings Plans covered.</p>
@@ -3500,15 +2717,6 @@ export interface GetSavingsPlansCoverageResponse {
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetSavingsPlansCoverageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSavingsPlansCoverageResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum SupportedSavingsPlansType {
@@ -3537,15 +2745,6 @@ export interface SavingsPlansPurchaseRecommendationMetadata {
   AdditionalMetadata?: string;
 }
 
-export namespace SavingsPlansPurchaseRecommendationMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlansPurchaseRecommendationMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The attribute details on a specific Savings Plan.</p>
  */
@@ -3564,15 +2763,6 @@ export interface SavingsPlansDetails {
    * <p>The unique ID that's used to distinguish Savings Plans from one another.</p>
    */
   OfferingId?: string;
-}
-
-export namespace SavingsPlansDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlansDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3673,15 +2863,6 @@ export interface SavingsPlansPurchaseRecommendationDetail {
   CurrentAverageHourlyOnDemandSpend?: string;
 }
 
-export namespace SavingsPlansPurchaseRecommendationDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlansPurchaseRecommendationDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary metrics for your Savings Plans Purchase Recommendations.</p>
  */
@@ -3754,15 +2935,6 @@ export interface SavingsPlansPurchaseRecommendationSummary {
   EstimatedOnDemandCostWithCurrentCommitment?: string;
 }
 
-export namespace SavingsPlansPurchaseRecommendationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlansPurchaseRecommendationSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains your request parameters, Savings Plan Recommendations Summary, and
  *             Details.</p>
@@ -3809,15 +2981,6 @@ export interface SavingsPlansPurchaseRecommendation {
   SavingsPlansPurchaseRecommendationSummary?: SavingsPlansPurchaseRecommendationSummary;
 }
 
-export namespace SavingsPlansPurchaseRecommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlansPurchaseRecommendation): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSavingsPlansPurchaseRecommendationResponse {
   /**
    * <p>Information that regards this specific recommendation set.</p>
@@ -3833,15 +2996,6 @@ export interface GetSavingsPlansPurchaseRecommendationResponse {
    * <p>The token for the next set of retrievable results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace GetSavingsPlansPurchaseRecommendationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSavingsPlansPurchaseRecommendationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3868,15 +3022,6 @@ export interface SavingsPlansAmortizedCommitment {
   TotalAmortizedCommitment?: string;
 }
 
-export namespace SavingsPlansAmortizedCommitment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlansAmortizedCommitment): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The amount of savings that you're accumulating, against the public On-Demand rate of
  *             the usage accrued in an account.</p>
@@ -3893,15 +3038,6 @@ export interface SavingsPlansSavings {
    *             rate.</p>
    */
   OnDemandCostEquivalent?: string;
-}
-
-export namespace SavingsPlansSavings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlansSavings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3933,15 +3069,6 @@ export interface SavingsPlansUtilization {
   UtilizationPercentage?: string;
 }
 
-export namespace SavingsPlansUtilization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlansUtilization): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The amount of Savings Plans utilization (in hours).</p>
  */
@@ -3971,15 +3098,6 @@ export interface SavingsPlansUtilizationByTime {
   AmortizedCommitment?: SavingsPlansAmortizedCommitment;
 }
 
-export namespace SavingsPlansUtilizationByTime {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlansUtilizationByTime): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The aggregated utilization metrics for your Savings Plans usage.</p>
  */
@@ -4004,15 +3122,6 @@ export interface SavingsPlansUtilizationAggregates {
   AmortizedCommitment?: SavingsPlansAmortizedCommitment;
 }
 
-export namespace SavingsPlansUtilizationAggregates {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlansUtilizationAggregates): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSavingsPlansUtilizationResponse {
   /**
    * <p>The amount of cost/commitment that you used your Savings Plans. You can use it to specify
@@ -4025,15 +3134,6 @@ export interface GetSavingsPlansUtilizationResponse {
    *       ranges.</p>
    */
   Total: SavingsPlansUtilizationAggregates | undefined;
-}
-
-export namespace GetSavingsPlansUtilizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSavingsPlansUtilizationResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum SavingsPlansDataType {
@@ -4079,15 +3179,6 @@ export interface SavingsPlansUtilizationDetail {
   AmortizedCommitment?: SavingsPlansAmortizedCommitment;
 }
 
-export namespace SavingsPlansUtilizationDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlansUtilizationDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSavingsPlansUtilizationDetailsResponse {
   /**
    * <p>Retrieves a single daily or monthly Savings Plans utilization rate and details for your account.</p>
@@ -4108,15 +3199,6 @@ export interface GetSavingsPlansUtilizationDetailsResponse {
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetSavingsPlansUtilizationDetailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSavingsPlansUtilizationDetailsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTagsResponse {
@@ -4141,15 +3223,6 @@ export interface GetTagsResponse {
   TotalSize: number | undefined;
 }
 
-export namespace GetTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTagsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetUsageForecastResponse {
   /**
    * <p>How much you're forecasted to use over the forecast period.</p>
@@ -4161,15 +3234,6 @@ export interface GetUsageForecastResponse {
    * 			this is a list of months.</p>
    */
   ForecastResultsByTime?: ForecastResult[];
-}
-
-export namespace GetUsageForecastResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUsageForecastResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4235,15 +3299,6 @@ export interface ListCostAllocationTagsRequest {
   MaxResults?: number;
 }
 
-export namespace ListCostAllocationTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCostAllocationTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The cost allocation tag structure. This includes detailed metadata for the
  *                 <code>CostAllocationTag</code> object. </p>
@@ -4269,15 +3324,6 @@ export interface CostAllocationTag {
   Status: CostAllocationTagStatus | string | undefined;
 }
 
-export namespace CostAllocationTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CostAllocationTag): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCostAllocationTagsResponse {
   /**
    * <p>A list of cost allocation tags that includes the detailed metadata for each one. </p>
@@ -4289,15 +3335,6 @@ export interface ListCostAllocationTagsResponse {
    *       the response from a previous call has more results than the maximum page size. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListCostAllocationTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCostAllocationTagsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCostCategoryDefinitionsRequest {
@@ -4316,15 +3353,6 @@ export interface ListCostCategoryDefinitionsRequest {
    * <p>The number of entries a paginated response contains. </p>
    */
   MaxResults?: number;
-}
-
-export namespace ListCostCategoryDefinitionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCostCategoryDefinitionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4377,15 +3405,6 @@ export interface CostCategoryReference {
   DefaultValue?: string;
 }
 
-export namespace CostCategoryReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CostCategoryReference): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCostCategoryDefinitionsResponse {
   /**
    * <p>A reference to a Cost Category that contains enough information to identify the Cost
@@ -4400,29 +3419,11 @@ export interface ListCostCategoryDefinitionsResponse {
   NextToken?: string;
 }
 
-export namespace ListCostCategoryDefinitionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCostCategoryDefinitionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html">ResourceTag</a>.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -4431,15 +3432,6 @@ export interface ListTagsForResourceResponse {
    *     </p>
    */
   ResourceTags?: ResourceTag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ProvideAnomalyFeedbackRequest {
@@ -4454,29 +3446,11 @@ export interface ProvideAnomalyFeedbackRequest {
   Feedback: AnomalyFeedbackType | string | undefined;
 }
 
-export namespace ProvideAnomalyFeedbackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvideAnomalyFeedbackRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ProvideAnomalyFeedbackResponse {
   /**
    * <p>The ID of the modified cost anomaly. </p>
    */
   AnomalyId: string | undefined;
-}
-
-export namespace ProvideAnomalyFeedbackResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvideAnomalyFeedbackResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -4518,25 +3492,7 @@ export interface TagResourceRequest {
   ResourceTags: ResourceTag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Can occur if you specify a number of tags for a resource greater than the maximum 50 user tags per resource.</p>
@@ -4576,25 +3532,7 @@ export interface UntagResourceRequest {
   ResourceTagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateAnomalyMonitorRequest {
   /**
@@ -4608,29 +3546,11 @@ export interface UpdateAnomalyMonitorRequest {
   MonitorName?: string;
 }
 
-export namespace UpdateAnomalyMonitorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAnomalyMonitorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAnomalyMonitorResponse {
   /**
    * <p>A cost anomaly monitor ARN. </p>
    */
   MonitorArn: string | undefined;
-}
-
-export namespace UpdateAnomalyMonitorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAnomalyMonitorResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAnomalySubscriptionRequest {
@@ -4665,29 +3585,11 @@ export interface UpdateAnomalySubscriptionRequest {
   SubscriptionName?: string;
 }
 
-export namespace UpdateAnomalySubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAnomalySubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAnomalySubscriptionResponse {
   /**
    * <p>A cost anomaly subscription ARN. </p>
    */
   SubscriptionArn: string | undefined;
-}
-
-export namespace UpdateAnomalySubscriptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAnomalySubscriptionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4705,30 +3607,12 @@ export interface CostAllocationTagStatusEntry {
   Status: CostAllocationTagStatus | string | undefined;
 }
 
-export namespace CostAllocationTagStatusEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CostAllocationTagStatusEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCostAllocationTagsStatusRequest {
   /**
    * <p>The list of <code>CostAllocationTagStatusEntry</code> objects that are used to update cost
    *       allocation tags status for this request. </p>
    */
   CostAllocationTagsStatus: CostAllocationTagStatusEntry[] | undefined;
-}
-
-export namespace UpdateCostAllocationTagsStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCostAllocationTagsStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4752,15 +3636,6 @@ export interface UpdateCostAllocationTagsStatusError {
   Message?: string;
 }
 
-export namespace UpdateCostAllocationTagsStatusError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCostAllocationTagsStatusError): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCostAllocationTagsStatusResponse {
   /**
    * <p>A list of <code>UpdateCostAllocationTagsStatusError</code> objects with error details
@@ -4768,15 +3643,6 @@ export interface UpdateCostAllocationTagsStatusResponse {
    *       returns. </p>
    */
   Errors?: UpdateCostAllocationTagsStatusError[];
-}
-
-export namespace UpdateCostAllocationTagsStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCostAllocationTagsStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateCostCategoryDefinitionResponse {
@@ -4789,15 +3655,6 @@ export interface UpdateCostCategoryDefinitionResponse {
    * <p>The Cost Category's effective start date. </p>
    */
   EffectiveStart?: string;
-}
-
-export namespace UpdateCostCategoryDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCostCategoryDefinitionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4887,15 +3744,6 @@ export interface Expression {
    * <p>The filter that's based on <code>CostCategory</code> values.</p>
    */
   CostCategories?: CostCategoryValues;
-}
-
-export namespace Expression {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Expression): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5004,15 +3852,6 @@ export interface AnomalyMonitor {
   DimensionalValueCount?: number;
 }
 
-export namespace AnomalyMonitor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalyMonitor): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Rules are processed in order. If there are multiple rules that match the line item,
  *             then the first rule to match is used to determine that Cost Category value.</p>
@@ -5058,15 +3897,6 @@ export interface CostCategoryRule {
    *             specify the tag key to use.</p>
    */
   Type?: CostCategoryRuleType | string;
-}
-
-export namespace CostCategoryRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CostCategoryRule): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCostAndUsageRequest {
@@ -5130,15 +3960,6 @@ export interface GetCostAndUsageRequest {
   NextPageToken?: string;
 }
 
-export namespace GetCostAndUsageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCostAndUsageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCostAndUsageWithResourcesRequest {
   /**
    * <p>Sets the start and end dates for retrieving Amazon Web Services costs. The range must be within the last 14 days (the start date cannot be earlier than 14 days ago). The start date is inclusive,  but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is
@@ -5196,15 +4017,6 @@ export interface GetCostAndUsageWithResourcesRequest {
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace GetCostAndUsageWithResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCostAndUsageWithResourcesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCostCategoriesRequest {
@@ -5348,15 +4160,6 @@ export interface GetCostCategoriesRequest {
    *       objects, provide the NextPageToken from the previous call in your next request.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace GetCostCategoriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCostCategoriesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCostForecastRequest {
@@ -5525,15 +4328,6 @@ export interface GetCostForecastRequest {
    * 			falling in the prediction interval. Higher confidence levels result in wider prediction intervals.</p>
    */
   PredictionIntervalLevel?: number;
-}
-
-export namespace GetCostForecastRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCostForecastRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDimensionValuesRequest {
@@ -5838,15 +4632,6 @@ export interface GetDimensionValuesRequest {
   NextPageToken?: string;
 }
 
-export namespace GetDimensionValuesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDimensionValuesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You can use the following request parameters to query for how much of your instance usage a reservation covered.</p>
  */
@@ -6035,15 +4820,6 @@ export interface GetReservationCoverageRequest {
   MaxResults?: number;
 }
 
-export namespace GetReservationCoverageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReservationCoverageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetReservationPurchaseRecommendationRequest {
   /**
    * <p>The account ID that's associated with the recommendation. </p>
@@ -6148,15 +4924,6 @@ export interface GetReservationPurchaseRecommendationRequest {
    * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace GetReservationPurchaseRecommendationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReservationPurchaseRecommendationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetReservationUtilizationRequest {
@@ -6337,15 +5104,6 @@ export interface GetReservationUtilizationRequest {
   MaxResults?: number;
 }
 
-export namespace GetReservationUtilizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReservationUtilizationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRightsizingRecommendationRequest {
   /**
    * <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p>
@@ -6430,15 +5188,6 @@ export interface GetRightsizingRecommendationRequest {
    * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace GetRightsizingRecommendationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRightsizingRecommendationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSavingsPlansCoverageRequest {
@@ -6553,15 +5302,6 @@ export interface GetSavingsPlansCoverageRequest {
   SortBy?: SortDefinition;
 }
 
-export namespace GetSavingsPlansCoverageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSavingsPlansCoverageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSavingsPlansPurchaseRecommendationRequest {
   /**
    * <p>The Savings Plans recommendation type that's requested.</p>
@@ -6611,15 +5351,6 @@ export interface GetSavingsPlansPurchaseRecommendationRequest {
    *         <code>OR</code> operators are not supported.</p>
    */
   Filter?: Expression;
-}
-
-export namespace GetSavingsPlansPurchaseRecommendationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSavingsPlansPurchaseRecommendationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSavingsPlansUtilizationDetailsRequest {
@@ -6727,15 +5458,6 @@ export interface GetSavingsPlansUtilizationDetailsRequest {
   SortBy?: SortDefinition;
 }
 
-export namespace GetSavingsPlansUtilizationDetailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSavingsPlansUtilizationDetailsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSavingsPlansUtilizationRequest {
   /**
    * <p>The time period that you want the usage and costs for. The <code>Start</code> date must be within 13 months. The <code>End</code> date must be after the <code>Start</code> date, and before the current date. Future dates can't be used as an <code>End</code> date.</p>
@@ -6824,15 +5546,6 @@ export interface GetSavingsPlansUtilizationRequest {
    *         <code>DESCENDING</code>.</p>
    */
   SortBy?: SortDefinition;
-}
-
-export namespace GetSavingsPlansUtilizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSavingsPlansUtilizationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTagsRequest {
@@ -6970,15 +5683,6 @@ export interface GetTagsRequest {
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace GetTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTagsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetUsageForecastRequest {
@@ -7144,15 +5848,6 @@ export interface GetUsageForecastRequest {
   PredictionIntervalLevel?: number;
 }
 
-export namespace GetUsageForecastRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUsageForecastRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAnomalyMonitorRequest {
   /**
    * <p>The cost anomaly detection monitor object that you want to create.</p>
@@ -7191,15 +5886,6 @@ export interface CreateAnomalyMonitorRequest {
    *          </ul>
    */
   ResourceTags?: ResourceTag[];
-}
-
-export namespace CreateAnomalyMonitorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAnomalyMonitorRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7256,15 +5942,6 @@ export interface CostCategory {
    *             default value for the cost category.</p>
    */
   DefaultValue?: string;
-}
-
-export namespace CostCategory {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CostCategory): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateCostCategoryDefinitionRequest {
@@ -7331,15 +6008,6 @@ export interface CreateCostCategoryDefinitionRequest {
   ResourceTags?: ResourceTag[];
 }
 
-export namespace CreateCostCategoryDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCostCategoryDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAnomalyMonitorsResponse {
   /**
    * <p>A list of cost anomaly monitors that includes the detailed metadata for each monitor. </p>
@@ -7351,15 +6019,6 @@ export interface GetAnomalyMonitorsResponse {
    *       the response from a previous call has more results than the maximum page size. </p>
    */
   NextPageToken?: string;
-}
-
-export namespace GetAnomalyMonitorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAnomalyMonitorsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateCostCategoryDefinitionRequest {
@@ -7393,15 +6052,6 @@ export interface UpdateCostCategoryDefinitionRequest {
   SplitChargeRules?: CostCategorySplitChargeRule[];
 }
 
-export namespace UpdateCostCategoryDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCostCategoryDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCostCategoryDefinitionResponse {
   /**
    * <p>The structure of Cost Categories. This includes detailed metadata and the set of rules
@@ -7410,11 +6060,1121 @@ export interface DescribeCostCategoryDefinitionResponse {
   CostCategory?: CostCategory;
 }
 
-export namespace DescribeCostCategoryDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCostCategoryDefinitionResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AnomalyScoreFilterSensitiveLog = (obj: AnomalyScore): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImpactFilterSensitiveLog = (obj: Impact): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RootCauseFilterSensitiveLog = (obj: RootCause): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyFilterSensitiveLog = (obj: Anomaly): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyDateIntervalFilterSensitiveLog = (obj: AnomalyDateInterval): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CostCategoryValuesFilterSensitiveLog = (obj: CostCategoryValues): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionValuesFilterSensitiveLog = (obj: DimensionValues): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagValuesFilterSensitiveLog = (obj: TagValues): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubscriberFilterSensitiveLog = (obj: Subscriber): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalySubscriptionFilterSensitiveLog = (obj: AnomalySubscription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceTagFilterSensitiveLog = (obj: ResourceTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAnomalyMonitorResponseFilterSensitiveLog = (obj: CreateAnomalyMonitorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAnomalySubscriptionRequestFilterSensitiveLog = (obj: CreateAnomalySubscriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAnomalySubscriptionResponseFilterSensitiveLog = (obj: CreateAnomalySubscriptionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CostCategoryInheritedValueDimensionFilterSensitiveLog = (
+  obj: CostCategoryInheritedValueDimension
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CostCategorySplitChargeRuleParameterFilterSensitiveLog = (
+  obj: CostCategorySplitChargeRuleParameter
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CostCategorySplitChargeRuleFilterSensitiveLog = (obj: CostCategorySplitChargeRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCostCategoryDefinitionResponseFilterSensitiveLog = (
+  obj: CreateCostCategoryDefinitionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAnomalyMonitorRequestFilterSensitiveLog = (obj: DeleteAnomalyMonitorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAnomalyMonitorResponseFilterSensitiveLog = (obj: DeleteAnomalyMonitorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAnomalySubscriptionRequestFilterSensitiveLog = (obj: DeleteAnomalySubscriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAnomalySubscriptionResponseFilterSensitiveLog = (obj: DeleteAnomalySubscriptionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCostCategoryDefinitionRequestFilterSensitiveLog = (
+  obj: DeleteCostCategoryDefinitionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCostCategoryDefinitionResponseFilterSensitiveLog = (
+  obj: DeleteCostCategoryDefinitionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCostCategoryDefinitionRequestFilterSensitiveLog = (
+  obj: DescribeCostCategoryDefinitionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CostCategoryProcessingStatusFilterSensitiveLog = (obj: CostCategoryProcessingStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TotalImpactFilterFilterSensitiveLog = (obj: TotalImpactFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAnomaliesRequestFilterSensitiveLog = (obj: GetAnomaliesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAnomaliesResponseFilterSensitiveLog = (obj: GetAnomaliesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAnomalyMonitorsRequestFilterSensitiveLog = (obj: GetAnomalyMonitorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAnomalySubscriptionsRequestFilterSensitiveLog = (obj: GetAnomalySubscriptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAnomalySubscriptionsResponseFilterSensitiveLog = (obj: GetAnomalySubscriptionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupDefinitionFilterSensitiveLog = (obj: GroupDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DateIntervalFilterSensitiveLog = (obj: DateInterval): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionValuesWithAttributesFilterSensitiveLog = (obj: DimensionValuesWithAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricValueFilterSensitiveLog = (obj: MetricValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupFilterSensitiveLog = (obj: Group): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResultByTimeFilterSensitiveLog = (obj: ResultByTime): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCostAndUsageResponseFilterSensitiveLog = (obj: GetCostAndUsageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCostAndUsageWithResourcesResponseFilterSensitiveLog = (
+  obj: GetCostAndUsageWithResourcesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SortDefinitionFilterSensitiveLog = (obj: SortDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCostCategoriesResponseFilterSensitiveLog = (obj: GetCostCategoriesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ForecastResultFilterSensitiveLog = (obj: ForecastResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCostForecastResponseFilterSensitiveLog = (obj: GetCostForecastResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDimensionValuesResponseFilterSensitiveLog = (obj: GetDimensionValuesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CoverageCostFilterSensitiveLog = (obj: CoverageCost): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CoverageHoursFilterSensitiveLog = (obj: CoverageHours): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CoverageNormalizedUnitsFilterSensitiveLog = (obj: CoverageNormalizedUnits): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CoverageFilterSensitiveLog = (obj: Coverage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservationCoverageGroupFilterSensitiveLog = (obj: ReservationCoverageGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CoverageByTimeFilterSensitiveLog = (obj: CoverageByTime): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReservationCoverageResponseFilterSensitiveLog = (obj: GetReservationCoverageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2SpecificationFilterSensitiveLog = (obj: EC2Specification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceSpecificationFilterSensitiveLog = (obj: ServiceSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservationPurchaseRecommendationMetadataFilterSensitiveLog = (
+  obj: ReservationPurchaseRecommendationMetadata
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2InstanceDetailsFilterSensitiveLog = (obj: EC2InstanceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ElastiCacheInstanceDetailsFilterSensitiveLog = (obj: ElastiCacheInstanceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ESInstanceDetailsFilterSensitiveLog = (obj: ESInstanceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RDSInstanceDetailsFilterSensitiveLog = (obj: RDSInstanceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedshiftInstanceDetailsFilterSensitiveLog = (obj: RedshiftInstanceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceDetailsFilterSensitiveLog = (obj: InstanceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservationPurchaseRecommendationDetailFilterSensitiveLog = (
+  obj: ReservationPurchaseRecommendationDetail
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservationPurchaseRecommendationSummaryFilterSensitiveLog = (
+  obj: ReservationPurchaseRecommendationSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservationPurchaseRecommendationFilterSensitiveLog = (obj: ReservationPurchaseRecommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReservationPurchaseRecommendationResponseFilterSensitiveLog = (
+  obj: GetReservationPurchaseRecommendationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservationAggregatesFilterSensitiveLog = (obj: ReservationAggregates): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservationUtilizationGroupFilterSensitiveLog = (obj: ReservationUtilizationGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UtilizationByTimeFilterSensitiveLog = (obj: UtilizationByTime): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReservationUtilizationResponseFilterSensitiveLog = (obj: GetReservationUtilizationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RightsizingRecommendationConfigurationFilterSensitiveLog = (
+  obj: RightsizingRecommendationConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RightsizingRecommendationMetadataFilterSensitiveLog = (obj: RightsizingRecommendationMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2ResourceDetailsFilterSensitiveLog = (obj: EC2ResourceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceDetailsFilterSensitiveLog = (obj: ResourceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiskResourceUtilizationFilterSensitiveLog = (obj: DiskResourceUtilization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EBSResourceUtilizationFilterSensitiveLog = (obj: EBSResourceUtilization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkResourceUtilizationFilterSensitiveLog = (obj: NetworkResourceUtilization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2ResourceUtilizationFilterSensitiveLog = (obj: EC2ResourceUtilization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceUtilizationFilterSensitiveLog = (obj: ResourceUtilization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CurrentInstanceFilterSensitiveLog = (obj: CurrentInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetInstanceFilterSensitiveLog = (obj: TargetInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyRecommendationDetailFilterSensitiveLog = (obj: ModifyRecommendationDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateRecommendationDetailFilterSensitiveLog = (obj: TerminateRecommendationDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RightsizingRecommendationFilterSensitiveLog = (obj: RightsizingRecommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RightsizingRecommendationSummaryFilterSensitiveLog = (obj: RightsizingRecommendationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRightsizingRecommendationResponseFilterSensitiveLog = (
+  obj: GetRightsizingRecommendationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlansCoverageDataFilterSensitiveLog = (obj: SavingsPlansCoverageData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlansCoverageFilterSensitiveLog = (obj: SavingsPlansCoverage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSavingsPlansCoverageResponseFilterSensitiveLog = (obj: GetSavingsPlansCoverageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlansPurchaseRecommendationMetadataFilterSensitiveLog = (
+  obj: SavingsPlansPurchaseRecommendationMetadata
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlansDetailsFilterSensitiveLog = (obj: SavingsPlansDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlansPurchaseRecommendationDetailFilterSensitiveLog = (
+  obj: SavingsPlansPurchaseRecommendationDetail
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlansPurchaseRecommendationSummaryFilterSensitiveLog = (
+  obj: SavingsPlansPurchaseRecommendationSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlansPurchaseRecommendationFilterSensitiveLog = (obj: SavingsPlansPurchaseRecommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSavingsPlansPurchaseRecommendationResponseFilterSensitiveLog = (
+  obj: GetSavingsPlansPurchaseRecommendationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlansAmortizedCommitmentFilterSensitiveLog = (obj: SavingsPlansAmortizedCommitment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlansSavingsFilterSensitiveLog = (obj: SavingsPlansSavings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlansUtilizationFilterSensitiveLog = (obj: SavingsPlansUtilization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlansUtilizationByTimeFilterSensitiveLog = (obj: SavingsPlansUtilizationByTime): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlansUtilizationAggregatesFilterSensitiveLog = (obj: SavingsPlansUtilizationAggregates): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSavingsPlansUtilizationResponseFilterSensitiveLog = (obj: GetSavingsPlansUtilizationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlansUtilizationDetailFilterSensitiveLog = (obj: SavingsPlansUtilizationDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSavingsPlansUtilizationDetailsResponseFilterSensitiveLog = (
+  obj: GetSavingsPlansUtilizationDetailsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTagsResponseFilterSensitiveLog = (obj: GetTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUsageForecastResponseFilterSensitiveLog = (obj: GetUsageForecastResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCostAllocationTagsRequestFilterSensitiveLog = (obj: ListCostAllocationTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CostAllocationTagFilterSensitiveLog = (obj: CostAllocationTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCostAllocationTagsResponseFilterSensitiveLog = (obj: ListCostAllocationTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCostCategoryDefinitionsRequestFilterSensitiveLog = (obj: ListCostCategoryDefinitionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CostCategoryReferenceFilterSensitiveLog = (obj: CostCategoryReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCostCategoryDefinitionsResponseFilterSensitiveLog = (
+  obj: ListCostCategoryDefinitionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvideAnomalyFeedbackRequestFilterSensitiveLog = (obj: ProvideAnomalyFeedbackRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvideAnomalyFeedbackResponseFilterSensitiveLog = (obj: ProvideAnomalyFeedbackResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAnomalyMonitorRequestFilterSensitiveLog = (obj: UpdateAnomalyMonitorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAnomalyMonitorResponseFilterSensitiveLog = (obj: UpdateAnomalyMonitorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAnomalySubscriptionRequestFilterSensitiveLog = (obj: UpdateAnomalySubscriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAnomalySubscriptionResponseFilterSensitiveLog = (obj: UpdateAnomalySubscriptionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CostAllocationTagStatusEntryFilterSensitiveLog = (obj: CostAllocationTagStatusEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCostAllocationTagsStatusRequestFilterSensitiveLog = (
+  obj: UpdateCostAllocationTagsStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCostAllocationTagsStatusErrorFilterSensitiveLog = (
+  obj: UpdateCostAllocationTagsStatusError
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCostAllocationTagsStatusResponseFilterSensitiveLog = (
+  obj: UpdateCostAllocationTagsStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCostCategoryDefinitionResponseFilterSensitiveLog = (
+  obj: UpdateCostCategoryDefinitionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExpressionFilterSensitiveLog = (obj: Expression): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyMonitorFilterSensitiveLog = (obj: AnomalyMonitor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CostCategoryRuleFilterSensitiveLog = (obj: CostCategoryRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCostAndUsageRequestFilterSensitiveLog = (obj: GetCostAndUsageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCostAndUsageWithResourcesRequestFilterSensitiveLog = (
+  obj: GetCostAndUsageWithResourcesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCostCategoriesRequestFilterSensitiveLog = (obj: GetCostCategoriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCostForecastRequestFilterSensitiveLog = (obj: GetCostForecastRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDimensionValuesRequestFilterSensitiveLog = (obj: GetDimensionValuesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReservationCoverageRequestFilterSensitiveLog = (obj: GetReservationCoverageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReservationPurchaseRecommendationRequestFilterSensitiveLog = (
+  obj: GetReservationPurchaseRecommendationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReservationUtilizationRequestFilterSensitiveLog = (obj: GetReservationUtilizationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRightsizingRecommendationRequestFilterSensitiveLog = (
+  obj: GetRightsizingRecommendationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSavingsPlansCoverageRequestFilterSensitiveLog = (obj: GetSavingsPlansCoverageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSavingsPlansPurchaseRecommendationRequestFilterSensitiveLog = (
+  obj: GetSavingsPlansPurchaseRecommendationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSavingsPlansUtilizationDetailsRequestFilterSensitiveLog = (
+  obj: GetSavingsPlansUtilizationDetailsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSavingsPlansUtilizationRequestFilterSensitiveLog = (obj: GetSavingsPlansUtilizationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTagsRequestFilterSensitiveLog = (obj: GetTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUsageForecastRequestFilterSensitiveLog = (obj: GetUsageForecastRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAnomalyMonitorRequestFilterSensitiveLog = (obj: CreateAnomalyMonitorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CostCategoryFilterSensitiveLog = (obj: CostCategory): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCostCategoryDefinitionRequestFilterSensitiveLog = (
+  obj: CreateCostCategoryDefinitionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAnomalyMonitorsResponseFilterSensitiveLog = (obj: GetAnomalyMonitorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCostCategoryDefinitionRequestFilterSensitiveLog = (
+  obj: UpdateCostCategoryDefinitionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCostCategoryDefinitionResponseFilterSensitiveLog = (
+  obj: DescribeCostCategoryDefinitionResponse
+): any => ({
+  ...obj,
+});

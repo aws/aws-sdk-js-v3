@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetBaiduChannelRequest, GetBaiduChannelResponse } from "../models/models_0";
+import {
+  GetBaiduChannelRequest,
+  GetBaiduChannelRequestFilterSensitiveLog,
+  GetBaiduChannelResponse,
+  GetBaiduChannelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetBaiduChannelCommand,
@@ -72,8 +77,8 @@ export class GetBaiduChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBaiduChannelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBaiduChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBaiduChannelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBaiduChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

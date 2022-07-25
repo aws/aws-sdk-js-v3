@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DeleteFileSystemPolicyRequest } from "../models/models_0";
+import { DeleteFileSystemPolicyRequest, DeleteFileSystemPolicyRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFileSystemPolicyCommand,
   serializeAws_restJson1DeleteFileSystemPolicyCommand,
@@ -75,7 +75,7 @@ export class DeleteFileSystemPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFileSystemPolicyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFileSystemPolicyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

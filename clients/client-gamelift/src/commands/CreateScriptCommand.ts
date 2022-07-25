@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { CreateScriptInput, CreateScriptOutput } from "../models/models_0";
+import {
+  CreateScriptInput,
+  CreateScriptInputFilterSensitiveLog,
+  CreateScriptOutput,
+  CreateScriptOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateScriptCommand,
   serializeAws_json1_1CreateScriptCommand,
@@ -115,8 +120,8 @@ export class CreateScriptCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateScriptInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateScriptOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateScriptInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateScriptOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

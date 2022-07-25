@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteLocalGatewayRouteTableVpcAssociationRequest,
+  DeleteLocalGatewayRouteTableVpcAssociationRequestFilterSensitiveLog,
   DeleteLocalGatewayRouteTableVpcAssociationResult,
+  DeleteLocalGatewayRouteTableVpcAssociationResultFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand,
@@ -81,8 +83,8 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLocalGatewayRouteTableVpcAssociationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLocalGatewayRouteTableVpcAssociationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLocalGatewayRouteTableVpcAssociationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLocalGatewayRouteTableVpcAssociationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

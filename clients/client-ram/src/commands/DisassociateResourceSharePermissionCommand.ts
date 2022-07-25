@@ -14,7 +14,9 @@ import {
 
 import {
   DisassociateResourceSharePermissionRequest,
+  DisassociateResourceSharePermissionRequestFilterSensitiveLog,
   DisassociateResourceSharePermissionResponse,
+  DisassociateResourceSharePermissionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateResourceSharePermissionCommand,
@@ -79,8 +81,8 @@ export class DisassociateResourceSharePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateResourceSharePermissionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateResourceSharePermissionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateResourceSharePermissionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateResourceSharePermissionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

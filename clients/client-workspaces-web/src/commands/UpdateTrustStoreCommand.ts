@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateTrustStoreRequest, UpdateTrustStoreResponse } from "../models/models_0";
+import {
+  UpdateTrustStoreRequest,
+  UpdateTrustStoreRequestFilterSensitiveLog,
+  UpdateTrustStoreResponse,
+  UpdateTrustStoreResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateTrustStoreCommand,
   serializeAws_restJson1UpdateTrustStoreCommand,
@@ -72,8 +77,8 @@ export class UpdateTrustStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTrustStoreRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTrustStoreResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTrustStoreRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTrustStoreResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

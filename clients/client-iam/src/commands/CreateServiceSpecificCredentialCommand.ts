@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { CreateServiceSpecificCredentialRequest, CreateServiceSpecificCredentialResponse } from "../models/models_0";
+import {
+  CreateServiceSpecificCredentialRequest,
+  CreateServiceSpecificCredentialRequestFilterSensitiveLog,
+  CreateServiceSpecificCredentialResponse,
+  CreateServiceSpecificCredentialResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCreateServiceSpecificCredentialCommand,
   serializeAws_queryCreateServiceSpecificCredentialCommand,
@@ -84,8 +89,8 @@ export class CreateServiceSpecificCredentialCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateServiceSpecificCredentialRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateServiceSpecificCredentialResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateServiceSpecificCredentialRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateServiceSpecificCredentialResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

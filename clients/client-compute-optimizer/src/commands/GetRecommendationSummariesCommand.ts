@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import { GetRecommendationSummariesRequest, GetRecommendationSummariesResponse } from "../models/models_0";
+import {
+  GetRecommendationSummariesRequest,
+  GetRecommendationSummariesRequestFilterSensitiveLog,
+  GetRecommendationSummariesResponse,
+  GetRecommendationSummariesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0GetRecommendationSummariesCommand,
   serializeAws_json1_0GetRecommendationSummariesCommand,
@@ -92,8 +97,8 @@ export class GetRecommendationSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecommendationSummariesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRecommendationSummariesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRecommendationSummariesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRecommendationSummariesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

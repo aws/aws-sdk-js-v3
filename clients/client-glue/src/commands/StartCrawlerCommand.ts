@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StartCrawlerRequest, StartCrawlerResponse } from "../models/models_2";
+import {
+  StartCrawlerRequest,
+  StartCrawlerRequestFilterSensitiveLog,
+  StartCrawlerResponse,
+  StartCrawlerResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1StartCrawlerCommand,
   serializeAws_json1_1StartCrawlerCommand,
@@ -74,8 +79,8 @@ export class StartCrawlerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartCrawlerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartCrawlerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartCrawlerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartCrawlerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

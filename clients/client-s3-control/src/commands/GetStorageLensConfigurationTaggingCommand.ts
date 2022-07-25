@@ -15,7 +15,9 @@ import {
 
 import {
   GetStorageLensConfigurationTaggingRequest,
+  GetStorageLensConfigurationTaggingRequestFilterSensitiveLog,
   GetStorageLensConfigurationTaggingResult,
+  GetStorageLensConfigurationTaggingResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlGetStorageLensConfigurationTaggingCommand,
@@ -88,8 +90,8 @@ export class GetStorageLensConfigurationTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStorageLensConfigurationTaggingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetStorageLensConfigurationTaggingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetStorageLensConfigurationTaggingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetStorageLensConfigurationTaggingResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

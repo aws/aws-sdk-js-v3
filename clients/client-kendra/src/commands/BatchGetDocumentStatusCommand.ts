@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { BatchGetDocumentStatusRequest, BatchGetDocumentStatusResponse } from "../models/models_0";
+import {
+  BatchGetDocumentStatusRequest,
+  BatchGetDocumentStatusRequestFilterSensitiveLog,
+  BatchGetDocumentStatusResponse,
+  BatchGetDocumentStatusResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetDocumentStatusCommand,
   serializeAws_json1_1BatchGetDocumentStatusCommand,
@@ -84,8 +89,8 @@ export class BatchGetDocumentStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetDocumentStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetDocumentStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchGetDocumentStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetDocumentStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

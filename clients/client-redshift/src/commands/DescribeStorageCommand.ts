@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CustomerStorageMessage } from "../models/models_0";
+import { CustomerStorageMessage, CustomerStorageMessageFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDescribeStorageCommand,
   serializeAws_queryDescribeStorageCommand,
@@ -73,7 +73,7 @@ export class DescribeStorageCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: CustomerStorageMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CustomerStorageMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

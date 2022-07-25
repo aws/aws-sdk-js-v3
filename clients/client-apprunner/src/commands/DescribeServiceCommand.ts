@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import { DescribeServiceRequest, DescribeServiceResponse } from "../models/models_0";
+import {
+  DescribeServiceRequest,
+  DescribeServiceRequestFilterSensitiveLog,
+  DescribeServiceResponse,
+  DescribeServiceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeServiceCommand,
   serializeAws_json1_0DescribeServiceCommand,
@@ -72,8 +77,8 @@ export class DescribeServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeServiceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeServiceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeServiceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeServiceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

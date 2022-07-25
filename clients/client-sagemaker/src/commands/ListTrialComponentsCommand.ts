@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListTrialComponentsRequest, ListTrialComponentsResponse } from "../models/models_3";
+import {
+  ListTrialComponentsRequest,
+  ListTrialComponentsRequestFilterSensitiveLog,
+  ListTrialComponentsResponse,
+  ListTrialComponentsResponseFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_json1_1ListTrialComponentsCommand,
   serializeAws_json1_1ListTrialComponentsCommand,
@@ -91,8 +96,8 @@ export class ListTrialComponentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTrialComponentsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTrialComponentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTrialComponentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTrialComponentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

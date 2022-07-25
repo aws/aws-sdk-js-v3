@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListUsersRequest, ListUsersResponse } from "../models/models_0";
+import {
+  ListUsersRequest,
+  ListUsersRequestFilterSensitiveLog,
+  ListUsersResponse,
+  ListUsersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1ListUsersCommand, serializeAws_json1_1ListUsersCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
@@ -69,8 +74,8 @@ export class ListUsersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUsersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListUsersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListUsersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListUsersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

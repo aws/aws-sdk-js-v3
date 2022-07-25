@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import { ListEngineVersionsRequest, ListEngineVersionsResponse } from "../models/models_0";
+import {
+  ListEngineVersionsRequest,
+  ListEngineVersionsRequestFilterSensitiveLog,
+  ListEngineVersionsResponse,
+  ListEngineVersionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListEngineVersionsCommand,
   serializeAws_restJson1ListEngineVersionsCommand,
@@ -72,8 +77,8 @@ export class ListEngineVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEngineVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListEngineVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEngineVersionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListEngineVersionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

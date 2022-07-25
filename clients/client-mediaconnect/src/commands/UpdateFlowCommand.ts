@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { UpdateFlowRequest, UpdateFlowResponse } from "../models/models_0";
+import {
+  UpdateFlowRequest,
+  UpdateFlowRequestFilterSensitiveLog,
+  UpdateFlowResponse,
+  UpdateFlowResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFlowCommand,
   serializeAws_restJson1UpdateFlowCommand,
@@ -72,8 +77,8 @@ export class UpdateFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFlowRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFlowResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFlowRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFlowResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

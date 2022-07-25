@@ -13,8 +13,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { Reservation } from "../models/models_3";
-import { RunInstancesRequest } from "../models/models_6";
+import { Reservation, ReservationFilterSensitiveLog } from "../models/models_3";
+import { RunInstancesRequest, RunInstancesRequestFilterSensitiveLog } from "../models/models_6";
 import { deserializeAws_ec2RunInstancesCommand, serializeAws_ec2RunInstancesCommand } from "../protocols/Aws_ec2";
 
 export interface RunInstancesCommandInput extends RunInstancesRequest {}
@@ -126,8 +126,8 @@ export class RunInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RunInstancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Reservation.filterSensitiveLog,
+      inputFilterSensitiveLog: RunInstancesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ReservationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

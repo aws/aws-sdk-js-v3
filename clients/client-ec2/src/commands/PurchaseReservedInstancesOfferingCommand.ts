@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { PurchaseReservedInstancesOfferingRequest, PurchaseReservedInstancesOfferingResult } from "../models/models_5";
+import {
+  PurchaseReservedInstancesOfferingRequest,
+  PurchaseReservedInstancesOfferingRequestFilterSensitiveLog,
+  PurchaseReservedInstancesOfferingResult,
+  PurchaseReservedInstancesOfferingResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2PurchaseReservedInstancesOfferingCommand,
   serializeAws_ec2PurchaseReservedInstancesOfferingCommand,
@@ -83,8 +88,8 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseReservedInstancesOfferingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseReservedInstancesOfferingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PurchaseReservedInstancesOfferingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseReservedInstancesOfferingResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

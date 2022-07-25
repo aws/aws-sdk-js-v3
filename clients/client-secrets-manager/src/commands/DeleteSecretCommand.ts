@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSecretRequest, DeleteSecretResponse } from "../models/models_0";
+import {
+  DeleteSecretRequest,
+  DeleteSecretRequestFilterSensitiveLog,
+  DeleteSecretResponse,
+  DeleteSecretResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSecretCommand,
   serializeAws_json1_1DeleteSecretCommand,
@@ -99,8 +104,8 @@ export class DeleteSecretCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSecretRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSecretResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSecretRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSecretResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

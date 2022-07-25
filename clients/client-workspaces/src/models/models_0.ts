@@ -76,15 +76,6 @@ export interface AccountModification {
   ErrorMessage?: string;
 }
 
-export namespace AccountModification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountModification): any => ({
-    ...obj,
-  });
-}
-
 export enum Application {
   Microsoft_Office_2016 = "Microsoft_Office_2016",
   Microsoft_Office_2019 = "Microsoft_Office_2019",
@@ -102,30 +93,12 @@ export interface AssociateConnectionAliasRequest {
   ResourceId: string | undefined;
 }
 
-export namespace AssociateConnectionAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateConnectionAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateConnectionAliasResult {
   /**
    * <p>The identifier of the connection alias association. You use the connection identifier in
    *          the DNS TXT record when you're configuring your DNS routing policies. </p>
    */
   ConnectionIdentifier?: string;
-}
-
-export namespace AssociateConnectionAliasResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateConnectionAliasResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -247,25 +220,7 @@ export interface AssociateIpGroupsRequest {
   GroupIds: string[] | undefined;
 }
 
-export namespace AssociateIpGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateIpGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateIpGroupsResult {}
-
-export namespace AssociateIpGroupsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateIpGroupsResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Your resource limits have been exceeded.</p>
@@ -309,15 +264,6 @@ export interface IpRuleItem {
   ruleDesc?: string;
 }
 
-export namespace IpRuleItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IpRuleItem): any => ({
-    ...obj,
-  });
-}
-
 export interface AuthorizeIpRulesRequest {
   /**
    * <p>The identifier of the group.</p>
@@ -330,25 +276,7 @@ export interface AuthorizeIpRulesRequest {
   UserRules: IpRuleItem[] | undefined;
 }
 
-export namespace AuthorizeIpRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizeIpRulesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AuthorizeIpRulesResult {}
-
-export namespace AuthorizeIpRulesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizeIpRulesResult): any => ({
-    ...obj,
-  });
-}
 
 export enum Compute {
   GRAPHICS = "GRAPHICS",
@@ -372,15 +300,6 @@ export interface ComputeType {
   Name?: Compute | string;
 }
 
-export namespace ComputeType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComputeType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the root volume for a WorkSpace bundle.</p>
  */
@@ -391,15 +310,6 @@ export interface RootStorage {
   Capacity?: string;
 }
 
-export namespace RootStorage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RootStorage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the user volume for a WorkSpace bundle.</p>
  */
@@ -408,15 +318,6 @@ export interface UserStorage {
    * <p>The size of the user volume.</p>
    */
   Capacity?: string;
-}
-
-export namespace UserStorage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserStorage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -476,15 +377,6 @@ export interface WorkspaceBundle {
   CreationTime?: Date;
 }
 
-export namespace WorkspaceBundle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceBundle): any => ({
-    ...obj,
-  });
-}
-
 export enum ClientDeviceType {
   DEVICE_TYPE_ANDROID = "DeviceTypeAndroid",
   DEVICE_TYPE_IOS = "DeviceTypeIos",
@@ -511,15 +403,6 @@ export interface ClientProperties {
   ReconnectEnabled?: ReconnectEnum | string;
 }
 
-export namespace ClientProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the Amazon WorkSpaces client.</p>
  */
@@ -533,15 +416,6 @@ export interface ClientPropertiesResult {
    * <p>Information about the Amazon WorkSpaces client.</p>
    */
   ClientProperties?: ClientProperties;
-}
-
-export namespace ClientPropertiesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientPropertiesResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -567,15 +441,6 @@ export interface ConnectClientAddIn {
    * <p>The endpoint URL of the client add-in.</p>
    */
   URL?: string;
-}
-
-export namespace ConnectClientAddIn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectClientAddIn): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -605,15 +470,6 @@ export interface ConnectionAliasAssociation {
    *          the DNS TXT record when you're configuring your DNS routing policies.</p>
    */
   ConnectionIdentifier?: string;
-}
-
-export namespace ConnectionAliasAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionAliasAssociation): any => ({
-    ...obj,
-  });
 }
 
 export enum ConnectionAliasState {
@@ -656,15 +512,6 @@ export interface ConnectionAlias {
   Associations?: ConnectionAliasAssociation[];
 }
 
-export namespace ConnectionAlias {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionAlias): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the permissions for a connection alias. Connection aliases are used for
  *          cross-Region redirection. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
@@ -682,15 +529,6 @@ export interface ConnectionAliasPermission {
    *          connection alias with a directory.</p>
    */
   AllowAssociation: boolean | undefined;
-}
-
-export namespace ConnectionAliasPermission {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionAliasPermission): any => ({
-    ...obj,
-  });
 }
 
 export enum ConnectionState {
@@ -712,15 +550,6 @@ export interface Tag {
    * <p>The value of the tag.</p>
    */
   Value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CopyWorkspaceImageRequest {
@@ -750,29 +579,11 @@ export interface CopyWorkspaceImageRequest {
   Tags?: Tag[];
 }
 
-export namespace CopyWorkspaceImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyWorkspaceImageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CopyWorkspaceImageResult {
   /**
    * <p>The identifier of the image.</p>
    */
   ImageId?: string;
-}
-
-export namespace CopyWorkspaceImageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyWorkspaceImageResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -836,29 +647,11 @@ export interface CreateConnectClientAddInRequest {
   URL: string | undefined;
 }
 
-export namespace CreateConnectClientAddInRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectClientAddInRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateConnectClientAddInResult {
   /**
    * <p>The client add-in identifier.</p>
    */
   AddInId?: string;
-}
-
-export namespace CreateConnectClientAddInResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectClientAddInResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -898,29 +691,11 @@ export interface CreateConnectionAliasRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateConnectionAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectionAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateConnectionAliasResult {
   /**
    * <p>The identifier of the connection alias.</p>
    */
   AliasId?: string;
-}
-
-export namespace CreateConnectionAliasResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectionAliasResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateIpGroupRequest {
@@ -945,29 +720,11 @@ export interface CreateIpGroupRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateIpGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIpGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateIpGroupResult {
   /**
    * <p>The identifier of the group.</p>
    */
   GroupId?: string;
-}
-
-export namespace CreateIpGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIpGroupResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateTagsRequest {
@@ -984,25 +741,7 @@ export interface CreateTagsRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace CreateTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTagsResult {}
-
-export namespace CreateTagsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTagsResult): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateUpdatedWorkspaceImageRequest {
   /**
@@ -1031,29 +770,11 @@ export interface CreateUpdatedWorkspaceImageRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateUpdatedWorkspaceImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUpdatedWorkspaceImageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUpdatedWorkspaceImageResult {
   /**
    * <p>The identifier of the new updated WorkSpace image.</p>
    */
   ImageId?: string;
-}
-
-export namespace CreateUpdatedWorkspaceImageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUpdatedWorkspaceImageResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateWorkspaceBundleRequest {
@@ -1098,29 +819,11 @@ export interface CreateWorkspaceBundleRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateWorkspaceBundleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkspaceBundleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWorkspaceBundleResult {
   /**
    * <p>Describes a WorkSpace bundle.</p>
    */
   WorkspaceBundle?: WorkspaceBundle;
-}
-
-export namespace CreateWorkspaceBundleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkspaceBundleResult): any => ({
-    ...obj,
-  });
 }
 
 export enum RunningMode {
@@ -1163,15 +866,6 @@ export interface WorkspaceProperties {
    *          Bundles</a>.</p>
    */
   ComputeTypeName?: Compute | string;
-}
-
-export namespace WorkspaceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1220,29 +914,11 @@ export interface WorkspaceRequest {
   Tags?: Tag[];
 }
 
-export namespace WorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWorkspacesRequest {
   /**
    * <p>The WorkSpaces to create. You can specify up to 25 WorkSpaces.</p>
    */
   Workspaces: WorkspaceRequest[] | undefined;
-}
-
-export namespace CreateWorkspacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkspacesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1264,15 +940,6 @@ export interface FailedCreateWorkspaceRequest {
    *          created.</p>
    */
   ErrorMessage?: string;
-}
-
-export namespace FailedCreateWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedCreateWorkspaceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ModificationResourceEnum {
@@ -1299,15 +966,6 @@ export interface ModificationState {
    * <p>The modification state.</p>
    */
   State?: ModificationStateEnum | string;
-}
-
-export namespace ModificationState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModificationState): any => ({
-    ...obj,
-  });
 }
 
 export enum WorkspaceState {
@@ -1422,15 +1080,6 @@ export interface Workspace {
   ModificationStates?: ModificationState[];
 }
 
-export namespace Workspace {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Workspace): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces that could not be created.</p>
@@ -1444,15 +1093,6 @@ export interface CreateWorkspacesResult {
    *          can be incomplete.</p>
    */
   PendingRequests?: Workspace[];
-}
-
-export namespace CreateWorkspacesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkspacesResult): any => ({
-    ...obj,
-  });
 }
 
 export enum DedicatedTenancySupportEnum {
@@ -1523,15 +1163,6 @@ export interface DefaultClientBrandingAttributes {
   LoginMessage?: Record<string, string>;
 }
 
-export namespace DefaultClientBrandingAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefaultClientBrandingAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The default client branding attributes to be imported. These attributes display on the
  *          client login screen.</p>
@@ -1596,15 +1227,6 @@ export interface DefaultImportClientBrandingAttributes {
   LoginMessage?: Record<string, string>;
 }
 
-export namespace DefaultImportClientBrandingAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefaultImportClientBrandingAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the default values that are used to create WorkSpaces. For more information,
  *          see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html">Update Directory
@@ -1654,15 +1276,6 @@ export interface DefaultWorkspaceCreationProperties {
   EnableMaintenanceMode?: boolean;
 }
 
-export namespace DefaultWorkspaceCreationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefaultWorkspaceCreationProperties): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteClientBrandingRequest {
   /**
    * <p>The directory identifier of the WorkSpace for which you want to delete client
@@ -1676,25 +1289,7 @@ export interface DeleteClientBrandingRequest {
   Platforms: (ClientDeviceType | string)[] | undefined;
 }
 
-export namespace DeleteClientBrandingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClientBrandingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteClientBrandingResult {}
-
-export namespace DeleteClientBrandingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClientBrandingResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteConnectClientAddInRequest {
   /**
@@ -1708,25 +1303,7 @@ export interface DeleteConnectClientAddInRequest {
   ResourceId: string | undefined;
 }
 
-export namespace DeleteConnectClientAddInRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectClientAddInRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteConnectClientAddInResult {}
-
-export namespace DeleteConnectClientAddInResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectClientAddInResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteConnectionAliasRequest {
   /**
@@ -1735,25 +1312,7 @@ export interface DeleteConnectionAliasRequest {
   AliasId: string | undefined;
 }
 
-export namespace DeleteConnectionAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectionAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteConnectionAliasResult {}
-
-export namespace DeleteConnectionAliasResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectionAliasResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteIpGroupRequest {
   /**
@@ -1762,25 +1321,7 @@ export interface DeleteIpGroupRequest {
   GroupId: string | undefined;
 }
 
-export namespace DeleteIpGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIpGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteIpGroupResult {}
-
-export namespace DeleteIpGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIpGroupResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteTagsRequest {
   /**
@@ -1796,25 +1337,7 @@ export interface DeleteTagsRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace DeleteTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTagsResult {}
-
-export namespace DeleteTagsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagsResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteWorkspaceBundleRequest {
   /**
@@ -1823,25 +1346,7 @@ export interface DeleteWorkspaceBundleRequest {
   BundleId?: string;
 }
 
-export namespace DeleteWorkspaceBundleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkspaceBundleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWorkspaceBundleResult {}
-
-export namespace DeleteWorkspaceBundleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkspaceBundleResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteWorkspaceImageRequest {
   /**
@@ -1850,25 +1355,7 @@ export interface DeleteWorkspaceImageRequest {
   ImageId: string | undefined;
 }
 
-export namespace DeleteWorkspaceImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkspaceImageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWorkspaceImageResult {}
-
-export namespace DeleteWorkspaceImageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkspaceImageResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeregisterWorkspaceDirectoryRequest {
   /**
@@ -1879,36 +1366,9 @@ export interface DeregisterWorkspaceDirectoryRequest {
   DirectoryId: string | undefined;
 }
 
-export namespace DeregisterWorkspaceDirectoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterWorkspaceDirectoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterWorkspaceDirectoryResult {}
 
-export namespace DeregisterWorkspaceDirectoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterWorkspaceDirectoryResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccountRequest {}
-
-export namespace DescribeAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeAccountResult {
   /**
@@ -1926,30 +1386,12 @@ export interface DescribeAccountResult {
   DedicatedTenancyManagementCidrRange?: string;
 }
 
-export namespace DescribeAccountResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccountModificationsRequest {
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
    *          provide this token to receive the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeAccountModificationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountModificationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAccountModificationsResult {
@@ -1965,30 +1407,12 @@ export interface DescribeAccountModificationsResult {
   NextToken?: string;
 }
 
-export namespace DescribeAccountModificationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountModificationsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeClientBrandingRequest {
   /**
    * <p>The directory identifier of the WorkSpace for which you want to view client branding
    *          information.</p>
    */
   ResourceId: string | undefined;
-}
-
-export namespace DescribeClientBrandingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClientBrandingRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2079,15 +1503,6 @@ export interface IosClientBrandingAttributes {
   LoginMessage?: Record<string, string>;
 }
 
-export namespace IosClientBrandingAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IosClientBrandingAttributes): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeClientBrandingResult {
   /**
    * <p>The branding information for Windows devices.</p>
@@ -2120,15 +1535,6 @@ export interface DescribeClientBrandingResult {
   DeviceTypeWeb?: DefaultClientBrandingAttributes;
 }
 
-export namespace DescribeClientBrandingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClientBrandingResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeClientPropertiesRequest {
   /**
    * <p>The resource identifier, in the form of directory IDs.</p>
@@ -2136,29 +1542,11 @@ export interface DescribeClientPropertiesRequest {
   ResourceIds: string[] | undefined;
 }
 
-export namespace DescribeClientPropertiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClientPropertiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeClientPropertiesResult {
   /**
    * <p>Information about the specified Amazon WorkSpaces clients.</p>
    */
   ClientPropertiesList?: ClientPropertiesResult[];
-}
-
-export namespace DescribeClientPropertiesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClientPropertiesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConnectClientAddInsRequest {
@@ -2179,15 +1567,6 @@ export interface DescribeConnectClientAddInsRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeConnectClientAddInsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectClientAddInsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConnectClientAddInsResult {
   /**
    * <p>Information about client add-ins.</p>
@@ -2199,15 +1578,6 @@ export interface DescribeConnectClientAddInsResult {
    *          no more results to return. </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeConnectClientAddInsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectClientAddInsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConnectionAliasesRequest {
@@ -2233,15 +1603,6 @@ export interface DescribeConnectionAliasesRequest {
   NextToken?: string;
 }
 
-export namespace DescribeConnectionAliasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectionAliasesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConnectionAliasesResult {
   /**
    * <p>Information about the specified connection aliases.</p>
@@ -2253,15 +1614,6 @@ export interface DescribeConnectionAliasesResult {
    *          no more results to return. </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeConnectionAliasesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectionAliasesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConnectionAliasPermissionsRequest {
@@ -2282,15 +1634,6 @@ export interface DescribeConnectionAliasPermissionsRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeConnectionAliasPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectionAliasPermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConnectionAliasPermissionsResult {
   /**
    * <p>The identifier of the connection alias.</p>
@@ -2309,15 +1652,6 @@ export interface DescribeConnectionAliasPermissionsResult {
   NextToken?: string;
 }
 
-export namespace DescribeConnectionAliasPermissionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectionAliasPermissionsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeIpGroupsRequest {
   /**
    * <p>The identifiers of one or more IP access control groups.</p>
@@ -2334,15 +1668,6 @@ export interface DescribeIpGroupsRequest {
    * <p>The maximum number of items to return.</p>
    */
   MaxResults?: number;
-}
-
-export namespace DescribeIpGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIpGroupsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2370,15 +1695,6 @@ export interface WorkspacesIpGroup {
   userRules?: IpRuleItem[];
 }
 
-export namespace WorkspacesIpGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspacesIpGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeIpGroupsResult {
   /**
    * <p>Information about the IP access control groups.</p>
@@ -2392,15 +1708,6 @@ export interface DescribeIpGroupsResult {
   NextToken?: string;
 }
 
-export namespace DescribeIpGroupsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIpGroupsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTagsRequest {
   /**
    * <p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces,
@@ -2410,29 +1717,11 @@ export interface DescribeTagsRequest {
   ResourceId: string | undefined;
 }
 
-export namespace DescribeTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTagsResult {
   /**
    * <p>The tags.</p>
    */
   TagList?: Tag[];
-}
-
-export namespace DescribeTagsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeWorkspaceBundlesRequest {
@@ -2454,15 +1743,6 @@ export interface DescribeWorkspaceBundlesRequest {
   NextToken?: string;
 }
 
-export namespace DescribeWorkspaceBundlesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceBundlesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeWorkspaceBundlesResult {
   /**
    * <p>Information about the bundles.</p>
@@ -2475,15 +1755,6 @@ export interface DescribeWorkspaceBundlesResult {
    *          frame.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeWorkspaceBundlesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceBundlesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeWorkspaceDirectoriesRequest {
@@ -2503,15 +1774,6 @@ export interface DescribeWorkspaceDirectoriesRequest {
    *          provide this token to receive the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeWorkspaceDirectoriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceDirectoriesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum WorkspaceDirectoryType {
@@ -2549,15 +1811,6 @@ export interface SelfservicePermissions {
    *          state.</p>
    */
   RebuildWorkspace?: ReconnectEnum | string;
-}
-
-export namespace SelfservicePermissions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelfservicePermissions): any => ({
-    ...obj,
-  });
 }
 
 export enum WorkspaceDirectoryState {
@@ -2619,15 +1872,6 @@ export interface WorkspaceAccessProperties {
    * <p>Indicates whether users can use Linux clients to access their WorkSpaces.</p>
    */
   DeviceTypeLinux?: AccessPropertyValue | string;
-}
-
-export namespace WorkspaceAccessProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceAccessProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2724,15 +1968,6 @@ export interface WorkspaceDirectory {
   SelfservicePermissions?: SelfservicePermissions;
 }
 
-export namespace WorkspaceDirectory {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceDirectory): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeWorkspaceDirectoriesResult {
   /**
    * <p>Information about the directories.</p>
@@ -2744,15 +1979,6 @@ export interface DescribeWorkspaceDirectoriesResult {
    *          no more results to return. </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeWorkspaceDirectoriesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceDirectoriesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeWorkspaceImagePermissionsRequest {
@@ -2773,15 +1999,6 @@ export interface DescribeWorkspaceImagePermissionsRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeWorkspaceImagePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceImagePermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the Amazon Web Services accounts that have been granted permission to use a
  *          shared image. For more information about sharing images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html"> Share or Unshare a Custom
@@ -2793,15 +2010,6 @@ export interface ImagePermission {
    *          with.</p>
    */
   SharedAccountId?: string;
-}
-
-export namespace ImagePermission {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImagePermission): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeWorkspaceImagePermissionsResult {
@@ -2821,15 +2029,6 @@ export interface DescribeWorkspaceImagePermissionsResult {
    *          no more results to return. </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeWorkspaceImagePermissionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceImagePermissionsResult): any => ({
-    ...obj,
-  });
 }
 
 export enum ImageType {
@@ -2860,15 +2059,6 @@ export interface DescribeWorkspaceImagesRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeWorkspaceImagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceImagesRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum OperatingSystemType {
   LINUX = "LINUX",
   WINDOWS = "WINDOWS",
@@ -2882,15 +2072,6 @@ export interface OperatingSystem {
    * <p>The operating system.</p>
    */
   Type?: OperatingSystemType | string;
-}
-
-export namespace OperatingSystem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperatingSystem): any => ({
-    ...obj,
-  });
 }
 
 export enum WorkspaceImageRequiredTenancy {
@@ -2923,15 +2104,6 @@ export interface UpdateResult {
    *          available.</p>
    */
   Description?: string;
-}
-
-export namespace UpdateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2998,15 +2170,6 @@ export interface WorkspaceImage {
   Updates?: UpdateResult;
 }
 
-export namespace WorkspaceImage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceImage): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeWorkspaceImagesResult {
   /**
    * <p>Information about the images.</p>
@@ -3018,15 +2181,6 @@ export interface DescribeWorkspaceImagesResult {
    *          no more results to return. </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeWorkspaceImagesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceImagesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeWorkspacesRequest {
@@ -3069,15 +2223,6 @@ export interface DescribeWorkspacesRequest {
   NextToken?: string;
 }
 
-export namespace DescribeWorkspacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspacesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces.</p>
@@ -3093,15 +2238,6 @@ export interface DescribeWorkspacesResult {
   NextToken?: string;
 }
 
-export namespace DescribeWorkspacesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspacesResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeWorkspacesConnectionStatusRequest {
   /**
    * <p>The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.</p>
@@ -3113,15 +2249,6 @@ export interface DescribeWorkspacesConnectionStatusRequest {
    *          provide this token to receive the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeWorkspacesConnectionStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspacesConnectionStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3150,15 +2277,6 @@ export interface WorkspaceConnectionStatus {
   LastKnownUserConnectionTimestamp?: Date;
 }
 
-export namespace WorkspaceConnectionStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceConnectionStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeWorkspacesConnectionStatusResult {
   /**
    * <p>Information about the connection status of the WorkSpace.</p>
@@ -3172,29 +2290,11 @@ export interface DescribeWorkspacesConnectionStatusResult {
   NextToken?: string;
 }
 
-export namespace DescribeWorkspacesConnectionStatusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspacesConnectionStatusResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeWorkspaceSnapshotsRequest {
   /**
    * <p>The identifier of the WorkSpace.</p>
    */
   WorkspaceId: string | undefined;
-}
-
-export namespace DescribeWorkspaceSnapshotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceSnapshotsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3205,15 +2305,6 @@ export interface Snapshot {
    * <p>The time when the snapshot was created.</p>
    */
   SnapshotTime?: Date;
-}
-
-export namespace Snapshot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Snapshot): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeWorkspaceSnapshotsResult {
@@ -3230,15 +2321,6 @@ export interface DescribeWorkspaceSnapshotsResult {
   RestoreSnapshots?: Snapshot[];
 }
 
-export namespace DescribeWorkspaceSnapshotsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceSnapshotsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateConnectionAliasRequest {
   /**
    * <p>The identifier of the connection alias to disassociate.</p>
@@ -3246,25 +2328,7 @@ export interface DisassociateConnectionAliasRequest {
   AliasId: string | undefined;
 }
 
-export namespace DisassociateConnectionAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateConnectionAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateConnectionAliasResult {}
-
-export namespace DisassociateConnectionAliasResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateConnectionAliasResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateIpGroupsRequest {
   /**
@@ -3278,25 +2342,7 @@ export interface DisassociateIpGroupsRequest {
   GroupIds: string[] | undefined;
 }
 
-export namespace DisassociateIpGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateIpGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateIpGroupsResult {}
-
-export namespace DisassociateIpGroupsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateIpGroupsResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Describes a WorkSpace that could not be rebooted. (<a>RebootWorkspaces</a>),
@@ -3318,15 +2364,6 @@ export interface FailedWorkspaceChangeRequest {
    *          rebooted.</p>
    */
   ErrorMessage?: string;
-}
-
-export namespace FailedWorkspaceChangeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedWorkspaceChangeRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3417,15 +2454,6 @@ export interface IosImportClientBrandingAttributes {
   LoginMessage?: Record<string, string>;
 }
 
-export namespace IosImportClientBrandingAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IosImportClientBrandingAttributes): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportClientBrandingRequest {
   /**
    * <p>The directory identifier of the WorkSpace for which you want to import client
@@ -3464,15 +2492,6 @@ export interface ImportClientBrandingRequest {
   DeviceTypeWeb?: DefaultImportClientBrandingAttributes;
 }
 
-export namespace ImportClientBrandingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportClientBrandingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportClientBrandingResult {
   /**
    * <p>The branding information configured for Windows devices.</p>
@@ -3503,15 +2522,6 @@ export interface ImportClientBrandingResult {
    * <p>The branding information configured for web access.</p>
    */
   DeviceTypeWeb?: DefaultClientBrandingAttributes;
-}
-
-export namespace ImportClientBrandingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportClientBrandingResult): any => ({
-    ...obj,
-  });
 }
 
 export enum WorkspaceImageIngestionProcess {
@@ -3565,29 +2575,11 @@ export interface ImportWorkspaceImageRequest {
   Applications?: (Application | string)[];
 }
 
-export namespace ImportWorkspaceImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportWorkspaceImageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportWorkspaceImageResult {
   /**
    * <p>The identifier of the WorkSpace image.</p>
    */
   ImageId?: string;
-}
-
-export namespace ImportWorkspaceImageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportWorkspaceImageResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAvailableManagementCidrRangesRequest {
@@ -3609,15 +2601,6 @@ export interface ListAvailableManagementCidrRangesRequest {
   NextToken?: string;
 }
 
-export namespace ListAvailableManagementCidrRangesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAvailableManagementCidrRangesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAvailableManagementCidrRangesResult {
   /**
    * <p>The list of available IP address ranges, specified as IPv4 CIDR blocks.</p>
@@ -3629,15 +2612,6 @@ export interface ListAvailableManagementCidrRangesResult {
    *          no more results to return. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListAvailableManagementCidrRangesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAvailableManagementCidrRangesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface MigrateWorkspaceRequest {
@@ -3652,15 +2626,6 @@ export interface MigrateWorkspaceRequest {
   BundleId: string | undefined;
 }
 
-export namespace MigrateWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MigrateWorkspaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface MigrateWorkspaceResult {
   /**
    * <p>The original identifier of the WorkSpace that is being migrated.</p>
@@ -3673,15 +2638,6 @@ export interface MigrateWorkspaceResult {
    *          original WorkSpace ID.</p>
    */
   TargetWorkspaceId?: string;
-}
-
-export namespace MigrateWorkspaceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MigrateWorkspaceResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3719,25 +2675,7 @@ export interface ModifyAccountRequest {
   DedicatedTenancyManagementCidrRange?: string;
 }
 
-export namespace ModifyAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyAccountResult {}
-
-export namespace ModifyAccountResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyAccountResult): any => ({
-    ...obj,
-  });
-}
 
 export interface ModifyClientPropertiesRequest {
   /**
@@ -3751,25 +2689,7 @@ export interface ModifyClientPropertiesRequest {
   ClientProperties: ClientProperties | undefined;
 }
 
-export namespace ModifyClientPropertiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClientPropertiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyClientPropertiesResult {}
-
-export namespace ModifyClientPropertiesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClientPropertiesResult): any => ({
-    ...obj,
-  });
-}
 
 export interface ModifySelfservicePermissionsRequest {
   /**
@@ -3783,25 +2703,7 @@ export interface ModifySelfservicePermissionsRequest {
   SelfservicePermissions: SelfservicePermissions | undefined;
 }
 
-export namespace ModifySelfservicePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifySelfservicePermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifySelfservicePermissionsResult {}
-
-export namespace ModifySelfservicePermissionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifySelfservicePermissionsResult): any => ({
-    ...obj,
-  });
-}
 
 export interface ModifyWorkspaceAccessPropertiesRequest {
   /**
@@ -3815,25 +2717,7 @@ export interface ModifyWorkspaceAccessPropertiesRequest {
   WorkspaceAccessProperties: WorkspaceAccessProperties | undefined;
 }
 
-export namespace ModifyWorkspaceAccessPropertiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyWorkspaceAccessPropertiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyWorkspaceAccessPropertiesResult {}
-
-export namespace ModifyWorkspaceAccessPropertiesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyWorkspaceAccessPropertiesResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Describes the default properties that are used for creating WorkSpaces. For more
@@ -3903,15 +2787,6 @@ export interface WorkspaceCreationProperties {
   EnableMaintenanceMode?: boolean;
 }
 
-export namespace WorkspaceCreationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceCreationProperties): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyWorkspaceCreationPropertiesRequest {
   /**
    * <p>The identifier of the directory.</p>
@@ -3924,25 +2799,7 @@ export interface ModifyWorkspaceCreationPropertiesRequest {
   WorkspaceCreationProperties: WorkspaceCreationProperties | undefined;
 }
 
-export namespace ModifyWorkspaceCreationPropertiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyWorkspaceCreationPropertiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyWorkspaceCreationPropertiesResult {}
-
-export namespace ModifyWorkspaceCreationPropertiesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyWorkspaceCreationPropertiesResult): any => ({
-    ...obj,
-  });
-}
 
 export interface ModifyWorkspacePropertiesRequest {
   /**
@@ -3956,25 +2813,7 @@ export interface ModifyWorkspacePropertiesRequest {
   WorkspaceProperties: WorkspaceProperties | undefined;
 }
 
-export namespace ModifyWorkspacePropertiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyWorkspacePropertiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyWorkspacePropertiesResult {}
-
-export namespace ModifyWorkspacePropertiesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyWorkspacePropertiesResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The configuration of this WorkSpace is not supported for this operation. For more information, see
@@ -4014,25 +2853,7 @@ export interface ModifyWorkspaceStateRequest {
   WorkspaceState: TargetWorkspaceState | string | undefined;
 }
 
-export namespace ModifyWorkspaceStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyWorkspaceStateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyWorkspaceStateResult {}
-
-export namespace ModifyWorkspaceStateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyWorkspaceStateResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Describes the information used to reboot a WorkSpace.</p>
@@ -4044,15 +2865,6 @@ export interface RebootRequest {
   WorkspaceId: string | undefined;
 }
 
-export namespace RebootRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RebootWorkspacesRequest {
   /**
    * <p>The WorkSpaces to reboot. You can specify up to 25 WorkSpaces.</p>
@@ -4060,29 +2872,11 @@ export interface RebootWorkspacesRequest {
   RebootWorkspaceRequests: RebootRequest[] | undefined;
 }
 
-export namespace RebootWorkspacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootWorkspacesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RebootWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces that could not be rebooted.</p>
    */
   FailedRequests?: FailedWorkspaceChangeRequest[];
-}
-
-export namespace RebootWorkspacesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootWorkspacesResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4095,15 +2889,6 @@ export interface RebuildRequest {
   WorkspaceId: string | undefined;
 }
 
-export namespace RebuildRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebuildRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RebuildWorkspacesRequest {
   /**
    * <p>The WorkSpace to rebuild. You can specify a single WorkSpace.</p>
@@ -4111,29 +2896,11 @@ export interface RebuildWorkspacesRequest {
   RebuildWorkspaceRequests: RebuildRequest[] | undefined;
 }
 
-export namespace RebuildWorkspacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebuildWorkspacesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RebuildWorkspacesResult {
   /**
    * <p>Information about the WorkSpace that could not be rebuilt.</p>
    */
   FailedRequests?: FailedWorkspaceChangeRequest[];
-}
-
-export namespace RebuildWorkspacesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebuildWorkspacesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterWorkspaceDirectoryRequest {
@@ -4183,25 +2950,7 @@ export interface RegisterWorkspaceDirectoryRequest {
   Tags?: Tag[];
 }
 
-export namespace RegisterWorkspaceDirectoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterWorkspaceDirectoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterWorkspaceDirectoryResult {}
-
-export namespace RegisterWorkspaceDirectoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterWorkspaceDirectoryResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The configuration of this network is not supported for this operation, or your network configuration
@@ -4252,25 +3001,7 @@ export interface RestoreWorkspaceRequest {
   WorkspaceId: string | undefined;
 }
 
-export namespace RestoreWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreWorkspaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreWorkspaceResult {}
-
-export namespace RestoreWorkspaceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreWorkspaceResult): any => ({
-    ...obj,
-  });
-}
 
 export interface RevokeIpRulesRequest {
   /**
@@ -4284,25 +3015,7 @@ export interface RevokeIpRulesRequest {
   UserRules: string[] | undefined;
 }
 
-export namespace RevokeIpRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeIpRulesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RevokeIpRulesResult {}
-
-export namespace RevokeIpRulesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeIpRulesResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Information used to start a WorkSpace.</p>
@@ -4314,15 +3027,6 @@ export interface StartRequest {
   WorkspaceId?: string;
 }
 
-export namespace StartRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartWorkspacesRequest {
   /**
    * <p>The WorkSpaces to start. You can specify up to 25 WorkSpaces.</p>
@@ -4330,29 +3034,11 @@ export interface StartWorkspacesRequest {
   StartWorkspaceRequests: StartRequest[] | undefined;
 }
 
-export namespace StartWorkspacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartWorkspacesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces that could not be started.</p>
    */
   FailedRequests?: FailedWorkspaceChangeRequest[];
-}
-
-export namespace StartWorkspacesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartWorkspacesResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4365,15 +3051,6 @@ export interface StopRequest {
   WorkspaceId?: string;
 }
 
-export namespace StopRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopWorkspacesRequest {
   /**
    * <p>The WorkSpaces to stop. You can specify up to 25 WorkSpaces.</p>
@@ -4381,29 +3058,11 @@ export interface StopWorkspacesRequest {
   StopWorkspaceRequests: StopRequest[] | undefined;
 }
 
-export namespace StopWorkspacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopWorkspacesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces that could not be stopped.</p>
    */
   FailedRequests?: FailedWorkspaceChangeRequest[];
-}
-
-export namespace StopWorkspacesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopWorkspacesResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4416,15 +3075,6 @@ export interface TerminateRequest {
   WorkspaceId: string | undefined;
 }
 
-export namespace TerminateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TerminateWorkspacesRequest {
   /**
    * <p>The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.</p>
@@ -4432,29 +3082,11 @@ export interface TerminateWorkspacesRequest {
   TerminateWorkspaceRequests: TerminateRequest[] | undefined;
 }
 
-export namespace TerminateWorkspacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateWorkspacesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TerminateWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces that could not be terminated.</p>
    */
   FailedRequests?: FailedWorkspaceChangeRequest[];
-}
-
-export namespace TerminateWorkspacesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateWorkspacesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateConnectClientAddInRequest {
@@ -4479,25 +3111,7 @@ export interface UpdateConnectClientAddInRequest {
   URL?: string;
 }
 
-export namespace UpdateConnectClientAddInRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectClientAddInRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateConnectClientAddInResult {}
-
-export namespace UpdateConnectClientAddInResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectClientAddInResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateConnectionAliasPermissionRequest {
   /**
@@ -4511,25 +3125,7 @@ export interface UpdateConnectionAliasPermissionRequest {
   ConnectionAliasPermission: ConnectionAliasPermission | undefined;
 }
 
-export namespace UpdateConnectionAliasPermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectionAliasPermissionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateConnectionAliasPermissionResult {}
-
-export namespace UpdateConnectionAliasPermissionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectionAliasPermissionResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateRulesOfIpGroupRequest {
   /**
@@ -4543,25 +3139,7 @@ export interface UpdateRulesOfIpGroupRequest {
   UserRules: IpRuleItem[] | undefined;
 }
 
-export namespace UpdateRulesOfIpGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRulesOfIpGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRulesOfIpGroupResult {}
-
-export namespace UpdateRulesOfIpGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRulesOfIpGroupResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateWorkspaceBundleRequest {
   /**
@@ -4575,25 +3153,7 @@ export interface UpdateWorkspaceBundleRequest {
   ImageId?: string;
 }
 
-export namespace UpdateWorkspaceBundleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkspaceBundleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateWorkspaceBundleResult {}
-
-export namespace UpdateWorkspaceBundleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkspaceBundleResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateWorkspaceImagePermissionRequest {
   /**
@@ -4617,22 +3177,1180 @@ export interface UpdateWorkspaceImagePermissionRequest {
   SharedAccountId: string | undefined;
 }
 
-export namespace UpdateWorkspaceImagePermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkspaceImagePermissionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateWorkspaceImagePermissionResult {}
 
-export namespace UpdateWorkspaceImagePermissionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkspaceImagePermissionResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccountModificationFilterSensitiveLog = (obj: AccountModification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateConnectionAliasRequestFilterSensitiveLog = (obj: AssociateConnectionAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateConnectionAliasResultFilterSensitiveLog = (obj: AssociateConnectionAliasResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateIpGroupsRequestFilterSensitiveLog = (obj: AssociateIpGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateIpGroupsResultFilterSensitiveLog = (obj: AssociateIpGroupsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IpRuleItemFilterSensitiveLog = (obj: IpRuleItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthorizeIpRulesRequestFilterSensitiveLog = (obj: AuthorizeIpRulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthorizeIpRulesResultFilterSensitiveLog = (obj: AuthorizeIpRulesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComputeTypeFilterSensitiveLog = (obj: ComputeType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RootStorageFilterSensitiveLog = (obj: RootStorage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserStorageFilterSensitiveLog = (obj: UserStorage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkspaceBundleFilterSensitiveLog = (obj: WorkspaceBundle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClientPropertiesFilterSensitiveLog = (obj: ClientProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClientPropertiesResultFilterSensitiveLog = (obj: ClientPropertiesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectClientAddInFilterSensitiveLog = (obj: ConnectClientAddIn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionAliasAssociationFilterSensitiveLog = (obj: ConnectionAliasAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionAliasFilterSensitiveLog = (obj: ConnectionAlias): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionAliasPermissionFilterSensitiveLog = (obj: ConnectionAliasPermission): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyWorkspaceImageRequestFilterSensitiveLog = (obj: CopyWorkspaceImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyWorkspaceImageResultFilterSensitiveLog = (obj: CopyWorkspaceImageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectClientAddInRequestFilterSensitiveLog = (obj: CreateConnectClientAddInRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectClientAddInResultFilterSensitiveLog = (obj: CreateConnectClientAddInResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionAliasRequestFilterSensitiveLog = (obj: CreateConnectionAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionAliasResultFilterSensitiveLog = (obj: CreateConnectionAliasResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIpGroupRequestFilterSensitiveLog = (obj: CreateIpGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIpGroupResultFilterSensitiveLog = (obj: CreateIpGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTagsRequestFilterSensitiveLog = (obj: CreateTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTagsResultFilterSensitiveLog = (obj: CreateTagsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUpdatedWorkspaceImageRequestFilterSensitiveLog = (obj: CreateUpdatedWorkspaceImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUpdatedWorkspaceImageResultFilterSensitiveLog = (obj: CreateUpdatedWorkspaceImageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkspaceBundleRequestFilterSensitiveLog = (obj: CreateWorkspaceBundleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkspaceBundleResultFilterSensitiveLog = (obj: CreateWorkspaceBundleResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkspacePropertiesFilterSensitiveLog = (obj: WorkspaceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkspaceRequestFilterSensitiveLog = (obj: WorkspaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkspacesRequestFilterSensitiveLog = (obj: CreateWorkspacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedCreateWorkspaceRequestFilterSensitiveLog = (obj: FailedCreateWorkspaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModificationStateFilterSensitiveLog = (obj: ModificationState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkspaceFilterSensitiveLog = (obj: Workspace): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkspacesResultFilterSensitiveLog = (obj: CreateWorkspacesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefaultClientBrandingAttributesFilterSensitiveLog = (obj: DefaultClientBrandingAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefaultImportClientBrandingAttributesFilterSensitiveLog = (
+  obj: DefaultImportClientBrandingAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefaultWorkspaceCreationPropertiesFilterSensitiveLog = (obj: DefaultWorkspaceCreationProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteClientBrandingRequestFilterSensitiveLog = (obj: DeleteClientBrandingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteClientBrandingResultFilterSensitiveLog = (obj: DeleteClientBrandingResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectClientAddInRequestFilterSensitiveLog = (obj: DeleteConnectClientAddInRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectClientAddInResultFilterSensitiveLog = (obj: DeleteConnectClientAddInResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectionAliasRequestFilterSensitiveLog = (obj: DeleteConnectionAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectionAliasResultFilterSensitiveLog = (obj: DeleteConnectionAliasResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIpGroupRequestFilterSensitiveLog = (obj: DeleteIpGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIpGroupResultFilterSensitiveLog = (obj: DeleteIpGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTagsRequestFilterSensitiveLog = (obj: DeleteTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTagsResultFilterSensitiveLog = (obj: DeleteTagsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkspaceBundleRequestFilterSensitiveLog = (obj: DeleteWorkspaceBundleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkspaceBundleResultFilterSensitiveLog = (obj: DeleteWorkspaceBundleResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkspaceImageRequestFilterSensitiveLog = (obj: DeleteWorkspaceImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkspaceImageResultFilterSensitiveLog = (obj: DeleteWorkspaceImageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterWorkspaceDirectoryRequestFilterSensitiveLog = (
+  obj: DeregisterWorkspaceDirectoryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterWorkspaceDirectoryResultFilterSensitiveLog = (obj: DeregisterWorkspaceDirectoryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountRequestFilterSensitiveLog = (obj: DescribeAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountResultFilterSensitiveLog = (obj: DescribeAccountResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountModificationsRequestFilterSensitiveLog = (
+  obj: DescribeAccountModificationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountModificationsResultFilterSensitiveLog = (obj: DescribeAccountModificationsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClientBrandingRequestFilterSensitiveLog = (obj: DescribeClientBrandingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IosClientBrandingAttributesFilterSensitiveLog = (obj: IosClientBrandingAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClientBrandingResultFilterSensitiveLog = (obj: DescribeClientBrandingResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClientPropertiesRequestFilterSensitiveLog = (obj: DescribeClientPropertiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClientPropertiesResultFilterSensitiveLog = (obj: DescribeClientPropertiesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectClientAddInsRequestFilterSensitiveLog = (obj: DescribeConnectClientAddInsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectClientAddInsResultFilterSensitiveLog = (obj: DescribeConnectClientAddInsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectionAliasesRequestFilterSensitiveLog = (obj: DescribeConnectionAliasesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectionAliasesResultFilterSensitiveLog = (obj: DescribeConnectionAliasesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectionAliasPermissionsRequestFilterSensitiveLog = (
+  obj: DescribeConnectionAliasPermissionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectionAliasPermissionsResultFilterSensitiveLog = (
+  obj: DescribeConnectionAliasPermissionsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIpGroupsRequestFilterSensitiveLog = (obj: DescribeIpGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkspacesIpGroupFilterSensitiveLog = (obj: WorkspacesIpGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIpGroupsResultFilterSensitiveLog = (obj: DescribeIpGroupsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTagsRequestFilterSensitiveLog = (obj: DescribeTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTagsResultFilterSensitiveLog = (obj: DescribeTagsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceBundlesRequestFilterSensitiveLog = (obj: DescribeWorkspaceBundlesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceBundlesResultFilterSensitiveLog = (obj: DescribeWorkspaceBundlesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceDirectoriesRequestFilterSensitiveLog = (
+  obj: DescribeWorkspaceDirectoriesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelfservicePermissionsFilterSensitiveLog = (obj: SelfservicePermissions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkspaceAccessPropertiesFilterSensitiveLog = (obj: WorkspaceAccessProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkspaceDirectoryFilterSensitiveLog = (obj: WorkspaceDirectory): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceDirectoriesResultFilterSensitiveLog = (obj: DescribeWorkspaceDirectoriesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceImagePermissionsRequestFilterSensitiveLog = (
+  obj: DescribeWorkspaceImagePermissionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImagePermissionFilterSensitiveLog = (obj: ImagePermission): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceImagePermissionsResultFilterSensitiveLog = (
+  obj: DescribeWorkspaceImagePermissionsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceImagesRequestFilterSensitiveLog = (obj: DescribeWorkspaceImagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OperatingSystemFilterSensitiveLog = (obj: OperatingSystem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResultFilterSensitiveLog = (obj: UpdateResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkspaceImageFilterSensitiveLog = (obj: WorkspaceImage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceImagesResultFilterSensitiveLog = (obj: DescribeWorkspaceImagesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspacesRequestFilterSensitiveLog = (obj: DescribeWorkspacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspacesResultFilterSensitiveLog = (obj: DescribeWorkspacesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspacesConnectionStatusRequestFilterSensitiveLog = (
+  obj: DescribeWorkspacesConnectionStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkspaceConnectionStatusFilterSensitiveLog = (obj: WorkspaceConnectionStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspacesConnectionStatusResultFilterSensitiveLog = (
+  obj: DescribeWorkspacesConnectionStatusResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceSnapshotsRequestFilterSensitiveLog = (obj: DescribeWorkspaceSnapshotsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnapshotFilterSensitiveLog = (obj: Snapshot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceSnapshotsResultFilterSensitiveLog = (obj: DescribeWorkspaceSnapshotsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateConnectionAliasRequestFilterSensitiveLog = (obj: DisassociateConnectionAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateConnectionAliasResultFilterSensitiveLog = (obj: DisassociateConnectionAliasResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateIpGroupsRequestFilterSensitiveLog = (obj: DisassociateIpGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateIpGroupsResultFilterSensitiveLog = (obj: DisassociateIpGroupsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedWorkspaceChangeRequestFilterSensitiveLog = (obj: FailedWorkspaceChangeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IosImportClientBrandingAttributesFilterSensitiveLog = (obj: IosImportClientBrandingAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportClientBrandingRequestFilterSensitiveLog = (obj: ImportClientBrandingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportClientBrandingResultFilterSensitiveLog = (obj: ImportClientBrandingResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportWorkspaceImageRequestFilterSensitiveLog = (obj: ImportWorkspaceImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportWorkspaceImageResultFilterSensitiveLog = (obj: ImportWorkspaceImageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAvailableManagementCidrRangesRequestFilterSensitiveLog = (
+  obj: ListAvailableManagementCidrRangesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAvailableManagementCidrRangesResultFilterSensitiveLog = (
+  obj: ListAvailableManagementCidrRangesResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MigrateWorkspaceRequestFilterSensitiveLog = (obj: MigrateWorkspaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MigrateWorkspaceResultFilterSensitiveLog = (obj: MigrateWorkspaceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyAccountRequestFilterSensitiveLog = (obj: ModifyAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyAccountResultFilterSensitiveLog = (obj: ModifyAccountResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClientPropertiesRequestFilterSensitiveLog = (obj: ModifyClientPropertiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClientPropertiesResultFilterSensitiveLog = (obj: ModifyClientPropertiesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifySelfservicePermissionsRequestFilterSensitiveLog = (
+  obj: ModifySelfservicePermissionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifySelfservicePermissionsResultFilterSensitiveLog = (obj: ModifySelfservicePermissionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyWorkspaceAccessPropertiesRequestFilterSensitiveLog = (
+  obj: ModifyWorkspaceAccessPropertiesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyWorkspaceAccessPropertiesResultFilterSensitiveLog = (
+  obj: ModifyWorkspaceAccessPropertiesResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkspaceCreationPropertiesFilterSensitiveLog = (obj: WorkspaceCreationProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyWorkspaceCreationPropertiesRequestFilterSensitiveLog = (
+  obj: ModifyWorkspaceCreationPropertiesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyWorkspaceCreationPropertiesResultFilterSensitiveLog = (
+  obj: ModifyWorkspaceCreationPropertiesResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyWorkspacePropertiesRequestFilterSensitiveLog = (obj: ModifyWorkspacePropertiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyWorkspacePropertiesResultFilterSensitiveLog = (obj: ModifyWorkspacePropertiesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyWorkspaceStateRequestFilterSensitiveLog = (obj: ModifyWorkspaceStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyWorkspaceStateResultFilterSensitiveLog = (obj: ModifyWorkspaceStateResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootRequestFilterSensitiveLog = (obj: RebootRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootWorkspacesRequestFilterSensitiveLog = (obj: RebootWorkspacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootWorkspacesResultFilterSensitiveLog = (obj: RebootWorkspacesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebuildRequestFilterSensitiveLog = (obj: RebuildRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebuildWorkspacesRequestFilterSensitiveLog = (obj: RebuildWorkspacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebuildWorkspacesResultFilterSensitiveLog = (obj: RebuildWorkspacesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterWorkspaceDirectoryRequestFilterSensitiveLog = (obj: RegisterWorkspaceDirectoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterWorkspaceDirectoryResultFilterSensitiveLog = (obj: RegisterWorkspaceDirectoryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreWorkspaceRequestFilterSensitiveLog = (obj: RestoreWorkspaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreWorkspaceResultFilterSensitiveLog = (obj: RestoreWorkspaceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeIpRulesRequestFilterSensitiveLog = (obj: RevokeIpRulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeIpRulesResultFilterSensitiveLog = (obj: RevokeIpRulesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartRequestFilterSensitiveLog = (obj: StartRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartWorkspacesRequestFilterSensitiveLog = (obj: StartWorkspacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartWorkspacesResultFilterSensitiveLog = (obj: StartWorkspacesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopRequestFilterSensitiveLog = (obj: StopRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopWorkspacesRequestFilterSensitiveLog = (obj: StopWorkspacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopWorkspacesResultFilterSensitiveLog = (obj: StopWorkspacesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateRequestFilterSensitiveLog = (obj: TerminateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateWorkspacesRequestFilterSensitiveLog = (obj: TerminateWorkspacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateWorkspacesResultFilterSensitiveLog = (obj: TerminateWorkspacesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectClientAddInRequestFilterSensitiveLog = (obj: UpdateConnectClientAddInRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectClientAddInResultFilterSensitiveLog = (obj: UpdateConnectClientAddInResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionAliasPermissionRequestFilterSensitiveLog = (
+  obj: UpdateConnectionAliasPermissionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionAliasPermissionResultFilterSensitiveLog = (
+  obj: UpdateConnectionAliasPermissionResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRulesOfIpGroupRequestFilterSensitiveLog = (obj: UpdateRulesOfIpGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRulesOfIpGroupResultFilterSensitiveLog = (obj: UpdateRulesOfIpGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkspaceBundleRequestFilterSensitiveLog = (obj: UpdateWorkspaceBundleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkspaceBundleResultFilterSensitiveLog = (obj: UpdateWorkspaceBundleResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkspaceImagePermissionRequestFilterSensitiveLog = (
+  obj: UpdateWorkspaceImagePermissionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkspaceImagePermissionResultFilterSensitiveLog = (
+  obj: UpdateWorkspaceImagePermissionResult
+): any => ({
+  ...obj,
+});

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetCredentialReportResponse } from "../models/models_0";
+import { GetCredentialReportResponse, GetCredentialReportResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryGetCredentialReportCommand,
   serializeAws_queryGetCredentialReportCommand,
@@ -75,7 +75,7 @@ export class GetCredentialReportCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetCredentialReportResponse.filterSensitiveLog,
+      outputFilterSensitiveLog: GetCredentialReportResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

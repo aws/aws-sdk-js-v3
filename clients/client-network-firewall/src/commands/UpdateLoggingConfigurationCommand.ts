@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateLoggingConfigurationRequest, UpdateLoggingConfigurationResponse } from "../models/models_0";
+import {
+  UpdateLoggingConfigurationRequest,
+  UpdateLoggingConfigurationRequestFilterSensitiveLog,
+  UpdateLoggingConfigurationResponse,
+  UpdateLoggingConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
   deserializeAws_json1_0UpdateLoggingConfigurationCommand,
@@ -97,8 +102,8 @@ export class UpdateLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLoggingConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLoggingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateLoggingConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateLoggingConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

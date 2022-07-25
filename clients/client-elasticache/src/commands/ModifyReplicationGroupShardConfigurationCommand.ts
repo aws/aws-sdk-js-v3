@@ -15,7 +15,9 @@ import {
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import {
   ModifyReplicationGroupShardConfigurationMessage,
+  ModifyReplicationGroupShardConfigurationMessageFilterSensitiveLog,
   ModifyReplicationGroupShardConfigurationResult,
+  ModifyReplicationGroupShardConfigurationResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryModifyReplicationGroupShardConfigurationCommand,
@@ -82,8 +84,8 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyReplicationGroupShardConfigurationMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyReplicationGroupShardConfigurationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyReplicationGroupShardConfigurationMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyReplicationGroupShardConfigurationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

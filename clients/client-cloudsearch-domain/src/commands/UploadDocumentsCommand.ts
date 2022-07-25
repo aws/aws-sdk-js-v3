@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CloudSearchDomainClient";
-import { UploadDocumentsRequest, UploadDocumentsResponse } from "../models/models_0";
+import {
+  UploadDocumentsRequest,
+  UploadDocumentsRequestFilterSensitiveLog,
+  UploadDocumentsResponse,
+  UploadDocumentsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UploadDocumentsCommand,
   serializeAws_restJson1UploadDocumentsCommand,
@@ -88,8 +93,8 @@ export class UploadDocumentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UploadDocumentsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UploadDocumentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UploadDocumentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UploadDocumentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

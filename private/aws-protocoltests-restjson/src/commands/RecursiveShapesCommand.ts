@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RecursiveShapesInputOutput } from "../models/models_0";
+import { RecursiveShapesInputOutput, RecursiveShapesInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1RecursiveShapesCommand,
   serializeAws_restJson1RecursiveShapesCommand,
@@ -72,8 +72,8 @@ export class RecursiveShapesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RecursiveShapesInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: RecursiveShapesInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RecursiveShapesInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: RecursiveShapesInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

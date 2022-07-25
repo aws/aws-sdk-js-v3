@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { GetRecordingConfigurationRequest, GetRecordingConfigurationResponse } from "../models/models_0";
+import {
+  GetRecordingConfigurationRequest,
+  GetRecordingConfigurationRequestFilterSensitiveLog,
+  GetRecordingConfigurationResponse,
+  GetRecordingConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetRecordingConfigurationCommand,
   serializeAws_restJson1GetRecordingConfigurationCommand,
@@ -72,8 +77,8 @@ export class GetRecordingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecordingConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRecordingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRecordingConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRecordingConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

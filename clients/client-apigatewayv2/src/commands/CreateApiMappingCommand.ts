@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { CreateApiMappingRequest, CreateApiMappingResponse } from "../models/models_0";
+import {
+  CreateApiMappingRequest,
+  CreateApiMappingRequestFilterSensitiveLog,
+  CreateApiMappingResponse,
+  CreateApiMappingResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateApiMappingCommand,
   serializeAws_restJson1CreateApiMappingCommand,
@@ -72,8 +77,8 @@ export class CreateApiMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApiMappingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateApiMappingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateApiMappingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateApiMappingResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

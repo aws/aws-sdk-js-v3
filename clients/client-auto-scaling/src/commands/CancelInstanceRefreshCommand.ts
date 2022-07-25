@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { CancelInstanceRefreshAnswer, CancelInstanceRefreshType } from "../models/models_0";
+import {
+  CancelInstanceRefreshAnswer,
+  CancelInstanceRefreshAnswerFilterSensitiveLog,
+  CancelInstanceRefreshType,
+  CancelInstanceRefreshTypeFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCancelInstanceRefreshCommand,
   serializeAws_queryCancelInstanceRefreshCommand,
@@ -77,8 +82,8 @@ export class CancelInstanceRefreshCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelInstanceRefreshType.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelInstanceRefreshAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelInstanceRefreshTypeFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelInstanceRefreshAnswerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

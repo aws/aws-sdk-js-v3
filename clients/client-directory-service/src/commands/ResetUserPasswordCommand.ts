@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { ResetUserPasswordRequest, ResetUserPasswordResult } from "../models/models_0";
+import {
+  ResetUserPasswordRequest,
+  ResetUserPasswordRequestFilterSensitiveLog,
+  ResetUserPasswordResult,
+  ResetUserPasswordResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ResetUserPasswordCommand,
   serializeAws_json1_1ResetUserPasswordCommand,
@@ -89,8 +94,8 @@ export class ResetUserPasswordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetUserPasswordRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResetUserPasswordResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetUserPasswordRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResetUserPasswordResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

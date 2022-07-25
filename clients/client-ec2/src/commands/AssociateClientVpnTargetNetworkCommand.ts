@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AssociateClientVpnTargetNetworkRequest, AssociateClientVpnTargetNetworkResult } from "../models/models_0";
+import {
+  AssociateClientVpnTargetNetworkRequest,
+  AssociateClientVpnTargetNetworkRequestFilterSensitiveLog,
+  AssociateClientVpnTargetNetworkResult,
+  AssociateClientVpnTargetNetworkResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_ec2AssociateClientVpnTargetNetworkCommand,
   serializeAws_ec2AssociateClientVpnTargetNetworkCommand,
@@ -75,8 +80,8 @@ export class AssociateClientVpnTargetNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateClientVpnTargetNetworkRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateClientVpnTargetNetworkResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateClientVpnTargetNetworkRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateClientVpnTargetNetworkResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

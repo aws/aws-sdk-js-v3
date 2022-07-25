@@ -58,14 +58,6 @@ export namespace DynamicSsmParameterValue {
     if (value.variable !== undefined) return visitor.variable(value.variable);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DynamicSsmParameterValue): any => {
-    if (obj.variable !== undefined) return { variable: obj.variable };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export enum SsmTargetAccount {
@@ -112,24 +104,6 @@ export interface SsmAutomation {
   dynamicParameters?: Record<string, DynamicSsmParameterValue>;
 }
 
-export namespace SsmAutomation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SsmAutomation): any => ({
-    ...obj,
-    ...(obj.dynamicParameters && {
-      dynamicParameters: Object.entries(obj.dynamicParameters).reduce(
-        (acc: any, [key, value]: [string, DynamicSsmParameterValue]) => ({
-          ...acc,
-          [key]: DynamicSsmParameterValue.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-  });
-}
-
 /**
  * <p>The action that starts at the beginning of an incident. The response plan defines the
  *          action.</p>
@@ -160,14 +134,6 @@ export namespace Action {
     if (value.ssmAutomation !== undefined) return visitor.ssmAutomation(value.ssmAutomation);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Action): any => {
-    if (obj.ssmAutomation !== undefined) return { ssmAutomation: SsmAutomation.filterSensitiveLog(obj.ssmAutomation) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -184,15 +150,6 @@ export interface AddRegionAction {
    * <p>The KMS key ID to use to encrypt your replication set.</p>
    */
   sseKmsKeyId?: string;
-}
-
-export namespace AddRegionAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddRegionAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -239,15 +196,6 @@ export namespace AttributeValueList {
     if (value.integerValues !== undefined) return visitor.integerValues(value.integerValues);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeValueList): any => {
-    if (obj.stringValues !== undefined) return { stringValues: obj.stringValues };
-    if (obj.integerValues !== undefined) return { integerValues: obj.integerValues };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -279,29 +227,12 @@ export namespace AutomationExecution {
     if (value.ssmExecutionArn !== undefined) return visitor.ssmExecutionArn(value.ssmExecutionArn);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutomationExecution): any => {
-    if (obj.ssmExecutionArn !== undefined) return { ssmExecutionArn: obj.ssmExecutionArn };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
  * <p>Used to remove the chat channel from an incident record or response plan.</p>
  */
 export interface EmptyChatChannel {}
-
-export namespace EmptyChatChannel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmptyChatChannel): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The Chatbot chat channel used for collaboration during an
@@ -346,15 +277,6 @@ export namespace ChatChannel {
     if (value.empty !== undefined) return visitor.empty(value.empty);
     if (value.chatbotSns !== undefined) return visitor.chatbotSns(value.chatbotSns);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChatChannel): any => {
-    if (obj.empty !== undefined) return { empty: EmptyChatChannel.filterSensitiveLog(obj.empty) };
-    if (obj.chatbotSns !== undefined) return { chatbotSns: obj.chatbotSns };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -421,16 +343,6 @@ export namespace Condition {
     if (value.equals !== undefined) return visitor.equals(value.equals);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Condition): any => {
-    if (obj.before !== undefined) return { before: obj.before };
-    if (obj.after !== undefined) return { after: obj.after };
-    if (obj.equals !== undefined) return { equals: AttributeValueList.filterSensitiveLog(obj.equals) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export enum ResourceType {
@@ -489,15 +401,6 @@ export interface RegionMapInputValue {
   sseKmsKeyId?: string;
 }
 
-export namespace RegionMapInputValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegionMapInputValue): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateReplicationSetInput {
   /**
    * <p>The Regions that Incident Manager replicates your data to. You can have up to three Regions
@@ -512,29 +415,11 @@ export interface CreateReplicationSetInput {
   clientToken?: string;
 }
 
-export namespace CreateReplicationSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReplicationSetInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateReplicationSetOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the replication set. </p>
    */
   arn: string | undefined;
-}
-
-export namespace CreateReplicationSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReplicationSetOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -683,14 +568,6 @@ export namespace NotificationTargetItem {
     if (value.snsTopicArn !== undefined) return visitor.snsTopicArn(value.snsTopicArn);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationTargetItem): any => {
-    if (obj.snsTopicArn !== undefined) return { snsTopicArn: obj.snsTopicArn };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -730,18 +607,6 @@ export interface IncidentTemplate {
    * <p>Tags to apply to an incident when calling the <code>StartIncident</code> API action.</p>
    */
   incidentTags?: Record<string, string>;
-}
-
-export namespace IncidentTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncidentTemplate): any => ({
-    ...obj,
-    ...(obj.notificationTargets && {
-      notificationTargets: obj.notificationTargets.map((item) => NotificationTargetItem.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface CreateResponsePlanInput {
@@ -789,32 +654,11 @@ export interface CreateResponsePlanInput {
   tags?: Record<string, string>;
 }
 
-export namespace CreateResponsePlanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResponsePlanInput): any => ({
-    ...obj,
-    ...(obj.incidentTemplate && { incidentTemplate: IncidentTemplate.filterSensitiveLog(obj.incidentTemplate) }),
-    ...(obj.chatChannel && { chatChannel: ChatChannel.filterSensitiveLog(obj.chatChannel) }),
-    ...(obj.actions && { actions: obj.actions.map((item) => Action.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateResponsePlanOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the response plan.</p>
    */
   arn: string | undefined;
-}
-
-export namespace CreateResponsePlanOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResponsePlanOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -878,15 +722,6 @@ export interface CreateTimelineEventInput {
   eventData: string | undefined;
 }
 
-export namespace CreateTimelineEventInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTimelineEventInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTimelineEventOutput {
   /**
    * <p>The ARN of the incident record that you added the event to.</p>
@@ -899,15 +734,6 @@ export interface CreateTimelineEventOutput {
   eventId: string | undefined;
 }
 
-export namespace CreateTimelineEventOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTimelineEventOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteIncidentRecordInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the incident record you are deleting.</p>
@@ -915,25 +741,7 @@ export interface DeleteIncidentRecordInput {
   arn: string | undefined;
 }
 
-export namespace DeleteIncidentRecordInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIncidentRecordInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteIncidentRecordOutput {}
-
-export namespace DeleteIncidentRecordOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIncidentRecordOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Defines the information about the Amazon Web Services Region you're deleting from your
@@ -947,15 +755,6 @@ export interface DeleteRegionAction {
   regionName: string | undefined;
 }
 
-export namespace DeleteRegionAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRegionAction): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteReplicationSetInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the replication set you're deleting.</p>
@@ -963,25 +762,7 @@ export interface DeleteReplicationSetInput {
   arn: string | undefined;
 }
 
-export namespace DeleteReplicationSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReplicationSetInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteReplicationSetOutput {}
-
-export namespace DeleteReplicationSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReplicationSetOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteResourcePolicyInput {
   /**
@@ -995,25 +776,7 @@ export interface DeleteResourcePolicyInput {
   policyId: string | undefined;
 }
 
-export namespace DeleteResourcePolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourcePolicyOutput {}
-
-export namespace DeleteResourcePolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteResponsePlanInput {
   /**
@@ -1022,25 +785,7 @@ export interface DeleteResponsePlanInput {
   arn: string | undefined;
 }
 
-export namespace DeleteResponsePlanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResponsePlanInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResponsePlanOutput {}
-
-export namespace DeleteResponsePlanOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResponsePlanOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteTimelineEventInput {
   /**
@@ -1056,25 +801,7 @@ export interface DeleteTimelineEventInput {
   eventId: string | undefined;
 }
 
-export namespace DeleteTimelineEventInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTimelineEventInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTimelineEventOutput {}
-
-export namespace DeleteTimelineEventOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTimelineEventOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Details about a timeline event during an incident.</p>
@@ -1106,15 +833,6 @@ export interface EventSummary {
   eventType: string | undefined;
 }
 
-export namespace EventSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Filter the selection by using a condition.</p>
  */
@@ -1131,30 +849,11 @@ export interface Filter {
   condition: Condition | undefined;
 }
 
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-    ...(obj.condition && { condition: Condition.filterSensitiveLog(obj.condition) }),
-  });
-}
-
 export interface GetIncidentRecordInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the incident record.</p>
    */
   arn: string | undefined;
-}
-
-export namespace GetIncidentRecordInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIncidentRecordInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1183,15 +882,6 @@ export interface IncidentRecordSource {
    *          event.</p>
    */
   source: string | undefined;
-}
-
-export namespace IncidentRecordSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncidentRecordSource): any => ({
-    ...obj,
-  });
 }
 
 export enum IncidentRecordStatus {
@@ -1277,22 +967,6 @@ export interface IncidentRecord {
   notificationTargets?: NotificationTargetItem[];
 }
 
-export namespace IncidentRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncidentRecord): any => ({
-    ...obj,
-    ...(obj.automationExecutions && {
-      automationExecutions: obj.automationExecutions.map((item) => AutomationExecution.filterSensitiveLog(item)),
-    }),
-    ...(obj.chatChannel && { chatChannel: ChatChannel.filterSensitiveLog(obj.chatChannel) }),
-    ...(obj.notificationTargets && {
-      notificationTargets: obj.notificationTargets.map((item) => NotificationTargetItem.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface GetIncidentRecordOutput {
   /**
    * <p>Details the structure of the incident record.</p>
@@ -1300,30 +974,11 @@ export interface GetIncidentRecordOutput {
   incidentRecord: IncidentRecord | undefined;
 }
 
-export namespace GetIncidentRecordOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIncidentRecordOutput): any => ({
-    ...obj,
-    ...(obj.incidentRecord && { incidentRecord: IncidentRecord.filterSensitiveLog(obj.incidentRecord) }),
-  });
-}
-
 export interface GetReplicationSetInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the replication set you want to retrieve.</p>
    */
   arn: string | undefined;
-}
-
-export namespace GetReplicationSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReplicationSetInput): any => ({
-    ...obj,
-  });
 }
 
 export enum RegionStatus {
@@ -1368,15 +1023,6 @@ export interface RegionInfo {
    * <p>The most recent date and time that Incident Manager updated the Amazon Web Services Region's status.</p>
    */
   statusUpdateDateTime: Date | undefined;
-}
-
-export namespace RegionInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegionInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum ReplicationSetStatus {
@@ -1451,29 +1097,11 @@ export interface ReplicationSet {
   lastModifiedBy: string | undefined;
 }
 
-export namespace ReplicationSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationSet): any => ({
-    ...obj,
-  });
-}
-
 export interface GetReplicationSetOutput {
   /**
    * <p>Details of the replication set.</p>
    */
   replicationSet: ReplicationSet | undefined;
-}
-
-export namespace GetReplicationSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReplicationSetOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourcePoliciesInput {
@@ -1491,15 +1119,6 @@ export interface GetResourcePoliciesInput {
    * <p>The pagination token to continue to the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace GetResourcePoliciesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcePoliciesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1523,15 +1142,6 @@ export interface ResourcePolicy {
   ramResourceShareRegion: string | undefined;
 }
 
-export namespace ResourcePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourcePolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourcePoliciesOutput {
   /**
    * <p>Details about the resource policy attached to the response plan.</p>
@@ -1544,29 +1154,11 @@ export interface GetResourcePoliciesOutput {
   nextToken?: string;
 }
 
-export namespace GetResourcePoliciesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcePoliciesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResponsePlanInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the response plan.</p>
    */
   arn: string | undefined;
-}
-
-export namespace GetResponsePlanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResponsePlanInput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResponsePlanOutput {
@@ -1608,18 +1200,6 @@ export interface GetResponsePlanOutput {
   actions?: Action[];
 }
 
-export namespace GetResponsePlanOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResponsePlanOutput): any => ({
-    ...obj,
-    ...(obj.incidentTemplate && { incidentTemplate: IncidentTemplate.filterSensitiveLog(obj.incidentTemplate) }),
-    ...(obj.chatChannel && { chatChannel: ChatChannel.filterSensitiveLog(obj.chatChannel) }),
-    ...(obj.actions && { actions: obj.actions.map((item) => Action.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface GetTimelineEventInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the incident that includes the timeline
@@ -1632,15 +1212,6 @@ export interface GetTimelineEventInput {
    *                 <code>ListTimelineEvents</code>.</p>
    */
   eventId: string | undefined;
-}
-
-export namespace GetTimelineEventInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTimelineEventInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1679,29 +1250,11 @@ export interface TimelineEvent {
   eventData: string | undefined;
 }
 
-export namespace TimelineEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimelineEvent): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTimelineEventOutput {
   /**
    * <p>Details about the timeline event.</p>
    */
   event: TimelineEvent | undefined;
-}
-
-export namespace GetTimelineEventOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTimelineEventOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1743,15 +1296,6 @@ export interface IncidentRecordSummary {
    * <p>What caused Incident Manager to create the incident.</p>
    */
   incidentRecordSource: IncidentRecordSource | undefined;
-}
-
-export namespace IncidentRecordSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncidentRecordSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum ItemType {
@@ -1826,16 +1370,6 @@ export namespace ItemValue {
     if (value.metricDefinition !== undefined) return visitor.metricDefinition(value.metricDefinition);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ItemValue): any => {
-    if (obj.arn !== undefined) return { arn: obj.arn };
-    if (obj.url !== undefined) return { url: obj.url };
-    if (obj.metricDefinition !== undefined) return { metricDefinition: obj.metricDefinition };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -1851,16 +1385,6 @@ export interface ItemIdentifier {
    * <p>The type of related item. </p>
    */
   type: ItemType | string | undefined;
-}
-
-export namespace ItemIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ItemIdentifier): any => ({
-    ...obj,
-    ...(obj.value && { value: ItemValue.filterSensitiveLog(obj.value) }),
-  });
 }
 
 export interface ListIncidentRecordsInput {
@@ -1918,16 +1442,6 @@ export interface ListIncidentRecordsInput {
   nextToken?: string;
 }
 
-export namespace ListIncidentRecordsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIncidentRecordsInput): any => ({
-    ...obj,
-    ...(obj.filters && { filters: obj.filters.map((item) => Filter.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface ListIncidentRecordsOutput {
   /**
    * <p>The details of each listed incident record.</p>
@@ -1938,15 +1452,6 @@ export interface ListIncidentRecordsOutput {
    * <p>The pagination token to continue to the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListIncidentRecordsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIncidentRecordsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRelatedItemsInput {
@@ -1967,15 +1472,6 @@ export interface ListRelatedItemsInput {
   nextToken?: string;
 }
 
-export namespace ListRelatedItemsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRelatedItemsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Resources that responders use to triage and mitigate the incident.</p>
  */
@@ -1991,16 +1487,6 @@ export interface RelatedItem {
   title?: string;
 }
 
-export namespace RelatedItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelatedItem): any => ({
-    ...obj,
-    ...(obj.identifier && { identifier: ItemIdentifier.filterSensitiveLog(obj.identifier) }),
-  });
-}
-
 export interface ListRelatedItemsOutput {
   /**
    * <p>Details about each related item.</p>
@@ -2011,16 +1497,6 @@ export interface ListRelatedItemsOutput {
    * <p>The pagination token to continue to the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListRelatedItemsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRelatedItemsOutput): any => ({
-    ...obj,
-    ...(obj.relatedItems && { relatedItems: obj.relatedItems.map((item) => RelatedItem.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface ListReplicationSetsInput {
@@ -2035,15 +1511,6 @@ export interface ListReplicationSetsInput {
   nextToken?: string;
 }
 
-export namespace ListReplicationSetsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReplicationSetsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListReplicationSetsOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the list replication set.</p>
@@ -2056,15 +1523,6 @@ export interface ListReplicationSetsOutput {
   nextToken?: string;
 }
 
-export namespace ListReplicationSetsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReplicationSetsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResponsePlansInput {
   /**
    * <p>The maximum number of response plans per page.</p>
@@ -2075,15 +1533,6 @@ export interface ListResponsePlansInput {
    * <p>The pagination token to continue to the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListResponsePlansInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResponsePlansInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2106,15 +1555,6 @@ export interface ResponsePlanSummary {
   displayName?: string;
 }
 
-export namespace ResponsePlanSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponsePlanSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResponsePlansOutput {
   /**
    * <p>Details of each response plan.</p>
@@ -2127,15 +1567,6 @@ export interface ListResponsePlansOutput {
   nextToken?: string;
 }
 
-export namespace ListResponsePlansOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResponsePlansOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the response plan.</p>
@@ -2143,29 +1574,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags for the response plan.</p>
    */
   tags: Record<string, string> | undefined;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum TimelineEventSort {
@@ -2239,16 +1652,6 @@ export interface ListTimelineEventsInput {
   nextToken?: string;
 }
 
-export namespace ListTimelineEventsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTimelineEventsInput): any => ({
-    ...obj,
-    ...(obj.filters && { filters: obj.filters.map((item) => Filter.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface ListTimelineEventsOutput {
   /**
    * <p>Details about each event that occurred during the incident.</p>
@@ -2259,15 +1662,6 @@ export interface ListTimelineEventsOutput {
    * <p>The pagination token to continue to the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListTimelineEventsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTimelineEventsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface PutResourcePolicyInput {
@@ -2283,29 +1677,11 @@ export interface PutResourcePolicyInput {
   policy: string | undefined;
 }
 
-export namespace PutResourcePolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourcePolicyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PutResourcePolicyOutput {
   /**
    * <p>The ID of the resource policy.</p>
    */
   policyId: string | undefined;
-}
-
-export namespace PutResourcePolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourcePolicyOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2352,15 +1728,6 @@ export namespace RelatedItemsUpdate {
     if (value.itemToRemove !== undefined) return visitor.itemToRemove(value.itemToRemove);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelatedItemsUpdate): any => {
-    if (obj.itemToAdd !== undefined) return { itemToAdd: RelatedItem.filterSensitiveLog(obj.itemToAdd) };
-    if (obj.itemToRemove !== undefined) return { itemToRemove: ItemIdentifier.filterSensitiveLog(obj.itemToRemove) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -2388,15 +1755,6 @@ export interface TriggerDetails {
    * <p>Raw data passed from either Amazon EventBridge, Amazon CloudWatch, or Incident Manager when an incident is created.</p>
    */
   rawData?: string;
-}
-
-export namespace TriggerDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TriggerDetails): any => ({
-    ...obj,
-  });
 }
 
 export interface StartIncidentInput {
@@ -2467,30 +1825,11 @@ export interface StartIncidentInput {
   relatedItems?: RelatedItem[];
 }
 
-export namespace StartIncidentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartIncidentInput): any => ({
-    ...obj,
-    ...(obj.relatedItems && { relatedItems: obj.relatedItems.map((item) => RelatedItem.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface StartIncidentOutput {
   /**
    * <p>The ARN of the newly created incident record.</p>
    */
   incidentRecordArn: string | undefined;
-}
-
-export namespace StartIncidentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartIncidentOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -2505,25 +1844,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2537,25 +1858,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDeletionProtectionInput {
   /**
@@ -2575,25 +1878,7 @@ export interface UpdateDeletionProtectionInput {
   clientToken?: string;
 }
 
-export namespace UpdateDeletionProtectionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeletionProtectionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDeletionProtectionOutput {}
-
-export namespace UpdateDeletionProtectionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeletionProtectionOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateIncidentRecordInput {
   /**
@@ -2673,29 +1958,7 @@ export interface UpdateIncidentRecordInput {
   notificationTargets?: NotificationTargetItem[];
 }
 
-export namespace UpdateIncidentRecordInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIncidentRecordInput): any => ({
-    ...obj,
-    ...(obj.chatChannel && { chatChannel: ChatChannel.filterSensitiveLog(obj.chatChannel) }),
-    ...(obj.notificationTargets && {
-      notificationTargets: obj.notificationTargets.map((item) => NotificationTargetItem.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface UpdateIncidentRecordOutput {}
-
-export namespace UpdateIncidentRecordOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIncidentRecordOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateRelatedItemsInput {
   /**
@@ -2716,28 +1979,7 @@ export interface UpdateRelatedItemsInput {
   relatedItemsUpdate: RelatedItemsUpdate | undefined;
 }
 
-export namespace UpdateRelatedItemsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRelatedItemsInput): any => ({
-    ...obj,
-    ...(obj.relatedItemsUpdate && {
-      relatedItemsUpdate: RelatedItemsUpdate.filterSensitiveLog(obj.relatedItemsUpdate),
-    }),
-  });
-}
-
 export interface UpdateRelatedItemsOutput {}
-
-export namespace UpdateRelatedItemsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRelatedItemsOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Details used when updating the replication set.</p>
@@ -2785,17 +2027,6 @@ export namespace UpdateReplicationSetAction {
     if (value.deleteRegionAction !== undefined) return visitor.deleteRegionAction(value.deleteRegionAction);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReplicationSetAction): any => {
-    if (obj.addRegionAction !== undefined)
-      return { addRegionAction: AddRegionAction.filterSensitiveLog(obj.addRegionAction) };
-    if (obj.deleteRegionAction !== undefined)
-      return { deleteRegionAction: DeleteRegionAction.filterSensitiveLog(obj.deleteRegionAction) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export interface UpdateReplicationSetInput {
@@ -2816,26 +2047,7 @@ export interface UpdateReplicationSetInput {
   clientToken?: string;
 }
 
-export namespace UpdateReplicationSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReplicationSetInput): any => ({
-    ...obj,
-    ...(obj.actions && { actions: obj.actions.map((item) => UpdateReplicationSetAction.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface UpdateReplicationSetOutput {}
-
-export namespace UpdateReplicationSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReplicationSetOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateResponsePlanInput {
   /**
@@ -2935,32 +2147,7 @@ export interface UpdateResponsePlanInput {
   incidentTemplateTags?: Record<string, string>;
 }
 
-export namespace UpdateResponsePlanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResponsePlanInput): any => ({
-    ...obj,
-    ...(obj.incidentTemplateNotificationTargets && {
-      incidentTemplateNotificationTargets: obj.incidentTemplateNotificationTargets.map((item) =>
-        NotificationTargetItem.filterSensitiveLog(item)
-      ),
-    }),
-    ...(obj.chatChannel && { chatChannel: ChatChannel.filterSensitiveLog(obj.chatChannel) }),
-    ...(obj.actions && { actions: obj.actions.map((item) => Action.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface UpdateResponsePlanOutput {}
-
-export namespace UpdateResponsePlanOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResponsePlanOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateTimelineEventInput {
   /**
@@ -2997,22 +2184,679 @@ export interface UpdateTimelineEventInput {
   eventData?: string;
 }
 
-export namespace UpdateTimelineEventInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTimelineEventInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTimelineEventOutput {}
 
-export namespace UpdateTimelineEventOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTimelineEventOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DynamicSsmParameterValueFilterSensitiveLog = (obj: DynamicSsmParameterValue): any => {
+  if (obj.variable !== undefined) return { variable: obj.variable };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const SsmAutomationFilterSensitiveLog = (obj: SsmAutomation): any => ({
+  ...obj,
+  ...(obj.dynamicParameters && {
+    dynamicParameters: Object.entries(obj.dynamicParameters).reduce(
+      (acc: any, [key, value]: [string, DynamicSsmParameterValue]) => ({
+        ...acc,
+        [key]: DynamicSsmParameterValueFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ActionFilterSensitiveLog = (obj: Action): any => {
+  if (obj.ssmAutomation !== undefined) return { ssmAutomation: SsmAutomationFilterSensitiveLog(obj.ssmAutomation) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const AddRegionActionFilterSensitiveLog = (obj: AddRegionAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributeValueListFilterSensitiveLog = (obj: AttributeValueList): any => {
+  if (obj.stringValues !== undefined) return { stringValues: obj.stringValues };
+  if (obj.integerValues !== undefined) return { integerValues: obj.integerValues };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const AutomationExecutionFilterSensitiveLog = (obj: AutomationExecution): any => {
+  if (obj.ssmExecutionArn !== undefined) return { ssmExecutionArn: obj.ssmExecutionArn };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const EmptyChatChannelFilterSensitiveLog = (obj: EmptyChatChannel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChatChannelFilterSensitiveLog = (obj: ChatChannel): any => {
+  if (obj.empty !== undefined) return { empty: EmptyChatChannelFilterSensitiveLog(obj.empty) };
+  if (obj.chatbotSns !== undefined) return { chatbotSns: obj.chatbotSns };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ConditionFilterSensitiveLog = (obj: Condition): any => {
+  if (obj.before !== undefined) return { before: obj.before };
+  if (obj.after !== undefined) return { after: obj.after };
+  if (obj.equals !== undefined) return { equals: AttributeValueListFilterSensitiveLog(obj.equals) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const RegionMapInputValueFilterSensitiveLog = (obj: RegionMapInputValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReplicationSetInputFilterSensitiveLog = (obj: CreateReplicationSetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReplicationSetOutputFilterSensitiveLog = (obj: CreateReplicationSetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationTargetItemFilterSensitiveLog = (obj: NotificationTargetItem): any => {
+  if (obj.snsTopicArn !== undefined) return { snsTopicArn: obj.snsTopicArn };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const IncidentTemplateFilterSensitiveLog = (obj: IncidentTemplate): any => ({
+  ...obj,
+  ...(obj.notificationTargets && {
+    notificationTargets: obj.notificationTargets.map((item) => NotificationTargetItemFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateResponsePlanInputFilterSensitiveLog = (obj: CreateResponsePlanInput): any => ({
+  ...obj,
+  ...(obj.incidentTemplate && { incidentTemplate: IncidentTemplateFilterSensitiveLog(obj.incidentTemplate) }),
+  ...(obj.chatChannel && { chatChannel: ChatChannelFilterSensitiveLog(obj.chatChannel) }),
+  ...(obj.actions && { actions: obj.actions.map((item) => ActionFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateResponsePlanOutputFilterSensitiveLog = (obj: CreateResponsePlanOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTimelineEventInputFilterSensitiveLog = (obj: CreateTimelineEventInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTimelineEventOutputFilterSensitiveLog = (obj: CreateTimelineEventOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIncidentRecordInputFilterSensitiveLog = (obj: DeleteIncidentRecordInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIncidentRecordOutputFilterSensitiveLog = (obj: DeleteIncidentRecordOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRegionActionFilterSensitiveLog = (obj: DeleteRegionAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReplicationSetInputFilterSensitiveLog = (obj: DeleteReplicationSetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReplicationSetOutputFilterSensitiveLog = (obj: DeleteReplicationSetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyInputFilterSensitiveLog = (obj: DeleteResourcePolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyOutputFilterSensitiveLog = (obj: DeleteResourcePolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResponsePlanInputFilterSensitiveLog = (obj: DeleteResponsePlanInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResponsePlanOutputFilterSensitiveLog = (obj: DeleteResponsePlanOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTimelineEventInputFilterSensitiveLog = (obj: DeleteTimelineEventInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTimelineEventOutputFilterSensitiveLog = (obj: DeleteTimelineEventOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventSummaryFilterSensitiveLog = (obj: EventSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+  ...(obj.condition && { condition: ConditionFilterSensitiveLog(obj.condition) }),
+});
+
+/**
+ * @internal
+ */
+export const GetIncidentRecordInputFilterSensitiveLog = (obj: GetIncidentRecordInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IncidentRecordSourceFilterSensitiveLog = (obj: IncidentRecordSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IncidentRecordFilterSensitiveLog = (obj: IncidentRecord): any => ({
+  ...obj,
+  ...(obj.automationExecutions && {
+    automationExecutions: obj.automationExecutions.map((item) => AutomationExecutionFilterSensitiveLog(item)),
+  }),
+  ...(obj.chatChannel && { chatChannel: ChatChannelFilterSensitiveLog(obj.chatChannel) }),
+  ...(obj.notificationTargets && {
+    notificationTargets: obj.notificationTargets.map((item) => NotificationTargetItemFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetIncidentRecordOutputFilterSensitiveLog = (obj: GetIncidentRecordOutput): any => ({
+  ...obj,
+  ...(obj.incidentRecord && { incidentRecord: IncidentRecordFilterSensitiveLog(obj.incidentRecord) }),
+});
+
+/**
+ * @internal
+ */
+export const GetReplicationSetInputFilterSensitiveLog = (obj: GetReplicationSetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegionInfoFilterSensitiveLog = (obj: RegionInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationSetFilterSensitiveLog = (obj: ReplicationSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReplicationSetOutputFilterSensitiveLog = (obj: GetReplicationSetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePoliciesInputFilterSensitiveLog = (obj: GetResourcePoliciesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourcePolicyFilterSensitiveLog = (obj: ResourcePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePoliciesOutputFilterSensitiveLog = (obj: GetResourcePoliciesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResponsePlanInputFilterSensitiveLog = (obj: GetResponsePlanInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResponsePlanOutputFilterSensitiveLog = (obj: GetResponsePlanOutput): any => ({
+  ...obj,
+  ...(obj.incidentTemplate && { incidentTemplate: IncidentTemplateFilterSensitiveLog(obj.incidentTemplate) }),
+  ...(obj.chatChannel && { chatChannel: ChatChannelFilterSensitiveLog(obj.chatChannel) }),
+  ...(obj.actions && { actions: obj.actions.map((item) => ActionFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetTimelineEventInputFilterSensitiveLog = (obj: GetTimelineEventInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimelineEventFilterSensitiveLog = (obj: TimelineEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTimelineEventOutputFilterSensitiveLog = (obj: GetTimelineEventOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IncidentRecordSummaryFilterSensitiveLog = (obj: IncidentRecordSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ItemValueFilterSensitiveLog = (obj: ItemValue): any => {
+  if (obj.arn !== undefined) return { arn: obj.arn };
+  if (obj.url !== undefined) return { url: obj.url };
+  if (obj.metricDefinition !== undefined) return { metricDefinition: obj.metricDefinition };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ItemIdentifierFilterSensitiveLog = (obj: ItemIdentifier): any => ({
+  ...obj,
+  ...(obj.value && { value: ItemValueFilterSensitiveLog(obj.value) }),
+});
+
+/**
+ * @internal
+ */
+export const ListIncidentRecordsInputFilterSensitiveLog = (obj: ListIncidentRecordsInput): any => ({
+  ...obj,
+  ...(obj.filters && { filters: obj.filters.map((item) => FilterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListIncidentRecordsOutputFilterSensitiveLog = (obj: ListIncidentRecordsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRelatedItemsInputFilterSensitiveLog = (obj: ListRelatedItemsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelatedItemFilterSensitiveLog = (obj: RelatedItem): any => ({
+  ...obj,
+  ...(obj.identifier && { identifier: ItemIdentifierFilterSensitiveLog(obj.identifier) }),
+});
+
+/**
+ * @internal
+ */
+export const ListRelatedItemsOutputFilterSensitiveLog = (obj: ListRelatedItemsOutput): any => ({
+  ...obj,
+  ...(obj.relatedItems && { relatedItems: obj.relatedItems.map((item) => RelatedItemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListReplicationSetsInputFilterSensitiveLog = (obj: ListReplicationSetsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReplicationSetsOutputFilterSensitiveLog = (obj: ListReplicationSetsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResponsePlansInputFilterSensitiveLog = (obj: ListResponsePlansInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponsePlanSummaryFilterSensitiveLog = (obj: ResponsePlanSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResponsePlansOutputFilterSensitiveLog = (obj: ListResponsePlansOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTimelineEventsInputFilterSensitiveLog = (obj: ListTimelineEventsInput): any => ({
+  ...obj,
+  ...(obj.filters && { filters: obj.filters.map((item) => FilterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListTimelineEventsOutputFilterSensitiveLog = (obj: ListTimelineEventsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyInputFilterSensitiveLog = (obj: PutResourcePolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyOutputFilterSensitiveLog = (obj: PutResourcePolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelatedItemsUpdateFilterSensitiveLog = (obj: RelatedItemsUpdate): any => {
+  if (obj.itemToAdd !== undefined) return { itemToAdd: RelatedItemFilterSensitiveLog(obj.itemToAdd) };
+  if (obj.itemToRemove !== undefined) return { itemToRemove: ItemIdentifierFilterSensitiveLog(obj.itemToRemove) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const TriggerDetailsFilterSensitiveLog = (obj: TriggerDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartIncidentInputFilterSensitiveLog = (obj: StartIncidentInput): any => ({
+  ...obj,
+  ...(obj.relatedItems && { relatedItems: obj.relatedItems.map((item) => RelatedItemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const StartIncidentOutputFilterSensitiveLog = (obj: StartIncidentOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeletionProtectionInputFilterSensitiveLog = (obj: UpdateDeletionProtectionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeletionProtectionOutputFilterSensitiveLog = (obj: UpdateDeletionProtectionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIncidentRecordInputFilterSensitiveLog = (obj: UpdateIncidentRecordInput): any => ({
+  ...obj,
+  ...(obj.chatChannel && { chatChannel: ChatChannelFilterSensitiveLog(obj.chatChannel) }),
+  ...(obj.notificationTargets && {
+    notificationTargets: obj.notificationTargets.map((item) => NotificationTargetItemFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateIncidentRecordOutputFilterSensitiveLog = (obj: UpdateIncidentRecordOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRelatedItemsInputFilterSensitiveLog = (obj: UpdateRelatedItemsInput): any => ({
+  ...obj,
+  ...(obj.relatedItemsUpdate && { relatedItemsUpdate: RelatedItemsUpdateFilterSensitiveLog(obj.relatedItemsUpdate) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateRelatedItemsOutputFilterSensitiveLog = (obj: UpdateRelatedItemsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateReplicationSetActionFilterSensitiveLog = (obj: UpdateReplicationSetAction): any => {
+  if (obj.addRegionAction !== undefined)
+    return { addRegionAction: AddRegionActionFilterSensitiveLog(obj.addRegionAction) };
+  if (obj.deleteRegionAction !== undefined)
+    return { deleteRegionAction: DeleteRegionActionFilterSensitiveLog(obj.deleteRegionAction) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const UpdateReplicationSetInputFilterSensitiveLog = (obj: UpdateReplicationSetInput): any => ({
+  ...obj,
+  ...(obj.actions && { actions: obj.actions.map((item) => UpdateReplicationSetActionFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateReplicationSetOutputFilterSensitiveLog = (obj: UpdateReplicationSetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResponsePlanInputFilterSensitiveLog = (obj: UpdateResponsePlanInput): any => ({
+  ...obj,
+  ...(obj.incidentTemplateNotificationTargets && {
+    incidentTemplateNotificationTargets: obj.incidentTemplateNotificationTargets.map((item) =>
+      NotificationTargetItemFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.chatChannel && { chatChannel: ChatChannelFilterSensitiveLog(obj.chatChannel) }),
+  ...(obj.actions && { actions: obj.actions.map((item) => ActionFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateResponsePlanOutputFilterSensitiveLog = (obj: UpdateResponsePlanOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTimelineEventInputFilterSensitiveLog = (obj: UpdateTimelineEventInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTimelineEventOutputFilterSensitiveLog = (obj: UpdateTimelineEventOutput): any => ({
+  ...obj,
+});

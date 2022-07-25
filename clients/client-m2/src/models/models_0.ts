@@ -51,15 +51,6 @@ export interface AlternateKey {
   allowDuplicates?: boolean;
 }
 
-export namespace AlternateKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlternateKey): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelBatchJobExecutionRequest {
   /**
    * <p>The unique identifier of the application.</p>
@@ -72,25 +63,7 @@ export interface CancelBatchJobExecutionRequest {
   executionId: string | undefined;
 }
 
-export namespace CancelBatchJobExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelBatchJobExecutionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelBatchJobExecutionResponse {}
-
-export namespace CancelBatchJobExecutionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelBatchJobExecutionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The parameters provided in the request conflict with existing resources.</p>
@@ -235,15 +208,6 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "cannotParse",
   FIELD_VALIDATION_FAILED = "fieldValidationFailed",
@@ -324,15 +288,6 @@ export namespace Definition {
     if (value.content !== undefined) return visitor.content(value.content);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Definition): any => {
-    if (obj.s3Location !== undefined) return { s3Location: obj.s3Location };
-    if (obj.content !== undefined) return { content: obj.content };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export enum EngineType {
@@ -377,16 +332,6 @@ export interface CreateApplicationRequest {
   clientToken?: string;
 }
 
-export namespace CreateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-    ...obj,
-    ...(obj.definition && { definition: Definition.filterSensitiveLog(obj.definition) }),
-  });
-}
-
 export interface CreateApplicationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -402,15 +347,6 @@ export interface CreateApplicationResponse {
    * <p>The version number of the application.</p>
    */
   applicationVersion: number | undefined;
-}
-
-export namespace CreateApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -475,15 +411,6 @@ export interface GdgAttributes {
   rollDisposition?: string;
 }
 
-export namespace GdgAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GdgAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The primary key for a KSDS data set.</p>
  */
@@ -503,15 +430,6 @@ export interface PrimaryKey {
    * <p>A strictly positive integer value representing the length of the primary key. </p>
    */
   length: number | undefined;
-}
-
-export namespace PrimaryKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrimaryKey): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -545,15 +463,6 @@ export interface VsamAttributes {
    *          will make use of them.</p>
    */
   alternateKeys?: AlternateKey[];
-}
-
-export namespace VsamAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VsamAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -602,15 +511,6 @@ export namespace DatasetOrgAttributes {
     if (value.gdg !== undefined) return visitor.gdg(value.gdg);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetOrgAttributes): any => {
-    if (obj.vsam !== undefined) return { vsam: VsamAttributes.filterSensitiveLog(obj.vsam) };
-    if (obj.gdg !== undefined) return { gdg: GdgAttributes.filterSensitiveLog(obj.gdg) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -627,15 +527,6 @@ export interface RecordLength {
    *          same.</p>
    */
   max: number | undefined;
-}
-
-export namespace RecordLength {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordLength): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -671,16 +562,6 @@ export interface DataSet {
   recordLength: RecordLength | undefined;
 }
 
-export namespace DataSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSet): any => ({
-    ...obj,
-    ...(obj.datasetOrg && { datasetOrg: DatasetOrgAttributes.filterSensitiveLog(obj.datasetOrg) }),
-  });
-}
-
 /**
  * <p>Defines an external storage location.</p>
  */
@@ -709,14 +590,6 @@ export namespace ExternalLocation {
     if (value.s3Location !== undefined) return visitor.s3Location(value.s3Location);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExternalLocation): any => {
-    if (obj.s3Location !== undefined) return { s3Location: obj.s3Location };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -732,17 +605,6 @@ export interface DataSetImportItem {
    * <p>The location of the data set.</p>
    */
   externalLocation: ExternalLocation | undefined;
-}
-
-export namespace DataSetImportItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSetImportItem): any => ({
-    ...obj,
-    ...(obj.dataSet && { dataSet: DataSet.filterSensitiveLog(obj.dataSet) }),
-    ...(obj.externalLocation && { externalLocation: ExternalLocation.filterSensitiveLog(obj.externalLocation) }),
-  });
 }
 
 /**
@@ -789,16 +651,6 @@ export namespace DataSetImportConfig {
     if (value.dataSets !== undefined) return visitor.dataSets(value.dataSets);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSetImportConfig): any => {
-    if (obj.s3Location !== undefined) return { s3Location: obj.s3Location };
-    if (obj.dataSets !== undefined)
-      return { dataSets: obj.dataSets.map((item) => DataSetImportItem.filterSensitiveLog(item)) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export interface CreateDataSetImportTaskRequest {
@@ -822,30 +674,11 @@ export interface CreateDataSetImportTaskRequest {
   clientToken?: string;
 }
 
-export namespace CreateDataSetImportTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataSetImportTaskRequest): any => ({
-    ...obj,
-    ...(obj.importConfig && { importConfig: DataSetImportConfig.filterSensitiveLog(obj.importConfig) }),
-  });
-}
-
 export interface CreateDataSetImportTaskResponse {
   /**
    * <p>The task identifier. This operation is asynchronous. Use this identifier with the <a>GetDataSetImportTask</a> operation to obtain the status of this task.</p>
    */
   taskId: string | undefined;
-}
-
-export namespace CreateDataSetImportTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataSetImportTaskResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDeploymentRequest {
@@ -874,29 +707,11 @@ export interface CreateDeploymentRequest {
   clientToken?: string;
 }
 
-export namespace CreateDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDeploymentResponse {
   /**
    * <p>The unique identifier of the deployment.</p>
    */
   deploymentId: string | undefined;
-}
-
-export namespace CreateDeploymentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteApplicationRequest {
@@ -906,25 +721,7 @@ export interface DeleteApplicationRequest {
   applicationId: string | undefined;
 }
 
-export namespace DeleteApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteApplicationResponse {}
-
-export namespace DeleteApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteApplicationFromEnvironmentRequest {
   /**
@@ -939,40 +736,13 @@ export interface DeleteApplicationFromEnvironmentRequest {
   environmentId: string | undefined;
 }
 
-export namespace DeleteApplicationFromEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationFromEnvironmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteApplicationFromEnvironmentResponse {}
-
-export namespace DeleteApplicationFromEnvironmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationFromEnvironmentResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetApplicationRequest {
   /**
    * <p>The identifier of the application.</p>
    */
   applicationId: string | undefined;
-}
-
-export namespace GetApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DeploymentLifecycle {
@@ -999,15 +769,6 @@ export interface DeployedVersionSummary {
    * <p>The reason for the reported status.</p>
    */
   statusReason?: string;
-}
-
-export namespace DeployedVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeployedVersionSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum ApplicationVersionLifecycle {
@@ -1041,15 +802,6 @@ export interface ApplicationVersionSummary {
   creationTime: Date | undefined;
 }
 
-export namespace ApplicationVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationVersionSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A subset of the attributes about a log group. In CloudWatch a log group is a group of log
  *          streams that share the same retention, monitoring, and access control settings.</p>
@@ -1064,15 +816,6 @@ export interface LogGroupSummary {
    * <p>The name of the log group.</p>
    */
   logGroupName: string | undefined;
-}
-
-export namespace LogGroupSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogGroupSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum ApplicationLifecycle {
@@ -1187,15 +930,6 @@ export interface GetApplicationResponse {
   statusReason?: string;
 }
 
-export namespace GetApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetApplicationVersionRequest {
   /**
    * <p>The unique identifier of the application.</p>
@@ -1206,15 +940,6 @@ export interface GetApplicationVersionRequest {
    * <p>The specific version of the application.</p>
    */
   applicationVersion: number | undefined;
-}
-
-export namespace GetApplicationVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetApplicationVersionResponse {
@@ -1255,15 +980,6 @@ export interface GetApplicationVersionResponse {
   statusReason?: string;
 }
 
-export namespace GetApplicationVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBatchJobExecutionRequest {
   /**
    * <p>The identifier of the application.</p>
@@ -1274,15 +990,6 @@ export interface GetBatchJobExecutionRequest {
    * <p>The unique identifier of the batch job execution.</p>
    */
   executionId: string | undefined;
-}
-
-export namespace GetBatchJobExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBatchJobExecutionRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum BatchJobType {
@@ -1355,15 +1062,6 @@ export interface GetBatchJobExecutionResponse {
   statusReason?: string;
 }
 
-export namespace GetBatchJobExecutionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBatchJobExecutionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDataSetDetailsRequest {
   /**
    * <p>The unique identifier of the application that this data set is associated with.</p>
@@ -1374,15 +1072,6 @@ export interface GetDataSetDetailsRequest {
    * <p>The name of the data set.</p>
    */
   dataSetName: string | undefined;
-}
-
-export namespace GetDataSetDetailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataSetDetailsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1402,15 +1091,6 @@ export interface GdgDetailAttributes {
    * <p>The disposition of the data set in the catalog.</p>
    */
   rollDisposition?: string;
-}
-
-export namespace GdgDetailAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GdgDetailAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1450,15 +1130,6 @@ export interface VsamDetailAttributes {
    *          will make use of them.</p>
    */
   alternateKeys?: AlternateKey[];
-}
-
-export namespace VsamDetailAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VsamDetailAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1507,15 +1178,6 @@ export namespace DatasetDetailOrgAttributes {
     if (value.gdg !== undefined) return visitor.gdg(value.gdg);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetDetailOrgAttributes): any => {
-    if (obj.vsam !== undefined) return { vsam: VsamDetailAttributes.filterSensitiveLog(obj.vsam) };
-    if (obj.gdg !== undefined) return { gdg: GdgDetailAttributes.filterSensitiveLog(obj.gdg) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export interface GetDataSetDetailsResponse {
@@ -1561,16 +1223,6 @@ export interface GetDataSetDetailsResponse {
   lastReferencedTime?: Date;
 }
 
-export namespace GetDataSetDetailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataSetDetailsResponse): any => ({
-    ...obj,
-    ...(obj.dataSetOrg && { dataSetOrg: DatasetDetailOrgAttributes.filterSensitiveLog(obj.dataSetOrg) }),
-  });
-}
-
 export interface GetDataSetImportTaskRequest {
   /**
    * <p>The application identifier.</p>
@@ -1582,15 +1234,6 @@ export interface GetDataSetImportTaskRequest {
    *       </p>
    */
   taskId: string | undefined;
-}
-
-export namespace GetDataSetImportTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataSetImportTaskRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DataSetTaskLifecycle {
@@ -1629,15 +1272,6 @@ export interface DataSetImportSummary {
   inProgress: number | undefined;
 }
 
-export namespace DataSetImportSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSetImportSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDataSetImportTaskResponse {
   /**
    * <p>The task identifier.</p>
@@ -1655,15 +1289,6 @@ export interface GetDataSetImportTaskResponse {
   summary?: DataSetImportSummary;
 }
 
-export namespace GetDataSetImportTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataSetImportTaskResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeploymentRequest {
   /**
    * <p>The unique identifier for the deployment.</p>
@@ -1674,15 +1299,6 @@ export interface GetDeploymentRequest {
    * <p>The unique identifier of the application.</p>
    */
   applicationId: string | undefined;
-}
-
-export namespace GetDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDeploymentResponse {
@@ -1722,15 +1338,6 @@ export interface GetDeploymentResponse {
   statusReason?: string;
 }
 
-export namespace GetDeploymentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationsRequest {
   /**
    * <p>A pagination token to control the number of applications displayed in the list.</p>
@@ -1752,15 +1359,6 @@ export interface ListApplicationsRequest {
    *          deployed.</p>
    */
   environmentId?: string;
-}
-
-export namespace ListApplicationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ApplicationDeploymentLifecycle {
@@ -1835,15 +1433,6 @@ export interface ApplicationSummary {
   deploymentStatus?: ApplicationDeploymentLifecycle | string;
 }
 
-export namespace ApplicationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationsResponse {
   /**
    * <p>Returns a list of summary details for all the applications in an environment.</p>
@@ -1855,15 +1444,6 @@ export interface ListApplicationsResponse {
    *          applications.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListApplicationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListApplicationVersionsRequest {
@@ -1885,15 +1465,6 @@ export interface ListApplicationVersionsRequest {
   applicationId: string | undefined;
 }
 
-export namespace ListApplicationVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationVersionsResponse {
   /**
    * <p>The list of application versions.</p>
@@ -1905,15 +1476,6 @@ export interface ListApplicationVersionsResponse {
    *   that is passed to a subsequent call to this operation to retrieve the next set of items.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListApplicationVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBatchJobDefinitionsRequest {
@@ -1941,15 +1503,6 @@ export interface ListBatchJobDefinitionsRequest {
   prefix?: string;
 }
 
-export namespace ListBatchJobDefinitionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBatchJobDefinitionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A file containing a batch job definition.</p>
  */
@@ -1965,15 +1518,6 @@ export interface FileBatchJobDefinition {
   folderPath?: string;
 }
 
-export namespace FileBatchJobDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileBatchJobDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A batch job definition contained in a script.</p>
  */
@@ -1982,15 +1526,6 @@ export interface ScriptBatchJobDefinition {
    * <p>The name of the script containing the batch job definition.</p>
    */
   scriptName: string | undefined;
-}
-
-export namespace ScriptBatchJobDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScriptBatchJobDefinition): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2038,17 +1573,6 @@ export namespace BatchJobDefinition {
       return visitor.scriptBatchJobDefinition(value.scriptBatchJobDefinition);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchJobDefinition): any => {
-    if (obj.fileBatchJobDefinition !== undefined)
-      return { fileBatchJobDefinition: FileBatchJobDefinition.filterSensitiveLog(obj.fileBatchJobDefinition) };
-    if (obj.scriptBatchJobDefinition !== undefined)
-      return { scriptBatchJobDefinition: ScriptBatchJobDefinition.filterSensitiveLog(obj.scriptBatchJobDefinition) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export interface ListBatchJobDefinitionsResponse {
@@ -2062,18 +1586,6 @@ export interface ListBatchJobDefinitionsResponse {
    *   that is passed to a subsequent call to this operation to retrieve the next set of items.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListBatchJobDefinitionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBatchJobDefinitionsResponse): any => ({
-    ...obj,
-    ...(obj.batchJobDefinitions && {
-      batchJobDefinitions: obj.batchJobDefinitions.map((item) => BatchJobDefinition.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListBatchJobExecutionsRequest {
@@ -2117,15 +1629,6 @@ export interface ListBatchJobExecutionsRequest {
    * <p>The time before the batch job executions started.</p>
    */
   startedBefore?: Date;
-}
-
-export namespace ListBatchJobExecutionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBatchJobExecutionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2173,15 +1676,6 @@ export interface BatchJobExecutionSummary {
   endTime?: Date;
 }
 
-export namespace BatchJobExecutionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchJobExecutionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBatchJobExecutionsResponse {
   /**
    * <p>Returns a list of batch job executions for an application.</p>
@@ -2193,15 +1687,6 @@ export interface ListBatchJobExecutionsResponse {
    *          executions.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListBatchJobExecutionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBatchJobExecutionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDataSetImportHistoryRequest {
@@ -2221,15 +1706,6 @@ export interface ListDataSetImportHistoryRequest {
    * <p>The unique identifier of the application.</p>
    */
   applicationId: string | undefined;
-}
-
-export namespace ListDataSetImportHistoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSetImportHistoryRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2252,15 +1728,6 @@ export interface DataSetImportTask {
   summary: DataSetImportSummary | undefined;
 }
 
-export namespace DataSetImportTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSetImportTask): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDataSetImportHistoryResponse {
   /**
    * <p>The data set import tasks.</p>
@@ -2272,15 +1739,6 @@ export interface ListDataSetImportHistoryResponse {
    *   that is passed to a subsequent call to this operation to retrieve the next set of items.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListDataSetImportHistoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSetImportHistoryResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDataSetsRequest {
@@ -2307,15 +1765,6 @@ export interface ListDataSetsRequest {
    *          sets.</p>
    */
   prefix?: string;
-}
-
-export namespace ListDataSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2354,15 +1803,6 @@ export interface DataSetSummary {
   lastReferencedTime?: Date;
 }
 
-export namespace DataSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDataSetsResponse {
   /**
    * <p>The list of data sets, containing ionformation including the creating time, the data set
@@ -2376,15 +1816,6 @@ export interface ListDataSetsResponse {
    *   that is passed to a subsequent call to this operation to retrieve the next set of items.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListDataSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDeploymentsRequest {
@@ -2404,15 +1835,6 @@ export interface ListDeploymentsRequest {
    * <p>The application identifier.</p>
    */
   applicationId: string | undefined;
-}
-
-export namespace ListDeploymentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2455,15 +1877,6 @@ export interface DeploymentSummary {
   statusReason?: string;
 }
 
-export namespace DeploymentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDeploymentsResponse {
   /**
    * <p>The list of deployments that is returned.</p>
@@ -2477,15 +1890,6 @@ export interface ListDeploymentsResponse {
   nextToken?: string;
 }
 
-export namespace ListDeploymentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StartApplicationRequest {
   /**
    * <p>The unique identifier of the application you want to start.</p>
@@ -2493,25 +1897,7 @@ export interface StartApplicationRequest {
   applicationId: string | undefined;
 }
 
-export namespace StartApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartApplicationResponse {}
-
-export namespace StartApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartApplicationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A batch job identifier in which the batch job to run is identified by the file name and
@@ -2529,15 +1915,6 @@ export interface FileBatchJobIdentifier {
   folderPath?: string;
 }
 
-export namespace FileBatchJobIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileBatchJobIdentifier): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A batch job identifier in which the batch job to run is identified by the script
  *          name.</p>
@@ -2547,15 +1924,6 @@ export interface ScriptBatchJobIdentifier {
    * <p>The name of the script containing the batch job definition.</p>
    */
   scriptName: string | undefined;
-}
-
-export namespace ScriptBatchJobIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScriptBatchJobIdentifier): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2603,17 +1971,6 @@ export namespace BatchJobIdentifier {
       return visitor.scriptBatchJobIdentifier(value.scriptBatchJobIdentifier);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchJobIdentifier): any => {
-    if (obj.fileBatchJobIdentifier !== undefined)
-      return { fileBatchJobIdentifier: FileBatchJobIdentifier.filterSensitiveLog(obj.fileBatchJobIdentifier) };
-    if (obj.scriptBatchJobIdentifier !== undefined)
-      return { scriptBatchJobIdentifier: ScriptBatchJobIdentifier.filterSensitiveLog(obj.scriptBatchJobIdentifier) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export interface StartBatchJobRequest {
@@ -2634,32 +1991,11 @@ export interface StartBatchJobRequest {
   jobParams?: Record<string, string>;
 }
 
-export namespace StartBatchJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBatchJobRequest): any => ({
-    ...obj,
-    ...(obj.batchJobIdentifier && {
-      batchJobIdentifier: BatchJobIdentifier.filterSensitiveLog(obj.batchJobIdentifier),
-    }),
-  });
-}
-
 export interface StartBatchJobResponse {
   /**
    * <p>The unique identifier of this execution of the batch job.</p>
    */
   executionId: string | undefined;
-}
-
-export namespace StartBatchJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBatchJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StopApplicationRequest {
@@ -2676,25 +2012,7 @@ export interface StopApplicationRequest {
   forceStop?: boolean;
 }
 
-export namespace StopApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopApplicationResponse {}
-
-export namespace StopApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopApplicationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateApplicationRequest {
   /**
@@ -2719,30 +2037,11 @@ export interface UpdateApplicationRequest {
   definition?: Definition;
 }
 
-export namespace UpdateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-    ...obj,
-    ...(obj.definition && { definition: Definition.filterSensitiveLog(obj.definition) }),
-  });
-}
-
 export interface UpdateApplicationResponse {
   /**
    * <p>The new version of the application.</p>
    */
   applicationVersion: number | undefined;
-}
-
-export namespace UpdateApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2753,15 +2052,6 @@ export interface HighAvailabilityConfig {
    * <p>The number of instances in a high availability configuration.</p>
    */
   desiredCapacity: number | undefined;
-}
-
-export namespace HighAvailabilityConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HighAvailabilityConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2779,15 +2069,6 @@ export interface EfsStorageConfiguration {
   mountPoint: string | undefined;
 }
 
-export namespace EfsStorageConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EfsStorageConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines the storage configuration for an Amazon FSx file system.</p>
  */
@@ -2801,15 +2082,6 @@ export interface FsxStorageConfiguration {
    * <p>The mount point for the file system.</p>
    */
   mountPoint: string | undefined;
-}
-
-export namespace FsxStorageConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FsxStorageConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2855,15 +2127,6 @@ export namespace StorageConfiguration {
     if (value.efs !== undefined) return visitor.efs(value.efs);
     if (value.fsx !== undefined) return visitor.fsx(value.fsx);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageConfiguration): any => {
-    if (obj.efs !== undefined) return { efs: EfsStorageConfiguration.filterSensitiveLog(obj.efs) };
-    if (obj.fsx !== undefined) return { fsx: FsxStorageConfiguration.filterSensitiveLog(obj.fsx) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -2939,32 +2202,11 @@ export interface CreateEnvironmentRequest {
   clientToken?: string;
 }
 
-export namespace CreateEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentRequest): any => ({
-    ...obj,
-    ...(obj.storageConfigurations && {
-      storageConfigurations: obj.storageConfigurations.map((item) => StorageConfiguration.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface CreateEnvironmentResponse {
   /**
    * <p>The identifier of this environment.</p>
    */
   environmentId: string | undefined;
-}
-
-export namespace CreateEnvironmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteEnvironmentRequest {
@@ -2974,40 +2216,13 @@ export interface DeleteEnvironmentRequest {
   environmentId: string | undefined;
 }
 
-export namespace DeleteEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEnvironmentResponse {}
-
-export namespace DeleteEnvironmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetEnvironmentRequest {
   /**
    * <p>The unique identifier of the runtime environment.</p>
    */
   environmentId: string | undefined;
-}
-
-export namespace GetEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3025,15 +2240,6 @@ export interface MaintenanceSchedule {
   endTime?: Date;
 }
 
-export namespace MaintenanceSchedule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaintenanceSchedule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The scheduled maintenance for a runtime engine.</p>
  */
@@ -3047,15 +2253,6 @@ export interface PendingMaintenance {
    * <p>The specific runtime engine that the maintenance schedule applies to.</p>
    */
   engineVersion?: string;
-}
-
-export namespace PendingMaintenance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingMaintenance): any => ({
-    ...obj,
-  });
 }
 
 export enum EnvironmentLifecycle {
@@ -3179,18 +2376,6 @@ export interface GetEnvironmentResponse {
   pendingMaintenance?: PendingMaintenance;
 }
 
-export namespace GetEnvironmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentResponse): any => ({
-    ...obj,
-    ...(obj.storageConfigurations && {
-      storageConfigurations: obj.storageConfigurations.map((item) => StorageConfiguration.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface ListEnvironmentsRequest {
   /**
    * <p>A pagination token to control the number of environments displayed in the list.</p>
@@ -3211,15 +2396,6 @@ export interface ListEnvironmentsRequest {
    * <p>The engine type for the environment.</p>
    */
   engineType?: EngineType | string;
-}
-
-export namespace ListEnvironmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3268,15 +2444,6 @@ export interface EnvironmentSummary {
   creationTime: Date | undefined;
 }
 
-export namespace EnvironmentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEnvironmentsResponse {
   /**
    * <p>Returns a list of summary details for all the environments in your account. </p>
@@ -3288,15 +2455,6 @@ export interface ListEnvironmentsResponse {
    *          environments.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListEnvironmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateEnvironmentRequest {
@@ -3336,29 +2494,11 @@ export interface UpdateEnvironmentRequest {
   applyDuringMaintenanceWindow?: boolean;
 }
 
-export namespace UpdateEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEnvironmentResponse {
   /**
    * <p>The unique identifier of the runtime environment that was updated.</p>
    */
   environmentId: string | undefined;
-}
-
-export namespace UpdateEnvironmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEngineVersionsRequest {
@@ -3380,15 +2520,6 @@ export interface ListEngineVersionsRequest {
   maxResults?: number;
 }
 
-export namespace ListEngineVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEngineVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A subset of information about the engine version for a specific application.</p>
  */
@@ -3404,15 +2535,6 @@ export interface EngineVersionsSummary {
   engineVersion: string | undefined;
 }
 
-export namespace EngineVersionsSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EngineVersionsSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEngineVersionsResponse {
   /**
    * <p>Returns the engine versions.</p>
@@ -3426,15 +2548,6 @@ export interface ListEngineVersionsResponse {
   nextToken?: string;
 }
 
-export namespace ListEngineVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEngineVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3442,29 +2555,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
    */
   tags: Record<string, string> | undefined;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -3479,25 +2574,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -3511,22 +2588,759 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AlternateKeyFilterSensitiveLog = (obj: AlternateKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelBatchJobExecutionRequestFilterSensitiveLog = (obj: CancelBatchJobExecutionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelBatchJobExecutionResponseFilterSensitiveLog = (obj: CancelBatchJobExecutionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefinitionFilterSensitiveLog = (obj: Definition): any => {
+  if (obj.s3Location !== undefined) return { s3Location: obj.s3Location };
+  if (obj.content !== undefined) return { content: obj.content };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicationRequest): any => ({
+  ...obj,
+  ...(obj.definition && { definition: DefinitionFilterSensitiveLog(obj.definition) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationResponseFilterSensitiveLog = (obj: CreateApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GdgAttributesFilterSensitiveLog = (obj: GdgAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrimaryKeyFilterSensitiveLog = (obj: PrimaryKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VsamAttributesFilterSensitiveLog = (obj: VsamAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetOrgAttributesFilterSensitiveLog = (obj: DatasetOrgAttributes): any => {
+  if (obj.vsam !== undefined) return { vsam: VsamAttributesFilterSensitiveLog(obj.vsam) };
+  if (obj.gdg !== undefined) return { gdg: GdgAttributesFilterSensitiveLog(obj.gdg) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const RecordLengthFilterSensitiveLog = (obj: RecordLength): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSetFilterSensitiveLog = (obj: DataSet): any => ({
+  ...obj,
+  ...(obj.datasetOrg && { datasetOrg: DatasetOrgAttributesFilterSensitiveLog(obj.datasetOrg) }),
+});
+
+/**
+ * @internal
+ */
+export const ExternalLocationFilterSensitiveLog = (obj: ExternalLocation): any => {
+  if (obj.s3Location !== undefined) return { s3Location: obj.s3Location };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const DataSetImportItemFilterSensitiveLog = (obj: DataSetImportItem): any => ({
+  ...obj,
+  ...(obj.dataSet && { dataSet: DataSetFilterSensitiveLog(obj.dataSet) }),
+  ...(obj.externalLocation && { externalLocation: ExternalLocationFilterSensitiveLog(obj.externalLocation) }),
+});
+
+/**
+ * @internal
+ */
+export const DataSetImportConfigFilterSensitiveLog = (obj: DataSetImportConfig): any => {
+  if (obj.s3Location !== undefined) return { s3Location: obj.s3Location };
+  if (obj.dataSets !== undefined)
+    return { dataSets: obj.dataSets.map((item) => DataSetImportItemFilterSensitiveLog(item)) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateDataSetImportTaskRequestFilterSensitiveLog = (obj: CreateDataSetImportTaskRequest): any => ({
+  ...obj,
+  ...(obj.importConfig && { importConfig: DataSetImportConfigFilterSensitiveLog(obj.importConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDataSetImportTaskResponseFilterSensitiveLog = (obj: CreateDataSetImportTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentRequestFilterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentResponseFilterSensitiveLog = (obj: CreateDeploymentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationRequestFilterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationResponseFilterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationFromEnvironmentRequestFilterSensitiveLog = (
+  obj: DeleteApplicationFromEnvironmentRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationFromEnvironmentResponseFilterSensitiveLog = (
+  obj: DeleteApplicationFromEnvironmentResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationRequestFilterSensitiveLog = (obj: GetApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeployedVersionSummaryFilterSensitiveLog = (obj: DeployedVersionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationVersionSummaryFilterSensitiveLog = (obj: ApplicationVersionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogGroupSummaryFilterSensitiveLog = (obj: LogGroupSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationResponseFilterSensitiveLog = (obj: GetApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationVersionRequestFilterSensitiveLog = (obj: GetApplicationVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationVersionResponseFilterSensitiveLog = (obj: GetApplicationVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBatchJobExecutionRequestFilterSensitiveLog = (obj: GetBatchJobExecutionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBatchJobExecutionResponseFilterSensitiveLog = (obj: GetBatchJobExecutionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataSetDetailsRequestFilterSensitiveLog = (obj: GetDataSetDetailsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GdgDetailAttributesFilterSensitiveLog = (obj: GdgDetailAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VsamDetailAttributesFilterSensitiveLog = (obj: VsamDetailAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetDetailOrgAttributesFilterSensitiveLog = (obj: DatasetDetailOrgAttributes): any => {
+  if (obj.vsam !== undefined) return { vsam: VsamDetailAttributesFilterSensitiveLog(obj.vsam) };
+  if (obj.gdg !== undefined) return { gdg: GdgDetailAttributesFilterSensitiveLog(obj.gdg) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const GetDataSetDetailsResponseFilterSensitiveLog = (obj: GetDataSetDetailsResponse): any => ({
+  ...obj,
+  ...(obj.dataSetOrg && { dataSetOrg: DatasetDetailOrgAttributesFilterSensitiveLog(obj.dataSetOrg) }),
+});
+
+/**
+ * @internal
+ */
+export const GetDataSetImportTaskRequestFilterSensitiveLog = (obj: GetDataSetImportTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSetImportSummaryFilterSensitiveLog = (obj: DataSetImportSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataSetImportTaskResponseFilterSensitiveLog = (obj: GetDataSetImportTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentRequestFilterSensitiveLog = (obj: GetDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentResponseFilterSensitiveLog = (obj: GetDeploymentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationsRequestFilterSensitiveLog = (obj: ListApplicationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationSummaryFilterSensitiveLog = (obj: ApplicationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationsResponseFilterSensitiveLog = (obj: ListApplicationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationVersionsRequestFilterSensitiveLog = (obj: ListApplicationVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationVersionsResponseFilterSensitiveLog = (obj: ListApplicationVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBatchJobDefinitionsRequestFilterSensitiveLog = (obj: ListBatchJobDefinitionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileBatchJobDefinitionFilterSensitiveLog = (obj: FileBatchJobDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScriptBatchJobDefinitionFilterSensitiveLog = (obj: ScriptBatchJobDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchJobDefinitionFilterSensitiveLog = (obj: BatchJobDefinition): any => {
+  if (obj.fileBatchJobDefinition !== undefined)
+    return { fileBatchJobDefinition: FileBatchJobDefinitionFilterSensitiveLog(obj.fileBatchJobDefinition) };
+  if (obj.scriptBatchJobDefinition !== undefined)
+    return { scriptBatchJobDefinition: ScriptBatchJobDefinitionFilterSensitiveLog(obj.scriptBatchJobDefinition) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ListBatchJobDefinitionsResponseFilterSensitiveLog = (obj: ListBatchJobDefinitionsResponse): any => ({
+  ...obj,
+  ...(obj.batchJobDefinitions && {
+    batchJobDefinitions: obj.batchJobDefinitions.map((item) => BatchJobDefinitionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListBatchJobExecutionsRequestFilterSensitiveLog = (obj: ListBatchJobExecutionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchJobExecutionSummaryFilterSensitiveLog = (obj: BatchJobExecutionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBatchJobExecutionsResponseFilterSensitiveLog = (obj: ListBatchJobExecutionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataSetImportHistoryRequestFilterSensitiveLog = (obj: ListDataSetImportHistoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSetImportTaskFilterSensitiveLog = (obj: DataSetImportTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataSetImportHistoryResponseFilterSensitiveLog = (obj: ListDataSetImportHistoryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataSetsRequestFilterSensitiveLog = (obj: ListDataSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSetSummaryFilterSensitiveLog = (obj: DataSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataSetsResponseFilterSensitiveLog = (obj: ListDataSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentsRequestFilterSensitiveLog = (obj: ListDeploymentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentSummaryFilterSensitiveLog = (obj: DeploymentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentsResponseFilterSensitiveLog = (obj: ListDeploymentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartApplicationRequestFilterSensitiveLog = (obj: StartApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartApplicationResponseFilterSensitiveLog = (obj: StartApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileBatchJobIdentifierFilterSensitiveLog = (obj: FileBatchJobIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScriptBatchJobIdentifierFilterSensitiveLog = (obj: ScriptBatchJobIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchJobIdentifierFilterSensitiveLog = (obj: BatchJobIdentifier): any => {
+  if (obj.fileBatchJobIdentifier !== undefined)
+    return { fileBatchJobIdentifier: FileBatchJobIdentifierFilterSensitiveLog(obj.fileBatchJobIdentifier) };
+  if (obj.scriptBatchJobIdentifier !== undefined)
+    return { scriptBatchJobIdentifier: ScriptBatchJobIdentifierFilterSensitiveLog(obj.scriptBatchJobIdentifier) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const StartBatchJobRequestFilterSensitiveLog = (obj: StartBatchJobRequest): any => ({
+  ...obj,
+  ...(obj.batchJobIdentifier && { batchJobIdentifier: BatchJobIdentifierFilterSensitiveLog(obj.batchJobIdentifier) }),
+});
+
+/**
+ * @internal
+ */
+export const StartBatchJobResponseFilterSensitiveLog = (obj: StartBatchJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopApplicationRequestFilterSensitiveLog = (obj: StopApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopApplicationResponseFilterSensitiveLog = (obj: StopApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationRequestFilterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
+  ...obj,
+  ...(obj.definition && { definition: DefinitionFilterSensitiveLog(obj.definition) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationResponseFilterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HighAvailabilityConfigFilterSensitiveLog = (obj: HighAvailabilityConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EfsStorageConfigurationFilterSensitiveLog = (obj: EfsStorageConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FsxStorageConfigurationFilterSensitiveLog = (obj: FsxStorageConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageConfigurationFilterSensitiveLog = (obj: StorageConfiguration): any => {
+  if (obj.efs !== undefined) return { efs: EfsStorageConfigurationFilterSensitiveLog(obj.efs) };
+  if (obj.fsx !== undefined) return { fsx: FsxStorageConfigurationFilterSensitiveLog(obj.fsx) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentRequestFilterSensitiveLog = (obj: CreateEnvironmentRequest): any => ({
+  ...obj,
+  ...(obj.storageConfigurations && {
+    storageConfigurations: obj.storageConfigurations.map((item) => StorageConfigurationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentResponseFilterSensitiveLog = (obj: CreateEnvironmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentRequestFilterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentResponseFilterSensitiveLog = (obj: DeleteEnvironmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentRequestFilterSensitiveLog = (obj: GetEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MaintenanceScheduleFilterSensitiveLog = (obj: MaintenanceSchedule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingMaintenanceFilterSensitiveLog = (obj: PendingMaintenance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentResponseFilterSensitiveLog = (obj: GetEnvironmentResponse): any => ({
+  ...obj,
+  ...(obj.storageConfigurations && {
+    storageConfigurations: obj.storageConfigurations.map((item) => StorageConfigurationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentsRequestFilterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentSummaryFilterSensitiveLog = (obj: EnvironmentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentsResponseFilterSensitiveLog = (obj: ListEnvironmentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentRequestFilterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentResponseFilterSensitiveLog = (obj: UpdateEnvironmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEngineVersionsRequestFilterSensitiveLog = (obj: ListEngineVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EngineVersionsSummaryFilterSensitiveLog = (obj: EngineVersionsSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEngineVersionsResponseFilterSensitiveLog = (obj: ListEngineVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

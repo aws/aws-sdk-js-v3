@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RefreshCacheInput, RefreshCacheOutput } from "../models/models_0";
+import {
+  RefreshCacheInput,
+  RefreshCacheInputFilterSensitiveLog,
+  RefreshCacheOutput,
+  RefreshCacheOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RefreshCacheCommand,
   serializeAws_json1_1RefreshCacheCommand,
@@ -121,8 +126,8 @@ export class RefreshCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RefreshCacheInput.filterSensitiveLog,
-      outputFilterSensitiveLog: RefreshCacheOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RefreshCacheInputFilterSensitiveLog,
+      outputFilterSensitiveLog: RefreshCacheOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

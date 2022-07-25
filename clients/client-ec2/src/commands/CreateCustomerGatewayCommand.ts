@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateCustomerGatewayRequest, CreateCustomerGatewayResult } from "../models/models_0";
+import {
+  CreateCustomerGatewayRequest,
+  CreateCustomerGatewayRequestFilterSensitiveLog,
+  CreateCustomerGatewayResult,
+  CreateCustomerGatewayResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_ec2CreateCustomerGatewayCommand,
   serializeAws_ec2CreateCustomerGatewayCommand,
@@ -85,8 +90,8 @@ export class CreateCustomerGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomerGatewayRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomerGatewayResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCustomerGatewayRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateCustomerGatewayResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

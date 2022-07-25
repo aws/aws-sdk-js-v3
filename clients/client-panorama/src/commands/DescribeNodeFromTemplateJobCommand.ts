@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeNodeFromTemplateJobRequest, DescribeNodeFromTemplateJobResponse } from "../models/models_0";
+import {
+  DescribeNodeFromTemplateJobRequest,
+  DescribeNodeFromTemplateJobRequestFilterSensitiveLog,
+  DescribeNodeFromTemplateJobResponse,
+  DescribeNodeFromTemplateJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
   deserializeAws_restJson1DescribeNodeFromTemplateJobCommand,
@@ -74,8 +79,8 @@ export class DescribeNodeFromTemplateJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNodeFromTemplateJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNodeFromTemplateJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeNodeFromTemplateJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNodeFromTemplateJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

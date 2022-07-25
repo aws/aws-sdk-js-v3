@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RemovePermissionRequest } from "../models/models_0";
+import { RemovePermissionRequest, RemovePermissionRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryRemovePermissionCommand,
   serializeAws_queryRemovePermissionCommand,
@@ -87,7 +87,7 @@ export class RemovePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemovePermissionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: RemovePermissionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

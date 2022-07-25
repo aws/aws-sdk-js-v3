@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { EnableKeyRequest } from "../models/models_0";
+import { EnableKeyRequest, EnableKeyRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_json1_1EnableKeyCommand, serializeAws_json1_1EnableKeyCommand } from "../protocols/Aws_json1_1";
 
 export interface EnableKeyCommandInput extends EnableKeyRequest {}
@@ -77,7 +77,7 @@ export class EnableKeyCommand extends $Command<EnableKeyCommandInput, EnableKeyC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableKeyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableKeyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

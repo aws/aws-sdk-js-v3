@@ -72,15 +72,6 @@ export interface Action {
   RoleArn?: string;
 }
 
-export namespace Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Action): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An extension that was invoked as part of a deployment event.</p>
  */
@@ -123,15 +114,6 @@ export interface ActionInvocation {
   InvocationId?: string;
 }
 
-export namespace ActionInvocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionInvocation): any => ({
-    ...obj,
-  });
-}
-
 export enum ActionPoint {
   ON_DEPLOYMENT_BAKING = "ON_DEPLOYMENT_BAKING",
   ON_DEPLOYMENT_COMPLETE = "ON_DEPLOYMENT_COMPLETE",
@@ -157,15 +139,6 @@ export interface Application {
    * <p>The description of the application.</p>
    */
   Description?: string;
-}
-
-export namespace Application {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Application): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -202,15 +175,6 @@ export interface InvalidConfigurationDetail {
   Value?: string;
 }
 
-export namespace InvalidConfigurationDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidConfigurationDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Detailed information about the input that failed to satisfy the constraints specified by
  *          a call.</p>
@@ -240,19 +204,6 @@ export namespace BadRequestDetails {
   export const visit = <T>(value: BadRequestDetails, visitor: Visitor<T>): T => {
     if (value.InvalidConfiguration !== undefined) return visitor.InvalidConfiguration(value.InvalidConfiguration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestDetails): any => {
-    if (obj.InvalidConfiguration !== undefined)
-      return {
-        InvalidConfiguration: obj.InvalidConfiguration.map((item) =>
-          InvalidConfigurationDetail.filterSensitiveLog(item)
-        ),
-      };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -307,15 +258,6 @@ export interface CreateApplicationRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There was an internal failure in the AppConfig service.</p>
  */
@@ -362,16 +304,6 @@ export interface Validator {
    *          function.</p>
    */
   Content: string | undefined;
-}
-
-export namespace Validator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Validator): any => ({
-    ...obj,
-    ...(obj.Content && { Content: SENSITIVE_STRING }),
-  });
 }
 
 export interface ConfigurationProfile {
@@ -425,16 +357,6 @@ export interface ConfigurationProfile {
    *          </p>
    */
   Type?: string;
-}
-
-export namespace ConfigurationProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationProfile): any => ({
-    ...obj,
-    ...(obj.Validators && { Validators: obj.Validators.map((item) => Validator.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface CreateConfigurationProfileRequest {
@@ -504,16 +426,6 @@ export interface CreateConfigurationProfileRequest {
    *          </p>
    */
   Type?: string;
-}
-
-export namespace CreateConfigurationProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationProfileRequest): any => ({
-    ...obj,
-    ...(obj.Validators && { Validators: obj.Validators.map((item) => Validator.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -628,15 +540,6 @@ export interface CreateDeploymentStrategyRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateDeploymentStrategyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentStrategyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeploymentStrategy {
   /**
    * <p>The deployment strategy ID.</p>
@@ -681,15 +584,6 @@ export interface DeploymentStrategy {
   ReplicateTo?: ReplicateTo | string;
 }
 
-export namespace DeploymentStrategy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentStrategy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
  */
@@ -704,15 +598,6 @@ export interface Monitor {
    *             <code>AlarmArn</code>.</p>
    */
   AlarmRoleArn?: string;
-}
-
-export namespace Monitor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Monitor): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateEnvironmentRequest {
@@ -741,15 +626,6 @@ export interface CreateEnvironmentRequest {
    *          you define.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum EnvironmentState {
@@ -794,15 +670,6 @@ export interface Environment {
   Monitors?: Monitor[];
 }
 
-export namespace Environment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Environment): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request could not be processed because of conflict in the current state of the
  *          resource.</p>
@@ -842,15 +709,6 @@ export interface Parameter {
    * <p>A parameter value must be specified in the extension association.</p>
    */
   Required?: boolean;
-}
-
-export namespace Parameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Parameter): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateExtensionRequest {
@@ -893,15 +751,6 @@ export interface CreateExtensionRequest {
   LatestVersionNumber?: number;
 }
 
-export namespace CreateExtensionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExtensionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface Extension {
   /**
    * <p>The system-generated ID of the extension.</p>
@@ -940,15 +789,6 @@ export interface Extension {
    *          actions, these parameters are included in the Lambda request object.</p>
    */
   Parameters?: Record<string, Parameter>;
-}
-
-export namespace Extension {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Extension): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1004,15 +844,6 @@ export interface CreateExtensionAssociationRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateExtensionAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExtensionAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ExtensionAssociation {
   /**
    * <p>The system-generated ID for the association.</p>
@@ -1044,15 +875,6 @@ export interface ExtensionAssociation {
    * <p>The version number for the extension defined in the association.</p>
    */
   ExtensionVersionNumber?: number;
-}
-
-export namespace ExtensionAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtensionAssociation): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateHostedConfigurationVersionRequest {
@@ -1091,16 +913,6 @@ export interface CreateHostedConfigurationVersionRequest {
   LatestVersionNumber?: number;
 }
 
-export namespace CreateHostedConfigurationVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHostedConfigurationVersionRequest): any => ({
-    ...obj,
-    ...(obj.Content && { Content: SENSITIVE_STRING }),
-  });
-}
-
 export interface HostedConfigurationVersion {
   /**
    * <p>The application ID.</p>
@@ -1132,16 +944,6 @@ export interface HostedConfigurationVersion {
    *          information, see <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
   ContentType?: string;
-}
-
-export namespace HostedConfigurationVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostedConfigurationVersion): any => ({
-    ...obj,
-    ...(obj.Content && { Content: SENSITIVE_STRING }),
-  });
 }
 
 export enum BytesMeasure {
@@ -1182,15 +984,6 @@ export interface DeleteApplicationRequest {
   ApplicationId: string | undefined;
 }
 
-export namespace DeleteApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteConfigurationProfileRequest {
   /**
    * <p>The application ID that includes the configuration profile you want to delete.</p>
@@ -1203,29 +996,11 @@ export interface DeleteConfigurationProfileRequest {
   ConfigurationProfileId: string | undefined;
 }
 
-export namespace DeleteConfigurationProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDeploymentStrategyRequest {
   /**
    * <p>The ID of the deployment strategy you want to delete.</p>
    */
   DeploymentStrategyId: string | undefined;
-}
-
-export namespace DeleteDeploymentStrategyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeploymentStrategyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteEnvironmentRequest {
@@ -1238,15 +1013,6 @@ export interface DeleteEnvironmentRequest {
    * <p>The ID of the environment that you want to delete.</p>
    */
   EnvironmentId: string | undefined;
-}
-
-export namespace DeleteEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteExtensionRequest {
@@ -1262,29 +1028,11 @@ export interface DeleteExtensionRequest {
   VersionNumber?: number;
 }
 
-export namespace DeleteExtensionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteExtensionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteExtensionAssociationRequest {
   /**
    * <p>The ID of the extension association to delete.</p>
    */
   ExtensionAssociationId: string | undefined;
-}
-
-export namespace DeleteExtensionAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteExtensionAssociationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteHostedConfigurationVersionRequest {
@@ -1304,29 +1052,11 @@ export interface DeleteHostedConfigurationVersionRequest {
   VersionNumber: number | undefined;
 }
 
-export namespace DeleteHostedConfigurationVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHostedConfigurationVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetApplicationRequest {
   /**
    * <p>The ID of the application you want to get.</p>
    */
   ApplicationId: string | undefined;
-}
-
-export namespace GetApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface Configuration {
@@ -1352,16 +1082,6 @@ export interface Configuration {
    *          information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a>.</p>
    */
   ContentType?: string;
-}
-
-export namespace Configuration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Configuration): any => ({
-    ...obj,
-    ...(obj.Content && { Content: SENSITIVE_STRING }),
-  });
 }
 
 export interface GetConfigurationRequest {
@@ -1411,15 +1131,6 @@ export interface GetConfigurationRequest {
   ClientConfigurationVersion?: string;
 }
 
-export namespace GetConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetConfigurationProfileRequest {
   /**
    * <p>The ID of the application that includes the configuration profile you want to
@@ -1431,15 +1142,6 @@ export interface GetConfigurationProfileRequest {
    * <p>The ID of the configuration profile that you want to get.</p>
    */
   ConfigurationProfileId: string | undefined;
-}
-
-export namespace GetConfigurationProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConfigurationProfileRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1465,15 +1167,6 @@ export interface AppliedExtension {
    * <p>One or more parameters for the actions called by the extension.</p>
    */
   Parameters?: Record<string, string>;
-}
-
-export namespace AppliedExtension {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppliedExtension): any => ({
-    ...obj,
-  });
 }
 
 export enum DeploymentEventType {
@@ -1526,15 +1219,6 @@ export interface DeploymentEvent {
    * <p>The date and time the event occurred.</p>
    */
   OccurredAt?: Date;
-}
-
-export namespace DeploymentEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentEvent): any => ({
-    ...obj,
-  });
 }
 
 export enum DeploymentState {
@@ -1648,15 +1332,6 @@ export interface Deployment {
   AppliedExtensions?: AppliedExtension[];
 }
 
-export namespace Deployment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Deployment): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeploymentRequest {
   /**
    * <p>The ID of the application that includes the deployment you want to get. </p>
@@ -1674,29 +1349,11 @@ export interface GetDeploymentRequest {
   DeploymentNumber: number | undefined;
 }
 
-export namespace GetDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeploymentStrategyRequest {
   /**
    * <p>The ID of the deployment strategy to get.</p>
    */
   DeploymentStrategyId: string | undefined;
-}
-
-export namespace GetDeploymentStrategyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentStrategyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEnvironmentRequest {
@@ -1709,15 +1366,6 @@ export interface GetEnvironmentRequest {
    * <p>The ID of the environment that you want to get.</p>
    */
   EnvironmentId: string | undefined;
-}
-
-export namespace GetEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetExtensionRequest {
@@ -1733,29 +1381,11 @@ export interface GetExtensionRequest {
   VersionNumber?: number;
 }
 
-export namespace GetExtensionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExtensionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetExtensionAssociationRequest {
   /**
    * <p>The extension association ID to get.</p>
    */
   ExtensionAssociationId: string | undefined;
-}
-
-export namespace GetExtensionAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExtensionAssociationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetHostedConfigurationVersionRequest {
@@ -1775,15 +1405,6 @@ export interface GetHostedConfigurationVersionRequest {
   VersionNumber: number | undefined;
 }
 
-export namespace GetHostedConfigurationVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHostedConfigurationVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface Applications {
   /**
    * <p>The elements from this collection.</p>
@@ -1795,15 +1416,6 @@ export interface Applications {
    *          results.</p>
    */
   NextToken?: string;
-}
-
-export namespace Applications {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Applications): any => ({
-    ...obj,
-  });
 }
 
 export interface ListApplicationsRequest {
@@ -1820,15 +1432,6 @@ export interface ListApplicationsRequest {
    *          of results. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListApplicationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1876,15 +1479,6 @@ export interface ConfigurationProfileSummary {
   Type?: string;
 }
 
-export namespace ConfigurationProfileSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationProfileSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ConfigurationProfiles {
   /**
    * <p>The elements from this collection.</p>
@@ -1896,15 +1490,6 @@ export interface ConfigurationProfiles {
    *          results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ConfigurationProfiles {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationProfiles): any => ({
-    ...obj,
-  });
 }
 
 export interface ListConfigurationProfilesRequest {
@@ -1929,15 +1514,6 @@ export interface ListConfigurationProfilesRequest {
    *          configuration can be a feature flag or a freeform configuration.</p>
    */
   Type?: string;
-}
-
-export namespace ListConfigurationProfilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationProfilesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2002,15 +1578,6 @@ export interface DeploymentSummary {
   CompletedAt?: Date;
 }
 
-export namespace DeploymentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface Deployments {
   /**
    * <p>The elements from this collection.</p>
@@ -2022,15 +1589,6 @@ export interface Deployments {
    *          results.</p>
    */
   NextToken?: string;
-}
-
-export namespace Deployments {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Deployments): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDeploymentsRequest {
@@ -2059,15 +1617,6 @@ export interface ListDeploymentsRequest {
   NextToken?: string;
 }
 
-export namespace ListDeploymentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeploymentStrategies {
   /**
    * <p>The elements from this collection.</p>
@@ -2079,15 +1628,6 @@ export interface DeploymentStrategies {
    *          results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DeploymentStrategies {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentStrategies): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDeploymentStrategiesRequest {
@@ -2103,15 +1643,6 @@ export interface ListDeploymentStrategiesRequest {
   NextToken?: string;
 }
 
-export namespace ListDeploymentStrategiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentStrategiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface Environments {
   /**
    * <p>The elements from this collection.</p>
@@ -2123,15 +1654,6 @@ export interface Environments {
    *          results.</p>
    */
   NextToken?: string;
-}
-
-export namespace Environments {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Environments): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEnvironmentsRequest {
@@ -2150,15 +1672,6 @@ export interface ListEnvironmentsRequest {
    * <p>A token to start the list. Use this token to get the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListEnvironmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2187,15 +1700,6 @@ export interface ExtensionAssociationSummary {
   ResourceArn?: string;
 }
 
-export namespace ExtensionAssociationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtensionAssociationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ExtensionAssociations {
   /**
    * <p>The list of extension associations. Each item represents an extension association to an
@@ -2208,15 +1712,6 @@ export interface ExtensionAssociations {
    *          results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ExtensionAssociations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtensionAssociations): any => ({
-    ...obj,
-  });
 }
 
 export interface ListExtensionAssociationsRequest {
@@ -2246,15 +1741,6 @@ export interface ListExtensionAssociationsRequest {
    *          get the first set of results. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListExtensionAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExtensionAssociationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2288,15 +1774,6 @@ export interface ExtensionSummary {
   Description?: string;
 }
 
-export namespace ExtensionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtensionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface Extensions {
   /**
    * <p>The list of available extensions. The list includes Amazon Web Services-authored and
@@ -2309,15 +1786,6 @@ export interface Extensions {
    *          results.</p>
    */
   NextToken?: string;
-}
-
-export namespace Extensions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Extensions): any => ({
-    ...obj,
-  });
 }
 
 export interface ListExtensionsRequest {
@@ -2336,15 +1804,6 @@ export interface ListExtensionsRequest {
    * <p>The extension name.</p>
    */
   Name?: string;
-}
-
-export namespace ListExtensionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExtensionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2378,15 +1837,6 @@ export interface HostedConfigurationVersionSummary {
   ContentType?: string;
 }
 
-export namespace HostedConfigurationVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostedConfigurationVersionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface HostedConfigurationVersions {
   /**
    * <p>The elements from this collection.</p>
@@ -2398,15 +1848,6 @@ export interface HostedConfigurationVersions {
    *          results.</p>
    */
   NextToken?: string;
-}
-
-export namespace HostedConfigurationVersions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostedConfigurationVersions): any => ({
-    ...obj,
-  });
 }
 
 export interface ListHostedConfigurationVersionsRequest {
@@ -2432,29 +1873,11 @@ export interface ListHostedConfigurationVersionsRequest {
   NextToken?: string;
 }
 
-export namespace ListHostedConfigurationVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHostedConfigurationVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The resource ARN.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ResourceTags {
@@ -2464,15 +1887,6 @@ export interface ResourceTags {
    *          of which you define.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ResourceTags {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTags): any => ({
-    ...obj,
-  });
 }
 
 export interface StartDeploymentRequest {
@@ -2513,15 +1927,6 @@ export interface StartDeploymentRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace StartDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopDeploymentRequest {
   /**
    * <p>The application ID.</p>
@@ -2539,15 +1944,6 @@ export interface StopDeploymentRequest {
   DeploymentNumber: number | undefined;
 }
 
-export namespace StopDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource for which to retrieve tags.</p>
@@ -2562,15 +1958,6 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource for which to remove tags.</p>
@@ -2581,15 +1968,6 @@ export interface UntagResourceRequest {
    * <p>The tag keys to delete.</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateApplicationRequest {
@@ -2607,15 +1985,6 @@ export interface UpdateApplicationRequest {
    * <p>A description of the application.</p>
    */
   Description?: string;
-}
-
-export namespace UpdateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateConfigurationProfileRequest {
@@ -2649,16 +2018,6 @@ export interface UpdateConfigurationProfileRequest {
    * <p>A list of methods for validating the configuration.</p>
    */
   Validators?: Validator[];
-}
-
-export namespace UpdateConfigurationProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationProfileRequest): any => ({
-    ...obj,
-    ...(obj.Validators && { Validators: obj.Validators.map((item) => Validator.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface UpdateDeploymentStrategyRequest {
@@ -2723,15 +2082,6 @@ export interface UpdateDeploymentStrategyRequest {
   GrowthType?: GrowthType | string;
 }
 
-export namespace UpdateDeploymentStrategyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeploymentStrategyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEnvironmentRequest {
   /**
    * <p>The application ID.</p>
@@ -2757,15 +2107,6 @@ export interface UpdateEnvironmentRequest {
    * <p>Amazon CloudWatch alarms to monitor during the deployment process.</p>
    */
   Monitors?: Monitor[];
-}
-
-export namespace UpdateEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateExtensionRequest {
@@ -2795,15 +2136,6 @@ export interface UpdateExtensionRequest {
   VersionNumber?: number;
 }
 
-export namespace UpdateExtensionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateExtensionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateExtensionAssociationRequest {
   /**
    * <p>The system-generated ID for the association.</p>
@@ -2814,15 +2146,6 @@ export interface UpdateExtensionAssociationRequest {
    * <p>The parameter names and values defined in the extension.</p>
    */
   Parameters?: Record<string, string>;
-}
-
-export namespace UpdateExtensionAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateExtensionAssociationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ValidateConfigurationRequest {
@@ -2842,11 +2165,546 @@ export interface ValidateConfigurationRequest {
   ConfigurationVersion: string | undefined;
 }
 
-export namespace ValidateConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidateConfigurationRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ActionFilterSensitiveLog = (obj: Action): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionInvocationFilterSensitiveLog = (obj: ActionInvocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationFilterSensitiveLog = (obj: Application): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InvalidConfigurationDetailFilterSensitiveLog = (obj: InvalidConfigurationDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BadRequestDetailsFilterSensitiveLog = (obj: BadRequestDetails): any => {
+  if (obj.InvalidConfiguration !== undefined)
+    return {
+      InvalidConfiguration: obj.InvalidConfiguration.map((item) => InvalidConfigurationDetailFilterSensitiveLog(item)),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidatorFilterSensitiveLog = (obj: Validator): any => ({
+  ...obj,
+  ...(obj.Content && { Content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationProfileFilterSensitiveLog = (obj: ConfigurationProfile): any => ({
+  ...obj,
+  ...(obj.Validators && { Validators: obj.Validators.map((item) => ValidatorFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationProfileRequestFilterSensitiveLog = (obj: CreateConfigurationProfileRequest): any => ({
+  ...obj,
+  ...(obj.Validators && { Validators: obj.Validators.map((item) => ValidatorFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentStrategyRequestFilterSensitiveLog = (obj: CreateDeploymentStrategyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentStrategyFilterSensitiveLog = (obj: DeploymentStrategy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonitorFilterSensitiveLog = (obj: Monitor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentRequestFilterSensitiveLog = (obj: CreateEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterFilterSensitiveLog = (obj: Parameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateExtensionRequestFilterSensitiveLog = (obj: CreateExtensionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtensionFilterSensitiveLog = (obj: Extension): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateExtensionAssociationRequestFilterSensitiveLog = (obj: CreateExtensionAssociationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtensionAssociationFilterSensitiveLog = (obj: ExtensionAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHostedConfigurationVersionRequestFilterSensitiveLog = (
+  obj: CreateHostedConfigurationVersionRequest
+): any => ({
+  ...obj,
+  ...(obj.Content && { Content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const HostedConfigurationVersionFilterSensitiveLog = (obj: HostedConfigurationVersion): any => ({
+  ...obj,
+  ...(obj.Content && { Content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationRequestFilterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationProfileRequestFilterSensitiveLog = (obj: DeleteConfigurationProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeploymentStrategyRequestFilterSensitiveLog = (obj: DeleteDeploymentStrategyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentRequestFilterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteExtensionRequestFilterSensitiveLog = (obj: DeleteExtensionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteExtensionAssociationRequestFilterSensitiveLog = (obj: DeleteExtensionAssociationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteHostedConfigurationVersionRequestFilterSensitiveLog = (
+  obj: DeleteHostedConfigurationVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationRequestFilterSensitiveLog = (obj: GetApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationFilterSensitiveLog = (obj: Configuration): any => ({
+  ...obj,
+  ...(obj.Content && { Content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetConfigurationRequestFilterSensitiveLog = (obj: GetConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConfigurationProfileRequestFilterSensitiveLog = (obj: GetConfigurationProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppliedExtensionFilterSensitiveLog = (obj: AppliedExtension): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentEventFilterSensitiveLog = (obj: DeploymentEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentFilterSensitiveLog = (obj: Deployment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentRequestFilterSensitiveLog = (obj: GetDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentStrategyRequestFilterSensitiveLog = (obj: GetDeploymentStrategyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentRequestFilterSensitiveLog = (obj: GetEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExtensionRequestFilterSensitiveLog = (obj: GetExtensionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExtensionAssociationRequestFilterSensitiveLog = (obj: GetExtensionAssociationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHostedConfigurationVersionRequestFilterSensitiveLog = (
+  obj: GetHostedConfigurationVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationsFilterSensitiveLog = (obj: Applications): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationsRequestFilterSensitiveLog = (obj: ListApplicationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationProfileSummaryFilterSensitiveLog = (obj: ConfigurationProfileSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationProfilesFilterSensitiveLog = (obj: ConfigurationProfiles): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationProfilesRequestFilterSensitiveLog = (obj: ListConfigurationProfilesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentSummaryFilterSensitiveLog = (obj: DeploymentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentsFilterSensitiveLog = (obj: Deployments): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentsRequestFilterSensitiveLog = (obj: ListDeploymentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentStrategiesFilterSensitiveLog = (obj: DeploymentStrategies): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentStrategiesRequestFilterSensitiveLog = (obj: ListDeploymentStrategiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentsFilterSensitiveLog = (obj: Environments): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentsRequestFilterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtensionAssociationSummaryFilterSensitiveLog = (obj: ExtensionAssociationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtensionAssociationsFilterSensitiveLog = (obj: ExtensionAssociations): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExtensionAssociationsRequestFilterSensitiveLog = (obj: ListExtensionAssociationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtensionSummaryFilterSensitiveLog = (obj: ExtensionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtensionsFilterSensitiveLog = (obj: Extensions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExtensionsRequestFilterSensitiveLog = (obj: ListExtensionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HostedConfigurationVersionSummaryFilterSensitiveLog = (obj: HostedConfigurationVersionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HostedConfigurationVersionsFilterSensitiveLog = (obj: HostedConfigurationVersions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHostedConfigurationVersionsRequestFilterSensitiveLog = (
+  obj: ListHostedConfigurationVersionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceTagsFilterSensitiveLog = (obj: ResourceTags): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDeploymentRequestFilterSensitiveLog = (obj: StartDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopDeploymentRequestFilterSensitiveLog = (obj: StopDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationRequestFilterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationProfileRequestFilterSensitiveLog = (obj: UpdateConfigurationProfileRequest): any => ({
+  ...obj,
+  ...(obj.Validators && { Validators: obj.Validators.map((item) => ValidatorFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeploymentStrategyRequestFilterSensitiveLog = (obj: UpdateDeploymentStrategyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentRequestFilterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateExtensionRequestFilterSensitiveLog = (obj: UpdateExtensionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateExtensionAssociationRequestFilterSensitiveLog = (obj: UpdateExtensionAssociationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidateConfigurationRequestFilterSensitiveLog = (obj: ValidateConfigurationRequest): any => ({
+  ...obj,
+});

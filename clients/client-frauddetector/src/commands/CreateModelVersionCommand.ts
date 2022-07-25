@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { CreateModelVersionRequest, CreateModelVersionResult } from "../models/models_0";
+import {
+  CreateModelVersionRequest,
+  CreateModelVersionRequestFilterSensitiveLog,
+  CreateModelVersionResult,
+  CreateModelVersionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateModelVersionCommand,
   serializeAws_json1_1CreateModelVersionCommand,
@@ -73,8 +78,8 @@ export class CreateModelVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateModelVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateModelVersionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateModelVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateModelVersionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

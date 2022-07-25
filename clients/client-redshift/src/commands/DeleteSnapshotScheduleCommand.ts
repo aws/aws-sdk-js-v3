@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSnapshotScheduleMessage } from "../models/models_0";
+import { DeleteSnapshotScheduleMessage, DeleteSnapshotScheduleMessageFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDeleteSnapshotScheduleCommand,
   serializeAws_queryDeleteSnapshotScheduleCommand,
@@ -72,7 +72,7 @@ export class DeleteSnapshotScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSnapshotScheduleMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSnapshotScheduleMessageFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

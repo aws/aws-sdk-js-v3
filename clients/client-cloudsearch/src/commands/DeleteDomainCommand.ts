@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { DeleteDomainRequest, DeleteDomainResponse } from "../models/models_0";
+import {
+  DeleteDomainRequest,
+  DeleteDomainRequestFilterSensitiveLog,
+  DeleteDomainResponse,
+  DeleteDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryDeleteDomainCommand, serializeAws_queryDeleteDomainCommand } from "../protocols/Aws_query";
 
 export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
@@ -70,8 +75,8 @@ export class DeleteDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

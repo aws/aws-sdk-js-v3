@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DescribeConfigurationAggregatorsRequest, DescribeConfigurationAggregatorsResponse } from "../models/models_0";
+import {
+  DescribeConfigurationAggregatorsRequest,
+  DescribeConfigurationAggregatorsRequestFilterSensitiveLog,
+  DescribeConfigurationAggregatorsResponse,
+  DescribeConfigurationAggregatorsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeConfigurationAggregatorsCommand,
   serializeAws_json1_1DescribeConfigurationAggregatorsCommand,
@@ -77,8 +82,8 @@ export class DescribeConfigurationAggregatorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigurationAggregatorsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConfigurationAggregatorsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeConfigurationAggregatorsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeConfigurationAggregatorsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import { GetServiceSettingsRequest, GetServiceSettingsResponse } from "../models/models_0";
+import {
+  GetServiceSettingsRequest,
+  GetServiceSettingsRequestFilterSensitiveLog,
+  GetServiceSettingsResponse,
+  GetServiceSettingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetServiceSettingsCommand,
   serializeAws_json1_1GetServiceSettingsCommand,
@@ -72,8 +77,8 @@ export class GetServiceSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetServiceSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetServiceSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

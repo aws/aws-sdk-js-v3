@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateJourneyRequest, CreateJourneyResponse } from "../models/models_0";
+import {
+  CreateJourneyRequest,
+  CreateJourneyRequestFilterSensitiveLog,
+  CreateJourneyResponse,
+  CreateJourneyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1CreateJourneyCommand,
@@ -72,8 +77,8 @@ export class CreateJourneyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateJourneyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateJourneyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateJourneyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateJourneyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

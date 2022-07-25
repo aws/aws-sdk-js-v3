@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateFleetRequest, CreateFleetResponse } from "../models/models_0";
+import {
+  CreateFleetRequest,
+  CreateFleetRequestFilterSensitiveLog,
+  CreateFleetResponse,
+  CreateFleetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateFleetCommand,
   serializeAws_restJson1CreateFleetCommand,
@@ -77,8 +82,8 @@ export class CreateFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFleetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateFleetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateFleetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateFleetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

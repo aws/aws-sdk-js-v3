@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { Locations } from "../models/models_0";
+import { Locations, LocationsFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLocationsCommand,
   serializeAws_json1_1DescribeLocationsCommand,
@@ -74,7 +74,7 @@ export class DescribeLocationsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: Locations.filterSensitiveLog,
+      outputFilterSensitiveLog: LocationsFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

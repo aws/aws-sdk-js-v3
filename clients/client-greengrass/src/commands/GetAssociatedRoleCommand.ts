@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { GetAssociatedRoleRequest, GetAssociatedRoleResponse } from "../models/models_0";
+import {
+  GetAssociatedRoleRequest,
+  GetAssociatedRoleRequestFilterSensitiveLog,
+  GetAssociatedRoleResponse,
+  GetAssociatedRoleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetAssociatedRoleCommand,
   serializeAws_restJson1GetAssociatedRoleCommand,
@@ -72,8 +77,8 @@ export class GetAssociatedRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssociatedRoleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAssociatedRoleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAssociatedRoleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAssociatedRoleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

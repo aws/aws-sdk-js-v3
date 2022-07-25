@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateSecurityHubConfigurationRequest, UpdateSecurityHubConfigurationResponse } from "../models/models_2";
+import {
+  UpdateSecurityHubConfigurationRequest,
+  UpdateSecurityHubConfigurationRequestFilterSensitiveLog,
+  UpdateSecurityHubConfigurationResponse,
+  UpdateSecurityHubConfigurationResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateSecurityHubConfigurationCommand,
   serializeAws_restJson1UpdateSecurityHubConfigurationCommand,
@@ -74,8 +79,8 @@ export class UpdateSecurityHubConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSecurityHubConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSecurityHubConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSecurityHubConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSecurityHubConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

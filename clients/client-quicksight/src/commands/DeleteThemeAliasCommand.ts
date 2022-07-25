@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteThemeAliasRequest, DeleteThemeAliasResponse } from "../models/models_0";
+import {
+  DeleteThemeAliasRequest,
+  DeleteThemeAliasRequestFilterSensitiveLog,
+  DeleteThemeAliasResponse,
+  DeleteThemeAliasResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteThemeAliasCommand,
   serializeAws_restJson1DeleteThemeAliasCommand,
@@ -74,8 +79,8 @@ export class DeleteThemeAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteThemeAliasRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteThemeAliasResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteThemeAliasRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteThemeAliasResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

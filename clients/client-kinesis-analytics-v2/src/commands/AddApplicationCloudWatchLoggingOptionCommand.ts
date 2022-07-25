@@ -19,7 +19,9 @@ import {
 } from "../KinesisAnalyticsV2Client";
 import {
   AddApplicationCloudWatchLoggingOptionRequest,
+  AddApplicationCloudWatchLoggingOptionRequestFilterSensitiveLog,
   AddApplicationCloudWatchLoggingOptionResponse,
+  AddApplicationCloudWatchLoggingOptionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand,
@@ -82,8 +84,8 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddApplicationCloudWatchLoggingOptionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AddApplicationCloudWatchLoggingOptionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddApplicationCloudWatchLoggingOptionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AddApplicationCloudWatchLoggingOptionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

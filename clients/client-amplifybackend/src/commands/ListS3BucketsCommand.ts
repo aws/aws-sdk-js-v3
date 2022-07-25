@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import { ListS3BucketsRequest, ListS3BucketsResponse } from "../models/models_0";
+import {
+  ListS3BucketsRequest,
+  ListS3BucketsRequestFilterSensitiveLog,
+  ListS3BucketsResponse,
+  ListS3BucketsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListS3BucketsCommand,
   serializeAws_restJson1ListS3BucketsCommand,
@@ -72,8 +77,8 @@ export class ListS3BucketsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListS3BucketsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListS3BucketsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListS3BucketsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListS3BucketsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

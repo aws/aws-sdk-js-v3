@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetFindingsStatisticsRequest, GetFindingsStatisticsResponse } from "../models/models_0";
+import {
+  GetFindingsStatisticsRequest,
+  GetFindingsStatisticsRequestFilterSensitiveLog,
+  GetFindingsStatisticsResponse,
+  GetFindingsStatisticsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetFindingsStatisticsCommand,
   serializeAws_restJson1GetFindingsStatisticsCommand,
@@ -72,8 +77,8 @@ export class GetFindingsStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFindingsStatisticsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetFindingsStatisticsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFindingsStatisticsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetFindingsStatisticsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import { DeleteLogPatternRequest, DeleteLogPatternResponse } from "../models/models_0";
+import {
+  DeleteLogPatternRequest,
+  DeleteLogPatternRequestFilterSensitiveLog,
+  DeleteLogPatternResponse,
+  DeleteLogPatternResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLogPatternCommand,
   serializeAws_json1_1DeleteLogPatternCommand,
@@ -76,8 +81,8 @@ export class DeleteLogPatternCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLogPatternRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLogPatternResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLogPatternRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLogPatternResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

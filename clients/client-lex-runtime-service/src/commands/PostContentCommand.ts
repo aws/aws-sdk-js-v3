@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient";
-import { PostContentRequest, PostContentResponse } from "../models/models_0";
+import {
+  PostContentRequest,
+  PostContentRequestFilterSensitiveLog,
+  PostContentResponse,
+  PostContentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PostContentCommand,
   serializeAws_restJson1PostContentCommand,
@@ -161,8 +166,8 @@ export class PostContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PostContentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PostContentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PostContentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PostContentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

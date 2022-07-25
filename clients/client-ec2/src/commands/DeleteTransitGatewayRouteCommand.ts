@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteTransitGatewayRouteRequest, DeleteTransitGatewayRouteResult } from "../models/models_2";
+import {
+  DeleteTransitGatewayRouteRequest,
+  DeleteTransitGatewayRouteRequestFilterSensitiveLog,
+  DeleteTransitGatewayRouteResult,
+  DeleteTransitGatewayRouteResultFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_ec2DeleteTransitGatewayRouteCommand,
   serializeAws_ec2DeleteTransitGatewayRouteCommand,
@@ -72,8 +77,8 @@ export class DeleteTransitGatewayRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTransitGatewayRouteRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTransitGatewayRouteResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTransitGatewayRouteRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTransitGatewayRouteResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

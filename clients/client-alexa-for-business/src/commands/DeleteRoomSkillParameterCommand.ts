@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { DeleteRoomSkillParameterRequest, DeleteRoomSkillParameterResponse } from "../models/models_0";
+import {
+  DeleteRoomSkillParameterRequest,
+  DeleteRoomSkillParameterRequestFilterSensitiveLog,
+  DeleteRoomSkillParameterResponse,
+  DeleteRoomSkillParameterResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRoomSkillParameterCommand,
   serializeAws_json1_1DeleteRoomSkillParameterCommand,
@@ -72,8 +77,8 @@ export class DeleteRoomSkillParameterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRoomSkillParameterRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRoomSkillParameterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRoomSkillParameterRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRoomSkillParameterResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

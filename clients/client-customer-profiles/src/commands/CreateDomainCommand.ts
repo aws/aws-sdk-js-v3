@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { CreateDomainRequest, CreateDomainResponse } from "../models/models_0";
+import {
+  CreateDomainRequest,
+  CreateDomainRequestFilterSensitiveLog,
+  CreateDomainResponse,
+  CreateDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDomainCommand,
   serializeAws_restJson1CreateDomainCommand,
@@ -81,8 +86,8 @@ export class CreateDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

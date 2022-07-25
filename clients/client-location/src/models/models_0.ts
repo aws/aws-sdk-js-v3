@@ -45,25 +45,7 @@ export interface AssociateTrackerConsumerRequest {
   ConsumerArn: string | undefined;
 }
 
-export namespace AssociateTrackerConsumerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateTrackerConsumerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateTrackerConsumerResponse {}
-
-export namespace AssociateTrackerConsumerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateTrackerConsumerResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The request was unsuccessful because of a conflict.</p>
@@ -192,15 +174,6 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
 export type ValidationExceptionReason =
   | "CannotParse"
   | "FieldValidationFailed"
@@ -259,15 +232,6 @@ export interface BatchDeleteDevicePositionHistoryRequest {
   DeviceIds: string[] | undefined;
 }
 
-export namespace BatchDeleteDevicePositionHistoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteDevicePositionHistoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export type BatchItemErrorCode =
   | "AccessDeniedError"
   | "ConflictError"
@@ -291,15 +255,6 @@ export interface BatchItemError {
   Message?: string;
 }
 
-export namespace BatchItemError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchItemError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the tracker resource details.</p>
  */
@@ -315,29 +270,11 @@ export interface BatchDeleteDevicePositionHistoryError {
   Error: BatchItemError | undefined;
 }
 
-export namespace BatchDeleteDevicePositionHistoryError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteDevicePositionHistoryError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteDevicePositionHistoryResponse {
   /**
    * <p>Contains error details for each device history that failed to delete.</p>
    */
   Errors: BatchDeleteDevicePositionHistoryError[] | undefined;
-}
-
-export namespace BatchDeleteDevicePositionHistoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteDevicePositionHistoryResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDeleteGeofenceRequest {
@@ -350,15 +287,6 @@ export interface BatchDeleteGeofenceRequest {
    * <p>The batch of geofences to be deleted.</p>
    */
   GeofenceIds: string[] | undefined;
-}
-
-export namespace BatchDeleteGeofenceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteGeofenceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -377,29 +305,11 @@ export interface BatchDeleteGeofenceError {
   Error: BatchItemError | undefined;
 }
 
-export namespace BatchDeleteGeofenceError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteGeofenceError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteGeofenceResponse {
   /**
    * <p>Contains error details for each geofence that failed to delete.</p>
    */
   Errors: BatchDeleteGeofenceError[] | undefined;
-}
-
-export namespace BatchDeleteGeofenceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteGeofenceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -411,15 +321,6 @@ export interface PositionalAccuracy {
    *             position of a device, along the Earth's surface.</p>
    */
   Horizontal: number | undefined;
-}
-
-export namespace PositionalAccuracy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PositionalAccuracy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -459,17 +360,6 @@ export interface DevicePositionUpdate {
   PositionProperties?: Record<string, string>;
 }
 
-export namespace DevicePositionUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DevicePositionUpdate): any => ({
-    ...obj,
-    ...(obj.Position && { Position: SENSITIVE_STRING }),
-    ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
-  });
-}
-
 export interface BatchEvaluateGeofencesRequest {
   /**
    * <p>The geofence collection used in evaluating the position of devices against its
@@ -482,18 +372,6 @@ export interface BatchEvaluateGeofencesRequest {
    *             collection.</p>
    */
   DevicePositionUpdates: DevicePositionUpdate[] | undefined;
-}
-
-export namespace BatchEvaluateGeofencesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchEvaluateGeofencesRequest): any => ({
-    ...obj,
-    ...(obj.DevicePositionUpdates && {
-      DevicePositionUpdates: obj.DevicePositionUpdates.map((item) => DevicePositionUpdate.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 /**
@@ -519,30 +397,12 @@ export interface BatchEvaluateGeofencesError {
   Error: BatchItemError | undefined;
 }
 
-export namespace BatchEvaluateGeofencesError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchEvaluateGeofencesError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchEvaluateGeofencesResponse {
   /**
    * <p>Contains error details for each device that failed to evaluate its position against
    *             the given geofence collection.</p>
    */
   Errors: BatchEvaluateGeofencesError[] | undefined;
-}
-
-export namespace BatchEvaluateGeofencesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchEvaluateGeofencesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchGetDevicePositionRequest {
@@ -562,15 +422,6 @@ export interface BatchGetDevicePositionRequest {
    *          </ul>
    */
   DeviceIds: string[] | undefined;
-}
-
-export namespace BatchGetDevicePositionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetDevicePositionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -610,17 +461,6 @@ export interface DevicePosition {
   PositionProperties?: Record<string, string>;
 }
 
-export namespace DevicePosition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DevicePosition): any => ({
-    ...obj,
-    ...(obj.Position && { Position: SENSITIVE_STRING }),
-    ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Contains error details for each device that didn't return a position.</p>
  */
@@ -636,15 +476,6 @@ export interface BatchGetDevicePositionError {
   Error: BatchItemError | undefined;
 }
 
-export namespace BatchGetDevicePositionError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetDevicePositionError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetDevicePositionResponse {
   /**
    * <p>Contains  error details for each device that failed to send its position to the tracker
@@ -657,18 +488,6 @@ export interface BatchGetDevicePositionResponse {
    *             when the position was received and sampled.</p>
    */
   DevicePositions: DevicePosition[] | undefined;
-}
-
-export namespace BatchGetDevicePositionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetDevicePositionResponse): any => ({
-    ...obj,
-    ...(obj.DevicePositions && {
-      DevicePositions: obj.DevicePositions.map((item) => DevicePosition.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 /**
@@ -692,16 +511,6 @@ export interface GeofenceGeometry {
   Polygon?: number[][][];
 }
 
-export namespace GeofenceGeometry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GeofenceGeometry): any => ({
-    ...obj,
-    ...(obj.Polygon && { Polygon: obj.Polygon.map((item) => SENSITIVE_STRING) }),
-  });
-}
-
 /**
  * <p>Contains geofence geometry details. </p>
  */
@@ -720,16 +529,6 @@ export interface BatchPutGeofenceRequestEntry {
   Geometry: GeofenceGeometry | undefined;
 }
 
-export namespace BatchPutGeofenceRequestEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutGeofenceRequestEntry): any => ({
-    ...obj,
-    ...(obj.Geometry && { Geometry: GeofenceGeometry.filterSensitiveLog(obj.Geometry) }),
-  });
-}
-
 export interface BatchPutGeofenceRequest {
   /**
    * <p>The geofence collection storing the geofences.</p>
@@ -740,16 +539,6 @@ export interface BatchPutGeofenceRequest {
    * <p>The batch of geofences to be stored in a geofence collection.</p>
    */
   Entries: BatchPutGeofenceRequestEntry[] | undefined;
-}
-
-export namespace BatchPutGeofenceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutGeofenceRequest): any => ({
-    ...obj,
-    ...(obj.Entries && { Entries: obj.Entries.map((item) => BatchPutGeofenceRequestEntry.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -766,15 +555,6 @@ export interface BatchPutGeofenceError {
    * <p>Contains details associated to the batch error.</p>
    */
   Error: BatchItemError | undefined;
-}
-
-export namespace BatchPutGeofenceError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutGeofenceError): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -802,15 +582,6 @@ export interface BatchPutGeofenceSuccess {
   UpdateTime: Date | undefined;
 }
 
-export namespace BatchPutGeofenceSuccess {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutGeofenceSuccess): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchPutGeofenceResponse {
   /**
    * <p>Contains each geofence that was successfully stored in a geofence collection.</p>
@@ -824,15 +595,6 @@ export interface BatchPutGeofenceResponse {
   Errors: BatchPutGeofenceError[] | undefined;
 }
 
-export namespace BatchPutGeofenceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutGeofenceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchUpdateDevicePositionRequest {
   /**
    * <p>The name of the tracker resource to update.</p>
@@ -843,16 +605,6 @@ export interface BatchUpdateDevicePositionRequest {
    * <p>Contains the position update details for each device.</p>
    */
   Updates: DevicePositionUpdate[] | undefined;
-}
-
-export namespace BatchUpdateDevicePositionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateDevicePositionRequest): any => ({
-    ...obj,
-    ...(obj.Updates && { Updates: obj.Updates.map((item) => DevicePositionUpdate.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -877,29 +629,11 @@ export interface BatchUpdateDevicePositionError {
   Error: BatchItemError | undefined;
 }
 
-export namespace BatchUpdateDevicePositionError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateDevicePositionError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchUpdateDevicePositionResponse {
   /**
    * <p>Contains  error details for each device that failed to update its position.</p>
    */
   Errors: BatchUpdateDevicePositionError[] | undefined;
-}
-
-export namespace BatchUpdateDevicePositionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateDevicePositionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -924,15 +658,6 @@ export interface CalculateRouteCarModeOptions {
    *          </p>
    */
   AvoidTolls?: boolean;
-}
-
-export namespace CalculateRouteCarModeOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CalculateRouteCarModeOptions): any => ({
-    ...obj,
-  });
 }
 
 export type DistanceUnit = "Kilometers" | "Miles";
@@ -985,15 +710,6 @@ export interface TruckDimensions {
   Unit?: DimensionUnit | string;
 }
 
-export namespace TruckDimensions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TruckDimensions): any => ({
-    ...obj,
-  });
-}
-
 export type VehicleWeightUnit = "Kilograms" | "Pounds";
 
 /**
@@ -1018,15 +734,6 @@ export interface TruckWeight {
    *          </p>
    */
   Unit?: VehicleWeightUnit | string;
-}
-
-export namespace TruckWeight {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TruckWeight): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1064,15 +771,6 @@ export interface CalculateRouteTruckModeOptions {
    *             measurement. Used to avoid roads that can't support the truck's weight.</p>
    */
   Weight?: TruckWeight;
-}
-
-export namespace CalculateRouteTruckModeOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CalculateRouteTruckModeOptions): any => ({
-    ...obj,
-  });
 }
 
 export interface CalculateRouteRequest {
@@ -1230,18 +928,6 @@ export interface CalculateRouteRequest {
   TruckModeOptions?: CalculateRouteTruckModeOptions;
 }
 
-export namespace CalculateRouteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CalculateRouteRequest): any => ({
-    ...obj,
-    ...(obj.DeparturePosition && { DeparturePosition: SENSITIVE_STRING }),
-    ...(obj.DestinationPosition && { DestinationPosition: SENSITIVE_STRING }),
-    ...(obj.WaypointPositions && { WaypointPositions: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Contains the geometry details for each path between a pair of positions. Used in
  *             plotting a route leg on a map.</p>
@@ -1260,16 +946,6 @@ export interface LegGeometry {
    *          </ul>
    */
   LineString?: number[][];
-}
-
-export namespace LegGeometry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LegGeometry): any => ({
-    ...obj,
-    ...(obj.LineString && { LineString: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1310,17 +986,6 @@ export interface Step {
    *                 <code>True</code>. </p>
    */
   GeometryOffset?: number;
-}
-
-export namespace Step {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Step): any => ({
-    ...obj,
-    ...(obj.StartPosition && { StartPosition: SENSITIVE_STRING }),
-    ...(obj.EndPosition && { EndPosition: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1404,19 +1069,6 @@ export interface Leg {
   Steps: Step[] | undefined;
 }
 
-export namespace Leg {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Leg): any => ({
-    ...obj,
-    ...(obj.StartPosition && { StartPosition: SENSITIVE_STRING }),
-    ...(obj.EndPosition && { EndPosition: SENSITIVE_STRING }),
-    ...(obj.Geometry && { Geometry: LegGeometry.filterSensitiveLog(obj.Geometry) }),
-    ...(obj.Steps && { Steps: obj.Steps.map((item) => Step.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
  * <p>A summary of the calculated route.</p>
  */
@@ -1492,16 +1144,6 @@ export interface CalculateRouteSummary {
   DistanceUnit: DistanceUnit | string | undefined;
 }
 
-export namespace CalculateRouteSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CalculateRouteSummary): any => ({
-    ...obj,
-    ...(obj.RouteBBox && { RouteBBox: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Returns the result of the route calculation. Metadata includes legs and route
  *             summary.</p>
@@ -1545,17 +1187,6 @@ export interface CalculateRouteResponse {
    *                 <code>DurationSeconds</code>.</p>
    */
   Summary: CalculateRouteSummary | undefined;
-}
-
-export namespace CalculateRouteResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CalculateRouteResponse): any => ({
-    ...obj,
-    ...(obj.Legs && { Legs: obj.Legs.map((item) => Leg.filterSensitiveLog(item)) }),
-    ...(obj.Summary && { Summary: CalculateRouteSummary.filterSensitiveLog(obj.Summary) }),
-  });
 }
 
 export interface CalculateRouteMatrixRequest {
@@ -1683,17 +1314,6 @@ export interface CalculateRouteMatrixRequest {
   TruckModeOptions?: CalculateRouteTruckModeOptions;
 }
 
-export namespace CalculateRouteMatrixRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CalculateRouteMatrixRequest): any => ({
-    ...obj,
-    ...(obj.DeparturePositions && { DeparturePositions: SENSITIVE_STRING }),
-    ...(obj.DestinationPositions && { DestinationPositions: SENSITIVE_STRING }),
-  });
-}
-
 export type RouteMatrixErrorCode =
   | "DeparturePositionNotFound"
   | "DestinationPositionNotFound"
@@ -1763,15 +1383,6 @@ export interface RouteMatrixEntryError {
   Message?: string;
 }
 
-export namespace RouteMatrixEntryError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RouteMatrixEntryError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result for the calculated route of one <code>DeparturePosition</code>
  *             <code>DestinationPosition</code> pair.</p>
@@ -1792,15 +1403,6 @@ export interface RouteMatrixEntry {
    *                 <code>DeparturePosition</code> and <code>DestinationPosition</code>.</p>
    */
   Error?: RouteMatrixEntryError;
-}
-
-export namespace RouteMatrixEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RouteMatrixEntry): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1846,15 +1448,6 @@ export interface CalculateRouteMatrixSummary {
   DistanceUnit: DistanceUnit | string | undefined;
 }
 
-export namespace CalculateRouteMatrixSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CalculateRouteMatrixSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns the result of the route matrix calculation.</p>
  */
@@ -1888,17 +1481,6 @@ export interface CalculateRouteMatrixResponse {
    *             <code>ErrorCount</code>.</p>
    */
   Summary: CalculateRouteMatrixSummary | undefined;
-}
-
-export namespace CalculateRouteMatrixResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CalculateRouteMatrixResponse): any => ({
-    ...obj,
-    ...(obj.SnappedDeparturePositions && { SnappedDeparturePositions: SENSITIVE_STRING }),
-    ...(obj.SnappedDestinationPositions && { SnappedDestinationPositions: SENSITIVE_STRING }),
-  });
 }
 
 export type PricingPlan = "MobileAssetManagement" | "MobileAssetTracking" | "RequestBasedUsage";
@@ -1979,15 +1561,6 @@ export interface CreateGeofenceCollectionRequest {
   KmsKeyId?: string;
 }
 
-export namespace CreateGeofenceCollectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGeofenceCollectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGeofenceCollectionResponse {
   /**
    * <p>The name for the geofence collection.</p>
@@ -2013,15 +1586,6 @@ export interface CreateGeofenceCollectionResponse {
    *          </p>
    */
   CreateTime: Date | undefined;
-}
-
-export namespace CreateGeofenceCollectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGeofenceCollectionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2096,15 +1660,6 @@ export interface MapConfiguration {
   Style: string | undefined;
 }
 
-export namespace MapConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MapConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateMapRequest {
   /**
    * <p>The name for the map resource.</p>
@@ -2172,15 +1727,6 @@ export interface CreateMapRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateMapRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMapRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateMapResponse {
   /**
    * <p>The name of the map resource.</p>
@@ -2205,15 +1751,6 @@ export interface CreateMapResponse {
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
    */
   CreateTime: Date | undefined;
-}
-
-export namespace CreateMapResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMapResponse): any => ({
-    ...obj,
-  });
 }
 
 export type IntendedUse = "SingleUse" | "Storage";
@@ -2257,15 +1794,6 @@ export interface DataSourceConfiguration {
    *          </p>
    */
   IntendedUse?: IntendedUse | string;
-}
-
-export namespace DataSourceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePlaceIndexRequest {
@@ -2365,15 +1893,6 @@ export interface CreatePlaceIndexRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreatePlaceIndexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePlaceIndexRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePlaceIndexResponse {
   /**
    * <p>The name for the place index resource.</p>
@@ -2398,15 +1917,6 @@ export interface CreatePlaceIndexResponse {
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   CreateTime: Date | undefined;
-}
-
-export namespace CreatePlaceIndexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePlaceIndexResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRouteCalculatorRequest {
@@ -2502,15 +2012,6 @@ export interface CreateRouteCalculatorRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateRouteCalculatorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRouteCalculatorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRouteCalculatorResponse {
   /**
    * <p>The name of the route calculator resource. </p>
@@ -2546,15 +2047,6 @@ export interface CreateRouteCalculatorResponse {
    *          </ul>
    */
   CreateTime: Date | undefined;
-}
-
-export namespace CreateRouteCalculatorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRouteCalculatorResponse): any => ({
-    ...obj,
-  });
 }
 
 export type PositionFiltering = "AccuracyBased" | "DistanceBased" | "TimeBased";
@@ -2668,15 +2160,6 @@ export interface CreateTrackerRequest {
   PositionFiltering?: PositionFiltering | string;
 }
 
-export namespace CreateTrackerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTrackerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTrackerResponse {
   /**
    * <p>The name of the tracker resource.</p>
@@ -2703,15 +2186,6 @@ export interface CreateTrackerResponse {
   CreateTime: Date | undefined;
 }
 
-export namespace CreateTrackerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTrackerResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGeofenceCollectionRequest {
   /**
    * <p>The name of the geofence collection to be deleted.</p>
@@ -2719,25 +2193,7 @@ export interface DeleteGeofenceCollectionRequest {
   CollectionName: string | undefined;
 }
 
-export namespace DeleteGeofenceCollectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGeofenceCollectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGeofenceCollectionResponse {}
-
-export namespace DeleteGeofenceCollectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGeofenceCollectionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteMapRequest {
   /**
@@ -2746,25 +2202,7 @@ export interface DeleteMapRequest {
   MapName: string | undefined;
 }
 
-export namespace DeleteMapRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMapRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteMapResponse {}
-
-export namespace DeleteMapResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMapResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeletePlaceIndexRequest {
   /**
@@ -2773,25 +2211,7 @@ export interface DeletePlaceIndexRequest {
   IndexName: string | undefined;
 }
 
-export namespace DeletePlaceIndexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePlaceIndexRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePlaceIndexResponse {}
-
-export namespace DeletePlaceIndexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePlaceIndexResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteRouteCalculatorRequest {
   /**
@@ -2800,25 +2220,7 @@ export interface DeleteRouteCalculatorRequest {
   CalculatorName: string | undefined;
 }
 
-export namespace DeleteRouteCalculatorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRouteCalculatorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRouteCalculatorResponse {}
-
-export namespace DeleteRouteCalculatorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRouteCalculatorResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteTrackerRequest {
   /**
@@ -2827,40 +2229,13 @@ export interface DeleteTrackerRequest {
   TrackerName: string | undefined;
 }
 
-export namespace DeleteTrackerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTrackerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTrackerResponse {}
-
-export namespace DeleteTrackerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTrackerResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeGeofenceCollectionRequest {
   /**
    * <p>The name of the geofence collection.</p>
    */
   CollectionName: string | undefined;
-}
-
-export namespace DescribeGeofenceCollectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGeofenceCollectionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeGeofenceCollectionResponse {
@@ -2926,29 +2301,11 @@ export interface DescribeGeofenceCollectionResponse {
   UpdateTime: Date | undefined;
 }
 
-export namespace DescribeGeofenceCollectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGeofenceCollectionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeMapRequest {
   /**
    * <p>The name of the map resource.</p>
    */
   MapName: string | undefined;
-}
-
-export namespace DescribeMapRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMapRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeMapResponse {
@@ -3010,29 +2367,11 @@ export interface DescribeMapResponse {
   UpdateTime: Date | undefined;
 }
 
-export namespace DescribeMapResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMapResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePlaceIndexRequest {
   /**
    * <p>The name of the place index resource.</p>
    */
   IndexName: string | undefined;
-}
-
-export namespace DescribePlaceIndexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePlaceIndexRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePlaceIndexResponse {
@@ -3107,29 +2446,11 @@ export interface DescribePlaceIndexResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace DescribePlaceIndexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePlaceIndexResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRouteCalculatorRequest {
   /**
    * <p>The name of the route calculator resource.</p>
    */
   CalculatorName: string | undefined;
-}
-
-export namespace DescribeRouteCalculatorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRouteCalculatorRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRouteCalculatorResponse {
@@ -3212,29 +2533,11 @@ export interface DescribeRouteCalculatorResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace DescribeRouteCalculatorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRouteCalculatorResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTrackerRequest {
   /**
    * <p>The name of the tracker resource.</p>
    */
   TrackerName: string | undefined;
-}
-
-export namespace DescribeTrackerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrackerRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeTrackerResponse {
@@ -3303,15 +2606,6 @@ export interface DescribeTrackerResponse {
   PositionFiltering?: PositionFiltering | string;
 }
 
-export namespace DescribeTrackerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrackerResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateTrackerConsumerRequest {
   /**
    * <p>The name of the tracker resource to be dissociated from the consumer.</p>
@@ -3332,25 +2626,7 @@ export interface DisassociateTrackerConsumerRequest {
   ConsumerArn: string | undefined;
 }
 
-export namespace DisassociateTrackerConsumerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateTrackerConsumerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateTrackerConsumerResponse {}
-
-export namespace DisassociateTrackerConsumerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateTrackerConsumerResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface ListTagsForResourceRequest {
   /**
@@ -3365,15 +2641,6 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>Tags that have been applied to the specified resource. Tags are mapped from the tag key to the tag value: <code>"TagKey" : "TagValue"</code>.</p>
@@ -3385,15 +2652,6 @@ export interface ListTagsForResourceResponse {
    *          </ul>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -3439,25 +2697,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -3477,25 +2717,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetGeofenceRequest {
   /**
@@ -3507,15 +2729,6 @@ export interface GetGeofenceRequest {
    * <p>The geofence you're retrieving details for.</p>
    */
   GeofenceId: string | undefined;
-}
-
-export namespace GetGeofenceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGeofenceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetGeofenceResponse {
@@ -3574,16 +2787,6 @@ export interface GetGeofenceResponse {
   UpdateTime: Date | undefined;
 }
 
-export namespace GetGeofenceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGeofenceResponse): any => ({
-    ...obj,
-    ...(obj.Geometry && { Geometry: GeofenceGeometry.filterSensitiveLog(obj.Geometry) }),
-  });
-}
-
 export interface ListGeofenceCollectionsRequest {
   /**
    * <p>An optional limit for the number of resources returned in a single call. </p>
@@ -3599,15 +2802,6 @@ export interface ListGeofenceCollectionsRequest {
    *          </p>
    */
   NextToken?: string;
-}
-
-export namespace ListGeofenceCollectionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGeofenceCollectionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3653,15 +2847,6 @@ export interface ListGeofenceCollectionsResponseEntry {
   UpdateTime: Date | undefined;
 }
 
-export namespace ListGeofenceCollectionsResponseEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGeofenceCollectionsResponseEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGeofenceCollectionsResponse {
   /**
    * <p>Lists the geofence collections that exist in your AWS account.</p>
@@ -3673,15 +2858,6 @@ export interface ListGeofenceCollectionsResponse {
    *             token in a following request to fetch the next set of results. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListGeofenceCollectionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGeofenceCollectionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGeofencesRequest {
@@ -3704,15 +2880,6 @@ export interface ListGeofencesRequest {
    *          </p>
    */
   MaxResults?: number;
-}
-
-export namespace ListGeofencesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGeofencesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3774,16 +2941,6 @@ export interface ListGeofenceResponseEntry {
   UpdateTime: Date | undefined;
 }
 
-export namespace ListGeofenceResponseEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGeofenceResponseEntry): any => ({
-    ...obj,
-    ...(obj.Geometry && { Geometry: GeofenceGeometry.filterSensitiveLog(obj.Geometry) }),
-  });
-}
-
 export interface ListGeofencesResponse {
   /**
    * <p>Contains a list of geofences stored in the geofence collection.</p>
@@ -3795,16 +2952,6 @@ export interface ListGeofencesResponse {
    *             token in a following request to fetch the next set of results. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListGeofencesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGeofencesResponse): any => ({
-    ...obj,
-    ...(obj.Entries && { Entries: obj.Entries.map((item) => ListGeofenceResponseEntry.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface PutGeofenceRequest {
@@ -3827,16 +2974,6 @@ export interface PutGeofenceRequest {
   Geometry: GeofenceGeometry | undefined;
 }
 
-export namespace PutGeofenceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutGeofenceRequest): any => ({
-    ...obj,
-    ...(obj.Geometry && { Geometry: GeofenceGeometry.filterSensitiveLog(obj.Geometry) }),
-  });
-}
-
 export interface PutGeofenceResponse {
   /**
    * <p>The geofence identifier entered in the request.</p>
@@ -3856,15 +2993,6 @@ export interface PutGeofenceResponse {
    *          </p>
    */
   UpdateTime: Date | undefined;
-}
-
-export namespace PutGeofenceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutGeofenceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateGeofenceCollectionRequest {
@@ -3894,15 +3022,6 @@ export interface UpdateGeofenceCollectionRequest {
   Description?: string;
 }
 
-export namespace UpdateGeofenceCollectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGeofenceCollectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGeofenceCollectionResponse {
   /**
    * <p>The name of the updated geofence collection.</p>
@@ -3930,15 +3049,6 @@ export interface UpdateGeofenceCollectionResponse {
   UpdateTime: Date | undefined;
 }
 
-export namespace UpdateGeofenceCollectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGeofenceCollectionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDevicePositionRequest {
   /**
    * <p>The tracker resource receiving the position update.</p>
@@ -3949,15 +3059,6 @@ export interface GetDevicePositionRequest {
    * <p>The device whose position you want to retrieve.</p>
    */
   DeviceId: string | undefined;
-}
-
-export namespace GetDevicePositionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDevicePositionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDevicePositionResponse {
@@ -3992,17 +3093,6 @@ export interface GetDevicePositionResponse {
    * <p>The properties associated with the position.</p>
    */
   PositionProperties?: Record<string, string>;
-}
-
-export namespace GetDevicePositionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDevicePositionResponse): any => ({
-    ...obj,
-    ...(obj.Position && { Position: SENSITIVE_STRING }),
-    ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
-  });
 }
 
 export interface GetDevicePositionHistoryRequest {
@@ -4060,15 +3150,6 @@ export interface GetDevicePositionHistoryRequest {
   MaxResults?: number;
 }
 
-export namespace GetDevicePositionHistoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDevicePositionHistoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDevicePositionHistoryResponse {
   /**
    * <p>Contains the position history details for the requested device.</p>
@@ -4080,18 +3161,6 @@ export interface GetDevicePositionHistoryResponse {
    *             token in a following request to fetch the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetDevicePositionHistoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDevicePositionHistoryResponse): any => ({
-    ...obj,
-    ...(obj.DevicePositions && {
-      DevicePositions: obj.DevicePositions.map((item) => DevicePosition.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface GetMapGlyphsRequest {
@@ -4159,15 +3228,6 @@ export interface GetMapGlyphsRequest {
   FontUnicodeRange: string | undefined;
 }
 
-export namespace GetMapGlyphsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMapGlyphsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMapGlyphsResponse {
   /**
    * <p>The blob's content type.</p>
@@ -4178,15 +3238,6 @@ export interface GetMapGlyphsResponse {
    * <p>The map glyph content type. For example, <code>application/octet-stream</code>.</p>
    */
   ContentType?: string;
-}
-
-export namespace GetMapGlyphsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMapGlyphsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMapSpritesRequest {
@@ -4224,15 +3275,6 @@ export interface GetMapSpritesRequest {
   FileName: string | undefined;
 }
 
-export namespace GetMapSpritesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMapSpritesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMapSpritesResponse {
   /**
    * <p>Contains the body of the sprite sheet or JSON offset ﬁle.</p>
@@ -4247,29 +3289,11 @@ export interface GetMapSpritesResponse {
   ContentType?: string;
 }
 
-export namespace GetMapSpritesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMapSpritesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMapStyleDescriptorRequest {
   /**
    * <p>The map resource to retrieve the style descriptor from.</p>
    */
   MapName: string | undefined;
-}
-
-export namespace GetMapStyleDescriptorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMapStyleDescriptorRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMapStyleDescriptorResponse {
@@ -4283,15 +3307,6 @@ export interface GetMapStyleDescriptorResponse {
    *             <code>application/json</code>.</p>
    */
   ContentType?: string;
-}
-
-export namespace GetMapStyleDescriptorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMapStyleDescriptorResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMapTileRequest {
@@ -4316,15 +3331,6 @@ export interface GetMapTileRequest {
   Y: string | undefined;
 }
 
-export namespace GetMapTileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMapTileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMapTileResponse {
   /**
    * <p>Contains Mapbox Vector Tile (MVT) data.</p>
@@ -4336,15 +3342,6 @@ export interface GetMapTileResponse {
    *                 <code>application/vnd.mapbox-vector-tile</code>.</p>
    */
   ContentType?: string;
-}
-
-export namespace GetMapTileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMapTileResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDevicePositionsRequest {
@@ -4367,15 +3364,6 @@ export interface ListDevicePositionsRequest {
    *          </p>
    */
   NextToken?: string;
-}
-
-export namespace ListDevicePositionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicePositionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4409,17 +3397,6 @@ export interface ListDevicePositionsResponseEntry {
   PositionProperties?: Record<string, string>;
 }
 
-export namespace ListDevicePositionsResponseEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicePositionsResponseEntry): any => ({
-    ...obj,
-    ...(obj.Position && { Position: SENSITIVE_STRING }),
-    ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListDevicePositionsResponse {
   /**
    * <p>Contains details about each device's last known position. These details includes the device ID,
@@ -4432,18 +3409,6 @@ export interface ListDevicePositionsResponse {
    *             token in a following request to fetch the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDevicePositionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicePositionsResponse): any => ({
-    ...obj,
-    ...(obj.Entries && {
-      Entries: obj.Entries.map((item) => ListDevicePositionsResponseEntry.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListMapsRequest {
@@ -4461,15 +3426,6 @@ export interface ListMapsRequest {
    *          </p>
    */
   NextToken?: string;
-}
-
-export namespace ListMapsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMapsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4511,15 +3467,6 @@ export interface ListMapsResponseEntry {
   UpdateTime: Date | undefined;
 }
 
-export namespace ListMapsResponseEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMapsResponseEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMapsResponse {
   /**
    * <p>Contains a list of maps in your AWS account</p>
@@ -4530,15 +3477,6 @@ export interface ListMapsResponse {
    * <p>A pagination token indicating there are additional pages available. You can use the token in a following request to fetch the next set of results. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListMapsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMapsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPlaceIndexesRequest {
@@ -4556,15 +3494,6 @@ export interface ListPlaceIndexesRequest {
    *          </p>
    */
   NextToken?: string;
-}
-
-export namespace ListPlaceIndexesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPlaceIndexesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4619,15 +3548,6 @@ export interface ListPlaceIndexesResponseEntry {
   UpdateTime: Date | undefined;
 }
 
-export namespace ListPlaceIndexesResponseEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPlaceIndexesResponseEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPlaceIndexesResponse {
   /**
    * <p>Lists the place index resources that exist in your AWS account</p>
@@ -4639,15 +3559,6 @@ export interface ListPlaceIndexesResponse {
    *             the token in a new request to fetch the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPlaceIndexesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPlaceIndexesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRouteCalculatorsRequest {
@@ -4665,15 +3576,6 @@ export interface ListRouteCalculatorsRequest {
    *          </p>
    */
   NextToken?: string;
-}
-
-export namespace ListRouteCalculatorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRouteCalculatorsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4741,15 +3643,6 @@ export interface ListRouteCalculatorsResponseEntry {
   UpdateTime: Date | undefined;
 }
 
-export namespace ListRouteCalculatorsResponseEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRouteCalculatorsResponseEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRouteCalculatorsResponse {
   /**
    * <p>Lists the route calculator resources that exist in your AWS account</p>
@@ -4761,15 +3654,6 @@ export interface ListRouteCalculatorsResponse {
    *             token in a subsequent request to fetch the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListRouteCalculatorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRouteCalculatorsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTrackerConsumersRequest {
@@ -4794,15 +3678,6 @@ export interface ListTrackerConsumersRequest {
   NextToken?: string;
 }
 
-export namespace ListTrackerConsumersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrackerConsumersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTrackerConsumersResponse {
   /**
    * <p>Contains the list of geofence collection ARNs associated to the tracker resource.</p>
@@ -4814,15 +3689,6 @@ export interface ListTrackerConsumersResponse {
    *             token in a following request to fetch the next set of results. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListTrackerConsumersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrackerConsumersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTrackersRequest {
@@ -4840,15 +3706,6 @@ export interface ListTrackersRequest {
    *          </p>
    */
   NextToken?: string;
-}
-
-export namespace ListTrackersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrackersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4892,15 +3749,6 @@ export interface ListTrackersResponseEntry {
   UpdateTime: Date | undefined;
 }
 
-export namespace ListTrackersResponseEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrackersResponseEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTrackersResponse {
   /**
    * <p>Contains tracker resources in your AWS account. Details include tracker name,
@@ -4913,15 +3761,6 @@ export interface ListTrackersResponse {
    *             token in a following request to fetch the next set of results.  </p>
    */
   NextToken?: string;
-}
-
-export namespace ListTrackersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrackersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateMapRequest {
@@ -4942,15 +3781,6 @@ export interface UpdateMapRequest {
    * <p>Updates the description for the map resource.</p>
    */
   Description?: string;
-}
-
-export namespace UpdateMapRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMapRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateMapResponse {
@@ -4976,15 +3806,6 @@ export interface UpdateMapResponse {
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   UpdateTime: Date | undefined;
-}
-
-export namespace UpdateMapResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMapResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchPlaceIndexForPositionRequest {
@@ -5029,16 +3850,6 @@ export interface SearchPlaceIndexForPositionRequest {
   Language?: string;
 }
 
-export namespace SearchPlaceIndexForPositionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchPlaceIndexForPositionRequest): any => ({
-    ...obj,
-    ...(obj.Position && { Position: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Places uses a point geometry to specify a location or a Place.</p>
  */
@@ -5060,16 +3871,6 @@ export interface PlaceGeometry {
   Point?: number[];
 }
 
-export namespace PlaceGeometry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlaceGeometry): any => ({
-    ...obj,
-    ...(obj.Point && { Point: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Information about a time zone. Includes the name of the time zone and the offset from
  *             UTC in seconds.</p>
@@ -5086,15 +3887,6 @@ export interface TimeZone {
    * <p>The time zone's offset, in seconds, from UTC.</p>
    */
   Offset?: number;
-}
-
-export namespace TimeZone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeZone): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5181,16 +3973,6 @@ export interface Place {
   TimeZone?: TimeZone;
 }
 
-export namespace Place {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Place): any => ({
-    ...obj,
-    ...(obj.Geometry && { Geometry: PlaceGeometry.filterSensitiveLog(obj.Geometry) }),
-  });
-}
-
 /**
  * <p>Contains a search result from a position search query that is run on a place index
  *             resource.</p>
@@ -5210,16 +3992,6 @@ export interface SearchForPositionResult {
    *         </note>
    */
   Distance: number | undefined;
-}
-
-export namespace SearchForPositionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchForPositionResult): any => ({
-    ...obj,
-    ...(obj.Place && { Place: Place.filterSensitiveLog(obj.Place) }),
-  });
 }
 
 /**
@@ -5262,16 +4034,6 @@ export interface SearchPlaceIndexForPositionSummary {
   Language?: string;
 }
 
-export namespace SearchPlaceIndexForPositionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchPlaceIndexForPositionSummary): any => ({
-    ...obj,
-    ...(obj.Position && { Position: SENSITIVE_STRING }),
-  });
-}
-
 export interface SearchPlaceIndexForPositionResponse {
   /**
    * <p>Contains a summary of the request. Echoes the input values for <code>Position</code>,
@@ -5285,17 +4047,6 @@ export interface SearchPlaceIndexForPositionResponse {
    *             additional information about the Places returned.</p>
    */
   Results: SearchForPositionResult[] | undefined;
-}
-
-export namespace SearchPlaceIndexForPositionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchPlaceIndexForPositionResponse): any => ({
-    ...obj,
-    ...(obj.Summary && { Summary: SearchPlaceIndexForPositionSummary.filterSensitiveLog(obj.Summary) }),
-    ...(obj.Results && { Results: obj.Results.map((item) => SearchForPositionResult.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface SearchPlaceIndexForSuggestionsRequest {
@@ -5383,18 +4134,6 @@ export interface SearchPlaceIndexForSuggestionsRequest {
   Language?: string;
 }
 
-export namespace SearchPlaceIndexForSuggestionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchPlaceIndexForSuggestionsRequest): any => ({
-    ...obj,
-    ...(obj.Text && { Text: SENSITIVE_STRING }),
-    ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
-    ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Contains a place suggestion resulting from a place suggestion query that is run on a
  *             place index resource.</p>
@@ -5404,15 +4143,6 @@ export interface SearchForSuggestionsResult {
    * <p>The text of the place suggestion, typically formatted as an address string.</p>
    */
   Text: string | undefined;
-}
-
-export namespace SearchForSuggestionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchForSuggestionsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5475,18 +4205,6 @@ export interface SearchPlaceIndexForSuggestionsSummary {
   Language?: string;
 }
 
-export namespace SearchPlaceIndexForSuggestionsSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchPlaceIndexForSuggestionsSummary): any => ({
-    ...obj,
-    ...(obj.Text && { Text: SENSITIVE_STRING }),
-    ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
-    ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
-  });
-}
-
 export interface SearchPlaceIndexForSuggestionsResponse {
   /**
    * <p>Contains a summary of the request. Echoes the input values for
@@ -5500,16 +4218,6 @@ export interface SearchPlaceIndexForSuggestionsResponse {
    * <p>A list of place suggestions that best match the search text.</p>
    */
   Results: SearchForSuggestionsResult[] | undefined;
-}
-
-export namespace SearchPlaceIndexForSuggestionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchPlaceIndexForSuggestionsResponse): any => ({
-    ...obj,
-    ...(obj.Summary && { Summary: SearchPlaceIndexForSuggestionsSummary.filterSensitiveLog(obj.Summary) }),
-  });
 }
 
 export interface SearchPlaceIndexForTextRequest {
@@ -5597,18 +4305,6 @@ export interface SearchPlaceIndexForTextRequest {
   Language?: string;
 }
 
-export namespace SearchPlaceIndexForTextRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchPlaceIndexForTextRequest): any => ({
-    ...obj,
-    ...(obj.Text && { Text: SENSITIVE_STRING }),
-    ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
-    ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Contains a search result from a text search query that is run on a place index
  *             resource.</p>
@@ -5637,16 +4333,6 @@ export interface SearchForTextResult {
    *         <p>Returned only when the partner selected is Esri.</p>
    */
   Relevance?: number;
-}
-
-export namespace SearchForTextResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchForTextResult): any => ({
-    ...obj,
-    ...(obj.Place && { Place: Place.filterSensitiveLog(obj.Place) }),
-  });
 }
 
 /**
@@ -5717,19 +4403,6 @@ export interface SearchPlaceIndexForTextSummary {
   Language?: string;
 }
 
-export namespace SearchPlaceIndexForTextSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchPlaceIndexForTextSummary): any => ({
-    ...obj,
-    ...(obj.Text && { Text: SENSITIVE_STRING }),
-    ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
-    ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
-    ...(obj.ResultBBox && { ResultBBox: SENSITIVE_STRING }),
-  });
-}
-
 export interface SearchPlaceIndexForTextResponse {
   /**
    * <p>Contains a summary of the request. Echoes the input values for
@@ -5747,17 +4420,6 @@ export interface SearchPlaceIndexForTextResponse {
    *             only be returned by specific data partners.</p>
    */
   Results: SearchForTextResult[] | undefined;
-}
-
-export namespace SearchPlaceIndexForTextResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchPlaceIndexForTextResponse): any => ({
-    ...obj,
-    ...(obj.Summary && { Summary: SearchPlaceIndexForTextSummary.filterSensitiveLog(obj.Summary) }),
-    ...(obj.Results && { Results: obj.Results.map((item) => SearchForTextResult.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface UpdatePlaceIndexRequest {
@@ -5783,15 +4445,6 @@ export interface UpdatePlaceIndexRequest {
    * <p>Updates the data storage option for the place index resource.</p>
    */
   DataSourceConfiguration?: DataSourceConfiguration;
-}
-
-export namespace UpdatePlaceIndexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePlaceIndexRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePlaceIndexResponse {
@@ -5820,15 +4473,6 @@ export interface UpdatePlaceIndexResponse {
   UpdateTime: Date | undefined;
 }
 
-export namespace UpdatePlaceIndexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePlaceIndexResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRouteCalculatorRequest {
   /**
    * <p>The name of the route calculator resource to update.</p>
@@ -5847,15 +4491,6 @@ export interface UpdateRouteCalculatorRequest {
    * <p>Updates the description for the route calculator resource.</p>
    */
   Description?: string;
-}
-
-export namespace UpdateRouteCalculatorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRouteCalculatorRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRouteCalculatorResponse {
@@ -5882,15 +4517,6 @@ export interface UpdateRouteCalculatorResponse {
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   UpdateTime: Date | undefined;
-}
-
-export namespace UpdateRouteCalculatorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRouteCalculatorResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateTrackerRequest {
@@ -5954,15 +4580,6 @@ export interface UpdateTrackerRequest {
   PositionFiltering?: PositionFiltering | string;
 }
 
-export namespace UpdateTrackerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTrackerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTrackerResponse {
   /**
    * <p>The name of the updated tracker resource.</p>
@@ -5988,11 +4605,1116 @@ export interface UpdateTrackerResponse {
   UpdateTime: Date | undefined;
 }
 
-export namespace UpdateTrackerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTrackerResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AssociateTrackerConsumerRequestFilterSensitiveLog = (obj: AssociateTrackerConsumerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateTrackerConsumerResponseFilterSensitiveLog = (obj: AssociateTrackerConsumerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteDevicePositionHistoryRequestFilterSensitiveLog = (
+  obj: BatchDeleteDevicePositionHistoryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchItemErrorFilterSensitiveLog = (obj: BatchItemError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteDevicePositionHistoryErrorFilterSensitiveLog = (
+  obj: BatchDeleteDevicePositionHistoryError
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteDevicePositionHistoryResponseFilterSensitiveLog = (
+  obj: BatchDeleteDevicePositionHistoryResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteGeofenceRequestFilterSensitiveLog = (obj: BatchDeleteGeofenceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteGeofenceErrorFilterSensitiveLog = (obj: BatchDeleteGeofenceError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteGeofenceResponseFilterSensitiveLog = (obj: BatchDeleteGeofenceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PositionalAccuracyFilterSensitiveLog = (obj: PositionalAccuracy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DevicePositionUpdateFilterSensitiveLog = (obj: DevicePositionUpdate): any => ({
+  ...obj,
+  ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchEvaluateGeofencesRequestFilterSensitiveLog = (obj: BatchEvaluateGeofencesRequest): any => ({
+  ...obj,
+  ...(obj.DevicePositionUpdates && {
+    DevicePositionUpdates: obj.DevicePositionUpdates.map((item) => DevicePositionUpdateFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchEvaluateGeofencesErrorFilterSensitiveLog = (obj: BatchEvaluateGeofencesError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchEvaluateGeofencesResponseFilterSensitiveLog = (obj: BatchEvaluateGeofencesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetDevicePositionRequestFilterSensitiveLog = (obj: BatchGetDevicePositionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DevicePositionFilterSensitiveLog = (obj: DevicePosition): any => ({
+  ...obj,
+  ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchGetDevicePositionErrorFilterSensitiveLog = (obj: BatchGetDevicePositionError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetDevicePositionResponseFilterSensitiveLog = (obj: BatchGetDevicePositionResponse): any => ({
+  ...obj,
+  ...(obj.DevicePositions && {
+    DevicePositions: obj.DevicePositions.map((item) => DevicePositionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GeofenceGeometryFilterSensitiveLog = (obj: GeofenceGeometry): any => ({
+  ...obj,
+  ...(obj.Polygon && { Polygon: obj.Polygon.map((item) => SENSITIVE_STRING) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchPutGeofenceRequestEntryFilterSensitiveLog = (obj: BatchPutGeofenceRequestEntry): any => ({
+  ...obj,
+  ...(obj.Geometry && { Geometry: GeofenceGeometryFilterSensitiveLog(obj.Geometry) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchPutGeofenceRequestFilterSensitiveLog = (obj: BatchPutGeofenceRequest): any => ({
+  ...obj,
+  ...(obj.Entries && { Entries: obj.Entries.map((item) => BatchPutGeofenceRequestEntryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchPutGeofenceErrorFilterSensitiveLog = (obj: BatchPutGeofenceError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutGeofenceSuccessFilterSensitiveLog = (obj: BatchPutGeofenceSuccess): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutGeofenceResponseFilterSensitiveLog = (obj: BatchPutGeofenceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateDevicePositionRequestFilterSensitiveLog = (obj: BatchUpdateDevicePositionRequest): any => ({
+  ...obj,
+  ...(obj.Updates && { Updates: obj.Updates.map((item) => DevicePositionUpdateFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateDevicePositionErrorFilterSensitiveLog = (obj: BatchUpdateDevicePositionError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateDevicePositionResponseFilterSensitiveLog = (obj: BatchUpdateDevicePositionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CalculateRouteCarModeOptionsFilterSensitiveLog = (obj: CalculateRouteCarModeOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TruckDimensionsFilterSensitiveLog = (obj: TruckDimensions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TruckWeightFilterSensitiveLog = (obj: TruckWeight): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CalculateRouteTruckModeOptionsFilterSensitiveLog = (obj: CalculateRouteTruckModeOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CalculateRouteRequestFilterSensitiveLog = (obj: CalculateRouteRequest): any => ({
+  ...obj,
+  ...(obj.DeparturePosition && { DeparturePosition: SENSITIVE_STRING }),
+  ...(obj.DestinationPosition && { DestinationPosition: SENSITIVE_STRING }),
+  ...(obj.WaypointPositions && { WaypointPositions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const LegGeometryFilterSensitiveLog = (obj: LegGeometry): any => ({
+  ...obj,
+  ...(obj.LineString && { LineString: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StepFilterSensitiveLog = (obj: Step): any => ({
+  ...obj,
+  ...(obj.StartPosition && { StartPosition: SENSITIVE_STRING }),
+  ...(obj.EndPosition && { EndPosition: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const LegFilterSensitiveLog = (obj: Leg): any => ({
+  ...obj,
+  ...(obj.StartPosition && { StartPosition: SENSITIVE_STRING }),
+  ...(obj.EndPosition && { EndPosition: SENSITIVE_STRING }),
+  ...(obj.Geometry && { Geometry: LegGeometryFilterSensitiveLog(obj.Geometry) }),
+  ...(obj.Steps && { Steps: obj.Steps.map((item) => StepFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CalculateRouteSummaryFilterSensitiveLog = (obj: CalculateRouteSummary): any => ({
+  ...obj,
+  ...(obj.RouteBBox && { RouteBBox: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CalculateRouteResponseFilterSensitiveLog = (obj: CalculateRouteResponse): any => ({
+  ...obj,
+  ...(obj.Legs && { Legs: obj.Legs.map((item) => LegFilterSensitiveLog(item)) }),
+  ...(obj.Summary && { Summary: CalculateRouteSummaryFilterSensitiveLog(obj.Summary) }),
+});
+
+/**
+ * @internal
+ */
+export const CalculateRouteMatrixRequestFilterSensitiveLog = (obj: CalculateRouteMatrixRequest): any => ({
+  ...obj,
+  ...(obj.DeparturePositions && { DeparturePositions: SENSITIVE_STRING }),
+  ...(obj.DestinationPositions && { DestinationPositions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RouteMatrixEntryErrorFilterSensitiveLog = (obj: RouteMatrixEntryError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RouteMatrixEntryFilterSensitiveLog = (obj: RouteMatrixEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CalculateRouteMatrixSummaryFilterSensitiveLog = (obj: CalculateRouteMatrixSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CalculateRouteMatrixResponseFilterSensitiveLog = (obj: CalculateRouteMatrixResponse): any => ({
+  ...obj,
+  ...(obj.SnappedDeparturePositions && { SnappedDeparturePositions: SENSITIVE_STRING }),
+  ...(obj.SnappedDestinationPositions && { SnappedDestinationPositions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateGeofenceCollectionRequestFilterSensitiveLog = (obj: CreateGeofenceCollectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGeofenceCollectionResponseFilterSensitiveLog = (obj: CreateGeofenceCollectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MapConfigurationFilterSensitiveLog = (obj: MapConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMapRequestFilterSensitiveLog = (obj: CreateMapRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMapResponseFilterSensitiveLog = (obj: CreateMapResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSourceConfigurationFilterSensitiveLog = (obj: DataSourceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePlaceIndexRequestFilterSensitiveLog = (obj: CreatePlaceIndexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePlaceIndexResponseFilterSensitiveLog = (obj: CreatePlaceIndexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRouteCalculatorRequestFilterSensitiveLog = (obj: CreateRouteCalculatorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRouteCalculatorResponseFilterSensitiveLog = (obj: CreateRouteCalculatorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTrackerRequestFilterSensitiveLog = (obj: CreateTrackerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTrackerResponseFilterSensitiveLog = (obj: CreateTrackerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGeofenceCollectionRequestFilterSensitiveLog = (obj: DeleteGeofenceCollectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGeofenceCollectionResponseFilterSensitiveLog = (obj: DeleteGeofenceCollectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMapRequestFilterSensitiveLog = (obj: DeleteMapRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMapResponseFilterSensitiveLog = (obj: DeleteMapResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePlaceIndexRequestFilterSensitiveLog = (obj: DeletePlaceIndexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePlaceIndexResponseFilterSensitiveLog = (obj: DeletePlaceIndexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRouteCalculatorRequestFilterSensitiveLog = (obj: DeleteRouteCalculatorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRouteCalculatorResponseFilterSensitiveLog = (obj: DeleteRouteCalculatorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTrackerRequestFilterSensitiveLog = (obj: DeleteTrackerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTrackerResponseFilterSensitiveLog = (obj: DeleteTrackerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGeofenceCollectionRequestFilterSensitiveLog = (obj: DescribeGeofenceCollectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGeofenceCollectionResponseFilterSensitiveLog = (obj: DescribeGeofenceCollectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMapRequestFilterSensitiveLog = (obj: DescribeMapRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMapResponseFilterSensitiveLog = (obj: DescribeMapResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePlaceIndexRequestFilterSensitiveLog = (obj: DescribePlaceIndexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePlaceIndexResponseFilterSensitiveLog = (obj: DescribePlaceIndexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRouteCalculatorRequestFilterSensitiveLog = (obj: DescribeRouteCalculatorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRouteCalculatorResponseFilterSensitiveLog = (obj: DescribeRouteCalculatorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrackerRequestFilterSensitiveLog = (obj: DescribeTrackerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrackerResponseFilterSensitiveLog = (obj: DescribeTrackerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateTrackerConsumerRequestFilterSensitiveLog = (obj: DisassociateTrackerConsumerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateTrackerConsumerResponseFilterSensitiveLog = (
+  obj: DisassociateTrackerConsumerResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGeofenceRequestFilterSensitiveLog = (obj: GetGeofenceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGeofenceResponseFilterSensitiveLog = (obj: GetGeofenceResponse): any => ({
+  ...obj,
+  ...(obj.Geometry && { Geometry: GeofenceGeometryFilterSensitiveLog(obj.Geometry) }),
+});
+
+/**
+ * @internal
+ */
+export const ListGeofenceCollectionsRequestFilterSensitiveLog = (obj: ListGeofenceCollectionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGeofenceCollectionsResponseEntryFilterSensitiveLog = (
+  obj: ListGeofenceCollectionsResponseEntry
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGeofenceCollectionsResponseFilterSensitiveLog = (obj: ListGeofenceCollectionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGeofencesRequestFilterSensitiveLog = (obj: ListGeofencesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGeofenceResponseEntryFilterSensitiveLog = (obj: ListGeofenceResponseEntry): any => ({
+  ...obj,
+  ...(obj.Geometry && { Geometry: GeofenceGeometryFilterSensitiveLog(obj.Geometry) }),
+});
+
+/**
+ * @internal
+ */
+export const ListGeofencesResponseFilterSensitiveLog = (obj: ListGeofencesResponse): any => ({
+  ...obj,
+  ...(obj.Entries && { Entries: obj.Entries.map((item) => ListGeofenceResponseEntryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const PutGeofenceRequestFilterSensitiveLog = (obj: PutGeofenceRequest): any => ({
+  ...obj,
+  ...(obj.Geometry && { Geometry: GeofenceGeometryFilterSensitiveLog(obj.Geometry) }),
+});
+
+/**
+ * @internal
+ */
+export const PutGeofenceResponseFilterSensitiveLog = (obj: PutGeofenceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGeofenceCollectionRequestFilterSensitiveLog = (obj: UpdateGeofenceCollectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGeofenceCollectionResponseFilterSensitiveLog = (obj: UpdateGeofenceCollectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDevicePositionRequestFilterSensitiveLog = (obj: GetDevicePositionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDevicePositionResponseFilterSensitiveLog = (obj: GetDevicePositionResponse): any => ({
+  ...obj,
+  ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetDevicePositionHistoryRequestFilterSensitiveLog = (obj: GetDevicePositionHistoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDevicePositionHistoryResponseFilterSensitiveLog = (obj: GetDevicePositionHistoryResponse): any => ({
+  ...obj,
+  ...(obj.DevicePositions && {
+    DevicePositions: obj.DevicePositions.map((item) => DevicePositionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetMapGlyphsRequestFilterSensitiveLog = (obj: GetMapGlyphsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMapGlyphsResponseFilterSensitiveLog = (obj: GetMapGlyphsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMapSpritesRequestFilterSensitiveLog = (obj: GetMapSpritesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMapSpritesResponseFilterSensitiveLog = (obj: GetMapSpritesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMapStyleDescriptorRequestFilterSensitiveLog = (obj: GetMapStyleDescriptorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMapStyleDescriptorResponseFilterSensitiveLog = (obj: GetMapStyleDescriptorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMapTileRequestFilterSensitiveLog = (obj: GetMapTileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMapTileResponseFilterSensitiveLog = (obj: GetMapTileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDevicePositionsRequestFilterSensitiveLog = (obj: ListDevicePositionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDevicePositionsResponseEntryFilterSensitiveLog = (obj: ListDevicePositionsResponseEntry): any => ({
+  ...obj,
+  ...(obj.Position && { Position: SENSITIVE_STRING }),
+  ...(obj.PositionProperties && { PositionProperties: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListDevicePositionsResponseFilterSensitiveLog = (obj: ListDevicePositionsResponse): any => ({
+  ...obj,
+  ...(obj.Entries && { Entries: obj.Entries.map((item) => ListDevicePositionsResponseEntryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListMapsRequestFilterSensitiveLog = (obj: ListMapsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMapsResponseEntryFilterSensitiveLog = (obj: ListMapsResponseEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMapsResponseFilterSensitiveLog = (obj: ListMapsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPlaceIndexesRequestFilterSensitiveLog = (obj: ListPlaceIndexesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPlaceIndexesResponseEntryFilterSensitiveLog = (obj: ListPlaceIndexesResponseEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPlaceIndexesResponseFilterSensitiveLog = (obj: ListPlaceIndexesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRouteCalculatorsRequestFilterSensitiveLog = (obj: ListRouteCalculatorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRouteCalculatorsResponseEntryFilterSensitiveLog = (obj: ListRouteCalculatorsResponseEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRouteCalculatorsResponseFilterSensitiveLog = (obj: ListRouteCalculatorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrackerConsumersRequestFilterSensitiveLog = (obj: ListTrackerConsumersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrackerConsumersResponseFilterSensitiveLog = (obj: ListTrackerConsumersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrackersRequestFilterSensitiveLog = (obj: ListTrackersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrackersResponseEntryFilterSensitiveLog = (obj: ListTrackersResponseEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrackersResponseFilterSensitiveLog = (obj: ListTrackersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMapRequestFilterSensitiveLog = (obj: UpdateMapRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMapResponseFilterSensitiveLog = (obj: UpdateMapResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchPlaceIndexForPositionRequestFilterSensitiveLog = (obj: SearchPlaceIndexForPositionRequest): any => ({
+  ...obj,
+  ...(obj.Position && { Position: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PlaceGeometryFilterSensitiveLog = (obj: PlaceGeometry): any => ({
+  ...obj,
+  ...(obj.Point && { Point: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TimeZoneFilterSensitiveLog = (obj: TimeZone): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlaceFilterSensitiveLog = (obj: Place): any => ({
+  ...obj,
+  ...(obj.Geometry && { Geometry: PlaceGeometryFilterSensitiveLog(obj.Geometry) }),
+});
+
+/**
+ * @internal
+ */
+export const SearchForPositionResultFilterSensitiveLog = (obj: SearchForPositionResult): any => ({
+  ...obj,
+  ...(obj.Place && { Place: PlaceFilterSensitiveLog(obj.Place) }),
+});
+
+/**
+ * @internal
+ */
+export const SearchPlaceIndexForPositionSummaryFilterSensitiveLog = (obj: SearchPlaceIndexForPositionSummary): any => ({
+  ...obj,
+  ...(obj.Position && { Position: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SearchPlaceIndexForPositionResponseFilterSensitiveLog = (
+  obj: SearchPlaceIndexForPositionResponse
+): any => ({
+  ...obj,
+  ...(obj.Summary && { Summary: SearchPlaceIndexForPositionSummaryFilterSensitiveLog(obj.Summary) }),
+  ...(obj.Results && { Results: obj.Results.map((item) => SearchForPositionResultFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SearchPlaceIndexForSuggestionsRequestFilterSensitiveLog = (
+  obj: SearchPlaceIndexForSuggestionsRequest
+): any => ({
+  ...obj,
+  ...(obj.Text && { Text: SENSITIVE_STRING }),
+  ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
+  ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SearchForSuggestionsResultFilterSensitiveLog = (obj: SearchForSuggestionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchPlaceIndexForSuggestionsSummaryFilterSensitiveLog = (
+  obj: SearchPlaceIndexForSuggestionsSummary
+): any => ({
+  ...obj,
+  ...(obj.Text && { Text: SENSITIVE_STRING }),
+  ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
+  ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SearchPlaceIndexForSuggestionsResponseFilterSensitiveLog = (
+  obj: SearchPlaceIndexForSuggestionsResponse
+): any => ({
+  ...obj,
+  ...(obj.Summary && { Summary: SearchPlaceIndexForSuggestionsSummaryFilterSensitiveLog(obj.Summary) }),
+});
+
+/**
+ * @internal
+ */
+export const SearchPlaceIndexForTextRequestFilterSensitiveLog = (obj: SearchPlaceIndexForTextRequest): any => ({
+  ...obj,
+  ...(obj.Text && { Text: SENSITIVE_STRING }),
+  ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
+  ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SearchForTextResultFilterSensitiveLog = (obj: SearchForTextResult): any => ({
+  ...obj,
+  ...(obj.Place && { Place: PlaceFilterSensitiveLog(obj.Place) }),
+});
+
+/**
+ * @internal
+ */
+export const SearchPlaceIndexForTextSummaryFilterSensitiveLog = (obj: SearchPlaceIndexForTextSummary): any => ({
+  ...obj,
+  ...(obj.Text && { Text: SENSITIVE_STRING }),
+  ...(obj.BiasPosition && { BiasPosition: SENSITIVE_STRING }),
+  ...(obj.FilterBBox && { FilterBBox: SENSITIVE_STRING }),
+  ...(obj.ResultBBox && { ResultBBox: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SearchPlaceIndexForTextResponseFilterSensitiveLog = (obj: SearchPlaceIndexForTextResponse): any => ({
+  ...obj,
+  ...(obj.Summary && { Summary: SearchPlaceIndexForTextSummaryFilterSensitiveLog(obj.Summary) }),
+  ...(obj.Results && { Results: obj.Results.map((item) => SearchForTextResultFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePlaceIndexRequestFilterSensitiveLog = (obj: UpdatePlaceIndexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePlaceIndexResponseFilterSensitiveLog = (obj: UpdatePlaceIndexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRouteCalculatorRequestFilterSensitiveLog = (obj: UpdateRouteCalculatorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRouteCalculatorResponseFilterSensitiveLog = (obj: UpdateRouteCalculatorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTrackerRequestFilterSensitiveLog = (obj: UpdateTrackerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTrackerResponseFilterSensitiveLog = (obj: UpdateTrackerResponse): any => ({
+  ...obj,
+});

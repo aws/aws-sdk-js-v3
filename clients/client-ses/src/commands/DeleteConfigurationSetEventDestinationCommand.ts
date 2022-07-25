@@ -14,7 +14,9 @@ import {
 
 import {
   DeleteConfigurationSetEventDestinationRequest,
+  DeleteConfigurationSetEventDestinationRequestFilterSensitiveLog,
   DeleteConfigurationSetEventDestinationResponse,
+  DeleteConfigurationSetEventDestinationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryDeleteConfigurationSetEventDestinationCommand,
@@ -81,8 +83,8 @@ export class DeleteConfigurationSetEventDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationSetEventDestinationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConfigurationSetEventDestinationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteConfigurationSetEventDestinationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteConfigurationSetEventDestinationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

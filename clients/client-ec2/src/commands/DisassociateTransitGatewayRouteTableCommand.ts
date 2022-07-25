@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DisassociateTransitGatewayRouteTableRequest,
+  DisassociateTransitGatewayRouteTableRequestFilterSensitiveLog,
   DisassociateTransitGatewayRouteTableResult,
+  DisassociateTransitGatewayRouteTableResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
   deserializeAws_ec2DisassociateTransitGatewayRouteTableCommand,
@@ -77,8 +79,8 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTransitGatewayRouteTableRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateTransitGatewayRouteTableResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateTransitGatewayRouteTableRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateTransitGatewayRouteTableResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

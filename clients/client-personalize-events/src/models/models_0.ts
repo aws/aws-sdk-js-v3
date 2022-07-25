@@ -85,15 +85,6 @@ export interface Event {
   impression?: string[];
 }
 
-export namespace Event {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Event): any => ({
-    ...obj,
-  });
-}
-
 export interface PutEventsRequest {
   /**
    * <p>The tracking ID for the event.
@@ -120,15 +111,6 @@ export interface PutEventsRequest {
   eventList: Event[] | undefined;
 }
 
-export namespace PutEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEventsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents item metadata added to an Items dataset using the
  *       <code>PutItems</code> API. For more information see
@@ -152,15 +134,6 @@ export interface Item {
   properties?: __LazyJsonString | string;
 }
 
-export namespace Item {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Item): any => ({
-    ...obj,
-  });
-}
-
 export interface PutItemsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Items dataset you are adding the item or items to.</p>
@@ -171,15 +144,6 @@ export interface PutItemsRequest {
    * <p>A list of item data.</p>
    */
   items: Item[] | undefined;
-}
-
-export namespace PutItemsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutItemsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -243,15 +207,6 @@ export interface User {
   properties?: __LazyJsonString | string;
 }
 
-export namespace User {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: User): any => ({
-    ...obj,
-  });
-}
-
 export interface PutUsersRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Users dataset you are adding the user or users to.</p>
@@ -264,11 +219,44 @@ export interface PutUsersRequest {
   users: User[] | undefined;
 }
 
-export namespace PutUsersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutUsersRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const EventFilterSensitiveLog = (obj: Event): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEventsRequestFilterSensitiveLog = (obj: PutEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ItemFilterSensitiveLog = (obj: Item): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutItemsRequestFilterSensitiveLog = (obj: PutItemsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserFilterSensitiveLog = (obj: User): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutUsersRequestFilterSensitiveLog = (obj: PutUsersRequest): any => ({
+  ...obj,
+});

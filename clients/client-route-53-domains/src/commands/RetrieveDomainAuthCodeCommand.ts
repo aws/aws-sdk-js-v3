@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RetrieveDomainAuthCodeRequest, RetrieveDomainAuthCodeResponse } from "../models/models_0";
+import {
+  RetrieveDomainAuthCodeRequest,
+  RetrieveDomainAuthCodeRequestFilterSensitiveLog,
+  RetrieveDomainAuthCodeResponse,
+  RetrieveDomainAuthCodeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RetrieveDomainAuthCodeCommand,
   serializeAws_json1_1RetrieveDomainAuthCodeCommand,
@@ -72,8 +77,8 @@ export class RetrieveDomainAuthCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RetrieveDomainAuthCodeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RetrieveDomainAuthCodeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RetrieveDomainAuthCodeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RetrieveDomainAuthCodeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import { CreateChannelModeratorRequest, CreateChannelModeratorResponse } from "../models/models_0";
+import {
+  CreateChannelModeratorRequest,
+  CreateChannelModeratorRequestFilterSensitiveLog,
+  CreateChannelModeratorResponse,
+  CreateChannelModeratorResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateChannelModeratorCommand,
   serializeAws_restJson1CreateChannelModeratorCommand,
@@ -100,8 +105,8 @@ export class CreateChannelModeratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateChannelModeratorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateChannelModeratorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateChannelModeratorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateChannelModeratorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

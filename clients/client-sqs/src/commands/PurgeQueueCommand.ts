@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PurgeQueueRequest } from "../models/models_0";
+import { PurgeQueueRequest, PurgeQueueRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryPurgeQueueCommand, serializeAws_queryPurgeQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
@@ -82,7 +82,7 @@ export class PurgeQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurgeQueueRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PurgeQueueRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

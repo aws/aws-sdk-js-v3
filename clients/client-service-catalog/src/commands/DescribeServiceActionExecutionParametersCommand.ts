@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeServiceActionExecutionParametersInput,
+  DescribeServiceActionExecutionParametersInputFilterSensitiveLog,
   DescribeServiceActionExecutionParametersOutput,
+  DescribeServiceActionExecutionParametersOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeServiceActionExecutionParametersCommand,
@@ -81,8 +83,8 @@ export class DescribeServiceActionExecutionParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeServiceActionExecutionParametersInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeServiceActionExecutionParametersOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeServiceActionExecutionParametersInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeServiceActionExecutionParametersOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

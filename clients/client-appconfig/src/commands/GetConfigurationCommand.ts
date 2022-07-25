@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { Configuration, GetConfigurationRequest } from "../models/models_0";
+import {
+  Configuration,
+  ConfigurationFilterSensitiveLog,
+  GetConfigurationRequest,
+  GetConfigurationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetConfigurationCommand,
   serializeAws_restJson1GetConfigurationCommand,
@@ -106,8 +111,8 @@ export class GetConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Configuration.filterSensitiveLog,
+      inputFilterSensitiveLog: GetConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ConfigurationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

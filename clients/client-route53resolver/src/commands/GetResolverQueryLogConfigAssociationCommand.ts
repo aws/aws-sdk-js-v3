@@ -14,7 +14,9 @@ import {
 
 import {
   GetResolverQueryLogConfigAssociationRequest,
+  GetResolverQueryLogConfigAssociationRequestFilterSensitiveLog,
   GetResolverQueryLogConfigAssociationResponse,
+  GetResolverQueryLogConfigAssociationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1GetResolverQueryLogConfigAssociationCommand,
@@ -78,8 +80,8 @@ export class GetResolverQueryLogConfigAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResolverQueryLogConfigAssociationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetResolverQueryLogConfigAssociationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetResolverQueryLogConfigAssociationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetResolverQueryLogConfigAssociationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

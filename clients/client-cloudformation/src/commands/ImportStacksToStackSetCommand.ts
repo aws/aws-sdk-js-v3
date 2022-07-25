@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { ImportStacksToStackSetInput, ImportStacksToStackSetOutput } from "../models/models_0";
+import {
+  ImportStacksToStackSetInput,
+  ImportStacksToStackSetInputFilterSensitiveLog,
+  ImportStacksToStackSetOutput,
+  ImportStacksToStackSetOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryImportStacksToStackSetCommand,
   serializeAws_queryImportStacksToStackSetCommand,
@@ -80,8 +85,8 @@ export class ImportStacksToStackSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportStacksToStackSetInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ImportStacksToStackSetOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportStacksToStackSetInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ImportStacksToStackSetOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

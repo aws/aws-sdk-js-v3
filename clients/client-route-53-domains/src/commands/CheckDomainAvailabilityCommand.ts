@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CheckDomainAvailabilityRequest, CheckDomainAvailabilityResponse } from "../models/models_0";
+import {
+  CheckDomainAvailabilityRequest,
+  CheckDomainAvailabilityRequestFilterSensitiveLog,
+  CheckDomainAvailabilityResponse,
+  CheckDomainAvailabilityResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CheckDomainAvailabilityCommand,
   serializeAws_json1_1CheckDomainAvailabilityCommand,
@@ -73,8 +78,8 @@ export class CheckDomainAvailabilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CheckDomainAvailabilityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CheckDomainAvailabilityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CheckDomainAvailabilityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CheckDomainAvailabilityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

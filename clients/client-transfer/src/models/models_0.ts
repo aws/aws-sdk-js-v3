@@ -65,15 +65,6 @@ export interface EfsFileLocation {
   Path?: string;
 }
 
-export namespace EfsFileLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EfsFileLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the customer input S3 file location. If it is used inside <code>copyStepDetails.DestinationFileLocation</code>, it should be the S3 copy destination.</p>
  *          <p>
@@ -99,15 +90,6 @@ export interface S3InputFileLocation {
   Key?: string;
 }
 
-export namespace S3InputFileLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3InputFileLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.</p>
  */
@@ -121,15 +103,6 @@ export interface InputFileLocation {
    * <p>Reserved for future use.</p>
    */
   EfsFileLocation?: EfsFileLocation;
-}
-
-export namespace InputFileLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputFileLocation): any => ({
-    ...obj,
-  });
 }
 
 export enum OverwriteExisting {
@@ -176,15 +149,6 @@ export interface CopyStepDetails {
   SourceFileLocation?: string;
 }
 
-export namespace CopyStepDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyStepDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents an object that contains entries and targets for
  *         <code>HomeDirectoryMappings</code>.</p>
@@ -203,15 +167,6 @@ export interface HomeDirectoryMapEntry {
    * <p>Represents the map target that is used in a <code>HomeDirectorymapEntry</code>.</p>
    */
   Target: string | undefined;
-}
-
-export namespace HomeDirectoryMapEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HomeDirectoryMapEntry): any => ({
-    ...obj,
-  });
 }
 
 export enum HomeDirectoryType {
@@ -241,15 +196,6 @@ export interface PosixProfile {
    * <p>The secondary POSIX group IDs used for all EFS operations by this user.</p>
    */
   SecondaryGids?: number[];
-}
-
-export namespace PosixProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PosixProfile): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAccessRequest {
@@ -349,15 +295,6 @@ export interface CreateAccessRequest {
   ExternalId: string | undefined;
 }
 
-export namespace CreateAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccessRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAccessResponse {
   /**
    * <p>The ID of the server that the user is attached to.</p>
@@ -369,15 +306,6 @@ export interface CreateAccessResponse {
    *       resources over the enabled protocols using Amazon Web Services Transfer Family.</p>
    */
   ExternalId: string | undefined;
-}
-
-export namespace CreateAccessResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccessResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -580,15 +508,6 @@ export interface EndpointDetails {
   SecurityGroupIds?: string[];
 }
 
-export namespace EndpointDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointDetails): any => ({
-    ...obj,
-  });
-}
-
 export enum EndpointType {
   PUBLIC = "PUBLIC",
   VPC = "VPC",
@@ -621,15 +540,6 @@ export interface IdentityProviderDetails {
    * <p>The ARN for a lambda function to use for the Identity provider.</p>
    */
   Function?: string;
-}
-
-export namespace IdentityProviderDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityProviderDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum IdentityProviderType {
@@ -724,15 +634,6 @@ export interface ProtocolDetails {
   SetStatOption?: SetStatOption | string;
 }
 
-export namespace ProtocolDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProtocolDetails): any => ({
-    ...obj,
-  });
-}
-
 export enum Protocol {
   FTP = "FTP",
   FTPS = "FTPS",
@@ -758,15 +659,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the workflow ID for the workflow to assign and the execution role used for executing the workflow.</p>
  */
@@ -783,15 +675,6 @@ export interface WorkflowDetail {
   ExecutionRole: string | undefined;
 }
 
-export namespace WorkflowDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the <code>WorkflowDetail</code> data type.
  *       It is used by actions that trigger a workflow to begin execution.</p>
@@ -805,15 +688,6 @@ export interface WorkflowDetails {
    *          </p>
    */
   OnUpload: WorkflowDetail[] | undefined;
-}
-
-export namespace WorkflowDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowDetails): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateServerRequest {
@@ -1064,30 +938,11 @@ export interface CreateServerRequest {
   WorkflowDetails?: WorkflowDetails;
 }
 
-export namespace CreateServerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServerRequest): any => ({
-    ...obj,
-    ...(obj.HostKey && { HostKey: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateServerResponse {
   /**
    * <p>The service-assigned ID of the server that is created.</p>
    */
   ServerId: string | undefined;
-}
-
-export namespace CreateServerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServerResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1223,15 +1078,6 @@ export interface CreateUserRequest {
   UserName: string | undefined;
 }
 
-export namespace CreateUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUserResponse {
   /**
    * <p>The ID of the server that the user is attached to.</p>
@@ -1242,15 +1088,6 @@ export interface CreateUserResponse {
    * <p>A unique string that identifies a user account associated with a server.</p>
    */
   UserName: string | undefined;
-}
-
-export namespace CreateUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1289,15 +1126,6 @@ export interface CustomStepDetails {
   SourceFileLocation?: string;
 }
 
-export namespace CustomStepDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomStepDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The name of the step, used to identify the delete step.</p>
  */
@@ -1324,15 +1152,6 @@ export interface DeleteStepDetails {
   SourceFileLocation?: string;
 }
 
-export namespace DeleteStepDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStepDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.</p>
  */
@@ -1346,15 +1165,6 @@ export interface S3Tag {
    * <p>The value that corresponds to the key.</p>
    */
   Value: string | undefined;
-}
-
-export namespace S3Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Tag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1387,15 +1197,6 @@ export interface TagStepDetails {
    *          </ul>
    */
   SourceFileLocation?: string;
-}
-
-export namespace TagStepDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagStepDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum WorkflowStepType {
@@ -1474,15 +1275,6 @@ export interface WorkflowStep {
   TagStepDetails?: TagStepDetails;
 }
 
-export namespace WorkflowStep {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowStep): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWorkflowRequest {
   /**
    * <p>A textual description for the workflow.</p>
@@ -1540,29 +1332,11 @@ export interface CreateWorkflowRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateWorkflowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkflowRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWorkflowResponse {
   /**
    * <p>A unique identifier for the workflow.</p>
    */
   WorkflowId: string | undefined;
-}
-
-export namespace CreateWorkflowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkflowResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum CustomStepStatus {
@@ -1594,29 +1368,11 @@ export interface DeleteAccessRequest {
   ExternalId: string | undefined;
 }
 
-export namespace DeleteAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccessRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteServerRequest {
   /**
    * <p>A unique system-assigned identifier for a server instance.</p>
    */
   ServerId: string | undefined;
-}
-
-export namespace DeleteServerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServerRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteSshPublicKeyRequest {
@@ -1637,15 +1393,6 @@ export interface DeleteSshPublicKeyRequest {
   UserName: string | undefined;
 }
 
-export namespace DeleteSshPublicKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSshPublicKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUserRequest {
   /**
    * <p>A system-assigned unique identifier for a server instance that has the user assigned to
@@ -1659,29 +1406,11 @@ export interface DeleteUserRequest {
   UserName: string | undefined;
 }
 
-export namespace DeleteUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWorkflowRequest {
   /**
    * <p>A unique identifier for the workflow.</p>
    */
   WorkflowId: string | undefined;
-}
-
-export namespace DeleteWorkflowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkflowRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAccessRequest {
@@ -1706,15 +1435,6 @@ export interface DescribeAccessRequest {
    *     You can also include underscores or any of the following characters: =,.@:/-</p>
    */
   ExternalId: string | undefined;
-}
-
-export namespace DescribeAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccessRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1794,15 +1514,6 @@ export interface DescribedAccess {
   ExternalId?: string;
 }
 
-export namespace DescribedAccess {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribedAccess): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccessResponse {
   /**
    * <p>A system-assigned unique identifier for a server that has this access assigned.</p>
@@ -1813,15 +1524,6 @@ export interface DescribeAccessResponse {
    * <p>The external ID of the server that the access is attached to.</p>
    */
   Access: DescribedAccess | undefined;
-}
-
-export namespace DescribeAccessResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccessResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1849,15 +1551,6 @@ export interface S3FileLocation {
   Etag?: string;
 }
 
-export namespace S3FileLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3FileLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the Amazon S3 or EFS file details to be used in the step.</p>
  */
@@ -1871,15 +1564,6 @@ export interface FileLocation {
    * <p>Specifies the Amazon EFS ID and the path for the file being used.</p>
    */
   EfsFileLocation?: EfsFileLocation;
-}
-
-export namespace FileLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileLocation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1897,15 +1581,6 @@ export interface LoggingConfiguration {
    * <p>The name of the CloudWatch logging group for the Amazon Web Services Transfer server to which this workflow belongs.</p>
    */
   LogGroupName?: string;
-}
-
-export namespace LoggingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum ExecutionErrorType {
@@ -1976,15 +1651,6 @@ export interface ExecutionError {
   Message: string | undefined;
 }
 
-export namespace ExecutionError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the following details for the step: error (if any), outputs (if any), and the step type.</p>
  */
@@ -2023,15 +1689,6 @@ export interface ExecutionStepResult {
   Error?: ExecutionError;
 }
 
-export namespace ExecutionStepResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionStepResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the steps in the workflow, as well as the steps to execute in case of any errors during workflow execution.</p>
  */
@@ -2045,15 +1702,6 @@ export interface ExecutionResults {
    * <p>Specifies the steps (actions) to take if errors are encountered during execution of the workflow.</p>
    */
   OnExceptionSteps?: ExecutionStepResult[];
-}
-
-export namespace ExecutionResults {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionResults): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2076,15 +1724,6 @@ export interface UserDetails {
   SessionId?: string;
 }
 
-export namespace UserDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container object for the session details associated with a workflow.</p>
  */
@@ -2093,15 +1732,6 @@ export interface ServiceMetadata {
    * <p>The Server ID (<code>ServerId</code>), Session ID (<code>SessionId</code>) and user (<code>UserName</code>) make up the <code>UserDetails</code>.</p>
    */
   UserDetails: UserDetails | undefined;
-}
-
-export namespace ServiceMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceMetadata): any => ({
-    ...obj,
-  });
 }
 
 export enum ExecutionStatus {
@@ -2164,15 +1794,6 @@ export interface DescribedExecution {
   Results?: ExecutionResults;
 }
 
-export namespace DescribedExecution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribedExecution): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the properties of a security policy that was specified. For more information
  *       about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working with security
@@ -2213,15 +1834,6 @@ export interface DescribedSecurityPolicy {
    *       security policy that is attached to the server.</p>
    */
   TlsCiphers?: string[];
-}
-
-export namespace DescribedSecurityPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribedSecurityPolicy): any => ({
-    ...obj,
-  });
 }
 
 export enum State {
@@ -2400,15 +2012,6 @@ export interface DescribedServer {
   WorkflowDetails?: WorkflowDetails;
 }
 
-export namespace DescribedServer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribedServer): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the public Secure Shell (SSH) key that is associated with a
  *       user account for the specific file transfer protocol-enabled server (as identified by
@@ -2434,15 +2037,6 @@ export interface SshPublicKey {
    *       key.</p>
    */
   SshPublicKeyId: string | undefined;
-}
-
-export namespace SshPublicKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SshPublicKey): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2531,15 +2125,6 @@ export interface DescribedUser {
   UserName?: string;
 }
 
-export namespace DescribedUser {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribedUser): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the properties of the specified workflow</p>
  */
@@ -2575,15 +2160,6 @@ export interface DescribedWorkflow {
   Tags?: Tag[];
 }
 
-export namespace DescribedWorkflow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribedWorkflow): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeExecutionRequest {
   /**
    * <p>A unique identifier for the execution of a workflow.</p>
@@ -2594,15 +2170,6 @@ export interface DescribeExecutionRequest {
    * <p>A unique identifier for the workflow.</p>
    */
   WorkflowId: string | undefined;
-}
-
-export namespace DescribeExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExecutionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeExecutionResponse {
@@ -2617,29 +2184,11 @@ export interface DescribeExecutionResponse {
   Execution: DescribedExecution | undefined;
 }
 
-export namespace DescribeExecutionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExecutionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSecurityPolicyRequest {
   /**
    * <p>Specifies the name of the security policy that is attached to the server.</p>
    */
   SecurityPolicyName: string | undefined;
-}
-
-export namespace DescribeSecurityPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSecurityPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSecurityPolicyResponse {
@@ -2649,29 +2198,11 @@ export interface DescribeSecurityPolicyResponse {
   SecurityPolicy: DescribedSecurityPolicy | undefined;
 }
 
-export namespace DescribeSecurityPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSecurityPolicyResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeServerRequest {
   /**
    * <p>A system-assigned unique identifier for a server.</p>
    */
   ServerId: string | undefined;
-}
-
-export namespace DescribeServerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServerRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeServerResponse {
@@ -2680,15 +2211,6 @@ export interface DescribeServerResponse {
    *       specified.</p>
    */
   Server: DescribedServer | undefined;
-}
-
-export namespace DescribeServerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServerResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeUserRequest {
@@ -2704,15 +2226,6 @@ export interface DescribeUserRequest {
   UserName: string | undefined;
 }
 
-export namespace DescribeUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUserResponse {
   /**
    * <p>A system-assigned unique identifier for a server that has this user assigned.</p>
@@ -2726,15 +2239,6 @@ export interface DescribeUserResponse {
   User: DescribedUser | undefined;
 }
 
-export namespace DescribeUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeWorkflowRequest {
   /**
    * <p>A unique identifier for the workflow.</p>
@@ -2742,29 +2246,11 @@ export interface DescribeWorkflowRequest {
   WorkflowId: string | undefined;
 }
 
-export namespace DescribeWorkflowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkflowRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeWorkflowResponse {
   /**
    * <p>The structure that contains the details of the workflow.</p>
    */
   Workflow: DescribedWorkflow | undefined;
-}
-
-export namespace DescribeWorkflowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkflowResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ImportSshPublicKeyRequest {
@@ -2783,15 +2269,6 @@ export interface ImportSshPublicKeyRequest {
    * <p>The name of the user account that is assigned to one or more servers.</p>
    */
   UserName: string | undefined;
-}
-
-export namespace ImportSshPublicKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportSshPublicKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2814,15 +2291,6 @@ export interface ImportSshPublicKeyResponse {
    * <p>A user name assigned to the <code>ServerID</code> value that you specified.</p>
    */
   UserName: string | undefined;
-}
-
-export namespace ImportSshPublicKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportSshPublicKeyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2864,15 +2332,6 @@ export interface ListAccessesRequest {
    * <p>A system-assigned unique identifier for a server that has users assigned to it.</p>
    */
   ServerId: string | undefined;
-}
-
-export namespace ListAccessesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccessesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2919,15 +2378,6 @@ export interface ListedAccess {
   ExternalId?: string;
 }
 
-export namespace ListedAccess {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListedAccess): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccessesResponse {
   /**
    * <p>When you can get additional results from the <code>ListAccesses</code> call, a
@@ -2947,15 +2397,6 @@ export interface ListAccessesResponse {
    *       specify.</p>
    */
   Accesses: ListedAccess[] | undefined;
-}
-
-export namespace ListAccessesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccessesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2983,15 +2424,6 @@ export interface ListedExecution {
    * <p>The status is one of the execution. Can be in progress, completed, exception encountered, or handling the exception.</p>
    */
   Status?: ExecutionStatus | string;
-}
-
-export namespace ListedExecution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListedExecution): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3062,15 +2494,6 @@ export interface ListedServer {
   UserCount?: number;
 }
 
-export namespace ListedServer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListedServer): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns properties of the user that you specify.</p>
  */
@@ -3123,15 +2546,6 @@ export interface ListedUser {
   UserName?: string;
 }
 
-export namespace ListedUser {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListedUser): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the ID, text description, and Amazon Resource Name (ARN) for the workflow.</p>
  */
@@ -3150,15 +2564,6 @@ export interface ListedWorkflow {
    * <p>Specifies the unique Amazon Resource Name (ARN) for the workflow.</p>
    */
   Arn?: string;
-}
-
-export namespace ListedWorkflow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListedWorkflow): any => ({
-    ...obj,
-  });
 }
 
 export interface ListExecutionsRequest {
@@ -3197,15 +2602,6 @@ export interface ListExecutionsRequest {
    * <p>A unique identifier for the workflow.</p>
    */
   WorkflowId: string | undefined;
-}
-
-export namespace ListExecutionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExecutionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListExecutionsResponse {
@@ -3250,15 +2646,6 @@ export interface ListExecutionsResponse {
   Executions: ListedExecution[] | undefined;
 }
 
-export namespace ListExecutionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExecutionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSecurityPoliciesRequest {
   /**
    * <p>Specifies the number of security policies to return as a response to the
@@ -3275,15 +2662,6 @@ export interface ListSecurityPoliciesRequest {
   NextToken?: string;
 }
 
-export namespace ListSecurityPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSecurityPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSecurityPoliciesResponse {
   /**
    * <p>When you can get additional results from the <code>ListSecurityPolicies</code> operation,
@@ -3296,15 +2674,6 @@ export interface ListSecurityPoliciesResponse {
    * <p>An array of security policies that were listed.</p>
    */
   SecurityPolicyNames: string[] | undefined;
-}
-
-export namespace ListSecurityPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSecurityPoliciesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListServersRequest {
@@ -3323,15 +2692,6 @@ export interface ListServersRequest {
   NextToken?: string;
 }
 
-export namespace ListServersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServersResponse {
   /**
    * <p>When you can get additional results from the <code>ListServers</code> operation, a
@@ -3344,15 +2704,6 @@ export interface ListServersResponse {
    * <p>An array of servers that were listed.</p>
    */
   Servers: ListedServer[] | undefined;
-}
-
-export namespace ListServersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -3376,15 +2727,6 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The ARN you specified to list the tags of.</p>
@@ -3404,15 +2746,6 @@ export interface ListTagsForResourceResponse {
    *       searching for items. Tags are metadata that you define.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListUsersRequest {
@@ -3436,15 +2769,6 @@ export interface ListUsersRequest {
   ServerId: string | undefined;
 }
 
-export namespace ListUsersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListUsersResponse {
   /**
    * <p>When you can get additional results from the <code>ListUsers</code> call, a
@@ -3466,15 +2790,6 @@ export interface ListUsersResponse {
   Users: ListedUser[] | undefined;
 }
 
-export namespace ListUsersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWorkflowsRequest {
   /**
    * <p>Specifies the maximum number of workflows to return.</p>
@@ -3490,15 +2805,6 @@ export interface ListWorkflowsRequest {
   NextToken?: string;
 }
 
-export namespace ListWorkflowsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkflowsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWorkflowsResponse {
   /**
    * <p>
@@ -3512,15 +2818,6 @@ export interface ListWorkflowsResponse {
    * <p>Returns the <code>Arn</code>, <code>WorkflowId</code>, and <code>Description</code> for each workflow.</p>
    */
   Workflows: ListedWorkflow[] | undefined;
-}
-
-export namespace ListWorkflowsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkflowsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SendWorkflowStepStateRequest {
@@ -3545,25 +2842,7 @@ export interface SendWorkflowStepStateRequest {
   Status: CustomStepStatus | string | undefined;
 }
 
-export namespace SendWorkflowStepStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendWorkflowStepStateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendWorkflowStepStateResponse {}
-
-export namespace SendWorkflowStepStateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendWorkflowStepStateResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface StartServerRequest {
   /**
@@ -3572,29 +2851,11 @@ export interface StartServerRequest {
   ServerId: string | undefined;
 }
 
-export namespace StartServerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartServerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopServerRequest {
   /**
    * <p>A system-assigned unique identifier for a server that you stopped.</p>
    */
   ServerId: string | undefined;
-}
-
-export namespace StopServerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopServerRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -3609,15 +2870,6 @@ export interface TagResourceRequest {
    *       type. You can attach this metadata to user accounts for any purpose.</p>
    */
   Tags: Tag[] | undefined;
-}
-
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface TestIdentityProviderRequest {
@@ -3662,16 +2914,6 @@ export interface TestIdentityProviderRequest {
   UserPassword?: string;
 }
 
-export namespace TestIdentityProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestIdentityProviderRequest): any => ({
-    ...obj,
-    ...(obj.UserPassword && { UserPassword: SENSITIVE_STRING }),
-  });
-}
-
 export interface TestIdentityProviderResponse {
   /**
    * <p>The response that is returned from your API Gateway.</p>
@@ -3697,15 +2939,6 @@ export interface TestIdentityProviderResponse {
   Url: string | undefined;
 }
 
-export namespace TestIdentityProviderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestIdentityProviderResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * <p>The value of the resource that will have the tag removed. An Amazon Resource Name (ARN) is
@@ -3718,15 +2951,6 @@ export interface UntagResourceRequest {
    *       resources by type. This metadata can be attached to resources for any purpose.</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAccessRequest {
@@ -3827,15 +3051,6 @@ export interface UpdateAccessRequest {
   ExternalId: string | undefined;
 }
 
-export namespace UpdateAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAccessRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAccessResponse {
   /**
    * <p>The ID of the server that the user is attached to.</p>
@@ -3847,15 +3062,6 @@ export interface UpdateAccessResponse {
    *       resources over the enabled protocols using Amazon Web ServicesTransfer Family.</p>
    */
   ExternalId: string | undefined;
-}
-
-export namespace UpdateAccessResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAccessResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateServerRequest {
@@ -4077,31 +3283,12 @@ export interface UpdateServerRequest {
   WorkflowDetails?: WorkflowDetails;
 }
 
-export namespace UpdateServerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServerRequest): any => ({
-    ...obj,
-    ...(obj.HostKey && { HostKey: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateServerResponse {
   /**
    * <p>A system-assigned unique identifier for a server that the user account is assigned
    *       to.</p>
    */
   ServerId: string | undefined;
-}
-
-export namespace UpdateServerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServerResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateUserRequest {
@@ -4203,15 +3390,6 @@ export interface UpdateUserRequest {
   UserName: string | undefined;
 }
 
-export namespace UpdateUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             <code>UpdateUserResponse</code> returns the user name and identifier for the request to
@@ -4231,11 +3409,649 @@ export interface UpdateUserResponse {
   UserName: string | undefined;
 }
 
-export namespace UpdateUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const EfsFileLocationFilterSensitiveLog = (obj: EfsFileLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3InputFileLocationFilterSensitiveLog = (obj: S3InputFileLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputFileLocationFilterSensitiveLog = (obj: InputFileLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyStepDetailsFilterSensitiveLog = (obj: CopyStepDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HomeDirectoryMapEntryFilterSensitiveLog = (obj: HomeDirectoryMapEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PosixProfileFilterSensitiveLog = (obj: PosixProfile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAccessRequestFilterSensitiveLog = (obj: CreateAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAccessResponseFilterSensitiveLog = (obj: CreateAccessResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointDetailsFilterSensitiveLog = (obj: EndpointDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityProviderDetailsFilterSensitiveLog = (obj: IdentityProviderDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProtocolDetailsFilterSensitiveLog = (obj: ProtocolDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowDetailFilterSensitiveLog = (obj: WorkflowDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowDetailsFilterSensitiveLog = (obj: WorkflowDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateServerRequestFilterSensitiveLog = (obj: CreateServerRequest): any => ({
+  ...obj,
+  ...(obj.HostKey && { HostKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateServerResponseFilterSensitiveLog = (obj: CreateServerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomStepDetailsFilterSensitiveLog = (obj: CustomStepDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStepDetailsFilterSensitiveLog = (obj: DeleteStepDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3TagFilterSensitiveLog = (obj: S3Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagStepDetailsFilterSensitiveLog = (obj: TagStepDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowStepFilterSensitiveLog = (obj: WorkflowStep): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkflowRequestFilterSensitiveLog = (obj: CreateWorkflowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkflowResponseFilterSensitiveLog = (obj: CreateWorkflowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccessRequestFilterSensitiveLog = (obj: DeleteAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServerRequestFilterSensitiveLog = (obj: DeleteServerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSshPublicKeyRequestFilterSensitiveLog = (obj: DeleteSshPublicKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkflowRequestFilterSensitiveLog = (obj: DeleteWorkflowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccessRequestFilterSensitiveLog = (obj: DescribeAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribedAccessFilterSensitiveLog = (obj: DescribedAccess): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccessResponseFilterSensitiveLog = (obj: DescribeAccessResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3FileLocationFilterSensitiveLog = (obj: S3FileLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileLocationFilterSensitiveLog = (obj: FileLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingConfigurationFilterSensitiveLog = (obj: LoggingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutionErrorFilterSensitiveLog = (obj: ExecutionError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutionStepResultFilterSensitiveLog = (obj: ExecutionStepResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutionResultsFilterSensitiveLog = (obj: ExecutionResults): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserDetailsFilterSensitiveLog = (obj: UserDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceMetadataFilterSensitiveLog = (obj: ServiceMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribedExecutionFilterSensitiveLog = (obj: DescribedExecution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribedSecurityPolicyFilterSensitiveLog = (obj: DescribedSecurityPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribedServerFilterSensitiveLog = (obj: DescribedServer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SshPublicKeyFilterSensitiveLog = (obj: SshPublicKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribedUserFilterSensitiveLog = (obj: DescribedUser): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribedWorkflowFilterSensitiveLog = (obj: DescribedWorkflow): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExecutionRequestFilterSensitiveLog = (obj: DescribeExecutionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExecutionResponseFilterSensitiveLog = (obj: DescribeExecutionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSecurityPolicyRequestFilterSensitiveLog = (obj: DescribeSecurityPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSecurityPolicyResponseFilterSensitiveLog = (obj: DescribeSecurityPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServerRequestFilterSensitiveLog = (obj: DescribeServerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServerResponseFilterSensitiveLog = (obj: DescribeServerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserRequestFilterSensitiveLog = (obj: DescribeUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserResponseFilterSensitiveLog = (obj: DescribeUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkflowRequestFilterSensitiveLog = (obj: DescribeWorkflowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkflowResponseFilterSensitiveLog = (obj: DescribeWorkflowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportSshPublicKeyRequestFilterSensitiveLog = (obj: ImportSshPublicKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportSshPublicKeyResponseFilterSensitiveLog = (obj: ImportSshPublicKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccessesRequestFilterSensitiveLog = (obj: ListAccessesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListedAccessFilterSensitiveLog = (obj: ListedAccess): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccessesResponseFilterSensitiveLog = (obj: ListAccessesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListedExecutionFilterSensitiveLog = (obj: ListedExecution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListedServerFilterSensitiveLog = (obj: ListedServer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListedUserFilterSensitiveLog = (obj: ListedUser): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListedWorkflowFilterSensitiveLog = (obj: ListedWorkflow): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExecutionsRequestFilterSensitiveLog = (obj: ListExecutionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExecutionsResponseFilterSensitiveLog = (obj: ListExecutionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSecurityPoliciesRequestFilterSensitiveLog = (obj: ListSecurityPoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSecurityPoliciesResponseFilterSensitiveLog = (obj: ListSecurityPoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServersRequestFilterSensitiveLog = (obj: ListServersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServersResponseFilterSensitiveLog = (obj: ListServersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsersRequestFilterSensitiveLog = (obj: ListUsersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsersResponseFilterSensitiveLog = (obj: ListUsersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkflowsRequestFilterSensitiveLog = (obj: ListWorkflowsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkflowsResponseFilterSensitiveLog = (obj: ListWorkflowsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendWorkflowStepStateRequestFilterSensitiveLog = (obj: SendWorkflowStepStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendWorkflowStepStateResponseFilterSensitiveLog = (obj: SendWorkflowStepStateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartServerRequestFilterSensitiveLog = (obj: StartServerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopServerRequestFilterSensitiveLog = (obj: StopServerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestIdentityProviderRequestFilterSensitiveLog = (obj: TestIdentityProviderRequest): any => ({
+  ...obj,
+  ...(obj.UserPassword && { UserPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TestIdentityProviderResponseFilterSensitiveLog = (obj: TestIdentityProviderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccessRequestFilterSensitiveLog = (obj: UpdateAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccessResponseFilterSensitiveLog = (obj: UpdateAccessResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServerRequestFilterSensitiveLog = (obj: UpdateServerRequest): any => ({
+  ...obj,
+  ...(obj.HostKey && { HostKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateServerResponseFilterSensitiveLog = (obj: UpdateServerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserRequestFilterSensitiveLog = (obj: UpdateUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserResponseFilterSensitiveLog = (obj: UpdateUserResponse): any => ({
+  ...obj,
+});

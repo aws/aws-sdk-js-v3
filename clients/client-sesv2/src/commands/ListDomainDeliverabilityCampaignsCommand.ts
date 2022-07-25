@@ -14,7 +14,9 @@ import {
 
 import {
   ListDomainDeliverabilityCampaignsRequest,
+  ListDomainDeliverabilityCampaignsRequestFilterSensitiveLog,
   ListDomainDeliverabilityCampaignsResponse,
+  ListDomainDeliverabilityCampaignsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommand,
@@ -79,8 +81,8 @@ export class ListDomainDeliverabilityCampaignsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDomainDeliverabilityCampaignsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDomainDeliverabilityCampaignsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDomainDeliverabilityCampaignsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDomainDeliverabilityCampaignsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DescribeEndpointsMessage, DescribeEndpointsResponse } from "../models/models_0";
+import {
+  DescribeEndpointsMessage,
+  DescribeEndpointsMessageFilterSensitiveLog,
+  DescribeEndpointsResponse,
+  DescribeEndpointsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEndpointsCommand,
   serializeAws_json1_1DescribeEndpointsCommand,
@@ -76,8 +81,8 @@ export class DescribeEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEndpointsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEndpointsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEndpointsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEndpointsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

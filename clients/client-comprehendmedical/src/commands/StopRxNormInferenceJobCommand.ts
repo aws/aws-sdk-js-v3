@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import { StopRxNormInferenceJobRequest, StopRxNormInferenceJobResponse } from "../models/models_0";
+import {
+  StopRxNormInferenceJobRequest,
+  StopRxNormInferenceJobRequestFilterSensitiveLog,
+  StopRxNormInferenceJobResponse,
+  StopRxNormInferenceJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StopRxNormInferenceJobCommand,
   serializeAws_json1_1StopRxNormInferenceJobCommand,
@@ -76,8 +81,8 @@ export class StopRxNormInferenceJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopRxNormInferenceJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopRxNormInferenceJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopRxNormInferenceJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopRxNormInferenceJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

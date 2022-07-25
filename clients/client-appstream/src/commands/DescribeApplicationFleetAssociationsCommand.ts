@@ -15,7 +15,9 @@ import {
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import {
   DescribeApplicationFleetAssociationsRequest,
+  DescribeApplicationFleetAssociationsRequestFilterSensitiveLog,
   DescribeApplicationFleetAssociationsResult,
+  DescribeApplicationFleetAssociationsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeApplicationFleetAssociationsCommand,
@@ -77,8 +79,8 @@ export class DescribeApplicationFleetAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicationFleetAssociationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeApplicationFleetAssociationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeApplicationFleetAssociationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeApplicationFleetAssociationsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

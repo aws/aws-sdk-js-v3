@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListInstanceTypeDetailsRequest, ListInstanceTypeDetailsResponse } from "../models/models_0";
+import {
+  ListInstanceTypeDetailsRequest,
+  ListInstanceTypeDetailsRequestFilterSensitiveLog,
+  ListInstanceTypeDetailsResponse,
+  ListInstanceTypeDetailsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1ListInstanceTypeDetailsCommand,
@@ -55,8 +60,8 @@ export class ListInstanceTypeDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInstanceTypeDetailsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListInstanceTypeDetailsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListInstanceTypeDetailsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListInstanceTypeDetailsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

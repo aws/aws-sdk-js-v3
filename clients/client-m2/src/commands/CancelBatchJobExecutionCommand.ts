@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import { CancelBatchJobExecutionRequest, CancelBatchJobExecutionResponse } from "../models/models_0";
+import {
+  CancelBatchJobExecutionRequest,
+  CancelBatchJobExecutionRequestFilterSensitiveLog,
+  CancelBatchJobExecutionResponse,
+  CancelBatchJobExecutionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CancelBatchJobExecutionCommand,
   serializeAws_restJson1CancelBatchJobExecutionCommand,
@@ -72,8 +77,8 @@ export class CancelBatchJobExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelBatchJobExecutionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelBatchJobExecutionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelBatchJobExecutionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelBatchJobExecutionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

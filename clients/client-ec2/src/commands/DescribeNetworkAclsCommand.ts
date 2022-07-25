@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeNetworkAclsRequest, DescribeNetworkAclsResult } from "../models/models_3";
+import {
+  DescribeNetworkAclsRequest,
+  DescribeNetworkAclsRequestFilterSensitiveLog,
+  DescribeNetworkAclsResult,
+  DescribeNetworkAclsResultFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeNetworkAclsCommand,
   serializeAws_ec2DescribeNetworkAclsCommand,
@@ -74,8 +79,8 @@ export class DescribeNetworkAclsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNetworkAclsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNetworkAclsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeNetworkAclsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNetworkAclsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

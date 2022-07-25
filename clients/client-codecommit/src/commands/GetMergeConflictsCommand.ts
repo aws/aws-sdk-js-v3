@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { GetMergeConflictsInput, GetMergeConflictsOutput } from "../models/models_0";
+import {
+  GetMergeConflictsInput,
+  GetMergeConflictsInputFilterSensitiveLog,
+  GetMergeConflictsOutput,
+  GetMergeConflictsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetMergeConflictsCommand,
   serializeAws_json1_1GetMergeConflictsCommand,
@@ -72,8 +77,8 @@ export class GetMergeConflictsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMergeConflictsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMergeConflictsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMergeConflictsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMergeConflictsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

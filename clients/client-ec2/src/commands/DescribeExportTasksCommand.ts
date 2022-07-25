@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeExportTasksRequest, DescribeExportTasksResult } from "../models/models_3";
+import {
+  DescribeExportTasksRequest,
+  DescribeExportTasksRequestFilterSensitiveLog,
+  DescribeExportTasksResult,
+  DescribeExportTasksResultFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeExportTasksCommand,
   serializeAws_ec2DescribeExportTasksCommand,
@@ -72,8 +77,8 @@ export class DescribeExportTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExportTasksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeExportTasksResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeExportTasksRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeExportTasksResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

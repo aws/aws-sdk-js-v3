@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListBudgetsForResourceInput, ListBudgetsForResourceOutput } from "../models/models_0";
+import {
+  ListBudgetsForResourceInput,
+  ListBudgetsForResourceInputFilterSensitiveLog,
+  ListBudgetsForResourceOutput,
+  ListBudgetsForResourceOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListBudgetsForResourceCommand,
   serializeAws_json1_1ListBudgetsForResourceCommand,
@@ -72,8 +77,8 @@ export class ListBudgetsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBudgetsForResourceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListBudgetsForResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBudgetsForResourceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListBudgetsForResourceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

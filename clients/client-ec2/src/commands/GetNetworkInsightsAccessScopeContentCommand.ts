@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetNetworkInsightsAccessScopeContentRequest,
+  GetNetworkInsightsAccessScopeContentRequestFilterSensitiveLog,
   GetNetworkInsightsAccessScopeContentResult,
+  GetNetworkInsightsAccessScopeContentResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
   deserializeAws_ec2GetNetworkInsightsAccessScopeContentCommand,
@@ -77,8 +79,8 @@ export class GetNetworkInsightsAccessScopeContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkInsightsAccessScopeContentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetNetworkInsightsAccessScopeContentResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetNetworkInsightsAccessScopeContentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetNetworkInsightsAccessScopeContentResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

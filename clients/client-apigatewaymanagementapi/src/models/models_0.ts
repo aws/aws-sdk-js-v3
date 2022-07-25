@@ -7,15 +7,6 @@ export interface DeleteConnectionRequest {
   ConnectionId: string | undefined;
 }
 
-export namespace DeleteConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The caller is not authorized to invoke this operation.</p>
  */
@@ -77,15 +68,6 @@ export interface GetConnectionRequest {
   ConnectionId: string | undefined;
 }
 
-export namespace GetConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface Identity {
   /**
    * <p>The source IP address of the TCP connection making the request to API Gateway.</p>
@@ -96,15 +78,6 @@ export interface Identity {
    * <p>The User Agent of the API caller.</p>
    */
   UserAgent: string | undefined;
-}
-
-export namespace Identity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Identity): any => ({
-    ...obj,
-  });
 }
 
 export interface GetConnectionResponse {
@@ -118,15 +91,6 @@ export interface GetConnectionResponse {
    * <p>The time in ISO 8601 format for when the connection was last active.</p>
    */
   LastActiveAt?: Date;
-}
-
-export namespace GetConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -162,11 +126,37 @@ export interface PostToConnectionRequest {
   ConnectionId: string | undefined;
 }
 
-export namespace PostToConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostToConnectionRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DeleteConnectionRequestFilterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectionRequestFilterSensitiveLog = (obj: GetConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityFilterSensitiveLog = (obj: Identity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectionResponseFilterSensitiveLog = (obj: GetConnectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PostToConnectionRequestFilterSensitiveLog = (obj: PostToConnectionRequest): any => ({
+  ...obj,
+});

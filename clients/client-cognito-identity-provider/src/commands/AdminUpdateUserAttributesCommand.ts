@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminUpdateUserAttributesRequest, AdminUpdateUserAttributesResponse } from "../models/models_0";
+import {
+  AdminUpdateUserAttributesRequest,
+  AdminUpdateUserAttributesRequestFilterSensitiveLog,
+  AdminUpdateUserAttributesResponse,
+  AdminUpdateUserAttributesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AdminUpdateUserAttributesCommand,
   serializeAws_json1_1AdminUpdateUserAttributesCommand,
@@ -103,8 +108,8 @@ export class AdminUpdateUserAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AdminUpdateUserAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AdminUpdateUserAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminUpdateUserAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AdminUpdateUserAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

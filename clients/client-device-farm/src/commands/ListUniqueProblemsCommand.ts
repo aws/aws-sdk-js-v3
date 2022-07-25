@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { ListUniqueProblemsRequest, ListUniqueProblemsResult } from "../models/models_0";
+import {
+  ListUniqueProblemsRequest,
+  ListUniqueProblemsRequestFilterSensitiveLog,
+  ListUniqueProblemsResult,
+  ListUniqueProblemsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListUniqueProblemsCommand,
   serializeAws_json1_1ListUniqueProblemsCommand,
@@ -76,8 +81,8 @@ export class ListUniqueProblemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUniqueProblemsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListUniqueProblemsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListUniqueProblemsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListUniqueProblemsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

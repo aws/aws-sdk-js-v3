@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetLensVersionDifferenceInput, GetLensVersionDifferenceOutput } from "../models/models_0";
+import {
+  GetLensVersionDifferenceInput,
+  GetLensVersionDifferenceInputFilterSensitiveLog,
+  GetLensVersionDifferenceOutput,
+  GetLensVersionDifferenceOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetLensVersionDifferenceCommand,
   serializeAws_restJson1GetLensVersionDifferenceCommand,
@@ -72,8 +77,8 @@ export class GetLensVersionDifferenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLensVersionDifferenceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetLensVersionDifferenceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLensVersionDifferenceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetLensVersionDifferenceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

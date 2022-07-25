@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResult } from "../models/models_1";
+import {
+  ListTagsForResourceRequest,
+  ListTagsForResourceRequestFilterSensitiveLog,
+  ListTagsForResourceResult,
+  ListTagsForResourceResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlListTagsForResourceCommand,
   serializeAws_restXmlListTagsForResourceCommand,
@@ -72,8 +77,8 @@ export class ListTagsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForResourceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsForResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsForResourceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

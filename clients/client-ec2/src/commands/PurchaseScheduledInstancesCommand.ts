@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { PurchaseScheduledInstancesRequest, PurchaseScheduledInstancesResult } from "../models/models_5";
+import {
+  PurchaseScheduledInstancesRequest,
+  PurchaseScheduledInstancesRequestFilterSensitiveLog,
+  PurchaseScheduledInstancesResult,
+  PurchaseScheduledInstancesResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2PurchaseScheduledInstancesCommand,
   serializeAws_ec2PurchaseScheduledInstancesCommand,
@@ -77,8 +82,8 @@ export class PurchaseScheduledInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseScheduledInstancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseScheduledInstancesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PurchaseScheduledInstancesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseScheduledInstancesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

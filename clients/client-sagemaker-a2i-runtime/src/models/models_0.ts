@@ -10,25 +10,7 @@ export interface DeleteHumanLoopRequest {
   HumanLoopName: string | undefined;
 }
 
-export namespace DeleteHumanLoopRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHumanLoopRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteHumanLoopResponse {}
-
-export namespace DeleteHumanLoopResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHumanLoopResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>We couldn't process your request because of an issue with the server. Try again
@@ -126,15 +108,6 @@ export interface DescribeHumanLoopRequest {
   HumanLoopName: string | undefined;
 }
 
-export namespace DescribeHumanLoopRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHumanLoopRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about where the human output will be stored.</p>
  */
@@ -143,15 +116,6 @@ export interface HumanLoopOutput {
    * <p>The location of the Amazon S3 object where Amazon Augmented AI stores your human loop output.</p>
    */
   OutputS3Uri: string | undefined;
-}
-
-export namespace HumanLoopOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HumanLoopOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum HumanLoopStatus {
@@ -209,15 +173,6 @@ export interface DescribeHumanLoopResponse {
   HumanLoopOutput?: HumanLoopOutput;
 }
 
-export namespace DescribeHumanLoopResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHumanLoopResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum SortOrder {
   ASCENDING = "Ascending",
   DESCENDING = "Descending",
@@ -258,15 +213,6 @@ export interface ListHumanLoopsRequest {
   MaxResults?: number;
 }
 
-export namespace ListHumanLoopsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHumanLoopsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary information about the human loop.</p>
  */
@@ -299,15 +245,6 @@ export interface HumanLoopSummary {
   FlowDefinitionArn?: string;
 }
 
-export namespace HumanLoopSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HumanLoopSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListHumanLoopsResponse {
   /**
    * <p>An array of objects that contain information about the human loops.</p>
@@ -318,15 +255,6 @@ export interface ListHumanLoopsResponse {
    * <p>A token to display the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListHumanLoopsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHumanLoopsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -393,15 +321,6 @@ export interface HumanLoopDataAttributes {
   ContentClassifiers: (ContentClassifier | string)[] | undefined;
 }
 
-export namespace HumanLoopDataAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HumanLoopDataAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object containing the human loop input in JSON format.</p>
  */
@@ -410,15 +329,6 @@ export interface HumanLoopInput {
    * <p>Serialized input from the human loop. The input must be a string representation of a file in JSON format.</p>
    */
   InputContent: string | undefined;
-}
-
-export namespace HumanLoopInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HumanLoopInput): any => ({
-    ...obj,
-  });
 }
 
 export interface StartHumanLoopRequest {
@@ -445,29 +355,11 @@ export interface StartHumanLoopRequest {
   DataAttributes?: HumanLoopDataAttributes;
 }
 
-export namespace StartHumanLoopRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartHumanLoopRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartHumanLoopResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the human loop.</p>
    */
   HumanLoopArn?: string;
-}
-
-export namespace StartHumanLoopResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartHumanLoopResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StopHumanLoopRequest {
@@ -477,22 +369,102 @@ export interface StopHumanLoopRequest {
   HumanLoopName: string | undefined;
 }
 
-export namespace StopHumanLoopRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopHumanLoopRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopHumanLoopResponse {}
 
-export namespace StopHumanLoopResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopHumanLoopResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DeleteHumanLoopRequestFilterSensitiveLog = (obj: DeleteHumanLoopRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteHumanLoopResponseFilterSensitiveLog = (obj: DeleteHumanLoopResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHumanLoopRequestFilterSensitiveLog = (obj: DescribeHumanLoopRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HumanLoopOutputFilterSensitiveLog = (obj: HumanLoopOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHumanLoopResponseFilterSensitiveLog = (obj: DescribeHumanLoopResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHumanLoopsRequestFilterSensitiveLog = (obj: ListHumanLoopsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HumanLoopSummaryFilterSensitiveLog = (obj: HumanLoopSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHumanLoopsResponseFilterSensitiveLog = (obj: ListHumanLoopsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HumanLoopDataAttributesFilterSensitiveLog = (obj: HumanLoopDataAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HumanLoopInputFilterSensitiveLog = (obj: HumanLoopInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartHumanLoopRequestFilterSensitiveLog = (obj: StartHumanLoopRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartHumanLoopResponseFilterSensitiveLog = (obj: StartHumanLoopResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopHumanLoopRequestFilterSensitiveLog = (obj: StopHumanLoopRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopHumanLoopResponseFilterSensitiveLog = (obj: StopHumanLoopResponse): any => ({
+  ...obj,
+});

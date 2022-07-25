@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { CreateLoadBalancerTlsCertificateRequest, CreateLoadBalancerTlsCertificateResult } from "../models/models_0";
+import {
+  CreateLoadBalancerTlsCertificateRequest,
+  CreateLoadBalancerTlsCertificateRequestFilterSensitiveLog,
+  CreateLoadBalancerTlsCertificateResult,
+  CreateLoadBalancerTlsCertificateResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLoadBalancerTlsCertificateCommand,
   serializeAws_json1_1CreateLoadBalancerTlsCertificateCommand,
@@ -78,8 +83,8 @@ export class CreateLoadBalancerTlsCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLoadBalancerTlsCertificateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLoadBalancerTlsCertificateResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLoadBalancerTlsCertificateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateLoadBalancerTlsCertificateResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

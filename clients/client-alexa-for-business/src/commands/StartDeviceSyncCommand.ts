@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { StartDeviceSyncRequest, StartDeviceSyncResponse } from "../models/models_0";
+import {
+  StartDeviceSyncRequest,
+  StartDeviceSyncRequestFilterSensitiveLog,
+  StartDeviceSyncResponse,
+  StartDeviceSyncResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartDeviceSyncCommand,
   serializeAws_json1_1StartDeviceSyncCommand,
@@ -93,8 +98,8 @@ export class StartDeviceSyncCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDeviceSyncRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartDeviceSyncResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartDeviceSyncRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartDeviceSyncResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

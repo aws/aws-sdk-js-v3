@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateProjectRequest, CreateProjectResponse } from "../models/models_0";
+import {
+  CreateProjectRequest,
+  CreateProjectRequestFilterSensitiveLog,
+  CreateProjectResponse,
+  CreateProjectResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateProjectCommand,
   serializeAws_json1_1CreateProjectCommand,
@@ -74,8 +79,8 @@ export class CreateProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateProjectResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateProjectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateProjectResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

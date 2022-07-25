@@ -55,15 +55,6 @@ export interface CallInstructionsMessageType {
   Text?: string;
 }
 
-export namespace CallInstructionsMessageType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CallInstructionsMessageType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.
  */
@@ -79,15 +70,6 @@ export interface CloudWatchLogsDestination {
   LogGroupArn?: string;
 }
 
-export namespace CloudWatchLogsDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLogsDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A request to create a new configuration set.
  */
@@ -98,28 +80,10 @@ export interface CreateConfigurationSetRequest {
   ConfigurationSetName?: string;
 }
 
-export namespace CreateConfigurationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * An empty object that indicates that the configuration set was successfully created.
  */
 export interface CreateConfigurationSetResponse {}
-
-export namespace CreateConfigurationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
@@ -199,15 +163,6 @@ export interface KinesisFirehoseDestination {
   IamRoleArn?: string;
 }
 
-export namespace KinesisFirehoseDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
-    ...obj,
-  });
-}
-
 export enum EventType {
   ANSWERED = "ANSWERED",
   BUSY = "BUSY",
@@ -226,15 +181,6 @@ export interface SnsDestination {
    * The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.
    */
   TopicArn?: string;
-}
-
-export namespace SnsDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnsDestination): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -267,15 +213,6 @@ export interface EventDestinationDefinition {
   SnsDestination?: SnsDestination;
 }
 
-export namespace EventDestinationDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDestinationDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Create a new event destination in a configuration set.
  */
@@ -296,28 +233,10 @@ export interface CreateConfigurationSetEventDestinationRequest {
   EventDestinationName?: string;
 }
 
-export namespace CreateConfigurationSetEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * An empty object that indicates that the event destination was created successfully.
  */
 export interface CreateConfigurationSetEventDestinationResponse {}
-
-export namespace CreateConfigurationSetEventDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * The resource you attempted to access doesn't exist.
@@ -347,28 +266,10 @@ export interface DeleteConfigurationSetRequest {
   ConfigurationSetName: string | undefined;
 }
 
-export namespace DeleteConfigurationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * An empty object that indicates that the configuration set was deleted successfully.
  */
 export interface DeleteConfigurationSetResponse {}
-
-export namespace DeleteConfigurationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteConfigurationSetEventDestinationRequest {
   /**
@@ -382,28 +283,10 @@ export interface DeleteConfigurationSetEventDestinationRequest {
   EventDestinationName: string | undefined;
 }
 
-export namespace DeleteConfigurationSetEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * An empty object that indicates that the event destination was deleted successfully.
  */
 export interface DeleteConfigurationSetEventDestinationResponse {}
-
-export namespace DeleteConfigurationSetEventDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * An object that defines an event destination.
@@ -440,29 +323,11 @@ export interface EventDestination {
   SnsDestination?: SnsDestination;
 }
 
-export namespace EventDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDestination): any => ({
-    ...obj,
-  });
-}
-
 export interface GetConfigurationSetEventDestinationsRequest {
   /**
    * ConfigurationSetName
    */
   ConfigurationSetName: string | undefined;
-}
-
-export namespace GetConfigurationSetEventDestinationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConfigurationSetEventDestinationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -475,15 +340,6 @@ export interface GetConfigurationSetEventDestinationsResponse {
   EventDestinations?: EventDestination[];
 }
 
-export namespace GetConfigurationSetEventDestinationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConfigurationSetEventDestinationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConfigurationSetsRequest {
   /**
    * A token returned from a previous call to the API that indicates the position in the list of results.
@@ -494,15 +350,6 @@ export interface ListConfigurationSetsRequest {
    * Used to specify the number of items that should be returned in the response.
    */
   PageSize?: string;
-}
-
-export namespace ListConfigurationSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -518,15 +365,6 @@ export interface ListConfigurationSetsResponse {
    * A token returned from a previous call to ListConfigurationSets to indicate the position in the list of configuration sets.
    */
   NextToken?: string;
-}
-
-export namespace ListConfigurationSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -549,15 +387,6 @@ export interface PlainTextMessageType {
   VoiceId?: string;
 }
 
-export namespace PlainTextMessageType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlainTextMessageType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * An object that defines a message that contains SSML-formatted text.
  */
@@ -578,15 +407,6 @@ export interface SSMLMessageType {
   VoiceId?: string;
 }
 
-export namespace SSMLMessageType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SSMLMessageType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * An object that contains a voice message and information about the recipient that you want to send it to.
  */
@@ -605,15 +425,6 @@ export interface VoiceMessageContent {
    * An object that defines a message that contains SSML-formatted text.
    */
   SSMLMessage?: SSMLMessageType;
-}
-
-export namespace VoiceMessageContent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VoiceMessageContent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -646,15 +457,6 @@ export interface SendVoiceMessageRequest {
   OriginationPhoneNumber?: string;
 }
 
-export namespace SendVoiceMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendVoiceMessageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * An object that that contains the Message ID of a Voice message that was sent successfully.
  */
@@ -663,15 +465,6 @@ export interface SendVoiceMessageResponse {
    * A unique identifier for the voice message.
    */
   MessageId?: string;
-}
-
-export namespace SendVoiceMessageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendVoiceMessageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -694,25 +487,198 @@ export interface UpdateConfigurationSetEventDestinationRequest {
   EventDestinationName: string | undefined;
 }
 
-export namespace UpdateConfigurationSetEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * An empty object that indicates that the event destination was updated successfully.
  */
 export interface UpdateConfigurationSetEventDestinationResponse {}
 
-export namespace UpdateConfigurationSetEventDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CallInstructionsMessageTypeFilterSensitiveLog = (obj: CallInstructionsMessageType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchLogsDestinationFilterSensitiveLog = (obj: CloudWatchLogsDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationSetRequestFilterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationSetResponseFilterSensitiveLog = (obj: CreateConfigurationSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisFirehoseDestinationFilterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnsDestinationFilterSensitiveLog = (obj: SnsDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventDestinationDefinitionFilterSensitiveLog = (obj: EventDestinationDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationSetEventDestinationRequestFilterSensitiveLog = (
+  obj: CreateConfigurationSetEventDestinationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationSetEventDestinationResponseFilterSensitiveLog = (
+  obj: CreateConfigurationSetEventDestinationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationSetRequestFilterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationSetResponseFilterSensitiveLog = (obj: DeleteConfigurationSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationSetEventDestinationRequestFilterSensitiveLog = (
+  obj: DeleteConfigurationSetEventDestinationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationSetEventDestinationResponseFilterSensitiveLog = (
+  obj: DeleteConfigurationSetEventDestinationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventDestinationFilterSensitiveLog = (obj: EventDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConfigurationSetEventDestinationsRequestFilterSensitiveLog = (
+  obj: GetConfigurationSetEventDestinationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConfigurationSetEventDestinationsResponseFilterSensitiveLog = (
+  obj: GetConfigurationSetEventDestinationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationSetsRequestFilterSensitiveLog = (obj: ListConfigurationSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationSetsResponseFilterSensitiveLog = (obj: ListConfigurationSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlainTextMessageTypeFilterSensitiveLog = (obj: PlainTextMessageType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SSMLMessageTypeFilterSensitiveLog = (obj: SSMLMessageType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VoiceMessageContentFilterSensitiveLog = (obj: VoiceMessageContent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendVoiceMessageRequestFilterSensitiveLog = (obj: SendVoiceMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendVoiceMessageResponseFilterSensitiveLog = (obj: SendVoiceMessageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationSetEventDestinationRequestFilterSensitiveLog = (
+  obj: UpdateConfigurationSetEventDestinationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationSetEventDestinationResponseFilterSensitiveLog = (
+  obj: UpdateConfigurationSetEventDestinationResponse
+): any => ({
+  ...obj,
+});

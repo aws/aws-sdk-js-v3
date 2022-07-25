@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateSimulationApplicationRequest, CreateSimulationApplicationResponse } from "../models/models_0";
+import {
+  CreateSimulationApplicationRequest,
+  CreateSimulationApplicationRequestFilterSensitiveLog,
+  CreateSimulationApplicationResponse,
+  CreateSimulationApplicationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSimulationApplicationCommand,
   serializeAws_restJson1CreateSimulationApplicationCommand,
@@ -74,8 +79,8 @@ export class CreateSimulationApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSimulationApplicationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSimulationApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSimulationApplicationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSimulationApplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

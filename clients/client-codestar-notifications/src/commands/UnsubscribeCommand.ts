@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import { UnsubscribeRequest, UnsubscribeResult } from "../models/models_0";
+import {
+  UnsubscribeRequest,
+  UnsubscribeRequestFilterSensitiveLog,
+  UnsubscribeResult,
+  UnsubscribeResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UnsubscribeCommand,
   serializeAws_restJson1UnsubscribeCommand,
@@ -78,8 +83,8 @@ export class UnsubscribeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnsubscribeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UnsubscribeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UnsubscribeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UnsubscribeResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

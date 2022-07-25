@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { EnableVolumeIORequest } from "../models/models_4";
+import { EnableVolumeIORequest, EnableVolumeIORequestFilterSensitiveLog } from "../models/models_4";
 import { deserializeAws_ec2EnableVolumeIOCommand, serializeAws_ec2EnableVolumeIOCommand } from "../protocols/Aws_ec2";
 
 export interface EnableVolumeIOCommandInput extends EnableVolumeIORequest {}
@@ -70,7 +70,7 @@ export class EnableVolumeIOCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableVolumeIORequest.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableVolumeIORequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

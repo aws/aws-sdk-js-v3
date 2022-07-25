@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateActivityInput, CreateActivityOutput } from "../models/models_0";
+import {
+  CreateActivityInput,
+  CreateActivityInputFilterSensitiveLog,
+  CreateActivityOutput,
+  CreateActivityOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0CreateActivityCommand,
   serializeAws_json1_0CreateActivityCommand,
@@ -88,8 +93,8 @@ export class CreateActivityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateActivityInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateActivityOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateActivityInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateActivityOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

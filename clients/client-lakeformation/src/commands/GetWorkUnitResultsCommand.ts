@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { GetWorkUnitResultsRequest, GetWorkUnitResultsResponse } from "../models/models_0";
+import {
+  GetWorkUnitResultsRequest,
+  GetWorkUnitResultsRequestFilterSensitiveLog,
+  GetWorkUnitResultsResponse,
+  GetWorkUnitResultsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetWorkUnitResultsCommand,
   serializeAws_restJson1GetWorkUnitResultsCommand,
@@ -72,8 +77,8 @@ export class GetWorkUnitResultsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkUnitResultsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetWorkUnitResultsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetWorkUnitResultsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetWorkUnitResultsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

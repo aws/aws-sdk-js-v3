@@ -15,7 +15,9 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   ListVoiceConnectorTerminationCredentialsRequest,
+  ListVoiceConnectorTerminationCredentialsRequestFilterSensitiveLog,
   ListVoiceConnectorTerminationCredentialsResponse,
+  ListVoiceConnectorTerminationCredentialsResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1ListVoiceConnectorTerminationCredentialsCommand,
@@ -81,8 +83,8 @@ export class ListVoiceConnectorTerminationCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVoiceConnectorTerminationCredentialsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListVoiceConnectorTerminationCredentialsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListVoiceConnectorTerminationCredentialsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListVoiceConnectorTerminationCredentialsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { GetDownloadUrlForLayerRequest, GetDownloadUrlForLayerResponse } from "../models/models_0";
+import {
+  GetDownloadUrlForLayerRequest,
+  GetDownloadUrlForLayerRequestFilterSensitiveLog,
+  GetDownloadUrlForLayerResponse,
+  GetDownloadUrlForLayerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetDownloadUrlForLayerCommand,
   serializeAws_json1_1GetDownloadUrlForLayerCommand,
@@ -79,8 +84,8 @@ export class GetDownloadUrlForLayerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDownloadUrlForLayerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDownloadUrlForLayerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDownloadUrlForLayerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDownloadUrlForLayerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

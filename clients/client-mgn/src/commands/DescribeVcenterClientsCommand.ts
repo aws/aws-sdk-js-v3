@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { DescribeVcenterClientsRequest, DescribeVcenterClientsResponse } from "../models/models_0";
+import {
+  DescribeVcenterClientsRequest,
+  DescribeVcenterClientsRequestFilterSensitiveLog,
+  DescribeVcenterClientsResponse,
+  DescribeVcenterClientsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeVcenterClientsCommand,
   serializeAws_restJson1DescribeVcenterClientsCommand,
@@ -72,8 +77,8 @@ export class DescribeVcenterClientsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVcenterClientsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVcenterClientsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVcenterClientsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVcenterClientsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

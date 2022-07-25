@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetInstanceUefiDataRequest, GetInstanceUefiDataResult } from "../models/models_5";
+import {
+  GetInstanceUefiDataRequest,
+  GetInstanceUefiDataRequestFilterSensitiveLog,
+  GetInstanceUefiDataResult,
+  GetInstanceUefiDataResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2GetInstanceUefiDataCommand,
   serializeAws_ec2GetInstanceUefiDataCommand,
@@ -81,8 +86,8 @@ export class GetInstanceUefiDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstanceUefiDataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetInstanceUefiDataResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInstanceUefiDataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetInstanceUefiDataResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

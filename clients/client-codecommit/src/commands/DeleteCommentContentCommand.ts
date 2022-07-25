@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { DeleteCommentContentInput, DeleteCommentContentOutput } from "../models/models_0";
+import {
+  DeleteCommentContentInput,
+  DeleteCommentContentInputFilterSensitiveLog,
+  DeleteCommentContentOutput,
+  DeleteCommentContentOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCommentContentCommand,
   serializeAws_json1_1DeleteCommentContentCommand,
@@ -72,8 +77,8 @@ export class DeleteCommentContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCommentContentInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCommentContentOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCommentContentInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCommentContentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

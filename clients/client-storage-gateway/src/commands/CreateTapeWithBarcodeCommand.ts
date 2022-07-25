@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateTapeWithBarcodeInput, CreateTapeWithBarcodeOutput } from "../models/models_0";
+import {
+  CreateTapeWithBarcodeInput,
+  CreateTapeWithBarcodeInputFilterSensitiveLog,
+  CreateTapeWithBarcodeOutput,
+  CreateTapeWithBarcodeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateTapeWithBarcodeCommand,
   serializeAws_json1_1CreateTapeWithBarcodeCommand,
@@ -80,8 +85,8 @@ export class CreateTapeWithBarcodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTapeWithBarcodeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateTapeWithBarcodeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTapeWithBarcodeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateTapeWithBarcodeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

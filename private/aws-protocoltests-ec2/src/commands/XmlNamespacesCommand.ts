@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { XmlNamespacesOutput } from "../models/models_0";
+import { XmlNamespacesOutput, XmlNamespacesOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_ec2XmlNamespacesCommand, serializeAws_ec2XmlNamespacesCommand } from "../protocols/Aws_ec2";
 
 export interface XmlNamespacesCommandInput {}
@@ -53,7 +53,7 @@ export class XmlNamespacesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: XmlNamespacesOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: XmlNamespacesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

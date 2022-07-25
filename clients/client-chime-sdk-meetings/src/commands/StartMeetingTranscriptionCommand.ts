@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
-import { StartMeetingTranscriptionRequest } from "../models/models_0";
+import {
+  StartMeetingTranscriptionRequest,
+  StartMeetingTranscriptionRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartMeetingTranscriptionCommand,
   serializeAws_restJson1StartMeetingTranscriptionCommand,
@@ -72,7 +75,7 @@ export class StartMeetingTranscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMeetingTranscriptionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: StartMeetingTranscriptionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

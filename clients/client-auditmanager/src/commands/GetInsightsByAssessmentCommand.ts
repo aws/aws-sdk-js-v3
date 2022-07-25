@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { GetInsightsByAssessmentRequest, GetInsightsByAssessmentResponse } from "../models/models_0";
+import {
+  GetInsightsByAssessmentRequest,
+  GetInsightsByAssessmentRequestFilterSensitiveLog,
+  GetInsightsByAssessmentResponse,
+  GetInsightsByAssessmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetInsightsByAssessmentCommand,
   serializeAws_restJson1GetInsightsByAssessmentCommand,
@@ -72,8 +77,8 @@ export class GetInsightsByAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInsightsByAssessmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetInsightsByAssessmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInsightsByAssessmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetInsightsByAssessmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

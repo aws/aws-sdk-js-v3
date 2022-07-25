@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
-import { RegisterUsageRequest, RegisterUsageResult } from "../models/models_0";
+import {
+  RegisterUsageRequest,
+  RegisterUsageRequestFilterSensitiveLog,
+  RegisterUsageResult,
+  RegisterUsageResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterUsageCommand,
   serializeAws_json1_1RegisterUsageCommand,
@@ -115,8 +120,8 @@ export class RegisterUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterUsageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterUsageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterUsageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RegisterUsageResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

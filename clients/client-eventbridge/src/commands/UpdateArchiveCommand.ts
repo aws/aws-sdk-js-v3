@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { UpdateArchiveRequest, UpdateArchiveResponse } from "../models/models_0";
+import {
+  UpdateArchiveRequest,
+  UpdateArchiveRequestFilterSensitiveLog,
+  UpdateArchiveResponse,
+  UpdateArchiveResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateArchiveCommand,
   serializeAws_json1_1UpdateArchiveCommand,
@@ -72,8 +77,8 @@ export class UpdateArchiveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateArchiveRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateArchiveResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateArchiveRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateArchiveResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

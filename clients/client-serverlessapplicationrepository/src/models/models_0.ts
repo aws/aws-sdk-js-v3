@@ -18,15 +18,6 @@ export interface ApplicationDependencySummary {
   SemanticVersion: string | undefined;
 }
 
-export namespace ApplicationDependencySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationDependencySummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Policy statement applied to the application.</p>
  */
@@ -51,15 +42,6 @@ export interface ApplicationPolicyStatement {
    * <p>A unique ID for the statement.</p>
    */
   StatementId?: string;
-}
-
-export namespace ApplicationPolicyStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationPolicyStatement): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -105,15 +87,6 @@ export interface ApplicationSummary {
    * <p>A valid identifier from <a href="https://spdx.org/licenses/">https://spdx.org/licenses/</a>.</p>
    */
   SpdxLicenseId?: string;
-}
-
-export namespace ApplicationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum Capability {
@@ -210,15 +183,6 @@ export interface ParameterDefinition {
   Type?: string;
 }
 
-export namespace ParameterDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Parameter value of the application.</p>
  */
@@ -233,15 +197,6 @@ export interface ParameterValue {
    * <p>The input value associated with the parameter.</p>
    */
   Value: string | undefined;
-}
-
-export namespace ParameterValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -262,15 +217,6 @@ export interface RollbackTrigger {
   Type: string | undefined;
 }
 
-export namespace RollbackTrigger {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RollbackTrigger): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This property corresponds to the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/Tag">Tag</a>
  *  </i> Data Type.</p>
@@ -289,15 +235,6 @@ export interface Tag {
    *  Data Type.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -325,15 +262,6 @@ export interface VersionSummary {
    * <p>A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.</p>
    */
   SourceCodeUrl?: string;
-}
-
-export namespace VersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VersionSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -478,15 +406,6 @@ export interface CreateApplicationRequest {
   TemplateUrl?: string;
 }
 
-export namespace CreateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Application version details.</p>
  */
@@ -562,15 +481,6 @@ export interface Version {
   TemplateUrl: string | undefined;
 }
 
-export namespace Version {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Version): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateApplicationResponse {
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -636,15 +546,6 @@ export interface CreateApplicationResponse {
    * <p>Version information about the application.</p>
    */
   Version?: Version;
-}
-
-export namespace CreateApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -769,15 +670,6 @@ export interface CreateApplicationVersionRequest {
   TemplateUrl?: string;
 }
 
-export namespace CreateApplicationVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateApplicationVersionResponse {
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -850,15 +742,6 @@ export interface CreateApplicationVersionResponse {
   TemplateUrl?: string;
 }
 
-export namespace CreateApplicationVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This property corresponds to the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration">RollbackConfiguration</a>
  *  </i> Data Type.</p>
@@ -875,15 +758,6 @@ export interface RollbackConfiguration {
    *  </i> Data Type.</p>
    */
   RollbackTriggers?: RollbackTrigger[];
-}
-
-export namespace RollbackConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RollbackConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateCloudFormationChangeSetRequest {
@@ -985,15 +859,6 @@ export interface CreateCloudFormationChangeSetRequest {
   TemplateId?: string;
 }
 
-export namespace CreateCloudFormationChangeSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCloudFormationChangeSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCloudFormationChangeSetResponse {
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -1018,15 +883,6 @@ export interface CreateCloudFormationChangeSetResponse {
   StackId?: string;
 }
 
-export namespace CreateCloudFormationChangeSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCloudFormationChangeSetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCloudFormationTemplateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -1039,15 +895,6 @@ export interface CreateCloudFormationTemplateRequest {
    *  </p>
    */
   SemanticVersion?: string;
-}
-
-export namespace CreateCloudFormationTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCloudFormationTemplateRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum Status {
@@ -1098,15 +945,6 @@ export interface CreateCloudFormationTemplateResponse {
   TemplateUrl?: string;
 }
 
-export namespace CreateCloudFormationTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCloudFormationTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
  */
@@ -1144,15 +982,6 @@ export interface DeleteApplicationRequest {
   ApplicationId: string | undefined;
 }
 
-export namespace DeleteApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetApplicationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -1163,15 +992,6 @@ export interface GetApplicationRequest {
    * <p>The semantic version of the application to get.</p>
    */
   SemanticVersion?: string;
-}
-
-export namespace GetApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetApplicationResponse {
@@ -1241,15 +1061,6 @@ export interface GetApplicationResponse {
   Version?: Version;
 }
 
-export namespace GetApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetApplicationPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -1257,29 +1068,11 @@ export interface GetApplicationPolicyRequest {
   ApplicationId: string | undefined;
 }
 
-export namespace GetApplicationPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetApplicationPolicyResponse {
   /**
    * <p>An array of policy statements applied to the application.</p>
    */
   Statements?: ApplicationPolicyStatement[];
-}
-
-export namespace GetApplicationPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCloudFormationTemplateRequest {
@@ -1292,15 +1085,6 @@ export interface GetCloudFormationTemplateRequest {
    * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</p>
    */
   TemplateId: string | undefined;
-}
-
-export namespace GetCloudFormationTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCloudFormationTemplateRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCloudFormationTemplateResponse {
@@ -1345,15 +1129,6 @@ export interface GetCloudFormationTemplateResponse {
   TemplateUrl?: string;
 }
 
-export namespace GetCloudFormationTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCloudFormationTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationDependenciesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -1376,15 +1151,6 @@ export interface ListApplicationDependenciesRequest {
   SemanticVersion?: string;
 }
 
-export namespace ListApplicationDependenciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationDependenciesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationDependenciesResponse {
   /**
    * <p>An array of application summaries nested in the application.</p>
@@ -1395,15 +1161,6 @@ export interface ListApplicationDependenciesResponse {
    * <p>The token to request the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListApplicationDependenciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationDependenciesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListApplicationsRequest {
@@ -1418,15 +1175,6 @@ export interface ListApplicationsRequest {
   NextToken?: string;
 }
 
-export namespace ListApplicationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationsResponse {
   /**
    * <p>An array of application summaries.</p>
@@ -1437,15 +1185,6 @@ export interface ListApplicationsResponse {
    * <p>The token to request the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListApplicationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListApplicationVersionsRequest {
@@ -1465,15 +1204,6 @@ export interface ListApplicationVersionsRequest {
   NextToken?: string;
 }
 
-export namespace ListApplicationVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationVersionsResponse {
   /**
    * <p>The token to request the next page of results.</p>
@@ -1484,15 +1214,6 @@ export interface ListApplicationVersionsResponse {
    * <p>An array of version summaries for the application.</p>
    */
   Versions?: VersionSummary[];
-}
-
-export namespace ListApplicationVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutApplicationPolicyRequest {
@@ -1507,29 +1228,11 @@ export interface PutApplicationPolicyRequest {
   Statements: ApplicationPolicyStatement[] | undefined;
 }
 
-export namespace PutApplicationPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutApplicationPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutApplicationPolicyResponse {
   /**
    * <p>An array of policy statements applied to the application.</p>
    */
   Statements?: ApplicationPolicyStatement[];
-}
-
-export namespace PutApplicationPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutApplicationPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UnshareApplicationRequest {
@@ -1542,15 +1245,6 @@ export interface UnshareApplicationRequest {
    * <p>The AWS Organization ID to unshare the application from.</p>
    */
   OrganizationId: string | undefined;
-}
-
-export namespace UnshareApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnshareApplicationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateApplicationRequest {
@@ -1588,15 +1282,6 @@ export interface UpdateApplicationRequest {
    * <p>A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.</p><p>Maximum size 5 MB</p>
    */
   ReadmeUrl?: string;
-}
-
-export namespace UpdateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateApplicationResponse {
@@ -1666,11 +1351,264 @@ export interface UpdateApplicationResponse {
   Version?: Version;
 }
 
-export namespace UpdateApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ApplicationDependencySummaryFilterSensitiveLog = (obj: ApplicationDependencySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationPolicyStatementFilterSensitiveLog = (obj: ApplicationPolicyStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationSummaryFilterSensitiveLog = (obj: ApplicationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterDefinitionFilterSensitiveLog = (obj: ParameterDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterValueFilterSensitiveLog = (obj: ParameterValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RollbackTriggerFilterSensitiveLog = (obj: RollbackTrigger): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VersionSummaryFilterSensitiveLog = (obj: VersionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VersionFilterSensitiveLog = (obj: Version): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationResponseFilterSensitiveLog = (obj: CreateApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationVersionRequestFilterSensitiveLog = (obj: CreateApplicationVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationVersionResponseFilterSensitiveLog = (obj: CreateApplicationVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RollbackConfigurationFilterSensitiveLog = (obj: RollbackConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCloudFormationChangeSetRequestFilterSensitiveLog = (
+  obj: CreateCloudFormationChangeSetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCloudFormationChangeSetResponseFilterSensitiveLog = (
+  obj: CreateCloudFormationChangeSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCloudFormationTemplateRequestFilterSensitiveLog = (
+  obj: CreateCloudFormationTemplateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCloudFormationTemplateResponseFilterSensitiveLog = (
+  obj: CreateCloudFormationTemplateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationRequestFilterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationRequestFilterSensitiveLog = (obj: GetApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationResponseFilterSensitiveLog = (obj: GetApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationPolicyRequestFilterSensitiveLog = (obj: GetApplicationPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationPolicyResponseFilterSensitiveLog = (obj: GetApplicationPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCloudFormationTemplateRequestFilterSensitiveLog = (obj: GetCloudFormationTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCloudFormationTemplateResponseFilterSensitiveLog = (obj: GetCloudFormationTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationDependenciesRequestFilterSensitiveLog = (obj: ListApplicationDependenciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationDependenciesResponseFilterSensitiveLog = (
+  obj: ListApplicationDependenciesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationsRequestFilterSensitiveLog = (obj: ListApplicationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationsResponseFilterSensitiveLog = (obj: ListApplicationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationVersionsRequestFilterSensitiveLog = (obj: ListApplicationVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationVersionsResponseFilterSensitiveLog = (obj: ListApplicationVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutApplicationPolicyRequestFilterSensitiveLog = (obj: PutApplicationPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutApplicationPolicyResponseFilterSensitiveLog = (obj: PutApplicationPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnshareApplicationRequestFilterSensitiveLog = (obj: UnshareApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationRequestFilterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationResponseFilterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
+  ...obj,
+});

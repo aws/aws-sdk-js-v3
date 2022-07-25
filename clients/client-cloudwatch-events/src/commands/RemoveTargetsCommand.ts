@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { RemoveTargetsRequest, RemoveTargetsResponse } from "../models/models_0";
+import {
+  RemoveTargetsRequest,
+  RemoveTargetsRequestFilterSensitiveLog,
+  RemoveTargetsResponse,
+  RemoveTargetsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveTargetsCommand,
   serializeAws_json1_1RemoveTargetsCommand,
@@ -80,8 +85,8 @@ export class RemoveTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTargetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RemoveTargetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveTargetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RemoveTargetsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

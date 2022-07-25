@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { UnassignIpv6AddressesRequest, UnassignIpv6AddressesResult } from "../models/models_6";
+import {
+  UnassignIpv6AddressesRequest,
+  UnassignIpv6AddressesRequestFilterSensitiveLog,
+  UnassignIpv6AddressesResult,
+  UnassignIpv6AddressesResultFilterSensitiveLog,
+} from "../models/models_6";
 import {
   deserializeAws_ec2UnassignIpv6AddressesCommand,
   serializeAws_ec2UnassignIpv6AddressesCommand,
@@ -72,8 +77,8 @@ export class UnassignIpv6AddressesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnassignIpv6AddressesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UnassignIpv6AddressesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UnassignIpv6AddressesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UnassignIpv6AddressesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

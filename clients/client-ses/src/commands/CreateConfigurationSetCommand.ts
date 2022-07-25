@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateConfigurationSetRequest, CreateConfigurationSetResponse } from "../models/models_0";
+import {
+  CreateConfigurationSetRequest,
+  CreateConfigurationSetRequestFilterSensitiveLog,
+  CreateConfigurationSetResponse,
+  CreateConfigurationSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCreateConfigurationSetCommand,
   serializeAws_queryCreateConfigurationSetCommand,
@@ -76,8 +81,8 @@ export class CreateConfigurationSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConfigurationSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateConfigurationSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateConfigurationSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateConfigurationSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { GetOfferingStatusRequest, GetOfferingStatusResult } from "../models/models_0";
+import {
+  GetOfferingStatusRequest,
+  GetOfferingStatusRequestFilterSensitiveLog,
+  GetOfferingStatusResult,
+  GetOfferingStatusResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetOfferingStatusCommand,
   serializeAws_json1_1GetOfferingStatusCommand,
@@ -75,8 +80,8 @@ export class GetOfferingStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOfferingStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetOfferingStatusResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOfferingStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetOfferingStatusResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

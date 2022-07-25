@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { CreateGroupCertificateAuthorityRequest, CreateGroupCertificateAuthorityResponse } from "../models/models_0";
+import {
+  CreateGroupCertificateAuthorityRequest,
+  CreateGroupCertificateAuthorityRequestFilterSensitiveLog,
+  CreateGroupCertificateAuthorityResponse,
+  CreateGroupCertificateAuthorityResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateGroupCertificateAuthorityCommand,
   serializeAws_restJson1CreateGroupCertificateAuthorityCommand,
@@ -74,8 +79,8 @@ export class CreateGroupCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGroupCertificateAuthorityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateGroupCertificateAuthorityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateGroupCertificateAuthorityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateGroupCertificateAuthorityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

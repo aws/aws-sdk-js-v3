@@ -26,25 +26,7 @@ export class AccessDeniedException extends __BaseException {
 
 export interface AssociateServiceQuotaTemplateRequest {}
 
-export namespace AssociateServiceQuotaTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateServiceQuotaTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateServiceQuotaTemplateResponse {}
-
-export namespace AssociateServiceQuotaTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateServiceQuotaTemplateResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The action you attempted is not allowed unless Service Access with Service Quotas is
@@ -212,25 +194,7 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
   AwsRegion: string | undefined;
 }
 
-export namespace DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceQuotaIncreaseRequestFromTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteServiceQuotaIncreaseRequestFromTemplateResponse {}
-
-export namespace DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceQuotaIncreaseRequestFromTemplateResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Invalid input was provided.</p>
@@ -276,25 +240,7 @@ export class NoSuchResourceException extends __BaseException {
 
 export interface DisassociateServiceQuotaTemplateRequest {}
 
-export namespace DisassociateServiceQuotaTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateServiceQuotaTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateServiceQuotaTemplateResponse {}
-
-export namespace DisassociateServiceQuotaTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateServiceQuotaTemplateResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The quota request template is not associated with your organization.</p>
@@ -361,25 +307,7 @@ export interface ErrorReason {
   ErrorMessage?: string;
 }
 
-export namespace ErrorReason {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorReason): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAssociationForServiceQuotaTemplateRequest {}
-
-export namespace GetAssociationForServiceQuotaTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssociationForServiceQuotaTemplateRequest): any => ({
-    ...obj,
-  });
-}
 
 export enum ServiceQuotaTemplateAssociationStatus {
   ASSOCIATED = "ASSOCIATED",
@@ -395,15 +323,6 @@ export interface GetAssociationForServiceQuotaTemplateResponse {
   ServiceQuotaTemplateAssociationStatus?: ServiceQuotaTemplateAssociationStatus | string;
 }
 
-export namespace GetAssociationForServiceQuotaTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssociationForServiceQuotaTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAWSDefaultServiceQuotaRequest {
   /**
    * <p>The service identifier.</p>
@@ -414,15 +333,6 @@ export interface GetAWSDefaultServiceQuotaRequest {
    * <p>The quota identifier.</p>
    */
   QuotaCode: string | undefined;
-}
-
-export namespace GetAWSDefaultServiceQuotaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAWSDefaultServiceQuotaRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum PeriodUnit {
@@ -450,15 +360,6 @@ export interface QuotaPeriod {
   PeriodUnit?: PeriodUnit | string;
 }
 
-export namespace QuotaPeriod {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QuotaPeriod): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the CloudWatch metric that reflects quota usage.</p>
  */
@@ -483,15 +384,6 @@ export interface MetricInfo {
    * <p>The metric statistic that we recommend you use when determining quota usage.</p>
    */
   MetricStatisticRecommendation?: string;
-}
-
-export namespace MetricInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -559,15 +451,6 @@ export interface ServiceQuota {
   ErrorReason?: ErrorReason;
 }
 
-export namespace ServiceQuota {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuota): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAWSDefaultServiceQuotaResponse {
   /**
    * <p>Information about the quota.</p>
@@ -575,29 +458,11 @@ export interface GetAWSDefaultServiceQuotaResponse {
   Quota?: ServiceQuota;
 }
 
-export namespace GetAWSDefaultServiceQuotaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAWSDefaultServiceQuotaResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRequestedServiceQuotaChangeRequest {
   /**
    * <p>The ID of the quota increase request.</p>
    */
   RequestId: string | undefined;
-}
-
-export namespace GetRequestedServiceQuotaChangeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRequestedServiceQuotaChangeRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum RequestStatus {
@@ -684,29 +549,11 @@ export interface RequestedServiceQuotaChange {
   Unit?: string;
 }
 
-export namespace RequestedServiceQuotaChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestedServiceQuotaChange): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRequestedServiceQuotaChangeResponse {
   /**
    * <p>Information about the quota increase request.</p>
    */
   RequestedQuota?: RequestedServiceQuotaChange;
-}
-
-export namespace GetRequestedServiceQuotaChangeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRequestedServiceQuotaChangeResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetServiceQuotaRequest {
@@ -721,29 +568,11 @@ export interface GetServiceQuotaRequest {
   QuotaCode: string | undefined;
 }
 
-export namespace GetServiceQuotaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceQuotaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServiceQuotaResponse {
   /**
    * <p>Information about the quota.</p>
    */
   Quota?: ServiceQuota;
-}
-
-export namespace GetServiceQuotaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceQuotaResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetServiceQuotaIncreaseRequestFromTemplateRequest {
@@ -761,15 +590,6 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateRequest {
    * <p>The AWS Region.</p>
    */
   AwsRegion: string | undefined;
-}
-
-export namespace GetServiceQuotaIncreaseRequestFromTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceQuotaIncreaseRequestFromTemplateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -817,29 +637,11 @@ export interface ServiceQuotaIncreaseRequestInTemplate {
   GlobalQuota?: boolean;
 }
 
-export namespace ServiceQuotaIncreaseRequestInTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaIncreaseRequestInTemplate): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServiceQuotaIncreaseRequestFromTemplateResponse {
   /**
    * <p>Information about the quota increase request.</p>
    */
   ServiceQuotaIncreaseRequestInTemplate?: ServiceQuotaIncreaseRequestInTemplate;
-}
-
-export namespace GetServiceQuotaIncreaseRequestFromTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceQuotaIncreaseRequestFromTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -859,15 +661,6 @@ export interface Tag {
    *       . : / = + @.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -930,15 +723,6 @@ export interface ListAWSDefaultServiceQuotasRequest {
   MaxResults?: number;
 }
 
-export namespace ListAWSDefaultServiceQuotasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAWSDefaultServiceQuotasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAWSDefaultServiceQuotasResponse {
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
@@ -950,15 +734,6 @@ export interface ListAWSDefaultServiceQuotasResponse {
    * <p>Information about the quotas.</p>
    */
   Quotas?: ServiceQuota[];
-}
-
-export namespace ListAWSDefaultServiceQuotasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAWSDefaultServiceQuotasResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRequestedServiceQuotaChangeHistoryRequest {
@@ -984,15 +759,6 @@ export interface ListRequestedServiceQuotaChangeHistoryRequest {
   MaxResults?: number;
 }
 
-export namespace ListRequestedServiceQuotaChangeHistoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRequestedServiceQuotaChangeHistoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRequestedServiceQuotaChangeHistoryResponse {
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
@@ -1004,15 +770,6 @@ export interface ListRequestedServiceQuotaChangeHistoryResponse {
    * <p>Information about the quota increase requests.</p>
    */
   RequestedQuotas?: RequestedServiceQuotaChange[];
-}
-
-export namespace ListRequestedServiceQuotaChangeHistoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRequestedServiceQuotaChangeHistoryResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
@@ -1043,15 +800,6 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
   MaxResults?: number;
 }
 
-export namespace ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRequestedServiceQuotaChangeHistoryByQuotaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
@@ -1063,15 +811,6 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
    * <p>Information about the quota increase requests.</p>
    */
   RequestedQuotas?: RequestedServiceQuotaChange[];
-}
-
-export namespace ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRequestedServiceQuotaChangeHistoryByQuotaResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListServiceQuotaIncreaseRequestsInTemplateRequest {
@@ -1097,15 +836,6 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateRequest {
   MaxResults?: number;
 }
 
-export namespace ListServiceQuotaIncreaseRequestsInTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceQuotaIncreaseRequestsInTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServiceQuotaIncreaseRequestsInTemplateResponse {
   /**
    * <p>Information about the quota increase requests.</p>
@@ -1117,15 +847,6 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateResponse {
    *       no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListServiceQuotaIncreaseRequestsInTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceQuotaIncreaseRequestsInTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListServiceQuotasRequest {
@@ -1146,15 +867,6 @@ export interface ListServiceQuotasRequest {
   MaxResults?: number;
 }
 
-export namespace ListServiceQuotasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceQuotasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServiceQuotasResponse {
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
@@ -1168,15 +880,6 @@ export interface ListServiceQuotasResponse {
   Quotas?: ServiceQuota[];
 }
 
-export namespace ListServiceQuotasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceQuotasResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServicesRequest {
   /**
    * <p>The token for the next page of results.</p>
@@ -1188,15 +891,6 @@ export interface ListServicesRequest {
    *       results, if any, make another call with the token returned from this call.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListServicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServicesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1214,15 +908,6 @@ export interface ServiceInfo {
   ServiceName?: string;
 }
 
-export namespace ServiceInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServicesResponse {
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are
@@ -1236,15 +921,6 @@ export interface ListServicesResponse {
   Services?: ServiceInfo[];
 }
 
-export namespace ListServicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServicesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the applied quota for which you want to list tags. You
@@ -1254,29 +930,11 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A complex data type that contains zero or more tag elements.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutServiceQuotaIncreaseRequestIntoTemplateRequest {
@@ -1301,29 +959,11 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateRequest {
   DesiredValue: number | undefined;
 }
 
-export namespace PutServiceQuotaIncreaseRequestIntoTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutServiceQuotaIncreaseRequestIntoTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutServiceQuotaIncreaseRequestIntoTemplateResponse {
   /**
    * <p>Information about the quota increase request.</p>
    */
   ServiceQuotaIncreaseRequestInTemplate?: ServiceQuotaIncreaseRequestInTemplate;
-}
-
-export namespace PutServiceQuotaIncreaseRequestIntoTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutServiceQuotaIncreaseRequestIntoTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1365,29 +1005,11 @@ export interface RequestServiceQuotaIncreaseRequest {
   DesiredValue: number | undefined;
 }
 
-export namespace RequestServiceQuotaIncreaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestServiceQuotaIncreaseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RequestServiceQuotaIncreaseResponse {
   /**
    * <p>Information about the quota increase request.</p>
    */
   RequestedQuota?: RequestedServiceQuotaChange;
-}
-
-export namespace RequestServiceQuotaIncreaseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestServiceQuotaIncreaseResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1445,25 +1067,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>You've exceeded the number of tags allowed for a resource. For more information, see
@@ -1501,22 +1105,372 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AssociateServiceQuotaTemplateRequestFilterSensitiveLog = (
+  obj: AssociateServiceQuotaTemplateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateServiceQuotaTemplateResponseFilterSensitiveLog = (
+  obj: AssociateServiceQuotaTemplateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceQuotaIncreaseRequestFromTemplateRequestFilterSensitiveLog = (
+  obj: DeleteServiceQuotaIncreaseRequestFromTemplateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceQuotaIncreaseRequestFromTemplateResponseFilterSensitiveLog = (
+  obj: DeleteServiceQuotaIncreaseRequestFromTemplateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateServiceQuotaTemplateRequestFilterSensitiveLog = (
+  obj: DisassociateServiceQuotaTemplateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateServiceQuotaTemplateResponseFilterSensitiveLog = (
+  obj: DisassociateServiceQuotaTemplateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorReasonFilterSensitiveLog = (obj: ErrorReason): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssociationForServiceQuotaTemplateRequestFilterSensitiveLog = (
+  obj: GetAssociationForServiceQuotaTemplateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssociationForServiceQuotaTemplateResponseFilterSensitiveLog = (
+  obj: GetAssociationForServiceQuotaTemplateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAWSDefaultServiceQuotaRequestFilterSensitiveLog = (obj: GetAWSDefaultServiceQuotaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QuotaPeriodFilterSensitiveLog = (obj: QuotaPeriod): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricInfoFilterSensitiveLog = (obj: MetricInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceQuotaFilterSensitiveLog = (obj: ServiceQuota): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAWSDefaultServiceQuotaResponseFilterSensitiveLog = (obj: GetAWSDefaultServiceQuotaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRequestedServiceQuotaChangeRequestFilterSensitiveLog = (
+  obj: GetRequestedServiceQuotaChangeRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestedServiceQuotaChangeFilterSensitiveLog = (obj: RequestedServiceQuotaChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRequestedServiceQuotaChangeResponseFilterSensitiveLog = (
+  obj: GetRequestedServiceQuotaChangeResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceQuotaRequestFilterSensitiveLog = (obj: GetServiceQuotaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceQuotaResponseFilterSensitiveLog = (obj: GetServiceQuotaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceQuotaIncreaseRequestFromTemplateRequestFilterSensitiveLog = (
+  obj: GetServiceQuotaIncreaseRequestFromTemplateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceQuotaIncreaseRequestInTemplateFilterSensitiveLog = (
+  obj: ServiceQuotaIncreaseRequestInTemplate
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceQuotaIncreaseRequestFromTemplateResponseFilterSensitiveLog = (
+  obj: GetServiceQuotaIncreaseRequestFromTemplateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAWSDefaultServiceQuotasRequestFilterSensitiveLog = (obj: ListAWSDefaultServiceQuotasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAWSDefaultServiceQuotasResponseFilterSensitiveLog = (
+  obj: ListAWSDefaultServiceQuotasResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRequestedServiceQuotaChangeHistoryRequestFilterSensitiveLog = (
+  obj: ListRequestedServiceQuotaChangeHistoryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRequestedServiceQuotaChangeHistoryResponseFilterSensitiveLog = (
+  obj: ListRequestedServiceQuotaChangeHistoryResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRequestedServiceQuotaChangeHistoryByQuotaRequestFilterSensitiveLog = (
+  obj: ListRequestedServiceQuotaChangeHistoryByQuotaRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRequestedServiceQuotaChangeHistoryByQuotaResponseFilterSensitiveLog = (
+  obj: ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServiceQuotaIncreaseRequestsInTemplateRequestFilterSensitiveLog = (
+  obj: ListServiceQuotaIncreaseRequestsInTemplateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServiceQuotaIncreaseRequestsInTemplateResponseFilterSensitiveLog = (
+  obj: ListServiceQuotaIncreaseRequestsInTemplateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServiceQuotasRequestFilterSensitiveLog = (obj: ListServiceQuotasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServiceQuotasResponseFilterSensitiveLog = (obj: ListServiceQuotasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServicesRequestFilterSensitiveLog = (obj: ListServicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceInfoFilterSensitiveLog = (obj: ServiceInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServicesResponseFilterSensitiveLog = (obj: ListServicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutServiceQuotaIncreaseRequestIntoTemplateRequestFilterSensitiveLog = (
+  obj: PutServiceQuotaIncreaseRequestIntoTemplateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutServiceQuotaIncreaseRequestIntoTemplateResponseFilterSensitiveLog = (
+  obj: PutServiceQuotaIncreaseRequestIntoTemplateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestServiceQuotaIncreaseRequestFilterSensitiveLog = (obj: RequestServiceQuotaIncreaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestServiceQuotaIncreaseResponseFilterSensitiveLog = (
+  obj: RequestServiceQuotaIncreaseResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteFleetMetricRequest } from "../models/models_0";
+import { DeleteFleetMetricRequest, DeleteFleetMetricRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFleetMetricCommand,
   serializeAws_restJson1DeleteFleetMetricCommand,
@@ -74,7 +74,7 @@ export class DeleteFleetMetricCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFleetMetricRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFleetMetricRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

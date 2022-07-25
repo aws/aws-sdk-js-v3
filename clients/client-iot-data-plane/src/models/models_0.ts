@@ -37,15 +37,6 @@ export interface DeleteThingShadowRequest {
   shadowName?: string;
 }
 
-export namespace DeleteThingShadowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteThingShadowRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output from the DeleteThingShadow operation.</p>
  */
@@ -54,15 +45,6 @@ export interface DeleteThingShadowResponse {
    * <p>The state information, in JSON format.</p>
    */
   payload: Uint8Array | undefined;
-}
-
-export namespace DeleteThingShadowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteThingShadowResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -227,15 +209,6 @@ export interface GetRetainedMessageRequest {
   topic: string | undefined;
 }
 
-export namespace GetRetainedMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRetainedMessageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output from the GetRetainedMessage operation.</p>
  */
@@ -261,15 +234,6 @@ export interface GetRetainedMessageResponse {
   lastModifiedTime?: number;
 }
 
-export namespace GetRetainedMessageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRetainedMessageResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the GetThingShadow operation.</p>
  */
@@ -285,15 +249,6 @@ export interface GetThingShadowRequest {
   shadowName?: string;
 }
 
-export namespace GetThingShadowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetThingShadowRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output from the GetThingShadow operation.</p>
  */
@@ -302,15 +257,6 @@ export interface GetThingShadowResponse {
    * <p>The state information, in JSON format.</p>
    */
   payload?: Uint8Array;
-}
-
-export namespace GetThingShadowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetThingShadowResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListNamedShadowsForThingRequest {
@@ -330,15 +276,6 @@ export interface ListNamedShadowsForThingRequest {
   pageSize?: number;
 }
 
-export namespace ListNamedShadowsForThingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNamedShadowsForThingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNamedShadowsForThingResponse {
   /**
    * <p>The list of shadows for the specified thing.</p>
@@ -356,15 +293,6 @@ export interface ListNamedShadowsForThingResponse {
   timestamp?: number;
 }
 
-export namespace ListNamedShadowsForThingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNamedShadowsForThingResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRetainedMessagesRequest {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
@@ -377,15 +305,6 @@ export interface ListRetainedMessagesRequest {
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListRetainedMessagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRetainedMessagesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -413,15 +332,6 @@ export interface RetainedMessageSummary {
   lastModifiedTime?: number;
 }
 
-export namespace RetainedMessageSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetainedMessageSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRetainedMessagesResponse {
   /**
    * <p>A summary list the account's retained messages. The information returned doesn't include
@@ -433,15 +343,6 @@ export interface ListRetainedMessagesResponse {
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListRetainedMessagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRetainedMessagesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -474,15 +375,6 @@ export interface PublishRequest {
    *         <code>true</code> deletes the retained message identified by <b>topic</b> from Amazon Web Services IoT Core.</p>
    */
   payload?: Uint8Array;
-}
-
-export namespace PublishRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -524,15 +416,6 @@ export interface UpdateThingShadowRequest {
   payload: Uint8Array | undefined;
 }
 
-export namespace UpdateThingShadowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateThingShadowRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output from the UpdateThingShadow operation.</p>
  */
@@ -543,11 +426,100 @@ export interface UpdateThingShadowResponse {
   payload?: Uint8Array;
 }
 
-export namespace UpdateThingShadowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateThingShadowResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DeleteThingShadowRequestFilterSensitiveLog = (obj: DeleteThingShadowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteThingShadowResponseFilterSensitiveLog = (obj: DeleteThingShadowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRetainedMessageRequestFilterSensitiveLog = (obj: GetRetainedMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRetainedMessageResponseFilterSensitiveLog = (obj: GetRetainedMessageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetThingShadowRequestFilterSensitiveLog = (obj: GetThingShadowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetThingShadowResponseFilterSensitiveLog = (obj: GetThingShadowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNamedShadowsForThingRequestFilterSensitiveLog = (obj: ListNamedShadowsForThingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNamedShadowsForThingResponseFilterSensitiveLog = (obj: ListNamedShadowsForThingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRetainedMessagesRequestFilterSensitiveLog = (obj: ListRetainedMessagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetainedMessageSummaryFilterSensitiveLog = (obj: RetainedMessageSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRetainedMessagesResponseFilterSensitiveLog = (obj: ListRetainedMessagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishRequestFilterSensitiveLog = (obj: PublishRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateThingShadowRequestFilterSensitiveLog = (obj: UpdateThingShadowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateThingShadowResponseFilterSensitiveLog = (obj: UpdateThingShadowResponse): any => ({
+  ...obj,
+});

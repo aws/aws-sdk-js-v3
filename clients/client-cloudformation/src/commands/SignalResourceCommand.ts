@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { SignalResourceInput } from "../models/models_0";
+import { SignalResourceInput, SignalResourceInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_querySignalResourceCommand,
   serializeAws_querySignalResourceCommand,
@@ -77,7 +77,7 @@ export class SignalResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SignalResourceInput.filterSensitiveLog,
+      inputFilterSensitiveLog: SignalResourceInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

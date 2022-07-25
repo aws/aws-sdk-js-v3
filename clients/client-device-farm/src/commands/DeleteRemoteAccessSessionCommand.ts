@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { DeleteRemoteAccessSessionRequest, DeleteRemoteAccessSessionResult } from "../models/models_0";
+import {
+  DeleteRemoteAccessSessionRequest,
+  DeleteRemoteAccessSessionRequestFilterSensitiveLog,
+  DeleteRemoteAccessSessionResult,
+  DeleteRemoteAccessSessionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRemoteAccessSessionCommand,
   serializeAws_json1_1DeleteRemoteAccessSessionCommand,
@@ -72,8 +77,8 @@ export class DeleteRemoteAccessSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRemoteAccessSessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRemoteAccessSessionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRemoteAccessSessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRemoteAccessSessionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

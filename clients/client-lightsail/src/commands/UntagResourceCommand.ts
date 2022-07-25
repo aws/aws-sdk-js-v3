@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { UntagResourceRequest, UntagResourceResult } from "../models/models_1";
+import {
+  UntagResourceRequest,
+  UntagResourceRequestFilterSensitiveLog,
+  UntagResourceResult,
+  UntagResourceResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UntagResourceCommand,
   serializeAws_json1_1UntagResourceCommand,
@@ -76,8 +81,8 @@ export class UntagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UntagResourceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UntagResourceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

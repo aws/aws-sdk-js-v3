@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { UpdateMapRequest, UpdateMapResponse } from "../models/models_0";
+import {
+  UpdateMapRequest,
+  UpdateMapRequestFilterSensitiveLog,
+  UpdateMapResponse,
+  UpdateMapResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateMapCommand,
   serializeAws_restJson1UpdateMapCommand,
@@ -72,8 +77,8 @@ export class UpdateMapCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMapRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMapResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateMapRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMapResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

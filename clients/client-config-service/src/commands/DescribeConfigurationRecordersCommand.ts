@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DescribeConfigurationRecordersRequest, DescribeConfigurationRecordersResponse } from "../models/models_0";
+import {
+  DescribeConfigurationRecordersRequest,
+  DescribeConfigurationRecordersRequestFilterSensitiveLog,
+  DescribeConfigurationRecordersResponse,
+  DescribeConfigurationRecordersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeConfigurationRecordersCommand,
   serializeAws_json1_1DescribeConfigurationRecordersCommand,
@@ -81,8 +86,8 @@ export class DescribeConfigurationRecordersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigurationRecordersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConfigurationRecordersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeConfigurationRecordersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeConfigurationRecordersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

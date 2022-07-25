@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { CreateTopicRuleRequest } from "../models/models_0";
+import { CreateTopicRuleRequest, CreateTopicRuleRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateTopicRuleCommand,
   serializeAws_restJson1CreateTopicRuleCommand,
@@ -74,7 +74,7 @@ export class CreateTopicRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTopicRuleRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTopicRuleRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

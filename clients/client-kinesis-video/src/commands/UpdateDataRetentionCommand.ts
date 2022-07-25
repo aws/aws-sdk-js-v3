@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import { UpdateDataRetentionInput, UpdateDataRetentionOutput } from "../models/models_0";
+import {
+  UpdateDataRetentionInput,
+  UpdateDataRetentionInputFilterSensitiveLog,
+  UpdateDataRetentionOutput,
+  UpdateDataRetentionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDataRetentionCommand,
   serializeAws_restJson1UpdateDataRetentionCommand,
@@ -98,8 +103,8 @@ export class UpdateDataRetentionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDataRetentionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDataRetentionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDataRetentionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDataRetentionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

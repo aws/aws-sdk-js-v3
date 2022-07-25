@@ -15,7 +15,9 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import {
   DescribeGatewayCapabilityConfigurationRequest,
+  DescribeGatewayCapabilityConfigurationRequestFilterSensitiveLog,
   DescribeGatewayCapabilityConfigurationResponse,
+  DescribeGatewayCapabilityConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand,
@@ -82,8 +84,8 @@ export class DescribeGatewayCapabilityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGatewayCapabilityConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGatewayCapabilityConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeGatewayCapabilityConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeGatewayCapabilityConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

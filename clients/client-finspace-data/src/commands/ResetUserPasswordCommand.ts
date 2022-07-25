@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import { ResetUserPasswordRequest, ResetUserPasswordResponse } from "../models/models_0";
+import {
+  ResetUserPasswordRequest,
+  ResetUserPasswordRequestFilterSensitiveLog,
+  ResetUserPasswordResponse,
+  ResetUserPasswordResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ResetUserPasswordCommand,
   serializeAws_restJson1ResetUserPasswordCommand,
@@ -72,8 +77,8 @@ export class ResetUserPasswordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetUserPasswordRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResetUserPasswordResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetUserPasswordRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResetUserPasswordResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

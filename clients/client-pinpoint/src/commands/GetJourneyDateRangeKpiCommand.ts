@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetJourneyDateRangeKpiRequest, GetJourneyDateRangeKpiResponse } from "../models/models_1";
+import {
+  GetJourneyDateRangeKpiRequest,
+  GetJourneyDateRangeKpiRequestFilterSensitiveLog,
+  GetJourneyDateRangeKpiResponse,
+  GetJourneyDateRangeKpiResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetJourneyDateRangeKpiCommand,
@@ -72,8 +77,8 @@ export class GetJourneyDateRangeKpiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJourneyDateRangeKpiRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetJourneyDateRangeKpiResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetJourneyDateRangeKpiRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetJourneyDateRangeKpiResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

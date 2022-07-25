@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import { UpdateMemberInput, UpdateMemberOutput } from "../models/models_0";
+import {
+  UpdateMemberInput,
+  UpdateMemberInputFilterSensitiveLog,
+  UpdateMemberOutput,
+  UpdateMemberOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateMemberCommand,
   serializeAws_restJson1UpdateMemberCommand,
@@ -77,8 +82,8 @@ export class UpdateMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMemberInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMemberOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateMemberInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMemberOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

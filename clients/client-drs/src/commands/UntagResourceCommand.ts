@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { UntagResourceRequest } from "../models/models_0";
+import { UntagResourceRequest, UntagResourceRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1UntagResourceCommand,
   serializeAws_restJson1UntagResourceCommand,
@@ -72,7 +72,7 @@ export class UntagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagResourceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DeletePrincipalMappingRequest } from "../models/models_0";
+import { DeletePrincipalMappingRequest, DeletePrincipalMappingRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePrincipalMappingCommand,
   serializeAws_json1_1DeletePrincipalMappingCommand,
@@ -86,7 +86,7 @@ export class DeletePrincipalMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePrincipalMappingRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePrincipalMappingRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

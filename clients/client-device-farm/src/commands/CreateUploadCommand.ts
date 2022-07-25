@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { CreateUploadRequest, CreateUploadResult } from "../models/models_0";
+import {
+  CreateUploadRequest,
+  CreateUploadRequestFilterSensitiveLog,
+  CreateUploadResult,
+  CreateUploadResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateUploadCommand,
   serializeAws_json1_1CreateUploadCommand,
@@ -72,8 +77,8 @@ export class CreateUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUploadRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateUploadResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateUploadRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateUploadResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

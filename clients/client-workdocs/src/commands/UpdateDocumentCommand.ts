@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateDocumentRequest } from "../models/models_0";
+import { UpdateDocumentRequest, UpdateDocumentRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDocumentCommand,
   serializeAws_restJson1UpdateDocumentCommand,
@@ -73,7 +73,7 @@ export class UpdateDocumentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDocumentRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDocumentRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

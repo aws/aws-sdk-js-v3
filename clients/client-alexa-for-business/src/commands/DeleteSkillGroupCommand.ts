@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { DeleteSkillGroupRequest, DeleteSkillGroupResponse } from "../models/models_0";
+import {
+  DeleteSkillGroupRequest,
+  DeleteSkillGroupRequestFilterSensitiveLog,
+  DeleteSkillGroupResponse,
+  DeleteSkillGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSkillGroupCommand,
   serializeAws_json1_1DeleteSkillGroupCommand,
@@ -72,8 +77,8 @@ export class DeleteSkillGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSkillGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSkillGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSkillGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSkillGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

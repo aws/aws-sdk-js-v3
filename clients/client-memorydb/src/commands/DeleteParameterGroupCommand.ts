@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import { DeleteParameterGroupRequest, DeleteParameterGroupResponse } from "../models/models_0";
+import {
+  DeleteParameterGroupRequest,
+  DeleteParameterGroupRequestFilterSensitiveLog,
+  DeleteParameterGroupResponse,
+  DeleteParameterGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteParameterGroupCommand,
   serializeAws_json1_1DeleteParameterGroupCommand,
@@ -73,8 +78,8 @@ export class DeleteParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteParameterGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteParameterGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteParameterGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteParameterGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

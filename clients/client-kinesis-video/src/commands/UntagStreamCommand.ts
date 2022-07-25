@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import { UntagStreamInput, UntagStreamOutput } from "../models/models_0";
+import {
+  UntagStreamInput,
+  UntagStreamInputFilterSensitiveLog,
+  UntagStreamOutput,
+  UntagStreamOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UntagStreamCommand,
   serializeAws_restJson1UntagStreamCommand,
@@ -76,8 +81,8 @@ export class UntagStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagStreamInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UntagStreamOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagStreamInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UntagStreamOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeStateMachineInput, DescribeStateMachineOutput } from "../models/models_0";
+import {
+  DescribeStateMachineInput,
+  DescribeStateMachineInputFilterSensitiveLog,
+  DescribeStateMachineOutput,
+  DescribeStateMachineOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeStateMachineCommand,
   serializeAws_json1_0DescribeStateMachineCommand,
@@ -75,8 +80,8 @@ export class DescribeStateMachineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStateMachineInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStateMachineOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeStateMachineInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeStateMachineOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

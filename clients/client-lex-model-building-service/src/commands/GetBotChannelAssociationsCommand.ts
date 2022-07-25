@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { GetBotChannelAssociationsRequest, GetBotChannelAssociationsResponse } from "../models/models_0";
+import {
+  GetBotChannelAssociationsRequest,
+  GetBotChannelAssociationsRequestFilterSensitiveLog,
+  GetBotChannelAssociationsResponse,
+  GetBotChannelAssociationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetBotChannelAssociationsCommand,
   serializeAws_restJson1GetBotChannelAssociationsCommand,
@@ -80,8 +85,8 @@ export class GetBotChannelAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBotChannelAssociationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBotChannelAssociationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBotChannelAssociationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBotChannelAssociationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

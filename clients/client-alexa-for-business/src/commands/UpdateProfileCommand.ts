@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { UpdateProfileRequest, UpdateProfileResponse } from "../models/models_0";
+import {
+  UpdateProfileRequest,
+  UpdateProfileRequestFilterSensitiveLog,
+  UpdateProfileResponse,
+  UpdateProfileResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateProfileCommand,
   serializeAws_json1_1UpdateProfileCommand,
@@ -72,8 +77,8 @@ export class UpdateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

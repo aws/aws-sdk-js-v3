@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateCustomEntityTypeRequest, CreateCustomEntityTypeResponse } from "../models/models_0";
+import {
+  CreateCustomEntityTypeRequest,
+  CreateCustomEntityTypeRequestFilterSensitiveLog,
+  CreateCustomEntityTypeResponse,
+  CreateCustomEntityTypeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCustomEntityTypeCommand,
   serializeAws_json1_1CreateCustomEntityTypeCommand,
@@ -74,8 +79,8 @@ export class CreateCustomEntityTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomEntityTypeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomEntityTypeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCustomEntityTypeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateCustomEntityTypeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

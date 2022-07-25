@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import { ListDiscoveredResourcesRequest, ListDiscoveredResourcesResult } from "../models/models_0";
+import {
+  ListDiscoveredResourcesRequest,
+  ListDiscoveredResourcesRequestFilterSensitiveLog,
+  ListDiscoveredResourcesResult,
+  ListDiscoveredResourcesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListDiscoveredResourcesCommand,
   serializeAws_json1_1ListDiscoveredResourcesCommand,
@@ -72,8 +77,8 @@ export class ListDiscoveredResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDiscoveredResourcesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDiscoveredResourcesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDiscoveredResourcesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDiscoveredResourcesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

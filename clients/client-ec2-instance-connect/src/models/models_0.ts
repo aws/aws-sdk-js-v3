@@ -152,15 +152,6 @@ export interface SendSerialConsoleSSHPublicKeyRequest {
   SSHPublicKey: string | undefined;
 }
 
-export namespace SendSerialConsoleSSHPublicKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendSerialConsoleSSHPublicKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendSerialConsoleSSHPublicKeyResponse {
   /**
    * <p>The ID of the request. Please provide this ID when contacting AWS Support for assistance.</p>
@@ -171,15 +162,6 @@ export interface SendSerialConsoleSSHPublicKeyResponse {
    * <p>Is true if the request succeeds and an error otherwise.</p>
    */
   Success?: boolean;
-}
-
-export namespace SendSerialConsoleSSHPublicKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendSerialConsoleSSHPublicKeyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -312,15 +294,6 @@ export interface SendSSHPublicKeyRequest {
   AvailabilityZone?: string;
 }
 
-export namespace SendSSHPublicKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendSSHPublicKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendSSHPublicKeyResponse {
   /**
    * <p>The ID of the request. Please provide this ID when contacting AWS Support for assistance.</p>
@@ -333,11 +306,34 @@ export interface SendSSHPublicKeyResponse {
   Success?: boolean;
 }
 
-export namespace SendSSHPublicKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendSSHPublicKeyResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const SendSerialConsoleSSHPublicKeyRequestFilterSensitiveLog = (
+  obj: SendSerialConsoleSSHPublicKeyRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendSerialConsoleSSHPublicKeyResponseFilterSensitiveLog = (
+  obj: SendSerialConsoleSSHPublicKeyResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendSSHPublicKeyRequestFilterSensitiveLog = (obj: SendSSHPublicKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendSSHPublicKeyResponseFilterSensitiveLog = (obj: SendSSHPublicKeyResponse): any => ({
+  ...obj,
+});

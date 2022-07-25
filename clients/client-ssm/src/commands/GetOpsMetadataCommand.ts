@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetOpsMetadataRequest, GetOpsMetadataResult } from "../models/models_1";
+import {
+  GetOpsMetadataRequest,
+  GetOpsMetadataRequestFilterSensitiveLog,
+  GetOpsMetadataResult,
+  GetOpsMetadataResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetOpsMetadataCommand,
   serializeAws_json1_1GetOpsMetadataCommand,
@@ -72,8 +77,8 @@ export class GetOpsMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOpsMetadataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetOpsMetadataResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOpsMetadataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetOpsMetadataResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

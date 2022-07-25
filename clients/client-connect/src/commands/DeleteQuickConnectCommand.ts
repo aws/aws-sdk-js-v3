@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DeleteQuickConnectRequest } from "../models/models_0";
+import { DeleteQuickConnectRequest, DeleteQuickConnectRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteQuickConnectCommand,
   serializeAws_restJson1DeleteQuickConnectCommand,
@@ -72,7 +72,7 @@ export class DeleteQuickConnectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQuickConnectRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteQuickConnectRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

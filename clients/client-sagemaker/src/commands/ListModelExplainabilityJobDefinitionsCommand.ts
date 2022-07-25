@@ -14,7 +14,9 @@ import {
 
 import {
   ListModelExplainabilityJobDefinitionsRequest,
+  ListModelExplainabilityJobDefinitionsRequestFilterSensitiveLog,
   ListModelExplainabilityJobDefinitionsResponse,
+  ListModelExplainabilityJobDefinitionsResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_json1_1ListModelExplainabilityJobDefinitionsCommand,
@@ -78,8 +80,8 @@ export class ListModelExplainabilityJobDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelExplainabilityJobDefinitionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListModelExplainabilityJobDefinitionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListModelExplainabilityJobDefinitionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListModelExplainabilityJobDefinitionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

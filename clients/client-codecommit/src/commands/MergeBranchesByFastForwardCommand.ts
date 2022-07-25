@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { MergeBranchesByFastForwardInput, MergeBranchesByFastForwardOutput } from "../models/models_1";
+import {
+  MergeBranchesByFastForwardInput,
+  MergeBranchesByFastForwardInputFilterSensitiveLog,
+  MergeBranchesByFastForwardOutput,
+  MergeBranchesByFastForwardOutputFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1MergeBranchesByFastForwardCommand,
   serializeAws_json1_1MergeBranchesByFastForwardCommand,
@@ -72,8 +77,8 @@ export class MergeBranchesByFastForwardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MergeBranchesByFastForwardInput.filterSensitiveLog,
-      outputFilterSensitiveLog: MergeBranchesByFastForwardOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: MergeBranchesByFastForwardInputFilterSensitiveLog,
+      outputFilterSensitiveLog: MergeBranchesByFastForwardOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

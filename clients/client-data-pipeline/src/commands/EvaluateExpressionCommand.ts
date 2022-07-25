@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { EvaluateExpressionInput, EvaluateExpressionOutput } from "../models/models_0";
+import {
+  EvaluateExpressionInput,
+  EvaluateExpressionInputFilterSensitiveLog,
+  EvaluateExpressionOutput,
+  EvaluateExpressionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1EvaluateExpressionCommand,
   serializeAws_json1_1EvaluateExpressionCommand,
@@ -102,8 +107,8 @@ export class EvaluateExpressionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EvaluateExpressionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: EvaluateExpressionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: EvaluateExpressionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: EvaluateExpressionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

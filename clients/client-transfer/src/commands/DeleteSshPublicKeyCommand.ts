@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSshPublicKeyRequest } from "../models/models_0";
+import { DeleteSshPublicKeyRequest, DeleteSshPublicKeyRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSshPublicKeyCommand,
   serializeAws_json1_1DeleteSshPublicKeyCommand,
@@ -72,7 +72,7 @@ export class DeleteSshPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSshPublicKeyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSshPublicKeyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

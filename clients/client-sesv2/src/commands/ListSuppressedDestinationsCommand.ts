@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListSuppressedDestinationsRequest, ListSuppressedDestinationsResponse } from "../models/models_0";
+import {
+  ListSuppressedDestinationsRequest,
+  ListSuppressedDestinationsRequestFilterSensitiveLog,
+  ListSuppressedDestinationsResponse,
+  ListSuppressedDestinationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListSuppressedDestinationsCommand,
   serializeAws_restJson1ListSuppressedDestinationsCommand,
@@ -73,8 +78,8 @@ export class ListSuppressedDestinationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSuppressedDestinationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSuppressedDestinationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSuppressedDestinationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSuppressedDestinationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

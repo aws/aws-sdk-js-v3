@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ConvertRecoveryPointToSnapshotRequest, ConvertRecoveryPointToSnapshotResponse } from "../models/models_0";
+import {
+  ConvertRecoveryPointToSnapshotRequest,
+  ConvertRecoveryPointToSnapshotRequestFilterSensitiveLog,
+  ConvertRecoveryPointToSnapshotResponse,
+  ConvertRecoveryPointToSnapshotResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ConvertRecoveryPointToSnapshotCommand,
   serializeAws_json1_1ConvertRecoveryPointToSnapshotCommand,
@@ -79,8 +84,8 @@ export class ConvertRecoveryPointToSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConvertRecoveryPointToSnapshotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ConvertRecoveryPointToSnapshotResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ConvertRecoveryPointToSnapshotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ConvertRecoveryPointToSnapshotResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

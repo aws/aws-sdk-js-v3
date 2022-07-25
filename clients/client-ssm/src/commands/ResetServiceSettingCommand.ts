@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ResetServiceSettingRequest, ResetServiceSettingResult } from "../models/models_1";
+import {
+  ResetServiceSettingRequest,
+  ResetServiceSettingRequestFilterSensitiveLog,
+  ResetServiceSettingResult,
+  ResetServiceSettingResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1ResetServiceSettingCommand,
   serializeAws_json1_1ResetServiceSettingCommand,
@@ -86,8 +91,8 @@ export class ResetServiceSettingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetServiceSettingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResetServiceSettingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetServiceSettingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResetServiceSettingResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

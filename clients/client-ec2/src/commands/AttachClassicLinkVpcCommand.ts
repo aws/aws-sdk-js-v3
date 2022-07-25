@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AttachClassicLinkVpcRequest, AttachClassicLinkVpcResult } from "../models/models_0";
+import {
+  AttachClassicLinkVpcRequest,
+  AttachClassicLinkVpcRequestFilterSensitiveLog,
+  AttachClassicLinkVpcResult,
+  AttachClassicLinkVpcResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_ec2AttachClassicLinkVpcCommand,
   serializeAws_ec2AttachClassicLinkVpcCommand,
@@ -78,8 +83,8 @@ export class AttachClassicLinkVpcCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachClassicLinkVpcRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AttachClassicLinkVpcResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachClassicLinkVpcRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AttachClassicLinkVpcResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

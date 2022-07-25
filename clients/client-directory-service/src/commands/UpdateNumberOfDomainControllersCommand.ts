@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { UpdateNumberOfDomainControllersRequest, UpdateNumberOfDomainControllersResult } from "../models/models_0";
+import {
+  UpdateNumberOfDomainControllersRequest,
+  UpdateNumberOfDomainControllersRequestFilterSensitiveLog,
+  UpdateNumberOfDomainControllersResult,
+  UpdateNumberOfDomainControllersResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateNumberOfDomainControllersCommand,
   serializeAws_json1_1UpdateNumberOfDomainControllersCommand,
@@ -78,8 +83,8 @@ export class UpdateNumberOfDomainControllersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNumberOfDomainControllersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNumberOfDomainControllersResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateNumberOfDomainControllersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNumberOfDomainControllersResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

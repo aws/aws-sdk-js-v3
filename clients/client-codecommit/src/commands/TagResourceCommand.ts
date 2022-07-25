@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { TagResourceInput } from "../models/models_1";
+import { TagResourceInput, TagResourceInputFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_json1_1TagResourceCommand,
   serializeAws_json1_1TagResourceCommand,
@@ -74,7 +74,7 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceInput.filterSensitiveLog,
+      inputFilterSensitiveLog: TagResourceInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

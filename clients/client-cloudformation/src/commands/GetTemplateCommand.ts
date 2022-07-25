@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { GetTemplateInput, GetTemplateOutput } from "../models/models_0";
+import {
+  GetTemplateInput,
+  GetTemplateInputFilterSensitiveLog,
+  GetTemplateOutput,
+  GetTemplateOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryGetTemplateCommand, serializeAws_queryGetTemplateCommand } from "../protocols/Aws_query";
 
 export interface GetTemplateCommandInput extends GetTemplateInput {}
@@ -75,8 +80,8 @@ export class GetTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTemplateInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTemplateOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTemplateInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTemplateOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

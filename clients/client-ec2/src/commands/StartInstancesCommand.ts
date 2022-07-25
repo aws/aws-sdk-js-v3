@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { StartInstancesRequest, StartInstancesResult } from "../models/models_6";
+import {
+  StartInstancesRequest,
+  StartInstancesRequestFilterSensitiveLog,
+  StartInstancesResult,
+  StartInstancesResultFilterSensitiveLog,
+} from "../models/models_6";
 import { deserializeAws_ec2StartInstancesCommand, serializeAws_ec2StartInstancesCommand } from "../protocols/Aws_ec2";
 
 export interface StartInstancesCommandInput extends StartInstancesRequest {}
@@ -89,8 +94,8 @@ export class StartInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartInstancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartInstancesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartInstancesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartInstancesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

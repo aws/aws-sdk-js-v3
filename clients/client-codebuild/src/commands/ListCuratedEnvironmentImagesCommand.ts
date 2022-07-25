@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { ListCuratedEnvironmentImagesInput, ListCuratedEnvironmentImagesOutput } from "../models/models_0";
+import {
+  ListCuratedEnvironmentImagesInput,
+  ListCuratedEnvironmentImagesInputFilterSensitiveLog,
+  ListCuratedEnvironmentImagesOutput,
+  ListCuratedEnvironmentImagesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListCuratedEnvironmentImagesCommand,
   serializeAws_json1_1ListCuratedEnvironmentImagesCommand,
@@ -74,8 +79,8 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCuratedEnvironmentImagesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListCuratedEnvironmentImagesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCuratedEnvironmentImagesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListCuratedEnvironmentImagesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

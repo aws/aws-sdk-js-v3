@@ -37,29 +37,11 @@ export interface CreateSavingsPlanRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateSavingsPlanRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSavingsPlanRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSavingsPlanResponse {
   /**
    * <p>The ID of the Savings Plan.</p>
    */
   savingsPlanId?: string;
-}
-
-export namespace CreateSavingsPlanResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSavingsPlanResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -145,25 +127,7 @@ export interface DeleteQueuedSavingsPlanRequest {
   savingsPlanId: string | undefined;
 }
 
-export namespace DeleteQueuedSavingsPlanRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteQueuedSavingsPlanRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteQueuedSavingsPlanResponse {}
-
-export namespace DeleteQueuedSavingsPlanResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteQueuedSavingsPlanResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum SavingsPlanRateFilterName {
   INSTANCE_TYPE = "instanceType",
@@ -191,15 +155,6 @@ export interface SavingsPlanRateFilter {
   values?: string[];
 }
 
-export namespace SavingsPlanRateFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlanRateFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSavingsPlanRatesRequest {
   /**
    * <p>The ID of the Savings Plan.</p>
@@ -221,15 +176,6 @@ export interface DescribeSavingsPlanRatesRequest {
    *          call with the returned token value.</p>
    */
   maxResults?: number;
-}
-
-export namespace DescribeSavingsPlanRatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSavingsPlanRatesRequest): any => ({
-    ...obj,
-  });
 }
 
 export type CurrencyCode = "CNY" | "USD";
@@ -262,15 +208,6 @@ export interface SavingsPlanRateProperty {
    * <p>The property value.</p>
    */
   value?: string;
-}
-
-export namespace SavingsPlanRateProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlanRateProperty): any => ({
-    ...obj,
-  });
 }
 
 export enum SavingsPlanRateServiceCode {
@@ -332,15 +269,6 @@ export interface SavingsPlanRate {
   properties?: SavingsPlanRateProperty[];
 }
 
-export namespace SavingsPlanRate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlanRate): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSavingsPlanRatesResponse {
   /**
    * <p>The ID of the Savings Plan.</p>
@@ -357,15 +285,6 @@ export interface DescribeSavingsPlanRatesResponse {
    *          results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeSavingsPlanRatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSavingsPlanRatesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum SavingsPlansFilterName {
@@ -393,15 +312,6 @@ export interface SavingsPlanFilter {
    * <p>The filter value.</p>
    */
   values?: string[];
-}
-
-export namespace SavingsPlanFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlanFilter): any => ({
-    ...obj,
-  });
 }
 
 export enum SavingsPlanState {
@@ -444,15 +354,6 @@ export interface DescribeSavingsPlansRequest {
    * <p>The filters.</p>
    */
   filters?: SavingsPlanFilter[];
-}
-
-export namespace DescribeSavingsPlansRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSavingsPlansRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum SavingsPlanPaymentOption {
@@ -562,15 +463,6 @@ export interface SavingsPlan {
   tags?: Record<string, string>;
 }
 
-export namespace SavingsPlan {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlan): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSavingsPlansResponse {
   /**
    * <p>Information about the Savings Plans.</p>
@@ -582,15 +474,6 @@ export interface DescribeSavingsPlansResponse {
    *        results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeSavingsPlansResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSavingsPlansResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum SavingsPlanRateFilterAttribute {
@@ -615,15 +498,6 @@ export interface SavingsPlanOfferingRateFilterElement {
    * <p>The filter values.</p>
    */
   values?: string[];
-}
-
-export namespace SavingsPlanOfferingRateFilterElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlanOfferingRateFilterElement): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSavingsPlansOfferingRatesRequest {
@@ -679,15 +553,6 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
   maxResults?: number;
 }
 
-export namespace DescribeSavingsPlansOfferingRatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSavingsPlansOfferingRatesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a property.</p>
  */
@@ -701,15 +566,6 @@ export interface SavingsPlanOfferingRateProperty {
    * <p>The property value.</p>
    */
   value?: string;
-}
-
-export namespace SavingsPlanOfferingRateProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlanOfferingRateProperty): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -745,15 +601,6 @@ export interface ParentSavingsPlanOffering {
    * <p>The description.</p>
    */
   planDescription?: string;
-}
-
-export namespace ParentSavingsPlanOffering {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParentSavingsPlanOffering): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -801,15 +648,6 @@ export interface SavingsPlanOfferingRate {
   properties?: SavingsPlanOfferingRateProperty[];
 }
 
-export namespace SavingsPlanOfferingRate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlanOfferingRate): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSavingsPlansOfferingRatesResponse {
   /**
    * <p>Information about the Savings Plans offering rates.</p>
@@ -821,15 +659,6 @@ export interface DescribeSavingsPlansOfferingRatesResponse {
    *        results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeSavingsPlansOfferingRatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSavingsPlansOfferingRatesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum SavingsPlanOfferingFilterAttribute {
@@ -850,15 +679,6 @@ export interface SavingsPlanOfferingFilterElement {
    * <p>The filter values.</p>
    */
   values?: string[];
-}
-
-export namespace SavingsPlanOfferingFilterElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlanOfferingFilterElement): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSavingsPlansOfferingsRequest {
@@ -929,15 +749,6 @@ export interface DescribeSavingsPlansOfferingsRequest {
   maxResults?: number;
 }
 
-export namespace DescribeSavingsPlansOfferingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSavingsPlansOfferingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum SavingsPlanOfferingPropertyKey {
   INSTANCE_FAMILY = "instanceFamily",
   REGION = "region",
@@ -956,15 +767,6 @@ export interface SavingsPlanOfferingProperty {
    * <p>The property value.</p>
    */
   value?: string;
-}
-
-export namespace SavingsPlanOfferingProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlanOfferingProperty): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1027,15 +829,6 @@ export interface SavingsPlanOffering {
   properties?: SavingsPlanOfferingProperty[];
 }
 
-export namespace SavingsPlanOffering {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsPlanOffering): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSavingsPlansOfferingsResponse {
   /**
    * <p>Information about the Savings Plans offerings.</p>
@@ -1049,15 +842,6 @@ export interface DescribeSavingsPlansOfferingsResponse {
   nextToken?: string;
 }
 
-export namespace DescribeSavingsPlansOfferingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSavingsPlansOfferingsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -1065,29 +849,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -1102,25 +868,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1134,22 +882,224 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CreateSavingsPlanRequestFilterSensitiveLog = (obj: CreateSavingsPlanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSavingsPlanResponseFilterSensitiveLog = (obj: CreateSavingsPlanResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteQueuedSavingsPlanRequestFilterSensitiveLog = (obj: DeleteQueuedSavingsPlanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteQueuedSavingsPlanResponseFilterSensitiveLog = (obj: DeleteQueuedSavingsPlanResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlanRateFilterFilterSensitiveLog = (obj: SavingsPlanRateFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSavingsPlanRatesRequestFilterSensitiveLog = (obj: DescribeSavingsPlanRatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlanRatePropertyFilterSensitiveLog = (obj: SavingsPlanRateProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlanRateFilterSensitiveLog = (obj: SavingsPlanRate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSavingsPlanRatesResponseFilterSensitiveLog = (obj: DescribeSavingsPlanRatesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlanFilterFilterSensitiveLog = (obj: SavingsPlanFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSavingsPlansRequestFilterSensitiveLog = (obj: DescribeSavingsPlansRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlanFilterSensitiveLog = (obj: SavingsPlan): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSavingsPlansResponseFilterSensitiveLog = (obj: DescribeSavingsPlansResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlanOfferingRateFilterElementFilterSensitiveLog = (
+  obj: SavingsPlanOfferingRateFilterElement
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSavingsPlansOfferingRatesRequestFilterSensitiveLog = (
+  obj: DescribeSavingsPlansOfferingRatesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlanOfferingRatePropertyFilterSensitiveLog = (obj: SavingsPlanOfferingRateProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParentSavingsPlanOfferingFilterSensitiveLog = (obj: ParentSavingsPlanOffering): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlanOfferingRateFilterSensitiveLog = (obj: SavingsPlanOfferingRate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSavingsPlansOfferingRatesResponseFilterSensitiveLog = (
+  obj: DescribeSavingsPlansOfferingRatesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlanOfferingFilterElementFilterSensitiveLog = (obj: SavingsPlanOfferingFilterElement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSavingsPlansOfferingsRequestFilterSensitiveLog = (
+  obj: DescribeSavingsPlansOfferingsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlanOfferingPropertyFilterSensitiveLog = (obj: SavingsPlanOfferingProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsPlanOfferingFilterSensitiveLog = (obj: SavingsPlanOffering): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSavingsPlansOfferingsResponseFilterSensitiveLog = (
+  obj: DescribeSavingsPlansOfferingsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

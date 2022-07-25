@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetTagKeysInput, GetTagKeysOutput } from "../models/models_0";
+import {
+  GetTagKeysInput,
+  GetTagKeysInputFilterSensitiveLog,
+  GetTagKeysOutput,
+  GetTagKeysOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetTagKeysCommand,
   serializeAws_json1_1GetTagKeysCommand,
@@ -83,8 +88,8 @@ export class GetTagKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTagKeysInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTagKeysOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTagKeysInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTagKeysOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

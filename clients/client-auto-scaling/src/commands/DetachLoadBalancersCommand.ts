@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DetachLoadBalancersResultType, DetachLoadBalancersType } from "../models/models_0";
+import {
+  DetachLoadBalancersResultType,
+  DetachLoadBalancersResultTypeFilterSensitiveLog,
+  DetachLoadBalancersType,
+  DetachLoadBalancersTypeFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDetachLoadBalancersCommand,
   serializeAws_queryDetachLoadBalancersCommand,
@@ -77,8 +82,8 @@ export class DetachLoadBalancersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachLoadBalancersType.filterSensitiveLog,
-      outputFilterSensitiveLog: DetachLoadBalancersResultType.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachLoadBalancersTypeFilterSensitiveLog,
+      outputFilterSensitiveLog: DetachLoadBalancersResultTypeFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

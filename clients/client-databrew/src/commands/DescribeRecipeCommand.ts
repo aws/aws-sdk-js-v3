@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import { DescribeRecipeRequest, DescribeRecipeResponse } from "../models/models_0";
+import {
+  DescribeRecipeRequest,
+  DescribeRecipeRequestFilterSensitiveLog,
+  DescribeRecipeResponse,
+  DescribeRecipeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeRecipeCommand,
   serializeAws_restJson1DescribeRecipeCommand,
@@ -73,8 +78,8 @@ export class DescribeRecipeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRecipeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRecipeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRecipeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRecipeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

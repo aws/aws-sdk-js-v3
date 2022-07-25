@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateInstanceStorageConfigRequest } from "../models/models_1";
+import {
+  UpdateInstanceStorageConfigRequest,
+  UpdateInstanceStorageConfigRequestFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateInstanceStorageConfigCommand,
   serializeAws_restJson1UpdateInstanceStorageConfigCommand,
@@ -73,7 +76,7 @@ export class UpdateInstanceStorageConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInstanceStorageConfigRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateInstanceStorageConfigRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

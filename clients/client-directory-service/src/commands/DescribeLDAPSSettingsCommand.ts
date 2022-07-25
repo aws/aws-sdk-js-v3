@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { DescribeLDAPSSettingsRequest, DescribeLDAPSSettingsResult } from "../models/models_0";
+import {
+  DescribeLDAPSSettingsRequest,
+  DescribeLDAPSSettingsRequestFilterSensitiveLog,
+  DescribeLDAPSSettingsResult,
+  DescribeLDAPSSettingsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLDAPSSettingsCommand,
   serializeAws_json1_1DescribeLDAPSSettingsCommand,
@@ -72,8 +77,8 @@ export class DescribeLDAPSSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLDAPSSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLDAPSSettingsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLDAPSSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLDAPSSettingsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

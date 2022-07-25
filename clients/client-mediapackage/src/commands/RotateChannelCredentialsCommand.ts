@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import { RotateChannelCredentialsRequest, RotateChannelCredentialsResponse } from "../models/models_0";
+import {
+  RotateChannelCredentialsRequest,
+  RotateChannelCredentialsRequestFilterSensitiveLog,
+  RotateChannelCredentialsResponse,
+  RotateChannelCredentialsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RotateChannelCredentialsCommand,
   serializeAws_restJson1RotateChannelCredentialsCommand,
@@ -74,8 +79,8 @@ export class RotateChannelCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RotateChannelCredentialsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RotateChannelCredentialsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RotateChannelCredentialsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RotateChannelCredentialsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

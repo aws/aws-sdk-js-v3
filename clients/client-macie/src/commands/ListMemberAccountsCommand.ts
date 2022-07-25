@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import { ListMemberAccountsRequest, ListMemberAccountsResult } from "../models/models_0";
+import {
+  ListMemberAccountsRequest,
+  ListMemberAccountsRequestFilterSensitiveLog,
+  ListMemberAccountsResult,
+  ListMemberAccountsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListMemberAccountsCommand,
   serializeAws_json1_1ListMemberAccountsCommand,
@@ -73,8 +78,8 @@ export class ListMemberAccountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMemberAccountsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListMemberAccountsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListMemberAccountsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListMemberAccountsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

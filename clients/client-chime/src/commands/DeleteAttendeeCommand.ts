@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteAttendeeRequest } from "../models/models_0";
+import { DeleteAttendeeRequest, DeleteAttendeeRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAttendeeCommand,
   serializeAws_restJson1DeleteAttendeeCommand,
@@ -75,7 +75,7 @@ export class DeleteAttendeeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAttendeeRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAttendeeRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

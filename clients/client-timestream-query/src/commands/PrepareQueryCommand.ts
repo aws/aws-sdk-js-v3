@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PrepareQueryRequest, PrepareQueryResponse } from "../models/models_0";
+import {
+  PrepareQueryRequest,
+  PrepareQueryRequestFilterSensitiveLog,
+  PrepareQueryResponse,
+  PrepareQueryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0PrepareQueryCommand,
   serializeAws_json1_0PrepareQueryCommand,
@@ -78,8 +83,8 @@ export class PrepareQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PrepareQueryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PrepareQueryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PrepareQueryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PrepareQueryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

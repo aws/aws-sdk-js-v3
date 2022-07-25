@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { CreateFaqRequest, CreateFaqResponse } from "../models/models_0";
+import {
+  CreateFaqRequest,
+  CreateFaqRequestFilterSensitiveLog,
+  CreateFaqResponse,
+  CreateFaqResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1CreateFaqCommand, serializeAws_json1_1CreateFaqCommand } from "../protocols/Aws_json1_1";
 
 export interface CreateFaqCommandInput extends CreateFaqRequest {}
@@ -73,8 +78,8 @@ export class CreateFaqCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFaqRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateFaqResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateFaqRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateFaqResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

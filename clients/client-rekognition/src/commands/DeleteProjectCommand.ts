@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteProjectRequest, DeleteProjectResponse } from "../models/models_0";
+import {
+  DeleteProjectRequest,
+  DeleteProjectRequestFilterSensitiveLog,
+  DeleteProjectResponse,
+  DeleteProjectResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteProjectCommand,
   serializeAws_json1_1DeleteProjectCommand,
@@ -79,8 +84,8 @@ export class DeleteProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProjectResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteProjectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteProjectResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { ConfirmPublicVirtualInterfaceRequest, ConfirmPublicVirtualInterfaceResponse } from "../models/models_0";
+import {
+  ConfirmPublicVirtualInterfaceRequest,
+  ConfirmPublicVirtualInterfaceRequestFilterSensitiveLog,
+  ConfirmPublicVirtualInterfaceResponse,
+  ConfirmPublicVirtualInterfaceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommand,
   serializeAws_json1_1ConfirmPublicVirtualInterfaceCommand,
@@ -76,8 +81,8 @@ export class ConfirmPublicVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfirmPublicVirtualInterfaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmPublicVirtualInterfaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ConfirmPublicVirtualInterfaceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ConfirmPublicVirtualInterfaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

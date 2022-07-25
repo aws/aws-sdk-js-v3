@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
-import { StartNextPendingJobExecutionRequest, StartNextPendingJobExecutionResponse } from "../models/models_0";
+import {
+  StartNextPendingJobExecutionRequest,
+  StartNextPendingJobExecutionRequestFilterSensitiveLog,
+  StartNextPendingJobExecutionResponse,
+  StartNextPendingJobExecutionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartNextPendingJobExecutionCommand,
   serializeAws_restJson1StartNextPendingJobExecutionCommand,
@@ -74,8 +79,8 @@ export class StartNextPendingJobExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartNextPendingJobExecutionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartNextPendingJobExecutionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartNextPendingJobExecutionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartNextPendingJobExecutionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

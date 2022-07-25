@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreatePortfolioShareInput, CreatePortfolioShareOutput } from "../models/models_0";
+import {
+  CreatePortfolioShareInput,
+  CreatePortfolioShareInputFilterSensitiveLog,
+  CreatePortfolioShareOutput,
+  CreatePortfolioShareOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePortfolioShareCommand,
   serializeAws_json1_1CreatePortfolioShareCommand,
@@ -80,8 +85,8 @@ export class CreatePortfolioShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePortfolioShareInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreatePortfolioShareOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePortfolioShareInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreatePortfolioShareOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

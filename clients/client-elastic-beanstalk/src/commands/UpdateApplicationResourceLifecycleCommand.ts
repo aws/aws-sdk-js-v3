@@ -15,7 +15,9 @@ import {
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import {
   ApplicationResourceLifecycleDescriptionMessage,
+  ApplicationResourceLifecycleDescriptionMessageFilterSensitiveLog,
   UpdateApplicationResourceLifecycleMessage,
+  UpdateApplicationResourceLifecycleMessageFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryUpdateApplicationResourceLifecycleCommand,
@@ -77,8 +79,8 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApplicationResourceLifecycleMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ApplicationResourceLifecycleDescriptionMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateApplicationResourceLifecycleMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ApplicationResourceLifecycleDescriptionMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

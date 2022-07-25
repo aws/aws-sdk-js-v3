@@ -50,17 +50,6 @@ export interface GetPersonalizedRankingRequest {
   filterValues?: Record<string, string>;
 }
 
-export namespace GetPersonalizedRankingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPersonalizedRankingRequest): any => ({
-    ...obj,
-    ...(obj.context && { context: SENSITIVE_STRING }),
-    ...(obj.filterValues && { filterValues: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>An object that identifies an item.</p>
  *          <p>The  and  APIs return a list of
@@ -79,15 +68,6 @@ export interface PredictedItem {
   score?: number;
 }
 
-export namespace PredictedItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictedItem): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPersonalizedRankingResponse {
   /**
    * <p>A list of items in order of most likely interest to the user. The maximum is 500.</p>
@@ -98,15 +78,6 @@ export interface GetPersonalizedRankingResponse {
    * <p>The ID of the recommendation.</p>
    */
   recommendationId?: string;
-}
-
-export namespace GetPersonalizedRankingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPersonalizedRankingResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -205,17 +176,6 @@ export interface GetRecommendationsRequest {
   recommenderArn?: string;
 }
 
-export namespace GetRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommendationsRequest): any => ({
-    ...obj,
-    ...(obj.context && { context: SENSITIVE_STRING }),
-    ...(obj.filterValues && { filterValues: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetRecommendationsResponse {
   /**
    * <p>A list of recommendations sorted in descending order by prediction score. There can be a
@@ -229,11 +189,41 @@ export interface GetRecommendationsResponse {
   recommendationId?: string;
 }
 
-export namespace GetRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GetPersonalizedRankingRequestFilterSensitiveLog = (obj: GetPersonalizedRankingRequest): any => ({
+  ...obj,
+  ...(obj.context && { context: SENSITIVE_STRING }),
+  ...(obj.filterValues && { filterValues: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PredictedItemFilterSensitiveLog = (obj: PredictedItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPersonalizedRankingResponseFilterSensitiveLog = (obj: GetPersonalizedRankingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecommendationsRequestFilterSensitiveLog = (obj: GetRecommendationsRequest): any => ({
+  ...obj,
+  ...(obj.context && { context: SENSITIVE_STRING }),
+  ...(obj.filterValues && { filterValues: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetRecommendationsResponseFilterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
+  ...obj,
+});

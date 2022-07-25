@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { DeprecateFlowTemplateRequest, DeprecateFlowTemplateResponse } from "../models/models_0";
+import {
+  DeprecateFlowTemplateRequest,
+  DeprecateFlowTemplateRequestFilterSensitiveLog,
+  DeprecateFlowTemplateResponse,
+  DeprecateFlowTemplateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeprecateFlowTemplateCommand,
   serializeAws_json1_1DeprecateFlowTemplateCommand,
@@ -72,8 +77,8 @@ export class DeprecateFlowTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeprecateFlowTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeprecateFlowTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeprecateFlowTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeprecateFlowTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

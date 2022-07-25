@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateCliTokenRequest, CreateCliTokenResponse } from "../models/models_0";
+import {
+  CreateCliTokenRequest,
+  CreateCliTokenRequestFilterSensitiveLog,
+  CreateCliTokenResponse,
+  CreateCliTokenResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
 import {
   deserializeAws_restJson1CreateCliTokenCommand,
@@ -72,8 +77,8 @@ export class CreateCliTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCliTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateCliTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCliTokenRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateCliTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

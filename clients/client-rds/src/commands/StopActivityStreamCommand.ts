@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopActivityStreamRequest, StopActivityStreamResponse } from "../models/models_1";
+import {
+  StopActivityStreamRequest,
+  StopActivityStreamRequestFilterSensitiveLog,
+  StopActivityStreamResponse,
+  StopActivityStreamResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryStopActivityStreamCommand,
   serializeAws_queryStopActivityStreamCommand,
@@ -76,8 +81,8 @@ export class StopActivityStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopActivityStreamRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopActivityStreamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopActivityStreamRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopActivityStreamResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

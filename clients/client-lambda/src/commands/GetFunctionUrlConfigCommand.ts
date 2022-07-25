@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { GetFunctionUrlConfigRequest, GetFunctionUrlConfigResponse } from "../models/models_0";
+import {
+  GetFunctionUrlConfigRequest,
+  GetFunctionUrlConfigRequestFilterSensitiveLog,
+  GetFunctionUrlConfigResponse,
+  GetFunctionUrlConfigResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetFunctionUrlConfigCommand,
   serializeAws_restJson1GetFunctionUrlConfigCommand,
@@ -72,8 +77,8 @@ export class GetFunctionUrlConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFunctionUrlConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetFunctionUrlConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFunctionUrlConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetFunctionUrlConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

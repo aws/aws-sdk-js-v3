@@ -15,7 +15,9 @@ import {
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import {
   DescribeOrganizationConfigurationRequest,
+  DescribeOrganizationConfigurationRequestFilterSensitiveLog,
   DescribeOrganizationConfigurationResponse,
+  DescribeOrganizationConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeOrganizationConfigurationCommand,
@@ -77,8 +79,8 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrganizationConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrganizationConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeOrganizationConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeOrganizationConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

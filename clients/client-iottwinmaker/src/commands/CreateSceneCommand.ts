@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import { CreateSceneRequest, CreateSceneResponse } from "../models/models_0";
+import {
+  CreateSceneRequest,
+  CreateSceneRequestFilterSensitiveLog,
+  CreateSceneResponse,
+  CreateSceneResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSceneCommand,
   serializeAws_restJson1CreateSceneCommand,
@@ -72,8 +77,8 @@ export class CreateSceneCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSceneRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSceneResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSceneRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSceneResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

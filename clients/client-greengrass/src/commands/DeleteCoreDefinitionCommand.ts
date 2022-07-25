@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { DeleteCoreDefinitionRequest, DeleteCoreDefinitionResponse } from "../models/models_0";
+import {
+  DeleteCoreDefinitionRequest,
+  DeleteCoreDefinitionRequestFilterSensitiveLog,
+  DeleteCoreDefinitionResponse,
+  DeleteCoreDefinitionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCoreDefinitionCommand,
   serializeAws_restJson1DeleteCoreDefinitionCommand,
@@ -72,8 +77,8 @@ export class DeleteCoreDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCoreDefinitionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCoreDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCoreDefinitionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCoreDefinitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

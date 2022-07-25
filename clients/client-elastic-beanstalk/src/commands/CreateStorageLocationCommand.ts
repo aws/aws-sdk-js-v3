@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { CreateStorageLocationResultMessage } from "../models/models_0";
+import {
+  CreateStorageLocationResultMessage,
+  CreateStorageLocationResultMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCreateStorageLocationCommand,
   serializeAws_queryCreateStorageLocationCommand,
@@ -77,7 +80,7 @@ export class CreateStorageLocationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: CreateStorageLocationResultMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateStorageLocationResultMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

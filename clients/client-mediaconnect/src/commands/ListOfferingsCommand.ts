@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { ListOfferingsRequest, ListOfferingsResponse } from "../models/models_0";
+import {
+  ListOfferingsRequest,
+  ListOfferingsRequestFilterSensitiveLog,
+  ListOfferingsResponse,
+  ListOfferingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListOfferingsCommand,
   serializeAws_restJson1ListOfferingsCommand,
@@ -72,8 +77,8 @@ export class ListOfferingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOfferingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListOfferingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListOfferingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListOfferingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

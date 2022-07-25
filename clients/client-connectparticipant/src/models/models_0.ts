@@ -42,25 +42,7 @@ export interface CompleteAttachmentUploadRequest {
   ConnectionToken: string | undefined;
 }
 
-export namespace CompleteAttachmentUploadRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompleteAttachmentUploadRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CompleteAttachmentUploadResponse {}
-
-export namespace CompleteAttachmentUploadResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompleteAttachmentUploadResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>An attachment with that identifier is already being uploaded.</p>
@@ -192,15 +174,6 @@ export interface CreateParticipantConnectionRequest {
   ConnectParticipant?: boolean;
 }
 
-export namespace CreateParticipantConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateParticipantConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Connection credentials. </p>
  */
@@ -216,15 +189,6 @@ export interface ConnectionCredentials {
    *             2019-11-08T02:41:28.172Z.</p>
    */
   Expiry?: string;
-}
-
-export namespace ConnectionCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionCredentials): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -244,15 +208,6 @@ export interface Websocket {
   ConnectionExpiry?: string;
 }
 
-export namespace Websocket {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Websocket): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateParticipantConnectionResponse {
   /**
    * <p>Creates the participant's websocket connection.</p>
@@ -264,15 +219,6 @@ export interface CreateParticipantConnectionResponse {
    *             with the participant's connection.</p>
    */
   ConnectionCredentials?: ConnectionCredentials;
-}
-
-export namespace CreateParticipantConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateParticipantConnectionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisconnectParticipantRequest {
@@ -288,25 +234,7 @@ export interface DisconnectParticipantRequest {
   ConnectionToken: string | undefined;
 }
 
-export namespace DisconnectParticipantRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisconnectParticipantRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisconnectParticipantResponse {}
-
-export namespace DisconnectParticipantResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisconnectParticipantResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetAttachmentRequest {
   /**
@@ -320,15 +248,6 @@ export interface GetAttachmentRequest {
   ConnectionToken: string | undefined;
 }
 
-export namespace GetAttachmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAttachmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAttachmentResponse {
   /**
    * <p>This is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response
@@ -340,15 +259,6 @@ export interface GetAttachmentResponse {
    * <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
    */
   UrlExpiry?: string;
-}
-
-export namespace GetAttachmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAttachmentResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ScanDirection {
@@ -382,15 +292,6 @@ export interface StartPosition {
    * <p>The start position of the most recent message where you want to start. </p>
    */
   MostRecent?: number;
-}
-
-export namespace StartPosition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartPosition): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTranscriptRequest {
@@ -432,15 +333,6 @@ export interface GetTranscriptRequest {
   ConnectionToken: string | undefined;
 }
 
-export namespace GetTranscriptRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTranscriptRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ArtifactStatus {
   APPROVED = "APPROVED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -471,15 +363,6 @@ export interface AttachmentItem {
    * <p>Status of the attachment.</p>
    */
   Status?: ArtifactStatus | string;
-}
-
-export namespace AttachmentItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachmentItem): any => ({
-    ...obj,
-  });
 }
 
 export enum ParticipantRole {
@@ -553,15 +436,6 @@ export interface Item {
   Attachments?: AttachmentItem[];
 }
 
-export namespace Item {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Item): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTranscriptResponse {
   /**
    * <p>The initial contact ID for the contact. </p>
@@ -578,15 +452,6 @@ export interface GetTranscriptResponse {
    *             to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetTranscriptResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTranscriptResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SendEventRequest {
@@ -622,15 +487,6 @@ export interface SendEventRequest {
   ConnectionToken: string | undefined;
 }
 
-export namespace SendEventRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendEventRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendEventResponse {
   /**
    * <p>The ID of the response.</p>
@@ -643,15 +499,6 @@ export interface SendEventResponse {
    *             2019-11-08T02:41:28.172Z.</p>
    */
   AbsoluteTime?: string;
-}
-
-export namespace SendEventResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendEventResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SendMessageRequest {
@@ -677,15 +524,6 @@ export interface SendMessageRequest {
   ConnectionToken: string | undefined;
 }
 
-export namespace SendMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendMessageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendMessageResponse {
   /**
    * <p>The ID of the message.</p>
@@ -698,15 +536,6 @@ export interface SendMessageResponse {
    *             2019-11-08T02:41:28.172Z.</p>
    */
   AbsoluteTime?: string;
-}
-
-export namespace SendMessageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendMessageResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartAttachmentUploadRequest {
@@ -736,15 +565,6 @@ export interface StartAttachmentUploadRequest {
   ConnectionToken: string | undefined;
 }
 
-export namespace StartAttachmentUploadRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAttachmentUploadRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Fields to be used while uploading the attachment.</p>
  */
@@ -766,15 +586,6 @@ export interface UploadMetadata {
   HeadersToInclude?: Record<string, string>;
 }
 
-export namespace UploadMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface StartAttachmentUploadResponse {
   /**
    * <p>A unique identifier for the attachment.</p>
@@ -787,11 +598,158 @@ export interface StartAttachmentUploadResponse {
   UploadMetadata?: UploadMetadata;
 }
 
-export namespace StartAttachmentUploadResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAttachmentUploadResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CompleteAttachmentUploadRequestFilterSensitiveLog = (obj: CompleteAttachmentUploadRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompleteAttachmentUploadResponseFilterSensitiveLog = (obj: CompleteAttachmentUploadResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateParticipantConnectionRequestFilterSensitiveLog = (obj: CreateParticipantConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionCredentialsFilterSensitiveLog = (obj: ConnectionCredentials): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebsocketFilterSensitiveLog = (obj: Websocket): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateParticipantConnectionResponseFilterSensitiveLog = (
+  obj: CreateParticipantConnectionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisconnectParticipantRequestFilterSensitiveLog = (obj: DisconnectParticipantRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisconnectParticipantResponseFilterSensitiveLog = (obj: DisconnectParticipantResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAttachmentRequestFilterSensitiveLog = (obj: GetAttachmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAttachmentResponseFilterSensitiveLog = (obj: GetAttachmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartPositionFilterSensitiveLog = (obj: StartPosition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTranscriptRequestFilterSensitiveLog = (obj: GetTranscriptRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachmentItemFilterSensitiveLog = (obj: AttachmentItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ItemFilterSensitiveLog = (obj: Item): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTranscriptResponseFilterSensitiveLog = (obj: GetTranscriptResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendEventRequestFilterSensitiveLog = (obj: SendEventRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendEventResponseFilterSensitiveLog = (obj: SendEventResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendMessageRequestFilterSensitiveLog = (obj: SendMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendMessageResponseFilterSensitiveLog = (obj: SendMessageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAttachmentUploadRequestFilterSensitiveLog = (obj: StartAttachmentUploadRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadMetadataFilterSensitiveLog = (obj: UploadMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAttachmentUploadResponseFilterSensitiveLog = (obj: StartAttachmentUploadResponse): any => ({
+  ...obj,
+});

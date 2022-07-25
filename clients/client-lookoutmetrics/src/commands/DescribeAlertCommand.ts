@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import { DescribeAlertRequest, DescribeAlertResponse } from "../models/models_0";
+import {
+  DescribeAlertRequest,
+  DescribeAlertRequestFilterSensitiveLog,
+  DescribeAlertResponse,
+  DescribeAlertResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAlertCommand,
   serializeAws_restJson1DescribeAlertCommand,
@@ -74,8 +79,8 @@ export class DescribeAlertCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAlertRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAlertResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAlertRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAlertResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { EnableClientAuthenticationRequest, EnableClientAuthenticationResult } from "../models/models_0";
+import {
+  EnableClientAuthenticationRequest,
+  EnableClientAuthenticationRequestFilterSensitiveLog,
+  EnableClientAuthenticationResult,
+  EnableClientAuthenticationResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1EnableClientAuthenticationCommand,
   serializeAws_json1_1EnableClientAuthenticationCommand,
@@ -72,8 +77,8 @@ export class EnableClientAuthenticationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableClientAuthenticationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: EnableClientAuthenticationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableClientAuthenticationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: EnableClientAuthenticationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateNetworkAclEntryRequest } from "../models/models_1";
+import { CreateNetworkAclEntryRequest, CreateNetworkAclEntryRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_ec2CreateNetworkAclEntryCommand,
   serializeAws_ec2CreateNetworkAclEntryCommand,
@@ -79,7 +79,7 @@ export class CreateNetworkAclEntryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNetworkAclEntryRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateNetworkAclEntryRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

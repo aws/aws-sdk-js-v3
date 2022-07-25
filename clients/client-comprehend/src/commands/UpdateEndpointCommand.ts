@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { UpdateEndpointRequest, UpdateEndpointResponse } from "../models/models_0";
+import {
+  UpdateEndpointRequest,
+  UpdateEndpointRequestFilterSensitiveLog,
+  UpdateEndpointResponse,
+  UpdateEndpointResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateEndpointCommand,
   serializeAws_json1_1UpdateEndpointCommand,
@@ -73,8 +78,8 @@ export class UpdateEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEndpointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateEndpointRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateEndpointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

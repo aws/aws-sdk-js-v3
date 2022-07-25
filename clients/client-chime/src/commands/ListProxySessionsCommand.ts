@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { ListProxySessionsRequest, ListProxySessionsResponse } from "../models/models_1";
+import {
+  ListProxySessionsRequest,
+  ListProxySessionsRequestFilterSensitiveLog,
+  ListProxySessionsResponse,
+  ListProxySessionsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListProxySessionsCommand,
   serializeAws_restJson1ListProxySessionsCommand,
@@ -72,8 +77,8 @@ export class ListProxySessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProxySessionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListProxySessionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListProxySessionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListProxySessionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ApproveAssignmentRequest, ApproveAssignmentResponse } from "../models/models_0";
+import {
+  ApproveAssignmentRequest,
+  ApproveAssignmentRequestFilterSensitiveLog,
+  ApproveAssignmentResponse,
+  ApproveAssignmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1ApproveAssignmentCommand,
@@ -101,8 +106,8 @@ export class ApproveAssignmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ApproveAssignmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ApproveAssignmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ApproveAssignmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ApproveAssignmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

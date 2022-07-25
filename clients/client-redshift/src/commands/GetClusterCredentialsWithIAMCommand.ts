@@ -12,8 +12,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ClusterExtendedCredentials } from "../models/models_0";
-import { GetClusterCredentialsWithIAMMessage } from "../models/models_1";
+import { ClusterExtendedCredentials, ClusterExtendedCredentialsFilterSensitiveLog } from "../models/models_0";
+import {
+  GetClusterCredentialsWithIAMMessage,
+  GetClusterCredentialsWithIAMMessageFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryGetClusterCredentialsWithIAMCommand,
   serializeAws_queryGetClusterCredentialsWithIAMCommand,
@@ -82,8 +85,8 @@ export class GetClusterCredentialsWithIAMCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetClusterCredentialsWithIAMMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ClusterExtendedCredentials.filterSensitiveLog,
+      inputFilterSensitiveLog: GetClusterCredentialsWithIAMMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ClusterExtendedCredentialsFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

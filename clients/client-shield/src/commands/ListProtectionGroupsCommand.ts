@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListProtectionGroupsRequest, ListProtectionGroupsResponse } from "../models/models_0";
+import {
+  ListProtectionGroupsRequest,
+  ListProtectionGroupsRequestFilterSensitiveLog,
+  ListProtectionGroupsResponse,
+  ListProtectionGroupsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListProtectionGroupsCommand,
   serializeAws_json1_1ListProtectionGroupsCommand,
@@ -72,8 +77,8 @@ export class ListProtectionGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProtectionGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListProtectionGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListProtectionGroupsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListProtectionGroupsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

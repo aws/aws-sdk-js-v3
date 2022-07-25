@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DescribeDirectoryConfigsRequest, DescribeDirectoryConfigsResult } from "../models/models_0";
+import {
+  DescribeDirectoryConfigsRequest,
+  DescribeDirectoryConfigsRequestFilterSensitiveLog,
+  DescribeDirectoryConfigsResult,
+  DescribeDirectoryConfigsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDirectoryConfigsCommand,
   serializeAws_json1_1DescribeDirectoryConfigsCommand,
@@ -74,8 +79,8 @@ export class DescribeDirectoryConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDirectoryConfigsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDirectoryConfigsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDirectoryConfigsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDirectoryConfigsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDomainRequest, DeleteDomainResponse } from "../models/models_0";
+import {
+  DeleteDomainRequest,
+  DeleteDomainRequestFilterSensitiveLog,
+  DeleteDomainResponse,
+  DeleteDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1DeleteDomainCommand,
@@ -74,8 +79,8 @@ export class DeleteDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

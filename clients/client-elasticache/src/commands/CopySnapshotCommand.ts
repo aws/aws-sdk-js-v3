@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { CopySnapshotMessage, CopySnapshotResult } from "../models/models_0";
+import {
+  CopySnapshotMessage,
+  CopySnapshotMessageFilterSensitiveLog,
+  CopySnapshotResult,
+  CopySnapshotResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryCopySnapshotCommand, serializeAws_queryCopySnapshotCommand } from "../protocols/Aws_query";
 
 export interface CopySnapshotCommandInput extends CopySnapshotMessage {}
@@ -162,8 +167,8 @@ export class CopySnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopySnapshotMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CopySnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CopySnapshotMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CopySnapshotResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

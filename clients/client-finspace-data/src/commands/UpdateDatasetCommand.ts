@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import { UpdateDatasetRequest, UpdateDatasetResponse } from "../models/models_0";
+import {
+  UpdateDatasetRequest,
+  UpdateDatasetRequestFilterSensitiveLog,
+  UpdateDatasetResponse,
+  UpdateDatasetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDatasetCommand,
   serializeAws_restJson1UpdateDatasetCommand,
@@ -72,8 +77,8 @@ export class UpdateDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatasetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDatasetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDatasetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDatasetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import { DescribeEnvironmentsRequest, DescribeEnvironmentsResult } from "../models/models_0";
+import {
+  DescribeEnvironmentsRequest,
+  DescribeEnvironmentsRequestFilterSensitiveLog,
+  DescribeEnvironmentsResult,
+  DescribeEnvironmentsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEnvironmentsCommand,
   serializeAws_json1_1DescribeEnvironmentsCommand,
@@ -72,8 +77,8 @@ export class DescribeEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEnvironmentsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEnvironmentsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEnvironmentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEnvironmentsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

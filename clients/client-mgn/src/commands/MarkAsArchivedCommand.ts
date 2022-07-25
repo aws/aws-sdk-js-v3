@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { MarkAsArchivedRequest, SourceServer } from "../models/models_0";
+import {
+  MarkAsArchivedRequest,
+  MarkAsArchivedRequestFilterSensitiveLog,
+  SourceServer,
+  SourceServerFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1MarkAsArchivedCommand,
   serializeAws_restJson1MarkAsArchivedCommand,
@@ -72,8 +77,8 @@ export class MarkAsArchivedCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MarkAsArchivedRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SourceServer.filterSensitiveLog,
+      inputFilterSensitiveLog: MarkAsArchivedRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SourceServerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

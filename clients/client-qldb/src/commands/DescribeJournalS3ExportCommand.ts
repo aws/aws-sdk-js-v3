@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeJournalS3ExportRequest, DescribeJournalS3ExportResponse } from "../models/models_0";
+import {
+  DescribeJournalS3ExportRequest,
+  DescribeJournalS3ExportRequestFilterSensitiveLog,
+  DescribeJournalS3ExportResponse,
+  DescribeJournalS3ExportResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeJournalS3ExportCommand,
   serializeAws_restJson1DescribeJournalS3ExportCommand,
@@ -80,8 +85,8 @@ export class DescribeJournalS3ExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJournalS3ExportRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeJournalS3ExportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeJournalS3ExportRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeJournalS3ExportResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

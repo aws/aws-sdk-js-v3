@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import { ListDeviceEventsRequest, ListDeviceEventsResponse } from "../models/models_0";
+import {
+  ListDeviceEventsRequest,
+  ListDeviceEventsRequestFilterSensitiveLog,
+  ListDeviceEventsResponse,
+  ListDeviceEventsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListDeviceEventsCommand,
   serializeAws_restJson1ListDeviceEventsCommand,
@@ -77,8 +82,8 @@ export class ListDeviceEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeviceEventsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDeviceEventsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDeviceEventsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDeviceEventsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

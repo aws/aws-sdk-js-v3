@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetHostnameSuggestionRequest, GetHostnameSuggestionResult } from "../models/models_0";
+import {
+  GetHostnameSuggestionRequest,
+  GetHostnameSuggestionRequestFilterSensitiveLog,
+  GetHostnameSuggestionResult,
+  GetHostnameSuggestionResultFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1GetHostnameSuggestionCommand,
@@ -77,8 +82,8 @@ export class GetHostnameSuggestionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHostnameSuggestionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetHostnameSuggestionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetHostnameSuggestionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetHostnameSuggestionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

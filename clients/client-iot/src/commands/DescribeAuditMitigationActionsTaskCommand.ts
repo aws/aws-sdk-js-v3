@@ -15,7 +15,9 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   DescribeAuditMitigationActionsTaskRequest,
+  DescribeAuditMitigationActionsTaskRequestFilterSensitiveLog,
   DescribeAuditMitigationActionsTaskResponse,
+  DescribeAuditMitigationActionsTaskResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeAuditMitigationActionsTaskCommand,
@@ -77,8 +79,8 @@ export class DescribeAuditMitigationActionsTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAuditMitigationActionsTaskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAuditMitigationActionsTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAuditMitigationActionsTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAuditMitigationActionsTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

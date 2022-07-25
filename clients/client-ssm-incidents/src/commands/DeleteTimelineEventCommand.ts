@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteTimelineEventInput, DeleteTimelineEventOutput } from "../models/models_0";
+import {
+  DeleteTimelineEventInput,
+  DeleteTimelineEventInputFilterSensitiveLog,
+  DeleteTimelineEventOutput,
+  DeleteTimelineEventOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteTimelineEventCommand,
   serializeAws_restJson1DeleteTimelineEventCommand,
@@ -72,8 +77,8 @@ export class DeleteTimelineEventCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTimelineEventInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTimelineEventOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTimelineEventInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTimelineEventOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

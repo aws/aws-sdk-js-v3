@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { PutSkillAuthorizationRequest, PutSkillAuthorizationResponse } from "../models/models_0";
+import {
+  PutSkillAuthorizationRequest,
+  PutSkillAuthorizationRequestFilterSensitiveLog,
+  PutSkillAuthorizationResponse,
+  PutSkillAuthorizationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutSkillAuthorizationCommand,
   serializeAws_json1_1PutSkillAuthorizationCommand,
@@ -74,8 +79,8 @@ export class PutSkillAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSkillAuthorizationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutSkillAuthorizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutSkillAuthorizationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutSkillAuthorizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

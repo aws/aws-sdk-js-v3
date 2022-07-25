@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DecodeAuthorizationMessageRequest, DecodeAuthorizationMessageResponse } from "../models/models_0";
+import {
+  DecodeAuthorizationMessageRequest,
+  DecodeAuthorizationMessageRequestFilterSensitiveLog,
+  DecodeAuthorizationMessageResponse,
+  DecodeAuthorizationMessageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDecodeAuthorizationMessageCommand,
   serializeAws_queryDecodeAuthorizationMessageCommand,
@@ -109,8 +114,8 @@ export class DecodeAuthorizationMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DecodeAuthorizationMessageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DecodeAuthorizationMessageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DecodeAuthorizationMessageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DecodeAuthorizationMessageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

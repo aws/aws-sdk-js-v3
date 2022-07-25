@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HttpPayloadTraitsWithMediaTypeInputOutput } from "../models/models_0";
+import {
+  HttpPayloadTraitsWithMediaTypeInputOutput,
+  HttpPayloadTraitsWithMediaTypeInputOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand,
   serializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand,
@@ -75,8 +78,8 @@ export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpPayloadTraitsWithMediaTypeInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: HttpPayloadTraitsWithMediaTypeInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: HttpPayloadTraitsWithMediaTypeInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: HttpPayloadTraitsWithMediaTypeInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

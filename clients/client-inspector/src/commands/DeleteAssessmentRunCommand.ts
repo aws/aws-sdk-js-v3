@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { DeleteAssessmentRunRequest } from "../models/models_0";
+import { DeleteAssessmentRunRequest, DeleteAssessmentRunRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAssessmentRunCommand,
   serializeAws_json1_1DeleteAssessmentRunCommand,
@@ -73,7 +73,7 @@ export class DeleteAssessmentRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAssessmentRunRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAssessmentRunRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListEnvironmentAccountConnectionsInput, ListEnvironmentAccountConnectionsOutput } from "../models/models_0";
+import {
+  ListEnvironmentAccountConnectionsInput,
+  ListEnvironmentAccountConnectionsInputFilterSensitiveLog,
+  ListEnvironmentAccountConnectionsOutput,
+  ListEnvironmentAccountConnectionsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0ListEnvironmentAccountConnectionsCommand,
   serializeAws_json1_0ListEnvironmentAccountConnectionsCommand,
@@ -76,8 +81,8 @@ export class ListEnvironmentAccountConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnvironmentAccountConnectionsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListEnvironmentAccountConnectionsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEnvironmentAccountConnectionsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListEnvironmentAccountConnectionsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

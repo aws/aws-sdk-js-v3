@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetAccountRequest, GetAccountResponse } from "../models/models_0";
+import {
+  GetAccountRequest,
+  GetAccountRequestFilterSensitiveLog,
+  GetAccountResponse,
+  GetAccountResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
   deserializeAws_restJson1GetAccountCommand,
@@ -73,8 +78,8 @@ export class GetAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

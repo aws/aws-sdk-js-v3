@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutStoredQueryRequest, PutStoredQueryResponse } from "../models/models_1";
+import {
+  PutStoredQueryRequest,
+  PutStoredQueryRequestFilterSensitiveLog,
+  PutStoredQueryResponse,
+  PutStoredQueryResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1PutStoredQueryCommand,
   serializeAws_json1_1PutStoredQueryCommand,
@@ -73,8 +78,8 @@ export class PutStoredQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutStoredQueryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutStoredQueryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutStoredQueryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutStoredQueryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { CreateChannelRequest, CreateChannelResponse } from "../models/models_0";
+import {
+  CreateChannelRequest,
+  CreateChannelRequestFilterSensitiveLog,
+  CreateChannelResponse,
+  CreateChannelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateChannelCommand,
   serializeAws_restJson1CreateChannelCommand,
@@ -73,8 +78,8 @@ export class CreateChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateChannelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateChannelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

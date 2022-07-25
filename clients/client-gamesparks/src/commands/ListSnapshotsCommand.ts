@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import { ListSnapshotsRequest, ListSnapshotsResult } from "../models/models_0";
+import {
+  ListSnapshotsRequest,
+  ListSnapshotsRequestFilterSensitiveLog,
+  ListSnapshotsResult,
+  ListSnapshotsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListSnapshotsCommand,
   serializeAws_restJson1ListSnapshotsCommand,
@@ -72,8 +77,8 @@ export class ListSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSnapshotsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSnapshotsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSnapshotsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSnapshotsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

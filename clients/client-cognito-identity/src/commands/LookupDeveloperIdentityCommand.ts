@@ -14,7 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import { LookupDeveloperIdentityInput, LookupDeveloperIdentityResponse } from "../models/models_0";
+import {
+  LookupDeveloperIdentityInput,
+  LookupDeveloperIdentityInputFilterSensitiveLog,
+  LookupDeveloperIdentityResponse,
+  LookupDeveloperIdentityResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1LookupDeveloperIdentityCommand,
   serializeAws_json1_1LookupDeveloperIdentityCommand,
@@ -90,8 +95,8 @@ export class LookupDeveloperIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LookupDeveloperIdentityInput.filterSensitiveLog,
-      outputFilterSensitiveLog: LookupDeveloperIdentityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: LookupDeveloperIdentityInputFilterSensitiveLog,
+      outputFilterSensitiveLog: LookupDeveloperIdentityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

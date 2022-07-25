@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListVersionsRequest, ListVersionsResponse } from "../models/models_0";
+import {
+  ListVersionsRequest,
+  ListVersionsRequestFilterSensitiveLog,
+  ListVersionsResponse,
+  ListVersionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1ListVersionsCommand,
@@ -72,8 +77,8 @@ export class ListVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListVersionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListVersionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { SetResourceAccessForBucketRequest, SetResourceAccessForBucketResult } from "../models/models_1";
+import {
+  SetResourceAccessForBucketRequest,
+  SetResourceAccessForBucketRequestFilterSensitiveLog,
+  SetResourceAccessForBucketResult,
+  SetResourceAccessForBucketResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1SetResourceAccessForBucketCommand,
   serializeAws_json1_1SetResourceAccessForBucketCommand,
@@ -76,8 +81,8 @@ export class SetResourceAccessForBucketCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetResourceAccessForBucketRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SetResourceAccessForBucketResult.filterSensitiveLog,
+      inputFilterSensitiveLog: SetResourceAccessForBucketRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SetResourceAccessForBucketResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

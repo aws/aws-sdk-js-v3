@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { TransactGetItemsInput, TransactGetItemsOutput } from "../models/models_0";
+import {
+  TransactGetItemsInput,
+  TransactGetItemsInputFilterSensitiveLog,
+  TransactGetItemsOutput,
+  TransactGetItemsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0TransactGetItemsCommand,
   serializeAws_json1_0TransactGetItemsCommand,
@@ -98,8 +103,8 @@ export class TransactGetItemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TransactGetItemsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: TransactGetItemsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: TransactGetItemsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: TransactGetItemsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { StartSentimentDetectionJobRequest, StartSentimentDetectionJobResponse } from "../models/models_0";
+import {
+  StartSentimentDetectionJobRequest,
+  StartSentimentDetectionJobRequestFilterSensitiveLog,
+  StartSentimentDetectionJobResponse,
+  StartSentimentDetectionJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartSentimentDetectionJobCommand,
   serializeAws_json1_1StartSentimentDetectionJobCommand,
@@ -74,8 +79,8 @@ export class StartSentimentDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSentimentDetectionJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartSentimentDetectionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartSentimentDetectionJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartSentimentDetectionJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

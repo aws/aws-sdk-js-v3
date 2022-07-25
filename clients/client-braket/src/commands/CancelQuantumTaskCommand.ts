@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
-import { CancelQuantumTaskRequest, CancelQuantumTaskResponse } from "../models/models_0";
+import {
+  CancelQuantumTaskRequest,
+  CancelQuantumTaskRequestFilterSensitiveLog,
+  CancelQuantumTaskResponse,
+  CancelQuantumTaskResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CancelQuantumTaskCommand,
   serializeAws_restJson1CancelQuantumTaskCommand,
@@ -72,8 +77,8 @@ export class CancelQuantumTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelQuantumTaskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelQuantumTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelQuantumTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelQuantumTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

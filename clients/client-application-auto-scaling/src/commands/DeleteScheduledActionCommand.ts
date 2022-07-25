@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import { DeleteScheduledActionRequest, DeleteScheduledActionResponse } from "../models/models_0";
+import {
+  DeleteScheduledActionRequest,
+  DeleteScheduledActionRequestFilterSensitiveLog,
+  DeleteScheduledActionResponse,
+  DeleteScheduledActionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteScheduledActionCommand,
   serializeAws_json1_1DeleteScheduledActionCommand,
@@ -77,8 +82,8 @@ export class DeleteScheduledActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScheduledActionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteScheduledActionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteScheduledActionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteScheduledActionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

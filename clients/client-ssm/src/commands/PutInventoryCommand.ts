@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutInventoryRequest, PutInventoryResult } from "../models/models_1";
+import {
+  PutInventoryRequest,
+  PutInventoryRequestFilterSensitiveLog,
+  PutInventoryResult,
+  PutInventoryResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1PutInventoryCommand,
   serializeAws_json1_1PutInventoryCommand,
@@ -74,8 +79,8 @@ export class PutInventoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutInventoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutInventoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutInventoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutInventoryResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

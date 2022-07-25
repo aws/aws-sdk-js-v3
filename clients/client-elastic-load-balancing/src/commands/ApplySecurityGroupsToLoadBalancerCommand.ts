@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import { ApplySecurityGroupsToLoadBalancerInput, ApplySecurityGroupsToLoadBalancerOutput } from "../models/models_0";
+import {
+  ApplySecurityGroupsToLoadBalancerInput,
+  ApplySecurityGroupsToLoadBalancerInputFilterSensitiveLog,
+  ApplySecurityGroupsToLoadBalancerOutput,
+  ApplySecurityGroupsToLoadBalancerOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand,
   serializeAws_queryApplySecurityGroupsToLoadBalancerCommand,
@@ -80,8 +85,8 @@ export class ApplySecurityGroupsToLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ApplySecurityGroupsToLoadBalancerInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ApplySecurityGroupsToLoadBalancerOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ApplySecurityGroupsToLoadBalancerInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ApplySecurityGroupsToLoadBalancerOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteImageVersionRequest, DeleteImageVersionResponse } from "../models/models_1";
+import {
+  DeleteImageVersionRequest,
+  DeleteImageVersionRequestFilterSensitiveLog,
+  DeleteImageVersionResponse,
+  DeleteImageVersionResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteImageVersionCommand,
   serializeAws_json1_1DeleteImageVersionCommand,
@@ -73,8 +78,8 @@ export class DeleteImageVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteImageVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteImageVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteImageVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteImageVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

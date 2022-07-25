@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import { UnlinkIdentityInput } from "../models/models_0";
+import { UnlinkIdentityInput, UnlinkIdentityInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1UnlinkIdentityCommand,
   serializeAws_json1_1UnlinkIdentityCommand,
@@ -75,7 +75,7 @@ export class UnlinkIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnlinkIdentityInput.filterSensitiveLog,
+      inputFilterSensitiveLog: UnlinkIdentityInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

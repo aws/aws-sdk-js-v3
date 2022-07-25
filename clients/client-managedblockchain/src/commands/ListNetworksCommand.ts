@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import { ListNetworksInput, ListNetworksOutput } from "../models/models_0";
+import {
+  ListNetworksInput,
+  ListNetworksInputFilterSensitiveLog,
+  ListNetworksOutput,
+  ListNetworksOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListNetworksCommand,
   serializeAws_restJson1ListNetworksCommand,
@@ -77,8 +82,8 @@ export class ListNetworksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNetworksInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListNetworksOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListNetworksInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListNetworksOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetDomainDeliverabilityCampaignRequest, GetDomainDeliverabilityCampaignResponse } from "../models/models_0";
+import {
+  GetDomainDeliverabilityCampaignRequest,
+  GetDomainDeliverabilityCampaignRequestFilterSensitiveLog,
+  GetDomainDeliverabilityCampaignResponse,
+  GetDomainDeliverabilityCampaignResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetDomainDeliverabilityCampaignCommand,
   serializeAws_restJson1GetDomainDeliverabilityCampaignCommand,
@@ -76,8 +81,8 @@ export class GetDomainDeliverabilityCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainDeliverabilityCampaignRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDomainDeliverabilityCampaignResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDomainDeliverabilityCampaignRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDomainDeliverabilityCampaignResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { SearchAddressBooksRequest, SearchAddressBooksResponse } from "../models/models_0";
+import {
+  SearchAddressBooksRequest,
+  SearchAddressBooksRequestFilterSensitiveLog,
+  SearchAddressBooksResponse,
+  SearchAddressBooksResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1SearchAddressBooksCommand,
   serializeAws_json1_1SearchAddressBooksCommand,
@@ -73,8 +78,8 @@ export class SearchAddressBooksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchAddressBooksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SearchAddressBooksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchAddressBooksRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SearchAddressBooksResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

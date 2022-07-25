@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { NestedXmlMapsInputOutput } from "../models/models_0";
+import { NestedXmlMapsInputOutput, NestedXmlMapsInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlNestedXmlMapsCommand,
   serializeAws_restXmlNestedXmlMapsCommand,
@@ -55,8 +55,8 @@ export class NestedXmlMapsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NestedXmlMapsInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: NestedXmlMapsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: NestedXmlMapsInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: NestedXmlMapsInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

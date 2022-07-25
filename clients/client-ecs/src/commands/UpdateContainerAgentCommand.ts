@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { UpdateContainerAgentRequest, UpdateContainerAgentResponse } from "../models/models_0";
+import {
+  UpdateContainerAgentRequest,
+  UpdateContainerAgentRequestFilterSensitiveLog,
+  UpdateContainerAgentResponse,
+  UpdateContainerAgentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateContainerAgentCommand,
   serializeAws_json1_1UpdateContainerAgentCommand,
@@ -87,8 +92,8 @@ export class UpdateContainerAgentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContainerAgentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContainerAgentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateContainerAgentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateContainerAgentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

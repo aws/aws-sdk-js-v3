@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { GetProfileObjectTypeRequest, GetProfileObjectTypeResponse } from "../models/models_0";
+import {
+  GetProfileObjectTypeRequest,
+  GetProfileObjectTypeRequestFilterSensitiveLog,
+  GetProfileObjectTypeResponse,
+  GetProfileObjectTypeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetProfileObjectTypeCommand,
   serializeAws_restJson1GetProfileObjectTypeCommand,
@@ -72,8 +77,8 @@ export class GetProfileObjectTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProfileObjectTypeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetProfileObjectTypeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetProfileObjectTypeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetProfileObjectTypeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

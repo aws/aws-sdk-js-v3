@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteLaunchProfileMemberRequest, DeleteLaunchProfileMemberResponse } from "../models/models_0";
+import {
+  DeleteLaunchProfileMemberRequest,
+  DeleteLaunchProfileMemberRequestFilterSensitiveLog,
+  DeleteLaunchProfileMemberResponse,
+  DeleteLaunchProfileMemberResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1DeleteLaunchProfileMemberCommand,
@@ -72,8 +77,8 @@ export class DeleteLaunchProfileMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLaunchProfileMemberRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLaunchProfileMemberResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLaunchProfileMemberRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLaunchProfileMemberResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

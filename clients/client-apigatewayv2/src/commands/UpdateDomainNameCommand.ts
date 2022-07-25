@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { UpdateDomainNameRequest, UpdateDomainNameResponse } from "../models/models_0";
+import {
+  UpdateDomainNameRequest,
+  UpdateDomainNameRequestFilterSensitiveLog,
+  UpdateDomainNameResponse,
+  UpdateDomainNameResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDomainNameCommand,
   serializeAws_restJson1UpdateDomainNameCommand,
@@ -72,8 +77,8 @@ export class UpdateDomainNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDomainNameRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainNameResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDomainNameRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDomainNameResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

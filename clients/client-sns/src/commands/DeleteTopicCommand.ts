@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteTopicInput } from "../models/models_0";
+import { DeleteTopicInput, DeleteTopicInputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryDeleteTopicCommand, serializeAws_queryDeleteTopicCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
@@ -72,7 +72,7 @@ export class DeleteTopicCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTopicInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTopicInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

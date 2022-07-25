@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { DescribePipelinesInput, DescribePipelinesOutput } from "../models/models_0";
+import {
+  DescribePipelinesInput,
+  DescribePipelinesInputFilterSensitiveLog,
+  DescribePipelinesOutput,
+  DescribePipelinesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribePipelinesCommand,
   serializeAws_json1_1DescribePipelinesCommand,
@@ -133,8 +138,8 @@ export class DescribePipelinesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePipelinesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribePipelinesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePipelinesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribePipelinesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

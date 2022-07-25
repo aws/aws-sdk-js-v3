@@ -26,15 +26,6 @@ export interface AclConfiguration {
   S3AclOption: S3AclOption | string | undefined;
 }
 
-export namespace AclConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AclConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains an array of named query IDs.</p>
  */
@@ -43,15 +34,6 @@ export interface BatchGetNamedQueryInput {
    * <p>An array of query IDs.</p>
    */
   NamedQueryIds: string[] | undefined;
-}
-
-export namespace BatchGetNamedQueryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetNamedQueryInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -90,15 +72,6 @@ export interface NamedQuery {
   WorkGroup?: string;
 }
 
-export namespace NamedQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NamedQuery): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a named query ID that could not be processed.</p>
  */
@@ -121,15 +94,6 @@ export interface UnprocessedNamedQueryId {
   ErrorMessage?: string;
 }
 
-export namespace UnprocessedNamedQueryId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnprocessedNamedQueryId): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetNamedQueryOutput {
   /**
    * <p>Information about the named query IDs submitted.</p>
@@ -140,15 +104,6 @@ export interface BatchGetNamedQueryOutput {
    * <p>Information about provided query IDs.</p>
    */
   UnprocessedNamedQueryIds?: UnprocessedNamedQueryId[];
-}
-
-export namespace BatchGetNamedQueryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetNamedQueryOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -214,15 +169,6 @@ export interface BatchGetPreparedStatementInput {
   WorkGroup: string | undefined;
 }
 
-export namespace BatchGetPreparedStatementInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetPreparedStatementInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A prepared SQL statement for use with Athena.</p>
  */
@@ -251,15 +197,6 @@ export interface PreparedStatement {
    * <p>The last modified time of the prepared statement.</p>
    */
   LastModifiedTime?: Date;
-}
-
-export namespace PreparedStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PreparedStatement): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -300,15 +237,6 @@ export interface UnprocessedPreparedStatementName {
   ErrorMessage?: string;
 }
 
-export namespace UnprocessedPreparedStatementName {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnprocessedPreparedStatementName): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetPreparedStatementOutput {
   /**
    * <p>The list of prepared statements returned.</p>
@@ -321,15 +249,6 @@ export interface BatchGetPreparedStatementOutput {
   UnprocessedPreparedStatementNames?: UnprocessedPreparedStatementName[];
 }
 
-export namespace BatchGetPreparedStatementOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetPreparedStatementOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains an array of query execution IDs.</p>
  */
@@ -338,15 +257,6 @@ export interface BatchGetQueryExecutionInput {
    * <p>An array of query execution IDs.</p>
    */
   QueryExecutionIds: string[] | undefined;
-}
-
-export namespace BatchGetQueryExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetQueryExecutionInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -370,15 +280,6 @@ export interface EngineVersion {
   EffectiveEngineVersion?: string;
 }
 
-export namespace EngineVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EngineVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The database and data catalog context in which the query execution occurs.</p>
  */
@@ -393,15 +294,6 @@ export interface QueryExecutionContext {
    * <p>The name of the data catalog used in the query execution.</p>
    */
   Catalog?: string;
-}
-
-export namespace QueryExecutionContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryExecutionContext): any => ({
-    ...obj,
-  });
 }
 
 export enum EncryptionOption {
@@ -431,15 +323,6 @@ export interface EncryptionConfiguration {
    *             ID.</p>
    */
   KmsKey?: string;
-}
-
-export namespace EncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -493,15 +376,6 @@ export interface ResultConfiguration {
    *             specified in the workgroup. For more information, see <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a> and <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
    */
   AclConfiguration?: AclConfiguration;
-}
-
-export namespace ResultConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResultConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum StatementType {
@@ -563,15 +437,6 @@ export interface QueryExecutionStatistics {
   ServiceProcessingTimeInMillis?: number;
 }
 
-export namespace QueryExecutionStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryExecutionStatistics): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about an Athena query error. The
  *                 <code>AthenaError</code> feature provides standardized error information to help you
@@ -609,15 +474,6 @@ export interface AthenaError {
    * <p>Contains a short description of the error that occurred.</p>
    */
   ErrorMessage?: string;
-}
-
-export namespace AthenaError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AthenaError): any => ({
-    ...obj,
-  });
 }
 
 export enum QueryExecutionState {
@@ -668,15 +524,6 @@ export interface QueryExecutionStatus {
    * <p>Provides information about an Athena query error.</p>
    */
   AthenaError?: AthenaError;
-}
-
-export namespace QueryExecutionStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryExecutionStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -744,15 +591,6 @@ export interface QueryExecution {
   ExecutionParameters?: string[];
 }
 
-export namespace QueryExecution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryExecution): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a query execution that failed to process.</p>
  */
@@ -775,15 +613,6 @@ export interface UnprocessedQueryExecutionId {
   ErrorMessage?: string;
 }
 
-export namespace UnprocessedQueryExecutionId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnprocessedQueryExecutionId): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetQueryExecutionOutput {
   /**
    * <p>Information about a query execution.</p>
@@ -794,15 +623,6 @@ export interface BatchGetQueryExecutionOutput {
    * <p>Information about the query executions that failed to run.</p>
    */
   UnprocessedQueryExecutionIds?: UnprocessedQueryExecutionId[];
-}
-
-export namespace BatchGetQueryExecutionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetQueryExecutionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -831,15 +651,6 @@ export interface Tag {
    *             . _ : / @. Tag values are case-sensitive. </p>
    */
   Value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export enum DataCatalogType {
@@ -947,25 +758,7 @@ export interface CreateDataCatalogInput {
   Tags?: Tag[];
 }
 
-export namespace CreateDataCatalogInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataCatalogInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDataCatalogOutput {}
-
-export namespace CreateDataCatalogOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataCatalogOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateNamedQueryInput {
   /**
@@ -1008,29 +801,11 @@ export interface CreateNamedQueryInput {
   WorkGroup?: string;
 }
 
-export namespace CreateNamedQueryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNamedQueryInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateNamedQueryOutput {
   /**
    * <p>The unique ID of the query.</p>
    */
   NamedQueryId?: string;
-}
-
-export namespace CreateNamedQueryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNamedQueryOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePreparedStatementInput {
@@ -1055,25 +830,7 @@ export interface CreatePreparedStatementInput {
   Description?: string;
 }
 
-export namespace CreatePreparedStatementInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePreparedStatementInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePreparedStatementOutput {}
-
-export namespace CreatePreparedStatementOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePreparedStatementOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The configuration of the workgroup, which includes the location in Amazon S3
@@ -1132,15 +889,6 @@ export interface WorkGroupConfiguration {
   EngineVersion?: EngineVersion;
 }
 
-export namespace WorkGroupConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkGroupConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWorkGroupInput {
   /**
    * <p>The workgroup name.</p>
@@ -1169,25 +917,7 @@ export interface CreateWorkGroupInput {
   Tags?: Tag[];
 }
 
-export namespace CreateWorkGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWorkGroupOutput {}
-
-export namespace CreateWorkGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkGroupOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteDataCatalogInput {
   /**
@@ -1196,25 +926,7 @@ export interface DeleteDataCatalogInput {
   Name: string | undefined;
 }
 
-export namespace DeleteDataCatalogInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataCatalogInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDataCatalogOutput {}
-
-export namespace DeleteDataCatalogOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataCatalogOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteNamedQueryInput {
   /**
@@ -1223,25 +935,7 @@ export interface DeleteNamedQueryInput {
   NamedQueryId?: string;
 }
 
-export namespace DeleteNamedQueryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNamedQueryInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteNamedQueryOutput {}
-
-export namespace DeleteNamedQueryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNamedQueryOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeletePreparedStatementInput {
   /**
@@ -1255,25 +949,7 @@ export interface DeletePreparedStatementInput {
   WorkGroup: string | undefined;
 }
 
-export namespace DeletePreparedStatementInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePreparedStatementInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePreparedStatementOutput {}
-
-export namespace DeletePreparedStatementOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePreparedStatementOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A resource, such as a workgroup, was not found.</p>
@@ -1314,25 +990,7 @@ export interface DeleteWorkGroupInput {
   RecursiveDeleteOption?: boolean;
 }
 
-export namespace DeleteWorkGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWorkGroupOutput {}
-
-export namespace DeleteWorkGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkGroupOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface GetDatabaseInput {
   /**
@@ -1344,15 +1002,6 @@ export interface GetDatabaseInput {
    * <p>The name of the database to return.</p>
    */
   DatabaseName: string | undefined;
-}
-
-export namespace GetDatabaseInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDatabaseInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1375,29 +1024,11 @@ export interface Database {
   Parameters?: Record<string, string>;
 }
 
-export namespace Database {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Database): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDatabaseOutput {
   /**
    * <p>The database returned.</p>
    */
   Database?: Database;
-}
-
-export namespace GetDatabaseOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDatabaseOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1431,15 +1062,6 @@ export interface GetDataCatalogInput {
    * <p>The name of the data catalog to return.</p>
    */
   Name: string | undefined;
-}
-
-export namespace GetDataCatalogInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataCatalogInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1533,29 +1155,11 @@ export interface DataCatalog {
   Parameters?: Record<string, string>;
 }
 
-export namespace DataCatalog {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataCatalog): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDataCatalogOutput {
   /**
    * <p>The data catalog returned.</p>
    */
   DataCatalog?: DataCatalog;
-}
-
-export namespace GetDataCatalogOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataCatalogOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetNamedQueryInput {
@@ -1566,29 +1170,11 @@ export interface GetNamedQueryInput {
   NamedQueryId: string | undefined;
 }
 
-export namespace GetNamedQueryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNamedQueryInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetNamedQueryOutput {
   /**
    * <p>Information about the query.</p>
    */
   NamedQuery?: NamedQuery;
-}
-
-export namespace GetNamedQueryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNamedQueryOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPreparedStatementInput {
@@ -1603,29 +1189,11 @@ export interface GetPreparedStatementInput {
   WorkGroup: string | undefined;
 }
 
-export namespace GetPreparedStatementInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPreparedStatementInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPreparedStatementOutput {
   /**
    * <p>The name of the prepared statement that was retrieved.</p>
    */
   PreparedStatement?: PreparedStatement;
-}
-
-export namespace GetPreparedStatementOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPreparedStatementOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetQueryExecutionInput {
@@ -1635,29 +1203,11 @@ export interface GetQueryExecutionInput {
   QueryExecutionId: string | undefined;
 }
 
-export namespace GetQueryExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueryExecutionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetQueryExecutionOutput {
   /**
    * <p>Information about the query execution.</p>
    */
   QueryExecution?: QueryExecution;
-}
-
-export namespace GetQueryExecutionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueryExecutionOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetQueryResultsInput {
@@ -1677,15 +1227,6 @@ export interface GetQueryResultsInput {
    * <p>The maximum number of results (rows) to return in this request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace GetQueryResultsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueryResultsInput): any => ({
-    ...obj,
-  });
 }
 
 export enum ColumnNullable {
@@ -1751,15 +1292,6 @@ export interface ColumnInfo {
   CaseSensitive?: boolean;
 }
 
-export namespace ColumnInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The metadata that describes the column structure and data types of a table of query
  *             results. To return a <code>ResultSetMetadata</code> object, use <a>GetQueryResults</a>.</p>
@@ -1769,15 +1301,6 @@ export interface ResultSetMetadata {
    * <p>Information about the columns returned in a query result metadata.</p>
    */
   ColumnInfo?: ColumnInfo[];
-}
-
-export namespace ResultSetMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResultSetMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1790,15 +1313,6 @@ export interface Datum {
   VarCharValue?: string;
 }
 
-export namespace Datum {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Datum): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The rows that make up a query result table.</p>
  */
@@ -1807,15 +1321,6 @@ export interface Row {
    * <p>The data that populates a row in a query result table.</p>
    */
   Data?: Datum[];
-}
-
-export namespace Row {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Row): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1833,15 +1338,6 @@ export interface ResultSet {
    *             results.</p>
    */
   ResultSetMetadata?: ResultSetMetadata;
-}
-
-export namespace ResultSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResultSet): any => ({
-    ...obj,
-  });
 }
 
 export interface GetQueryResultsOutput {
@@ -1864,29 +1360,11 @@ export interface GetQueryResultsOutput {
   NextToken?: string;
 }
 
-export namespace GetQueryResultsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueryResultsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetQueryRuntimeStatisticsInput {
   /**
    * <p>The unique ID of the query execution.</p>
    */
   QueryExecutionId: string | undefined;
-}
-
-export namespace GetQueryRuntimeStatisticsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueryRuntimeStatisticsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1913,15 +1391,6 @@ export interface QueryRuntimeStatisticsRows {
    * <p>The number of rows returned by the query.</p>
    */
   OutputRows?: number;
-}
-
-export namespace QueryRuntimeStatisticsRows {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryRuntimeStatisticsRows): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1961,15 +1430,6 @@ export interface QueryRuntimeStatisticsTimeline {
   TotalExecutionTimeInMillis?: number;
 }
 
-export namespace QueryRuntimeStatisticsTimeline {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryRuntimeStatisticsTimeline): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTableMetadataInput {
   /**
    * <p>The name of the data catalog that contains the database and table metadata to
@@ -1986,15 +1446,6 @@ export interface GetTableMetadataInput {
    * <p>The name of the table for which metadata is returned.</p>
    */
   TableName: string | undefined;
-}
-
-export namespace GetTableMetadataInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTableMetadataInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2015,15 +1466,6 @@ export interface Column {
    * <p>Optional information about the column.</p>
    */
   Comment?: string;
-}
-
-export namespace Column {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Column): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2067,15 +1509,6 @@ export interface TableMetadata {
   Parameters?: Record<string, string>;
 }
 
-export namespace TableMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTableMetadataOutput {
   /**
    * <p>An object that contains table metadata.</p>
@@ -2083,29 +1516,11 @@ export interface GetTableMetadataOutput {
   TableMetadata?: TableMetadata;
 }
 
-export namespace GetTableMetadataOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTableMetadataOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWorkGroupInput {
   /**
    * <p>The name of the workgroup.</p>
    */
   WorkGroup: string | undefined;
-}
-
-export namespace GetWorkGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkGroupInput): any => ({
-    ...obj,
-  });
 }
 
 export enum WorkGroupState {
@@ -2156,29 +1571,11 @@ export interface WorkGroup {
   CreationTime?: Date;
 }
 
-export namespace WorkGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWorkGroupOutput {
   /**
    * <p>Information about the workgroup.</p>
    */
   WorkGroup?: WorkGroup;
-}
-
-export namespace GetWorkGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDatabasesInput {
@@ -2200,15 +1597,6 @@ export interface ListDatabasesInput {
   MaxResults?: number;
 }
 
-export namespace ListDatabasesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatabasesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDatabasesOutput {
   /**
    * <p>A list of databases from a data catalog.</p>
@@ -2223,15 +1611,6 @@ export interface ListDatabasesOutput {
   NextToken?: string;
 }
 
-export namespace ListDatabasesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatabasesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDataCatalogsInput {
   /**
    * <p>A token generated by the Athena service that specifies where to continue
@@ -2244,15 +1623,6 @@ export interface ListDataCatalogsInput {
    * <p>Specifies the maximum number of data catalogs to return.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListDataCatalogsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataCatalogsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2272,15 +1642,6 @@ export interface DataCatalogSummary {
   Type?: DataCatalogType | string;
 }
 
-export namespace DataCatalogSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataCatalogSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDataCatalogsOutput {
   /**
    * <p>A summary list of data catalogs.</p>
@@ -2293,15 +1654,6 @@ export interface ListDataCatalogsOutput {
    *             the NextToken from the response object of the previous page call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDataCatalogsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataCatalogsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEngineVersionsInput {
@@ -2318,15 +1670,6 @@ export interface ListEngineVersionsInput {
   MaxResults?: number;
 }
 
-export namespace ListEngineVersionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEngineVersionsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEngineVersionsOutput {
   /**
    * <p>A list of engine versions that are available to choose from.</p>
@@ -2339,15 +1682,6 @@ export interface ListEngineVersionsOutput {
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListEngineVersionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEngineVersionsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListNamedQueriesInput {
@@ -2371,15 +1705,6 @@ export interface ListNamedQueriesInput {
   WorkGroup?: string;
 }
 
-export namespace ListNamedQueriesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNamedQueriesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNamedQueriesOutput {
   /**
    * <p>The list of unique query IDs.</p>
@@ -2392,15 +1717,6 @@ export interface ListNamedQueriesOutput {
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListNamedQueriesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNamedQueriesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPreparedStatementsInput {
@@ -2422,15 +1738,6 @@ export interface ListPreparedStatementsInput {
   MaxResults?: number;
 }
 
-export namespace ListPreparedStatementsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPreparedStatementsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The name and last modified time of the prepared statement.</p>
  */
@@ -2446,15 +1753,6 @@ export interface PreparedStatementSummary {
   LastModifiedTime?: Date;
 }
 
-export namespace PreparedStatementSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PreparedStatementSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPreparedStatementsOutput {
   /**
    * <p>The list of prepared statements for the workgroup.</p>
@@ -2467,15 +1765,6 @@ export interface ListPreparedStatementsOutput {
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPreparedStatementsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPreparedStatementsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListQueryExecutionsInput {
@@ -2499,15 +1788,6 @@ export interface ListQueryExecutionsInput {
   WorkGroup?: string;
 }
 
-export namespace ListQueryExecutionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueryExecutionsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListQueryExecutionsOutput {
   /**
    * <p>The unique IDs of each query execution as an array of strings.</p>
@@ -2518,15 +1798,6 @@ export interface ListQueryExecutionsOutput {
    * <p>A token to be used by the next request if this request is truncated.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListQueryExecutionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueryExecutionsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTableMetadataInput {
@@ -2559,15 +1830,6 @@ export interface ListTableMetadataInput {
   MaxResults?: number;
 }
 
-export namespace ListTableMetadataInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTableMetadataInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTableMetadataOutput {
   /**
    * <p>A list of table metadata.</p>
@@ -2580,15 +1842,6 @@ export interface ListTableMetadataOutput {
    *             the NextToken from the response object of the previous page call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTableMetadataOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTableMetadataOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceInput {
@@ -2611,15 +1864,6 @@ export interface ListTagsForResourceInput {
   MaxResults?: number;
 }
 
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceOutput {
   /**
    * <p>The list of tags associated with the specified resource.</p>
@@ -2630,15 +1874,6 @@ export interface ListTagsForResourceOutput {
    * <p>A token to be used by the next request if this request is truncated.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListWorkGroupsInput {
@@ -2653,15 +1888,6 @@ export interface ListWorkGroupsInput {
    * <p>The maximum number of workgroups to return in this request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListWorkGroupsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkGroupsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2697,15 +1923,6 @@ export interface WorkGroupSummary {
   EngineVersion?: EngineVersion;
 }
 
-export namespace WorkGroupSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkGroupSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWorkGroupsOutput {
   /**
    * <p>A list of <a>WorkGroupSummary</a> objects that include the names,
@@ -2719,15 +1936,6 @@ export interface ListWorkGroupsOutput {
    *             the <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListWorkGroupsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkGroupsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface StartQueryExecutionInput {
@@ -2774,29 +1982,11 @@ export interface StartQueryExecutionInput {
   ExecutionParameters?: string[];
 }
 
-export namespace StartQueryExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartQueryExecutionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface StartQueryExecutionOutput {
   /**
    * <p>The unique ID of the query that ran as a result of this request.</p>
    */
   QueryExecutionId?: string;
-}
-
-export namespace StartQueryExecutionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartQueryExecutionOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ThrottleReason {
@@ -2837,25 +2027,7 @@ export interface StopQueryExecutionInput {
   QueryExecutionId?: string;
 }
 
-export namespace StopQueryExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopQueryExecutionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface StopQueryExecutionOutput {}
-
-export namespace StopQueryExecutionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopQueryExecutionOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceInput {
   /**
@@ -2870,25 +2042,7 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceOutput {}
-
-export namespace TagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceInput {
   /**
@@ -2903,25 +2057,7 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceOutput {}
-
-export namespace UntagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDataCatalogInput {
   /**
@@ -2988,25 +2124,7 @@ export interface UpdateDataCatalogInput {
   Parameters?: Record<string, string>;
 }
 
-export namespace UpdateDataCatalogInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataCatalogInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDataCatalogOutput {}
-
-export namespace UpdateDataCatalogOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataCatalogOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateNamedQueryInput {
   /**
@@ -3030,25 +2148,7 @@ export interface UpdateNamedQueryInput {
   QueryString: string | undefined;
 }
 
-export namespace UpdateNamedQueryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNamedQueryInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateNamedQueryOutput {}
-
-export namespace UpdateNamedQueryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNamedQueryOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdatePreparedStatementInput {
   /**
@@ -3072,25 +2172,7 @@ export interface UpdatePreparedStatementInput {
   Description?: string;
 }
 
-export namespace UpdatePreparedStatementInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePreparedStatementInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePreparedStatementOutput {}
-
-export namespace UpdatePreparedStatementOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePreparedStatementOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The information about the updates in the query results, such as output location and
@@ -3179,15 +2261,6 @@ export interface ResultConfigurationUpdates {
   RemoveAclConfiguration?: boolean;
 }
 
-export namespace ResultConfigurationUpdates {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResultConfigurationUpdates): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration information that will be updated for this workgroup, which includes
  *             the location in Amazon S3 where query results are stored, the encryption option,
@@ -3245,15 +2318,6 @@ export interface WorkGroupConfigurationUpdates {
   EngineVersion?: EngineVersion;
 }
 
-export namespace WorkGroupConfigurationUpdates {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkGroupConfigurationUpdates): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateWorkGroupInput {
   /**
    * <p>The specified workgroup that will be updated.</p>
@@ -3276,25 +2340,7 @@ export interface UpdateWorkGroupInput {
   State?: WorkGroupState | string;
 }
 
-export namespace UpdateWorkGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateWorkGroupOutput {}
-
-export namespace UpdateWorkGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkGroupOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Stage plan information such as name, identifier, sub plans, and remote sources.</p>
@@ -3320,15 +2366,6 @@ export interface QueryStagePlanNode {
    * <p>Source plan node IDs.</p>
    */
   RemoteSources?: string[];
-}
-
-export namespace QueryStagePlanNode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryStagePlanNode): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3382,15 +2419,6 @@ export interface QueryStage {
   SubStages?: QueryStage[];
 }
 
-export namespace QueryStage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryStage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The query execution timeline, statistics on input and output rows and bytes, and the different
  *             query stages that form the query execution plan.</p>
@@ -3415,15 +2443,6 @@ export interface QueryRuntimeStatistics {
   OutputStage?: QueryStage;
 }
 
-export namespace QueryRuntimeStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryRuntimeStatistics): any => ({
-    ...obj,
-  });
-}
-
 export interface GetQueryRuntimeStatisticsOutput {
   /**
    * <p>Runtime statistics about the query execution.</p>
@@ -3431,11 +2450,772 @@ export interface GetQueryRuntimeStatisticsOutput {
   QueryRuntimeStatistics?: QueryRuntimeStatistics;
 }
 
-export namespace GetQueryRuntimeStatisticsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueryRuntimeStatisticsOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AclConfigurationFilterSensitiveLog = (obj: AclConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetNamedQueryInputFilterSensitiveLog = (obj: BatchGetNamedQueryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NamedQueryFilterSensitiveLog = (obj: NamedQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnprocessedNamedQueryIdFilterSensitiveLog = (obj: UnprocessedNamedQueryId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetNamedQueryOutputFilterSensitiveLog = (obj: BatchGetNamedQueryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetPreparedStatementInputFilterSensitiveLog = (obj: BatchGetPreparedStatementInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PreparedStatementFilterSensitiveLog = (obj: PreparedStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnprocessedPreparedStatementNameFilterSensitiveLog = (obj: UnprocessedPreparedStatementName): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetPreparedStatementOutputFilterSensitiveLog = (obj: BatchGetPreparedStatementOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetQueryExecutionInputFilterSensitiveLog = (obj: BatchGetQueryExecutionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EngineVersionFilterSensitiveLog = (obj: EngineVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryExecutionContextFilterSensitiveLog = (obj: QueryExecutionContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionConfigurationFilterSensitiveLog = (obj: EncryptionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResultConfigurationFilterSensitiveLog = (obj: ResultConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryExecutionStatisticsFilterSensitiveLog = (obj: QueryExecutionStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AthenaErrorFilterSensitiveLog = (obj: AthenaError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryExecutionStatusFilterSensitiveLog = (obj: QueryExecutionStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryExecutionFilterSensitiveLog = (obj: QueryExecution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnprocessedQueryExecutionIdFilterSensitiveLog = (obj: UnprocessedQueryExecutionId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetQueryExecutionOutputFilterSensitiveLog = (obj: BatchGetQueryExecutionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataCatalogInputFilterSensitiveLog = (obj: CreateDataCatalogInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataCatalogOutputFilterSensitiveLog = (obj: CreateDataCatalogOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNamedQueryInputFilterSensitiveLog = (obj: CreateNamedQueryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNamedQueryOutputFilterSensitiveLog = (obj: CreateNamedQueryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePreparedStatementInputFilterSensitiveLog = (obj: CreatePreparedStatementInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePreparedStatementOutputFilterSensitiveLog = (obj: CreatePreparedStatementOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkGroupConfigurationFilterSensitiveLog = (obj: WorkGroupConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkGroupInputFilterSensitiveLog = (obj: CreateWorkGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkGroupOutputFilterSensitiveLog = (obj: CreateWorkGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDataCatalogInputFilterSensitiveLog = (obj: DeleteDataCatalogInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDataCatalogOutputFilterSensitiveLog = (obj: DeleteDataCatalogOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNamedQueryInputFilterSensitiveLog = (obj: DeleteNamedQueryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNamedQueryOutputFilterSensitiveLog = (obj: DeleteNamedQueryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePreparedStatementInputFilterSensitiveLog = (obj: DeletePreparedStatementInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePreparedStatementOutputFilterSensitiveLog = (obj: DeletePreparedStatementOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkGroupInputFilterSensitiveLog = (obj: DeleteWorkGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkGroupOutputFilterSensitiveLog = (obj: DeleteWorkGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDatabaseInputFilterSensitiveLog = (obj: GetDatabaseInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatabaseFilterSensitiveLog = (obj: Database): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDatabaseOutputFilterSensitiveLog = (obj: GetDatabaseOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataCatalogInputFilterSensitiveLog = (obj: GetDataCatalogInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataCatalogFilterSensitiveLog = (obj: DataCatalog): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataCatalogOutputFilterSensitiveLog = (obj: GetDataCatalogOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNamedQueryInputFilterSensitiveLog = (obj: GetNamedQueryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNamedQueryOutputFilterSensitiveLog = (obj: GetNamedQueryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPreparedStatementInputFilterSensitiveLog = (obj: GetPreparedStatementInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPreparedStatementOutputFilterSensitiveLog = (obj: GetPreparedStatementOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueryExecutionInputFilterSensitiveLog = (obj: GetQueryExecutionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueryExecutionOutputFilterSensitiveLog = (obj: GetQueryExecutionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueryResultsInputFilterSensitiveLog = (obj: GetQueryResultsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnInfoFilterSensitiveLog = (obj: ColumnInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResultSetMetadataFilterSensitiveLog = (obj: ResultSetMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatumFilterSensitiveLog = (obj: Datum): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RowFilterSensitiveLog = (obj: Row): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResultSetFilterSensitiveLog = (obj: ResultSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueryResultsOutputFilterSensitiveLog = (obj: GetQueryResultsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueryRuntimeStatisticsInputFilterSensitiveLog = (obj: GetQueryRuntimeStatisticsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryRuntimeStatisticsRowsFilterSensitiveLog = (obj: QueryRuntimeStatisticsRows): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryRuntimeStatisticsTimelineFilterSensitiveLog = (obj: QueryRuntimeStatisticsTimeline): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTableMetadataInputFilterSensitiveLog = (obj: GetTableMetadataInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnFilterSensitiveLog = (obj: Column): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableMetadataFilterSensitiveLog = (obj: TableMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTableMetadataOutputFilterSensitiveLog = (obj: GetTableMetadataOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWorkGroupInputFilterSensitiveLog = (obj: GetWorkGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkGroupFilterSensitiveLog = (obj: WorkGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWorkGroupOutputFilterSensitiveLog = (obj: GetWorkGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatabasesInputFilterSensitiveLog = (obj: ListDatabasesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatabasesOutputFilterSensitiveLog = (obj: ListDatabasesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataCatalogsInputFilterSensitiveLog = (obj: ListDataCatalogsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataCatalogSummaryFilterSensitiveLog = (obj: DataCatalogSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataCatalogsOutputFilterSensitiveLog = (obj: ListDataCatalogsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEngineVersionsInputFilterSensitiveLog = (obj: ListEngineVersionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEngineVersionsOutputFilterSensitiveLog = (obj: ListEngineVersionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNamedQueriesInputFilterSensitiveLog = (obj: ListNamedQueriesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNamedQueriesOutputFilterSensitiveLog = (obj: ListNamedQueriesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPreparedStatementsInputFilterSensitiveLog = (obj: ListPreparedStatementsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PreparedStatementSummaryFilterSensitiveLog = (obj: PreparedStatementSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPreparedStatementsOutputFilterSensitiveLog = (obj: ListPreparedStatementsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQueryExecutionsInputFilterSensitiveLog = (obj: ListQueryExecutionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQueryExecutionsOutputFilterSensitiveLog = (obj: ListQueryExecutionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTableMetadataInputFilterSensitiveLog = (obj: ListTableMetadataInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTableMetadataOutputFilterSensitiveLog = (obj: ListTableMetadataOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkGroupsInputFilterSensitiveLog = (obj: ListWorkGroupsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkGroupSummaryFilterSensitiveLog = (obj: WorkGroupSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkGroupsOutputFilterSensitiveLog = (obj: ListWorkGroupsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartQueryExecutionInputFilterSensitiveLog = (obj: StartQueryExecutionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartQueryExecutionOutputFilterSensitiveLog = (obj: StartQueryExecutionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopQueryExecutionInputFilterSensitiveLog = (obj: StopQueryExecutionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopQueryExecutionOutputFilterSensitiveLog = (obj: StopQueryExecutionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataCatalogInputFilterSensitiveLog = (obj: UpdateDataCatalogInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataCatalogOutputFilterSensitiveLog = (obj: UpdateDataCatalogOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNamedQueryInputFilterSensitiveLog = (obj: UpdateNamedQueryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNamedQueryOutputFilterSensitiveLog = (obj: UpdateNamedQueryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePreparedStatementInputFilterSensitiveLog = (obj: UpdatePreparedStatementInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePreparedStatementOutputFilterSensitiveLog = (obj: UpdatePreparedStatementOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResultConfigurationUpdatesFilterSensitiveLog = (obj: ResultConfigurationUpdates): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkGroupConfigurationUpdatesFilterSensitiveLog = (obj: WorkGroupConfigurationUpdates): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkGroupInputFilterSensitiveLog = (obj: UpdateWorkGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkGroupOutputFilterSensitiveLog = (obj: UpdateWorkGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryStagePlanNodeFilterSensitiveLog = (obj: QueryStagePlanNode): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryStageFilterSensitiveLog = (obj: QueryStage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryRuntimeStatisticsFilterSensitiveLog = (obj: QueryRuntimeStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueryRuntimeStatisticsOutputFilterSensitiveLog = (obj: GetQueryRuntimeStatisticsOutput): any => ({
+  ...obj,
+});

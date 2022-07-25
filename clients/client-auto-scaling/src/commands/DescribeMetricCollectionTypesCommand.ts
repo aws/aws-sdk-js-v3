@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeMetricCollectionTypesAnswer } from "../models/models_0";
+import {
+  DescribeMetricCollectionTypesAnswer,
+  DescribeMetricCollectionTypesAnswerFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeMetricCollectionTypesCommand,
   serializeAws_queryDescribeMetricCollectionTypesCommand,
@@ -77,7 +80,7 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeMetricCollectionTypesAnswer.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeMetricCollectionTypesAnswerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

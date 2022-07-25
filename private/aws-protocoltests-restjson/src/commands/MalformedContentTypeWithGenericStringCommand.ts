@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedContentTypeWithGenericStringInput } from "../models/models_0";
+import {
+  MalformedContentTypeWithGenericStringInput,
+  MalformedContentTypeWithGenericStringInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedContentTypeWithGenericStringCommand,
   serializeAws_restJson1MalformedContentTypeWithGenericStringCommand,
@@ -55,7 +58,7 @@ export class MalformedContentTypeWithGenericStringCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedContentTypeWithGenericStringInput.filterSensitiveLog,
+      inputFilterSensitiveLog: MalformedContentTypeWithGenericStringInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeAccountSubscriptionRequest, DescribeAccountSubscriptionResponse } from "../models/models_0";
+import {
+  DescribeAccountSubscriptionRequest,
+  DescribeAccountSubscriptionRequestFilterSensitiveLog,
+  DescribeAccountSubscriptionResponse,
+  DescribeAccountSubscriptionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAccountSubscriptionCommand,
   serializeAws_restJson1DescribeAccountSubscriptionCommand,
@@ -74,8 +79,8 @@ export class DescribeAccountSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountSubscriptionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountSubscriptionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAccountSubscriptionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAccountSubscriptionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

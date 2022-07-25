@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { StartTestRequest, StartTestResponse } from "../models/models_0";
+import {
+  StartTestRequest,
+  StartTestRequestFilterSensitiveLog,
+  StartTestResponse,
+  StartTestResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartTestCommand,
   serializeAws_restJson1StartTestCommand,
@@ -68,8 +73,8 @@ export class StartTestCommand extends $Command<StartTestCommandInput, StartTestC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartTestRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartTestResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartTestRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartTestResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateConfigurationRequest, UpdateConfigurationResponse } from "../models/models_0";
+import {
+  UpdateConfigurationRequest,
+  UpdateConfigurationRequestFilterSensitiveLog,
+  UpdateConfigurationResponse,
+  UpdateConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import {
   deserializeAws_restJson1UpdateConfigurationCommand,
@@ -72,8 +77,8 @@ export class UpdateConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

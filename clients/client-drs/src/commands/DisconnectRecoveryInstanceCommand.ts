@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { DisconnectRecoveryInstanceRequest } from "../models/models_0";
+import {
+  DisconnectRecoveryInstanceRequest,
+  DisconnectRecoveryInstanceRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisconnectRecoveryInstanceCommand,
   serializeAws_restJson1DisconnectRecoveryInstanceCommand,
@@ -72,7 +75,7 @@ export class DisconnectRecoveryInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisconnectRecoveryInstanceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DisconnectRecoveryInstanceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

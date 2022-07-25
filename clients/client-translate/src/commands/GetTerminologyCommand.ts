@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetTerminologyRequest, GetTerminologyResponse } from "../models/models_0";
+import {
+  GetTerminologyRequest,
+  GetTerminologyRequestFilterSensitiveLog,
+  GetTerminologyResponse,
+  GetTerminologyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetTerminologyCommand,
   serializeAws_json1_1GetTerminologyCommand,
@@ -72,8 +77,8 @@ export class GetTerminologyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTerminologyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTerminologyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTerminologyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTerminologyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

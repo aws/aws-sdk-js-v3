@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ActivateGatewayInput, ActivateGatewayOutput } from "../models/models_0";
+import {
+  ActivateGatewayInput,
+  ActivateGatewayInputFilterSensitiveLog,
+  ActivateGatewayOutput,
+  ActivateGatewayOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ActivateGatewayCommand,
   serializeAws_json1_1ActivateGatewayCommand,
@@ -79,8 +84,8 @@ export class ActivateGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ActivateGatewayInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ActivateGatewayOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ActivateGatewayInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ActivateGatewayOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

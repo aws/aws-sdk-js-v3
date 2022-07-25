@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeVoicesInput, DescribeVoicesOutput } from "../models/models_0";
+import {
+  DescribeVoicesInput,
+  DescribeVoicesInputFilterSensitiveLog,
+  DescribeVoicesOutput,
+  DescribeVoicesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
 import {
   deserializeAws_restJson1DescribeVoicesCommand,
@@ -90,8 +95,8 @@ export class DescribeVoicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVoicesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVoicesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVoicesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVoicesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetAppValidationOutputRequest, GetAppValidationOutputResponse } from "../models/models_0";
+import {
+  GetAppValidationOutputRequest,
+  GetAppValidationOutputRequestFilterSensitiveLog,
+  GetAppValidationOutputResponse,
+  GetAppValidationOutputResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetAppValidationOutputCommand,
   serializeAws_json1_1GetAppValidationOutputCommand,
@@ -72,8 +77,8 @@ export class GetAppValidationOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppValidationOutputRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAppValidationOutputResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAppValidationOutputRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAppValidationOutputResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

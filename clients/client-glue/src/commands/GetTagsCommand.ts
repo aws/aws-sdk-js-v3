@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetTagsRequest, GetTagsResponse } from "../models/models_1";
+import {
+  GetTagsRequest,
+  GetTagsRequestFilterSensitiveLog,
+  GetTagsResponse,
+  GetTagsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { deserializeAws_json1_1GetTagsCommand, serializeAws_json1_1GetTagsCommand } from "../protocols/Aws_json1_1";
 
 export interface GetTagsCommandInput extends GetTagsRequest {}
@@ -65,8 +70,8 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

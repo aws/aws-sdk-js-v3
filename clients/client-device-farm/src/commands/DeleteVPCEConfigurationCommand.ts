@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { DeleteVPCEConfigurationRequest, DeleteVPCEConfigurationResult } from "../models/models_0";
+import {
+  DeleteVPCEConfigurationRequest,
+  DeleteVPCEConfigurationRequestFilterSensitiveLog,
+  DeleteVPCEConfigurationResult,
+  DeleteVPCEConfigurationResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteVPCEConfigurationCommand,
   serializeAws_json1_1DeleteVPCEConfigurationCommand,
@@ -72,8 +77,8 @@ export class DeleteVPCEConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVPCEConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVPCEConfigurationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVPCEConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVPCEConfigurationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

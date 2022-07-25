@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBParameterGroupNameMessage, ModifyDBParameterGroupMessage } from "../models/models_1";
+import {
+  DBParameterGroupNameMessage,
+  DBParameterGroupNameMessageFilterSensitiveLog,
+  ModifyDBParameterGroupMessage,
+  ModifyDBParameterGroupMessageFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryModifyDBParameterGroupCommand,
   serializeAws_queryModifyDBParameterGroupCommand,
@@ -85,8 +90,8 @@ export class ModifyDBParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBParameterGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBParameterGroupNameMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyDBParameterGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DBParameterGroupNameMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

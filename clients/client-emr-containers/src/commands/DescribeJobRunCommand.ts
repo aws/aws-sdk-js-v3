@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import { DescribeJobRunRequest, DescribeJobRunResponse } from "../models/models_0";
+import {
+  DescribeJobRunRequest,
+  DescribeJobRunRequestFilterSensitiveLog,
+  DescribeJobRunResponse,
+  DescribeJobRunResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeJobRunCommand,
   serializeAws_restJson1DescribeJobRunCommand,
@@ -72,8 +77,8 @@ export class DescribeJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeJobRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeJobRunRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeJobRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

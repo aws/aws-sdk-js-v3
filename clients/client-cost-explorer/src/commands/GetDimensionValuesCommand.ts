@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { GetDimensionValuesRequest, GetDimensionValuesResponse } from "../models/models_0";
+import {
+  GetDimensionValuesRequest,
+  GetDimensionValuesRequestFilterSensitiveLog,
+  GetDimensionValuesResponse,
+  GetDimensionValuesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetDimensionValuesCommand,
   serializeAws_json1_1GetDimensionValuesCommand,
@@ -72,8 +77,8 @@ export class GetDimensionValuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDimensionValuesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDimensionValuesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDimensionValuesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDimensionValuesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

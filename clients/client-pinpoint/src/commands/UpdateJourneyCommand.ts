@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateJourneyRequest, UpdateJourneyResponse } from "../models/models_1";
+import {
+  UpdateJourneyRequest,
+  UpdateJourneyRequestFilterSensitiveLog,
+  UpdateJourneyResponse,
+  UpdateJourneyResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1UpdateJourneyCommand,
@@ -72,8 +77,8 @@ export class UpdateJourneyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateJourneyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJourneyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateJourneyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateJourneyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

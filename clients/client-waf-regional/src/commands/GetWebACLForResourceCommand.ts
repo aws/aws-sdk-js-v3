@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetWebACLForResourceRequest, GetWebACLForResourceResponse } from "../models/models_0";
+import {
+  GetWebACLForResourceRequest,
+  GetWebACLForResourceRequestFilterSensitiveLog,
+  GetWebACLForResourceResponse,
+  GetWebACLForResourceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetWebACLForResourceCommand,
   serializeAws_json1_1GetWebACLForResourceCommand,
@@ -80,8 +85,8 @@ export class GetWebACLForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWebACLForResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetWebACLForResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetWebACLForResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetWebACLForResourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

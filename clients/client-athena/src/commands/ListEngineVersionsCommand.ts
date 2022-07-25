@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { ListEngineVersionsInput, ListEngineVersionsOutput } from "../models/models_0";
+import {
+  ListEngineVersionsInput,
+  ListEngineVersionsInputFilterSensitiveLog,
+  ListEngineVersionsOutput,
+  ListEngineVersionsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListEngineVersionsCommand,
   serializeAws_json1_1ListEngineVersionsCommand,
@@ -73,8 +78,8 @@ export class ListEngineVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEngineVersionsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListEngineVersionsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEngineVersionsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListEngineVersionsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

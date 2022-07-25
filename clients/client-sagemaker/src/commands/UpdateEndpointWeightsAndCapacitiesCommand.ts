@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateEndpointWeightsAndCapacitiesInput, UpdateEndpointWeightsAndCapacitiesOutput } from "../models/models_3";
+import {
+  UpdateEndpointWeightsAndCapacitiesInput,
+  UpdateEndpointWeightsAndCapacitiesInputFilterSensitiveLog,
+  UpdateEndpointWeightsAndCapacitiesOutput,
+  UpdateEndpointWeightsAndCapacitiesOutputFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand,
   serializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand,
@@ -78,8 +83,8 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEndpointWeightsAndCapacitiesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEndpointWeightsAndCapacitiesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateEndpointWeightsAndCapacitiesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateEndpointWeightsAndCapacitiesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

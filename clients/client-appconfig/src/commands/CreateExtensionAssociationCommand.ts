@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { CreateExtensionAssociationRequest, ExtensionAssociation } from "../models/models_0";
+import {
+  CreateExtensionAssociationRequest,
+  CreateExtensionAssociationRequestFilterSensitiveLog,
+  ExtensionAssociation,
+  ExtensionAssociationFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateExtensionAssociationCommand,
   serializeAws_restJson1CreateExtensionAssociationCommand,
@@ -84,8 +89,8 @@ export class CreateExtensionAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateExtensionAssociationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ExtensionAssociation.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateExtensionAssociationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ExtensionAssociationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

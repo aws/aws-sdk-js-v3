@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { UpdateContainerServiceRequest, UpdateContainerServiceResult } from "../models/models_1";
+import {
+  UpdateContainerServiceRequest,
+  UpdateContainerServiceRequestFilterSensitiveLog,
+  UpdateContainerServiceResult,
+  UpdateContainerServiceResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateContainerServiceCommand,
   serializeAws_json1_1UpdateContainerServiceCommand,
@@ -73,8 +78,8 @@ export class UpdateContainerServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContainerServiceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContainerServiceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateContainerServiceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateContainerServiceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

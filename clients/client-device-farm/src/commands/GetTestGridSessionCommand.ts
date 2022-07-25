@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { GetTestGridSessionRequest, GetTestGridSessionResult } from "../models/models_0";
+import {
+  GetTestGridSessionRequest,
+  GetTestGridSessionRequestFilterSensitiveLog,
+  GetTestGridSessionResult,
+  GetTestGridSessionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetTestGridSessionCommand,
   serializeAws_json1_1GetTestGridSessionCommand,
@@ -81,8 +86,8 @@ export class GetTestGridSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTestGridSessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTestGridSessionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTestGridSessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTestGridSessionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

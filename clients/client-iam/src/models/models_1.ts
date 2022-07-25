@@ -20,15 +20,6 @@ export interface UntagPolicyRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagRoleRequest {
   /**
    * <p>The name of the IAM role from which you want to remove tags.</p>
@@ -42,15 +33,6 @@ export interface UntagRoleRequest {
    *       removed from the specified role.</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagRoleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagRoleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagSAMLProviderRequest {
@@ -69,15 +51,6 @@ export interface UntagSAMLProviderRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagSAMLProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagSAMLProviderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagServerCertificateRequest {
   /**
    * <p>The name of the IAM server certificate from which you want to remove tags.</p>
@@ -93,15 +66,6 @@ export interface UntagServerCertificateRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagServerCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagServerCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagUserRequest {
   /**
    * <p>The name of the IAM user from which you want to remove tags.</p>
@@ -115,15 +79,6 @@ export interface UntagUserRequest {
    *       removed from the specified user.</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagUserRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAccessKeyRequest {
@@ -147,15 +102,6 @@ export interface UpdateAccessKeyRequest {
    *             means that the key cannot be used.</p>
    */
   Status: StatusType | string | undefined;
-}
-
-export namespace UpdateAccessKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAccessKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAccountPasswordPolicyRequest {
@@ -251,15 +197,6 @@ export interface UpdateAccountPasswordPolicyRequest {
   HardExpiry?: boolean;
 }
 
-export namespace UpdateAccountPasswordPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAccountPasswordPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAssumeRolePolicyRequest {
   /**
    * <p>The name of the role to update with the new policy.</p>
@@ -293,15 +230,6 @@ export interface UpdateAssumeRolePolicyRequest {
   PolicyDocument: string | undefined;
 }
 
-export namespace UpdateAssumeRolePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssumeRolePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGroupRequest {
   /**
    * <p>Name of the IAM group to update. If you're changing the name of the group, this is
@@ -327,15 +255,6 @@ export interface UpdateGroupRequest {
    *             "MyResource" and "myresource".</p>
    */
   NewGroupName?: string;
-}
-
-export namespace UpdateGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateLoginProfileRequest {
@@ -376,16 +295,6 @@ export interface UpdateLoginProfileRequest {
   PasswordResetRequired?: boolean;
 }
 
-export namespace UpdateLoginProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLoginProfileRequest): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateOpenIDConnectProviderThumbprintRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which
@@ -400,15 +309,6 @@ export interface UpdateOpenIDConnectProviderThumbprintRequest {
    *             Connect provider. For more information, see <a>CreateOpenIDConnectProvider</a>. </p>
    */
   ThumbprintList: string[] | undefined;
-}
-
-export namespace UpdateOpenIDConnectProviderThumbprintRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOpenIDConnectProviderThumbprintRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRoleRequest {
@@ -440,25 +340,7 @@ export interface UpdateRoleRequest {
   MaxSessionDuration?: number;
 }
 
-export namespace UpdateRoleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRoleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRoleResponse {}
-
-export namespace UpdateRoleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRoleResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateRoleDescriptionRequest {
   /**
@@ -472,29 +354,11 @@ export interface UpdateRoleDescriptionRequest {
   Description: string | undefined;
 }
 
-export namespace UpdateRoleDescriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRoleDescriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRoleDescriptionResponse {
   /**
    * <p>A structure that contains details about the modified role.</p>
    */
   Role?: Role;
-}
-
-export namespace UpdateRoleDescriptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRoleDescriptionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSAMLProviderRequest {
@@ -514,15 +378,6 @@ export interface UpdateSAMLProviderRequest {
   SAMLProviderArn: string | undefined;
 }
 
-export namespace UpdateSAMLProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSAMLProviderRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the response to a successful <a>UpdateSAMLProvider</a> request.
  *     </p>
@@ -532,15 +387,6 @@ export interface UpdateSAMLProviderResponse {
    * <p>The Amazon Resource Name (ARN) of the SAML provider that was updated.</p>
    */
   SAMLProviderArn?: string;
-}
-
-export namespace UpdateSAMLProviderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSAMLProviderResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateServerCertificateRequest {
@@ -570,15 +416,6 @@ export interface UpdateServerCertificateRequest {
   NewServerCertificateName?: string;
 }
 
-export namespace UpdateServerCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServerCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateServiceSpecificCredentialRequest {
   /**
    * <p>The name of the IAM user associated with the service-specific credential. If you do
@@ -600,15 +437,6 @@ export interface UpdateServiceSpecificCredentialRequest {
    * <p>The status to be assigned to the service-specific credential.</p>
    */
   Status: StatusType | string | undefined;
-}
-
-export namespace UpdateServiceSpecificCredentialRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceSpecificCredentialRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSigningCertificateRequest {
@@ -634,15 +462,6 @@ export interface UpdateSigningCertificateRequest {
   Status: StatusType | string | undefined;
 }
 
-export namespace UpdateSigningCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSigningCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSSHPublicKeyRequest {
   /**
    * <p>The name of the IAM user associated with the SSH public key.</p>
@@ -664,15 +483,6 @@ export interface UpdateSSHPublicKeyRequest {
    *             the key cannot be used.</p>
    */
   Status: StatusType | string | undefined;
-}
-
-export namespace UpdateSSHPublicKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSSHPublicKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateUserRequest {
@@ -702,15 +512,6 @@ export interface UpdateUserRequest {
    *             "MyResource" and "myresource".</p>
    */
   NewUserName?: string;
-}
-
-export namespace UpdateUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -855,16 +656,6 @@ export interface UploadServerCertificateRequest {
   Tags?: Tag[];
 }
 
-export namespace UploadServerCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadServerCertificateRequest): any => ({
-    ...obj,
-    ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Contains the response to a successful <a>UploadServerCertificate</a>
  *       request. </p>
@@ -882,15 +673,6 @@ export interface UploadServerCertificateResponse {
    *       <i>IAM User Guide</i>.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace UploadServerCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadServerCertificateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -962,15 +744,6 @@ export interface UploadSigningCertificateRequest {
   CertificateBody: string | undefined;
 }
 
-export namespace UploadSigningCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadSigningCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the response to a successful <a>UploadSigningCertificate</a>
  *       request. </p>
@@ -980,15 +753,6 @@ export interface UploadSigningCertificateResponse {
    * <p>Information about the certificate.</p>
    */
   Certificate: SigningCertificate | undefined;
-}
-
-export namespace UploadSigningCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadSigningCertificateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1062,15 +826,6 @@ export interface UploadSSHPublicKeyRequest {
   SSHPublicKeyBody: string | undefined;
 }
 
-export namespace UploadSSHPublicKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadSSHPublicKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the response to a successful <a>UploadSSHPublicKey</a>
  *       request.</p>
@@ -1082,11 +837,204 @@ export interface UploadSSHPublicKeyResponse {
   SSHPublicKey?: SSHPublicKey;
 }
 
-export namespace UploadSSHPublicKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadSSHPublicKeyResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const UntagPolicyRequestFilterSensitiveLog = (obj: UntagPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagRoleRequestFilterSensitiveLog = (obj: UntagRoleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagSAMLProviderRequestFilterSensitiveLog = (obj: UntagSAMLProviderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagServerCertificateRequestFilterSensitiveLog = (obj: UntagServerCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagUserRequestFilterSensitiveLog = (obj: UntagUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccessKeyRequestFilterSensitiveLog = (obj: UpdateAccessKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccountPasswordPolicyRequestFilterSensitiveLog = (obj: UpdateAccountPasswordPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssumeRolePolicyRequestFilterSensitiveLog = (obj: UpdateAssumeRolePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGroupRequestFilterSensitiveLog = (obj: UpdateGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLoginProfileRequestFilterSensitiveLog = (obj: UpdateLoginProfileRequest): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateOpenIDConnectProviderThumbprintRequestFilterSensitiveLog = (
+  obj: UpdateOpenIDConnectProviderThumbprintRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRoleRequestFilterSensitiveLog = (obj: UpdateRoleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRoleResponseFilterSensitiveLog = (obj: UpdateRoleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRoleDescriptionRequestFilterSensitiveLog = (obj: UpdateRoleDescriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRoleDescriptionResponseFilterSensitiveLog = (obj: UpdateRoleDescriptionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSAMLProviderRequestFilterSensitiveLog = (obj: UpdateSAMLProviderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSAMLProviderResponseFilterSensitiveLog = (obj: UpdateSAMLProviderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServerCertificateRequestFilterSensitiveLog = (obj: UpdateServerCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceSpecificCredentialRequestFilterSensitiveLog = (
+  obj: UpdateServiceSpecificCredentialRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSigningCertificateRequestFilterSensitiveLog = (obj: UpdateSigningCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSSHPublicKeyRequestFilterSensitiveLog = (obj: UpdateSSHPublicKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserRequestFilterSensitiveLog = (obj: UpdateUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadServerCertificateRequestFilterSensitiveLog = (obj: UploadServerCertificateRequest): any => ({
+  ...obj,
+  ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UploadServerCertificateResponseFilterSensitiveLog = (obj: UploadServerCertificateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadSigningCertificateRequestFilterSensitiveLog = (obj: UploadSigningCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadSigningCertificateResponseFilterSensitiveLog = (obj: UploadSigningCertificateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadSSHPublicKeyRequestFilterSensitiveLog = (obj: UploadSSHPublicKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadSSHPublicKeyResponseFilterSensitiveLog = (obj: UploadSSHPublicKeyResponse): any => ({
+  ...obj,
+});

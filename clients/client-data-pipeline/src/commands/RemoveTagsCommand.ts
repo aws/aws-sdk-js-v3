@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { RemoveTagsInput, RemoveTagsOutput } from "../models/models_0";
+import {
+  RemoveTagsInput,
+  RemoveTagsInputFilterSensitiveLog,
+  RemoveTagsOutput,
+  RemoveTagsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveTagsCommand,
   serializeAws_json1_1RemoveTagsCommand,
@@ -72,8 +77,8 @@ export class RemoveTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: RemoveTagsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveTagsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: RemoveTagsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

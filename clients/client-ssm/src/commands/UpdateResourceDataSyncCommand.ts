@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateResourceDataSyncRequest, UpdateResourceDataSyncResult } from "../models/models_2";
+import {
+  UpdateResourceDataSyncRequest,
+  UpdateResourceDataSyncRequestFilterSensitiveLog,
+  UpdateResourceDataSyncResult,
+  UpdateResourceDataSyncResultFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateResourceDataSyncCommand,
   serializeAws_json1_1UpdateResourceDataSyncCommand,
@@ -81,8 +86,8 @@ export class UpdateResourceDataSyncCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResourceDataSyncRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResourceDataSyncResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateResourceDataSyncRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateResourceDataSyncResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

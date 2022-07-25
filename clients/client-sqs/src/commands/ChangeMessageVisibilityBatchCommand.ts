@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ChangeMessageVisibilityBatchRequest, ChangeMessageVisibilityBatchResult } from "../models/models_0";
+import {
+  ChangeMessageVisibilityBatchRequest,
+  ChangeMessageVisibilityBatchRequestFilterSensitiveLog,
+  ChangeMessageVisibilityBatchResult,
+  ChangeMessageVisibilityBatchResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryChangeMessageVisibilityBatchCommand,
   serializeAws_queryChangeMessageVisibilityBatchCommand,
@@ -88,8 +93,8 @@ export class ChangeMessageVisibilityBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ChangeMessageVisibilityBatchRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ChangeMessageVisibilityBatchResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ChangeMessageVisibilityBatchRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ChangeMessageVisibilityBatchResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

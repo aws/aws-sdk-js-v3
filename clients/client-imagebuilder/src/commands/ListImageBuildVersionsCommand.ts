@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { ListImageBuildVersionsRequest, ListImageBuildVersionsResponse } from "../models/models_0";
+import {
+  ListImageBuildVersionsRequest,
+  ListImageBuildVersionsRequestFilterSensitiveLog,
+  ListImageBuildVersionsResponse,
+  ListImageBuildVersionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListImageBuildVersionsCommand,
   serializeAws_restJson1ListImageBuildVersionsCommand,
@@ -72,8 +77,8 @@ export class ListImageBuildVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImageBuildVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListImageBuildVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListImageBuildVersionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListImageBuildVersionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

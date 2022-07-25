@@ -15,7 +15,9 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   StartMLLabelingSetGenerationTaskRunRequest,
+  StartMLLabelingSetGenerationTaskRunRequestFilterSensitiveLog,
   StartMLLabelingSetGenerationTaskRunResponse,
+  StartMLLabelingSetGenerationTaskRunResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand,
@@ -90,8 +92,8 @@ export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMLLabelingSetGenerationTaskRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartMLLabelingSetGenerationTaskRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartMLLabelingSetGenerationTaskRunRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartMLLabelingSetGenerationTaskRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

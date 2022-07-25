@@ -22,25 +22,7 @@ export interface CloseTunnelRequest {
   delete?: boolean;
 }
 
-export namespace CloseTunnelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloseTunnelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CloseTunnelResponse {}
-
-export namespace CloseTunnelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloseTunnelResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Thrown when an operation is attempted on a resource that does not exist.</p>
@@ -82,29 +64,11 @@ export interface ConnectionState {
   lastUpdatedAt?: Date;
 }
 
-export namespace ConnectionState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionState): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTunnelRequest {
   /**
    * <p>The tunnel to describe.</p>
    */
   tunnelId: string | undefined;
-}
-
-export namespace DescribeTunnelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTunnelRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -123,15 +87,6 @@ export interface DestinationConfig {
    * 			information to connect to the destination application.</p>
    */
   services: string[] | undefined;
-}
-
-export namespace DestinationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum TunnelStatus {
@@ -155,15 +110,6 @@ export interface Tag {
   value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Tunnel timeout configuration.</p>
  */
@@ -174,15 +120,6 @@ export interface TimeoutConfig {
    * 			hours (720 minutes) </p>
    */
   maxLifetimeTimeoutMinutes?: number;
-}
-
-export namespace TimeoutConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeoutConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -247,29 +184,11 @@ export interface Tunnel {
   lastUpdatedAt?: Date;
 }
 
-export namespace Tunnel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tunnel): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTunnelResponse {
   /**
    * <p>The tunnel being described.</p>
    */
   tunnel?: Tunnel;
-}
-
-export namespace DescribeTunnelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTunnelResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -279,29 +198,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the specified resource.</p>
    */
   tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTunnelsRequest {
@@ -320,15 +221,6 @@ export interface ListTunnelsRequest {
    * 			otherwise null to receive the first set of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListTunnelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTunnelsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -366,15 +258,6 @@ export interface TunnelSummary {
   lastUpdatedAt?: Date;
 }
 
-export namespace TunnelSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TunnelSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTunnelsResponse {
   /**
    * <p>A short description of the tunnels in an Amazon Web Services account.</p>
@@ -386,15 +269,6 @@ export interface ListTunnelsResponse {
    * 			results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListTunnelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTunnelsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -438,15 +312,6 @@ export interface OpenTunnelRequest {
   timeoutConfig?: TimeoutConfig;
 }
 
-export namespace OpenTunnelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenTunnelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface OpenTunnelResponse {
   /**
    * <p>A unique alpha-numeric tunnel ID.</p>
@@ -471,17 +336,6 @@ export interface OpenTunnelResponse {
   destinationAccessToken?: string;
 }
 
-export namespace OpenTunnelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenTunnelResponse): any => ({
-    ...obj,
-    ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
-    ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface RotateTunnelAccessTokenRequest {
   /**
    * <p>The tunnel for which you want to rotate the access tokens.</p>
@@ -498,15 +352,6 @@ export interface RotateTunnelAccessTokenRequest {
    * <p>The destination configuration.</p>
    */
   destinationConfig?: DestinationConfig;
-}
-
-export namespace RotateTunnelAccessTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RotateTunnelAccessTokenRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RotateTunnelAccessTokenResponse {
@@ -528,17 +373,6 @@ export interface RotateTunnelAccessTokenResponse {
   destinationAccessToken?: string;
 }
 
-export namespace RotateTunnelAccessTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RotateTunnelAccessTokenResponse): any => ({
-    ...obj,
-    ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
-    ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -551,25 +385,7 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -583,22 +399,162 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CloseTunnelRequestFilterSensitiveLog = (obj: CloseTunnelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloseTunnelResponseFilterSensitiveLog = (obj: CloseTunnelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionStateFilterSensitiveLog = (obj: ConnectionState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTunnelRequestFilterSensitiveLog = (obj: DescribeTunnelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationConfigFilterSensitiveLog = (obj: DestinationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeoutConfigFilterSensitiveLog = (obj: TimeoutConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TunnelFilterSensitiveLog = (obj: Tunnel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTunnelResponseFilterSensitiveLog = (obj: DescribeTunnelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTunnelsRequestFilterSensitiveLog = (obj: ListTunnelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TunnelSummaryFilterSensitiveLog = (obj: TunnelSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTunnelsResponseFilterSensitiveLog = (obj: ListTunnelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpenTunnelRequestFilterSensitiveLog = (obj: OpenTunnelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpenTunnelResponseFilterSensitiveLog = (obj: OpenTunnelResponse): any => ({
+  ...obj,
+  ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
+  ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RotateTunnelAccessTokenRequestFilterSensitiveLog = (obj: RotateTunnelAccessTokenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RotateTunnelAccessTokenResponseFilterSensitiveLog = (obj: RotateTunnelAccessTokenResponse): any => ({
+  ...obj,
+  ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
+  ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

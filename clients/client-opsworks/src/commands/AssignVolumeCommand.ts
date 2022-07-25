@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssignVolumeRequest } from "../models/models_0";
+import { AssignVolumeRequest, AssignVolumeRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1AssignVolumeCommand,
@@ -80,7 +80,7 @@ export class AssignVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssignVolumeRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AssignVolumeRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

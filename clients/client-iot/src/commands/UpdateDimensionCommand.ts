@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateDimensionRequest, UpdateDimensionResponse } from "../models/models_2";
+import {
+  UpdateDimensionRequest,
+  UpdateDimensionRequestFilterSensitiveLog,
+  UpdateDimensionResponse,
+  UpdateDimensionResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateDimensionCommand,
   serializeAws_restJson1UpdateDimensionCommand,
@@ -78,8 +83,8 @@ export class UpdateDimensionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDimensionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDimensionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDimensionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDimensionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

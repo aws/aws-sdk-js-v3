@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetMaintenanceWindowRequest, GetMaintenanceWindowResult } from "../models/models_1";
+import {
+  GetMaintenanceWindowRequest,
+  GetMaintenanceWindowRequestFilterSensitiveLog,
+  GetMaintenanceWindowResult,
+  GetMaintenanceWindowResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetMaintenanceWindowCommand,
   serializeAws_json1_1GetMaintenanceWindowCommand,
@@ -72,8 +77,8 @@ export class GetMaintenanceWindowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMaintenanceWindowRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMaintenanceWindowResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMaintenanceWindowRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMaintenanceWindowResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

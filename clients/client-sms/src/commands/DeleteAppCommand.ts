@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAppRequest, DeleteAppResponse } from "../models/models_0";
+import {
+  DeleteAppRequest,
+  DeleteAppRequestFilterSensitiveLog,
+  DeleteAppResponse,
+  DeleteAppResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1DeleteAppCommand, serializeAws_json1_1DeleteAppCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
@@ -66,8 +71,8 @@ export class DeleteAppCommand extends $Command<DeleteAppCommandInput, DeleteAppC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAppRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAppResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

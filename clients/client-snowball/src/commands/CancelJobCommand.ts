@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CancelJobRequest, CancelJobResult } from "../models/models_0";
+import {
+  CancelJobRequest,
+  CancelJobRequestFilterSensitiveLog,
+  CancelJobResult,
+  CancelJobResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1CancelJobCommand, serializeAws_json1_1CancelJobCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
@@ -72,8 +77,8 @@ export class CancelJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelJobResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelJobResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

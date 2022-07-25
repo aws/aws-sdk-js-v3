@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListDocumentMetadataHistoryRequest, ListDocumentMetadataHistoryResponse } from "../models/models_1";
+import {
+  ListDocumentMetadataHistoryRequest,
+  ListDocumentMetadataHistoryRequestFilterSensitiveLog,
+  ListDocumentMetadataHistoryResponse,
+  ListDocumentMetadataHistoryResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1ListDocumentMetadataHistoryCommand,
   serializeAws_json1_1ListDocumentMetadataHistoryCommand,
@@ -74,8 +79,8 @@ export class ListDocumentMetadataHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDocumentMetadataHistoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDocumentMetadataHistoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDocumentMetadataHistoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDocumentMetadataHistoryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

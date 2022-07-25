@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { ListIncomingTypedLinksRequest, ListIncomingTypedLinksResponse } from "../models/models_0";
+import {
+  ListIncomingTypedLinksRequest,
+  ListIncomingTypedLinksRequestFilterSensitiveLog,
+  ListIncomingTypedLinksResponse,
+  ListIncomingTypedLinksResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListIncomingTypedLinksCommand,
   serializeAws_restJson1ListIncomingTypedLinksCommand,
@@ -74,8 +79,8 @@ export class ListIncomingTypedLinksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIncomingTypedLinksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListIncomingTypedLinksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListIncomingTypedLinksRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListIncomingTypedLinksResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

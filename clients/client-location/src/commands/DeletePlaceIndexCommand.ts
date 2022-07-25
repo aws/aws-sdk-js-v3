@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { DeletePlaceIndexRequest, DeletePlaceIndexResponse } from "../models/models_0";
+import {
+  DeletePlaceIndexRequest,
+  DeletePlaceIndexRequestFilterSensitiveLog,
+  DeletePlaceIndexResponse,
+  DeletePlaceIndexResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePlaceIndexCommand,
   serializeAws_restJson1DeletePlaceIndexCommand,
@@ -75,8 +80,8 @@ export class DeletePlaceIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePlaceIndexRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePlaceIndexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePlaceIndexRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePlaceIndexResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

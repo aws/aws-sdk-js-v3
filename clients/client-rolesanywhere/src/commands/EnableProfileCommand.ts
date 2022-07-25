@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ProfileDetailResponse, ScalarProfileRequest } from "../models/models_0";
+import {
+  ProfileDetailResponse,
+  ProfileDetailResponseFilterSensitiveLog,
+  ScalarProfileRequest,
+  ScalarProfileRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1EnableProfileCommand,
   serializeAws_restJson1EnableProfileCommand,
@@ -76,8 +81,8 @@ export class EnableProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalarProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ProfileDetailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ScalarProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ProfileDetailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

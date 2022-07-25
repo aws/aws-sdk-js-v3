@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HttpChecksumRequiredInputOutput } from "../models/models_0";
+import { HttpChecksumRequiredInputOutput, HttpChecksumRequiredInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1HttpChecksumRequiredCommand,
   serializeAws_restJson1HttpChecksumRequiredCommand,
@@ -74,8 +74,8 @@ export class HttpChecksumRequiredCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpChecksumRequiredInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: HttpChecksumRequiredInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: HttpChecksumRequiredInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: HttpChecksumRequiredInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

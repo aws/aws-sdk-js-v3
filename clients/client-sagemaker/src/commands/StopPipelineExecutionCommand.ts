@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopPipelineExecutionRequest, StopPipelineExecutionResponse } from "../models/models_3";
+import {
+  StopPipelineExecutionRequest,
+  StopPipelineExecutionRequestFilterSensitiveLog,
+  StopPipelineExecutionResponse,
+  StopPipelineExecutionResponseFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_json1_1StopPipelineExecutionCommand,
   serializeAws_json1_1StopPipelineExecutionCommand,
@@ -96,8 +101,8 @@ export class StopPipelineExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopPipelineExecutionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopPipelineExecutionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopPipelineExecutionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopPipelineExecutionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

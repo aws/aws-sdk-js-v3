@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { SetStatusInput } from "../models/models_0";
+import { SetStatusInput, SetStatusInputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_json1_1SetStatusCommand, serializeAws_json1_1SetStatusCommand } from "../protocols/Aws_json1_1";
 
 export interface SetStatusCommandInput extends SetStatusInput {}
@@ -101,7 +101,7 @@ export class SetStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetStatusInput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetStatusInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { UpdateArchiveRuleRequest } from "../models/models_0";
+import { UpdateArchiveRuleRequest, UpdateArchiveRuleRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateArchiveRuleCommand,
   serializeAws_restJson1UpdateArchiveRuleCommand,
@@ -72,7 +72,7 @@ export class UpdateArchiveRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateArchiveRuleRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateArchiveRuleRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

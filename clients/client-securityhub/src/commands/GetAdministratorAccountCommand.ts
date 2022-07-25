@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetAdministratorAccountRequest, GetAdministratorAccountResponse } from "../models/models_1";
+import {
+  GetAdministratorAccountRequest,
+  GetAdministratorAccountRequestFilterSensitiveLog,
+  GetAdministratorAccountResponse,
+  GetAdministratorAccountResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1GetAdministratorAccountCommand,
   serializeAws_restJson1GetAdministratorAccountCommand,
@@ -74,8 +79,8 @@ export class GetAdministratorAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAdministratorAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAdministratorAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAdministratorAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAdministratorAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import { DeletePermissionGroupRequest, DeletePermissionGroupResponse } from "../models/models_0";
+import {
+  DeletePermissionGroupRequest,
+  DeletePermissionGroupRequestFilterSensitiveLog,
+  DeletePermissionGroupResponse,
+  DeletePermissionGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePermissionGroupCommand,
   serializeAws_restJson1DeletePermissionGroupCommand,
@@ -72,8 +77,8 @@ export class DeletePermissionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePermissionGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePermissionGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePermissionGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePermissionGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

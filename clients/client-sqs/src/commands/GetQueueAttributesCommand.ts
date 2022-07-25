@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetQueueAttributesRequest, GetQueueAttributesResult } from "../models/models_0";
+import {
+  GetQueueAttributesRequest,
+  GetQueueAttributesRequestFilterSensitiveLog,
+  GetQueueAttributesResult,
+  GetQueueAttributesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetQueueAttributesCommand,
   serializeAws_queryGetQueueAttributesCommand,
@@ -75,8 +80,8 @@ export class GetQueueAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueueAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetQueueAttributesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetQueueAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetQueueAttributesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

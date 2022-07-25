@@ -14,7 +14,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetMultiRegionAccessPointRequest, GetMultiRegionAccessPointResult } from "../models/models_0";
+import {
+  GetMultiRegionAccessPointRequest,
+  GetMultiRegionAccessPointRequestFilterSensitiveLog,
+  GetMultiRegionAccessPointResult,
+  GetMultiRegionAccessPointResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlGetMultiRegionAccessPointCommand,
   serializeAws_restXmlGetMultiRegionAccessPointCommand,
@@ -102,8 +107,8 @@ export class GetMultiRegionAccessPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMultiRegionAccessPointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMultiRegionAccessPointResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMultiRegionAccessPointRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMultiRegionAccessPointResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

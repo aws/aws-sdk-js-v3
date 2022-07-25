@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteFraudsterRequest } from "../models/models_0";
+import { DeleteFraudsterRequest, DeleteFraudsterRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteFraudsterCommand,
   serializeAws_json1_0DeleteFraudsterCommand,
@@ -72,7 +72,7 @@ export class DeleteFraudsterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFraudsterRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFraudsterRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

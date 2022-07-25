@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { ForgetDeviceRequest } from "../models/models_0";
+import { ForgetDeviceRequest, ForgetDeviceRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1ForgetDeviceCommand,
   serializeAws_json1_1ForgetDeviceCommand,
@@ -78,7 +78,7 @@ export class ForgetDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ForgetDeviceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ForgetDeviceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

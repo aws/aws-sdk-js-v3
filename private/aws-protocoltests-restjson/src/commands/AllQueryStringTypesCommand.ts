@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AllQueryStringTypesInput } from "../models/models_0";
+import { AllQueryStringTypesInput, AllQueryStringTypesInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1AllQueryStringTypesCommand,
   serializeAws_restJson1AllQueryStringTypesCommand,
@@ -72,7 +72,7 @@ export class AllQueryStringTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AllQueryStringTypesInput.filterSensitiveLog,
+      inputFilterSensitiveLog: AllQueryStringTypesInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

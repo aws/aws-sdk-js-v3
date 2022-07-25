@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import { CreateNotificationRequest, CreateNotificationResponse } from "../models/models_0";
+import {
+  CreateNotificationRequest,
+  CreateNotificationRequestFilterSensitiveLog,
+  CreateNotificationResponse,
+  CreateNotificationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateNotificationCommand,
   serializeAws_json1_1CreateNotificationCommand,
@@ -72,8 +77,8 @@ export class CreateNotificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNotificationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateNotificationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateNotificationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateNotificationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

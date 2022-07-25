@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { DescribeLocationFsxWindowsRequest, DescribeLocationFsxWindowsResponse } from "../models/models_0";
+import {
+  DescribeLocationFsxWindowsRequest,
+  DescribeLocationFsxWindowsRequestFilterSensitiveLog,
+  DescribeLocationFsxWindowsResponse,
+  DescribeLocationFsxWindowsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLocationFsxWindowsCommand,
   serializeAws_json1_1DescribeLocationFsxWindowsCommand,
@@ -73,8 +78,8 @@ export class DescribeLocationFsxWindowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocationFsxWindowsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLocationFsxWindowsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLocationFsxWindowsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLocationFsxWindowsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

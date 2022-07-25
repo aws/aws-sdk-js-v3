@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AuthorizeSecurityGroupEgressRequest, AuthorizeSecurityGroupEgressResult } from "../models/models_0";
+import {
+  AuthorizeSecurityGroupEgressRequest,
+  AuthorizeSecurityGroupEgressRequestFilterSensitiveLog,
+  AuthorizeSecurityGroupEgressResult,
+  AuthorizeSecurityGroupEgressResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_ec2AuthorizeSecurityGroupEgressCommand,
   serializeAws_ec2AuthorizeSecurityGroupEgressCommand,
@@ -82,8 +87,8 @@ export class AuthorizeSecurityGroupEgressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeSecurityGroupEgressRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizeSecurityGroupEgressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AuthorizeSecurityGroupEgressRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AuthorizeSecurityGroupEgressResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

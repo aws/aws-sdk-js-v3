@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import { DeleteApplicationSnapshotRequest, DeleteApplicationSnapshotResponse } from "../models/models_0";
+import {
+  DeleteApplicationSnapshotRequest,
+  DeleteApplicationSnapshotRequestFilterSensitiveLog,
+  DeleteApplicationSnapshotResponse,
+  DeleteApplicationSnapshotResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteApplicationSnapshotCommand,
   serializeAws_json1_1DeleteApplicationSnapshotCommand,
@@ -76,8 +81,8 @@ export class DeleteApplicationSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationSnapshotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApplicationSnapshotResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApplicationSnapshotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApplicationSnapshotResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

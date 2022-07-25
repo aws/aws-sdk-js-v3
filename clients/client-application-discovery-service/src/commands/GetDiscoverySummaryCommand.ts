@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { GetDiscoverySummaryRequest, GetDiscoverySummaryResponse } from "../models/models_0";
+import {
+  GetDiscoverySummaryRequest,
+  GetDiscoverySummaryRequestFilterSensitiveLog,
+  GetDiscoverySummaryResponse,
+  GetDiscoverySummaryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetDiscoverySummaryCommand,
   serializeAws_json1_1GetDiscoverySummaryCommand,
@@ -78,8 +83,8 @@ export class GetDiscoverySummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDiscoverySummaryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDiscoverySummaryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDiscoverySummaryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDiscoverySummaryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -35,15 +35,6 @@ export interface AddPermissionRequest {
   Actions: string[] | undefined;
 }
 
-export namespace AddPermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddPermissionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified action violates a limit. For example, <code>ReceiveMessage</code>
  *             returns this error if the maximum number of inflight messages is reached and
@@ -84,15 +75,6 @@ export interface ChangeMessageVisibilityRequest {
    * <p>The new value for the message's visibility timeout (in seconds). Values range: <code>0</code> to <code>43200</code>. Maximum: 12 hours.</p>
    */
   VisibilityTimeout: number | undefined;
-}
-
-export namespace ChangeMessageVisibilityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeMessageVisibilityRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -190,15 +172,6 @@ export interface ChangeMessageVisibilityBatchRequestEntry {
   VisibilityTimeout?: number;
 }
 
-export namespace ChangeMessageVisibilityBatchRequestEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeMessageVisibilityBatchRequestEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -213,15 +186,6 @@ export interface ChangeMessageVisibilityBatchRequest {
    * <p>A list of receipt handles of the messages for which the visibility timeout must be changed.</p>
    */
   Entries: ChangeMessageVisibilityBatchRequestEntry[] | undefined;
-}
-
-export namespace ChangeMessageVisibilityBatchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeMessageVisibilityBatchRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -250,15 +214,6 @@ export interface BatchResultErrorEntry {
   Message?: string;
 }
 
-export namespace BatchResultErrorEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchResultErrorEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Encloses the <code>Id</code> of an entry in <code>
  *                <a>ChangeMessageVisibilityBatch</a>.</code>
@@ -269,15 +224,6 @@ export interface ChangeMessageVisibilityBatchResultEntry {
    * <p>Represents a message whose visibility timeout has been changed successfully.</p>
    */
   Id: string | undefined;
-}
-
-export namespace ChangeMessageVisibilityBatchResultEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeMessageVisibilityBatchResultEntry): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -301,15 +247,6 @@ export interface ChangeMessageVisibilityBatchResult {
    *             </code> items.</p>
    */
   Failed: BatchResultErrorEntry[] | undefined;
-}
-
-export namespace ChangeMessageVisibilityBatchResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeMessageVisibilityBatchResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -614,15 +551,6 @@ export interface CreateQueueRequest {
   Attributes?: Record<string, string>;
 }
 
-export namespace CreateQueueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateQueueRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns the <code>QueueUrl</code> attribute of the created queue.</p>
  */
@@ -631,15 +559,6 @@ export interface CreateQueueResult {
    * <p>The URL of the created Amazon SQS queue.</p>
    */
   QueueUrl?: string;
-}
-
-export namespace CreateQueueResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateQueueResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -698,15 +617,6 @@ export interface DeleteMessageRequest {
   ReceiptHandle: string | undefined;
 }
 
-export namespace DeleteMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMessageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified receipt handle isn't valid for the current version.</p>
  */
@@ -745,15 +655,6 @@ export interface DeleteMessageBatchRequestEntry {
   ReceiptHandle: string | undefined;
 }
 
-export namespace DeleteMessageBatchRequestEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMessageBatchRequestEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -770,15 +671,6 @@ export interface DeleteMessageBatchRequest {
   Entries: DeleteMessageBatchRequestEntry[] | undefined;
 }
 
-export namespace DeleteMessageBatchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMessageBatchRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Encloses the <code>Id</code> of an entry in <code>
  *                <a>DeleteMessageBatch</a>.</code>
@@ -789,15 +681,6 @@ export interface DeleteMessageBatchResultEntry {
    * <p>Represents a successfully deleted message.</p>
    */
   Id: string | undefined;
-}
-
-export namespace DeleteMessageBatchResultEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMessageBatchResultEntry): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -823,15 +706,6 @@ export interface DeleteMessageBatchResult {
   Failed: BatchResultErrorEntry[] | undefined;
 }
 
-export namespace DeleteMessageBatchResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMessageBatchResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -841,15 +715,6 @@ export interface DeleteQueueRequest {
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
-}
-
-export namespace DeleteQueueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteQueueRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1037,15 +902,6 @@ export interface GetQueueAttributesRequest {
   AttributeNames?: (QueueAttributeName | string)[];
 }
 
-export namespace GetQueueAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueueAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of returned queue attributes.</p>
  */
@@ -1054,15 +910,6 @@ export interface GetQueueAttributesResult {
    * <p>A map of attributes to their respective values.</p>
    */
   Attributes?: Record<string, string>;
-}
-
-export namespace GetQueueAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueueAttributesResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1100,15 +947,6 @@ export interface GetQueueUrlRequest {
   QueueOwnerAWSAccountId?: string;
 }
 
-export namespace GetQueueUrlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueueUrlRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-api-responses.html">Interpreting Responses</a> in the <i>Amazon SQS Developer Guide</i>.</p>
  */
@@ -1117,15 +955,6 @@ export interface GetQueueUrlResult {
    * <p>The URL of the queue.</p>
    */
   QueueUrl?: string;
-}
-
-export namespace GetQueueUrlResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueueUrlResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1169,15 +998,6 @@ export interface ListDeadLetterSourceQueuesRequest {
   MaxResults?: number;
 }
 
-export namespace ListDeadLetterSourceQueuesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeadLetterSourceQueuesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of your dead letter source queues.</p>
  */
@@ -1192,15 +1012,6 @@ export interface ListDeadLetterSourceQueuesResult {
    *           results to request, or if you did not set <code>MaxResults</code> in the request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDeadLetterSourceQueuesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeadLetterSourceQueuesResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1225,15 +1036,6 @@ export interface ListQueuesRequest {
   MaxResults?: number;
 }
 
-export namespace ListQueuesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueuesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of your queues.</p>
  */
@@ -1250,15 +1052,6 @@ export interface ListQueuesResult {
   QueueUrls?: string[];
 }
 
-export namespace ListQueuesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueuesResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListQueueTagsRequest {
   /**
    * <p>The URL of the queue.</p>
@@ -1266,29 +1059,11 @@ export interface ListQueueTagsRequest {
   QueueUrl: string | undefined;
 }
 
-export namespace ListQueueTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueueTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListQueueTagsResult {
   /**
    * <p>The list of all tags added to the specified queue.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListQueueTagsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueueTagsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1319,15 +1094,6 @@ export interface PurgeQueueRequest {
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
-}
-
-export namespace PurgeQueueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PurgeQueueRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1502,15 +1268,6 @@ export interface ReceiveMessageRequest {
   ReceiveRequestAttemptId?: string;
 }
 
-export namespace ReceiveMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReceiveMessageRequest): any => ({
-    ...obj,
-  });
-}
-
 export type MessageSystemAttributeName =
   | "AWSTraceHeader"
   | "ApproximateFirstReceiveTimestamp"
@@ -1554,15 +1311,6 @@ export interface MessageAttributeValue {
    *          <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
    */
   DataType: string | undefined;
-}
-
-export namespace MessageAttributeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageAttributeValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1651,15 +1399,6 @@ export interface Message {
   MessageAttributes?: Record<string, MessageAttributeValue>;
 }
 
-export namespace Message {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Message): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of received messages.</p>
  */
@@ -1668,15 +1407,6 @@ export interface ReceiveMessageResult {
    * <p>A list of messages.</p>
    */
   Messages?: Message[];
-}
-
-export namespace ReceiveMessageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReceiveMessageResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1695,15 +1425,6 @@ export interface RemovePermissionRequest {
    *             </code> action.</p>
    */
   Label: string | undefined;
-}
-
-export namespace RemovePermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemovePermissionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1760,15 +1481,6 @@ export interface MessageSystemAttributeValue {
    *          <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
    */
   DataType: string | undefined;
-}
-
-export namespace MessageSystemAttributeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageSystemAttributeValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1911,15 +1623,6 @@ export interface SendMessageRequest {
   MessageGroupId?: string;
 }
 
-export namespace SendMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendMessageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>MD5OfMessageBody</code> and <code>MessageId</code> elements.</p>
  */
@@ -1953,15 +1656,6 @@ export interface SendMessageResult {
    *          <p>The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for a particular <code>MessageGroupId</code>.</p>
    */
   SequenceNumber?: string;
-}
-
-export namespace SendMessageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendMessageResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2138,15 +1832,6 @@ export interface SendMessageBatchRequestEntry {
   MessageGroupId?: string;
 }
 
-export namespace SendMessageBatchRequestEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendMessageBatchRequestEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -2163,15 +1848,6 @@ export interface SendMessageBatchRequest {
    *             </code> items.</p>
    */
   Entries: SendMessageBatchRequestEntry[] | undefined;
-}
-
-export namespace SendMessageBatchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendMessageBatchRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2214,15 +1890,6 @@ export interface SendMessageBatchResultEntry {
   SequenceNumber?: string;
 }
 
-export namespace SendMessageBatchResultEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendMessageBatchResultEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>For each message in the batch, the response contains a <code>
  *                <a>SendMessageBatchResultEntry</a>
@@ -2244,15 +1911,6 @@ export interface SendMessageBatchResult {
    *             </code> items with error details about each message that can't be enqueued.</p>
    */
   Failed: BatchResultErrorEntry[] | undefined;
-}
-
-export namespace SendMessageBatchResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendMessageBatchResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2425,15 +2083,6 @@ export interface SetQueueAttributesRequest {
   Attributes: Record<string, string> | undefined;
 }
 
-export namespace SetQueueAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetQueueAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagQueueRequest {
   /**
    * <p>The URL of the queue.</p>
@@ -2444,15 +2093,6 @@ export interface TagQueueRequest {
    * <p>The list of tags to be added to the specified queue.</p>
    */
   Tags: Record<string, string> | undefined;
-}
-
-export namespace TagQueueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagQueueRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagQueueRequest {
@@ -2467,11 +2107,295 @@ export interface UntagQueueRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagQueueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagQueueRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AddPermissionRequestFilterSensitiveLog = (obj: AddPermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeMessageVisibilityRequestFilterSensitiveLog = (obj: ChangeMessageVisibilityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeMessageVisibilityBatchRequestEntryFilterSensitiveLog = (
+  obj: ChangeMessageVisibilityBatchRequestEntry
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeMessageVisibilityBatchRequestFilterSensitiveLog = (
+  obj: ChangeMessageVisibilityBatchRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchResultErrorEntryFilterSensitiveLog = (obj: BatchResultErrorEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeMessageVisibilityBatchResultEntryFilterSensitiveLog = (
+  obj: ChangeMessageVisibilityBatchResultEntry
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeMessageVisibilityBatchResultFilterSensitiveLog = (obj: ChangeMessageVisibilityBatchResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateQueueRequestFilterSensitiveLog = (obj: CreateQueueRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateQueueResultFilterSensitiveLog = (obj: CreateQueueResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMessageRequestFilterSensitiveLog = (obj: DeleteMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMessageBatchRequestEntryFilterSensitiveLog = (obj: DeleteMessageBatchRequestEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMessageBatchRequestFilterSensitiveLog = (obj: DeleteMessageBatchRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMessageBatchResultEntryFilterSensitiveLog = (obj: DeleteMessageBatchResultEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMessageBatchResultFilterSensitiveLog = (obj: DeleteMessageBatchResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteQueueRequestFilterSensitiveLog = (obj: DeleteQueueRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueueAttributesRequestFilterSensitiveLog = (obj: GetQueueAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueueAttributesResultFilterSensitiveLog = (obj: GetQueueAttributesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueueUrlRequestFilterSensitiveLog = (obj: GetQueueUrlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueueUrlResultFilterSensitiveLog = (obj: GetQueueUrlResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeadLetterSourceQueuesRequestFilterSensitiveLog = (obj: ListDeadLetterSourceQueuesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeadLetterSourceQueuesResultFilterSensitiveLog = (obj: ListDeadLetterSourceQueuesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQueuesRequestFilterSensitiveLog = (obj: ListQueuesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQueuesResultFilterSensitiveLog = (obj: ListQueuesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQueueTagsRequestFilterSensitiveLog = (obj: ListQueueTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQueueTagsResultFilterSensitiveLog = (obj: ListQueueTagsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurgeQueueRequestFilterSensitiveLog = (obj: PurgeQueueRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReceiveMessageRequestFilterSensitiveLog = (obj: ReceiveMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageAttributeValueFilterSensitiveLog = (obj: MessageAttributeValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageFilterSensitiveLog = (obj: Message): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReceiveMessageResultFilterSensitiveLog = (obj: ReceiveMessageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemovePermissionRequestFilterSensitiveLog = (obj: RemovePermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageSystemAttributeValueFilterSensitiveLog = (obj: MessageSystemAttributeValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendMessageRequestFilterSensitiveLog = (obj: SendMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendMessageResultFilterSensitiveLog = (obj: SendMessageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendMessageBatchRequestEntryFilterSensitiveLog = (obj: SendMessageBatchRequestEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendMessageBatchRequestFilterSensitiveLog = (obj: SendMessageBatchRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendMessageBatchResultEntryFilterSensitiveLog = (obj: SendMessageBatchResultEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendMessageBatchResultFilterSensitiveLog = (obj: SendMessageBatchResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetQueueAttributesRequestFilterSensitiveLog = (obj: SetQueueAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagQueueRequestFilterSensitiveLog = (obj: TagQueueRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagQueueRequestFilterSensitiveLog = (obj: UntagQueueRequest): any => ({
+  ...obj,
+});

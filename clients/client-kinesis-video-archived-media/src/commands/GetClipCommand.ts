@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import { GetClipInput, GetClipOutput } from "../models/models_0";
+import {
+  GetClipInput,
+  GetClipInputFilterSensitiveLog,
+  GetClipOutput,
+  GetClipOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetClipCommand,
   serializeAws_restJson1GetClipCommand,
@@ -116,8 +121,8 @@ export class GetClipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetClipInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetClipOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetClipInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetClipOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

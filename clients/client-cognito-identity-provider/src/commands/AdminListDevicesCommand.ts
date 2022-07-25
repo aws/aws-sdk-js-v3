@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminListDevicesRequest, AdminListDevicesResponse } from "../models/models_0";
+import {
+  AdminListDevicesRequest,
+  AdminListDevicesRequestFilterSensitiveLog,
+  AdminListDevicesResponse,
+  AdminListDevicesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AdminListDevicesCommand,
   serializeAws_json1_1AdminListDevicesCommand,
@@ -79,8 +84,8 @@ export class AdminListDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AdminListDevicesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AdminListDevicesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminListDevicesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AdminListDevicesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

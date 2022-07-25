@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { CreateDeviceDefinitionVersionRequest, CreateDeviceDefinitionVersionResponse } from "../models/models_0";
+import {
+  CreateDeviceDefinitionVersionRequest,
+  CreateDeviceDefinitionVersionRequestFilterSensitiveLog,
+  CreateDeviceDefinitionVersionResponse,
+  CreateDeviceDefinitionVersionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDeviceDefinitionVersionCommand,
   serializeAws_restJson1CreateDeviceDefinitionVersionCommand,
@@ -74,8 +79,8 @@ export class CreateDeviceDefinitionVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeviceDefinitionVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDeviceDefinitionVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDeviceDefinitionVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDeviceDefinitionVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

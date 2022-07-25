@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteCACertificateRequest, DeleteCACertificateResponse } from "../models/models_0";
+import {
+  DeleteCACertificateRequest,
+  DeleteCACertificateRequestFilterSensitiveLog,
+  DeleteCACertificateResponse,
+  DeleteCACertificateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCACertificateCommand,
   serializeAws_restJson1DeleteCACertificateCommand,
@@ -73,8 +78,8 @@ export class DeleteCACertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCACertificateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCACertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCACertificateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCACertificateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

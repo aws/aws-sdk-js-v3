@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateWorkspaceBundleRequest, UpdateWorkspaceBundleResult } from "../models/models_0";
+import {
+  UpdateWorkspaceBundleRequest,
+  UpdateWorkspaceBundleRequestFilterSensitiveLog,
+  UpdateWorkspaceBundleResult,
+  UpdateWorkspaceBundleResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateWorkspaceBundleCommand,
   serializeAws_json1_1UpdateWorkspaceBundleCommand,
@@ -80,8 +85,8 @@ export class UpdateWorkspaceBundleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkspaceBundleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkspaceBundleResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateWorkspaceBundleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateWorkspaceBundleResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

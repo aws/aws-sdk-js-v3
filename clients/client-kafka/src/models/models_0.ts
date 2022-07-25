@@ -18,15 +18,6 @@ export interface ProvisionedThroughput {
   VolumeThroughput?: number;
 }
 
-export namespace ProvisionedThroughput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedThroughput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the EBS volume upgrade information. The broker identifier must be set to the keyword ALL. This means the changes apply to all the brokers in the cluster.</p>
  */
@@ -45,15 +36,6 @@ export interface BrokerEBSVolumeInfo {
    * <p>Size of the EBS volume to update.</p>
    */
   VolumeSizeGB?: number;
-}
-
-export namespace BrokerEBSVolumeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BrokerEBSVolumeInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum ClusterType {
@@ -75,15 +57,6 @@ export interface PublicAccess {
   Type?: string;
 }
 
-export namespace PublicAccess {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicAccess): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the broker access configuration.</p>
  */
@@ -92,15 +65,6 @@ export interface ConnectivityInfo {
    * <p>Public access control for brokers.</p>
    */
   PublicAccess?: PublicAccess;
-}
-
-export namespace ConnectivityInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectivityInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -118,15 +82,6 @@ export interface EBSStorageInfo {
   VolumeSize?: number;
 }
 
-export namespace EBSStorageInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EBSStorageInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about storage volumes attached to MSK broker nodes.</p>
  */
@@ -135,15 +90,6 @@ export interface StorageInfo {
    * <p>EBS volume information.</p>
    */
   EbsStorageInfo?: EBSStorageInfo;
-}
-
-export namespace StorageInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -183,15 +129,6 @@ export interface BrokerNodeGroupInfo {
   ConnectivityInfo?: ConnectivityInfo;
 }
 
-export namespace BrokerNodeGroupInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BrokerNodeGroupInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details for IAM access control.</p>
  */
@@ -202,15 +139,6 @@ export interface Iam {
   Enabled?: boolean;
 }
 
-export namespace Iam {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Iam): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details for SASL/SCRAM client authentication.</p>
  */
@@ -219,15 +147,6 @@ export interface Scram {
    * <p>SASL/SCRAM authentication is enabled or not.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace Scram {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scram): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -245,15 +164,6 @@ export interface Sasl {
   Iam?: Iam;
 }
 
-export namespace Sasl {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Sasl): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details for client authentication using TLS.</p>
  */
@@ -269,29 +179,11 @@ export interface Tls {
   Enabled?: boolean;
 }
 
-export namespace Tls {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tls): any => ({
-    ...obj,
-  });
-}
-
 export interface Unauthenticated {
   /**
    * <p>Specifies whether you want to turn on or turn off unauthenticated traffic to your cluster.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace Unauthenticated {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Unauthenticated): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -314,15 +206,6 @@ export interface ClientAuthentication {
   Unauthenticated?: Unauthenticated;
 }
 
-export namespace ClientAuthentication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientAuthentication): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the current software installed on the cluster.</p>
  */
@@ -343,15 +226,6 @@ export interface BrokerSoftwareInfo {
   KafkaVersion?: string;
 }
 
-export namespace BrokerSoftwareInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BrokerSoftwareInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The data-volume encryption details.</p>
  */
@@ -360,15 +234,6 @@ export interface EncryptionAtRest {
    * <p>The ARN of the AWS KMS key for encrypting data at rest. If you don't specify a KMS key, MSK creates one for you and uses it.</p>
    */
   DataVolumeKMSKeyId: string | undefined;
-}
-
-export namespace EncryptionAtRest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionAtRest): any => ({
-    ...obj,
-  });
 }
 
 export enum ClientBroker {
@@ -400,15 +265,6 @@ export interface EncryptionInTransit {
   InCluster?: boolean;
 }
 
-export namespace EncryptionInTransit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionInTransit): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Includes encryption-related information, such as the AWS KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.</p>
  */
@@ -424,15 +280,6 @@ export interface EncryptionInfo {
   EncryptionInTransit?: EncryptionInTransit;
 }
 
-export namespace EncryptionInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionInfo): any => ({
-    ...obj,
-  });
-}
-
 export enum EnhancedMonitoring {
   DEFAULT = "DEFAULT",
   PER_BROKER = "PER_BROKER",
@@ -445,27 +292,9 @@ export interface CloudWatchLogs {
   LogGroup?: string;
 }
 
-export namespace CloudWatchLogs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLogs): any => ({
-    ...obj,
-  });
-}
-
 export interface Firehose {
   DeliveryStream?: string;
   Enabled: boolean | undefined;
-}
-
-export namespace Firehose {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Firehose): any => ({
-    ...obj,
-  });
 }
 
 export interface S3 {
@@ -474,41 +303,14 @@ export interface S3 {
   Prefix?: string;
 }
 
-export namespace S3 {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3): any => ({
-    ...obj,
-  });
-}
-
 export interface BrokerLogs {
   CloudWatchLogs?: CloudWatchLogs;
   Firehose?: Firehose;
   S3?: S3;
 }
 
-export namespace BrokerLogs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BrokerLogs): any => ({
-    ...obj,
-  });
-}
-
 export interface LoggingInfo {
   BrokerLogs: BrokerLogs | undefined;
-}
-
-export namespace LoggingInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -521,15 +323,6 @@ export interface JmxExporterInfo {
   EnabledInBroker: boolean | undefined;
 }
 
-export namespace JmxExporterInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JmxExporterInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
  */
@@ -538,15 +331,6 @@ export interface NodeExporterInfo {
    * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
    */
   EnabledInBroker: boolean | undefined;
-}
-
-export namespace NodeExporterInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeExporterInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -564,15 +348,6 @@ export interface PrometheusInfo {
   NodeExporter?: NodeExporterInfo;
 }
 
-export namespace PrometheusInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrometheusInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>JMX and Node monitoring for the MSK cluster.</p>
  */
@@ -581,15 +356,6 @@ export interface OpenMonitoringInfo {
    * <p>Prometheus settings.</p>
    */
   Prometheus: PrometheusInfo | undefined;
-}
-
-export namespace OpenMonitoringInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenMonitoringInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -647,15 +413,6 @@ export interface Provisioned {
   ZookeeperConnectStringTls?: string;
 }
 
-export namespace Provisioned {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Provisioned): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details for client authentication using SASL.</p>
  */
@@ -666,15 +423,6 @@ export interface ServerlessSasl {
   Iam?: Iam;
 }
 
-export namespace ServerlessSasl {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerlessSasl): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Includes all client authentication information.</p>
  */
@@ -683,15 +431,6 @@ export interface ServerlessClientAuthentication {
    * <p>Details for ClientAuthentication using SASL.</p>
    */
   Sasl?: ServerlessSasl;
-}
-
-export namespace ServerlessClientAuthentication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerlessClientAuthentication): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -709,15 +448,6 @@ export interface VpcConfig {
   SecurityGroupIds?: string[];
 }
 
-export namespace VpcConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Serverless cluster.</p>
  */
@@ -731,15 +461,6 @@ export interface Serverless {
    * <p>Includes all client authentication information.</p>
    */
   ClientAuthentication?: ServerlessClientAuthentication;
-}
-
-export namespace Serverless {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Serverless): any => ({
-    ...obj,
-  });
 }
 
 export enum ClusterState {
@@ -756,15 +477,6 @@ export enum ClusterState {
 export interface StateInfo {
   Code?: string;
   Message?: string;
-}
-
-export namespace StateInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StateInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -827,15 +539,6 @@ export interface Cluster {
   Serverless?: Serverless;
 }
 
-export namespace Cluster {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Cluster): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
  */
@@ -846,15 +549,6 @@ export interface JmxExporter {
   EnabledInBroker: boolean | undefined;
 }
 
-export namespace JmxExporter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JmxExporter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
  */
@@ -863,15 +557,6 @@ export interface NodeExporter {
    * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
    */
   EnabledInBroker: boolean | undefined;
-}
-
-export namespace NodeExporter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeExporter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -889,15 +574,6 @@ export interface Prometheus {
   NodeExporter?: NodeExporter;
 }
 
-export namespace Prometheus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Prometheus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>JMX and Node monitoring for the MSK cluster.</p>
  */
@@ -906,15 +582,6 @@ export interface OpenMonitoring {
    * <p>Prometheus settings.</p>
    */
   Prometheus: Prometheus | undefined;
-}
-
-export namespace OpenMonitoring {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenMonitoring): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1004,15 +671,6 @@ export interface ClusterInfo {
   ZookeeperConnectStringTls?: string;
 }
 
-export namespace ClusterInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about an error state of the cluster.</p>
  */
@@ -1028,15 +686,6 @@ export interface ErrorInfo {
   ErrorString?: string;
 }
 
-export namespace ErrorInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>State information about the operation step.</p>
  */
@@ -1045,15 +694,6 @@ export interface ClusterOperationStepInfo {
    * <p>The steps current status.</p>
    */
   StepStatus?: string;
-}
-
-export namespace ClusterOperationStepInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterOperationStepInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1071,15 +711,6 @@ export interface ClusterOperationStep {
   StepName?: string;
 }
 
-export namespace ClusterOperationStep {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterOperationStep): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the configuration to use for the brokers.</p>
  */
@@ -1093,15 +724,6 @@ export interface ConfigurationInfo {
    * <p>The revision of the configuration to use.</p>
    */
   Revision: number | undefined;
-}
-
-export namespace ConfigurationInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1164,15 +786,6 @@ export interface MutableClusterInfo {
   ConnectivityInfo?: ConnectivityInfo;
 }
 
-export namespace MutableClusterInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MutableClusterInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about a cluster operation.</p>
  */
@@ -1233,15 +846,6 @@ export interface ClusterOperationInfo {
   TargetClusterInfo?: MutableClusterInfo;
 }
 
-export namespace ClusterOperationInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterOperationInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains source Apache Kafka versions and compatible target Apache Kafka versions.</p>
  */
@@ -1255,15 +859,6 @@ export interface CompatibleKafkaVersion {
    * <p>A list of Apache Kafka versions.</p>
    */
   TargetVersions?: string[];
-}
-
-export namespace CompatibleKafkaVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompatibleKafkaVersion): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1284,15 +879,6 @@ export interface ConfigurationRevision {
    * <p>The revision number.</p>
    */
   Revision: number | undefined;
-}
-
-export namespace ConfigurationRevision {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationRevision): any => ({
-    ...obj,
-  });
 }
 
 export enum ConfigurationState {
@@ -1341,15 +927,6 @@ export interface Configuration {
   State: ConfigurationState | string | undefined;
 }
 
-export namespace Configuration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Configuration): any => ({
-    ...obj,
-  });
-}
-
 export enum KafkaVersionStatus {
   ACTIVE = "ACTIVE",
   DEPRECATED = "DEPRECATED",
@@ -1358,15 +935,6 @@ export enum KafkaVersionStatus {
 export interface KafkaVersion {
   Version?: string;
   Status?: KafkaVersionStatus | string;
-}
-
-export namespace KafkaVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KafkaVersion): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1404,15 +972,6 @@ export interface BrokerNodeInfo {
   Endpoints?: string[];
 }
 
-export namespace BrokerNodeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BrokerNodeInfo): any => ({
-    ...obj,
-  });
-}
-
 export enum NodeType {
   BROKER = "BROKER",
 }
@@ -1445,15 +1004,6 @@ export interface ZookeeperNodeInfo {
    * <p>The version of Zookeeper.</p>
    */
   ZookeeperVersion?: string;
-}
-
-export namespace ZookeeperNodeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ZookeeperNodeInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1491,15 +1041,6 @@ export interface NodeInfo {
   ZookeeperNodeInfo?: ZookeeperNodeInfo;
 }
 
-export namespace NodeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Error info for scram secret associate/disassociate failure.</p>
  */
@@ -1518,15 +1059,6 @@ export interface UnprocessedScramSecret {
    * <p>AWS Secrets Manager secret ARN.</p>
    */
   SecretArn?: string;
-}
-
-export namespace UnprocessedScramSecret {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnprocessedScramSecret): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1574,15 +1106,6 @@ export interface BatchAssociateScramSecretRequest {
   SecretArnList: string[] | undefined;
 }
 
-export namespace BatchAssociateScramSecretRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateScramSecretRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchAssociateScramSecretResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -1593,15 +1116,6 @@ export interface BatchAssociateScramSecretResponse {
    * <p>List of errors when associating secrets to cluster.</p>
    */
   UnprocessedScramSecrets?: UnprocessedScramSecret[];
-}
-
-export namespace BatchAssociateScramSecretResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateScramSecretResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1799,15 +1313,6 @@ export interface BatchDisassociateScramSecretRequest {
   SecretArnList: string[] | undefined;
 }
 
-export namespace BatchDisassociateScramSecretRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateScramSecretRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDisassociateScramSecretResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -1818,15 +1323,6 @@ export interface BatchDisassociateScramSecretResponse {
    * <p>List of errors when disassociating secrets to cluster.</p>
    */
   UnprocessedScramSecrets?: UnprocessedScramSecret[];
-}
-
-export namespace BatchDisassociateScramSecretResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateScramSecretResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1912,15 +1408,6 @@ export interface CreateClusterRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateClusterResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -1936,15 +1423,6 @@ export interface CreateClusterResponse {
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
   State?: ClusterState | string;
-}
-
-export namespace CreateClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateClusterResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1997,15 +1475,6 @@ export interface ProvisionedRequest {
   NumberOfBrokerNodes: number | undefined;
 }
 
-export namespace ProvisionedRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Serverless cluster request.</p>
  */
@@ -2019,15 +1488,6 @@ export interface ServerlessRequest {
    * <p>Includes all client authentication information.</p>
    */
   ClientAuthentication?: ServerlessClientAuthentication;
-}
-
-export namespace ServerlessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerlessRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateClusterV2Request {
@@ -2052,15 +1512,6 @@ export interface CreateClusterV2Request {
   Serverless?: ServerlessRequest;
 }
 
-export namespace CreateClusterV2Request {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateClusterV2Request): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateClusterV2Response {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -2081,15 +1532,6 @@ export interface CreateClusterV2Response {
    * <p>The type of the cluster. The possible states are PROVISIONED or SERVERLESS.</p>
    */
   ClusterType?: ClusterType | string;
-}
-
-export namespace CreateClusterV2Response {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateClusterV2Response): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateConfigurationRequest {
@@ -2113,15 +1555,6 @@ export interface CreateConfigurationRequest {
    *                When using the AWS Management Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename> can be in plaintext.</p>
    */
   ServerProperties: Uint8Array | undefined;
-}
-
-export namespace CreateConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateConfigurationResponse {
@@ -2151,15 +1584,6 @@ export interface CreateConfigurationResponse {
   State?: ConfigurationState | string;
 }
 
-export namespace CreateConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteClusterRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -2170,15 +1594,6 @@ export interface DeleteClusterRequest {
    * <p>The current version of the MSK cluster.</p>
    */
   CurrentVersion?: string;
-}
-
-export namespace DeleteClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClusterRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteClusterResponse {
@@ -2193,29 +1608,11 @@ export interface DeleteClusterResponse {
   State?: ClusterState | string;
 }
 
-export namespace DeleteClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClusterResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.</p>
    */
   Arn: string | undefined;
-}
-
-export namespace DeleteConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteConfigurationResponse {
@@ -2230,29 +1627,11 @@ export interface DeleteConfigurationResponse {
   State?: ConfigurationState | string;
 }
 
-export namespace DeleteConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeClusterRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
   ClusterArn: string | undefined;
-}
-
-export namespace DescribeClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClusterRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeClusterResponse {
@@ -2262,29 +1641,11 @@ export interface DescribeClusterResponse {
   ClusterInfo?: ClusterInfo;
 }
 
-export namespace DescribeClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClusterResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeClusterOperationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the MSK cluster operation.</p>
    */
   ClusterOperationArn: string | undefined;
-}
-
-export namespace DescribeClusterOperationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClusterOperationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeClusterOperationResponse {
@@ -2294,29 +1655,11 @@ export interface DescribeClusterOperationResponse {
   ClusterOperationInfo?: ClusterOperationInfo;
 }
 
-export namespace DescribeClusterOperationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClusterOperationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeClusterV2Request {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
   ClusterArn: string | undefined;
-}
-
-export namespace DescribeClusterV2Request {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClusterV2Request): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeClusterV2Response {
@@ -2326,29 +1669,11 @@ export interface DescribeClusterV2Response {
   ClusterInfo?: Cluster;
 }
 
-export namespace DescribeClusterV2Response {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClusterV2Response): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>
    */
   Arn: string | undefined;
-}
-
-export namespace DescribeConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConfigurationResponse {
@@ -2388,15 +1713,6 @@ export interface DescribeConfigurationResponse {
   State?: ConfigurationState | string;
 }
 
-export namespace DescribeConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConfigurationRevisionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>
@@ -2407,15 +1723,6 @@ export interface DescribeConfigurationRevisionRequest {
    * <p>A string that uniquely identifies a revision of an MSK configuration.</p>
    */
   Revision: number | undefined;
-}
-
-export namespace DescribeConfigurationRevisionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationRevisionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConfigurationRevisionResponse {
@@ -2446,29 +1753,11 @@ export interface DescribeConfigurationRevisionResponse {
   ServerProperties?: Uint8Array;
 }
 
-export namespace DescribeConfigurationRevisionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationRevisionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBootstrapBrokersRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
    */
   ClusterArn: string | undefined;
-}
-
-export namespace GetBootstrapBrokersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBootstrapBrokersRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBootstrapBrokersResponse {
@@ -2508,15 +1797,6 @@ export interface GetBootstrapBrokersResponse {
   BootstrapBrokerStringPublicSaslIam?: string;
 }
 
-export namespace GetBootstrapBrokersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBootstrapBrokersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCompatibleKafkaVersionsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster check.</p>
@@ -2524,29 +1804,11 @@ export interface GetCompatibleKafkaVersionsRequest {
   ClusterArn?: string;
 }
 
-export namespace GetCompatibleKafkaVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCompatibleKafkaVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCompatibleKafkaVersionsResponse {
   /**
    * <p>A list of CompatibleKafkaVersion objects.</p>
    */
   CompatibleKafkaVersions?: CompatibleKafkaVersion[];
-}
-
-export namespace GetCompatibleKafkaVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCompatibleKafkaVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListClusterOperationsRequest {
@@ -2567,15 +1829,6 @@ export interface ListClusterOperationsRequest {
   NextToken?: string;
 }
 
-export namespace ListClusterOperationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClusterOperationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListClusterOperationsResponse {
   /**
    * <p>An array of cluster operation information objects.</p>
@@ -2586,15 +1839,6 @@ export interface ListClusterOperationsResponse {
    * <p>If the response of ListClusterOperations is truncated, it returns a NextToken in the response. This Nexttoken should be sent in the subsequent request to ListClusterOperations.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListClusterOperationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClusterOperationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListClustersRequest {
@@ -2615,15 +1859,6 @@ export interface ListClustersRequest {
   NextToken?: string;
 }
 
-export namespace ListClustersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClustersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListClustersResponse {
   /**
    * <p>Information on each of the MSK clusters in the response.</p>
@@ -2635,15 +1870,6 @@ export interface ListClustersResponse {
    *                To get another batch of clusters, provide this token in your next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListClustersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClustersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListClustersV2Request {
@@ -2669,15 +1895,6 @@ export interface ListClustersV2Request {
   NextToken?: string;
 }
 
-export namespace ListClustersV2Request {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClustersV2Request): any => ({
-    ...obj,
-  });
-}
-
 export interface ListClustersV2Response {
   /**
    * <p>Information on each of the MSK clusters in the response.</p>
@@ -2689,15 +1906,6 @@ export interface ListClustersV2Response {
    *                To get another batch of clusters, provide this token in your next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListClustersV2Response {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClustersV2Response): any => ({
-    ...obj,
-  });
 }
 
 export interface ListConfigurationRevisionsRequest {
@@ -2718,15 +1926,6 @@ export interface ListConfigurationRevisionsRequest {
   NextToken?: string;
 }
 
-export namespace ListConfigurationRevisionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationRevisionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConfigurationRevisionsResponse {
   /**
    * <p>Paginated results marker.</p>
@@ -2737,15 +1936,6 @@ export interface ListConfigurationRevisionsResponse {
    * <p>List of ConfigurationRevision objects.</p>
    */
   Revisions?: ConfigurationRevision[];
-}
-
-export namespace ListConfigurationRevisionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationRevisionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListConfigurationsRequest {
@@ -2761,15 +1951,6 @@ export interface ListConfigurationsRequest {
   NextToken?: string;
 }
 
-export namespace ListConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConfigurationsResponse {
   /**
    * <p>An array of MSK configurations.</p>
@@ -2781,15 +1962,6 @@ export interface ListConfigurationsResponse {
    *                To get another batch of configurations, provide this token in your next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListKafkaVersionsRequest {
@@ -2804,27 +1976,9 @@ export interface ListKafkaVersionsRequest {
   NextToken?: string;
 }
 
-export namespace ListKafkaVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListKafkaVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListKafkaVersionsResponse {
   KafkaVersions?: KafkaVersion[];
   NextToken?: string;
-}
-
-export namespace ListKafkaVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListKafkaVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListNodesRequest {
@@ -2845,15 +1999,6 @@ export interface ListNodesRequest {
   NextToken?: string;
 }
 
-export namespace ListNodesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNodesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNodesResponse {
   /**
    * <p>The paginated results marker. When the result of a ListNodes operation is truncated, the call returns NextToken in the response.
@@ -2865,15 +2010,6 @@ export interface ListNodesResponse {
    * <p>List containing a NodeInfo object.</p>
    */
   NodeInfoList?: NodeInfo[];
-}
-
-export namespace ListNodesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNodesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListScramSecretsRequest {
@@ -2893,15 +2029,6 @@ export interface ListScramSecretsRequest {
   NextToken?: string;
 }
 
-export namespace ListScramSecretsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListScramSecretsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListScramSecretsResponse {
   /**
    * <p>Paginated results marker.</p>
@@ -2914,15 +2041,6 @@ export interface ListScramSecretsResponse {
   SecretArnList?: string[];
 }
 
-export namespace ListScramSecretsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListScramSecretsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>
@@ -2930,29 +2048,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The key-value pair for the resource tag.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2970,15 +2070,6 @@ export interface RebootBrokerRequest {
   ClusterArn: string | undefined;
 }
 
-export namespace RebootBrokerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootBrokerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RebootBrokerResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -2991,15 +2082,6 @@ export interface RebootBrokerResponse {
   ClusterOperationArn?: string;
 }
 
-export namespace RebootBrokerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootBrokerResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>
@@ -3010,15 +2092,6 @@ export interface TagResourceRequest {
    * <p>The key-value pair for the resource tag.</p>
    */
   Tags: Record<string, string> | undefined;
-}
-
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {
@@ -3052,15 +2125,6 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateBrokerCountRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -3078,15 +2142,6 @@ export interface UpdateBrokerCountRequest {
   TargetNumberOfBrokerNodes: number | undefined;
 }
 
-export namespace UpdateBrokerCountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBrokerCountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateBrokerCountResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -3097,15 +2152,6 @@ export interface UpdateBrokerCountResponse {
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
-}
-
-export namespace UpdateBrokerCountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBrokerCountResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateBrokerStorageRequest {
@@ -3125,15 +2171,6 @@ export interface UpdateBrokerStorageRequest {
   TargetBrokerEBSVolumeInfo: BrokerEBSVolumeInfo[] | undefined;
 }
 
-export namespace UpdateBrokerStorageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBrokerStorageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateBrokerStorageResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -3144,15 +2181,6 @@ export interface UpdateBrokerStorageResponse {
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
-}
-
-export namespace UpdateBrokerStorageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBrokerStorageResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateBrokerTypeRequest {
@@ -3172,15 +2200,6 @@ export interface UpdateBrokerTypeRequest {
   TargetInstanceType: string | undefined;
 }
 
-export namespace UpdateBrokerTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBrokerTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateBrokerTypeResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -3191,15 +2210,6 @@ export interface UpdateBrokerTypeResponse {
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
-}
-
-export namespace UpdateBrokerTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBrokerTypeResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateClusterConfigurationRequest {
@@ -3219,15 +2229,6 @@ export interface UpdateClusterConfigurationRequest {
   CurrentVersion: string | undefined;
 }
 
-export namespace UpdateClusterConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClusterConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateClusterConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -3238,15 +2239,6 @@ export interface UpdateClusterConfigurationResponse {
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
-}
-
-export namespace UpdateClusterConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClusterConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateClusterKafkaVersionRequest {
@@ -3271,15 +2263,6 @@ export interface UpdateClusterKafkaVersionRequest {
   TargetKafkaVersion: string | undefined;
 }
 
-export namespace UpdateClusterKafkaVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClusterKafkaVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateClusterKafkaVersionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -3290,15 +2273,6 @@ export interface UpdateClusterKafkaVersionResponse {
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
-}
-
-export namespace UpdateClusterKafkaVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClusterKafkaVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateConfigurationRequest {
@@ -3319,15 +2293,6 @@ export interface UpdateConfigurationRequest {
   ServerProperties: Uint8Array | undefined;
 }
 
-export namespace UpdateConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
@@ -3338,15 +2303,6 @@ export interface UpdateConfigurationResponse {
    * <p>Latest revision of the configuration.</p>
    */
   LatestRevision?: ConfigurationRevision;
-}
-
-export namespace UpdateConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3369,15 +2325,6 @@ export interface UpdateConnectivityRequest {
   CurrentVersion: string | undefined;
 }
 
-export namespace UpdateConnectivityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectivityRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateConnectivityResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -3388,15 +2335,6 @@ export interface UpdateConnectivityResponse {
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
-}
-
-export namespace UpdateConnectivityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectivityResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3426,15 +2364,6 @@ export interface UpdateMonitoringRequest {
   LoggingInfo?: LoggingInfo;
 }
 
-export namespace UpdateMonitoringRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMonitoringRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateMonitoringResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -3445,15 +2374,6 @@ export interface UpdateMonitoringResponse {
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
-}
-
-export namespace UpdateMonitoringResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMonitoringResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSecurityRequest {
@@ -3478,15 +2398,6 @@ export interface UpdateSecurityRequest {
   EncryptionInfo?: EncryptionInfo;
 }
 
-export namespace UpdateSecurityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSecurityRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSecurityResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -3499,11 +2410,864 @@ export interface UpdateSecurityResponse {
   ClusterOperationArn?: string;
 }
 
-export namespace UpdateSecurityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSecurityResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ProvisionedThroughputFilterSensitiveLog = (obj: ProvisionedThroughput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BrokerEBSVolumeInfoFilterSensitiveLog = (obj: BrokerEBSVolumeInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublicAccessFilterSensitiveLog = (obj: PublicAccess): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectivityInfoFilterSensitiveLog = (obj: ConnectivityInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EBSStorageInfoFilterSensitiveLog = (obj: EBSStorageInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageInfoFilterSensitiveLog = (obj: StorageInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BrokerNodeGroupInfoFilterSensitiveLog = (obj: BrokerNodeGroupInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IamFilterSensitiveLog = (obj: Iam): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScramFilterSensitiveLog = (obj: Scram): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SaslFilterSensitiveLog = (obj: Sasl): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TlsFilterSensitiveLog = (obj: Tls): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnauthenticatedFilterSensitiveLog = (obj: Unauthenticated): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClientAuthenticationFilterSensitiveLog = (obj: ClientAuthentication): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BrokerSoftwareInfoFilterSensitiveLog = (obj: BrokerSoftwareInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionAtRestFilterSensitiveLog = (obj: EncryptionAtRest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionInTransitFilterSensitiveLog = (obj: EncryptionInTransit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionInfoFilterSensitiveLog = (obj: EncryptionInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchLogsFilterSensitiveLog = (obj: CloudWatchLogs): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirehoseFilterSensitiveLog = (obj: Firehose): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3FilterSensitiveLog = (obj: S3): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BrokerLogsFilterSensitiveLog = (obj: BrokerLogs): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingInfoFilterSensitiveLog = (obj: LoggingInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JmxExporterInfoFilterSensitiveLog = (obj: JmxExporterInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeExporterInfoFilterSensitiveLog = (obj: NodeExporterInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrometheusInfoFilterSensitiveLog = (obj: PrometheusInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpenMonitoringInfoFilterSensitiveLog = (obj: OpenMonitoringInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionedFilterSensitiveLog = (obj: Provisioned): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerlessSaslFilterSensitiveLog = (obj: ServerlessSasl): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerlessClientAuthenticationFilterSensitiveLog = (obj: ServerlessClientAuthentication): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcConfigFilterSensitiveLog = (obj: VpcConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerlessFilterSensitiveLog = (obj: Serverless): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StateInfoFilterSensitiveLog = (obj: StateInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterFilterSensitiveLog = (obj: Cluster): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JmxExporterFilterSensitiveLog = (obj: JmxExporter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeExporterFilterSensitiveLog = (obj: NodeExporter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrometheusFilterSensitiveLog = (obj: Prometheus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpenMonitoringFilterSensitiveLog = (obj: OpenMonitoring): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterInfoFilterSensitiveLog = (obj: ClusterInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorInfoFilterSensitiveLog = (obj: ErrorInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterOperationStepInfoFilterSensitiveLog = (obj: ClusterOperationStepInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterOperationStepFilterSensitiveLog = (obj: ClusterOperationStep): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationInfoFilterSensitiveLog = (obj: ConfigurationInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MutableClusterInfoFilterSensitiveLog = (obj: MutableClusterInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterOperationInfoFilterSensitiveLog = (obj: ClusterOperationInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompatibleKafkaVersionFilterSensitiveLog = (obj: CompatibleKafkaVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationRevisionFilterSensitiveLog = (obj: ConfigurationRevision): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationFilterSensitiveLog = (obj: Configuration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KafkaVersionFilterSensitiveLog = (obj: KafkaVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BrokerNodeInfoFilterSensitiveLog = (obj: BrokerNodeInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ZookeeperNodeInfoFilterSensitiveLog = (obj: ZookeeperNodeInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeInfoFilterSensitiveLog = (obj: NodeInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnprocessedScramSecretFilterSensitiveLog = (obj: UnprocessedScramSecret): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAssociateScramSecretRequestFilterSensitiveLog = (obj: BatchAssociateScramSecretRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAssociateScramSecretResponseFilterSensitiveLog = (obj: BatchAssociateScramSecretResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateScramSecretRequestFilterSensitiveLog = (
+  obj: BatchDisassociateScramSecretRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateScramSecretResponseFilterSensitiveLog = (
+  obj: BatchDisassociateScramSecretResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterRequestFilterSensitiveLog = (obj: CreateClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterResponseFilterSensitiveLog = (obj: CreateClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionedRequestFilterSensitiveLog = (obj: ProvisionedRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerlessRequestFilterSensitiveLog = (obj: ServerlessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterV2RequestFilterSensitiveLog = (obj: CreateClusterV2Request): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterV2ResponseFilterSensitiveLog = (obj: CreateClusterV2Response): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationRequestFilterSensitiveLog = (obj: CreateConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationResponseFilterSensitiveLog = (obj: CreateConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteClusterRequestFilterSensitiveLog = (obj: DeleteClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteClusterResponseFilterSensitiveLog = (obj: DeleteClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationRequestFilterSensitiveLog = (obj: DeleteConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationResponseFilterSensitiveLog = (obj: DeleteConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClusterRequestFilterSensitiveLog = (obj: DescribeClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClusterResponseFilterSensitiveLog = (obj: DescribeClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClusterOperationRequestFilterSensitiveLog = (obj: DescribeClusterOperationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClusterOperationResponseFilterSensitiveLog = (obj: DescribeClusterOperationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClusterV2RequestFilterSensitiveLog = (obj: DescribeClusterV2Request): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClusterV2ResponseFilterSensitiveLog = (obj: DescribeClusterV2Response): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationRequestFilterSensitiveLog = (obj: DescribeConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationResponseFilterSensitiveLog = (obj: DescribeConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationRevisionRequestFilterSensitiveLog = (
+  obj: DescribeConfigurationRevisionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationRevisionResponseFilterSensitiveLog = (
+  obj: DescribeConfigurationRevisionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBootstrapBrokersRequestFilterSensitiveLog = (obj: GetBootstrapBrokersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBootstrapBrokersResponseFilterSensitiveLog = (obj: GetBootstrapBrokersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCompatibleKafkaVersionsRequestFilterSensitiveLog = (obj: GetCompatibleKafkaVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCompatibleKafkaVersionsResponseFilterSensitiveLog = (obj: GetCompatibleKafkaVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClusterOperationsRequestFilterSensitiveLog = (obj: ListClusterOperationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClusterOperationsResponseFilterSensitiveLog = (obj: ListClusterOperationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClustersRequestFilterSensitiveLog = (obj: ListClustersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClustersResponseFilterSensitiveLog = (obj: ListClustersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClustersV2RequestFilterSensitiveLog = (obj: ListClustersV2Request): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClustersV2ResponseFilterSensitiveLog = (obj: ListClustersV2Response): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationRevisionsRequestFilterSensitiveLog = (obj: ListConfigurationRevisionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationRevisionsResponseFilterSensitiveLog = (obj: ListConfigurationRevisionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationsRequestFilterSensitiveLog = (obj: ListConfigurationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationsResponseFilterSensitiveLog = (obj: ListConfigurationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListKafkaVersionsRequestFilterSensitiveLog = (obj: ListKafkaVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListKafkaVersionsResponseFilterSensitiveLog = (obj: ListKafkaVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNodesRequestFilterSensitiveLog = (obj: ListNodesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNodesResponseFilterSensitiveLog = (obj: ListNodesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListScramSecretsRequestFilterSensitiveLog = (obj: ListScramSecretsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListScramSecretsResponseFilterSensitiveLog = (obj: ListScramSecretsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootBrokerRequestFilterSensitiveLog = (obj: RebootBrokerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootBrokerResponseFilterSensitiveLog = (obj: RebootBrokerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBrokerCountRequestFilterSensitiveLog = (obj: UpdateBrokerCountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBrokerCountResponseFilterSensitiveLog = (obj: UpdateBrokerCountResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBrokerStorageRequestFilterSensitiveLog = (obj: UpdateBrokerStorageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBrokerStorageResponseFilterSensitiveLog = (obj: UpdateBrokerStorageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBrokerTypeRequestFilterSensitiveLog = (obj: UpdateBrokerTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBrokerTypeResponseFilterSensitiveLog = (obj: UpdateBrokerTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateClusterConfigurationRequestFilterSensitiveLog = (obj: UpdateClusterConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateClusterConfigurationResponseFilterSensitiveLog = (obj: UpdateClusterConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateClusterKafkaVersionRequestFilterSensitiveLog = (obj: UpdateClusterKafkaVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateClusterKafkaVersionResponseFilterSensitiveLog = (obj: UpdateClusterKafkaVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationRequestFilterSensitiveLog = (obj: UpdateConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationResponseFilterSensitiveLog = (obj: UpdateConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectivityRequestFilterSensitiveLog = (obj: UpdateConnectivityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectivityResponseFilterSensitiveLog = (obj: UpdateConnectivityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMonitoringRequestFilterSensitiveLog = (obj: UpdateMonitoringRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMonitoringResponseFilterSensitiveLog = (obj: UpdateMonitoringResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSecurityRequestFilterSensitiveLog = (obj: UpdateSecurityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSecurityResponseFilterSensitiveLog = (obj: UpdateSecurityResponse): any => ({
+  ...obj,
+});

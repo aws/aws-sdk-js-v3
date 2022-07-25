@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { DiscoverPollEndpointRequest, DiscoverPollEndpointResponse } from "../models/models_0";
+import {
+  DiscoverPollEndpointRequest,
+  DiscoverPollEndpointRequestFilterSensitiveLog,
+  DiscoverPollEndpointResponse,
+  DiscoverPollEndpointResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DiscoverPollEndpointCommand,
   serializeAws_json1_1DiscoverPollEndpointCommand,
@@ -75,8 +80,8 @@ export class DiscoverPollEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DiscoverPollEndpointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DiscoverPollEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DiscoverPollEndpointRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DiscoverPollEndpointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

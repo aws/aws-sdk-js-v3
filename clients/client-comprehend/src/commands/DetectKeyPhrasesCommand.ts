@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { DetectKeyPhrasesRequest, DetectKeyPhrasesResponse } from "../models/models_0";
+import {
+  DetectKeyPhrasesRequest,
+  DetectKeyPhrasesRequestFilterSensitiveLog,
+  DetectKeyPhrasesResponse,
+  DetectKeyPhrasesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DetectKeyPhrasesCommand,
   serializeAws_json1_1DetectKeyPhrasesCommand,
@@ -72,8 +77,8 @@ export class DetectKeyPhrasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectKeyPhrasesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DetectKeyPhrasesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetectKeyPhrasesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DetectKeyPhrasesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { UpdateCertificateAuthorityRequest } from "../models/models_0";
+import {
+  UpdateCertificateAuthorityRequest,
+  UpdateCertificateAuthorityRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateCertificateAuthorityCommand,
   serializeAws_json1_1UpdateCertificateAuthorityCommand,
@@ -82,7 +85,7 @@ export class UpdateCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCertificateAuthorityRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateCertificateAuthorityRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

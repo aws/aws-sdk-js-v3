@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { ExportResponse, GetExportRequest } from "../models/models_0";
+import {
+  ExportResponse,
+  ExportResponseFilterSensitiveLog,
+  GetExportRequest,
+  GetExportRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetExportCommand,
   serializeAws_restJson1GetExportCommand,
@@ -72,8 +77,8 @@ export class GetExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExportRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ExportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetExportRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ExportResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

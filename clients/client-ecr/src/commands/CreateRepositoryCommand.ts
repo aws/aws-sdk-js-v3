@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { CreateRepositoryRequest, CreateRepositoryResponse } from "../models/models_0";
+import {
+  CreateRepositoryRequest,
+  CreateRepositoryRequestFilterSensitiveLog,
+  CreateRepositoryResponse,
+  CreateRepositoryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateRepositoryCommand,
   serializeAws_json1_1CreateRepositoryCommand,
@@ -73,8 +78,8 @@ export class CreateRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRepositoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateRepositoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRepositoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateRepositoryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

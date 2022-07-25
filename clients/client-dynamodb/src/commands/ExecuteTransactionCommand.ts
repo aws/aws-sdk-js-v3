@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { ExecuteTransactionInput, ExecuteTransactionOutput } from "../models/models_0";
+import {
+  ExecuteTransactionInput,
+  ExecuteTransactionInputFilterSensitiveLog,
+  ExecuteTransactionOutput,
+  ExecuteTransactionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0ExecuteTransactionCommand,
   serializeAws_json1_0ExecuteTransactionCommand,
@@ -79,8 +84,8 @@ export class ExecuteTransactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteTransactionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteTransactionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ExecuteTransactionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ExecuteTransactionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

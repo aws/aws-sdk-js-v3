@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteUserPermissionsBoundaryRequest } from "../models/models_0";
+import {
+  DeleteUserPermissionsBoundaryRequest,
+  DeleteUserPermissionsBoundaryRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteUserPermissionsBoundaryCommand,
   serializeAws_queryDeleteUserPermissionsBoundaryCommand,
@@ -77,7 +80,7 @@ export class DeleteUserPermissionsBoundaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserPermissionsBoundaryRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteUserPermissionsBoundaryRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateTagsRequest, CreateTagsResult } from "../models/models_0";
+import {
+  CreateTagsRequest,
+  CreateTagsRequestFilterSensitiveLog,
+  CreateTagsResult,
+  CreateTagsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateTagsCommand,
   serializeAws_json1_1CreateTagsCommand,
@@ -72,8 +77,8 @@ export class CreateTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateTagsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateTagsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { RegisterTypeInput, RegisterTypeOutput } from "../models/models_0";
+import {
+  RegisterTypeInput,
+  RegisterTypeInputFilterSensitiveLog,
+  RegisterTypeOutput,
+  RegisterTypeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryRegisterTypeCommand, serializeAws_queryRegisterTypeCommand } from "../protocols/Aws_query";
 
 export interface RegisterTypeCommandInput extends RegisterTypeInput {}
@@ -95,8 +100,8 @@ export class RegisterTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterTypeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterTypeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterTypeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: RegisterTypeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

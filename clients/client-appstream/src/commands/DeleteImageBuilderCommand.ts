@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DeleteImageBuilderRequest, DeleteImageBuilderResult } from "../models/models_0";
+import {
+  DeleteImageBuilderRequest,
+  DeleteImageBuilderRequestFilterSensitiveLog,
+  DeleteImageBuilderResult,
+  DeleteImageBuilderResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteImageBuilderCommand,
   serializeAws_json1_1DeleteImageBuilderCommand,
@@ -72,8 +77,8 @@ export class DeleteImageBuilderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteImageBuilderRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteImageBuilderResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteImageBuilderRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteImageBuilderResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { InputAndOutputWithHeadersIO } from "../models/models_0";
+import { InputAndOutputWithHeadersIO, InputAndOutputWithHeadersIOFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1InputAndOutputWithHeadersCommand,
   serializeAws_restJson1InputAndOutputWithHeadersCommand,
@@ -73,8 +73,8 @@ export class InputAndOutputWithHeadersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InputAndOutputWithHeadersIO.filterSensitiveLog,
-      outputFilterSensitiveLog: InputAndOutputWithHeadersIO.filterSensitiveLog,
+      inputFilterSensitiveLog: InputAndOutputWithHeadersIOFilterSensitiveLog,
+      outputFilterSensitiveLog: InputAndOutputWithHeadersIOFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

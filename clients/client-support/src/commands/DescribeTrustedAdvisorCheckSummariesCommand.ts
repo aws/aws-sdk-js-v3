@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeTrustedAdvisorCheckSummariesRequest,
+  DescribeTrustedAdvisorCheckSummariesRequestFilterSensitiveLog,
   DescribeTrustedAdvisorCheckSummariesResponse,
+  DescribeTrustedAdvisorCheckSummariesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand,
@@ -94,8 +96,8 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrustedAdvisorCheckSummariesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrustedAdvisorCheckSummariesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTrustedAdvisorCheckSummariesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTrustedAdvisorCheckSummariesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

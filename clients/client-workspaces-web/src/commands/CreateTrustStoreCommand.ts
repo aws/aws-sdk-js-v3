@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateTrustStoreRequest, CreateTrustStoreResponse } from "../models/models_0";
+import {
+  CreateTrustStoreRequest,
+  CreateTrustStoreRequestFilterSensitiveLog,
+  CreateTrustStoreResponse,
+  CreateTrustStoreResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateTrustStoreCommand,
   serializeAws_restJson1CreateTrustStoreCommand,
@@ -76,8 +81,8 @@ export class CreateTrustStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTrustStoreRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateTrustStoreResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTrustStoreRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateTrustStoreResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

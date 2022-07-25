@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import { DeleteComponentTypeRequest, DeleteComponentTypeResponse } from "../models/models_0";
+import {
+  DeleteComponentTypeRequest,
+  DeleteComponentTypeRequestFilterSensitiveLog,
+  DeleteComponentTypeResponse,
+  DeleteComponentTypeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteComponentTypeCommand,
   serializeAws_restJson1DeleteComponentTypeCommand,
@@ -72,8 +77,8 @@ export class DeleteComponentTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteComponentTypeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteComponentTypeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteComponentTypeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteComponentTypeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { UpdateFleetAttributesInput, UpdateFleetAttributesOutput } from "../models/models_0";
+import {
+  UpdateFleetAttributesInput,
+  UpdateFleetAttributesInputFilterSensitiveLog,
+  UpdateFleetAttributesOutput,
+  UpdateFleetAttributesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateFleetAttributesCommand,
   serializeAws_json1_1UpdateFleetAttributesCommand,
@@ -99,8 +104,8 @@ export class UpdateFleetAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFleetAttributesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFleetAttributesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFleetAttributesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFleetAttributesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StreamingTraitsRequireLengthInput } from "../models/models_0";
+import {
+  StreamingTraitsRequireLengthInput,
+  StreamingTraitsRequireLengthInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StreamingTraitsRequireLengthCommand,
   serializeAws_restJson1StreamingTraitsRequireLengthCommand,
@@ -85,7 +88,7 @@ export class StreamingTraitsRequireLengthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StreamingTraitsRequireLengthInput.filterSensitiveLog,
+      inputFilterSensitiveLog: StreamingTraitsRequireLengthInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

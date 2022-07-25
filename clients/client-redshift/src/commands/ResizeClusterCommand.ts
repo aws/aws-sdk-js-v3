@@ -12,8 +12,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ResizeClusterMessage } from "../models/models_0";
-import { ResizeClusterResult } from "../models/models_1";
+import { ResizeClusterMessage, ResizeClusterMessageFilterSensitiveLog } from "../models/models_0";
+import { ResizeClusterResult, ResizeClusterResultFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_queryResizeClusterCommand,
   serializeAws_queryResizeClusterCommand,
@@ -115,8 +115,8 @@ export class ResizeClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResizeClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ResizeClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ResizeClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ResizeClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

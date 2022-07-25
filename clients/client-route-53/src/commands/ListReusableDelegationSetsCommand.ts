@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListReusableDelegationSetsRequest, ListReusableDelegationSetsResponse } from "../models/models_0";
+import {
+  ListReusableDelegationSetsRequest,
+  ListReusableDelegationSetsRequestFilterSensitiveLog,
+  ListReusableDelegationSetsResponse,
+  ListReusableDelegationSetsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlListReusableDelegationSetsCommand,
   serializeAws_restXmlListReusableDelegationSetsCommand,
@@ -73,8 +78,8 @@ export class ListReusableDelegationSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReusableDelegationSetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListReusableDelegationSetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListReusableDelegationSetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListReusableDelegationSetsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

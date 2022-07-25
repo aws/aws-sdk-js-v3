@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { ListObjectParentPathsRequest, ListObjectParentPathsResponse } from "../models/models_0";
+import {
+  ListObjectParentPathsRequest,
+  ListObjectParentPathsRequestFilterSensitiveLog,
+  ListObjectParentPathsResponse,
+  ListObjectParentPathsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListObjectParentPathsCommand,
   serializeAws_restJson1ListObjectParentPathsCommand,
@@ -79,8 +84,8 @@ export class ListObjectParentPathsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListObjectParentPathsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListObjectParentPathsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListObjectParentPathsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListObjectParentPathsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

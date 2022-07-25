@@ -17,7 +17,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { DeleteSlotTypeVersionRequest } from "../models/models_0";
+import { DeleteSlotTypeVersionRequest, DeleteSlotTypeVersionRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSlotTypeVersionCommand,
   serializeAws_restJson1DeleteSlotTypeVersionCommand,
@@ -79,7 +79,7 @@ export class DeleteSlotTypeVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSlotTypeVersionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSlotTypeVersionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

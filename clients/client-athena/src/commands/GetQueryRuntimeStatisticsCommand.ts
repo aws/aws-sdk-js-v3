@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { GetQueryRuntimeStatisticsInput, GetQueryRuntimeStatisticsOutput } from "../models/models_0";
+import {
+  GetQueryRuntimeStatisticsInput,
+  GetQueryRuntimeStatisticsInputFilterSensitiveLog,
+  GetQueryRuntimeStatisticsOutput,
+  GetQueryRuntimeStatisticsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetQueryRuntimeStatisticsCommand,
   serializeAws_json1_1GetQueryRuntimeStatisticsCommand,
@@ -75,8 +80,8 @@ export class GetQueryRuntimeStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueryRuntimeStatisticsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetQueryRuntimeStatisticsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetQueryRuntimeStatisticsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetQueryRuntimeStatisticsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeDhcpOptionsRequest, DescribeDhcpOptionsResult } from "../models/models_3";
+import {
+  DescribeDhcpOptionsRequest,
+  DescribeDhcpOptionsRequestFilterSensitiveLog,
+  DescribeDhcpOptionsResult,
+  DescribeDhcpOptionsResultFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeDhcpOptionsCommand,
   serializeAws_ec2DescribeDhcpOptionsCommand,
@@ -74,8 +79,8 @@ export class DescribeDhcpOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDhcpOptionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDhcpOptionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDhcpOptionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDhcpOptionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

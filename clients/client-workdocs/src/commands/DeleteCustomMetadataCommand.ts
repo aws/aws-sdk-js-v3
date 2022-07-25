@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteCustomMetadataRequest, DeleteCustomMetadataResponse } from "../models/models_0";
+import {
+  DeleteCustomMetadataRequest,
+  DeleteCustomMetadataRequestFilterSensitiveLog,
+  DeleteCustomMetadataResponse,
+  DeleteCustomMetadataResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCustomMetadataCommand,
   serializeAws_restJson1DeleteCustomMetadataCommand,
@@ -72,8 +77,8 @@ export class DeleteCustomMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomMetadataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomMetadataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCustomMetadataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCustomMetadataResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

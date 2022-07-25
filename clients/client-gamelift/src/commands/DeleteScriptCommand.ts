@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DeleteScriptInput } from "../models/models_0";
+import { DeleteScriptInput, DeleteScriptInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteScriptCommand,
   serializeAws_json1_1DeleteScriptCommand,
@@ -95,7 +95,7 @@ export class DeleteScriptCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScriptInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteScriptInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

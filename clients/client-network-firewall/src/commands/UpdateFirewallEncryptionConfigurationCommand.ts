@@ -14,7 +14,9 @@ import {
 
 import {
   UpdateFirewallEncryptionConfigurationRequest,
+  UpdateFirewallEncryptionConfigurationRequestFilterSensitiveLog,
   UpdateFirewallEncryptionConfigurationResponse,
+  UpdateFirewallEncryptionConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
@@ -78,8 +80,8 @@ export class UpdateFirewallEncryptionConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFirewallEncryptionConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFirewallEncryptionConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFirewallEncryptionConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFirewallEncryptionConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

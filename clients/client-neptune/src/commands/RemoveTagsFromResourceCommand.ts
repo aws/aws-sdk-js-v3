@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RemoveTagsFromResourceMessage } from "../models/models_0";
+import { RemoveTagsFromResourceMessage, RemoveTagsFromResourceMessageFilterSensitiveLog } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryRemoveTagsFromResourceCommand,
@@ -72,7 +72,7 @@ export class RemoveTagsFromResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsFromResourceMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveTagsFromResourceMessageFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

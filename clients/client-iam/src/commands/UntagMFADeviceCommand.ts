@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UntagMFADeviceRequest } from "../models/models_0";
+import { UntagMFADeviceRequest, UntagMFADeviceRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryUntagMFADeviceCommand,
   serializeAws_queryUntagMFADeviceCommand,
@@ -74,7 +74,7 @@ export class UntagMFADeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagMFADeviceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagMFADeviceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { DeleteLFTagRequest, DeleteLFTagResponse } from "../models/models_0";
+import {
+  DeleteLFTagRequest,
+  DeleteLFTagRequestFilterSensitiveLog,
+  DeleteLFTagResponse,
+  DeleteLFTagResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteLFTagCommand,
   serializeAws_restJson1DeleteLFTagCommand,
@@ -72,8 +77,8 @@ export class DeleteLFTagCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLFTagRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLFTagResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLFTagRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLFTagResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

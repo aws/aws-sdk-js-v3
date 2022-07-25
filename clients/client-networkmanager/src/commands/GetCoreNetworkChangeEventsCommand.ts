@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetCoreNetworkChangeEventsRequest, GetCoreNetworkChangeEventsResponse } from "../models/models_0";
+import {
+  GetCoreNetworkChangeEventsRequest,
+  GetCoreNetworkChangeEventsRequestFilterSensitiveLog,
+  GetCoreNetworkChangeEventsResponse,
+  GetCoreNetworkChangeEventsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1GetCoreNetworkChangeEventsCommand,
@@ -72,8 +77,8 @@ export class GetCoreNetworkChangeEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCoreNetworkChangeEventsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCoreNetworkChangeEventsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCoreNetworkChangeEventsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCoreNetworkChangeEventsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

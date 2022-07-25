@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteServiceLinkedRoleRequest, DeleteServiceLinkedRoleResponse } from "../models/models_0";
+import {
+  DeleteServiceLinkedRoleRequest,
+  DeleteServiceLinkedRoleRequestFilterSensitiveLog,
+  DeleteServiceLinkedRoleResponse,
+  DeleteServiceLinkedRoleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteServiceLinkedRoleCommand,
   serializeAws_queryDeleteServiceLinkedRoleCommand,
@@ -88,8 +93,8 @@ export class DeleteServiceLinkedRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServiceLinkedRoleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteServiceLinkedRoleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteServiceLinkedRoleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteServiceLinkedRoleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

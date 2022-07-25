@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeletePartitionIndexRequest, DeletePartitionIndexResponse } from "../models/models_1";
+import {
+  DeletePartitionIndexRequest,
+  DeletePartitionIndexRequestFilterSensitiveLog,
+  DeletePartitionIndexResponse,
+  DeletePartitionIndexResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1DeletePartitionIndexCommand,
   serializeAws_json1_1DeletePartitionIndexCommand,
@@ -72,8 +77,8 @@ export class DeletePartitionIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePartitionIndexRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePartitionIndexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePartitionIndexRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePartitionIndexResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import { StartApplicationRequest, StartApplicationResponse } from "../models/models_0";
+import {
+  StartApplicationRequest,
+  StartApplicationRequestFilterSensitiveLog,
+  StartApplicationResponse,
+  StartApplicationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartApplicationCommand,
   serializeAws_json1_1StartApplicationCommand,
@@ -77,8 +82,8 @@ export class StartApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartApplicationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartApplicationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartApplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

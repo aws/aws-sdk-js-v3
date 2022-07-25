@@ -15,7 +15,9 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   GetAggregateDiscoveredResourceCountsRequest,
+  GetAggregateDiscoveredResourceCountsRequestFilterSensitiveLog,
   GetAggregateDiscoveredResourceCountsResponse,
+  GetAggregateDiscoveredResourceCountsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand,
@@ -79,8 +81,8 @@ export class GetAggregateDiscoveredResourceCountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAggregateDiscoveredResourceCountsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAggregateDiscoveredResourceCountsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAggregateDiscoveredResourceCountsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAggregateDiscoveredResourceCountsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

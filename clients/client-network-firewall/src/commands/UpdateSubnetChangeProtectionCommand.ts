@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateSubnetChangeProtectionRequest, UpdateSubnetChangeProtectionResponse } from "../models/models_0";
+import {
+  UpdateSubnetChangeProtectionRequest,
+  UpdateSubnetChangeProtectionRequestFilterSensitiveLog,
+  UpdateSubnetChangeProtectionResponse,
+  UpdateSubnetChangeProtectionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
   deserializeAws_json1_0UpdateSubnetChangeProtectionCommand,
@@ -74,8 +79,8 @@ export class UpdateSubnetChangeProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSubnetChangeProtectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSubnetChangeProtectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSubnetChangeProtectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSubnetChangeProtectionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

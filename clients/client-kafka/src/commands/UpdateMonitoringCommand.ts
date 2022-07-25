@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import { UpdateMonitoringRequest, UpdateMonitoringResponse } from "../models/models_0";
+import {
+  UpdateMonitoringRequest,
+  UpdateMonitoringRequestFilterSensitiveLog,
+  UpdateMonitoringResponse,
+  UpdateMonitoringResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateMonitoringCommand,
   serializeAws_restJson1UpdateMonitoringCommand,
@@ -72,8 +77,8 @@ export class UpdateMonitoringCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMonitoringRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMonitoringResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateMonitoringRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMonitoringResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

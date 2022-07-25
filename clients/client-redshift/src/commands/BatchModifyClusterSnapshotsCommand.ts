@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { BatchModifyClusterSnapshotsMessage, BatchModifyClusterSnapshotsOutputMessage } from "../models/models_0";
+import {
+  BatchModifyClusterSnapshotsMessage,
+  BatchModifyClusterSnapshotsMessageFilterSensitiveLog,
+  BatchModifyClusterSnapshotsOutputMessage,
+  BatchModifyClusterSnapshotsOutputMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryBatchModifyClusterSnapshotsCommand,
   serializeAws_queryBatchModifyClusterSnapshotsCommand,
@@ -74,8 +79,8 @@ export class BatchModifyClusterSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchModifyClusterSnapshotsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchModifyClusterSnapshotsOutputMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchModifyClusterSnapshotsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchModifyClusterSnapshotsOutputMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

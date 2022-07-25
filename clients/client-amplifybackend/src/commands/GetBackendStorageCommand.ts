@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import { GetBackendStorageRequest, GetBackendStorageResponse } from "../models/models_0";
+import {
+  GetBackendStorageRequest,
+  GetBackendStorageRequestFilterSensitiveLog,
+  GetBackendStorageResponse,
+  GetBackendStorageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetBackendStorageCommand,
   serializeAws_restJson1GetBackendStorageCommand,
@@ -72,8 +77,8 @@ export class GetBackendStorageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBackendStorageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBackendStorageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBackendStorageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBackendStorageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

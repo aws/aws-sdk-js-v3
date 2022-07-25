@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
-import { CreateProjectRequest, CreateProjectResult } from "../models/models_0";
+import {
+  CreateProjectRequest,
+  CreateProjectRequestFilterSensitiveLog,
+  CreateProjectResult,
+  CreateProjectResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateProjectCommand,
   serializeAws_restJson1CreateProjectCommand,
@@ -74,8 +79,8 @@ export class CreateProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateProjectResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateProjectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateProjectResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

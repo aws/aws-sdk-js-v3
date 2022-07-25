@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateAuthorizerRequest, UpdateAuthorizerResponse } from "../models/models_2";
+import {
+  UpdateAuthorizerRequest,
+  UpdateAuthorizerRequestFilterSensitiveLog,
+  UpdateAuthorizerResponse,
+  UpdateAuthorizerResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateAuthorizerCommand,
   serializeAws_restJson1UpdateAuthorizerCommand,
@@ -73,8 +78,8 @@ export class UpdateAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAuthorizerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAuthorizerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAuthorizerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAuthorizerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

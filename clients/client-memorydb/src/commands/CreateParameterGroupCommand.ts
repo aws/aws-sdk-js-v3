@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import { CreateParameterGroupRequest, CreateParameterGroupResponse } from "../models/models_0";
+import {
+  CreateParameterGroupRequest,
+  CreateParameterGroupRequestFilterSensitiveLog,
+  CreateParameterGroupResponse,
+  CreateParameterGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateParameterGroupCommand,
   serializeAws_json1_1CreateParameterGroupCommand,
@@ -75,8 +80,8 @@ export class CreateParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateParameterGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateParameterGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateParameterGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateParameterGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

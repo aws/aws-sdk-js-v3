@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { PurchaseProvisionedCapacityInput, PurchaseProvisionedCapacityOutput } from "../models/models_0";
+import {
+  PurchaseProvisionedCapacityInput,
+  PurchaseProvisionedCapacityInputFilterSensitiveLog,
+  PurchaseProvisionedCapacityOutput,
+  PurchaseProvisionedCapacityOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PurchaseProvisionedCapacityCommand,
   serializeAws_restJson1PurchaseProvisionedCapacityCommand,
@@ -72,8 +77,8 @@ export class PurchaseProvisionedCapacityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseProvisionedCapacityInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseProvisionedCapacityOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PurchaseProvisionedCapacityInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseProvisionedCapacityOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

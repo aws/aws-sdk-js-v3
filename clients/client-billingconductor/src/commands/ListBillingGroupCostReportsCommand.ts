@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
-import { ListBillingGroupCostReportsInput, ListBillingGroupCostReportsOutput } from "../models/models_0";
+import {
+  ListBillingGroupCostReportsInput,
+  ListBillingGroupCostReportsInputFilterSensitiveLog,
+  ListBillingGroupCostReportsOutput,
+  ListBillingGroupCostReportsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListBillingGroupCostReportsCommand,
   serializeAws_restJson1ListBillingGroupCostReportsCommand,
@@ -73,8 +78,8 @@ export class ListBillingGroupCostReportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBillingGroupCostReportsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListBillingGroupCostReportsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBillingGroupCostReportsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListBillingGroupCostReportsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

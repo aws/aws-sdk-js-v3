@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetBucketVersioningOutput, GetBucketVersioningRequest } from "../models/models_0";
+import {
+  GetBucketVersioningOutput,
+  GetBucketVersioningOutputFilterSensitiveLog,
+  GetBucketVersioningRequest,
+  GetBucketVersioningRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketVersioningCommand,
   serializeAws_restXmlGetBucketVersioningCommand,
@@ -98,8 +103,8 @@ export class GetBucketVersioningCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketVersioningRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketVersioningOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketVersioningRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketVersioningOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

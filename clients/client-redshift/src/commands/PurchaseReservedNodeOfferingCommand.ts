@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PurchaseReservedNodeOfferingMessage, PurchaseReservedNodeOfferingResult } from "../models/models_1";
+import {
+  PurchaseReservedNodeOfferingMessage,
+  PurchaseReservedNodeOfferingMessageFilterSensitiveLog,
+  PurchaseReservedNodeOfferingResult,
+  PurchaseReservedNodeOfferingResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryPurchaseReservedNodeOfferingCommand,
   serializeAws_queryPurchaseReservedNodeOfferingCommand,
@@ -82,8 +87,8 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseReservedNodeOfferingMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseReservedNodeOfferingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PurchaseReservedNodeOfferingMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseReservedNodeOfferingResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

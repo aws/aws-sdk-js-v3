@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { TagMeetingRequest } from "../models/models_1";
+import { TagMeetingRequest, TagMeetingRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1TagMeetingCommand,
   serializeAws_restJson1TagMeetingCommand,
@@ -72,7 +72,7 @@ export class TagMeetingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagMeetingRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: TagMeetingRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

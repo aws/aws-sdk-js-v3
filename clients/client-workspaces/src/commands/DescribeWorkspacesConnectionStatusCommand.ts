@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeWorkspacesConnectionStatusRequest,
+  DescribeWorkspacesConnectionStatusRequestFilterSensitiveLog,
   DescribeWorkspacesConnectionStatusResult,
+  DescribeWorkspacesConnectionStatusResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommand,
@@ -77,8 +79,8 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkspacesConnectionStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkspacesConnectionStatusResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeWorkspacesConnectionStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeWorkspacesConnectionStatusResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

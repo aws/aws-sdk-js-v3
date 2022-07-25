@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { UpdateFlowEntitlementRequest, UpdateFlowEntitlementResponse } from "../models/models_0";
+import {
+  UpdateFlowEntitlementRequest,
+  UpdateFlowEntitlementRequestFilterSensitiveLog,
+  UpdateFlowEntitlementResponse,
+  UpdateFlowEntitlementResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFlowEntitlementCommand,
   serializeAws_restJson1UpdateFlowEntitlementCommand,
@@ -72,8 +77,8 @@ export class UpdateFlowEntitlementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFlowEntitlementRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFlowEntitlementResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFlowEntitlementRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFlowEntitlementResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

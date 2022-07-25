@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { UpdateBotLocaleRequest, UpdateBotLocaleResponse } from "../models/models_0";
+import {
+  UpdateBotLocaleRequest,
+  UpdateBotLocaleRequestFilterSensitiveLog,
+  UpdateBotLocaleResponse,
+  UpdateBotLocaleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateBotLocaleCommand,
   serializeAws_restJson1UpdateBotLocaleCommand,
@@ -72,8 +77,8 @@ export class UpdateBotLocaleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBotLocaleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBotLocaleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateBotLocaleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBotLocaleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

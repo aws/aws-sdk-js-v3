@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateCertificateRequest } from "../models/models_2";
+import { UpdateCertificateRequest, UpdateCertificateRequestFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateCertificateCommand,
   serializeAws_restJson1UpdateCertificateCommand,
@@ -80,7 +80,7 @@ export class UpdateCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCertificateRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateCertificateRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

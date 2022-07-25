@@ -17,7 +17,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApiGatewayManagementApiClient";
-import { DeleteConnectionRequest } from "../models/models_0";
+import { DeleteConnectionRequest, DeleteConnectionRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteConnectionCommand,
   serializeAws_restJson1DeleteConnectionCommand,
@@ -76,7 +76,7 @@ export class DeleteConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConnectionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteConnectionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

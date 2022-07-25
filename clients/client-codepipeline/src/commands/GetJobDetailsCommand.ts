@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { GetJobDetailsInput, GetJobDetailsOutput } from "../models/models_0";
+import {
+  GetJobDetailsInput,
+  GetJobDetailsInputFilterSensitiveLog,
+  GetJobDetailsOutput,
+  GetJobDetailsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetJobDetailsCommand,
   serializeAws_json1_1GetJobDetailsCommand,
@@ -78,8 +83,8 @@ export class GetJobDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobDetailsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetJobDetailsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetJobDetailsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetJobDetailsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient";
-import { GetSessionRequest, GetSessionResponse } from "../models/models_0";
+import {
+  GetSessionRequest,
+  GetSessionRequestFilterSensitiveLog,
+  GetSessionResponse,
+  GetSessionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetSessionCommand,
   serializeAws_restJson1GetSessionCommand,
@@ -77,8 +82,8 @@ export class GetSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

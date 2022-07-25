@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateEndpointAccessMessage, EndpointAccess } from "../models/models_0";
+import {
+  CreateEndpointAccessMessage,
+  CreateEndpointAccessMessageFilterSensitiveLog,
+  EndpointAccess,
+  EndpointAccessFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCreateEndpointAccessCommand,
   serializeAws_queryCreateEndpointAccessCommand,
@@ -72,8 +77,8 @@ export class CreateEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEndpointAccessMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: EndpointAccess.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateEndpointAccessMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: EndpointAccessFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

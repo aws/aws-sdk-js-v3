@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateCloudFormationTemplateRequest, CreateCloudFormationTemplateResponse } from "../models/models_0";
+import {
+  CreateCloudFormationTemplateRequest,
+  CreateCloudFormationTemplateRequestFilterSensitiveLog,
+  CreateCloudFormationTemplateResponse,
+  CreateCloudFormationTemplateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateCloudFormationTemplateCommand,
   serializeAws_restJson1CreateCloudFormationTemplateCommand,
@@ -78,8 +83,8 @@ export class CreateCloudFormationTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCloudFormationTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateCloudFormationTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCloudFormationTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateCloudFormationTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

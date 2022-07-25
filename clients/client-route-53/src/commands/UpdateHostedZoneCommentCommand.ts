@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateHostedZoneCommentRequest, UpdateHostedZoneCommentResponse } from "../models/models_0";
+import {
+  UpdateHostedZoneCommentRequest,
+  UpdateHostedZoneCommentRequestFilterSensitiveLog,
+  UpdateHostedZoneCommentResponse,
+  UpdateHostedZoneCommentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlUpdateHostedZoneCommentCommand,
   serializeAws_restXmlUpdateHostedZoneCommentCommand,
@@ -74,8 +79,8 @@ export class UpdateHostedZoneCommentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateHostedZoneCommentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateHostedZoneCommentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateHostedZoneCommentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateHostedZoneCommentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeleteConfigurationAggregatorRequest } from "../models/models_0";
+import {
+  DeleteConfigurationAggregatorRequest,
+  DeleteConfigurationAggregatorRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteConfigurationAggregatorCommand,
   serializeAws_json1_1DeleteConfigurationAggregatorCommand,
@@ -73,7 +76,7 @@ export class DeleteConfigurationAggregatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationAggregatorRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteConfigurationAggregatorRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

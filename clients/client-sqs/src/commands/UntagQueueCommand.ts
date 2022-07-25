@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UntagQueueRequest } from "../models/models_0";
+import { UntagQueueRequest, UntagQueueRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryUntagQueueCommand, serializeAws_queryUntagQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
@@ -75,7 +75,7 @@ export class UntagQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagQueueRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagQueueRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

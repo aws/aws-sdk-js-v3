@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopWorkspacesRequest, StopWorkspacesResult } from "../models/models_0";
+import {
+  StopWorkspacesRequest,
+  StopWorkspacesRequestFilterSensitiveLog,
+  StopWorkspacesResult,
+  StopWorkspacesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StopWorkspacesCommand,
   serializeAws_json1_1StopWorkspacesCommand,
@@ -75,8 +80,8 @@ export class StopWorkspacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopWorkspacesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopWorkspacesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StopWorkspacesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopWorkspacesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

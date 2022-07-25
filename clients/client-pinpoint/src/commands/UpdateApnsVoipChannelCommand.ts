@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateApnsVoipChannelRequest, UpdateApnsVoipChannelResponse } from "../models/models_1";
+import {
+  UpdateApnsVoipChannelRequest,
+  UpdateApnsVoipChannelRequestFilterSensitiveLog,
+  UpdateApnsVoipChannelResponse,
+  UpdateApnsVoipChannelResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1UpdateApnsVoipChannelCommand,
@@ -72,8 +77,8 @@ export class UpdateApnsVoipChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApnsVoipChannelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApnsVoipChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateApnsVoipChannelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateApnsVoipChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

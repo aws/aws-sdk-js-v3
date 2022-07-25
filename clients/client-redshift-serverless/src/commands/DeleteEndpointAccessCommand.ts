@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteEndpointAccessRequest, DeleteEndpointAccessResponse } from "../models/models_0";
+import {
+  DeleteEndpointAccessRequest,
+  DeleteEndpointAccessRequestFilterSensitiveLog,
+  DeleteEndpointAccessResponse,
+  DeleteEndpointAccessResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEndpointAccessCommand,
   serializeAws_json1_1DeleteEndpointAccessCommand,
@@ -76,8 +81,8 @@ export class DeleteEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEndpointAccessRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEndpointAccessResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEndpointAccessRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEndpointAccessResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

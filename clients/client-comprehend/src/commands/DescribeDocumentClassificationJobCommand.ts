@@ -15,7 +15,9 @@ import {
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
 import {
   DescribeDocumentClassificationJobRequest,
+  DescribeDocumentClassificationJobRequestFilterSensitiveLog,
   DescribeDocumentClassificationJobResponse,
+  DescribeDocumentClassificationJobResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDocumentClassificationJobCommand,
@@ -78,8 +80,8 @@ export class DescribeDocumentClassificationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDocumentClassificationJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDocumentClassificationJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDocumentClassificationJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDocumentClassificationJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

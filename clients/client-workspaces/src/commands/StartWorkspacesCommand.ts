@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartWorkspacesRequest, StartWorkspacesResult } from "../models/models_0";
+import {
+  StartWorkspacesRequest,
+  StartWorkspacesRequestFilterSensitiveLog,
+  StartWorkspacesResult,
+  StartWorkspacesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartWorkspacesCommand,
   serializeAws_json1_1StartWorkspacesCommand,
@@ -74,8 +79,8 @@ export class StartWorkspacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartWorkspacesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartWorkspacesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartWorkspacesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartWorkspacesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateInstanceCustomHealthStatusRequest } from "../models/models_0";
+import {
+  UpdateInstanceCustomHealthStatusRequest,
+  UpdateInstanceCustomHealthStatusRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommand,
   serializeAws_json1_1UpdateInstanceCustomHealthStatusCommand,
@@ -76,7 +79,7 @@ export class UpdateInstanceCustomHealthStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInstanceCustomHealthStatusRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateInstanceCustomHealthStatusRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

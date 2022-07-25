@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { CreateVpcPeeringConnectionInput, CreateVpcPeeringConnectionOutput } from "../models/models_0";
+import {
+  CreateVpcPeeringConnectionInput,
+  CreateVpcPeeringConnectionInputFilterSensitiveLog,
+  CreateVpcPeeringConnectionOutput,
+  CreateVpcPeeringConnectionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateVpcPeeringConnectionCommand,
   serializeAws_json1_1CreateVpcPeeringConnectionCommand,
@@ -102,8 +107,8 @@ export class CreateVpcPeeringConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpcPeeringConnectionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateVpcPeeringConnectionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateVpcPeeringConnectionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateVpcPeeringConnectionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

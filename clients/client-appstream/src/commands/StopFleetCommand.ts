@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { StopFleetRequest, StopFleetResult } from "../models/models_0";
+import {
+  StopFleetRequest,
+  StopFleetRequestFilterSensitiveLog,
+  StopFleetResult,
+  StopFleetResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1StopFleetCommand, serializeAws_json1_1StopFleetCommand } from "../protocols/Aws_json1_1";
 
 export interface StopFleetCommandInput extends StopFleetRequest {}
@@ -69,8 +74,8 @@ export class StopFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopFleetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopFleetResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StopFleetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopFleetResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

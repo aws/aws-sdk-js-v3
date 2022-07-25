@@ -28,15 +28,6 @@ export interface ConnectivityInfo {
   PortNumber?: number;
 }
 
-export namespace ConnectivityInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectivityInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Information about a connector. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.
  */
@@ -55,15 +46,6 @@ export interface Connector {
    * The parameters or configuration that the connector uses.
    */
   Parameters?: Record<string, string>;
-}
-
-export namespace Connector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Connector): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -89,15 +71,6 @@ export interface Core {
    * The ARN of the thing which is the core.
    */
   ThingArn: string | undefined;
-}
-
-export namespace Core {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Core): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -145,15 +118,6 @@ export interface DefinitionInformation {
   Tags?: Record<string, string>;
 }
 
-export namespace DefinitionInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefinitionInformation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Information about a device.
  */
@@ -177,15 +141,6 @@ export interface Device {
    * The thing ARN of the device.
    */
   ThingArn: string | undefined;
-}
-
-export namespace Device {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Device): any => ({
-    ...obj,
-  });
 }
 
 export enum EncodingType {
@@ -213,15 +168,6 @@ export interface FunctionRunAsConfig {
   Uid?: number;
 }
 
-export namespace FunctionRunAsConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionRunAsConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Configuration information that specifies how a Lambda function runs.
  */
@@ -235,15 +181,6 @@ export interface FunctionExecutionConfig {
    * Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set ''IsolationMode'' to ''NoContainer'' and update config.json in ''greengrass-root/config'' to set ''allowFunctionsToRunAsRoot'' to ''yes''.
    */
   RunAs?: FunctionRunAsConfig;
-}
-
-export namespace FunctionExecutionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionExecutionConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum Permission {
@@ -264,15 +201,6 @@ export interface ResourceAccessPolicy {
    * The ID of the resource. (This ID is assigned to the resource when you create the resource definiton.)
    */
   ResourceId: string | undefined;
-}
-
-export namespace ResourceAccessPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAccessPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -298,15 +226,6 @@ export interface FunctionConfigurationEnvironment {
    * Environment variables for the Lambda function's configuration.
    */
   Variables?: Record<string, string>;
-}
-
-export namespace FunctionConfigurationEnvironment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionConfigurationEnvironment): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -349,15 +268,6 @@ export interface FunctionConfiguration {
   Timeout?: number;
 }
 
-export namespace FunctionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Information about a Lambda function.
  */
@@ -378,15 +288,6 @@ export interface Function {
   Id: string | undefined;
 }
 
-export namespace Function {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Function): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Information about a certificate authority for a group.
  */
@@ -400,15 +301,6 @@ export interface GroupCertificateAuthorityProperties {
    * The ID of the certificate authority for the group.
    */
   GroupCertificateAuthorityId?: string;
-}
-
-export namespace GroupCertificateAuthorityProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupCertificateAuthorityProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -449,15 +341,6 @@ export interface GroupInformation {
    * The name of the group.
    */
   Name?: string;
-}
-
-export namespace GroupInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupInformation): any => ({
-    ...obj,
-  });
 }
 
 export enum LoggerComponent {
@@ -508,15 +391,6 @@ export interface Logger {
   Type: LoggerType | string | undefined;
 }
 
-export namespace Logger {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Logger): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Group owner related settings for local resources.
  */
@@ -532,15 +406,6 @@ export interface GroupOwnerSetting {
   GroupOwner?: string;
 }
 
-export namespace GroupOwnerSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupOwnerSetting): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Attributes that define a local device resource.
  */
@@ -554,15 +419,6 @@ export interface LocalDeviceResourceData {
    * The local absolute path of the device resource. The source path for a device resource can refer only to a character device or block device under ''/dev''.
    */
   SourcePath?: string;
-}
-
-export namespace LocalDeviceResourceData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LocalDeviceResourceData): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -585,15 +441,6 @@ export interface LocalVolumeResourceData {
   SourcePath?: string;
 }
 
-export namespace LocalVolumeResourceData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LocalVolumeResourceData): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The owner setting for downloaded machine learning resources.
  */
@@ -607,15 +454,6 @@ export interface ResourceDownloadOwnerSetting {
    * The permissions that the group owner has to the resource. Valid values are ''rw'' (read/write) or ''ro'' (read-only).
    */
   GroupPermission: Permission | string | undefined;
-}
-
-export namespace ResourceDownloadOwnerSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDownloadOwnerSetting): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -638,15 +476,6 @@ export interface S3MachineLearningModelResourceData {
   S3Uri?: string;
 }
 
-export namespace S3MachineLearningModelResourceData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3MachineLearningModelResourceData): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Attributes that define an Amazon SageMaker machine learning resource.
  */
@@ -667,15 +496,6 @@ export interface SageMakerMachineLearningModelResourceData {
   SageMakerJobArn?: string;
 }
 
-export namespace SageMakerMachineLearningModelResourceData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SageMakerMachineLearningModelResourceData): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Attributes that define a secret resource, which references a secret from AWS Secrets Manager. AWS IoT Greengrass stores a local, encrypted copy of the secret on the Greengrass core, where it can be securely accessed by connectors and Lambda functions.
  */
@@ -689,15 +509,6 @@ export interface SecretsManagerSecretResourceData {
    * Optional. The staging labels whose values you want to make available on the core, in addition to ''AWSCURRENT''.
    */
   AdditionalStagingLabelsToDownload?: string[];
-}
-
-export namespace SecretsManagerSecretResourceData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecretsManagerSecretResourceData): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -730,15 +541,6 @@ export interface ResourceDataContainer {
   SecretsManagerSecretResourceData?: SecretsManagerSecretResourceData;
 }
 
-export namespace ResourceDataContainer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDataContainer): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Information about a resource.
  */
@@ -757,15 +559,6 @@ export interface Resource {
    * A container of data for all resource types.
    */
   ResourceDataContainer: ResourceDataContainer | undefined;
-}
-
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -793,15 +586,6 @@ export interface Subscription {
   Target: string | undefined;
 }
 
-export namespace Subscription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Subscription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Information about a version.
  */
@@ -827,15 +611,6 @@ export interface VersionInformation {
   Version?: string;
 }
 
-export namespace VersionInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VersionInformation): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateRoleToGroupRequest {
   /**
    * The ID of the Greengrass group.
@@ -848,29 +623,11 @@ export interface AssociateRoleToGroupRequest {
   RoleArn: string | undefined;
 }
 
-export namespace AssociateRoleToGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateRoleToGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateRoleToGroupResponse {
   /**
    * The time, in milliseconds since the epoch, when the role ARN was associated with the group.
    */
   AssociatedAt?: string;
-}
-
-export namespace AssociateRoleToGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateRoleToGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -886,15 +643,6 @@ export interface ErrorDetail {
    * A detailed error message.
    */
   DetailedErrorMessage?: string;
-}
-
-export namespace ErrorDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -964,29 +712,11 @@ export interface AssociateServiceRoleToAccountRequest {
   RoleArn: string | undefined;
 }
 
-export namespace AssociateServiceRoleToAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateServiceRoleToAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateServiceRoleToAccountResponse {
   /**
    * The time when the service role was associated with the account.
    */
   AssociatedAt?: string;
-}
-
-export namespace AssociateServiceRoleToAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateServiceRoleToAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1009,15 +739,6 @@ export interface BulkDeployment {
   CreatedAt?: string;
 }
 
-export namespace BulkDeployment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BulkDeployment): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Relevant metrics on input records processed during bulk deployment.
  */
@@ -1036,15 +757,6 @@ export interface BulkDeploymentMetrics {
    * The total number of deployment attempts that returned a retryable error. For example, a retry is triggered if the attempt to deploy a group returns a throttling error. ''StartBulkDeployment'' retries a group deployment up to five times.
    */
   RetryAttempts?: number;
-}
-
-export namespace BulkDeploymentMetrics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BulkDeploymentMetrics): any => ({
-    ...obj,
-  });
 }
 
 export enum DeploymentType {
@@ -1099,15 +811,6 @@ export interface BulkDeploymentResult {
   GroupArn?: string;
 }
 
-export namespace BulkDeploymentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BulkDeploymentResult): any => ({
-    ...obj,
-  });
-}
-
 export enum BulkDeploymentStatus {
   Completed = "Completed",
   Failed = "Failed",
@@ -1132,15 +835,6 @@ export interface ConnectorDefinitionVersion {
   Connectors?: Connector[];
 }
 
-export namespace ConnectorDefinitionVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorDefinitionVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Information about a core definition version.
  */
@@ -1149,15 +843,6 @@ export interface CoreDefinitionVersion {
    * A list of cores in the core definition version.
    */
   Cores?: Core[];
-}
-
-export namespace CoreDefinitionVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CoreDefinitionVersion): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateConnectorDefinitionRequest {
@@ -1180,15 +865,6 @@ export interface CreateConnectorDefinitionRequest {
    * Tag(s) to add to the new resource.
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateConnectorDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectorDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateConnectorDefinitionResponse {
@@ -1228,15 +904,6 @@ export interface CreateConnectorDefinitionResponse {
   Name?: string;
 }
 
-export namespace CreateConnectorDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectorDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateConnectorDefinitionVersionRequest {
   /**
    * A client token used to correlate requests and responses.
@@ -1252,15 +919,6 @@ export interface CreateConnectorDefinitionVersionRequest {
    * A list of references to connectors in this version, with their corresponding configuration settings.
    */
   Connectors?: Connector[];
-}
-
-export namespace CreateConnectorDefinitionVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectorDefinitionVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateConnectorDefinitionVersionResponse {
@@ -1283,15 +941,6 @@ export interface CreateConnectorDefinitionVersionResponse {
    * The ID of the version.
    */
   Version?: string;
-}
-
-export namespace CreateConnectorDefinitionVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectorDefinitionVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1317,15 +966,6 @@ export interface CreateCoreDefinitionRequest {
    * Tag(s) to add to the new resource.
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateCoreDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCoreDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateCoreDefinitionResponse {
@@ -1365,15 +1005,6 @@ export interface CreateCoreDefinitionResponse {
   Name?: string;
 }
 
-export namespace CreateCoreDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCoreDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCoreDefinitionVersionRequest {
   /**
    * A client token used to correlate requests and responses.
@@ -1389,15 +1020,6 @@ export interface CreateCoreDefinitionVersionRequest {
    * A list of cores in the core definition version.
    */
   Cores?: Core[];
-}
-
-export namespace CreateCoreDefinitionVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCoreDefinitionVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateCoreDefinitionVersionResponse {
@@ -1420,15 +1042,6 @@ export interface CreateCoreDefinitionVersionResponse {
    * The ID of the version.
    */
   Version?: string;
-}
-
-export namespace CreateCoreDefinitionVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCoreDefinitionVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDeploymentRequest {
@@ -1458,15 +1071,6 @@ export interface CreateDeploymentRequest {
   GroupVersionId?: string;
 }
 
-export namespace CreateDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDeploymentResponse {
   /**
    * The ARN of the deployment.
@@ -1479,15 +1083,6 @@ export interface CreateDeploymentResponse {
   DeploymentId?: string;
 }
 
-export namespace CreateDeploymentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Information about a device definition version.
  */
@@ -1496,15 +1091,6 @@ export interface DeviceDefinitionVersion {
    * A list of devices in the definition version.
    */
   Devices?: Device[];
-}
-
-export namespace DeviceDefinitionVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceDefinitionVersion): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDeviceDefinitionRequest {
@@ -1527,15 +1113,6 @@ export interface CreateDeviceDefinitionRequest {
    * Tag(s) to add to the new resource.
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateDeviceDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeviceDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDeviceDefinitionResponse {
@@ -1575,15 +1152,6 @@ export interface CreateDeviceDefinitionResponse {
   Name?: string;
 }
 
-export namespace CreateDeviceDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeviceDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDeviceDefinitionVersionRequest {
   /**
    * A client token used to correlate requests and responses.
@@ -1599,15 +1167,6 @@ export interface CreateDeviceDefinitionVersionRequest {
    * A list of devices in the definition version.
    */
   Devices?: Device[];
-}
-
-export namespace CreateDeviceDefinitionVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeviceDefinitionVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDeviceDefinitionVersionResponse {
@@ -1632,15 +1191,6 @@ export interface CreateDeviceDefinitionVersionResponse {
   Version?: string;
 }
 
-export namespace CreateDeviceDefinitionVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeviceDefinitionVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Configuration information that specifies how a Lambda function runs.
  */
@@ -1656,15 +1206,6 @@ export interface FunctionDefaultExecutionConfig {
   RunAs?: FunctionRunAsConfig;
 }
 
-export namespace FunctionDefaultExecutionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionDefaultExecutionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The default configuration that applies to all Lambda functions in the group. Individual Lambda functions can override these settings.
  */
@@ -1673,15 +1214,6 @@ export interface FunctionDefaultConfig {
    * Configuration information that specifies how a Lambda function runs.
    */
   Execution?: FunctionDefaultExecutionConfig;
-}
-
-export namespace FunctionDefaultConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionDefaultConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1697,15 +1229,6 @@ export interface FunctionDefinitionVersion {
    * A list of Lambda functions in this function definition version.
    */
   Functions?: Function[];
-}
-
-export namespace FunctionDefinitionVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionDefinitionVersion): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateFunctionDefinitionRequest {
@@ -1728,15 +1251,6 @@ export interface CreateFunctionDefinitionRequest {
    * Tag(s) to add to the new resource.
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateFunctionDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFunctionDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateFunctionDefinitionResponse {
@@ -1776,15 +1290,6 @@ export interface CreateFunctionDefinitionResponse {
   Name?: string;
 }
 
-export namespace CreateFunctionDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFunctionDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Information needed to create a function definition version.
  */
@@ -1810,15 +1315,6 @@ export interface CreateFunctionDefinitionVersionRequest {
   Functions?: Function[];
 }
 
-export namespace CreateFunctionDefinitionVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFunctionDefinitionVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFunctionDefinitionVersionResponse {
   /**
    * The ARN of the version.
@@ -1839,15 +1335,6 @@ export interface CreateFunctionDefinitionVersionResponse {
    * The ID of the version.
    */
   Version?: string;
-}
-
-export namespace CreateFunctionDefinitionVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFunctionDefinitionVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1890,15 +1377,6 @@ export interface GroupVersion {
   SubscriptionDefinitionVersionArn?: string;
 }
 
-export namespace GroupVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupVersion): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGroupRequest {
   /**
    * A client token used to correlate requests and responses.
@@ -1919,15 +1397,6 @@ export interface CreateGroupRequest {
    * Tag(s) to add to the new resource.
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateGroupResponse {
@@ -1967,15 +1436,6 @@ export interface CreateGroupResponse {
   Name?: string;
 }
 
-export namespace CreateGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGroupCertificateAuthorityRequest {
   /**
    * A client token used to correlate requests and responses.
@@ -1988,29 +1448,11 @@ export interface CreateGroupCertificateAuthorityRequest {
   GroupId: string | undefined;
 }
 
-export namespace CreateGroupCertificateAuthorityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupCertificateAuthorityRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGroupCertificateAuthorityResponse {
   /**
    * The ARN of the group certificate authority.
    */
   GroupCertificateAuthorityArn?: string;
-}
-
-export namespace CreateGroupCertificateAuthorityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupCertificateAuthorityResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateGroupVersionRequest {
@@ -2060,15 +1502,6 @@ export interface CreateGroupVersionRequest {
   SubscriptionDefinitionVersionArn?: string;
 }
 
-export namespace CreateGroupVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGroupVersionResponse {
   /**
    * The ARN of the version.
@@ -2091,15 +1524,6 @@ export interface CreateGroupVersionResponse {
   Version?: string;
 }
 
-export namespace CreateGroupVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Information about a logger definition version.
  */
@@ -2108,15 +1532,6 @@ export interface LoggerDefinitionVersion {
    * A list of loggers.
    */
   Loggers?: Logger[];
-}
-
-export namespace LoggerDefinitionVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggerDefinitionVersion): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLoggerDefinitionRequest {
@@ -2139,15 +1554,6 @@ export interface CreateLoggerDefinitionRequest {
    * Tag(s) to add to the new resource.
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateLoggerDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLoggerDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLoggerDefinitionResponse {
@@ -2187,15 +1593,6 @@ export interface CreateLoggerDefinitionResponse {
   Name?: string;
 }
 
-export namespace CreateLoggerDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLoggerDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLoggerDefinitionVersionRequest {
   /**
    * A client token used to correlate requests and responses.
@@ -2211,15 +1608,6 @@ export interface CreateLoggerDefinitionVersionRequest {
    * A list of loggers.
    */
   Loggers?: Logger[];
-}
-
-export namespace CreateLoggerDefinitionVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLoggerDefinitionVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLoggerDefinitionVersionResponse {
@@ -2244,15 +1632,6 @@ export interface CreateLoggerDefinitionVersionResponse {
   Version?: string;
 }
 
-export namespace CreateLoggerDefinitionVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLoggerDefinitionVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Information about a resource definition version.
  */
@@ -2261,15 +1640,6 @@ export interface ResourceDefinitionVersion {
    * A list of resources.
    */
   Resources?: Resource[];
-}
-
-export namespace ResourceDefinitionVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDefinitionVersion): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateResourceDefinitionRequest {
@@ -2292,15 +1662,6 @@ export interface CreateResourceDefinitionRequest {
    * Tag(s) to add to the new resource.
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateResourceDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateResourceDefinitionResponse {
@@ -2340,15 +1701,6 @@ export interface CreateResourceDefinitionResponse {
   Name?: string;
 }
 
-export namespace CreateResourceDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateResourceDefinitionVersionRequest {
   /**
    * A client token used to correlate requests and responses.
@@ -2364,15 +1716,6 @@ export interface CreateResourceDefinitionVersionRequest {
    * A list of resources.
    */
   Resources?: Resource[];
-}
-
-export namespace CreateResourceDefinitionVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceDefinitionVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateResourceDefinitionVersionResponse {
@@ -2395,15 +1738,6 @@ export interface CreateResourceDefinitionVersionResponse {
    * The ID of the version.
    */
   Version?: string;
-}
-
-export namespace CreateResourceDefinitionVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceDefinitionVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum SoftwareToUpdate {
@@ -2473,15 +1807,6 @@ export interface CreateSoftwareUpdateJobRequest {
   UpdateTargetsOperatingSystem: UpdateTargetsOperatingSystem | string | undefined;
 }
 
-export namespace CreateSoftwareUpdateJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSoftwareUpdateJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSoftwareUpdateJobResponse {
   /**
    * The IoT Job ARN corresponding to this update.
@@ -2499,15 +1824,6 @@ export interface CreateSoftwareUpdateJobResponse {
   PlatformSoftwareVersion?: string;
 }
 
-export namespace CreateSoftwareUpdateJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSoftwareUpdateJobResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Information about a subscription definition version.
  */
@@ -2516,15 +1832,6 @@ export interface SubscriptionDefinitionVersion {
    * A list of subscriptions.
    */
   Subscriptions?: Subscription[];
-}
-
-export namespace SubscriptionDefinitionVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscriptionDefinitionVersion): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSubscriptionDefinitionRequest {
@@ -2547,15 +1854,6 @@ export interface CreateSubscriptionDefinitionRequest {
    * Tag(s) to add to the new resource.
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateSubscriptionDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSubscriptionDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSubscriptionDefinitionResponse {
@@ -2595,15 +1893,6 @@ export interface CreateSubscriptionDefinitionResponse {
   Name?: string;
 }
 
-export namespace CreateSubscriptionDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSubscriptionDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSubscriptionDefinitionVersionRequest {
   /**
    * A client token used to correlate requests and responses.
@@ -2619,15 +1908,6 @@ export interface CreateSubscriptionDefinitionVersionRequest {
    * A list of subscriptions.
    */
   Subscriptions?: Subscription[];
-}
-
-export namespace CreateSubscriptionDefinitionVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSubscriptionDefinitionVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSubscriptionDefinitionVersionResponse {
@@ -2652,15 +1932,6 @@ export interface CreateSubscriptionDefinitionVersionResponse {
   Version?: string;
 }
 
-export namespace CreateSubscriptionDefinitionVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSubscriptionDefinitionVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteConnectorDefinitionRequest {
   /**
    * The ID of the connector definition.
@@ -2668,25 +1939,7 @@ export interface DeleteConnectorDefinitionRequest {
   ConnectorDefinitionId: string | undefined;
 }
 
-export namespace DeleteConnectorDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectorDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteConnectorDefinitionResponse {}
-
-export namespace DeleteConnectorDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectorDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteCoreDefinitionRequest {
   /**
@@ -2695,25 +1948,7 @@ export interface DeleteCoreDefinitionRequest {
   CoreDefinitionId: string | undefined;
 }
 
-export namespace DeleteCoreDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCoreDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCoreDefinitionResponse {}
-
-export namespace DeleteCoreDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCoreDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteDeviceDefinitionRequest {
   /**
@@ -2722,25 +1957,7 @@ export interface DeleteDeviceDefinitionRequest {
   DeviceDefinitionId: string | undefined;
 }
 
-export namespace DeleteDeviceDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeviceDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDeviceDefinitionResponse {}
-
-export namespace DeleteDeviceDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeviceDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteFunctionDefinitionRequest {
   /**
@@ -2749,25 +1966,7 @@ export interface DeleteFunctionDefinitionRequest {
   FunctionDefinitionId: string | undefined;
 }
 
-export namespace DeleteFunctionDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFunctionDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFunctionDefinitionResponse {}
-
-export namespace DeleteFunctionDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFunctionDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteGroupRequest {
   /**
@@ -2776,25 +1975,7 @@ export interface DeleteGroupRequest {
   GroupId: string | undefined;
 }
 
-export namespace DeleteGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGroupResponse {}
-
-export namespace DeleteGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteLoggerDefinitionRequest {
   /**
@@ -2803,25 +1984,7 @@ export interface DeleteLoggerDefinitionRequest {
   LoggerDefinitionId: string | undefined;
 }
 
-export namespace DeleteLoggerDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLoggerDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLoggerDefinitionResponse {}
-
-export namespace DeleteLoggerDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLoggerDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteResourceDefinitionRequest {
   /**
@@ -2830,25 +1993,7 @@ export interface DeleteResourceDefinitionRequest {
   ResourceDefinitionId: string | undefined;
 }
 
-export namespace DeleteResourceDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourceDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourceDefinitionResponse {}
-
-export namespace DeleteResourceDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourceDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteSubscriptionDefinitionRequest {
   /**
@@ -2857,25 +2002,7 @@ export interface DeleteSubscriptionDefinitionRequest {
   SubscriptionDefinitionId: string | undefined;
 }
 
-export namespace DeleteSubscriptionDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSubscriptionDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSubscriptionDefinitionResponse {}
-
-export namespace DeleteSubscriptionDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSubscriptionDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * Information about a deployment.
@@ -2907,29 +2034,11 @@ export interface Deployment {
   GroupArn?: string;
 }
 
-export namespace Deployment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Deployment): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateRoleFromGroupRequest {
   /**
    * The ID of the Greengrass group.
    */
   GroupId: string | undefined;
-}
-
-export namespace DisassociateRoleFromGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateRoleFromGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateRoleFromGroupResponse {
@@ -2939,25 +2048,7 @@ export interface DisassociateRoleFromGroupResponse {
   DisassociatedAt?: string;
 }
 
-export namespace DisassociateRoleFromGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateRoleFromGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateServiceRoleFromAccountRequest {}
-
-export namespace DisassociateServiceRoleFromAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateServiceRoleFromAccountRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateServiceRoleFromAccountResponse {
   /**
@@ -2966,29 +2057,11 @@ export interface DisassociateServiceRoleFromAccountResponse {
   DisassociatedAt?: string;
 }
 
-export namespace DisassociateServiceRoleFromAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateServiceRoleFromAccountResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAssociatedRoleRequest {
   /**
    * The ID of the Greengrass group.
    */
   GroupId: string | undefined;
-}
-
-export namespace GetAssociatedRoleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssociatedRoleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAssociatedRoleResponse {
@@ -3003,29 +2076,11 @@ export interface GetAssociatedRoleResponse {
   RoleArn?: string;
 }
 
-export namespace GetAssociatedRoleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssociatedRoleResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBulkDeploymentStatusRequest {
   /**
    * The ID of the bulk deployment.
    */
   BulkDeploymentId: string | undefined;
-}
-
-export namespace GetBulkDeploymentStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBulkDeploymentStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBulkDeploymentStatusResponse {
@@ -3060,29 +2115,11 @@ export interface GetBulkDeploymentStatusResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetBulkDeploymentStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBulkDeploymentStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetConnectivityInfoRequest {
   /**
    * The thing name.
    */
   ThingName: string | undefined;
-}
-
-export namespace GetConnectivityInfoRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectivityInfoRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetConnectivityInfoResponse {
@@ -3097,29 +2134,11 @@ export interface GetConnectivityInfoResponse {
   Message?: string;
 }
 
-export namespace GetConnectivityInfoResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectivityInfoResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetConnectorDefinitionRequest {
   /**
    * The ID of the connector definition.
    */
   ConnectorDefinitionId: string | undefined;
-}
-
-export namespace GetConnectorDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectorDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetConnectorDefinitionResponse {
@@ -3164,15 +2183,6 @@ export interface GetConnectorDefinitionResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetConnectorDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectorDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetConnectorDefinitionVersionRequest {
   /**
    * The ID of the connector definition.
@@ -3188,15 +2198,6 @@ export interface GetConnectorDefinitionVersionRequest {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
-}
-
-export namespace GetConnectorDefinitionVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectorDefinitionVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetConnectorDefinitionVersionResponse {
@@ -3231,29 +2232,11 @@ export interface GetConnectorDefinitionVersionResponse {
   Version?: string;
 }
 
-export namespace GetConnectorDefinitionVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectorDefinitionVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCoreDefinitionRequest {
   /**
    * The ID of the core definition.
    */
   CoreDefinitionId: string | undefined;
-}
-
-export namespace GetCoreDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCoreDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCoreDefinitionResponse {
@@ -3298,15 +2281,6 @@ export interface GetCoreDefinitionResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetCoreDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCoreDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCoreDefinitionVersionRequest {
   /**
    * The ID of the core definition.
@@ -3317,15 +2291,6 @@ export interface GetCoreDefinitionVersionRequest {
    * The ID of the core definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListCoreDefinitionVersions'' requests. If the version is the last one that was associated with a core definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
    */
   CoreDefinitionVersionId: string | undefined;
-}
-
-export namespace GetCoreDefinitionVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCoreDefinitionVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCoreDefinitionVersionResponse {
@@ -3360,15 +2325,6 @@ export interface GetCoreDefinitionVersionResponse {
   Version?: string;
 }
 
-export namespace GetCoreDefinitionVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCoreDefinitionVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeploymentStatusRequest {
   /**
    * The ID of the deployment.
@@ -3379,15 +2335,6 @@ export interface GetDeploymentStatusRequest {
    * The ID of the Greengrass group.
    */
   GroupId: string | undefined;
-}
-
-export namespace GetDeploymentStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDeploymentStatusResponse {
@@ -3417,29 +2364,11 @@ export interface GetDeploymentStatusResponse {
   UpdatedAt?: string;
 }
 
-export namespace GetDeploymentStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeviceDefinitionRequest {
   /**
    * The ID of the device definition.
    */
   DeviceDefinitionId: string | undefined;
-}
-
-export namespace GetDeviceDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDeviceDefinitionResponse {
@@ -3484,15 +2413,6 @@ export interface GetDeviceDefinitionResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetDeviceDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeviceDefinitionVersionRequest {
   /**
    * The ID of the device definition.
@@ -3508,15 +2428,6 @@ export interface GetDeviceDefinitionVersionRequest {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
-}
-
-export namespace GetDeviceDefinitionVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceDefinitionVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDeviceDefinitionVersionResponse {
@@ -3551,29 +2462,11 @@ export interface GetDeviceDefinitionVersionResponse {
   Version?: string;
 }
 
-export namespace GetDeviceDefinitionVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceDefinitionVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFunctionDefinitionRequest {
   /**
    * The ID of the Lambda function definition.
    */
   FunctionDefinitionId: string | undefined;
-}
-
-export namespace GetFunctionDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFunctionDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFunctionDefinitionResponse {
@@ -3618,15 +2511,6 @@ export interface GetFunctionDefinitionResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetFunctionDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFunctionDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFunctionDefinitionVersionRequest {
   /**
    * The ID of the Lambda function definition.
@@ -3642,15 +2526,6 @@ export interface GetFunctionDefinitionVersionRequest {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
-}
-
-export namespace GetFunctionDefinitionVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFunctionDefinitionVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFunctionDefinitionVersionResponse {
@@ -3685,29 +2560,11 @@ export interface GetFunctionDefinitionVersionResponse {
   Version?: string;
 }
 
-export namespace GetFunctionDefinitionVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFunctionDefinitionVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGroupRequest {
   /**
    * The ID of the Greengrass group.
    */
   GroupId: string | undefined;
-}
-
-export namespace GetGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetGroupResponse {
@@ -3752,15 +2609,6 @@ export interface GetGroupResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGroupCertificateAuthorityRequest {
   /**
    * The ID of the certificate authority.
@@ -3771,15 +2619,6 @@ export interface GetGroupCertificateAuthorityRequest {
    * The ID of the Greengrass group.
    */
   GroupId: string | undefined;
-}
-
-export namespace GetGroupCertificateAuthorityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupCertificateAuthorityRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetGroupCertificateAuthorityResponse {
@@ -3799,29 +2638,11 @@ export interface GetGroupCertificateAuthorityResponse {
   PemEncodedCertificate?: string;
 }
 
-export namespace GetGroupCertificateAuthorityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupCertificateAuthorityResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGroupCertificateConfigurationRequest {
   /**
    * The ID of the Greengrass group.
    */
   GroupId: string | undefined;
-}
-
-export namespace GetGroupCertificateConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupCertificateConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetGroupCertificateConfigurationResponse {
@@ -3841,15 +2662,6 @@ export interface GetGroupCertificateConfigurationResponse {
   GroupId?: string;
 }
 
-export namespace GetGroupCertificateConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupCertificateConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGroupVersionRequest {
   /**
    * The ID of the Greengrass group.
@@ -3860,15 +2672,6 @@ export interface GetGroupVersionRequest {
    * The ID of the group version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListGroupVersions'' requests. If the version is the last one that was associated with a group, the value also maps to the ''LatestVersion'' property of the corresponding ''GroupInformation'' object.
    */
   GroupVersionId: string | undefined;
-}
-
-export namespace GetGroupVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetGroupVersionResponse {
@@ -3898,29 +2701,11 @@ export interface GetGroupVersionResponse {
   Version?: string;
 }
 
-export namespace GetGroupVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLoggerDefinitionRequest {
   /**
    * The ID of the logger definition.
    */
   LoggerDefinitionId: string | undefined;
-}
-
-export namespace GetLoggerDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoggerDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLoggerDefinitionResponse {
@@ -3965,15 +2750,6 @@ export interface GetLoggerDefinitionResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetLoggerDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoggerDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLoggerDefinitionVersionRequest {
   /**
    * The ID of the logger definition.
@@ -3989,15 +2765,6 @@ export interface GetLoggerDefinitionVersionRequest {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
-}
-
-export namespace GetLoggerDefinitionVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoggerDefinitionVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLoggerDefinitionVersionResponse {
@@ -4027,29 +2794,11 @@ export interface GetLoggerDefinitionVersionResponse {
   Version?: string;
 }
 
-export namespace GetLoggerDefinitionVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoggerDefinitionVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourceDefinitionRequest {
   /**
    * The ID of the resource definition.
    */
   ResourceDefinitionId: string | undefined;
-}
-
-export namespace GetResourceDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourceDefinitionResponse {
@@ -4094,15 +2843,6 @@ export interface GetResourceDefinitionResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetResourceDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourceDefinitionVersionRequest {
   /**
    * The ID of the resource definition.
@@ -4113,15 +2853,6 @@ export interface GetResourceDefinitionVersionRequest {
    * The ID of the resource definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListResourceDefinitionVersions'' requests. If the version is the last one that was associated with a resource definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
    */
   ResourceDefinitionVersionId: string | undefined;
-}
-
-export namespace GetResourceDefinitionVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceDefinitionVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourceDefinitionVersionResponse {
@@ -4151,25 +2882,7 @@ export interface GetResourceDefinitionVersionResponse {
   Version?: string;
 }
 
-export namespace GetResourceDefinitionVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceDefinitionVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServiceRoleForAccountRequest {}
-
-export namespace GetServiceRoleForAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceRoleForAccountRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetServiceRoleForAccountResponse {
   /**
@@ -4183,29 +2896,11 @@ export interface GetServiceRoleForAccountResponse {
   RoleArn?: string;
 }
 
-export namespace GetServiceRoleForAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceRoleForAccountResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSubscriptionDefinitionRequest {
   /**
    * The ID of the subscription definition.
    */
   SubscriptionDefinitionId: string | undefined;
-}
-
-export namespace GetSubscriptionDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSubscriptionDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSubscriptionDefinitionResponse {
@@ -4250,15 +2945,6 @@ export interface GetSubscriptionDefinitionResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetSubscriptionDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSubscriptionDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSubscriptionDefinitionVersionRequest {
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -4274,15 +2960,6 @@ export interface GetSubscriptionDefinitionVersionRequest {
    * The ID of the subscription definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListSubscriptionDefinitionVersions'' requests. If the version is the last one that was associated with a subscription definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
    */
   SubscriptionDefinitionVersionId: string | undefined;
-}
-
-export namespace GetSubscriptionDefinitionVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSubscriptionDefinitionVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSubscriptionDefinitionVersionResponse {
@@ -4317,29 +2994,11 @@ export interface GetSubscriptionDefinitionVersionResponse {
   Version?: string;
 }
 
-export namespace GetSubscriptionDefinitionVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSubscriptionDefinitionVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetThingRuntimeConfigurationRequest {
   /**
    * The thing name.
    */
   ThingName: string | undefined;
-}
-
-export namespace GetThingRuntimeConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetThingRuntimeConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum Telemetry {
@@ -4362,15 +3021,6 @@ export interface TelemetryConfiguration {
   Telemetry: Telemetry | string | undefined;
 }
 
-export namespace TelemetryConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TelemetryConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Runtime configuration for a thing.
  */
@@ -4381,29 +3031,11 @@ export interface RuntimeConfiguration {
   TelemetryConfiguration?: TelemetryConfiguration;
 }
 
-export namespace RuntimeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuntimeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface GetThingRuntimeConfigurationResponse {
   /**
    * Runtime configuration for a thing.
    */
   RuntimeConfiguration?: RuntimeConfiguration;
-}
-
-export namespace GetThingRuntimeConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetThingRuntimeConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBulkDeploymentDetailedReportsRequest {
@@ -4423,15 +3055,6 @@ export interface ListBulkDeploymentDetailedReportsRequest {
   NextToken?: string;
 }
 
-export namespace ListBulkDeploymentDetailedReportsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBulkDeploymentDetailedReportsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBulkDeploymentDetailedReportsResponse {
   /**
    * A list of the individual group deployments in the bulk deployment operation.
@@ -4442,15 +3065,6 @@ export interface ListBulkDeploymentDetailedReportsResponse {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
-}
-
-export namespace ListBulkDeploymentDetailedReportsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBulkDeploymentDetailedReportsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBulkDeploymentsRequest {
@@ -4465,15 +3079,6 @@ export interface ListBulkDeploymentsRequest {
   NextToken?: string;
 }
 
-export namespace ListBulkDeploymentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBulkDeploymentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBulkDeploymentsResponse {
   /**
    * A list of bulk deployments.
@@ -4484,15 +3089,6 @@ export interface ListBulkDeploymentsResponse {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
-}
-
-export namespace ListBulkDeploymentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBulkDeploymentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListConnectorDefinitionsRequest {
@@ -4507,15 +3103,6 @@ export interface ListConnectorDefinitionsRequest {
   NextToken?: string;
 }
 
-export namespace ListConnectorDefinitionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConnectorDefinitionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConnectorDefinitionsResponse {
   /**
    * Information about a definition.
@@ -4526,15 +3113,6 @@ export interface ListConnectorDefinitionsResponse {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
-}
-
-export namespace ListConnectorDefinitionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConnectorDefinitionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListConnectorDefinitionVersionsRequest {
@@ -4554,15 +3132,6 @@ export interface ListConnectorDefinitionVersionsRequest {
   NextToken?: string;
 }
 
-export namespace ListConnectorDefinitionVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConnectorDefinitionVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConnectorDefinitionVersionsResponse {
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -4573,15 +3142,6 @@ export interface ListConnectorDefinitionVersionsResponse {
    * Information about a version.
    */
   Versions?: VersionInformation[];
-}
-
-export namespace ListConnectorDefinitionVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConnectorDefinitionVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCoreDefinitionsRequest {
@@ -4596,15 +3156,6 @@ export interface ListCoreDefinitionsRequest {
   NextToken?: string;
 }
 
-export namespace ListCoreDefinitionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCoreDefinitionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCoreDefinitionsResponse {
   /**
    * Information about a definition.
@@ -4615,15 +3166,6 @@ export interface ListCoreDefinitionsResponse {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
-}
-
-export namespace ListCoreDefinitionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCoreDefinitionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCoreDefinitionVersionsRequest {
@@ -4643,15 +3185,6 @@ export interface ListCoreDefinitionVersionsRequest {
   NextToken?: string;
 }
 
-export namespace ListCoreDefinitionVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCoreDefinitionVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCoreDefinitionVersionsResponse {
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -4662,15 +3195,6 @@ export interface ListCoreDefinitionVersionsResponse {
    * Information about a version.
    */
   Versions?: VersionInformation[];
-}
-
-export namespace ListCoreDefinitionVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCoreDefinitionVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDeploymentsRequest {
@@ -4690,15 +3214,6 @@ export interface ListDeploymentsRequest {
   NextToken?: string;
 }
 
-export namespace ListDeploymentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDeploymentsResponse {
   /**
    * A list of deployments for the requested groups.
@@ -4709,15 +3224,6 @@ export interface ListDeploymentsResponse {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
-}
-
-export namespace ListDeploymentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDeviceDefinitionsRequest {
@@ -4732,15 +3238,6 @@ export interface ListDeviceDefinitionsRequest {
   NextToken?: string;
 }
 
-export namespace ListDeviceDefinitionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeviceDefinitionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDeviceDefinitionsResponse {
   /**
    * Information about a definition.
@@ -4751,15 +3248,6 @@ export interface ListDeviceDefinitionsResponse {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
-}
-
-export namespace ListDeviceDefinitionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeviceDefinitionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDeviceDefinitionVersionsRequest {
@@ -4779,15 +3267,6 @@ export interface ListDeviceDefinitionVersionsRequest {
   NextToken?: string;
 }
 
-export namespace ListDeviceDefinitionVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeviceDefinitionVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDeviceDefinitionVersionsResponse {
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -4798,15 +3277,6 @@ export interface ListDeviceDefinitionVersionsResponse {
    * Information about a version.
    */
   Versions?: VersionInformation[];
-}
-
-export namespace ListDeviceDefinitionVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeviceDefinitionVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFunctionDefinitionsRequest {
@@ -4821,15 +3291,6 @@ export interface ListFunctionDefinitionsRequest {
   NextToken?: string;
 }
 
-export namespace ListFunctionDefinitionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFunctionDefinitionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFunctionDefinitionsResponse {
   /**
    * Information about a definition.
@@ -4840,15 +3301,6 @@ export interface ListFunctionDefinitionsResponse {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
-}
-
-export namespace ListFunctionDefinitionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFunctionDefinitionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFunctionDefinitionVersionsRequest {
@@ -4868,15 +3320,6 @@ export interface ListFunctionDefinitionVersionsRequest {
   NextToken?: string;
 }
 
-export namespace ListFunctionDefinitionVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFunctionDefinitionVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFunctionDefinitionVersionsResponse {
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -4889,15 +3332,6 @@ export interface ListFunctionDefinitionVersionsResponse {
   Versions?: VersionInformation[];
 }
 
-export namespace ListFunctionDefinitionVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFunctionDefinitionVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGroupCertificateAuthoritiesRequest {
   /**
    * The ID of the Greengrass group.
@@ -4905,29 +3339,11 @@ export interface ListGroupCertificateAuthoritiesRequest {
   GroupId: string | undefined;
 }
 
-export namespace ListGroupCertificateAuthoritiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupCertificateAuthoritiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGroupCertificateAuthoritiesResponse {
   /**
    * A list of certificate authorities associated with the group.
    */
   GroupCertificateAuthorities?: GroupCertificateAuthorityProperties[];
-}
-
-export namespace ListGroupCertificateAuthoritiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupCertificateAuthoritiesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGroupsRequest {
@@ -4942,15 +3358,6 @@ export interface ListGroupsRequest {
   NextToken?: string;
 }
 
-export namespace ListGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGroupsResponse {
   /**
    * Information about a group.
@@ -4961,15 +3368,6 @@ export interface ListGroupsResponse {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
-}
-
-export namespace ListGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGroupVersionsRequest {
@@ -4989,15 +3387,6 @@ export interface ListGroupVersionsRequest {
   NextToken?: string;
 }
 
-export namespace ListGroupVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGroupVersionsResponse {
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -5008,15 +3397,6 @@ export interface ListGroupVersionsResponse {
    * Information about a version.
    */
   Versions?: VersionInformation[];
-}
-
-export namespace ListGroupVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLoggerDefinitionsRequest {
@@ -5031,15 +3411,6 @@ export interface ListLoggerDefinitionsRequest {
   NextToken?: string;
 }
 
-export namespace ListLoggerDefinitionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLoggerDefinitionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLoggerDefinitionsResponse {
   /**
    * Information about a definition.
@@ -5050,15 +3421,6 @@ export interface ListLoggerDefinitionsResponse {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
-}
-
-export namespace ListLoggerDefinitionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLoggerDefinitionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLoggerDefinitionVersionsRequest {
@@ -5078,15 +3440,6 @@ export interface ListLoggerDefinitionVersionsRequest {
   NextToken?: string;
 }
 
-export namespace ListLoggerDefinitionVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLoggerDefinitionVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLoggerDefinitionVersionsResponse {
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -5097,15 +3450,6 @@ export interface ListLoggerDefinitionVersionsResponse {
    * Information about a version.
    */
   Versions?: VersionInformation[];
-}
-
-export namespace ListLoggerDefinitionVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLoggerDefinitionVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourceDefinitionsRequest {
@@ -5120,15 +3464,6 @@ export interface ListResourceDefinitionsRequest {
   NextToken?: string;
 }
 
-export namespace ListResourceDefinitionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceDefinitionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourceDefinitionsResponse {
   /**
    * Information about a definition.
@@ -5139,15 +3474,6 @@ export interface ListResourceDefinitionsResponse {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
-}
-
-export namespace ListResourceDefinitionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceDefinitionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourceDefinitionVersionsRequest {
@@ -5167,15 +3493,6 @@ export interface ListResourceDefinitionVersionsRequest {
   ResourceDefinitionId: string | undefined;
 }
 
-export namespace ListResourceDefinitionVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceDefinitionVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourceDefinitionVersionsResponse {
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -5186,15 +3503,6 @@ export interface ListResourceDefinitionVersionsResponse {
    * Information about a version.
    */
   Versions?: VersionInformation[];
-}
-
-export namespace ListResourceDefinitionVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceDefinitionVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSubscriptionDefinitionsRequest {
@@ -5209,15 +3517,6 @@ export interface ListSubscriptionDefinitionsRequest {
   NextToken?: string;
 }
 
-export namespace ListSubscriptionDefinitionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSubscriptionDefinitionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSubscriptionDefinitionsResponse {
   /**
    * Information about a definition.
@@ -5228,15 +3527,6 @@ export interface ListSubscriptionDefinitionsResponse {
    * The token for the next set of results, or ''null'' if there are no additional results.
    */
   NextToken?: string;
-}
-
-export namespace ListSubscriptionDefinitionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSubscriptionDefinitionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSubscriptionDefinitionVersionsRequest {
@@ -5256,15 +3546,6 @@ export interface ListSubscriptionDefinitionVersionsRequest {
   SubscriptionDefinitionId: string | undefined;
 }
 
-export namespace ListSubscriptionDefinitionVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSubscriptionDefinitionVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSubscriptionDefinitionVersionsResponse {
   /**
    * The token for the next set of results, or ''null'' if there are no additional results.
@@ -5277,15 +3558,6 @@ export interface ListSubscriptionDefinitionVersionsResponse {
   Versions?: VersionInformation[];
 }
 
-export namespace ListSubscriptionDefinitionVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSubscriptionDefinitionVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * The Amazon Resource Name (ARN) of the resource.
@@ -5293,29 +3565,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * The key-value pair for the resource tag.
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5338,15 +3592,6 @@ export interface ResetDeploymentsRequest {
   GroupId: string | undefined;
 }
 
-export namespace ResetDeploymentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetDeploymentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ResetDeploymentsResponse {
   /**
    * The ARN of the deployment.
@@ -5357,15 +3602,6 @@ export interface ResetDeploymentsResponse {
    * The ID of the deployment.
    */
   DeploymentId?: string;
-}
-
-export namespace ResetDeploymentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetDeploymentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartBulkDeploymentRequest {
@@ -5390,15 +3626,6 @@ export interface StartBulkDeploymentRequest {
   tags?: Record<string, string>;
 }
 
-export namespace StartBulkDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBulkDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartBulkDeploymentResponse {
   /**
    * The ARN of the bulk deployment.
@@ -5411,15 +3638,6 @@ export interface StartBulkDeploymentResponse {
   BulkDeploymentId?: string;
 }
 
-export namespace StartBulkDeploymentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBulkDeploymentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StopBulkDeploymentRequest {
   /**
    * The ID of the bulk deployment.
@@ -5427,25 +3645,7 @@ export interface StopBulkDeploymentRequest {
   BulkDeploymentId: string | undefined;
 }
 
-export namespace StopBulkDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopBulkDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopBulkDeploymentResponse {}
-
-export namespace StopBulkDeploymentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopBulkDeploymentResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * A map of the key-value pairs for the resource tag.
@@ -5462,15 +3662,6 @@ export interface TagResourceRequest {
   tags?: Record<string, string>;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * The Amazon Resource Name (ARN) of the resource.
@@ -5481,15 +3672,6 @@ export interface UntagResourceRequest {
    * An array of tag keys to delete
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5507,15 +3689,6 @@ export interface UpdateConnectivityInfoRequest {
   ThingName: string | undefined;
 }
 
-export namespace UpdateConnectivityInfoRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectivityInfoRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateConnectivityInfoResponse {
   /**
    * A message about the connectivity info update request.
@@ -5526,15 +3699,6 @@ export interface UpdateConnectivityInfoResponse {
    * The new version of the connectivity info.
    */
   Version?: string;
-}
-
-export namespace UpdateConnectivityInfoResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectivityInfoResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateConnectorDefinitionRequest {
@@ -5549,25 +3713,7 @@ export interface UpdateConnectorDefinitionRequest {
   Name?: string;
 }
 
-export namespace UpdateConnectorDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectorDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateConnectorDefinitionResponse {}
-
-export namespace UpdateConnectorDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectorDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateCoreDefinitionRequest {
   /**
@@ -5581,25 +3727,7 @@ export interface UpdateCoreDefinitionRequest {
   Name?: string;
 }
 
-export namespace UpdateCoreDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCoreDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCoreDefinitionResponse {}
-
-export namespace UpdateCoreDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCoreDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDeviceDefinitionRequest {
   /**
@@ -5613,25 +3741,7 @@ export interface UpdateDeviceDefinitionRequest {
   Name?: string;
 }
 
-export namespace UpdateDeviceDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeviceDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDeviceDefinitionResponse {}
-
-export namespace UpdateDeviceDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeviceDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateFunctionDefinitionRequest {
   /**
@@ -5645,25 +3755,7 @@ export interface UpdateFunctionDefinitionRequest {
   Name?: string;
 }
 
-export namespace UpdateFunctionDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFunctionDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFunctionDefinitionResponse {}
-
-export namespace UpdateFunctionDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFunctionDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateGroupRequest {
   /**
@@ -5677,25 +3769,7 @@ export interface UpdateGroupRequest {
   Name?: string;
 }
 
-export namespace UpdateGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGroupResponse {}
-
-export namespace UpdateGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateGroupCertificateConfigurationRequest {
   /**
@@ -5707,15 +3781,6 @@ export interface UpdateGroupCertificateConfigurationRequest {
    * The ID of the Greengrass group.
    */
   GroupId: string | undefined;
-}
-
-export namespace UpdateGroupCertificateConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGroupCertificateConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateGroupCertificateConfigurationResponse {
@@ -5735,15 +3800,6 @@ export interface UpdateGroupCertificateConfigurationResponse {
   GroupId?: string;
 }
 
-export namespace UpdateGroupCertificateConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGroupCertificateConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLoggerDefinitionRequest {
   /**
    * The ID of the logger definition.
@@ -5756,25 +3812,7 @@ export interface UpdateLoggerDefinitionRequest {
   Name?: string;
 }
 
-export namespace UpdateLoggerDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLoggerDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLoggerDefinitionResponse {}
-
-export namespace UpdateLoggerDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLoggerDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateResourceDefinitionRequest {
   /**
@@ -5788,25 +3826,7 @@ export interface UpdateResourceDefinitionRequest {
   ResourceDefinitionId: string | undefined;
 }
 
-export namespace UpdateResourceDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateResourceDefinitionResponse {}
-
-export namespace UpdateResourceDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateSubscriptionDefinitionRequest {
   /**
@@ -5820,25 +3840,7 @@ export interface UpdateSubscriptionDefinitionRequest {
   SubscriptionDefinitionId: string | undefined;
 }
 
-export namespace UpdateSubscriptionDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSubscriptionDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSubscriptionDefinitionResponse {}
-
-export namespace UpdateSubscriptionDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSubscriptionDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * Configuration settings for running telemetry.
@@ -5848,15 +3850,6 @@ export interface TelemetryConfigurationUpdate {
    * Configure telemetry to be on or off.
    */
   Telemetry: Telemetry | string | undefined;
-}
-
-export namespace TelemetryConfigurationUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TelemetryConfigurationUpdate): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateThingRuntimeConfigurationRequest {
@@ -5871,22 +3864,1703 @@ export interface UpdateThingRuntimeConfigurationRequest {
   ThingName: string | undefined;
 }
 
-export namespace UpdateThingRuntimeConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateThingRuntimeConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateThingRuntimeConfigurationResponse {}
 
-export namespace UpdateThingRuntimeConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateThingRuntimeConfigurationResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ConnectivityInfoFilterSensitiveLog = (obj: ConnectivityInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectorFilterSensitiveLog = (obj: Connector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CoreFilterSensitiveLog = (obj: Core): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefinitionInformationFilterSensitiveLog = (obj: DefinitionInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceFilterSensitiveLog = (obj: Device): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionRunAsConfigFilterSensitiveLog = (obj: FunctionRunAsConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionExecutionConfigFilterSensitiveLog = (obj: FunctionExecutionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceAccessPolicyFilterSensitiveLog = (obj: ResourceAccessPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionConfigurationEnvironmentFilterSensitiveLog = (obj: FunctionConfigurationEnvironment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionConfigurationFilterSensitiveLog = (obj: FunctionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionFilterSensitiveLog = (obj: Function): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupCertificateAuthorityPropertiesFilterSensitiveLog = (
+  obj: GroupCertificateAuthorityProperties
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupInformationFilterSensitiveLog = (obj: GroupInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggerFilterSensitiveLog = (obj: Logger): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupOwnerSettingFilterSensitiveLog = (obj: GroupOwnerSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LocalDeviceResourceDataFilterSensitiveLog = (obj: LocalDeviceResourceData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LocalVolumeResourceDataFilterSensitiveLog = (obj: LocalVolumeResourceData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceDownloadOwnerSettingFilterSensitiveLog = (obj: ResourceDownloadOwnerSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3MachineLearningModelResourceDataFilterSensitiveLog = (obj: S3MachineLearningModelResourceData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SageMakerMachineLearningModelResourceDataFilterSensitiveLog = (
+  obj: SageMakerMachineLearningModelResourceData
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecretsManagerSecretResourceDataFilterSensitiveLog = (obj: SecretsManagerSecretResourceData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceDataContainerFilterSensitiveLog = (obj: ResourceDataContainer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubscriptionFilterSensitiveLog = (obj: Subscription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VersionInformationFilterSensitiveLog = (obj: VersionInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateRoleToGroupRequestFilterSensitiveLog = (obj: AssociateRoleToGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateRoleToGroupResponseFilterSensitiveLog = (obj: AssociateRoleToGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorDetailFilterSensitiveLog = (obj: ErrorDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateServiceRoleToAccountRequestFilterSensitiveLog = (
+  obj: AssociateServiceRoleToAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateServiceRoleToAccountResponseFilterSensitiveLog = (
+  obj: AssociateServiceRoleToAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BulkDeploymentFilterSensitiveLog = (obj: BulkDeployment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BulkDeploymentMetricsFilterSensitiveLog = (obj: BulkDeploymentMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BulkDeploymentResultFilterSensitiveLog = (obj: BulkDeploymentResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectorDefinitionVersionFilterSensitiveLog = (obj: ConnectorDefinitionVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CoreDefinitionVersionFilterSensitiveLog = (obj: CoreDefinitionVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectorDefinitionRequestFilterSensitiveLog = (obj: CreateConnectorDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectorDefinitionResponseFilterSensitiveLog = (obj: CreateConnectorDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectorDefinitionVersionRequestFilterSensitiveLog = (
+  obj: CreateConnectorDefinitionVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectorDefinitionVersionResponseFilterSensitiveLog = (
+  obj: CreateConnectorDefinitionVersionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCoreDefinitionRequestFilterSensitiveLog = (obj: CreateCoreDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCoreDefinitionResponseFilterSensitiveLog = (obj: CreateCoreDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCoreDefinitionVersionRequestFilterSensitiveLog = (obj: CreateCoreDefinitionVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCoreDefinitionVersionResponseFilterSensitiveLog = (
+  obj: CreateCoreDefinitionVersionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentRequestFilterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentResponseFilterSensitiveLog = (obj: CreateDeploymentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceDefinitionVersionFilterSensitiveLog = (obj: DeviceDefinitionVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeviceDefinitionRequestFilterSensitiveLog = (obj: CreateDeviceDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeviceDefinitionResponseFilterSensitiveLog = (obj: CreateDeviceDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeviceDefinitionVersionRequestFilterSensitiveLog = (
+  obj: CreateDeviceDefinitionVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeviceDefinitionVersionResponseFilterSensitiveLog = (
+  obj: CreateDeviceDefinitionVersionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionDefaultExecutionConfigFilterSensitiveLog = (obj: FunctionDefaultExecutionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionDefaultConfigFilterSensitiveLog = (obj: FunctionDefaultConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionDefinitionVersionFilterSensitiveLog = (obj: FunctionDefinitionVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFunctionDefinitionRequestFilterSensitiveLog = (obj: CreateFunctionDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFunctionDefinitionResponseFilterSensitiveLog = (obj: CreateFunctionDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFunctionDefinitionVersionRequestFilterSensitiveLog = (
+  obj: CreateFunctionDefinitionVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFunctionDefinitionVersionResponseFilterSensitiveLog = (
+  obj: CreateFunctionDefinitionVersionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupVersionFilterSensitiveLog = (obj: GroupVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupRequestFilterSensitiveLog = (obj: CreateGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupResponseFilterSensitiveLog = (obj: CreateGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupCertificateAuthorityRequestFilterSensitiveLog = (
+  obj: CreateGroupCertificateAuthorityRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupCertificateAuthorityResponseFilterSensitiveLog = (
+  obj: CreateGroupCertificateAuthorityResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupVersionRequestFilterSensitiveLog = (obj: CreateGroupVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupVersionResponseFilterSensitiveLog = (obj: CreateGroupVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggerDefinitionVersionFilterSensitiveLog = (obj: LoggerDefinitionVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLoggerDefinitionRequestFilterSensitiveLog = (obj: CreateLoggerDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLoggerDefinitionResponseFilterSensitiveLog = (obj: CreateLoggerDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLoggerDefinitionVersionRequestFilterSensitiveLog = (
+  obj: CreateLoggerDefinitionVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLoggerDefinitionVersionResponseFilterSensitiveLog = (
+  obj: CreateLoggerDefinitionVersionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceDefinitionVersionFilterSensitiveLog = (obj: ResourceDefinitionVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceDefinitionRequestFilterSensitiveLog = (obj: CreateResourceDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceDefinitionResponseFilterSensitiveLog = (obj: CreateResourceDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceDefinitionVersionRequestFilterSensitiveLog = (
+  obj: CreateResourceDefinitionVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceDefinitionVersionResponseFilterSensitiveLog = (
+  obj: CreateResourceDefinitionVersionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSoftwareUpdateJobRequestFilterSensitiveLog = (obj: CreateSoftwareUpdateJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSoftwareUpdateJobResponseFilterSensitiveLog = (obj: CreateSoftwareUpdateJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubscriptionDefinitionVersionFilterSensitiveLog = (obj: SubscriptionDefinitionVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSubscriptionDefinitionRequestFilterSensitiveLog = (
+  obj: CreateSubscriptionDefinitionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSubscriptionDefinitionResponseFilterSensitiveLog = (
+  obj: CreateSubscriptionDefinitionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSubscriptionDefinitionVersionRequestFilterSensitiveLog = (
+  obj: CreateSubscriptionDefinitionVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSubscriptionDefinitionVersionResponseFilterSensitiveLog = (
+  obj: CreateSubscriptionDefinitionVersionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectorDefinitionRequestFilterSensitiveLog = (obj: DeleteConnectorDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectorDefinitionResponseFilterSensitiveLog = (obj: DeleteConnectorDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCoreDefinitionRequestFilterSensitiveLog = (obj: DeleteCoreDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCoreDefinitionResponseFilterSensitiveLog = (obj: DeleteCoreDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeviceDefinitionRequestFilterSensitiveLog = (obj: DeleteDeviceDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeviceDefinitionResponseFilterSensitiveLog = (obj: DeleteDeviceDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFunctionDefinitionRequestFilterSensitiveLog = (obj: DeleteFunctionDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFunctionDefinitionResponseFilterSensitiveLog = (obj: DeleteFunctionDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupRequestFilterSensitiveLog = (obj: DeleteGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupResponseFilterSensitiveLog = (obj: DeleteGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLoggerDefinitionRequestFilterSensitiveLog = (obj: DeleteLoggerDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLoggerDefinitionResponseFilterSensitiveLog = (obj: DeleteLoggerDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourceDefinitionRequestFilterSensitiveLog = (obj: DeleteResourceDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourceDefinitionResponseFilterSensitiveLog = (obj: DeleteResourceDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSubscriptionDefinitionRequestFilterSensitiveLog = (
+  obj: DeleteSubscriptionDefinitionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSubscriptionDefinitionResponseFilterSensitiveLog = (
+  obj: DeleteSubscriptionDefinitionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentFilterSensitiveLog = (obj: Deployment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateRoleFromGroupRequestFilterSensitiveLog = (obj: DisassociateRoleFromGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateRoleFromGroupResponseFilterSensitiveLog = (obj: DisassociateRoleFromGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateServiceRoleFromAccountRequestFilterSensitiveLog = (
+  obj: DisassociateServiceRoleFromAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateServiceRoleFromAccountResponseFilterSensitiveLog = (
+  obj: DisassociateServiceRoleFromAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssociatedRoleRequestFilterSensitiveLog = (obj: GetAssociatedRoleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssociatedRoleResponseFilterSensitiveLog = (obj: GetAssociatedRoleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBulkDeploymentStatusRequestFilterSensitiveLog = (obj: GetBulkDeploymentStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBulkDeploymentStatusResponseFilterSensitiveLog = (obj: GetBulkDeploymentStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectivityInfoRequestFilterSensitiveLog = (obj: GetConnectivityInfoRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectivityInfoResponseFilterSensitiveLog = (obj: GetConnectivityInfoResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectorDefinitionRequestFilterSensitiveLog = (obj: GetConnectorDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectorDefinitionResponseFilterSensitiveLog = (obj: GetConnectorDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectorDefinitionVersionRequestFilterSensitiveLog = (
+  obj: GetConnectorDefinitionVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectorDefinitionVersionResponseFilterSensitiveLog = (
+  obj: GetConnectorDefinitionVersionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCoreDefinitionRequestFilterSensitiveLog = (obj: GetCoreDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCoreDefinitionResponseFilterSensitiveLog = (obj: GetCoreDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCoreDefinitionVersionRequestFilterSensitiveLog = (obj: GetCoreDefinitionVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCoreDefinitionVersionResponseFilterSensitiveLog = (obj: GetCoreDefinitionVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentStatusRequestFilterSensitiveLog = (obj: GetDeploymentStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentStatusResponseFilterSensitiveLog = (obj: GetDeploymentStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceDefinitionRequestFilterSensitiveLog = (obj: GetDeviceDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceDefinitionResponseFilterSensitiveLog = (obj: GetDeviceDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceDefinitionVersionRequestFilterSensitiveLog = (obj: GetDeviceDefinitionVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceDefinitionVersionResponseFilterSensitiveLog = (obj: GetDeviceDefinitionVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFunctionDefinitionRequestFilterSensitiveLog = (obj: GetFunctionDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFunctionDefinitionResponseFilterSensitiveLog = (obj: GetFunctionDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFunctionDefinitionVersionRequestFilterSensitiveLog = (
+  obj: GetFunctionDefinitionVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFunctionDefinitionVersionResponseFilterSensitiveLog = (
+  obj: GetFunctionDefinitionVersionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupRequestFilterSensitiveLog = (obj: GetGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupResponseFilterSensitiveLog = (obj: GetGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupCertificateAuthorityRequestFilterSensitiveLog = (
+  obj: GetGroupCertificateAuthorityRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupCertificateAuthorityResponseFilterSensitiveLog = (
+  obj: GetGroupCertificateAuthorityResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupCertificateConfigurationRequestFilterSensitiveLog = (
+  obj: GetGroupCertificateConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupCertificateConfigurationResponseFilterSensitiveLog = (
+  obj: GetGroupCertificateConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupVersionRequestFilterSensitiveLog = (obj: GetGroupVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupVersionResponseFilterSensitiveLog = (obj: GetGroupVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoggerDefinitionRequestFilterSensitiveLog = (obj: GetLoggerDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoggerDefinitionResponseFilterSensitiveLog = (obj: GetLoggerDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoggerDefinitionVersionRequestFilterSensitiveLog = (obj: GetLoggerDefinitionVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoggerDefinitionVersionResponseFilterSensitiveLog = (obj: GetLoggerDefinitionVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceDefinitionRequestFilterSensitiveLog = (obj: GetResourceDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceDefinitionResponseFilterSensitiveLog = (obj: GetResourceDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceDefinitionVersionRequestFilterSensitiveLog = (
+  obj: GetResourceDefinitionVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceDefinitionVersionResponseFilterSensitiveLog = (
+  obj: GetResourceDefinitionVersionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceRoleForAccountRequestFilterSensitiveLog = (obj: GetServiceRoleForAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceRoleForAccountResponseFilterSensitiveLog = (obj: GetServiceRoleForAccountResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSubscriptionDefinitionRequestFilterSensitiveLog = (obj: GetSubscriptionDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSubscriptionDefinitionResponseFilterSensitiveLog = (obj: GetSubscriptionDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSubscriptionDefinitionVersionRequestFilterSensitiveLog = (
+  obj: GetSubscriptionDefinitionVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSubscriptionDefinitionVersionResponseFilterSensitiveLog = (
+  obj: GetSubscriptionDefinitionVersionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetThingRuntimeConfigurationRequestFilterSensitiveLog = (
+  obj: GetThingRuntimeConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TelemetryConfigurationFilterSensitiveLog = (obj: TelemetryConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuntimeConfigurationFilterSensitiveLog = (obj: RuntimeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetThingRuntimeConfigurationResponseFilterSensitiveLog = (
+  obj: GetThingRuntimeConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBulkDeploymentDetailedReportsRequestFilterSensitiveLog = (
+  obj: ListBulkDeploymentDetailedReportsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBulkDeploymentDetailedReportsResponseFilterSensitiveLog = (
+  obj: ListBulkDeploymentDetailedReportsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBulkDeploymentsRequestFilterSensitiveLog = (obj: ListBulkDeploymentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBulkDeploymentsResponseFilterSensitiveLog = (obj: ListBulkDeploymentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConnectorDefinitionsRequestFilterSensitiveLog = (obj: ListConnectorDefinitionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConnectorDefinitionsResponseFilterSensitiveLog = (obj: ListConnectorDefinitionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConnectorDefinitionVersionsRequestFilterSensitiveLog = (
+  obj: ListConnectorDefinitionVersionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConnectorDefinitionVersionsResponseFilterSensitiveLog = (
+  obj: ListConnectorDefinitionVersionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCoreDefinitionsRequestFilterSensitiveLog = (obj: ListCoreDefinitionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCoreDefinitionsResponseFilterSensitiveLog = (obj: ListCoreDefinitionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCoreDefinitionVersionsRequestFilterSensitiveLog = (obj: ListCoreDefinitionVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCoreDefinitionVersionsResponseFilterSensitiveLog = (obj: ListCoreDefinitionVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentsRequestFilterSensitiveLog = (obj: ListDeploymentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentsResponseFilterSensitiveLog = (obj: ListDeploymentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeviceDefinitionsRequestFilterSensitiveLog = (obj: ListDeviceDefinitionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeviceDefinitionsResponseFilterSensitiveLog = (obj: ListDeviceDefinitionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeviceDefinitionVersionsRequestFilterSensitiveLog = (
+  obj: ListDeviceDefinitionVersionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeviceDefinitionVersionsResponseFilterSensitiveLog = (
+  obj: ListDeviceDefinitionVersionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFunctionDefinitionsRequestFilterSensitiveLog = (obj: ListFunctionDefinitionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFunctionDefinitionsResponseFilterSensitiveLog = (obj: ListFunctionDefinitionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFunctionDefinitionVersionsRequestFilterSensitiveLog = (
+  obj: ListFunctionDefinitionVersionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFunctionDefinitionVersionsResponseFilterSensitiveLog = (
+  obj: ListFunctionDefinitionVersionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupCertificateAuthoritiesRequestFilterSensitiveLog = (
+  obj: ListGroupCertificateAuthoritiesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupCertificateAuthoritiesResponseFilterSensitiveLog = (
+  obj: ListGroupCertificateAuthoritiesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupsRequestFilterSensitiveLog = (obj: ListGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupsResponseFilterSensitiveLog = (obj: ListGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupVersionsRequestFilterSensitiveLog = (obj: ListGroupVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupVersionsResponseFilterSensitiveLog = (obj: ListGroupVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLoggerDefinitionsRequestFilterSensitiveLog = (obj: ListLoggerDefinitionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLoggerDefinitionsResponseFilterSensitiveLog = (obj: ListLoggerDefinitionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLoggerDefinitionVersionsRequestFilterSensitiveLog = (
+  obj: ListLoggerDefinitionVersionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLoggerDefinitionVersionsResponseFilterSensitiveLog = (
+  obj: ListLoggerDefinitionVersionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceDefinitionsRequestFilterSensitiveLog = (obj: ListResourceDefinitionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceDefinitionsResponseFilterSensitiveLog = (obj: ListResourceDefinitionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceDefinitionVersionsRequestFilterSensitiveLog = (
+  obj: ListResourceDefinitionVersionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceDefinitionVersionsResponseFilterSensitiveLog = (
+  obj: ListResourceDefinitionVersionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSubscriptionDefinitionsRequestFilterSensitiveLog = (obj: ListSubscriptionDefinitionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSubscriptionDefinitionsResponseFilterSensitiveLog = (
+  obj: ListSubscriptionDefinitionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSubscriptionDefinitionVersionsRequestFilterSensitiveLog = (
+  obj: ListSubscriptionDefinitionVersionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSubscriptionDefinitionVersionsResponseFilterSensitiveLog = (
+  obj: ListSubscriptionDefinitionVersionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetDeploymentsRequestFilterSensitiveLog = (obj: ResetDeploymentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetDeploymentsResponseFilterSensitiveLog = (obj: ResetDeploymentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBulkDeploymentRequestFilterSensitiveLog = (obj: StartBulkDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBulkDeploymentResponseFilterSensitiveLog = (obj: StartBulkDeploymentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopBulkDeploymentRequestFilterSensitiveLog = (obj: StopBulkDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopBulkDeploymentResponseFilterSensitiveLog = (obj: StopBulkDeploymentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectivityInfoRequestFilterSensitiveLog = (obj: UpdateConnectivityInfoRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectivityInfoResponseFilterSensitiveLog = (obj: UpdateConnectivityInfoResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectorDefinitionRequestFilterSensitiveLog = (obj: UpdateConnectorDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectorDefinitionResponseFilterSensitiveLog = (obj: UpdateConnectorDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCoreDefinitionRequestFilterSensitiveLog = (obj: UpdateCoreDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCoreDefinitionResponseFilterSensitiveLog = (obj: UpdateCoreDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeviceDefinitionRequestFilterSensitiveLog = (obj: UpdateDeviceDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeviceDefinitionResponseFilterSensitiveLog = (obj: UpdateDeviceDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFunctionDefinitionRequestFilterSensitiveLog = (obj: UpdateFunctionDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFunctionDefinitionResponseFilterSensitiveLog = (obj: UpdateFunctionDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGroupRequestFilterSensitiveLog = (obj: UpdateGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGroupResponseFilterSensitiveLog = (obj: UpdateGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGroupCertificateConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateGroupCertificateConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGroupCertificateConfigurationResponseFilterSensitiveLog = (
+  obj: UpdateGroupCertificateConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLoggerDefinitionRequestFilterSensitiveLog = (obj: UpdateLoggerDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLoggerDefinitionResponseFilterSensitiveLog = (obj: UpdateLoggerDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceDefinitionRequestFilterSensitiveLog = (obj: UpdateResourceDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceDefinitionResponseFilterSensitiveLog = (obj: UpdateResourceDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSubscriptionDefinitionRequestFilterSensitiveLog = (
+  obj: UpdateSubscriptionDefinitionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSubscriptionDefinitionResponseFilterSensitiveLog = (
+  obj: UpdateSubscriptionDefinitionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TelemetryConfigurationUpdateFilterSensitiveLog = (obj: TelemetryConfigurationUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateThingRuntimeConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateThingRuntimeConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateThingRuntimeConfigurationResponseFilterSensitiveLog = (
+  obj: UpdateThingRuntimeConfigurationResponse
+): any => ({
+  ...obj,
+});

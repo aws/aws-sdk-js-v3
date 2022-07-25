@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeClassicLinkInstancesRequest, DescribeClassicLinkInstancesResult } from "../models/models_2";
+import {
+  DescribeClassicLinkInstancesRequest,
+  DescribeClassicLinkInstancesRequestFilterSensitiveLog,
+  DescribeClassicLinkInstancesResult,
+  DescribeClassicLinkInstancesResultFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_ec2DescribeClassicLinkInstancesCommand,
   serializeAws_ec2DescribeClassicLinkInstancesCommand,
@@ -76,8 +81,8 @@ export class DescribeClassicLinkInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClassicLinkInstancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClassicLinkInstancesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeClassicLinkInstancesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeClassicLinkInstancesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

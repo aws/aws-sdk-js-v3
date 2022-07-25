@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { PutPermissionRequest } from "../models/models_0";
+import { PutPermissionRequest, PutPermissionRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1PutPermissionCommand,
   serializeAws_json1_1PutPermissionCommand,
@@ -91,7 +91,7 @@ export class PutPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPermissionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutPermissionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

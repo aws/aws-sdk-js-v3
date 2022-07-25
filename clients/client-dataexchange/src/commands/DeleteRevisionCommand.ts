@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { DeleteRevisionRequest } from "../models/models_0";
+import { DeleteRevisionRequest, DeleteRevisionRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRevisionCommand,
   serializeAws_restJson1DeleteRevisionCommand,
@@ -72,7 +72,7 @@ export class DeleteRevisionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRevisionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRevisionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

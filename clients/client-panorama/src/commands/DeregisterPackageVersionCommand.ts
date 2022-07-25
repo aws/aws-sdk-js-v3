@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeregisterPackageVersionRequest, DeregisterPackageVersionResponse } from "../models/models_0";
+import {
+  DeregisterPackageVersionRequest,
+  DeregisterPackageVersionRequestFilterSensitiveLog,
+  DeregisterPackageVersionResponse,
+  DeregisterPackageVersionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
   deserializeAws_restJson1DeregisterPackageVersionCommand,
@@ -72,8 +77,8 @@ export class DeregisterPackageVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterPackageVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterPackageVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterPackageVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterPackageVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,8 +12,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PartnerIntegrationOutputMessage } from "../models/models_0";
-import { UpdatePartnerStatusInputMessage } from "../models/models_1";
+import { PartnerIntegrationOutputMessage, PartnerIntegrationOutputMessageFilterSensitiveLog } from "../models/models_0";
+import { UpdatePartnerStatusInputMessage, UpdatePartnerStatusInputMessageFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_queryUpdatePartnerStatusCommand,
   serializeAws_queryUpdatePartnerStatusCommand,
@@ -73,8 +73,8 @@ export class UpdatePartnerStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePartnerStatusInputMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: PartnerIntegrationOutputMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePartnerStatusInputMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: PartnerIntegrationOutputMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

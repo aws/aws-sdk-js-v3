@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import { UntagProjectRequest, UntagProjectResult } from "../models/models_0";
+import {
+  UntagProjectRequest,
+  UntagProjectRequestFilterSensitiveLog,
+  UntagProjectResult,
+  UntagProjectResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UntagProjectCommand,
   serializeAws_json1_1UntagProjectCommand,
@@ -72,8 +77,8 @@ export class UntagProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagProjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UntagProjectResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagProjectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UntagProjectResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,15 +45,6 @@ export interface AttributeKey {
   Name: string | undefined;
 }
 
-export namespace AttributeKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeKey): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the data for a typed attribute. You can set one, and only one, of the
  *       elements. Each attribute in an item is a name-value pair. Attributes have a single
@@ -154,18 +145,6 @@ export namespace TypedAttributeValue {
     if (value.DatetimeValue !== undefined) return visitor.DatetimeValue(value.DatetimeValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypedAttributeValue): any => {
-    if (obj.StringValue !== undefined) return { StringValue: obj.StringValue };
-    if (obj.BinaryValue !== undefined) return { BinaryValue: obj.BinaryValue };
-    if (obj.BooleanValue !== undefined) return { BooleanValue: obj.BooleanValue };
-    if (obj.NumberValue !== undefined) return { NumberValue: obj.NumberValue };
-    if (obj.DatetimeValue !== undefined) return { DatetimeValue: obj.DatetimeValue };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -181,16 +160,6 @@ export interface AttributeKeyAndValue {
    * <p>The value of the attribute.</p>
    */
   Value: TypedAttributeValue | undefined;
-}
-
-export namespace AttributeKeyAndValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeKeyAndValue): any => ({
-    ...obj,
-    ...(obj.Value && { Value: TypedAttributeValue.filterSensitiveLog(obj.Value) }),
-  });
 }
 
 /**
@@ -217,15 +186,6 @@ export interface ObjectReference {
   Selector?: string;
 }
 
-export namespace ObjectReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectReference): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A facet.</p>
  */
@@ -240,15 +200,6 @@ export interface SchemaFacet {
    * <p>The name of the facet. If this value is set, SchemaArn must also be set.</p>
    */
   FacetName?: string;
-}
-
-export namespace SchemaFacet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchemaFacet): any => ({
-    ...obj,
-  });
 }
 
 export interface AddFacetToObjectRequest {
@@ -274,28 +225,7 @@ export interface AddFacetToObjectRequest {
   ObjectReference: ObjectReference | undefined;
 }
 
-export namespace AddFacetToObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddFacetToObjectRequest): any => ({
-    ...obj,
-    ...(obj.ObjectAttributeList && {
-      ObjectAttributeList: obj.ObjectAttributeList.map((item) => AttributeKeyAndValue.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface AddFacetToObjectResponse {}
-
-export namespace AddFacetToObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddFacetToObjectResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Operations are only permitted on enabled directories.</p>
@@ -481,15 +411,6 @@ export interface ApplySchemaRequest {
   DirectoryArn: string | undefined;
 }
 
-export namespace ApplySchemaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplySchemaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ApplySchemaResponse {
   /**
    * <p>The applied schema ARN that is associated with the copied schema in the <a>Directory</a>. You can use this ARN to describe the schema information applied on
@@ -502,15 +423,6 @@ export interface ApplySchemaResponse {
    *       see <a>arns</a>.</p>
    */
   DirectoryArn?: string;
-}
-
-export namespace ApplySchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplySchemaResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -580,30 +492,12 @@ export interface AttachObjectRequest {
   LinkName: string | undefined;
 }
 
-export namespace AttachObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachObjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachObjectResponse {
   /**
    * <p>The attached <code>ObjectIdentifier</code>, which is the child
    *         <code>ObjectIdentifier</code>.</p>
    */
   AttachedObjectIdentifier?: string;
-}
-
-export namespace AttachObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachObjectResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -647,25 +541,7 @@ export interface AttachPolicyRequest {
   ObjectReference: ObjectReference | undefined;
 }
 
-export namespace AttachPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachPolicyResponse {}
-
-export namespace AttachPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Indicates that the requested operation can only operate on policy objects.</p>
@@ -706,29 +582,11 @@ export interface AttachToIndexRequest {
   TargetReference: ObjectReference | undefined;
 }
 
-export namespace AttachToIndexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachToIndexRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachToIndexResponse {
   /**
    * <p>The <code>ObjectIdentifier</code> of the object that was attached to the index.</p>
    */
   AttachedObjectIdentifier?: string;
-}
-
-export namespace AttachToIndexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachToIndexResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -788,16 +646,6 @@ export interface AttributeNameAndValue {
   Value: TypedAttributeValue | undefined;
 }
 
-export namespace AttributeNameAndValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeNameAndValue): any => ({
-    ...obj,
-    ...(obj.Value && { Value: TypedAttributeValue.filterSensitiveLog(obj.Value) }),
-  });
-}
-
 /**
  * <p>Identifies the schema Amazon Resource Name (ARN) and facet name for the typed
  *       link.</p>
@@ -813,15 +661,6 @@ export interface TypedLinkSchemaAndFacetName {
    * <p>The unique name of the typed link facet.</p>
    */
   TypedLinkName: string | undefined;
-}
-
-export namespace TypedLinkSchemaAndFacetName {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypedLinkSchemaAndFacetName): any => ({
-    ...obj,
-  });
 }
 
 export interface AttachTypedLinkRequest {
@@ -850,16 +689,6 @@ export interface AttachTypedLinkRequest {
    * <p>A set of attributes that are associated with the typed link.</p>
    */
   Attributes: AttributeNameAndValue[] | undefined;
-}
-
-export namespace AttachTypedLinkRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachTypedLinkRequest): any => ({
-    ...obj,
-    ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeNameAndValue.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -891,37 +720,11 @@ export interface TypedLinkSpecifier {
   IdentityAttributeValues: AttributeNameAndValue[] | undefined;
 }
 
-export namespace TypedLinkSpecifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypedLinkSpecifier): any => ({
-    ...obj,
-    ...(obj.IdentityAttributeValues && {
-      IdentityAttributeValues: obj.IdentityAttributeValues.map((item) =>
-        AttributeNameAndValue.filterSensitiveLog(item)
-      ),
-    }),
-  });
-}
-
 export interface AttachTypedLinkResponse {
   /**
    * <p>Returns a typed link specifier as output.</p>
    */
   TypedLinkSpecifier?: TypedLinkSpecifier;
-}
-
-export namespace AttachTypedLinkResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachTypedLinkResponse): any => ({
-    ...obj,
-    ...(obj.TypedLinkSpecifier && {
-      TypedLinkSpecifier: TypedLinkSpecifier.filterSensitiveLog(obj.TypedLinkSpecifier),
-    }),
-  });
 }
 
 export enum ConsistencyLevel {
@@ -944,18 +747,6 @@ export interface BatchGetLinkAttributes {
   AttributeNames: string[] | undefined;
 }
 
-export namespace BatchGetLinkAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetLinkAttributes): any => ({
-    ...obj,
-    ...(obj.TypedLinkSpecifier && {
-      TypedLinkSpecifier: TypedLinkSpecifier.filterSensitiveLog(obj.TypedLinkSpecifier),
-    }),
-  });
-}
-
 /**
  * <p>Retrieves attributes within a facet that are associated with an object inside an <a>BatchRead</a> operation. For more information, see <a>GetObjectAttributes</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
@@ -976,15 +767,6 @@ export interface BatchGetObjectAttributes {
   AttributeNames: string[] | undefined;
 }
 
-export namespace BatchGetObjectAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetObjectAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Retrieves metadata about an object inside a <a>BatchRead</a> operation. For more information, see <a>GetObjectInformation</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
@@ -993,15 +775,6 @@ export interface BatchGetObjectInformation {
    * <p>A reference to the object.</p>
    */
   ObjectReference: ObjectReference | undefined;
-}
-
-export namespace BatchGetObjectInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetObjectInformation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1022,15 +795,6 @@ export interface BatchListAttachedIndices {
    * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
-}
-
-export namespace BatchListAttachedIndices {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListAttachedIndices): any => ({
-    ...obj,
-  });
 }
 
 export enum RangeMode {
@@ -1066,17 +830,6 @@ export interface TypedAttributeValueRange {
   EndValue?: TypedAttributeValue;
 }
 
-export namespace TypedAttributeValueRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypedAttributeValueRange): any => ({
-    ...obj,
-    ...(obj.StartValue && { StartValue: TypedAttributeValue.filterSensitiveLog(obj.StartValue) }),
-    ...(obj.EndValue && { EndValue: TypedAttributeValue.filterSensitiveLog(obj.EndValue) }),
-  });
-}
-
 /**
  * <p>Identifies the range of attributes that are used by a specified filter.</p>
  */
@@ -1090,16 +843,6 @@ export interface TypedLinkAttributeRange {
    * <p>The range of attribute values that are being selected.</p>
    */
   Range: TypedAttributeValueRange | undefined;
-}
-
-export namespace TypedLinkAttributeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypedLinkAttributeRange): any => ({
-    ...obj,
-    ...(obj.Range && { Range: TypedAttributeValueRange.filterSensitiveLog(obj.Range) }),
-  });
 }
 
 /**
@@ -1135,18 +878,6 @@ export interface BatchListIncomingTypedLinks {
   MaxResults?: number;
 }
 
-export namespace BatchListIncomingTypedLinks {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListIncomingTypedLinks): any => ({
-    ...obj,
-    ...(obj.FilterAttributeRanges && {
-      FilterAttributeRanges: obj.FilterAttributeRanges.map((item) => TypedLinkAttributeRange.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 /**
  * <p>A range of attributes.</p>
  */
@@ -1160,16 +891,6 @@ export interface ObjectAttributeRange {
    * <p>The range of attribute values being selected.</p>
    */
   Range?: TypedAttributeValueRange;
-}
-
-export namespace ObjectAttributeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectAttributeRange): any => ({
-    ...obj,
-    ...(obj.Range && { Range: TypedAttributeValueRange.filterSensitiveLog(obj.Range) }),
-  });
 }
 
 /**
@@ -1195,18 +916,6 @@ export interface BatchListIndex {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace BatchListIndex {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListIndex): any => ({
-    ...obj,
-    ...(obj.RangesOnIndexedValues && {
-      RangesOnIndexedValues: obj.RangesOnIndexedValues.map((item) => ObjectAttributeRange.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 /**
@@ -1236,15 +945,6 @@ export interface BatchListObjectAttributes {
   FacetFilter?: SchemaFacet;
 }
 
-export namespace BatchListObjectAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListObjectAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <a>ListObjectChildren</a> operation.</p>
  */
@@ -1266,15 +966,6 @@ export interface BatchListObjectChildren {
   MaxResults?: number;
 }
 
-export namespace BatchListObjectChildren {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListObjectChildren): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects inside a <a>BatchRead</a> operation. For more information, see <a>ListObjectParentPaths</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
@@ -1293,15 +984,6 @@ export interface BatchListObjectParentPaths {
    * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
-}
-
-export namespace BatchListObjectParentPaths {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListObjectParentPaths): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1326,15 +1008,6 @@ export interface BatchListObjectParents {
   MaxResults?: number;
 }
 
-export namespace BatchListObjectParents {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListObjectParents): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns policies attached to an object in pagination fashion inside a <a>BatchRead</a> operation. For more information, see <a>ListObjectPolicies</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
@@ -1353,15 +1026,6 @@ export interface BatchListObjectPolicies {
    * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
-}
-
-export namespace BatchListObjectPolicies {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListObjectPolicies): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1397,18 +1061,6 @@ export interface BatchListOutgoingTypedLinks {
   MaxResults?: number;
 }
 
-export namespace BatchListOutgoingTypedLinks {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListOutgoingTypedLinks): any => ({
-    ...obj,
-    ...(obj.FilterAttributeRanges && {
-      FilterAttributeRanges: obj.FilterAttributeRanges.map((item) => TypedLinkAttributeRange.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 /**
  * <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached inside a <a>BatchRead</a> operation. For more information, see <a>ListPolicyAttachments</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
@@ -1429,15 +1081,6 @@ export interface BatchListPolicyAttachments {
   MaxResults?: number;
 }
 
-export namespace BatchListPolicyAttachments {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListPolicyAttachments): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Lists all policies from the root of the Directory to the object specified inside a <a>BatchRead</a> operation. For more information, see <a>LookupPolicy</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
@@ -1456,15 +1099,6 @@ export interface BatchLookupPolicy {
    * <p>The maximum number of results to retrieve.</p>
    */
   MaxResults?: number;
-}
-
-export namespace BatchLookupPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchLookupPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1554,25 +1188,6 @@ export interface BatchReadOperation {
   GetLinkAttributes?: BatchGetLinkAttributes;
 }
 
-export namespace BatchReadOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchReadOperation): any => ({
-    ...obj,
-    ...(obj.ListIndex && { ListIndex: BatchListIndex.filterSensitiveLog(obj.ListIndex) }),
-    ...(obj.ListOutgoingTypedLinks && {
-      ListOutgoingTypedLinks: BatchListOutgoingTypedLinks.filterSensitiveLog(obj.ListOutgoingTypedLinks),
-    }),
-    ...(obj.ListIncomingTypedLinks && {
-      ListIncomingTypedLinks: BatchListIncomingTypedLinks.filterSensitiveLog(obj.ListIncomingTypedLinks),
-    }),
-    ...(obj.GetLinkAttributes && {
-      GetLinkAttributes: BatchGetLinkAttributes.filterSensitiveLog(obj.GetLinkAttributes),
-    }),
-  });
-}
-
 export interface BatchReadRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.
@@ -1590,15 +1205,6 @@ export interface BatchReadRequest {
    *       is reflected in a subsequent read operation of that same object.</p>
    */
   ConsistencyLevel?: ConsistencyLevel | string;
-}
-
-export namespace BatchReadRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchReadRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum BatchReadExceptionType {
@@ -1633,15 +1239,6 @@ export interface BatchReadException {
   Message?: string;
 }
 
-export namespace BatchReadException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchReadException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <a>GetLinkAttributes</a> response operation.</p>
  */
@@ -1652,16 +1249,6 @@ export interface BatchGetLinkAttributesResponse {
   Attributes?: AttributeKeyAndValue[];
 }
 
-export namespace BatchGetLinkAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetLinkAttributesResponse): any => ({
-    ...obj,
-    ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeKeyAndValue.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
  * <p>Represents the output of a <a>GetObjectAttributes</a> response operation.</p>
  */
@@ -1670,16 +1257,6 @@ export interface BatchGetObjectAttributesResponse {
    * <p>The attribute values that are associated with an object.</p>
    */
   Attributes?: AttributeKeyAndValue[];
-}
-
-export namespace BatchGetObjectAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetObjectAttributesResponse): any => ({
-    ...obj,
-    ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeKeyAndValue.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -1697,15 +1274,6 @@ export interface BatchGetObjectInformationResponse {
   ObjectIdentifier?: string;
 }
 
-export namespace BatchGetObjectInformationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetObjectInformationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents an index and an attached object.</p>
  */
@@ -1719,18 +1287,6 @@ export interface IndexAttachment {
    * <p>In response to <a>ListIndex</a>, the <code>ObjectIdentifier</code> of the object attached to the index. In response to <a>ListAttachedIndices</a>, the <code>ObjectIdentifier</code> of the index attached to the object. This field will always contain the <code>ObjectIdentifier</code> of the object on the opposite side of the attachment specified in the query.</p>
    */
   ObjectIdentifier?: string;
-}
-
-export namespace IndexAttachment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IndexAttachment): any => ({
-    ...obj,
-    ...(obj.IndexedAttributes && {
-      IndexedAttributes: obj.IndexedAttributes.map((item) => AttributeKeyAndValue.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 /**
@@ -1748,15 +1304,6 @@ export interface BatchListAttachedIndicesResponse {
   NextToken?: string;
 }
 
-export namespace BatchListAttachedIndicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListAttachedIndicesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <a>ListIncomingTypedLinks</a> response operation.</p>
  */
@@ -1772,15 +1319,6 @@ export interface BatchListIncomingTypedLinksResponse {
   NextToken?: string;
 }
 
-export namespace BatchListIncomingTypedLinksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListIncomingTypedLinksResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <a>ListIndex</a> response operation.</p>
  */
@@ -1794,15 +1332,6 @@ export interface BatchListIndexResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace BatchListIndexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListIndexResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1821,16 +1350,6 @@ export interface BatchListObjectAttributesResponse {
   NextToken?: string;
 }
 
-export namespace BatchListObjectAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListObjectAttributesResponse): any => ({
-    ...obj,
-    ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeKeyAndValue.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
  * <p>Represents the output of a <a>ListObjectChildren</a> response operation.</p>
  */
@@ -1845,15 +1364,6 @@ export interface BatchListObjectChildrenResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace BatchListObjectChildrenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListObjectChildrenResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1873,15 +1383,6 @@ export interface PathToObjectIdentifiers {
   ObjectIdentifiers?: string[];
 }
 
-export namespace PathToObjectIdentifiers {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PathToObjectIdentifiers): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <a>ListObjectParentPaths</a> response operation.</p>
  */
@@ -1896,15 +1397,6 @@ export interface BatchListObjectParentPathsResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace BatchListObjectParentPathsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListObjectParentPathsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1922,15 +1414,6 @@ export interface ObjectIdentifierAndLinkNameTuple {
   LinkName?: string;
 }
 
-export namespace ObjectIdentifierAndLinkNameTuple {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectIdentifierAndLinkNameTuple): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <a>ListObjectParents</a> response operation.</p>
  */
@@ -1944,15 +1427,6 @@ export interface BatchListObjectParentsResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace BatchListObjectParentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListObjectParentsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1971,15 +1445,6 @@ export interface BatchListObjectPoliciesResponse {
   NextToken?: string;
 }
 
-export namespace BatchListObjectPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListObjectPoliciesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <a>ListOutgoingTypedLinks</a> response operation.</p>
  */
@@ -1995,15 +1460,6 @@ export interface BatchListOutgoingTypedLinksResponse {
   NextToken?: string;
 }
 
-export namespace BatchListOutgoingTypedLinksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListOutgoingTypedLinksResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <a>ListPolicyAttachments</a> response operation.</p>
  */
@@ -2017,15 +1473,6 @@ export interface BatchListPolicyAttachmentsResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace BatchListPolicyAttachmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchListPolicyAttachmentsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2051,15 +1498,6 @@ export interface PolicyAttachment {
   PolicyType?: string;
 }
 
-export namespace PolicyAttachment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyAttachment): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Used when a regular object exists in a <a>Directory</a> and you want to find
  *       all of the policies that are associated with that object and the parent to that
@@ -2077,15 +1515,6 @@ export interface PolicyToPath {
   Policies?: PolicyAttachment[];
 }
 
-export namespace PolicyToPath {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyToPath): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <a>LookupPolicy</a> response operation.</p>
  */
@@ -2101,15 +1530,6 @@ export interface BatchLookupPolicyResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace BatchLookupPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchLookupPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2198,24 +1618,6 @@ export interface BatchReadSuccessfulResponse {
   ListObjectParents?: BatchListObjectParentsResponse;
 }
 
-export namespace BatchReadSuccessfulResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchReadSuccessfulResponse): any => ({
-    ...obj,
-    ...(obj.ListObjectAttributes && {
-      ListObjectAttributes: BatchListObjectAttributesResponse.filterSensitiveLog(obj.ListObjectAttributes),
-    }),
-    ...(obj.GetObjectAttributes && {
-      GetObjectAttributes: BatchGetObjectAttributesResponse.filterSensitiveLog(obj.GetObjectAttributes),
-    }),
-    ...(obj.GetLinkAttributes && {
-      GetLinkAttributes: BatchGetLinkAttributesResponse.filterSensitiveLog(obj.GetLinkAttributes),
-    }),
-  });
-}
-
 /**
  * <p>Represents the output of a <code>BatchRead</code> response operation.</p>
  */
@@ -2231,32 +1633,11 @@ export interface BatchReadOperationResponse {
   ExceptionResponse?: BatchReadException;
 }
 
-export namespace BatchReadOperationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchReadOperationResponse): any => ({
-    ...obj,
-    ...(obj.SuccessfulResponse && {
-      SuccessfulResponse: BatchReadSuccessfulResponse.filterSensitiveLog(obj.SuccessfulResponse),
-    }),
-  });
-}
-
 export interface BatchReadResponse {
   /**
    * <p>A list of all the responses for each batch read.</p>
    */
   Responses?: BatchReadOperationResponse[];
-}
-
-export namespace BatchReadResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchReadResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum BatchWriteExceptionType {
@@ -2325,18 +1706,6 @@ export interface BatchAddFacetToObject {
   ObjectReference: ObjectReference | undefined;
 }
 
-export namespace BatchAddFacetToObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAddFacetToObject): any => ({
-    ...obj,
-    ...(obj.ObjectAttributeList && {
-      ObjectAttributeList: obj.ObjectAttributeList.map((item) => AttributeKeyAndValue.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 /**
  * <p>Represents the output of an <a>AttachObject</a> operation.</p>
  */
@@ -2357,15 +1726,6 @@ export interface BatchAttachObject {
   LinkName: string | undefined;
 }
 
-export namespace BatchAttachObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAttachObject): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Attaches a policy object to a regular object inside a <a>BatchRead</a> operation. For more information, see <a>AttachPolicy</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
@@ -2382,15 +1742,6 @@ export interface BatchAttachPolicy {
   ObjectReference: ObjectReference | undefined;
 }
 
-export namespace BatchAttachPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAttachPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Attaches the specified object to the specified index inside a <a>BatchRead</a> operation. For more information, see <a>AttachToIndex</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
@@ -2404,15 +1755,6 @@ export interface BatchAttachToIndex {
    * <p>A reference to the object that you are attaching to the index.</p>
    */
   TargetReference: ObjectReference | undefined;
-}
-
-export namespace BatchAttachToIndex {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAttachToIndex): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2438,16 +1780,6 @@ export interface BatchAttachTypedLink {
    * <p>A set of attributes that are associated with the typed link.</p>
    */
   Attributes: AttributeNameAndValue[] | undefined;
-}
-
-export namespace BatchAttachTypedLink {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAttachTypedLink): any => ({
-    ...obj,
-    ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeNameAndValue.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -2482,15 +1814,6 @@ export interface BatchCreateIndex {
   BatchReferenceName?: string;
 }
 
-export namespace BatchCreateIndex {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCreateIndex): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <a>CreateObject</a> operation.</p>
  */
@@ -2523,18 +1846,6 @@ export interface BatchCreateObject {
   BatchReferenceName?: string;
 }
 
-export namespace BatchCreateObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCreateObject): any => ({
-    ...obj,
-    ...(obj.ObjectAttributeList && {
-      ObjectAttributeList: obj.ObjectAttributeList.map((item) => AttributeKeyAndValue.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 /**
  * <p>Represents the output of a <a>DeleteObject</a> operation.</p>
  */
@@ -2543,15 +1854,6 @@ export interface BatchDeleteObject {
    * <p>The reference that identifies the object.</p>
    */
   ObjectReference: ObjectReference | undefined;
-}
-
-export namespace BatchDeleteObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteObject): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2567,15 +1869,6 @@ export interface BatchDetachFromIndex {
    * <p>A reference to the object being detached from the index.</p>
    */
   TargetReference: ObjectReference | undefined;
-}
-
-export namespace BatchDetachFromIndex {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDetachFromIndex): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2599,15 +1892,6 @@ export interface BatchDetachObject {
   BatchReferenceName?: string;
 }
 
-export namespace BatchDetachObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDetachObject): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Detaches the specified policy from the specified directory inside a <a>BatchWrite</a> operation. For more information, see <a>DetachPolicy</a> and <a>BatchWriteRequest$Operations</a>.</p>
  */
@@ -2623,15 +1907,6 @@ export interface BatchDetachPolicy {
   ObjectReference: ObjectReference | undefined;
 }
 
-export namespace BatchDetachPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDetachPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Detaches a typed link from a specified source and target object inside a <a>BatchRead</a> operation. For more information, see <a>DetachTypedLink</a> and <a>BatchReadRequest$Operations</a>.</p>
  */
@@ -2640,18 +1915,6 @@ export interface BatchDetachTypedLink {
    * <p>Used to accept a typed link specifier as input.</p>
    */
   TypedLinkSpecifier: TypedLinkSpecifier | undefined;
-}
-
-export namespace BatchDetachTypedLink {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDetachTypedLink): any => ({
-    ...obj,
-    ...(obj.TypedLinkSpecifier && {
-      TypedLinkSpecifier: TypedLinkSpecifier.filterSensitiveLog(obj.TypedLinkSpecifier),
-    }),
-  });
 }
 
 /**
@@ -2667,15 +1930,6 @@ export interface BatchRemoveFacetFromObject {
    * <p>A reference to the object whose facet will be removed.</p>
    */
   ObjectReference: ObjectReference | undefined;
-}
-
-export namespace BatchRemoveFacetFromObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchRemoveFacetFromObject): any => ({
-    ...obj,
-  });
 }
 
 export enum UpdateActionType {
@@ -2698,18 +1952,6 @@ export interface LinkAttributeAction {
   AttributeUpdateValue?: TypedAttributeValue;
 }
 
-export namespace LinkAttributeAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LinkAttributeAction): any => ({
-    ...obj,
-    ...(obj.AttributeUpdateValue && {
-      AttributeUpdateValue: TypedAttributeValue.filterSensitiveLog(obj.AttributeUpdateValue),
-    }),
-  });
-}
-
 /**
  * <p>Structure that contains attribute update information.</p>
  */
@@ -2723,16 +1965,6 @@ export interface LinkAttributeUpdate {
    * <p>The action to perform as part of the attribute update.</p>
    */
   AttributeAction?: LinkAttributeAction;
-}
-
-export namespace LinkAttributeUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LinkAttributeUpdate): any => ({
-    ...obj,
-    ...(obj.AttributeAction && { AttributeAction: LinkAttributeAction.filterSensitiveLog(obj.AttributeAction) }),
-  });
 }
 
 /**
@@ -2750,21 +1982,6 @@ export interface BatchUpdateLinkAttributes {
   AttributeUpdates: LinkAttributeUpdate[] | undefined;
 }
 
-export namespace BatchUpdateLinkAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateLinkAttributes): any => ({
-    ...obj,
-    ...(obj.TypedLinkSpecifier && {
-      TypedLinkSpecifier: TypedLinkSpecifier.filterSensitiveLog(obj.TypedLinkSpecifier),
-    }),
-    ...(obj.AttributeUpdates && {
-      AttributeUpdates: obj.AttributeUpdates.map((item) => LinkAttributeUpdate.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 /**
  * <p>The action to take on the object attribute.</p>
  */
@@ -2778,18 +1995,6 @@ export interface ObjectAttributeAction {
    * <p>The value that you want to update to.</p>
    */
   ObjectAttributeUpdateValue?: TypedAttributeValue;
-}
-
-export namespace ObjectAttributeAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectAttributeAction): any => ({
-    ...obj,
-    ...(obj.ObjectAttributeUpdateValue && {
-      ObjectAttributeUpdateValue: TypedAttributeValue.filterSensitiveLog(obj.ObjectAttributeUpdateValue),
-    }),
-  });
 }
 
 /**
@@ -2807,18 +2012,6 @@ export interface ObjectAttributeUpdate {
   ObjectAttributeAction?: ObjectAttributeAction;
 }
 
-export namespace ObjectAttributeUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectAttributeUpdate): any => ({
-    ...obj,
-    ...(obj.ObjectAttributeAction && {
-      ObjectAttributeAction: ObjectAttributeAction.filterSensitiveLog(obj.ObjectAttributeAction),
-    }),
-  });
-}
-
 /**
  * <p>Represents the output of a <code>BatchUpdate</code> operation. </p>
  */
@@ -2832,18 +2025,6 @@ export interface BatchUpdateObjectAttributes {
    * <p>Attributes update structure.</p>
    */
   AttributeUpdates: ObjectAttributeUpdate[] | undefined;
-}
-
-export namespace BatchUpdateObjectAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateObjectAttributes): any => ({
-    ...obj,
-    ...(obj.AttributeUpdates && {
-      AttributeUpdates: obj.AttributeUpdates.map((item) => ObjectAttributeUpdate.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 /**
@@ -2927,24 +2108,6 @@ export interface BatchWriteOperation {
   UpdateLinkAttributes?: BatchUpdateLinkAttributes;
 }
 
-export namespace BatchWriteOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchWriteOperation): any => ({
-    ...obj,
-    ...(obj.UpdateObjectAttributes && {
-      UpdateObjectAttributes: BatchUpdateObjectAttributes.filterSensitiveLog(obj.UpdateObjectAttributes),
-    }),
-    ...(obj.AddFacetToObject && { AddFacetToObject: BatchAddFacetToObject.filterSensitiveLog(obj.AddFacetToObject) }),
-    ...(obj.AttachTypedLink && { AttachTypedLink: BatchAttachTypedLink.filterSensitiveLog(obj.AttachTypedLink) }),
-    ...(obj.DetachTypedLink && { DetachTypedLink: BatchDetachTypedLink.filterSensitiveLog(obj.DetachTypedLink) }),
-    ...(obj.UpdateLinkAttributes && {
-      UpdateLinkAttributes: BatchUpdateLinkAttributes.filterSensitiveLog(obj.UpdateLinkAttributes),
-    }),
-  });
-}
-
 export interface BatchWriteRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.
@@ -2958,28 +2121,10 @@ export interface BatchWriteRequest {
   Operations: BatchWriteOperation[] | undefined;
 }
 
-export namespace BatchWriteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchWriteRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a batch add facet to object operation.</p>
  */
 export interface BatchAddFacetToObjectResponse {}
-
-export namespace BatchAddFacetToObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAddFacetToObjectResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the output batch <a>AttachObject</a> response operation.</p>
@@ -2991,29 +2136,11 @@ export interface BatchAttachObjectResponse {
   attachedObjectIdentifier?: string;
 }
 
-export namespace BatchAttachObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAttachObjectResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of an <a>AttachPolicy</a> response
  *       operation.</p>
  */
 export interface BatchAttachPolicyResponse {}
-
-export namespace BatchAttachPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAttachPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the output of a <a>AttachToIndex</a> response operation.</p>
@@ -3023,15 +2150,6 @@ export interface BatchAttachToIndexResponse {
    * <p>The <code>ObjectIdentifier</code> of the object that was attached to the index.</p>
    */
   AttachedObjectIdentifier?: string;
-}
-
-export namespace BatchAttachToIndexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAttachToIndexResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3044,18 +2162,6 @@ export interface BatchAttachTypedLinkResponse {
   TypedLinkSpecifier?: TypedLinkSpecifier;
 }
 
-export namespace BatchAttachTypedLinkResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAttachTypedLinkResponse): any => ({
-    ...obj,
-    ...(obj.TypedLinkSpecifier && {
-      TypedLinkSpecifier: TypedLinkSpecifier.filterSensitiveLog(obj.TypedLinkSpecifier),
-    }),
-  });
-}
-
 /**
  * <p>Represents the output of a <a>CreateIndex</a> response operation.</p>
  */
@@ -3064,15 +2170,6 @@ export interface BatchCreateIndexResponse {
    * <p>The <code>ObjectIdentifier</code> of the index created by this operation.</p>
    */
   ObjectIdentifier?: string;
-}
-
-export namespace BatchCreateIndexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCreateIndexResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3085,28 +2182,10 @@ export interface BatchCreateObjectResponse {
   ObjectIdentifier?: string;
 }
 
-export namespace BatchCreateObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCreateObjectResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <a>DeleteObject</a> response operation.</p>
  */
 export interface BatchDeleteObjectResponse {}
-
-export namespace BatchDeleteObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteObjectResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the output of a <a>DetachFromIndex</a> response operation.</p>
@@ -3116,15 +2195,6 @@ export interface BatchDetachFromIndexResponse {
    * <p>The <code>ObjectIdentifier</code> of the object that was detached from the index.</p>
    */
   DetachedObjectIdentifier?: string;
-}
-
-export namespace BatchDetachFromIndexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDetachFromIndexResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3137,70 +2207,25 @@ export interface BatchDetachObjectResponse {
   detachedObjectIdentifier?: string;
 }
 
-export namespace BatchDetachObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDetachObjectResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <a>DetachPolicy</a> response operation.</p>
  */
 export interface BatchDetachPolicyResponse {}
-
-export namespace BatchDetachPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDetachPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the output of a <a>DetachTypedLink</a> response operation.</p>
  */
 export interface BatchDetachTypedLinkResponse {}
 
-export namespace BatchDetachTypedLinkResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDetachTypedLinkResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty result that represents success.</p>
  */
 export interface BatchRemoveFacetFromObjectResponse {}
 
-export namespace BatchRemoveFacetFromObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchRemoveFacetFromObjectResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <a>UpdateLinkAttributes</a> response operation.</p>
  */
 export interface BatchUpdateLinkAttributesResponse {}
-
-export namespace BatchUpdateLinkAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateLinkAttributesResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the output of a <code>BatchUpdate</code> response operation.</p>
@@ -3210,15 +2235,6 @@ export interface BatchUpdateObjectAttributesResponse {
    * <p>ID that is associated with the object.</p>
    */
   ObjectIdentifier?: string;
-}
-
-export namespace BatchUpdateObjectAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateObjectAttributesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3302,32 +2318,11 @@ export interface BatchWriteOperationResponse {
   UpdateLinkAttributes?: BatchUpdateLinkAttributesResponse;
 }
 
-export namespace BatchWriteOperationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchWriteOperationResponse): any => ({
-    ...obj,
-    ...(obj.AttachTypedLink && {
-      AttachTypedLink: BatchAttachTypedLinkResponse.filterSensitiveLog(obj.AttachTypedLink),
-    }),
-  });
-}
-
 export interface BatchWriteResponse {
   /**
    * <p>A list of all the responses for each batch write.</p>
    */
   Responses?: BatchWriteOperationResponse[];
-}
-
-export namespace BatchWriteResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchWriteResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDirectoryRequest {
@@ -3342,15 +2337,6 @@ export interface CreateDirectoryRequest {
    *       data <a>Directory</a>. For more information, see <a>arns</a>.</p>
    */
   SchemaArn: string | undefined;
-}
-
-export namespace CreateDirectoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDirectoryRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDirectoryResponse {
@@ -3376,15 +2362,6 @@ export interface CreateDirectoryResponse {
    *       ARN. For more information, see <a>arns</a>.</p>
    */
   AppliedSchemaArn: string | undefined;
-}
-
-export namespace CreateDirectoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDirectoryResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3432,15 +2409,6 @@ export interface Rule {
   Parameters?: Record<string, string>;
 }
 
-export namespace Rule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Rule): any => ({
-    ...obj,
-  });
-}
-
 export enum FacetAttributeType {
   BINARY = "BINARY",
   BOOLEAN = "BOOLEAN",
@@ -3475,16 +2443,6 @@ export interface FacetAttributeDefinition {
   Rules?: Record<string, Rule>;
 }
 
-export namespace FacetAttributeDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FacetAttributeDefinition): any => ({
-    ...obj,
-    ...(obj.DefaultValue && { DefaultValue: TypedAttributeValue.filterSensitiveLog(obj.DefaultValue) }),
-  });
-}
-
 /**
  * <p>The facet attribute reference that specifies the attribute definition that contains the
  *       attribute facet name and attribute name.</p>
@@ -3499,15 +2457,6 @@ export interface FacetAttributeReference {
    * <p>The target attribute name that is associated with the facet reference. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.</p>
    */
   TargetAttributeName: string | undefined;
-}
-
-export namespace FacetAttributeReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FacetAttributeReference): any => ({
-    ...obj,
-  });
 }
 
 export enum RequiredAttributeBehavior {
@@ -3539,18 +2488,6 @@ export interface FacetAttribute {
    * <p>The required behavior of the <code>FacetAttribute</code>.</p>
    */
   RequiredBehavior?: RequiredAttributeBehavior | string;
-}
-
-export namespace FacetAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FacetAttribute): any => ({
-    ...obj,
-    ...(obj.AttributeDefinition && {
-      AttributeDefinition: FacetAttributeDefinition.filterSensitiveLog(obj.AttributeDefinition),
-    }),
-  });
 }
 
 export enum FacetStyle {
@@ -3615,26 +2552,7 @@ export interface CreateFacetRequest {
   FacetStyle?: FacetStyle | string;
 }
 
-export namespace CreateFacetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFacetRequest): any => ({
-    ...obj,
-    ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => FacetAttribute.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateFacetResponse {}
-
-export namespace CreateFacetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFacetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A facet with the same name already exists.</p>
@@ -3707,29 +2625,11 @@ export interface CreateIndexRequest {
   LinkName?: string;
 }
 
-export namespace CreateIndexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIndexRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateIndexResponse {
   /**
    * <p>The <code>ObjectIdentifier</code> of the index created by this operation.</p>
    */
   ObjectIdentifier?: string;
-}
-
-export namespace CreateIndexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIndexResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3782,32 +2682,11 @@ export interface CreateObjectRequest {
   LinkName?: string;
 }
 
-export namespace CreateObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateObjectRequest): any => ({
-    ...obj,
-    ...(obj.ObjectAttributeList && {
-      ObjectAttributeList: obj.ObjectAttributeList.map((item) => AttributeKeyAndValue.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface CreateObjectResponse {
   /**
    * <p>The identifier that is associated with the object.</p>
    */
   ObjectIdentifier?: string;
-}
-
-export namespace CreateObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateObjectResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSchemaRequest {
@@ -3818,30 +2697,12 @@ export interface CreateSchemaRequest {
   Name: string | undefined;
 }
 
-export namespace CreateSchemaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSchemaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSchemaResponse {
   /**
    * <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
    *       information, see <a>arns</a>.</p>
    */
   SchemaArn?: string;
-}
-
-export namespace CreateSchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSchemaResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3879,16 +2740,6 @@ export interface TypedLinkAttributeDefinition {
   RequiredBehavior: RequiredAttributeBehavior | string | undefined;
 }
 
-export namespace TypedLinkAttributeDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypedLinkAttributeDefinition): any => ({
-    ...obj,
-    ...(obj.DefaultValue && { DefaultValue: TypedAttributeValue.filterSensitiveLog(obj.DefaultValue) }),
-  });
-}
-
 /**
  * <p>Defines the typed links structure and its attributes. To create a typed link facet, use
  *       the <a>CreateTypedLinkFacet</a> API.</p>
@@ -3910,18 +2761,6 @@ export interface TypedLinkFacet {
   IdentityAttributeOrder: string[] | undefined;
 }
 
-export namespace TypedLinkFacet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypedLinkFacet): any => ({
-    ...obj,
-    ...(obj.Attributes && {
-      Attributes: obj.Attributes.map((item) => TypedLinkAttributeDefinition.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface CreateTypedLinkFacetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
@@ -3937,26 +2776,7 @@ export interface CreateTypedLinkFacetRequest {
   Facet: TypedLinkFacet | undefined;
 }
 
-export namespace CreateTypedLinkFacetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTypedLinkFacetRequest): any => ({
-    ...obj,
-    ...(obj.Facet && { Facet: TypedLinkFacet.filterSensitiveLog(obj.Facet) }),
-  });
-}
-
 export interface CreateTypedLinkFacetResponse {}
-
-export namespace CreateTypedLinkFacetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTypedLinkFacetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteDirectoryRequest {
   /**
@@ -3965,29 +2785,11 @@ export interface DeleteDirectoryRequest {
   DirectoryArn: string | undefined;
 }
 
-export namespace DeleteDirectoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDirectoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDirectoryResponse {
   /**
    * <p>The ARN of the deleted directory.</p>
    */
   DirectoryArn: string | undefined;
-}
-
-export namespace DeleteDirectoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDirectoryResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4046,25 +2848,7 @@ export interface DeleteFacetRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteFacetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFacetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFacetResponse {}
-
-export namespace DeleteFacetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFacetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Occurs when deleting a facet that contains an attribute that is a target to an
@@ -4122,25 +2906,7 @@ export interface DeleteObjectRequest {
   ObjectReference: ObjectReference | undefined;
 }
 
-export namespace DeleteObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteObjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteObjectResponse {}
-
-export namespace DeleteObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteObjectResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Indicates that the requested operation cannot be completed because the object has not
@@ -4172,30 +2938,12 @@ export interface DeleteSchemaRequest {
   SchemaArn: string | undefined;
 }
 
-export namespace DeleteSchemaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSchemaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSchemaResponse {
   /**
    * <p>The input ARN that is returned as part of the response. For more information, see
    *         <a>arns</a>.</p>
    */
   SchemaArn?: string;
-}
-
-export namespace DeleteSchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSchemaResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4233,25 +2981,7 @@ export interface DeleteTypedLinkFacetRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteTypedLinkFacetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTypedLinkFacetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTypedLinkFacetResponse {}
-
-export namespace DeleteTypedLinkFacetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTypedLinkFacetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DetachFromIndexRequest {
   /**
@@ -4271,29 +3001,11 @@ export interface DetachFromIndexRequest {
   TargetReference: ObjectReference | undefined;
 }
 
-export namespace DetachFromIndexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachFromIndexRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DetachFromIndexResponse {
   /**
    * <p>The <code>ObjectIdentifier</code> of the object that was detached from the index.</p>
    */
   DetachedObjectIdentifier?: string;
-}
-
-export namespace DetachFromIndexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachFromIndexResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4336,29 +3048,11 @@ export interface DetachObjectRequest {
   LinkName: string | undefined;
 }
 
-export namespace DetachObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachObjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DetachObjectResponse {
   /**
    * <p>The <code>ObjectIdentifier</code> that was detached from the object.</p>
    */
   DetachedObjectIdentifier?: string;
-}
-
-export namespace DetachObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachObjectResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4401,25 +3095,7 @@ export interface DetachPolicyRequest {
   ObjectReference: ObjectReference | undefined;
 }
 
-export namespace DetachPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DetachPolicyResponse {}
-
-export namespace DetachPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DetachTypedLinkRequest {
   /**
@@ -4434,32 +3110,11 @@ export interface DetachTypedLinkRequest {
   TypedLinkSpecifier: TypedLinkSpecifier | undefined;
 }
 
-export namespace DetachTypedLinkRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachTypedLinkRequest): any => ({
-    ...obj,
-    ...(obj.TypedLinkSpecifier && {
-      TypedLinkSpecifier: TypedLinkSpecifier.filterSensitiveLog(obj.TypedLinkSpecifier),
-    }),
-  });
-}
-
 export interface DisableDirectoryRequest {
   /**
    * <p>The ARN of the directory to disable.</p>
    */
   DirectoryArn: string | undefined;
-}
-
-export namespace DisableDirectoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableDirectoryRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DisableDirectoryResponse {
@@ -4469,29 +3124,11 @@ export interface DisableDirectoryResponse {
   DirectoryArn: string | undefined;
 }
 
-export namespace DisableDirectoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableDirectoryResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableDirectoryRequest {
   /**
    * <p>The ARN of the directory to enable.</p>
    */
   DirectoryArn: string | undefined;
-}
-
-export namespace EnableDirectoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableDirectoryRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface EnableDirectoryResponse {
@@ -4501,29 +3138,11 @@ export interface EnableDirectoryResponse {
   DirectoryArn: string | undefined;
 }
 
-export namespace EnableDirectoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableDirectoryResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAppliedSchemaVersionRequest {
   /**
    * <p>The ARN of the applied schema.</p>
    */
   SchemaArn: string | undefined;
-}
-
-export namespace GetAppliedSchemaVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppliedSchemaVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAppliedSchemaVersionResponse {
@@ -4533,29 +3152,11 @@ export interface GetAppliedSchemaVersionResponse {
   AppliedSchemaArn?: string;
 }
 
-export namespace GetAppliedSchemaVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppliedSchemaVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDirectoryRequest {
   /**
    * <p>The ARN of the directory.</p>
    */
   DirectoryArn: string | undefined;
-}
-
-export namespace GetDirectoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDirectoryRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DirectoryState {
@@ -4590,29 +3191,11 @@ export interface Directory {
   CreationDateTime?: Date;
 }
 
-export namespace Directory {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Directory): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDirectoryResponse {
   /**
    * <p>Metadata about the directory.</p>
    */
   Directory: Directory | undefined;
-}
-
-export namespace GetDirectoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDirectoryResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFacetRequest {
@@ -4626,15 +3209,6 @@ export interface GetFacetRequest {
    * <p>The name of the facet to retrieve.</p>
    */
   Name: string | undefined;
-}
-
-export namespace GetFacetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFacetRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4659,29 +3233,11 @@ export interface Facet {
   FacetStyle?: FacetStyle | string;
 }
 
-export namespace Facet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Facet): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFacetResponse {
   /**
    * <p>The <a>Facet</a> structure that is associated with the facet.</p>
    */
   Facet?: Facet;
-}
-
-export namespace GetFacetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFacetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLinkAttributesRequest {
@@ -4706,33 +3262,11 @@ export interface GetLinkAttributesRequest {
   ConsistencyLevel?: ConsistencyLevel | string;
 }
 
-export namespace GetLinkAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLinkAttributesRequest): any => ({
-    ...obj,
-    ...(obj.TypedLinkSpecifier && {
-      TypedLinkSpecifier: TypedLinkSpecifier.filterSensitiveLog(obj.TypedLinkSpecifier),
-    }),
-  });
-}
-
 export interface GetLinkAttributesResponse {
   /**
    * <p>The attributes that are associated with the typed link.</p>
    */
   Attributes?: AttributeKeyAndValue[];
-}
-
-export namespace GetLinkAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLinkAttributesResponse): any => ({
-    ...obj,
-    ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeKeyAndValue.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface GetObjectAttributesRequest {
@@ -4762,30 +3296,11 @@ export interface GetObjectAttributesRequest {
   AttributeNames: string[] | undefined;
 }
 
-export namespace GetObjectAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetObjectAttributesResponse {
   /**
    * <p>The attributes that are associated with the object.</p>
    */
   Attributes?: AttributeKeyAndValue[];
-}
-
-export namespace GetObjectAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectAttributesResponse): any => ({
-    ...obj,
-    ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeKeyAndValue.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface GetObjectInformationRequest {
@@ -4805,15 +3320,6 @@ export interface GetObjectInformationRequest {
   ConsistencyLevel?: ConsistencyLevel | string;
 }
 
-export namespace GetObjectInformationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectInformationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetObjectInformationResponse {
   /**
    * <p>The facets attached to the specified object. Although the response does not include minor version information, the most recently applied minor version of each Facet is in effect. See <a>GetAppliedSchemaVersion</a> for details.</p>
@@ -4826,29 +3332,11 @@ export interface GetObjectInformationResponse {
   ObjectIdentifier?: string;
 }
 
-export namespace GetObjectInformationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectInformationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSchemaAsJsonRequest {
   /**
    * <p>The ARN of the schema to retrieve.</p>
    */
   SchemaArn: string | undefined;
-}
-
-export namespace GetSchemaAsJsonRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSchemaAsJsonRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSchemaAsJsonResponse {
@@ -4861,15 +3349,6 @@ export interface GetSchemaAsJsonResponse {
    * <p>The JSON representation of the schema document.</p>
    */
   Document?: string;
-}
-
-export namespace GetSchemaAsJsonResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSchemaAsJsonResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTypedLinkFacetInformationRequest {
@@ -4885,15 +3364,6 @@ export interface GetTypedLinkFacetInformationRequest {
   Name: string | undefined;
 }
 
-export namespace GetTypedLinkFacetInformationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTypedLinkFacetInformationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTypedLinkFacetInformationResponse {
   /**
    * <p>The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed
@@ -4904,15 +3374,6 @@ export interface GetTypedLinkFacetInformationResponse {
    *       they are supplied to any API calls. For more information about identity attributes, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    */
   IdentityAttributeOrder?: string[];
-}
-
-export namespace GetTypedLinkFacetInformationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTypedLinkFacetInformationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4958,15 +3419,6 @@ export interface ListAppliedSchemaArnsRequest {
   MaxResults?: number;
 }
 
-export namespace ListAppliedSchemaArnsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppliedSchemaArnsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAppliedSchemaArnsResponse {
   /**
    * <p>The ARNs of schemas that are applied to the directory.</p>
@@ -4977,15 +3429,6 @@ export interface ListAppliedSchemaArnsResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAppliedSchemaArnsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppliedSchemaArnsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAttachedIndicesRequest {
@@ -5015,15 +3458,6 @@ export interface ListAttachedIndicesRequest {
   ConsistencyLevel?: ConsistencyLevel | string;
 }
 
-export namespace ListAttachedIndicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAttachedIndicesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAttachedIndicesResponse {
   /**
    * <p>The indices attached to the specified object.</p>
@@ -5034,15 +3468,6 @@ export interface ListAttachedIndicesResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAttachedIndicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAttachedIndicesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDevelopmentSchemaArnsRequest {
@@ -5057,15 +3482,6 @@ export interface ListDevelopmentSchemaArnsRequest {
   MaxResults?: number;
 }
 
-export namespace ListDevelopmentSchemaArnsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevelopmentSchemaArnsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDevelopmentSchemaArnsResponse {
   /**
    * <p>The ARNs of retrieved development schemas.</p>
@@ -5076,15 +3492,6 @@ export interface ListDevelopmentSchemaArnsResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDevelopmentSchemaArnsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevelopmentSchemaArnsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDirectoriesRequest {
@@ -5105,15 +3512,6 @@ export interface ListDirectoriesRequest {
   state?: DirectoryState | string;
 }
 
-export namespace ListDirectoriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDirectoriesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDirectoriesResponse {
   /**
    * <p>Lists all directories that are associated with your account in pagination
@@ -5125,15 +3523,6 @@ export interface ListDirectoriesResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDirectoriesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDirectoriesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFacetAttributesRequest {
@@ -5158,15 +3547,6 @@ export interface ListFacetAttributesRequest {
   MaxResults?: number;
 }
 
-export namespace ListFacetAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFacetAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFacetAttributesResponse {
   /**
    * <p>The attributes attached to the facet.</p>
@@ -5177,16 +3557,6 @@ export interface ListFacetAttributesResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListFacetAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFacetAttributesResponse): any => ({
-    ...obj,
-    ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => FacetAttribute.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface ListFacetNamesRequest {
@@ -5206,15 +3576,6 @@ export interface ListFacetNamesRequest {
   MaxResults?: number;
 }
 
-export namespace ListFacetNamesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFacetNamesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFacetNamesResponse {
   /**
    * <p>The names of facets that exist within the schema.</p>
@@ -5225,15 +3586,6 @@ export interface ListFacetNamesResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListFacetNamesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFacetNamesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListIncomingTypedLinksRequest {
@@ -5277,18 +3629,6 @@ export interface ListIncomingTypedLinksRequest {
   ConsistencyLevel?: ConsistencyLevel | string;
 }
 
-export namespace ListIncomingTypedLinksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIncomingTypedLinksRequest): any => ({
-    ...obj,
-    ...(obj.FilterAttributeRanges && {
-      FilterAttributeRanges: obj.FilterAttributeRanges.map((item) => TypedLinkAttributeRange.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface ListIncomingTypedLinksResponse {
   /**
    * <p>Returns one or more typed link specifiers as output.</p>
@@ -5299,15 +3639,6 @@ export interface ListIncomingTypedLinksResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListIncomingTypedLinksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIncomingTypedLinksResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListIndexRequest {
@@ -5342,18 +3673,6 @@ export interface ListIndexRequest {
   ConsistencyLevel?: ConsistencyLevel | string;
 }
 
-export namespace ListIndexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIndexRequest): any => ({
-    ...obj,
-    ...(obj.RangesOnIndexedValues && {
-      RangesOnIndexedValues: obj.RangesOnIndexedValues.map((item) => ObjectAttributeRange.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface ListIndexResponse {
   /**
    * <p>The objects and indexed values attached to the index.</p>
@@ -5364,15 +3683,6 @@ export interface ListIndexResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListIndexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIndexResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListManagedSchemaArnsRequest {
@@ -5392,15 +3702,6 @@ export interface ListManagedSchemaArnsRequest {
   MaxResults?: number;
 }
 
-export namespace ListManagedSchemaArnsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListManagedSchemaArnsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListManagedSchemaArnsResponse {
   /**
    * <p>The ARNs for all AWS managed schemas.</p>
@@ -5411,15 +3712,6 @@ export interface ListManagedSchemaArnsResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListManagedSchemaArnsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListManagedSchemaArnsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListObjectAttributesRequest {
@@ -5458,15 +3750,6 @@ export interface ListObjectAttributesRequest {
   FacetFilter?: SchemaFacet;
 }
 
-export namespace ListObjectAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObjectAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListObjectAttributesResponse {
   /**
    * <p>Attributes map that is associated with the object. <code>AttributeArn</code> is the
@@ -5478,16 +3761,6 @@ export interface ListObjectAttributesResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListObjectAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObjectAttributesResponse): any => ({
-    ...obj,
-    ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeKeyAndValue.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface ListObjectChildrenRequest {
@@ -5521,15 +3794,6 @@ export interface ListObjectChildrenRequest {
   ConsistencyLevel?: ConsistencyLevel | string;
 }
 
-export namespace ListObjectChildrenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObjectChildrenRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListObjectChildrenResponse {
   /**
    * <p>Children structure, which is a map with key as the <code>LinkName</code> and
@@ -5541,15 +3805,6 @@ export interface ListObjectChildrenResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListObjectChildrenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObjectChildrenResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListObjectParentPathsRequest {
@@ -5575,15 +3830,6 @@ export interface ListObjectParentPathsRequest {
   MaxResults?: number;
 }
 
-export namespace ListObjectParentPathsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObjectParentPathsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListObjectParentPathsResponse {
   /**
    * <p>Returns the path to the <code>ObjectIdentifiers</code> that are associated with the
@@ -5595,15 +3841,6 @@ export interface ListObjectParentPathsResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListObjectParentPathsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObjectParentPathsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5663,15 +3900,6 @@ export interface ListObjectParentsRequest {
   IncludeAllLinksToEachParent?: boolean;
 }
 
-export namespace ListObjectParentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObjectParentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListObjectParentsResponse {
   /**
    * <p>The parent structure, which is a map with key as the <code>ObjectIdentifier</code> and
@@ -5688,15 +3916,6 @@ export interface ListObjectParentsResponse {
    * <p>Returns a list of parent reference and LinkName Tuples.</p>
    */
   ParentLinks?: ObjectIdentifierAndLinkNameTuple[];
-}
-
-export namespace ListObjectParentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObjectParentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListObjectPoliciesRequest {
@@ -5729,15 +3948,6 @@ export interface ListObjectPoliciesRequest {
   ConsistencyLevel?: ConsistencyLevel | string;
 }
 
-export namespace ListObjectPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObjectPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListObjectPoliciesResponse {
   /**
    * <p>A list of policy <code>ObjectIdentifiers</code>, that are attached to the
@@ -5749,15 +3959,6 @@ export interface ListObjectPoliciesResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListObjectPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObjectPoliciesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListOutgoingTypedLinksRequest {
@@ -5801,18 +4002,6 @@ export interface ListOutgoingTypedLinksRequest {
   ConsistencyLevel?: ConsistencyLevel | string;
 }
 
-export namespace ListOutgoingTypedLinksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOutgoingTypedLinksRequest): any => ({
-    ...obj,
-    ...(obj.FilterAttributeRanges && {
-      FilterAttributeRanges: obj.FilterAttributeRanges.map((item) => TypedLinkAttributeRange.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface ListOutgoingTypedLinksResponse {
   /**
    * <p>Returns a typed link specifier as output.</p>
@@ -5823,15 +4012,6 @@ export interface ListOutgoingTypedLinksResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListOutgoingTypedLinksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOutgoingTypedLinksResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPolicyAttachmentsRequest {
@@ -5864,15 +4044,6 @@ export interface ListPolicyAttachmentsRequest {
   ConsistencyLevel?: ConsistencyLevel | string;
 }
 
-export namespace ListPolicyAttachmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPolicyAttachmentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPolicyAttachmentsResponse {
   /**
    * <p>A list of <code>ObjectIdentifiers</code> to which the policy is attached.</p>
@@ -5883,15 +4054,6 @@ export interface ListPolicyAttachmentsResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPolicyAttachmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPolicyAttachmentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPublishedSchemaArnsRequest {
@@ -5911,15 +4073,6 @@ export interface ListPublishedSchemaArnsRequest {
   MaxResults?: number;
 }
 
-export namespace ListPublishedSchemaArnsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPublishedSchemaArnsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPublishedSchemaArnsResponse {
   /**
    * <p>The ARNs of published schemas.</p>
@@ -5930,15 +4083,6 @@ export interface ListPublishedSchemaArnsResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPublishedSchemaArnsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPublishedSchemaArnsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5982,15 +4126,6 @@ export interface ListTagsForResourceRequest {
   MaxResults?: number;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The tag structure that contains a tag key and value.</p>
  */
@@ -6006,15 +4141,6 @@ export interface Tag {
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tag key value pairs that are associated with the response.</p>
@@ -6025,15 +4151,6 @@ export interface ListTagsForResourceResponse {
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTypedLinkFacetAttributesRequest {
@@ -6059,15 +4176,6 @@ export interface ListTypedLinkFacetAttributesRequest {
   MaxResults?: number;
 }
 
-export namespace ListTypedLinkFacetAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTypedLinkFacetAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTypedLinkFacetAttributesResponse {
   /**
    * <p>An ordered set of attributes associate with the typed link.</p>
@@ -6078,18 +4186,6 @@ export interface ListTypedLinkFacetAttributesResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTypedLinkFacetAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTypedLinkFacetAttributesResponse): any => ({
-    ...obj,
-    ...(obj.Attributes && {
-      Attributes: obj.Attributes.map((item) => TypedLinkAttributeDefinition.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListTypedLinkFacetNamesRequest {
@@ -6110,15 +4206,6 @@ export interface ListTypedLinkFacetNamesRequest {
   MaxResults?: number;
 }
 
-export namespace ListTypedLinkFacetNamesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTypedLinkFacetNamesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTypedLinkFacetNamesResponse {
   /**
    * <p>The names of typed link facets that exist within the schema.</p>
@@ -6129,15 +4216,6 @@ export interface ListTypedLinkFacetNamesResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTypedLinkFacetNamesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTypedLinkFacetNamesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface LookupPolicyRequest {
@@ -6164,15 +4242,6 @@ export interface LookupPolicyRequest {
   MaxResults?: number;
 }
 
-export namespace LookupPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LookupPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface LookupPolicyResponse {
   /**
    * <p>Provides list of path to policies. Policies contain <code>PolicyId</code>, <code>ObjectIdentifier</code>, and
@@ -6185,15 +4254,6 @@ export interface LookupPolicyResponse {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace LookupPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LookupPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PublishSchemaRequest {
@@ -6220,29 +4280,11 @@ export interface PublishSchemaRequest {
   Name?: string;
 }
 
-export namespace PublishSchemaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishSchemaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PublishSchemaResponse {
   /**
    * <p>The ARN that is associated with the published schema. For more information, see <a>arns</a>.</p>
    */
   PublishedSchemaArn?: string;
-}
-
-export namespace PublishSchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishSchemaResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6299,29 +4341,11 @@ export interface PutSchemaFromJsonRequest {
   Document: string | undefined;
 }
 
-export namespace PutSchemaFromJsonRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutSchemaFromJsonRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutSchemaFromJsonResponse {
   /**
    * <p>The ARN of the schema to update.</p>
    */
   Arn?: string;
-}
-
-export namespace PutSchemaFromJsonResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutSchemaFromJsonResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveFacetFromObjectRequest {
@@ -6341,25 +4365,7 @@ export interface RemoveFacetFromObjectRequest {
   ObjectReference: ObjectReference | undefined;
 }
 
-export namespace RemoveFacetFromObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveFacetFromObjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveFacetFromObjectResponse {}
-
-export namespace RemoveFacetFromObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveFacetFromObjectResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -6374,25 +4380,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -6407,25 +4395,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>An attempt to modify a <a>Facet</a> resulted in an invalid schema
@@ -6464,16 +4434,6 @@ export interface FacetAttributeUpdate {
   Action?: UpdateActionType | string;
 }
 
-export namespace FacetAttributeUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FacetAttributeUpdate): any => ({
-    ...obj,
-    ...(obj.Attribute && { Attribute: FacetAttribute.filterSensitiveLog(obj.Attribute) }),
-  });
-}
-
 export interface UpdateFacetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>.
@@ -6499,28 +4459,7 @@ export interface UpdateFacetRequest {
   ObjectType?: ObjectType | string;
 }
 
-export namespace UpdateFacetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFacetRequest): any => ({
-    ...obj,
-    ...(obj.AttributeUpdates && {
-      AttributeUpdates: obj.AttributeUpdates.map((item) => FacetAttributeUpdate.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface UpdateFacetResponse {}
-
-export namespace UpdateFacetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFacetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateLinkAttributesRequest {
   /**
@@ -6539,31 +4478,7 @@ export interface UpdateLinkAttributesRequest {
   AttributeUpdates: LinkAttributeUpdate[] | undefined;
 }
 
-export namespace UpdateLinkAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLinkAttributesRequest): any => ({
-    ...obj,
-    ...(obj.TypedLinkSpecifier && {
-      TypedLinkSpecifier: TypedLinkSpecifier.filterSensitiveLog(obj.TypedLinkSpecifier),
-    }),
-    ...(obj.AttributeUpdates && {
-      AttributeUpdates: obj.AttributeUpdates.map((item) => LinkAttributeUpdate.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface UpdateLinkAttributesResponse {}
-
-export namespace UpdateLinkAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLinkAttributesResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateObjectAttributesRequest {
   /**
@@ -6583,32 +4498,11 @@ export interface UpdateObjectAttributesRequest {
   AttributeUpdates: ObjectAttributeUpdate[] | undefined;
 }
 
-export namespace UpdateObjectAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateObjectAttributesRequest): any => ({
-    ...obj,
-    ...(obj.AttributeUpdates && {
-      AttributeUpdates: obj.AttributeUpdates.map((item) => ObjectAttributeUpdate.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface UpdateObjectAttributesResponse {
   /**
    * <p>The <code>ObjectIdentifier</code> of the updated object.</p>
    */
   ObjectIdentifier?: string;
-}
-
-export namespace UpdateObjectAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateObjectAttributesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSchemaRequest {
@@ -6624,29 +4518,11 @@ export interface UpdateSchemaRequest {
   Name: string | undefined;
 }
 
-export namespace UpdateSchemaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSchemaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSchemaResponse {
   /**
    * <p>The ARN that is associated with the updated schema. For more information, see <a>arns</a>.</p>
    */
   SchemaArn?: string;
-}
-
-export namespace UpdateSchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSchemaResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6662,16 +4538,6 @@ export interface TypedLinkFacetAttributeUpdate {
    * <p>The action to perform when updating the attribute.</p>
    */
   Action: UpdateActionType | string | undefined;
-}
-
-export namespace TypedLinkFacetAttributeUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypedLinkFacetAttributeUpdate): any => ({
-    ...obj,
-    ...(obj.Attribute && { Attribute: TypedLinkAttributeDefinition.filterSensitiveLog(obj.Attribute) }),
-  });
 }
 
 export interface UpdateTypedLinkFacetRequest {
@@ -6702,28 +4568,7 @@ export interface UpdateTypedLinkFacetRequest {
   IdentityAttributeOrder: string[] | undefined;
 }
 
-export namespace UpdateTypedLinkFacetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTypedLinkFacetRequest): any => ({
-    ...obj,
-    ...(obj.AttributeUpdates && {
-      AttributeUpdates: obj.AttributeUpdates.map((item) => TypedLinkFacetAttributeUpdate.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface UpdateTypedLinkFacetResponse {}
-
-export namespace UpdateTypedLinkFacetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTypedLinkFacetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Indicates a failure occurred while performing a check for backward compatibility between the specified schema and the schema that is currently applied to the directory.</p>
@@ -6763,15 +4608,6 @@ export interface UpgradeAppliedSchemaRequest {
   DryRun?: boolean;
 }
 
-export namespace UpgradeAppliedSchemaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpgradeAppliedSchemaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpgradeAppliedSchemaResponse {
   /**
    * <p>The ARN of the upgraded schema that is returned as part of the response.</p>
@@ -6782,15 +4618,6 @@ export interface UpgradeAppliedSchemaResponse {
    * <p>The ARN of the directory that is returned as part of the response.</p>
    */
   DirectoryArn?: string;
-}
-
-export namespace UpgradeAppliedSchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpgradeAppliedSchemaResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpgradePublishedSchemaRequest {
@@ -6815,15 +4642,6 @@ export interface UpgradePublishedSchemaRequest {
   DryRun?: boolean;
 }
 
-export namespace UpgradePublishedSchemaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpgradePublishedSchemaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpgradePublishedSchemaResponse {
   /**
    * <p>The ARN of the upgraded schema that is returned as part of the response.</p>
@@ -6831,11 +4649,1735 @@ export interface UpgradePublishedSchemaResponse {
   UpgradedSchemaArn?: string;
 }
 
-export namespace UpgradePublishedSchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpgradePublishedSchemaResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AttributeKeyFilterSensitiveLog = (obj: AttributeKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TypedAttributeValueFilterSensitiveLog = (obj: TypedAttributeValue): any => {
+  if (obj.StringValue !== undefined) return { StringValue: obj.StringValue };
+  if (obj.BinaryValue !== undefined) return { BinaryValue: obj.BinaryValue };
+  if (obj.BooleanValue !== undefined) return { BooleanValue: obj.BooleanValue };
+  if (obj.NumberValue !== undefined) return { NumberValue: obj.NumberValue };
+  if (obj.DatetimeValue !== undefined) return { DatetimeValue: obj.DatetimeValue };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const AttributeKeyAndValueFilterSensitiveLog = (obj: AttributeKeyAndValue): any => ({
+  ...obj,
+  ...(obj.Value && { Value: TypedAttributeValueFilterSensitiveLog(obj.Value) }),
+});
+
+/**
+ * @internal
+ */
+export const ObjectReferenceFilterSensitiveLog = (obj: ObjectReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchemaFacetFilterSensitiveLog = (obj: SchemaFacet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddFacetToObjectRequestFilterSensitiveLog = (obj: AddFacetToObjectRequest): any => ({
+  ...obj,
+  ...(obj.ObjectAttributeList && {
+    ObjectAttributeList: obj.ObjectAttributeList.map((item) => AttributeKeyAndValueFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const AddFacetToObjectResponseFilterSensitiveLog = (obj: AddFacetToObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplySchemaRequestFilterSensitiveLog = (obj: ApplySchemaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplySchemaResponseFilterSensitiveLog = (obj: ApplySchemaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachObjectRequestFilterSensitiveLog = (obj: AttachObjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachObjectResponseFilterSensitiveLog = (obj: AttachObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachPolicyRequestFilterSensitiveLog = (obj: AttachPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachPolicyResponseFilterSensitiveLog = (obj: AttachPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachToIndexRequestFilterSensitiveLog = (obj: AttachToIndexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachToIndexResponseFilterSensitiveLog = (obj: AttachToIndexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributeNameAndValueFilterSensitiveLog = (obj: AttributeNameAndValue): any => ({
+  ...obj,
+  ...(obj.Value && { Value: TypedAttributeValueFilterSensitiveLog(obj.Value) }),
+});
+
+/**
+ * @internal
+ */
+export const TypedLinkSchemaAndFacetNameFilterSensitiveLog = (obj: TypedLinkSchemaAndFacetName): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachTypedLinkRequestFilterSensitiveLog = (obj: AttachTypedLinkRequest): any => ({
+  ...obj,
+  ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeNameAndValueFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const TypedLinkSpecifierFilterSensitiveLog = (obj: TypedLinkSpecifier): any => ({
+  ...obj,
+  ...(obj.IdentityAttributeValues && {
+    IdentityAttributeValues: obj.IdentityAttributeValues.map((item) => AttributeNameAndValueFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const AttachTypedLinkResponseFilterSensitiveLog = (obj: AttachTypedLinkResponse): any => ({
+  ...obj,
+  ...(obj.TypedLinkSpecifier && { TypedLinkSpecifier: TypedLinkSpecifierFilterSensitiveLog(obj.TypedLinkSpecifier) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchGetLinkAttributesFilterSensitiveLog = (obj: BatchGetLinkAttributes): any => ({
+  ...obj,
+  ...(obj.TypedLinkSpecifier && { TypedLinkSpecifier: TypedLinkSpecifierFilterSensitiveLog(obj.TypedLinkSpecifier) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchGetObjectAttributesFilterSensitiveLog = (obj: BatchGetObjectAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetObjectInformationFilterSensitiveLog = (obj: BatchGetObjectInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchListAttachedIndicesFilterSensitiveLog = (obj: BatchListAttachedIndices): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TypedAttributeValueRangeFilterSensitiveLog = (obj: TypedAttributeValueRange): any => ({
+  ...obj,
+  ...(obj.StartValue && { StartValue: TypedAttributeValueFilterSensitiveLog(obj.StartValue) }),
+  ...(obj.EndValue && { EndValue: TypedAttributeValueFilterSensitiveLog(obj.EndValue) }),
+});
+
+/**
+ * @internal
+ */
+export const TypedLinkAttributeRangeFilterSensitiveLog = (obj: TypedLinkAttributeRange): any => ({
+  ...obj,
+  ...(obj.Range && { Range: TypedAttributeValueRangeFilterSensitiveLog(obj.Range) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchListIncomingTypedLinksFilterSensitiveLog = (obj: BatchListIncomingTypedLinks): any => ({
+  ...obj,
+  ...(obj.FilterAttributeRanges && {
+    FilterAttributeRanges: obj.FilterAttributeRanges.map((item) => TypedLinkAttributeRangeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ObjectAttributeRangeFilterSensitiveLog = (obj: ObjectAttributeRange): any => ({
+  ...obj,
+  ...(obj.Range && { Range: TypedAttributeValueRangeFilterSensitiveLog(obj.Range) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchListIndexFilterSensitiveLog = (obj: BatchListIndex): any => ({
+  ...obj,
+  ...(obj.RangesOnIndexedValues && {
+    RangesOnIndexedValues: obj.RangesOnIndexedValues.map((item) => ObjectAttributeRangeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchListObjectAttributesFilterSensitiveLog = (obj: BatchListObjectAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchListObjectChildrenFilterSensitiveLog = (obj: BatchListObjectChildren): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchListObjectParentPathsFilterSensitiveLog = (obj: BatchListObjectParentPaths): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchListObjectParentsFilterSensitiveLog = (obj: BatchListObjectParents): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchListObjectPoliciesFilterSensitiveLog = (obj: BatchListObjectPolicies): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchListOutgoingTypedLinksFilterSensitiveLog = (obj: BatchListOutgoingTypedLinks): any => ({
+  ...obj,
+  ...(obj.FilterAttributeRanges && {
+    FilterAttributeRanges: obj.FilterAttributeRanges.map((item) => TypedLinkAttributeRangeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchListPolicyAttachmentsFilterSensitiveLog = (obj: BatchListPolicyAttachments): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchLookupPolicyFilterSensitiveLog = (obj: BatchLookupPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchReadOperationFilterSensitiveLog = (obj: BatchReadOperation): any => ({
+  ...obj,
+  ...(obj.ListIndex && { ListIndex: BatchListIndexFilterSensitiveLog(obj.ListIndex) }),
+  ...(obj.ListOutgoingTypedLinks && {
+    ListOutgoingTypedLinks: BatchListOutgoingTypedLinksFilterSensitiveLog(obj.ListOutgoingTypedLinks),
+  }),
+  ...(obj.ListIncomingTypedLinks && {
+    ListIncomingTypedLinks: BatchListIncomingTypedLinksFilterSensitiveLog(obj.ListIncomingTypedLinks),
+  }),
+  ...(obj.GetLinkAttributes && { GetLinkAttributes: BatchGetLinkAttributesFilterSensitiveLog(obj.GetLinkAttributes) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchReadRequestFilterSensitiveLog = (obj: BatchReadRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchReadExceptionFilterSensitiveLog = (obj: BatchReadException): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetLinkAttributesResponseFilterSensitiveLog = (obj: BatchGetLinkAttributesResponse): any => ({
+  ...obj,
+  ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeKeyAndValueFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchGetObjectAttributesResponseFilterSensitiveLog = (obj: BatchGetObjectAttributesResponse): any => ({
+  ...obj,
+  ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeKeyAndValueFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchGetObjectInformationResponseFilterSensitiveLog = (obj: BatchGetObjectInformationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IndexAttachmentFilterSensitiveLog = (obj: IndexAttachment): any => ({
+  ...obj,
+  ...(obj.IndexedAttributes && {
+    IndexedAttributes: obj.IndexedAttributes.map((item) => AttributeKeyAndValueFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchListAttachedIndicesResponseFilterSensitiveLog = (obj: BatchListAttachedIndicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchListIncomingTypedLinksResponseFilterSensitiveLog = (
+  obj: BatchListIncomingTypedLinksResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchListIndexResponseFilterSensitiveLog = (obj: BatchListIndexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchListObjectAttributesResponseFilterSensitiveLog = (obj: BatchListObjectAttributesResponse): any => ({
+  ...obj,
+  ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeKeyAndValueFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchListObjectChildrenResponseFilterSensitiveLog = (obj: BatchListObjectChildrenResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PathToObjectIdentifiersFilterSensitiveLog = (obj: PathToObjectIdentifiers): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchListObjectParentPathsResponseFilterSensitiveLog = (obj: BatchListObjectParentPathsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ObjectIdentifierAndLinkNameTupleFilterSensitiveLog = (obj: ObjectIdentifierAndLinkNameTuple): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchListObjectParentsResponseFilterSensitiveLog = (obj: BatchListObjectParentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchListObjectPoliciesResponseFilterSensitiveLog = (obj: BatchListObjectPoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchListOutgoingTypedLinksResponseFilterSensitiveLog = (
+  obj: BatchListOutgoingTypedLinksResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchListPolicyAttachmentsResponseFilterSensitiveLog = (obj: BatchListPolicyAttachmentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyAttachmentFilterSensitiveLog = (obj: PolicyAttachment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyToPathFilterSensitiveLog = (obj: PolicyToPath): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchLookupPolicyResponseFilterSensitiveLog = (obj: BatchLookupPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchReadSuccessfulResponseFilterSensitiveLog = (obj: BatchReadSuccessfulResponse): any => ({
+  ...obj,
+  ...(obj.ListObjectAttributes && {
+    ListObjectAttributes: BatchListObjectAttributesResponseFilterSensitiveLog(obj.ListObjectAttributes),
+  }),
+  ...(obj.GetObjectAttributes && {
+    GetObjectAttributes: BatchGetObjectAttributesResponseFilterSensitiveLog(obj.GetObjectAttributes),
+  }),
+  ...(obj.GetLinkAttributes && {
+    GetLinkAttributes: BatchGetLinkAttributesResponseFilterSensitiveLog(obj.GetLinkAttributes),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchReadOperationResponseFilterSensitiveLog = (obj: BatchReadOperationResponse): any => ({
+  ...obj,
+  ...(obj.SuccessfulResponse && {
+    SuccessfulResponse: BatchReadSuccessfulResponseFilterSensitiveLog(obj.SuccessfulResponse),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchReadResponseFilterSensitiveLog = (obj: BatchReadResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAddFacetToObjectFilterSensitiveLog = (obj: BatchAddFacetToObject): any => ({
+  ...obj,
+  ...(obj.ObjectAttributeList && {
+    ObjectAttributeList: obj.ObjectAttributeList.map((item) => AttributeKeyAndValueFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchAttachObjectFilterSensitiveLog = (obj: BatchAttachObject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAttachPolicyFilterSensitiveLog = (obj: BatchAttachPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAttachToIndexFilterSensitiveLog = (obj: BatchAttachToIndex): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAttachTypedLinkFilterSensitiveLog = (obj: BatchAttachTypedLink): any => ({
+  ...obj,
+  ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeNameAndValueFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateIndexFilterSensitiveLog = (obj: BatchCreateIndex): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateObjectFilterSensitiveLog = (obj: BatchCreateObject): any => ({
+  ...obj,
+  ...(obj.ObjectAttributeList && {
+    ObjectAttributeList: obj.ObjectAttributeList.map((item) => AttributeKeyAndValueFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteObjectFilterSensitiveLog = (obj: BatchDeleteObject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDetachFromIndexFilterSensitiveLog = (obj: BatchDetachFromIndex): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDetachObjectFilterSensitiveLog = (obj: BatchDetachObject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDetachPolicyFilterSensitiveLog = (obj: BatchDetachPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDetachTypedLinkFilterSensitiveLog = (obj: BatchDetachTypedLink): any => ({
+  ...obj,
+  ...(obj.TypedLinkSpecifier && { TypedLinkSpecifier: TypedLinkSpecifierFilterSensitiveLog(obj.TypedLinkSpecifier) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchRemoveFacetFromObjectFilterSensitiveLog = (obj: BatchRemoveFacetFromObject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LinkAttributeActionFilterSensitiveLog = (obj: LinkAttributeAction): any => ({
+  ...obj,
+  ...(obj.AttributeUpdateValue && {
+    AttributeUpdateValue: TypedAttributeValueFilterSensitiveLog(obj.AttributeUpdateValue),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const LinkAttributeUpdateFilterSensitiveLog = (obj: LinkAttributeUpdate): any => ({
+  ...obj,
+  ...(obj.AttributeAction && { AttributeAction: LinkAttributeActionFilterSensitiveLog(obj.AttributeAction) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateLinkAttributesFilterSensitiveLog = (obj: BatchUpdateLinkAttributes): any => ({
+  ...obj,
+  ...(obj.TypedLinkSpecifier && { TypedLinkSpecifier: TypedLinkSpecifierFilterSensitiveLog(obj.TypedLinkSpecifier) }),
+  ...(obj.AttributeUpdates && {
+    AttributeUpdates: obj.AttributeUpdates.map((item) => LinkAttributeUpdateFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ObjectAttributeActionFilterSensitiveLog = (obj: ObjectAttributeAction): any => ({
+  ...obj,
+  ...(obj.ObjectAttributeUpdateValue && {
+    ObjectAttributeUpdateValue: TypedAttributeValueFilterSensitiveLog(obj.ObjectAttributeUpdateValue),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ObjectAttributeUpdateFilterSensitiveLog = (obj: ObjectAttributeUpdate): any => ({
+  ...obj,
+  ...(obj.ObjectAttributeAction && {
+    ObjectAttributeAction: ObjectAttributeActionFilterSensitiveLog(obj.ObjectAttributeAction),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateObjectAttributesFilterSensitiveLog = (obj: BatchUpdateObjectAttributes): any => ({
+  ...obj,
+  ...(obj.AttributeUpdates && {
+    AttributeUpdates: obj.AttributeUpdates.map((item) => ObjectAttributeUpdateFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchWriteOperationFilterSensitiveLog = (obj: BatchWriteOperation): any => ({
+  ...obj,
+  ...(obj.UpdateObjectAttributes && {
+    UpdateObjectAttributes: BatchUpdateObjectAttributesFilterSensitiveLog(obj.UpdateObjectAttributes),
+  }),
+  ...(obj.AddFacetToObject && { AddFacetToObject: BatchAddFacetToObjectFilterSensitiveLog(obj.AddFacetToObject) }),
+  ...(obj.AttachTypedLink && { AttachTypedLink: BatchAttachTypedLinkFilterSensitiveLog(obj.AttachTypedLink) }),
+  ...(obj.DetachTypedLink && { DetachTypedLink: BatchDetachTypedLinkFilterSensitiveLog(obj.DetachTypedLink) }),
+  ...(obj.UpdateLinkAttributes && {
+    UpdateLinkAttributes: BatchUpdateLinkAttributesFilterSensitiveLog(obj.UpdateLinkAttributes),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchWriteRequestFilterSensitiveLog = (obj: BatchWriteRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAddFacetToObjectResponseFilterSensitiveLog = (obj: BatchAddFacetToObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAttachObjectResponseFilterSensitiveLog = (obj: BatchAttachObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAttachPolicyResponseFilterSensitiveLog = (obj: BatchAttachPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAttachToIndexResponseFilterSensitiveLog = (obj: BatchAttachToIndexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAttachTypedLinkResponseFilterSensitiveLog = (obj: BatchAttachTypedLinkResponse): any => ({
+  ...obj,
+  ...(obj.TypedLinkSpecifier && { TypedLinkSpecifier: TypedLinkSpecifierFilterSensitiveLog(obj.TypedLinkSpecifier) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateIndexResponseFilterSensitiveLog = (obj: BatchCreateIndexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateObjectResponseFilterSensitiveLog = (obj: BatchCreateObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteObjectResponseFilterSensitiveLog = (obj: BatchDeleteObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDetachFromIndexResponseFilterSensitiveLog = (obj: BatchDetachFromIndexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDetachObjectResponseFilterSensitiveLog = (obj: BatchDetachObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDetachPolicyResponseFilterSensitiveLog = (obj: BatchDetachPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDetachTypedLinkResponseFilterSensitiveLog = (obj: BatchDetachTypedLinkResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchRemoveFacetFromObjectResponseFilterSensitiveLog = (obj: BatchRemoveFacetFromObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateLinkAttributesResponseFilterSensitiveLog = (obj: BatchUpdateLinkAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateObjectAttributesResponseFilterSensitiveLog = (
+  obj: BatchUpdateObjectAttributesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchWriteOperationResponseFilterSensitiveLog = (obj: BatchWriteOperationResponse): any => ({
+  ...obj,
+  ...(obj.AttachTypedLink && { AttachTypedLink: BatchAttachTypedLinkResponseFilterSensitiveLog(obj.AttachTypedLink) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchWriteResponseFilterSensitiveLog = (obj: BatchWriteResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDirectoryRequestFilterSensitiveLog = (obj: CreateDirectoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDirectoryResponseFilterSensitiveLog = (obj: CreateDirectoryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleFilterSensitiveLog = (obj: Rule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FacetAttributeDefinitionFilterSensitiveLog = (obj: FacetAttributeDefinition): any => ({
+  ...obj,
+  ...(obj.DefaultValue && { DefaultValue: TypedAttributeValueFilterSensitiveLog(obj.DefaultValue) }),
+});
+
+/**
+ * @internal
+ */
+export const FacetAttributeReferenceFilterSensitiveLog = (obj: FacetAttributeReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FacetAttributeFilterSensitiveLog = (obj: FacetAttribute): any => ({
+  ...obj,
+  ...(obj.AttributeDefinition && {
+    AttributeDefinition: FacetAttributeDefinitionFilterSensitiveLog(obj.AttributeDefinition),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateFacetRequestFilterSensitiveLog = (obj: CreateFacetRequest): any => ({
+  ...obj,
+  ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => FacetAttributeFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateFacetResponseFilterSensitiveLog = (obj: CreateFacetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIndexRequestFilterSensitiveLog = (obj: CreateIndexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIndexResponseFilterSensitiveLog = (obj: CreateIndexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateObjectRequestFilterSensitiveLog = (obj: CreateObjectRequest): any => ({
+  ...obj,
+  ...(obj.ObjectAttributeList && {
+    ObjectAttributeList: obj.ObjectAttributeList.map((item) => AttributeKeyAndValueFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateObjectResponseFilterSensitiveLog = (obj: CreateObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSchemaRequestFilterSensitiveLog = (obj: CreateSchemaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSchemaResponseFilterSensitiveLog = (obj: CreateSchemaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TypedLinkAttributeDefinitionFilterSensitiveLog = (obj: TypedLinkAttributeDefinition): any => ({
+  ...obj,
+  ...(obj.DefaultValue && { DefaultValue: TypedAttributeValueFilterSensitiveLog(obj.DefaultValue) }),
+});
+
+/**
+ * @internal
+ */
+export const TypedLinkFacetFilterSensitiveLog = (obj: TypedLinkFacet): any => ({
+  ...obj,
+  ...(obj.Attributes && {
+    Attributes: obj.Attributes.map((item) => TypedLinkAttributeDefinitionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateTypedLinkFacetRequestFilterSensitiveLog = (obj: CreateTypedLinkFacetRequest): any => ({
+  ...obj,
+  ...(obj.Facet && { Facet: TypedLinkFacetFilterSensitiveLog(obj.Facet) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateTypedLinkFacetResponseFilterSensitiveLog = (obj: CreateTypedLinkFacetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDirectoryRequestFilterSensitiveLog = (obj: DeleteDirectoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDirectoryResponseFilterSensitiveLog = (obj: DeleteDirectoryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFacetRequestFilterSensitiveLog = (obj: DeleteFacetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFacetResponseFilterSensitiveLog = (obj: DeleteFacetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteObjectRequestFilterSensitiveLog = (obj: DeleteObjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteObjectResponseFilterSensitiveLog = (obj: DeleteObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSchemaRequestFilterSensitiveLog = (obj: DeleteSchemaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSchemaResponseFilterSensitiveLog = (obj: DeleteSchemaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTypedLinkFacetRequestFilterSensitiveLog = (obj: DeleteTypedLinkFacetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTypedLinkFacetResponseFilterSensitiveLog = (obj: DeleteTypedLinkFacetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachFromIndexRequestFilterSensitiveLog = (obj: DetachFromIndexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachFromIndexResponseFilterSensitiveLog = (obj: DetachFromIndexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachObjectRequestFilterSensitiveLog = (obj: DetachObjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachObjectResponseFilterSensitiveLog = (obj: DetachObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachPolicyRequestFilterSensitiveLog = (obj: DetachPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachPolicyResponseFilterSensitiveLog = (obj: DetachPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachTypedLinkRequestFilterSensitiveLog = (obj: DetachTypedLinkRequest): any => ({
+  ...obj,
+  ...(obj.TypedLinkSpecifier && { TypedLinkSpecifier: TypedLinkSpecifierFilterSensitiveLog(obj.TypedLinkSpecifier) }),
+});
+
+/**
+ * @internal
+ */
+export const DisableDirectoryRequestFilterSensitiveLog = (obj: DisableDirectoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableDirectoryResponseFilterSensitiveLog = (obj: DisableDirectoryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableDirectoryRequestFilterSensitiveLog = (obj: EnableDirectoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableDirectoryResponseFilterSensitiveLog = (obj: EnableDirectoryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppliedSchemaVersionRequestFilterSensitiveLog = (obj: GetAppliedSchemaVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppliedSchemaVersionResponseFilterSensitiveLog = (obj: GetAppliedSchemaVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDirectoryRequestFilterSensitiveLog = (obj: GetDirectoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DirectoryFilterSensitiveLog = (obj: Directory): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDirectoryResponseFilterSensitiveLog = (obj: GetDirectoryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFacetRequestFilterSensitiveLog = (obj: GetFacetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FacetFilterSensitiveLog = (obj: Facet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFacetResponseFilterSensitiveLog = (obj: GetFacetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLinkAttributesRequestFilterSensitiveLog = (obj: GetLinkAttributesRequest): any => ({
+  ...obj,
+  ...(obj.TypedLinkSpecifier && { TypedLinkSpecifier: TypedLinkSpecifierFilterSensitiveLog(obj.TypedLinkSpecifier) }),
+});
+
+/**
+ * @internal
+ */
+export const GetLinkAttributesResponseFilterSensitiveLog = (obj: GetLinkAttributesResponse): any => ({
+  ...obj,
+  ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeKeyAndValueFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetObjectAttributesRequestFilterSensitiveLog = (obj: GetObjectAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectAttributesResponseFilterSensitiveLog = (obj: GetObjectAttributesResponse): any => ({
+  ...obj,
+  ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeKeyAndValueFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetObjectInformationRequestFilterSensitiveLog = (obj: GetObjectInformationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectInformationResponseFilterSensitiveLog = (obj: GetObjectInformationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSchemaAsJsonRequestFilterSensitiveLog = (obj: GetSchemaAsJsonRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSchemaAsJsonResponseFilterSensitiveLog = (obj: GetSchemaAsJsonResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTypedLinkFacetInformationRequestFilterSensitiveLog = (
+  obj: GetTypedLinkFacetInformationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTypedLinkFacetInformationResponseFilterSensitiveLog = (
+  obj: GetTypedLinkFacetInformationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppliedSchemaArnsRequestFilterSensitiveLog = (obj: ListAppliedSchemaArnsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppliedSchemaArnsResponseFilterSensitiveLog = (obj: ListAppliedSchemaArnsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAttachedIndicesRequestFilterSensitiveLog = (obj: ListAttachedIndicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAttachedIndicesResponseFilterSensitiveLog = (obj: ListAttachedIndicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDevelopmentSchemaArnsRequestFilterSensitiveLog = (obj: ListDevelopmentSchemaArnsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDevelopmentSchemaArnsResponseFilterSensitiveLog = (obj: ListDevelopmentSchemaArnsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDirectoriesRequestFilterSensitiveLog = (obj: ListDirectoriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDirectoriesResponseFilterSensitiveLog = (obj: ListDirectoriesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFacetAttributesRequestFilterSensitiveLog = (obj: ListFacetAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFacetAttributesResponseFilterSensitiveLog = (obj: ListFacetAttributesResponse): any => ({
+  ...obj,
+  ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => FacetAttributeFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListFacetNamesRequestFilterSensitiveLog = (obj: ListFacetNamesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFacetNamesResponseFilterSensitiveLog = (obj: ListFacetNamesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIncomingTypedLinksRequestFilterSensitiveLog = (obj: ListIncomingTypedLinksRequest): any => ({
+  ...obj,
+  ...(obj.FilterAttributeRanges && {
+    FilterAttributeRanges: obj.FilterAttributeRanges.map((item) => TypedLinkAttributeRangeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListIncomingTypedLinksResponseFilterSensitiveLog = (obj: ListIncomingTypedLinksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIndexRequestFilterSensitiveLog = (obj: ListIndexRequest): any => ({
+  ...obj,
+  ...(obj.RangesOnIndexedValues && {
+    RangesOnIndexedValues: obj.RangesOnIndexedValues.map((item) => ObjectAttributeRangeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListIndexResponseFilterSensitiveLog = (obj: ListIndexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListManagedSchemaArnsRequestFilterSensitiveLog = (obj: ListManagedSchemaArnsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListManagedSchemaArnsResponseFilterSensitiveLog = (obj: ListManagedSchemaArnsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObjectAttributesRequestFilterSensitiveLog = (obj: ListObjectAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObjectAttributesResponseFilterSensitiveLog = (obj: ListObjectAttributesResponse): any => ({
+  ...obj,
+  ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeKeyAndValueFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListObjectChildrenRequestFilterSensitiveLog = (obj: ListObjectChildrenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObjectChildrenResponseFilterSensitiveLog = (obj: ListObjectChildrenResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObjectParentPathsRequestFilterSensitiveLog = (obj: ListObjectParentPathsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObjectParentPathsResponseFilterSensitiveLog = (obj: ListObjectParentPathsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObjectParentsRequestFilterSensitiveLog = (obj: ListObjectParentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObjectParentsResponseFilterSensitiveLog = (obj: ListObjectParentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObjectPoliciesRequestFilterSensitiveLog = (obj: ListObjectPoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObjectPoliciesResponseFilterSensitiveLog = (obj: ListObjectPoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOutgoingTypedLinksRequestFilterSensitiveLog = (obj: ListOutgoingTypedLinksRequest): any => ({
+  ...obj,
+  ...(obj.FilterAttributeRanges && {
+    FilterAttributeRanges: obj.FilterAttributeRanges.map((item) => TypedLinkAttributeRangeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListOutgoingTypedLinksResponseFilterSensitiveLog = (obj: ListOutgoingTypedLinksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPolicyAttachmentsRequestFilterSensitiveLog = (obj: ListPolicyAttachmentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPolicyAttachmentsResponseFilterSensitiveLog = (obj: ListPolicyAttachmentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPublishedSchemaArnsRequestFilterSensitiveLog = (obj: ListPublishedSchemaArnsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPublishedSchemaArnsResponseFilterSensitiveLog = (obj: ListPublishedSchemaArnsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTypedLinkFacetAttributesRequestFilterSensitiveLog = (
+  obj: ListTypedLinkFacetAttributesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTypedLinkFacetAttributesResponseFilterSensitiveLog = (
+  obj: ListTypedLinkFacetAttributesResponse
+): any => ({
+  ...obj,
+  ...(obj.Attributes && {
+    Attributes: obj.Attributes.map((item) => TypedLinkAttributeDefinitionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListTypedLinkFacetNamesRequestFilterSensitiveLog = (obj: ListTypedLinkFacetNamesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTypedLinkFacetNamesResponseFilterSensitiveLog = (obj: ListTypedLinkFacetNamesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LookupPolicyRequestFilterSensitiveLog = (obj: LookupPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LookupPolicyResponseFilterSensitiveLog = (obj: LookupPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishSchemaRequestFilterSensitiveLog = (obj: PublishSchemaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishSchemaResponseFilterSensitiveLog = (obj: PublishSchemaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutSchemaFromJsonRequestFilterSensitiveLog = (obj: PutSchemaFromJsonRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutSchemaFromJsonResponseFilterSensitiveLog = (obj: PutSchemaFromJsonResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveFacetFromObjectRequestFilterSensitiveLog = (obj: RemoveFacetFromObjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveFacetFromObjectResponseFilterSensitiveLog = (obj: RemoveFacetFromObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FacetAttributeUpdateFilterSensitiveLog = (obj: FacetAttributeUpdate): any => ({
+  ...obj,
+  ...(obj.Attribute && { Attribute: FacetAttributeFilterSensitiveLog(obj.Attribute) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateFacetRequestFilterSensitiveLog = (obj: UpdateFacetRequest): any => ({
+  ...obj,
+  ...(obj.AttributeUpdates && {
+    AttributeUpdates: obj.AttributeUpdates.map((item) => FacetAttributeUpdateFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateFacetResponseFilterSensitiveLog = (obj: UpdateFacetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLinkAttributesRequestFilterSensitiveLog = (obj: UpdateLinkAttributesRequest): any => ({
+  ...obj,
+  ...(obj.TypedLinkSpecifier && { TypedLinkSpecifier: TypedLinkSpecifierFilterSensitiveLog(obj.TypedLinkSpecifier) }),
+  ...(obj.AttributeUpdates && {
+    AttributeUpdates: obj.AttributeUpdates.map((item) => LinkAttributeUpdateFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateLinkAttributesResponseFilterSensitiveLog = (obj: UpdateLinkAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateObjectAttributesRequestFilterSensitiveLog = (obj: UpdateObjectAttributesRequest): any => ({
+  ...obj,
+  ...(obj.AttributeUpdates && {
+    AttributeUpdates: obj.AttributeUpdates.map((item) => ObjectAttributeUpdateFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateObjectAttributesResponseFilterSensitiveLog = (obj: UpdateObjectAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSchemaRequestFilterSensitiveLog = (obj: UpdateSchemaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSchemaResponseFilterSensitiveLog = (obj: UpdateSchemaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TypedLinkFacetAttributeUpdateFilterSensitiveLog = (obj: TypedLinkFacetAttributeUpdate): any => ({
+  ...obj,
+  ...(obj.Attribute && { Attribute: TypedLinkAttributeDefinitionFilterSensitiveLog(obj.Attribute) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateTypedLinkFacetRequestFilterSensitiveLog = (obj: UpdateTypedLinkFacetRequest): any => ({
+  ...obj,
+  ...(obj.AttributeUpdates && {
+    AttributeUpdates: obj.AttributeUpdates.map((item) => TypedLinkFacetAttributeUpdateFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateTypedLinkFacetResponseFilterSensitiveLog = (obj: UpdateTypedLinkFacetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpgradeAppliedSchemaRequestFilterSensitiveLog = (obj: UpgradeAppliedSchemaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpgradeAppliedSchemaResponseFilterSensitiveLog = (obj: UpgradeAppliedSchemaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpgradePublishedSchemaRequestFilterSensitiveLog = (obj: UpgradePublishedSchemaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpgradePublishedSchemaResponseFilterSensitiveLog = (obj: UpgradePublishedSchemaResponse): any => ({
+  ...obj,
+});

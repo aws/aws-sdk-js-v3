@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateStreamingImageRequest, UpdateStreamingImageResponse } from "../models/models_0";
+import {
+  UpdateStreamingImageRequest,
+  UpdateStreamingImageRequestFilterSensitiveLog,
+  UpdateStreamingImageResponse,
+  UpdateStreamingImageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1UpdateStreamingImageCommand,
@@ -72,8 +77,8 @@ export class UpdateStreamingImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStreamingImageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStreamingImageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateStreamingImageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateStreamingImageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

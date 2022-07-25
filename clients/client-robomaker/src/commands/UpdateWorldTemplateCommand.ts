@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateWorldTemplateRequest, UpdateWorldTemplateResponse } from "../models/models_0";
+import {
+  UpdateWorldTemplateRequest,
+  UpdateWorldTemplateRequestFilterSensitiveLog,
+  UpdateWorldTemplateResponse,
+  UpdateWorldTemplateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateWorldTemplateCommand,
   serializeAws_restJson1UpdateWorldTemplateCommand,
@@ -72,8 +77,8 @@ export class UpdateWorldTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorldTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorldTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateWorldTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateWorldTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

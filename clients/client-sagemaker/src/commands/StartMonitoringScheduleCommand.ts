@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartMonitoringScheduleRequest } from "../models/models_3";
+import { StartMonitoringScheduleRequest, StartMonitoringScheduleRequestFilterSensitiveLog } from "../models/models_3";
 import {
   deserializeAws_json1_1StartMonitoringScheduleCommand,
   serializeAws_json1_1StartMonitoringScheduleCommand,
@@ -76,7 +76,7 @@ export class StartMonitoringScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMonitoringScheduleRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: StartMonitoringScheduleRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

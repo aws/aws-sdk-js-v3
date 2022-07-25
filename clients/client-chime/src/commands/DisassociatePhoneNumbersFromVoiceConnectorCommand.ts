@@ -15,7 +15,9 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   DisassociatePhoneNumbersFromVoiceConnectorRequest,
+  DisassociatePhoneNumbersFromVoiceConnectorRequestFilterSensitiveLog,
   DisassociatePhoneNumbersFromVoiceConnectorResponse,
+  DisassociatePhoneNumbersFromVoiceConnectorResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorCommand,
@@ -81,8 +83,8 @@ export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociatePhoneNumbersFromVoiceConnectorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociatePhoneNumbersFromVoiceConnectorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociatePhoneNumbersFromVoiceConnectorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociatePhoneNumbersFromVoiceConnectorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import { RefreshTokenRequest, RefreshTokenResponse } from "../models/models_0";
+import {
+  RefreshTokenRequest,
+  RefreshTokenRequestFilterSensitiveLog,
+  RefreshTokenResponse,
+  RefreshTokenResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RefreshTokenCommand,
   serializeAws_restJson1RefreshTokenCommand,
@@ -72,8 +77,8 @@ export class RefreshTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RefreshTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RefreshTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RefreshTokenRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RefreshTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

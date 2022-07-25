@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { DisassociateMembershipRequest } from "../models/models_0";
+import { DisassociateMembershipRequest, DisassociateMembershipRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateMembershipCommand,
   serializeAws_restJson1DisassociateMembershipCommand,
@@ -78,7 +78,7 @@ export class DisassociateMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateMembershipRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateMembershipRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

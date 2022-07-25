@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { ModifyCacheClusterMessage, ModifyCacheClusterResult } from "../models/models_0";
+import {
+  ModifyCacheClusterMessage,
+  ModifyCacheClusterMessageFilterSensitiveLog,
+  ModifyCacheClusterResult,
+  ModifyCacheClusterResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryModifyCacheClusterCommand,
   serializeAws_queryModifyCacheClusterCommand,
@@ -74,8 +79,8 @@ export class ModifyCacheClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyCacheClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyCacheClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyCacheClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyCacheClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ResetPasswordRequest, ResetPasswordResponse } from "../models/models_0";
+import {
+  ResetPasswordRequest,
+  ResetPasswordRequestFilterSensitiveLog,
+  ResetPasswordResponse,
+  ResetPasswordResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ResetPasswordCommand,
   serializeAws_json1_1ResetPasswordCommand,
@@ -72,8 +77,8 @@ export class ResetPasswordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetPasswordRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResetPasswordResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetPasswordRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResetPasswordResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

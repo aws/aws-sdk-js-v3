@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListVPCAssociationAuthorizationsRequest, ListVPCAssociationAuthorizationsResponse } from "../models/models_0";
+import {
+  ListVPCAssociationAuthorizationsRequest,
+  ListVPCAssociationAuthorizationsRequestFilterSensitiveLog,
+  ListVPCAssociationAuthorizationsResponse,
+  ListVPCAssociationAuthorizationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlListVPCAssociationAuthorizationsCommand,
   serializeAws_restXmlListVPCAssociationAuthorizationsCommand,
@@ -80,8 +85,8 @@ export class ListVPCAssociationAuthorizationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVPCAssociationAuthorizationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListVPCAssociationAuthorizationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListVPCAssociationAuthorizationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListVPCAssociationAuthorizationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

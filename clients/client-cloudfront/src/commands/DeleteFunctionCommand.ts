@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteFunctionRequest } from "../models/models_0";
+import { DeleteFunctionRequest, DeleteFunctionRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteFunctionCommand,
   serializeAws_restXmlDeleteFunctionCommand,
@@ -78,7 +78,7 @@ export class DeleteFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFunctionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFunctionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

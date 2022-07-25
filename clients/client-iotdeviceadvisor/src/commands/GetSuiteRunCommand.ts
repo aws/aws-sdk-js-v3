@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
-import { GetSuiteRunRequest, GetSuiteRunResponse } from "../models/models_0";
+import {
+  GetSuiteRunRequest,
+  GetSuiteRunRequestFilterSensitiveLog,
+  GetSuiteRunResponse,
+  GetSuiteRunResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetSuiteRunCommand,
   serializeAws_restJson1GetSuiteRunCommand,
@@ -73,8 +78,8 @@ export class GetSuiteRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSuiteRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSuiteRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSuiteRunRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSuiteRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

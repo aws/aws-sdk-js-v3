@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DescribeAssetPropertyRequest, DescribeAssetPropertyResponse } from "../models/models_0";
+import {
+  DescribeAssetPropertyRequest,
+  DescribeAssetPropertyRequestFilterSensitiveLog,
+  DescribeAssetPropertyResponse,
+  DescribeAssetPropertyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAssetPropertyCommand,
   serializeAws_restJson1DescribeAssetPropertyCommand,
@@ -79,8 +84,8 @@ export class DescribeAssetPropertyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAssetPropertyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAssetPropertyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAssetPropertyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAssetPropertyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

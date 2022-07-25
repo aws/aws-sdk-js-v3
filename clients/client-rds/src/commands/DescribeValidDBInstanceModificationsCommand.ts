@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeValidDBInstanceModificationsMessage,
+  DescribeValidDBInstanceModificationsMessageFilterSensitiveLog,
   DescribeValidDBInstanceModificationsResult,
+  DescribeValidDBInstanceModificationsResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_queryDescribeValidDBInstanceModificationsCommand,
@@ -79,8 +81,8 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeValidDBInstanceModificationsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeValidDBInstanceModificationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeValidDBInstanceModificationsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeValidDBInstanceModificationsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { AttachPolicyRequest, AttachPolicyResponse } from "../models/models_0";
+import {
+  AttachPolicyRequest,
+  AttachPolicyRequestFilterSensitiveLog,
+  AttachPolicyResponse,
+  AttachPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1AttachPolicyCommand,
   serializeAws_restJson1AttachPolicyCommand,
@@ -73,8 +78,8 @@ export class AttachPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AttachPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AttachPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

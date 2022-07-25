@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetAWSOrganizationsAccessStatusInput, GetAWSOrganizationsAccessStatusOutput } from "../models/models_0";
+import {
+  GetAWSOrganizationsAccessStatusInput,
+  GetAWSOrganizationsAccessStatusInputFilterSensitiveLog,
+  GetAWSOrganizationsAccessStatusOutput,
+  GetAWSOrganizationsAccessStatusOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommand,
   serializeAws_json1_1GetAWSOrganizationsAccessStatusCommand,
@@ -75,8 +80,8 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAWSOrganizationsAccessStatusInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAWSOrganizationsAccessStatusOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAWSOrganizationsAccessStatusInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAWSOrganizationsAccessStatusOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

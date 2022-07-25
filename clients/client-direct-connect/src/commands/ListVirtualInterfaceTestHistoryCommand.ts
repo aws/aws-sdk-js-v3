@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { ListVirtualInterfaceTestHistoryRequest, ListVirtualInterfaceTestHistoryResponse } from "../models/models_0";
+import {
+  ListVirtualInterfaceTestHistoryRequest,
+  ListVirtualInterfaceTestHistoryRequestFilterSensitiveLog,
+  ListVirtualInterfaceTestHistoryResponse,
+  ListVirtualInterfaceTestHistoryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommand,
   serializeAws_json1_1ListVirtualInterfaceTestHistoryCommand,
@@ -74,8 +79,8 @@ export class ListVirtualInterfaceTestHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVirtualInterfaceTestHistoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListVirtualInterfaceTestHistoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListVirtualInterfaceTestHistoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListVirtualInterfaceTestHistoryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

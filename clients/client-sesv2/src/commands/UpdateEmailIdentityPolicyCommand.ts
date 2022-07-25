@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateEmailIdentityPolicyRequest, UpdateEmailIdentityPolicyResponse } from "../models/models_0";
+import {
+  UpdateEmailIdentityPolicyRequest,
+  UpdateEmailIdentityPolicyRequestFilterSensitiveLog,
+  UpdateEmailIdentityPolicyResponse,
+  UpdateEmailIdentityPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateEmailIdentityPolicyCommand,
   serializeAws_restJson1UpdateEmailIdentityPolicyCommand,
@@ -84,8 +89,8 @@ export class UpdateEmailIdentityPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEmailIdentityPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEmailIdentityPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateEmailIdentityPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateEmailIdentityPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

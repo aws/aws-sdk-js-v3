@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetObjectLockConfigurationOutput, GetObjectLockConfigurationRequest } from "../models/models_0";
+import {
+  GetObjectLockConfigurationOutput,
+  GetObjectLockConfigurationOutputFilterSensitiveLog,
+  GetObjectLockConfigurationRequest,
+  GetObjectLockConfigurationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlGetObjectLockConfigurationCommand,
   serializeAws_restXmlGetObjectLockConfigurationCommand,
@@ -86,8 +91,8 @@ export class GetObjectLockConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetObjectLockConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetObjectLockConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetObjectLockConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetObjectLockConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyTransitGatewayVpcAttachmentRequest, ModifyTransitGatewayVpcAttachmentResult } from "../models/models_5";
+import {
+  ModifyTransitGatewayVpcAttachmentRequest,
+  ModifyTransitGatewayVpcAttachmentRequestFilterSensitiveLog,
+  ModifyTransitGatewayVpcAttachmentResult,
+  ModifyTransitGatewayVpcAttachmentResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand,
   serializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand,
@@ -74,8 +79,8 @@ export class ModifyTransitGatewayVpcAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyTransitGatewayVpcAttachmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyTransitGatewayVpcAttachmentResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyTransitGatewayVpcAttachmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyTransitGatewayVpcAttachmentResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

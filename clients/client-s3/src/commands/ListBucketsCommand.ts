@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListBucketsOutput } from "../models/models_0";
+import { ListBucketsOutput, ListBucketsOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlListBucketsCommand,
   serializeAws_restXmlListBucketsCommand,
@@ -74,7 +74,7 @@ export class ListBucketsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: ListBucketsOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListBucketsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

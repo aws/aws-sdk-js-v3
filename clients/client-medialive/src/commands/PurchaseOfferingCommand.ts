@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { PurchaseOfferingRequest, PurchaseOfferingResponse } from "../models/models_1";
+import {
+  PurchaseOfferingRequest,
+  PurchaseOfferingRequestFilterSensitiveLog,
+  PurchaseOfferingResponse,
+  PurchaseOfferingResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1PurchaseOfferingCommand,
   serializeAws_restJson1PurchaseOfferingCommand,
@@ -72,8 +77,8 @@ export class PurchaseOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseOfferingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseOfferingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PurchaseOfferingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseOfferingResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

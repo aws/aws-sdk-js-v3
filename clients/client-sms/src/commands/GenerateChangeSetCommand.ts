@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GenerateChangeSetRequest, GenerateChangeSetResponse } from "../models/models_0";
+import {
+  GenerateChangeSetRequest,
+  GenerateChangeSetRequestFilterSensitiveLog,
+  GenerateChangeSetResponse,
+  GenerateChangeSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GenerateChangeSetCommand,
   serializeAws_json1_1GenerateChangeSetCommand,
@@ -73,8 +78,8 @@ export class GenerateChangeSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateChangeSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GenerateChangeSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GenerateChangeSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GenerateChangeSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

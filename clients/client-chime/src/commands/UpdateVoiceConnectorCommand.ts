@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { UpdateVoiceConnectorRequest, UpdateVoiceConnectorResponse } from "../models/models_1";
+import {
+  UpdateVoiceConnectorRequest,
+  UpdateVoiceConnectorRequestFilterSensitiveLog,
+  UpdateVoiceConnectorResponse,
+  UpdateVoiceConnectorResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateVoiceConnectorCommand,
   serializeAws_restJson1UpdateVoiceConnectorCommand,
@@ -72,8 +77,8 @@ export class UpdateVoiceConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVoiceConnectorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVoiceConnectorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateVoiceConnectorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVoiceConnectorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

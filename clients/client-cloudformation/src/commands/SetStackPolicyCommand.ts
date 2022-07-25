@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { SetStackPolicyInput } from "../models/models_0";
+import { SetStackPolicyInput, SetStackPolicyInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_querySetStackPolicyCommand,
   serializeAws_querySetStackPolicyCommand,
@@ -72,7 +72,7 @@ export class SetStackPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetStackPolicyInput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetStackPolicyInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

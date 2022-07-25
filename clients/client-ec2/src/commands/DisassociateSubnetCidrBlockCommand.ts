@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisassociateSubnetCidrBlockRequest, DisassociateSubnetCidrBlockResult } from "../models/models_4";
+import {
+  DisassociateSubnetCidrBlockRequest,
+  DisassociateSubnetCidrBlockRequestFilterSensitiveLog,
+  DisassociateSubnetCidrBlockResult,
+  DisassociateSubnetCidrBlockResultFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2DisassociateSubnetCidrBlockCommand,
   serializeAws_ec2DisassociateSubnetCidrBlockCommand,
@@ -72,8 +77,8 @@ export class DisassociateSubnetCidrBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateSubnetCidrBlockRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateSubnetCidrBlockResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateSubnetCidrBlockRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateSubnetCidrBlockResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

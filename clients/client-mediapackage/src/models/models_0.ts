@@ -28,15 +28,6 @@ export interface EgressAccessLogs {
   LogGroupName?: string;
 }
 
-export namespace EgressAccessLogs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EgressAccessLogs): any => ({
-    ...obj,
-  });
-}
-
 /**
  * An endpoint for ingesting source content for a Channel.
  */
@@ -62,15 +53,6 @@ export interface IngestEndpoint {
   Username?: string;
 }
 
-export namespace IngestEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IngestEndpoint): any => ({
-    ...obj,
-  });
-}
-
 /**
  * An HTTP Live Streaming (HLS) ingest resource configuration.
  */
@@ -81,15 +63,6 @@ export interface HlsIngest {
   IngestEndpoints?: IngestEndpoint[];
 }
 
-export namespace HlsIngest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsIngest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Configure ingress access logging.
  */
@@ -98,15 +71,6 @@ export interface IngressAccessLogs {
    * Customize the log group name.
    */
   LogGroupName?: string;
-}
-
-export namespace IngressAccessLogs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IngressAccessLogs): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -149,15 +113,6 @@ export interface Channel {
   Tags?: Record<string, string>;
 }
 
-export namespace Channel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Channel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Configuration parameters for where in an S3 bucket to place the harvested content
  */
@@ -176,15 +131,6 @@ export interface S3Destination {
    * The IAM role used to write to the specified S3 bucket
    */
   RoleArn: string | undefined;
-}
-
-export namespace S3Destination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Destination): any => ({
-    ...obj,
-  });
 }
 
 export enum Status {
@@ -245,15 +191,6 @@ export interface HarvestJob {
    * include an explanation of why the HarvestJob failed.
    */
   Status?: Status | string;
-}
-
-export namespace HarvestJob {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HarvestJob): any => ({
-    ...obj,
-  });
 }
 
 export enum AdMarkers {
@@ -330,15 +267,6 @@ export interface HlsManifest {
    * The URL of the packaged OriginEndpoint for consumption.
    */
   Url?: string;
-}
-
-export namespace HlsManifest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsManifest): any => ({
-    ...obj,
-  });
 }
 
 export enum AdsOnDeliveryRestrictions {
@@ -425,15 +353,6 @@ export interface HlsManifestCreateOrUpdateParameters {
   ProgramDateTimeIntervalSeconds?: number;
 }
 
-export namespace HlsManifestCreateOrUpdateParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsManifestCreateOrUpdateParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * CDN Authorization credentials
  */
@@ -447,15 +366,6 @@ export interface Authorization {
    * The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
    */
   SecretsRoleArn: string | undefined;
-}
-
-export namespace Authorization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Authorization): any => ({
-    ...obj,
-  });
 }
 
 export enum PresetSpeke20Audio {
@@ -497,15 +407,6 @@ export interface EncryptionContractConfiguration {
    * A collection of video encryption presets.
    */
   PresetSpeke20Video: PresetSpeke20Video | string | undefined;
-}
-
-export namespace EncryptionContractConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionContractConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -551,15 +452,6 @@ export interface SpekeKeyProvider {
   Url: string | undefined;
 }
 
-export namespace SpekeKeyProvider {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SpekeKeyProvider): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A Common Media Application Format (CMAF) encryption configuration.
  */
@@ -578,15 +470,6 @@ export interface CmafEncryption {
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
    */
   SpekeKeyProvider: SpekeKeyProvider | undefined;
-}
-
-export namespace CmafEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CmafEncryption): any => ({
-    ...obj,
-  });
 }
 
 export enum StreamOrder {
@@ -613,15 +496,6 @@ export interface StreamSelection {
    * A directive that determines the order of streams in the output.
    */
   StreamOrder?: StreamOrder | string;
-}
-
-export namespace StreamSelection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamSelection): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -655,15 +529,6 @@ export interface CmafPackage {
   StreamSelection?: StreamSelection;
 }
 
-export namespace CmafPackage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CmafPackage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
  */
@@ -677,15 +542,6 @@ export interface DashEncryption {
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
    */
   SpekeKeyProvider: SpekeKeyProvider | undefined;
-}
-
-export namespace DashEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashEncryption): any => ({
-    ...obj,
-  });
 }
 
 export enum ManifestLayout {
@@ -811,15 +667,6 @@ export interface DashPackage {
   UtcTimingUri?: string;
 }
 
-export namespace DashPackage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashPackage): any => ({
-    ...obj,
-  });
-}
-
 export enum EncryptionMethod {
   AES_128 = "AES_128",
   SAMPLE_AES = "SAMPLE_AES",
@@ -854,15 +701,6 @@ export interface HlsEncryption {
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
    */
   SpekeKeyProvider: SpekeKeyProvider | undefined;
-}
-
-export namespace HlsEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsEncryption): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -958,15 +796,6 @@ export interface HlsPackage {
   UseAudioRenditionGroup?: boolean;
 }
 
-export namespace HlsPackage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsPackage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A Microsoft Smooth Streaming (MSS) encryption configuration.
  */
@@ -975,15 +804,6 @@ export interface MssEncryption {
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
    */
   SpekeKeyProvider: SpekeKeyProvider | undefined;
-}
-
-export namespace MssEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MssEncryption): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1009,15 +829,6 @@ export interface MssPackage {
    * A StreamSelection configuration.
    */
   StreamSelection?: StreamSelection;
-}
-
-export namespace MssPackage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MssPackage): any => ({
-    ...obj,
-  });
 }
 
 export enum Origination {
@@ -1114,15 +925,6 @@ export interface OriginEndpoint {
   Whitelist?: string[];
 }
 
-export namespace OriginEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginEndpoint): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A Common Media Application Format (CMAF) packaging configuration.
  */
@@ -1154,15 +956,6 @@ export interface CmafPackageCreateOrUpdateParameters {
   StreamSelection?: StreamSelection;
 }
 
-export namespace CmafPackageCreateOrUpdateParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CmafPackageCreateOrUpdateParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * the option to configure log subscription.
  */
@@ -1181,15 +974,6 @@ export interface ConfigureLogsRequest {
    * Configure ingress access logging.
    */
   IngressAccessLogs?: IngressAccessLogs;
-}
-
-export namespace ConfigureLogsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigureLogsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ConfigureLogsResponse {
@@ -1227,15 +1011,6 @@ export interface ConfigureLogsResponse {
    * A collection of tags associated with a resource
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ConfigureLogsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigureLogsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1385,15 +1160,6 @@ export interface CreateChannelRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateChannelResponse {
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
@@ -1431,15 +1197,6 @@ export interface CreateChannelResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Configuration parameters used to create a new HarvestJob.
  */
@@ -1470,15 +1227,6 @@ export interface CreateHarvestJobRequest {
    * The start of the time-window which will be harvested
    */
   StartTime: string | undefined;
-}
-
-export namespace CreateHarvestJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHarvestJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateHarvestJobResponse {
@@ -1530,15 +1278,6 @@ export interface CreateHarvestJobResponse {
    * include an explanation of why the HarvestJob failed.
    */
   Status?: Status | string;
-}
-
-export namespace CreateHarvestJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHarvestJobResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1620,15 +1359,6 @@ export interface CreateOriginEndpointRequest {
    * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
    */
   Whitelist?: string[];
-}
-
-export namespace CreateOriginEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOriginEndpointRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateOriginEndpointResponse {
@@ -1717,15 +1447,6 @@ export interface CreateOriginEndpointResponse {
   Whitelist?: string[];
 }
 
-export namespace CreateOriginEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOriginEndpointResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteChannelRequest {
   /**
    * The ID of the Channel to delete.
@@ -1733,25 +1454,7 @@ export interface DeleteChannelRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteChannelResponse {}
-
-export namespace DeleteChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChannelResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteOriginEndpointRequest {
   /**
@@ -1760,40 +1463,13 @@ export interface DeleteOriginEndpointRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteOriginEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOriginEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteOriginEndpointResponse {}
-
-export namespace DeleteOriginEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOriginEndpointResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeChannelRequest {
   /**
    * The ID of a Channel.
    */
   Id: string | undefined;
-}
-
-export namespace DescribeChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeChannelResponse {
@@ -1833,29 +1509,11 @@ export interface DescribeChannelResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace DescribeChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeHarvestJobRequest {
   /**
    * The ID of the HarvestJob.
    */
   Id: string | undefined;
-}
-
-export namespace DescribeHarvestJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHarvestJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeHarvestJobResponse {
@@ -1909,29 +1567,11 @@ export interface DescribeHarvestJobResponse {
   Status?: Status | string;
 }
 
-export namespace DescribeHarvestJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHarvestJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOriginEndpointRequest {
   /**
    * The ID of the OriginEndpoint.
    */
   Id: string | undefined;
-}
-
-export namespace DescribeOriginEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOriginEndpointRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeOriginEndpointResponse {
@@ -2020,15 +1660,6 @@ export interface DescribeOriginEndpointResponse {
   Whitelist?: string[];
 }
 
-export namespace DescribeOriginEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOriginEndpointResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListChannelsRequest {
   /**
    * Upper bound on number of records to return.
@@ -2041,15 +1672,6 @@ export interface ListChannelsRequest {
   NextToken?: string;
 }
 
-export namespace ListChannelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListChannelsResponse {
   /**
    * A list of Channel records.
@@ -2060,15 +1682,6 @@ export interface ListChannelsResponse {
    * A token that can be used to resume pagination from the end of the collection.
    */
   NextToken?: string;
-}
-
-export namespace ListChannelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListHarvestJobsRequest {
@@ -2093,15 +1706,6 @@ export interface ListHarvestJobsRequest {
   NextToken?: string;
 }
 
-export namespace ListHarvestJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHarvestJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListHarvestJobsResponse {
   /**
    * A list of HarvestJob records.
@@ -2112,15 +1716,6 @@ export interface ListHarvestJobsResponse {
    * A token that can be used to resume pagination from the end of the collection.
    */
   NextToken?: string;
-}
-
-export namespace ListHarvestJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHarvestJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListOriginEndpointsRequest {
@@ -2140,15 +1735,6 @@ export interface ListOriginEndpointsRequest {
   NextToken?: string;
 }
 
-export namespace ListOriginEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOriginEndpointsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOriginEndpointsResponse {
   /**
    * A token that can be used to resume pagination from the end of the collection.
@@ -2161,39 +1747,12 @@ export interface ListOriginEndpointsResponse {
   OriginEndpoints?: OriginEndpoint[];
 }
 
-export namespace ListOriginEndpointsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOriginEndpointsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RotateChannelCredentialsRequest {
@@ -2201,15 +1760,6 @@ export interface RotateChannelCredentialsRequest {
    * The ID of the channel to update.
    */
   Id: string | undefined;
-}
-
-export namespace RotateChannelCredentialsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RotateChannelCredentialsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RotateChannelCredentialsResponse {
@@ -2249,15 +1799,6 @@ export interface RotateChannelCredentialsResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace RotateChannelCredentialsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RotateChannelCredentialsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface RotateIngestEndpointCredentialsRequest {
   /**
    * The ID of the channel the IngestEndpoint is on.
@@ -2268,15 +1809,6 @@ export interface RotateIngestEndpointCredentialsRequest {
    * The id of the IngestEndpoint whose credentials should be rotated
    */
   IngestEndpointId: string | undefined;
-}
-
-export namespace RotateIngestEndpointCredentialsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RotateIngestEndpointCredentialsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RotateIngestEndpointCredentialsResponse {
@@ -2316,27 +1848,9 @@ export interface RotateIngestEndpointCredentialsResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace RotateIngestEndpointCredentialsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RotateIngestEndpointCredentialsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   ResourceArn: string | undefined;
   Tags: Record<string, string> | undefined;
-}
-
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {
@@ -2345,15 +1859,6 @@ export interface UntagResourceRequest {
    * The key(s) of tag to be deleted
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2369,15 +1874,6 @@ export interface UpdateChannelRequest {
    * The ID of the Channel to update.
    */
   Id: string | undefined;
-}
-
-export namespace UpdateChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateChannelResponse {
@@ -2415,15 +1911,6 @@ export interface UpdateChannelResponse {
    * A collection of tags associated with a resource
    */
   Tags?: Record<string, string>;
-}
-
-export namespace UpdateChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2493,15 +1980,6 @@ export interface UpdateOriginEndpointRequest {
    * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
    */
   Whitelist?: string[];
-}
-
-export namespace UpdateOriginEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOriginEndpointRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateOriginEndpointResponse {
@@ -2590,11 +2068,423 @@ export interface UpdateOriginEndpointResponse {
   Whitelist?: string[];
 }
 
-export namespace UpdateOriginEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOriginEndpointResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const EgressAccessLogsFilterSensitiveLog = (obj: EgressAccessLogs): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IngestEndpointFilterSensitiveLog = (obj: IngestEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsIngestFilterSensitiveLog = (obj: HlsIngest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IngressAccessLogsFilterSensitiveLog = (obj: IngressAccessLogs): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelFilterSensitiveLog = (obj: Channel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationFilterSensitiveLog = (obj: S3Destination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HarvestJobFilterSensitiveLog = (obj: HarvestJob): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsManifestFilterSensitiveLog = (obj: HlsManifest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsManifestCreateOrUpdateParametersFilterSensitiveLog = (
+  obj: HlsManifestCreateOrUpdateParameters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthorizationFilterSensitiveLog = (obj: Authorization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionContractConfigurationFilterSensitiveLog = (obj: EncryptionContractConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SpekeKeyProviderFilterSensitiveLog = (obj: SpekeKeyProvider): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CmafEncryptionFilterSensitiveLog = (obj: CmafEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamSelectionFilterSensitiveLog = (obj: StreamSelection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CmafPackageFilterSensitiveLog = (obj: CmafPackage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashEncryptionFilterSensitiveLog = (obj: DashEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashPackageFilterSensitiveLog = (obj: DashPackage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsEncryptionFilterSensitiveLog = (obj: HlsEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsPackageFilterSensitiveLog = (obj: HlsPackage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MssEncryptionFilterSensitiveLog = (obj: MssEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MssPackageFilterSensitiveLog = (obj: MssPackage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginEndpointFilterSensitiveLog = (obj: OriginEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CmafPackageCreateOrUpdateParametersFilterSensitiveLog = (
+  obj: CmafPackageCreateOrUpdateParameters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigureLogsRequestFilterSensitiveLog = (obj: ConfigureLogsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigureLogsResponseFilterSensitiveLog = (obj: ConfigureLogsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelRequestFilterSensitiveLog = (obj: CreateChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelResponseFilterSensitiveLog = (obj: CreateChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHarvestJobRequestFilterSensitiveLog = (obj: CreateHarvestJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHarvestJobResponseFilterSensitiveLog = (obj: CreateHarvestJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOriginEndpointRequestFilterSensitiveLog = (obj: CreateOriginEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOriginEndpointResponseFilterSensitiveLog = (obj: CreateOriginEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChannelRequestFilterSensitiveLog = (obj: DeleteChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChannelResponseFilterSensitiveLog = (obj: DeleteChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOriginEndpointRequestFilterSensitiveLog = (obj: DeleteOriginEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOriginEndpointResponseFilterSensitiveLog = (obj: DeleteOriginEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelRequestFilterSensitiveLog = (obj: DescribeChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelResponseFilterSensitiveLog = (obj: DescribeChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHarvestJobRequestFilterSensitiveLog = (obj: DescribeHarvestJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHarvestJobResponseFilterSensitiveLog = (obj: DescribeHarvestJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOriginEndpointRequestFilterSensitiveLog = (obj: DescribeOriginEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOriginEndpointResponseFilterSensitiveLog = (obj: DescribeOriginEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsRequestFilterSensitiveLog = (obj: ListChannelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsResponseFilterSensitiveLog = (obj: ListChannelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHarvestJobsRequestFilterSensitiveLog = (obj: ListHarvestJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHarvestJobsResponseFilterSensitiveLog = (obj: ListHarvestJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOriginEndpointsRequestFilterSensitiveLog = (obj: ListOriginEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOriginEndpointsResponseFilterSensitiveLog = (obj: ListOriginEndpointsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RotateChannelCredentialsRequestFilterSensitiveLog = (obj: RotateChannelCredentialsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RotateChannelCredentialsResponseFilterSensitiveLog = (obj: RotateChannelCredentialsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RotateIngestEndpointCredentialsRequestFilterSensitiveLog = (
+  obj: RotateIngestEndpointCredentialsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RotateIngestEndpointCredentialsResponseFilterSensitiveLog = (
+  obj: RotateIngestEndpointCredentialsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelRequestFilterSensitiveLog = (obj: UpdateChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelResponseFilterSensitiveLog = (obj: UpdateChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOriginEndpointRequestFilterSensitiveLog = (obj: UpdateOriginEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOriginEndpointResponseFilterSensitiveLog = (obj: UpdateOriginEndpointResponse): any => ({
+  ...obj,
+});

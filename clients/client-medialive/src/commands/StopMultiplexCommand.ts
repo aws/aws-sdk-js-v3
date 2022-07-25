@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { StopMultiplexRequest, StopMultiplexResponse } from "../models/models_1";
+import {
+  StopMultiplexRequest,
+  StopMultiplexRequestFilterSensitiveLog,
+  StopMultiplexResponse,
+  StopMultiplexResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1StopMultiplexCommand,
   serializeAws_restJson1StopMultiplexCommand,
@@ -72,8 +77,8 @@ export class StopMultiplexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopMultiplexRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopMultiplexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopMultiplexRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopMultiplexResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

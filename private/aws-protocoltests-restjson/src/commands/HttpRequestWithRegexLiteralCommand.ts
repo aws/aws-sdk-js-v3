@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HttpRequestWithRegexLiteralInput } from "../models/models_0";
+import {
+  HttpRequestWithRegexLiteralInput,
+  HttpRequestWithRegexLiteralInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1HttpRequestWithRegexLiteralCommand,
   serializeAws_restJson1HttpRequestWithRegexLiteralCommand,
@@ -55,7 +58,7 @@ export class HttpRequestWithRegexLiteralCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpRequestWithRegexLiteralInput.filterSensitiveLog,
+      inputFilterSensitiveLog: HttpRequestWithRegexLiteralInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

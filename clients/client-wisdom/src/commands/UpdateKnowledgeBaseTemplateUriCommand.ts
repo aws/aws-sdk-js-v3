@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateKnowledgeBaseTemplateUriRequest, UpdateKnowledgeBaseTemplateUriResponse } from "../models/models_0";
+import {
+  UpdateKnowledgeBaseTemplateUriRequest,
+  UpdateKnowledgeBaseTemplateUriRequestFilterSensitiveLog,
+  UpdateKnowledgeBaseTemplateUriResponse,
+  UpdateKnowledgeBaseTemplateUriResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommand,
   serializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommand,
@@ -79,8 +84,8 @@ export class UpdateKnowledgeBaseTemplateUriCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateKnowledgeBaseTemplateUriRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateKnowledgeBaseTemplateUriResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateKnowledgeBaseTemplateUriRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateKnowledgeBaseTemplateUriResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

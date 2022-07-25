@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import { GetEnvironmentRequest, GetEnvironmentResponse } from "../models/models_0";
+import {
+  GetEnvironmentRequest,
+  GetEnvironmentRequestFilterSensitiveLog,
+  GetEnvironmentResponse,
+  GetEnvironmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetEnvironmentCommand,
   serializeAws_restJson1GetEnvironmentCommand,
@@ -76,8 +81,8 @@ export class GetEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnvironmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetEnvironmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEnvironmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetEnvironmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

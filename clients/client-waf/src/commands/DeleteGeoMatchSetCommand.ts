@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteGeoMatchSetRequest, DeleteGeoMatchSetResponse } from "../models/models_0";
+import {
+  DeleteGeoMatchSetRequest,
+  DeleteGeoMatchSetRequestFilterSensitiveLog,
+  DeleteGeoMatchSetResponse,
+  DeleteGeoMatchSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteGeoMatchSetCommand,
   serializeAws_json1_1DeleteGeoMatchSetCommand,
@@ -95,8 +100,8 @@ export class DeleteGeoMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGeoMatchSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGeoMatchSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGeoMatchSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGeoMatchSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

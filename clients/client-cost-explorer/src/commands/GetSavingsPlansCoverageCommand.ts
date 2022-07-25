@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { GetSavingsPlansCoverageRequest, GetSavingsPlansCoverageResponse } from "../models/models_0";
+import {
+  GetSavingsPlansCoverageRequest,
+  GetSavingsPlansCoverageRequestFilterSensitiveLog,
+  GetSavingsPlansCoverageResponse,
+  GetSavingsPlansCoverageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetSavingsPlansCoverageCommand,
   serializeAws_json1_1GetSavingsPlansCoverageCommand,
@@ -95,8 +100,8 @@ export class GetSavingsPlansCoverageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSavingsPlansCoverageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSavingsPlansCoverageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSavingsPlansCoverageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSavingsPlansCoverageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

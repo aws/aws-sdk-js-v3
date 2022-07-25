@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { UpdateGroupRequest, UpdateGroupResponse } from "../models/models_0";
+import {
+  UpdateGroupRequest,
+  UpdateGroupRequestFilterSensitiveLog,
+  UpdateGroupResponse,
+  UpdateGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateGroupCommand,
   serializeAws_restJson1UpdateGroupCommand,
@@ -72,8 +77,8 @@ export class UpdateGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { ImportVmImageRequest, ImportVmImageResponse } from "../models/models_0";
+import {
+  ImportVmImageRequest,
+  ImportVmImageRequestFilterSensitiveLog,
+  ImportVmImageResponse,
+  ImportVmImageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ImportVmImageCommand,
   serializeAws_restJson1ImportVmImageCommand,
@@ -80,8 +85,8 @@ export class ImportVmImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportVmImageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ImportVmImageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportVmImageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ImportVmImageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetCampaignVersionRequest, GetCampaignVersionResponse } from "../models/models_0";
+import {
+  GetCampaignVersionRequest,
+  GetCampaignVersionRequestFilterSensitiveLog,
+  GetCampaignVersionResponse,
+  GetCampaignVersionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetCampaignVersionCommand,
@@ -72,8 +77,8 @@ export class GetCampaignVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCampaignVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCampaignVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCampaignVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCampaignVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

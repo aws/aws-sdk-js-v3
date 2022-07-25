@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { BatchDetectEntitiesRequest, BatchDetectEntitiesResponse } from "../models/models_0";
+import {
+  BatchDetectEntitiesRequest,
+  BatchDetectEntitiesRequestFilterSensitiveLog,
+  BatchDetectEntitiesResponse,
+  BatchDetectEntitiesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDetectEntitiesCommand,
   serializeAws_json1_1BatchDetectEntitiesCommand,
@@ -74,8 +79,8 @@ export class BatchDetectEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDetectEntitiesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchDetectEntitiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDetectEntitiesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchDetectEntitiesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

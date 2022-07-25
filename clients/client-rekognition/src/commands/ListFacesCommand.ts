@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListFacesRequest, ListFacesResponse } from "../models/models_0";
+import {
+  ListFacesRequest,
+  ListFacesRequestFilterSensitiveLog,
+  ListFacesResponse,
+  ListFacesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1ListFacesCommand, serializeAws_json1_1ListFacesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
@@ -76,8 +81,8 @@ export class ListFacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFacesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListFacesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFacesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListFacesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

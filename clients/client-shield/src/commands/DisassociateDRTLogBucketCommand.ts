@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateDRTLogBucketRequest, DisassociateDRTLogBucketResponse } from "../models/models_0";
+import {
+  DisassociateDRTLogBucketRequest,
+  DisassociateDRTLogBucketRequestFilterSensitiveLog,
+  DisassociateDRTLogBucketResponse,
+  DisassociateDRTLogBucketResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateDRTLogBucketCommand,
   serializeAws_json1_1DisassociateDRTLogBucketCommand,
@@ -72,8 +77,8 @@ export class DisassociateDRTLogBucketCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateDRTLogBucketRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateDRTLogBucketResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateDRTLogBucketRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateDRTLogBucketResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

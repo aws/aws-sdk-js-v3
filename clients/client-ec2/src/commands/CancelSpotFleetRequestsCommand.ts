@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CancelSpotFleetRequestsRequest, CancelSpotFleetRequestsResponse } from "../models/models_0";
+import {
+  CancelSpotFleetRequestsRequest,
+  CancelSpotFleetRequestsRequestFilterSensitiveLog,
+  CancelSpotFleetRequestsResponse,
+  CancelSpotFleetRequestsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_ec2CancelSpotFleetRequestsCommand,
   serializeAws_ec2CancelSpotFleetRequestsCommand,
@@ -78,8 +83,8 @@ export class CancelSpotFleetRequestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelSpotFleetRequestsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelSpotFleetRequestsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelSpotFleetRequestsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelSpotFleetRequestsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

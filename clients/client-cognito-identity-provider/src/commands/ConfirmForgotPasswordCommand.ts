@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { ConfirmForgotPasswordRequest, ConfirmForgotPasswordResponse } from "../models/models_0";
+import {
+  ConfirmForgotPasswordRequest,
+  ConfirmForgotPasswordRequestFilterSensitiveLog,
+  ConfirmForgotPasswordResponse,
+  ConfirmForgotPasswordResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ConfirmForgotPasswordCommand,
   serializeAws_json1_1ConfirmForgotPasswordCommand,
@@ -76,8 +81,8 @@ export class ConfirmForgotPasswordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfirmForgotPasswordRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmForgotPasswordResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ConfirmForgotPasswordRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ConfirmForgotPasswordResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

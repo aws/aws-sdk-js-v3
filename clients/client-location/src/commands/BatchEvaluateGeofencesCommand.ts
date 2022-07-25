@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { BatchEvaluateGeofencesRequest, BatchEvaluateGeofencesResponse } from "../models/models_0";
+import {
+  BatchEvaluateGeofencesRequest,
+  BatchEvaluateGeofencesRequestFilterSensitiveLog,
+  BatchEvaluateGeofencesResponse,
+  BatchEvaluateGeofencesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BatchEvaluateGeofencesCommand,
   serializeAws_restJson1BatchEvaluateGeofencesCommand,
@@ -100,8 +105,8 @@ export class BatchEvaluateGeofencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchEvaluateGeofencesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchEvaluateGeofencesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchEvaluateGeofencesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchEvaluateGeofencesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

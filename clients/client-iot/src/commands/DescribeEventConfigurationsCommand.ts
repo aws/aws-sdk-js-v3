@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DescribeEventConfigurationsRequest, DescribeEventConfigurationsResponse } from "../models/models_1";
+import {
+  DescribeEventConfigurationsRequest,
+  DescribeEventConfigurationsRequestFilterSensitiveLog,
+  DescribeEventConfigurationsResponse,
+  DescribeEventConfigurationsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeEventConfigurationsCommand,
   serializeAws_restJson1DescribeEventConfigurationsCommand,
@@ -75,8 +80,8 @@ export class DescribeEventConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventConfigurationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventConfigurationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEventConfigurationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEventConfigurationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

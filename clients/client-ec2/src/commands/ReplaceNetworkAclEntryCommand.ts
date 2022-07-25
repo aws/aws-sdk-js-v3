@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReplaceNetworkAclEntryRequest } from "../models/models_6";
+import { ReplaceNetworkAclEntryRequest, ReplaceNetworkAclEntryRequestFilterSensitiveLog } from "../models/models_6";
 import {
   deserializeAws_ec2ReplaceNetworkAclEntryCommand,
   serializeAws_ec2ReplaceNetworkAclEntryCommand,
@@ -73,7 +73,7 @@ export class ReplaceNetworkAclEntryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplaceNetworkAclEntryRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ReplaceNetworkAclEntryRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

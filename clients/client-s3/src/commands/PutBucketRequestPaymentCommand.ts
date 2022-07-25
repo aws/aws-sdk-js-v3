@@ -14,7 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketRequestPaymentRequest } from "../models/models_0";
+import { PutBucketRequestPaymentRequest, PutBucketRequestPaymentRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlPutBucketRequestPaymentCommand,
   serializeAws_restXmlPutBucketRequestPaymentCommand,
@@ -100,7 +100,7 @@ export class PutBucketRequestPaymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketRequestPaymentRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutBucketRequestPaymentRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

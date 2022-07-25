@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { GenerateRandomRequest, GenerateRandomResponse } from "../models/models_0";
+import {
+  GenerateRandomRequest,
+  GenerateRandomRequestFilterSensitiveLog,
+  GenerateRandomResponse,
+  GenerateRandomResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GenerateRandomCommand,
   serializeAws_json1_1GenerateRandomCommand,
@@ -84,8 +89,8 @@ export class GenerateRandomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateRandomRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GenerateRandomResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GenerateRandomRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GenerateRandomResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

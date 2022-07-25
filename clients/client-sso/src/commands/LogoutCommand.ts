@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { LogoutRequest } from "../models/models_0";
+import { LogoutRequest, LogoutRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_restJson1LogoutCommand, serializeAws_restJson1LogoutCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "../SSOClient";
 
@@ -65,7 +65,7 @@ export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LogoutRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: LogoutRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

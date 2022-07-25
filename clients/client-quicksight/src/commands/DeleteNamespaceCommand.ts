@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/models_0";
+import {
+  DeleteNamespaceRequest,
+  DeleteNamespaceRequestFilterSensitiveLog,
+  DeleteNamespaceResponse,
+  DeleteNamespaceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteNamespaceCommand,
   serializeAws_restJson1DeleteNamespaceCommand,
@@ -74,8 +79,8 @@ export class DeleteNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNamespaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNamespaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteNamespaceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteNamespaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

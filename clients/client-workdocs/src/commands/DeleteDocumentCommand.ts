@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDocumentRequest } from "../models/models_0";
+import { DeleteDocumentRequest, DeleteDocumentRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDocumentCommand,
   serializeAws_restJson1DeleteDocumentCommand,
@@ -72,7 +72,7 @@ export class DeleteDocumentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDocumentRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDocumentRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopExecutionInput, StopExecutionOutput } from "../models/models_0";
+import {
+  StopExecutionInput,
+  StopExecutionInputFilterSensitiveLog,
+  StopExecutionOutput,
+  StopExecutionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0StopExecutionCommand,
   serializeAws_json1_0StopExecutionCommand,
@@ -73,8 +78,8 @@ export class StopExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopExecutionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: StopExecutionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StopExecutionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: StopExecutionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

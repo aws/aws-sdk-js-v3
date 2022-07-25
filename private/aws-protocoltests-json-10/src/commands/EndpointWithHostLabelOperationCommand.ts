@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import { EndpointWithHostLabelOperationInput } from "../models/models_0";
+import {
+  EndpointWithHostLabelOperationInput,
+  EndpointWithHostLabelOperationInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0EndpointWithHostLabelOperationCommand,
   serializeAws_json1_0EndpointWithHostLabelOperationCommand,
@@ -55,7 +58,7 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EndpointWithHostLabelOperationInput.filterSensitiveLog,
+      inputFilterSensitiveLog: EndpointWithHostLabelOperationInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

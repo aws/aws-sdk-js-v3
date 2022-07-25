@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { ImportSourceCredentialsInput, ImportSourceCredentialsOutput } from "../models/models_0";
+import {
+  ImportSourceCredentialsInput,
+  ImportSourceCredentialsInputFilterSensitiveLog,
+  ImportSourceCredentialsOutput,
+  ImportSourceCredentialsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ImportSourceCredentialsCommand,
   serializeAws_json1_1ImportSourceCredentialsCommand,
@@ -73,8 +78,8 @@ export class ImportSourceCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportSourceCredentialsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ImportSourceCredentialsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportSourceCredentialsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ImportSourceCredentialsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

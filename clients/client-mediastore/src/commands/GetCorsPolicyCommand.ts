@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import { GetCorsPolicyInput, GetCorsPolicyOutput } from "../models/models_0";
+import {
+  GetCorsPolicyInput,
+  GetCorsPolicyInputFilterSensitiveLog,
+  GetCorsPolicyOutput,
+  GetCorsPolicyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetCorsPolicyCommand,
   serializeAws_json1_1GetCorsPolicyCommand,
@@ -76,8 +81,8 @@ export class GetCorsPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCorsPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCorsPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCorsPolicyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCorsPolicyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

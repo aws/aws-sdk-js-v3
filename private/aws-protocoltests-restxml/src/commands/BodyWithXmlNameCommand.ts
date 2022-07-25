@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { BodyWithXmlNameInputOutput } from "../models/models_0";
+import { BodyWithXmlNameInputOutput, BodyWithXmlNameInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlBodyWithXmlNameCommand,
   serializeAws_restXmlBodyWithXmlNameCommand,
@@ -73,8 +73,8 @@ export class BodyWithXmlNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BodyWithXmlNameInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: BodyWithXmlNameInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: BodyWithXmlNameInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: BodyWithXmlNameInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

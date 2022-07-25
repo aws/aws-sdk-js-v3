@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import { DeleteProgramRequest, DeleteProgramResponse } from "../models/models_0";
+import {
+  DeleteProgramRequest,
+  DeleteProgramRequestFilterSensitiveLog,
+  DeleteProgramResponse,
+  DeleteProgramResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteProgramCommand,
   serializeAws_restJson1DeleteProgramCommand,
@@ -72,8 +77,8 @@ export class DeleteProgramCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProgramRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProgramResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteProgramRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteProgramResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

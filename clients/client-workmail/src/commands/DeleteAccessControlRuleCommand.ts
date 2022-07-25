@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAccessControlRuleRequest, DeleteAccessControlRuleResponse } from "../models/models_0";
+import {
+  DeleteAccessControlRuleRequest,
+  DeleteAccessControlRuleRequestFilterSensitiveLog,
+  DeleteAccessControlRuleResponse,
+  DeleteAccessControlRuleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAccessControlRuleCommand,
   serializeAws_json1_1DeleteAccessControlRuleCommand,
@@ -75,8 +80,8 @@ export class DeleteAccessControlRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessControlRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccessControlRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAccessControlRuleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAccessControlRuleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

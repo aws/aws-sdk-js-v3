@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateFirewallDeleteProtectionRequest, UpdateFirewallDeleteProtectionResponse } from "../models/models_0";
+import {
+  UpdateFirewallDeleteProtectionRequest,
+  UpdateFirewallDeleteProtectionRequestFilterSensitiveLog,
+  UpdateFirewallDeleteProtectionResponse,
+  UpdateFirewallDeleteProtectionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
   deserializeAws_json1_0UpdateFirewallDeleteProtectionCommand,
@@ -77,8 +82,8 @@ export class UpdateFirewallDeleteProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFirewallDeleteProtectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFirewallDeleteProtectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFirewallDeleteProtectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFirewallDeleteProtectionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

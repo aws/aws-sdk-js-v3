@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeleteColumnStatisticsForTableRequest, DeleteColumnStatisticsForTableResponse } from "../models/models_1";
+import {
+  DeleteColumnStatisticsForTableRequest,
+  DeleteColumnStatisticsForTableRequestFilterSensitiveLog,
+  DeleteColumnStatisticsForTableResponse,
+  DeleteColumnStatisticsForTableResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteColumnStatisticsForTableCommand,
   serializeAws_json1_1DeleteColumnStatisticsForTableCommand,
@@ -76,8 +81,8 @@ export class DeleteColumnStatisticsForTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteColumnStatisticsForTableRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteColumnStatisticsForTableResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteColumnStatisticsForTableRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteColumnStatisticsForTableResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

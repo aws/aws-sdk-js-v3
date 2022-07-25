@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { ListStoredQueriesRequest, ListStoredQueriesResponse } from "../models/models_0";
+import {
+  ListStoredQueriesRequest,
+  ListStoredQueriesRequestFilterSensitiveLog,
+  ListStoredQueriesResponse,
+  ListStoredQueriesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListStoredQueriesCommand,
   serializeAws_json1_1ListStoredQueriesCommand,
@@ -72,8 +77,8 @@ export class ListStoredQueriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStoredQueriesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListStoredQueriesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListStoredQueriesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListStoredQueriesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

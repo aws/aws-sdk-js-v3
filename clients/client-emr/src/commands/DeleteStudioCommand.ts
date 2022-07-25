@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { DeleteStudioInput } from "../models/models_0";
+import { DeleteStudioInput, DeleteStudioInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteStudioCommand,
   serializeAws_json1_1DeleteStudioCommand,
@@ -72,7 +72,7 @@ export class DeleteStudioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStudioInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteStudioInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

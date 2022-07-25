@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListVocabularyFiltersRequest, ListVocabularyFiltersResponse } from "../models/models_0";
+import {
+  ListVocabularyFiltersRequest,
+  ListVocabularyFiltersRequestFilterSensitiveLog,
+  ListVocabularyFiltersResponse,
+  ListVocabularyFiltersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListVocabularyFiltersCommand,
   serializeAws_json1_1ListVocabularyFiltersCommand,
@@ -75,8 +80,8 @@ export class ListVocabularyFiltersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVocabularyFiltersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListVocabularyFiltersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListVocabularyFiltersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListVocabularyFiltersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

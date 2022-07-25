@@ -15,7 +15,9 @@ import {
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import {
   ListResourcesAssociatedToCustomLineItemInput,
+  ListResourcesAssociatedToCustomLineItemInputFilterSensitiveLog,
   ListResourcesAssociatedToCustomLineItemOutput,
+  ListResourcesAssociatedToCustomLineItemOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ListResourcesAssociatedToCustomLineItemCommand,
@@ -83,8 +85,8 @@ export class ListResourcesAssociatedToCustomLineItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourcesAssociatedToCustomLineItemInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListResourcesAssociatedToCustomLineItemOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListResourcesAssociatedToCustomLineItemInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListResourcesAssociatedToCustomLineItemOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

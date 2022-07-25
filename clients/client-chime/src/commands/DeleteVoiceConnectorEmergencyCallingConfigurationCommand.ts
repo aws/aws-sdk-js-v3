@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteVoiceConnectorEmergencyCallingConfigurationRequest } from "../models/models_0";
+import {
+  DeleteVoiceConnectorEmergencyCallingConfigurationRequest,
+  DeleteVoiceConnectorEmergencyCallingConfigurationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
   serializeAws_restJson1DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
@@ -76,7 +79,7 @@ export class DeleteVoiceConnectorEmergencyCallingConfigurationCommand extends $C
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVoiceConnectorEmergencyCallingConfigurationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVoiceConnectorEmergencyCallingConfigurationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedTimestampPathHttpDateInput } from "../models/models_0";
+import {
+  MalformedTimestampPathHttpDateInput,
+  MalformedTimestampPathHttpDateInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedTimestampPathHttpDateCommand,
   serializeAws_restJson1MalformedTimestampPathHttpDateCommand,
@@ -55,7 +58,7 @@ export class MalformedTimestampPathHttpDateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedTimestampPathHttpDateInput.filterSensitiveLog,
+      inputFilterSensitiveLog: MalformedTimestampPathHttpDateInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

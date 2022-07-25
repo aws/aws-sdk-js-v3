@@ -18,25 +18,7 @@ export interface AcceptQualificationRequestRequest {
   IntegerValue?: number;
 }
 
-export namespace AcceptQualificationRequestRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptQualificationRequestRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AcceptQualificationRequestResponse {}
-
-export namespace AcceptQualificationRequestResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptQualificationRequestResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Your request is invalid.</p>
@@ -107,25 +89,7 @@ export interface ApproveAssignmentRequest {
   OverrideRejection?: boolean;
 }
 
-export namespace ApproveAssignmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApproveAssignmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ApproveAssignmentResponse {}
-
-export namespace ApproveAssignmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApproveAssignmentResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum AssignmentStatus {
   Approved = "Approved",
@@ -221,15 +185,6 @@ export interface Assignment {
   RequesterFeedback?: string;
 }
 
-export namespace Assignment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Assignment): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateQualificationWithWorkerRequest {
   /**
    * <p>The ID of the Qualification type to use for the assigned Qualification.</p>
@@ -259,25 +214,7 @@ export interface AssociateQualificationWithWorkerRequest {
   SendNotification?: boolean;
 }
 
-export namespace AssociateQualificationWithWorkerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateQualificationWithWorkerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateQualificationWithWorkerResponse {}
-
-export namespace AssociateQualificationWithWorkerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateQualificationWithWorkerResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>An object representing a Bonus payment paid to a Worker.</p>
@@ -307,15 +244,6 @@ export interface BonusPayment {
    * <p>The date and time of when the bonus was granted.</p>
    */
   GrantTime?: Date;
-}
-
-export namespace BonusPayment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BonusPayment): any => ({
-    ...obj,
-  });
 }
 
 export enum Comparator {
@@ -355,25 +283,7 @@ export interface CreateAdditionalAssignmentsForHITRequest {
   UniqueRequestToken?: string;
 }
 
-export namespace CreateAdditionalAssignmentsForHITRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAdditionalAssignmentsForHITRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAdditionalAssignmentsForHITResponse {}
-
-export namespace CreateAdditionalAssignmentsForHITResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAdditionalAssignmentsForHITResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> This data structure is the data type for the AnswerKey
@@ -396,15 +306,6 @@ export interface ParameterMapEntry {
    *         </p>
    */
   Values?: string[];
-}
-
-export namespace ParameterMapEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterMapEntry): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -430,15 +331,6 @@ export interface PolicyParameter {
   MapEntries?: ParameterMapEntry[];
 }
 
-export namespace PolicyParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> HIT Review Policy data structures represent HIT review
  *             policies, which you specify when you create a HIT.
@@ -456,15 +348,6 @@ export interface ReviewPolicy {
    * <p>Name of the parameter from the Review policy.</p>
    */
   Parameters?: PolicyParameter[];
-}
-
-export namespace ReviewPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReviewPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -487,15 +370,6 @@ export interface HITLayoutParameter {
    *         </p>
    */
   Value: string | undefined;
-}
-
-export namespace HITLayoutParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HITLayoutParameter): any => ({
-    ...obj,
-  });
 }
 
 export enum HITAccessActions {
@@ -522,15 +396,6 @@ export interface Locale {
    *             Washington.</p>
    */
   Subdivision?: string;
-}
-
-export namespace Locale {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Locale): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -624,15 +489,6 @@ export interface QualificationRequirement {
    *         </p>
    */
   ActionsGuarded?: HITAccessActions | string;
-}
-
-export namespace QualificationRequirement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QualificationRequirement): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateHITRequest {
@@ -806,15 +662,6 @@ export interface CreateHITRequest {
   HITLayoutParameters?: HITLayoutParameter[];
 }
 
-export namespace CreateHITRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHITRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum HITReviewStatus {
   MarkedForReview = "MarkedForReview",
   NotReviewed = "NotReviewed",
@@ -970,15 +817,6 @@ export interface HIT {
   NumberOfAssignmentsCompleted?: number;
 }
 
-export namespace HIT {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HIT): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateHITResponse {
   /**
    * <p> Contains the newly created HIT data. For a description of
@@ -987,15 +825,6 @@ export interface CreateHITResponse {
    *         </p>
    */
   HIT?: HIT;
-}
-
-export namespace CreateHITResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHITResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateHITTypeRequest {
@@ -1066,29 +895,11 @@ export interface CreateHITTypeRequest {
   QualificationRequirements?: QualificationRequirement[];
 }
 
-export namespace CreateHITTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHITTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateHITTypeResponse {
   /**
    * <p> The ID of the newly registered HIT type.</p>
    */
   HITTypeId?: string;
-}
-
-export namespace CreateHITTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHITTypeResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateHITWithHITTypeRequest {
@@ -1201,15 +1012,6 @@ export interface CreateHITWithHITTypeRequest {
   HITLayoutParameters?: HITLayoutParameter[];
 }
 
-export namespace CreateHITWithHITTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHITWithHITTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateHITWithHITTypeResponse {
   /**
    * <p> Contains the newly created HIT data. For a description of
@@ -1218,15 +1020,6 @@ export interface CreateHITWithHITTypeResponse {
    *         </p>
    */
   HIT?: HIT;
-}
-
-export namespace CreateHITWithHITTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHITWithHITTypeResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum QualificationTypeStatus {
@@ -1324,15 +1117,6 @@ export interface CreateQualificationTypeRequest {
    *             parameter is true.</p>
    */
   AutoGrantedValue?: number;
-}
-
-export namespace CreateQualificationTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateQualificationTypeRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1449,30 +1233,12 @@ export interface QualificationType {
   AutoGrantedValue?: number;
 }
 
-export namespace QualificationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QualificationType): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateQualificationTypeResponse {
   /**
    * <p>The created Qualification type, returned as a
    *             QualificationType data structure.</p>
    */
   QualificationType?: QualificationType;
-}
-
-export namespace CreateQualificationTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateQualificationTypeResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateWorkerBlockRequest {
@@ -1487,25 +1253,7 @@ export interface CreateWorkerBlockRequest {
   Reason: string | undefined;
 }
 
-export namespace CreateWorkerBlockRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkerBlockRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWorkerBlockResponse {}
-
-export namespace CreateWorkerBlockResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkerBlockResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteHITRequest {
   /**
@@ -1514,25 +1262,7 @@ export interface DeleteHITRequest {
   HITId: string | undefined;
 }
 
-export namespace DeleteHITRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHITRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteHITResponse {}
-
-export namespace DeleteHITResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHITResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteQualificationTypeRequest {
   /**
@@ -1541,25 +1271,7 @@ export interface DeleteQualificationTypeRequest {
   QualificationTypeId: string | undefined;
 }
 
-export namespace DeleteQualificationTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteQualificationTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteQualificationTypeResponse {}
-
-export namespace DeleteQualificationTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteQualificationTypeResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteWorkerBlockRequest {
   /**
@@ -1573,25 +1285,7 @@ export interface DeleteWorkerBlockRequest {
   Reason?: string;
 }
 
-export namespace DeleteWorkerBlockRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkerBlockRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWorkerBlockResponse {}
-
-export namespace DeleteWorkerBlockResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkerBlockResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateQualificationFromWorkerRequest {
   /**
@@ -1610,25 +1304,7 @@ export interface DisassociateQualificationFromWorkerRequest {
   Reason?: string;
 }
 
-export namespace DisassociateQualificationFromWorkerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateQualificationFromWorkerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateQualificationFromWorkerResponse {}
-
-export namespace DisassociateQualificationFromWorkerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateQualificationFromWorkerResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum EventType {
   AssignmentAbandoned = "AssignmentAbandoned",
@@ -1647,15 +1323,6 @@ export enum EventType {
 
 export interface GetAccountBalanceRequest {}
 
-export namespace GetAccountBalanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountBalanceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccountBalanceResponse {
   /**
    * <p>A string representing a currency amount.</p>
@@ -1668,29 +1335,11 @@ export interface GetAccountBalanceResponse {
   OnHoldBalance?: string;
 }
 
-export namespace GetAccountBalanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountBalanceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAssignmentRequest {
   /**
    * <p>The ID of the Assignment to be retrieved.</p>
    */
   AssignmentId: string | undefined;
-}
-
-export namespace GetAssignmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssignmentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAssignmentResponse {
@@ -1708,15 +1357,6 @@ export interface GetAssignmentResponse {
   HIT?: HIT;
 }
 
-export namespace GetAssignmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssignmentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFileUploadURLRequest {
   /**
    * <p>The ID of the assignment that contains the question with a
@@ -1731,15 +1371,6 @@ export interface GetFileUploadURLRequest {
   QuestionIdentifier: string | undefined;
 }
 
-export namespace GetFileUploadURLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFileUploadURLRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFileUploadURLResponse {
   /**
    * <p> A temporary URL for the file that the Worker uploaded for
@@ -1749,15 +1380,6 @@ export interface GetFileUploadURLResponse {
   FileUploadURL?: string;
 }
 
-export namespace GetFileUploadURLResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFileUploadURLResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetHITRequest {
   /**
    * <p>The ID of the HIT to be retrieved.</p>
@@ -1765,29 +1387,11 @@ export interface GetHITRequest {
   HITId: string | undefined;
 }
 
-export namespace GetHITRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHITRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetHITResponse {
   /**
    * <p> Contains the requested HIT data.</p>
    */
   HIT?: HIT;
-}
-
-export namespace GetHITResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHITResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetQualificationScoreRequest {
@@ -1800,15 +1404,6 @@ export interface GetQualificationScoreRequest {
    * <p>The ID of the Worker whose Qualification is being updated.</p>
    */
   WorkerId: string | undefined;
-}
-
-export namespace GetQualificationScoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQualificationScoreRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum QualificationStatus {
@@ -1860,15 +1455,6 @@ export interface Qualification {
   Status?: QualificationStatus | string;
 }
 
-export namespace Qualification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Qualification): any => ({
-    ...obj,
-  });
-}
-
 export interface GetQualificationScoreResponse {
   /**
    * <p> The Qualification data structure of the Qualification
@@ -1879,15 +1465,6 @@ export interface GetQualificationScoreResponse {
   Qualification?: Qualification;
 }
 
-export namespace GetQualificationScoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQualificationScoreResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetQualificationTypeRequest {
   /**
    * <p>The ID of the QualificationType.</p>
@@ -1895,29 +1472,11 @@ export interface GetQualificationTypeRequest {
   QualificationTypeId: string | undefined;
 }
 
-export namespace GetQualificationTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQualificationTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetQualificationTypeResponse {
   /**
    * <p> The returned Qualification Type</p>
    */
   QualificationType?: QualificationType;
-}
-
-export namespace GetQualificationTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQualificationTypeResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssignmentsForHITRequest {
@@ -1937,15 +1496,6 @@ export interface ListAssignmentsForHITRequest {
    *             | Rejected</p>
    */
   AssignmentStatuses?: (AssignmentStatus | string)[];
-}
-
-export namespace ListAssignmentsForHITRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssignmentsForHITRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssignmentsForHITResponse {
@@ -1969,15 +1519,6 @@ export interface ListAssignmentsForHITResponse {
    *             this call.</p>
    */
   Assignments?: Assignment[];
-}
-
-export namespace ListAssignmentsForHITResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssignmentsForHITResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBonusPaymentsRequest {
@@ -2005,15 +1546,6 @@ export interface ListBonusPaymentsRequest {
   MaxResults?: number;
 }
 
-export namespace ListBonusPaymentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBonusPaymentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBonusPaymentsResponse {
   /**
    * <p>The number of bonus payments on this page in the filtered
@@ -2039,15 +1571,6 @@ export interface ListBonusPaymentsResponse {
   BonusPayments?: BonusPayment[];
 }
 
-export namespace ListBonusPaymentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBonusPaymentsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListHITsRequest {
   /**
    * <p>Pagination token</p>
@@ -2055,15 +1578,6 @@ export interface ListHITsRequest {
   NextToken?: string;
 
   MaxResults?: number;
-}
-
-export namespace ListHITsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHITsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListHITsResponse {
@@ -2087,15 +1601,6 @@ export interface ListHITsResponse {
   HITs?: HIT[];
 }
 
-export namespace ListHITsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHITsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListHITsForQualificationTypeRequest {
   /**
    * <p>
@@ -2115,15 +1620,6 @@ export interface ListHITsForQualificationTypeRequest {
    *         </p>
    */
   MaxResults?: number;
-}
-
-export namespace ListHITsForQualificationTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHITsForQualificationTypeRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListHITsForQualificationTypeResponse {
@@ -2147,15 +1643,6 @@ export interface ListHITsForQualificationTypeResponse {
   HITs?: HIT[];
 }
 
-export namespace ListHITsForQualificationTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHITsForQualificationTypeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListQualificationRequestsRequest {
   /**
    * <p>The ID of the QualificationType.</p>
@@ -2175,15 +1662,6 @@ export interface ListQualificationRequestsRequest {
    *         </p>
    */
   MaxResults?: number;
-}
-
-export namespace ListQualificationRequestsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQualificationRequestsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2240,15 +1718,6 @@ export interface QualificationRequest {
   SubmitTime?: Date;
 }
 
-export namespace QualificationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QualificationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListQualificationRequestsResponse {
   /**
    * <p>The number of Qualification requests on this page in the filtered results list,
@@ -2271,15 +1740,6 @@ export interface ListQualificationRequestsResponse {
    *             by the query.</p>
    */
   QualificationRequests?: QualificationRequest[];
-}
-
-export namespace ListQualificationRequestsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQualificationRequestsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListQualificationTypesRequest {
@@ -2325,15 +1785,6 @@ export interface ListQualificationTypesRequest {
   MaxResults?: number;
 }
 
-export namespace ListQualificationTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQualificationTypesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListQualificationTypesResponse {
   /**
    * <p> The number of Qualification types on this page in the
@@ -2357,15 +1808,6 @@ export interface ListQualificationTypesResponse {
    *         </p>
    */
   QualificationTypes?: QualificationType[];
-}
-
-export namespace ListQualificationTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQualificationTypesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ReviewableHITStatus {
@@ -2403,15 +1845,6 @@ export interface ListReviewableHITsRequest {
   MaxResults?: number;
 }
 
-export namespace ListReviewableHITsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReviewableHITsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListReviewableHITsResponse {
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -2432,15 +1865,6 @@ export interface ListReviewableHITsResponse {
    * <p> The list of HIT elements returned by the query.</p>
    */
   HITs?: HIT[];
-}
-
-export namespace ListReviewableHITsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReviewableHITsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ReviewPolicyLevel {
@@ -2487,15 +1911,6 @@ export interface ListReviewPolicyResultsForHITRequest {
    * <p>Limit the number of results returned.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListReviewPolicyResultsForHITRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReviewPolicyResultsForHITRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ReviewActionStatus {
@@ -2558,15 +1973,6 @@ export interface ReviewActionDetail {
   ErrorCode?: string;
 }
 
-export namespace ReviewActionDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReviewActionDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> This data structure is returned multiple times for each
  *             result specified in the Review Policy.
@@ -2620,15 +2026,6 @@ export interface ReviewResultDetail {
   Value?: string;
 }
 
-export namespace ReviewResultDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReviewResultDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Contains both ReviewResult and ReviewAction elements for a
  *             particular HIT.
@@ -2648,15 +2045,6 @@ export interface ReviewReport {
    *         </p>
    */
   ReviewActions?: ReviewActionDetail[];
-}
-
-export namespace ReviewReport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReviewReport): any => ({
-    ...obj,
-  });
 }
 
 export interface ListReviewPolicyResultsForHITResponse {
@@ -2700,15 +2088,6 @@ export interface ListReviewPolicyResultsForHITResponse {
   NextToken?: string;
 }
 
-export namespace ListReviewPolicyResultsForHITResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReviewPolicyResultsForHITResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWorkerBlocksRequest {
   /**
    * <p>Pagination token</p>
@@ -2716,15 +2095,6 @@ export interface ListWorkerBlocksRequest {
   NextToken?: string;
 
   MaxResults?: number;
-}
-
-export namespace ListWorkerBlocksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkerBlocksRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2744,15 +2114,6 @@ export interface WorkerBlock {
    *         </p>
    */
   Reason?: string;
-}
-
-export namespace WorkerBlock {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkerBlock): any => ({
-    ...obj,
-  });
 }
 
 export interface ListWorkerBlocksResponse {
@@ -2776,15 +2137,6 @@ export interface ListWorkerBlocksResponse {
    *             Worker IDs and reasons for blocking.</p>
    */
   WorkerBlocks?: WorkerBlock[];
-}
-
-export namespace ListWorkerBlocksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkerBlocksResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListWorkersWithQualificationTypeRequest {
@@ -2815,15 +2167,6 @@ export interface ListWorkersWithQualificationTypeRequest {
   MaxResults?: number;
 }
 
-export namespace ListWorkersWithQualificationTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkersWithQualificationTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWorkersWithQualificationTypeResponse {
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -2847,15 +2190,6 @@ export interface ListWorkersWithQualificationTypeResponse {
   Qualifications?: Qualification[];
 }
 
-export namespace ListWorkersWithQualificationTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkersWithQualificationTypeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface NotifyWorkersRequest {
   /**
    * <p>The subject line of the email message to send. Can include up
@@ -2875,15 +2209,6 @@ export interface NotifyWorkersRequest {
    *             100 Workers at a time.</p>
    */
   WorkerIds: string[] | undefined;
-}
-
-export namespace NotifyWorkersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyWorkersRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum NotifyWorkersFailureCode {
@@ -2916,15 +2241,6 @@ export interface NotifyWorkersFailureStatus {
   WorkerId?: string;
 }
 
-export namespace NotifyWorkersFailureStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyWorkersFailureStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface NotifyWorkersResponse {
   /**
    * <p> When MTurk sends notifications to the list of Workers, it
@@ -2933,15 +2249,6 @@ export interface NotifyWorkersResponse {
    *         </p>
    */
   NotifyWorkersFailureStatuses?: NotifyWorkersFailureStatus[];
-}
-
-export namespace NotifyWorkersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyWorkersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RejectAssignmentRequest {
@@ -2960,25 +2267,7 @@ export interface RejectAssignmentRequest {
   RequesterFeedback: string | undefined;
 }
 
-export namespace RejectAssignmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectAssignmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectAssignmentResponse {}
-
-export namespace RejectAssignmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectAssignmentResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface RejectQualificationRequestRequest {
   /**
@@ -2997,25 +2286,7 @@ export interface RejectQualificationRequestRequest {
   Reason?: string;
 }
 
-export namespace RejectQualificationRequestRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectQualificationRequestRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectQualificationRequestResponse {}
-
-export namespace RejectQualificationRequestResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectQualificationRequestResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface SendBonusRequest {
   /**
@@ -3054,25 +2325,7 @@ export interface SendBonusRequest {
   UniqueRequestToken?: string;
 }
 
-export namespace SendBonusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendBonusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendBonusResponse {}
-
-export namespace SendBonusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendBonusResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum NotificationTransport {
   Email = "Email",
@@ -3128,15 +2381,6 @@ export interface NotificationSpecification {
   EventTypes: (EventType | string)[] | undefined;
 }
 
-export namespace NotificationSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationSpecification): any => ({
-    ...obj,
-  });
-}
-
 export interface SendTestEventNotificationRequest {
   /**
    * <p>
@@ -3158,25 +2402,7 @@ export interface SendTestEventNotificationRequest {
   TestEventType: EventType | string | undefined;
 }
 
-export namespace SendTestEventNotificationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendTestEventNotificationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendTestEventNotificationResponse {}
-
-export namespace SendTestEventNotificationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendTestEventNotificationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateExpirationForHITRequest {
   /**
@@ -3194,25 +2420,7 @@ export interface UpdateExpirationForHITRequest {
   ExpireAt: Date | undefined;
 }
 
-export namespace UpdateExpirationForHITRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateExpirationForHITRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateExpirationForHITResponse {}
-
-export namespace UpdateExpirationForHITResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateExpirationForHITResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateHITReviewStatusRequest {
   /**
@@ -3242,25 +2450,7 @@ export interface UpdateHITReviewStatusRequest {
   Revert?: boolean;
 }
 
-export namespace UpdateHITReviewStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateHITReviewStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateHITReviewStatusResponse {}
-
-export namespace UpdateHITReviewStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateHITReviewStatusResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateHITTypeOfHITRequest {
   /**
@@ -3274,25 +2464,7 @@ export interface UpdateHITTypeOfHITRequest {
   HITTypeId: string | undefined;
 }
 
-export namespace UpdateHITTypeOfHITRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateHITTypeOfHITRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateHITTypeOfHITResponse {}
-
-export namespace UpdateHITTypeOfHITResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateHITTypeOfHITResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateNotificationSettingsRequest {
   /**
@@ -3320,25 +2492,7 @@ export interface UpdateNotificationSettingsRequest {
   Active?: boolean;
 }
 
-export namespace UpdateNotificationSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNotificationSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateNotificationSettingsResponse {}
-
-export namespace UpdateNotificationSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNotificationSettingsResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateQualificationTypeRequest {
   /**
@@ -3397,15 +2551,6 @@ export interface UpdateQualificationTypeRequest {
   AutoGrantedValue?: number;
 }
 
-export namespace UpdateQualificationTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateQualificationTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateQualificationTypeResponse {
   /**
    * <p> Contains a QualificationType data structure.</p>
@@ -3413,11 +2558,698 @@ export interface UpdateQualificationTypeResponse {
   QualificationType?: QualificationType;
 }
 
-export namespace UpdateQualificationTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateQualificationTypeResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcceptQualificationRequestRequestFilterSensitiveLog = (obj: AcceptQualificationRequestRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptQualificationRequestResponseFilterSensitiveLog = (obj: AcceptQualificationRequestResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApproveAssignmentRequestFilterSensitiveLog = (obj: ApproveAssignmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApproveAssignmentResponseFilterSensitiveLog = (obj: ApproveAssignmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssignmentFilterSensitiveLog = (obj: Assignment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateQualificationWithWorkerRequestFilterSensitiveLog = (
+  obj: AssociateQualificationWithWorkerRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateQualificationWithWorkerResponseFilterSensitiveLog = (
+  obj: AssociateQualificationWithWorkerResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BonusPaymentFilterSensitiveLog = (obj: BonusPayment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAdditionalAssignmentsForHITRequestFilterSensitiveLog = (
+  obj: CreateAdditionalAssignmentsForHITRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAdditionalAssignmentsForHITResponseFilterSensitiveLog = (
+  obj: CreateAdditionalAssignmentsForHITResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterMapEntryFilterSensitiveLog = (obj: ParameterMapEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyParameterFilterSensitiveLog = (obj: PolicyParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReviewPolicyFilterSensitiveLog = (obj: ReviewPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HITLayoutParameterFilterSensitiveLog = (obj: HITLayoutParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LocaleFilterSensitiveLog = (obj: Locale): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QualificationRequirementFilterSensitiveLog = (obj: QualificationRequirement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHITRequestFilterSensitiveLog = (obj: CreateHITRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HITFilterSensitiveLog = (obj: HIT): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHITResponseFilterSensitiveLog = (obj: CreateHITResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHITTypeRequestFilterSensitiveLog = (obj: CreateHITTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHITTypeResponseFilterSensitiveLog = (obj: CreateHITTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHITWithHITTypeRequestFilterSensitiveLog = (obj: CreateHITWithHITTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHITWithHITTypeResponseFilterSensitiveLog = (obj: CreateHITWithHITTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateQualificationTypeRequestFilterSensitiveLog = (obj: CreateQualificationTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QualificationTypeFilterSensitiveLog = (obj: QualificationType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateQualificationTypeResponseFilterSensitiveLog = (obj: CreateQualificationTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkerBlockRequestFilterSensitiveLog = (obj: CreateWorkerBlockRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkerBlockResponseFilterSensitiveLog = (obj: CreateWorkerBlockResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteHITRequestFilterSensitiveLog = (obj: DeleteHITRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteHITResponseFilterSensitiveLog = (obj: DeleteHITResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteQualificationTypeRequestFilterSensitiveLog = (obj: DeleteQualificationTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteQualificationTypeResponseFilterSensitiveLog = (obj: DeleteQualificationTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkerBlockRequestFilterSensitiveLog = (obj: DeleteWorkerBlockRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkerBlockResponseFilterSensitiveLog = (obj: DeleteWorkerBlockResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateQualificationFromWorkerRequestFilterSensitiveLog = (
+  obj: DisassociateQualificationFromWorkerRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateQualificationFromWorkerResponseFilterSensitiveLog = (
+  obj: DisassociateQualificationFromWorkerResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccountBalanceRequestFilterSensitiveLog = (obj: GetAccountBalanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccountBalanceResponseFilterSensitiveLog = (obj: GetAccountBalanceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssignmentRequestFilterSensitiveLog = (obj: GetAssignmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssignmentResponseFilterSensitiveLog = (obj: GetAssignmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFileUploadURLRequestFilterSensitiveLog = (obj: GetFileUploadURLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFileUploadURLResponseFilterSensitiveLog = (obj: GetFileUploadURLResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHITRequestFilterSensitiveLog = (obj: GetHITRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHITResponseFilterSensitiveLog = (obj: GetHITResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQualificationScoreRequestFilterSensitiveLog = (obj: GetQualificationScoreRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QualificationFilterSensitiveLog = (obj: Qualification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQualificationScoreResponseFilterSensitiveLog = (obj: GetQualificationScoreResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQualificationTypeRequestFilterSensitiveLog = (obj: GetQualificationTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQualificationTypeResponseFilterSensitiveLog = (obj: GetQualificationTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssignmentsForHITRequestFilterSensitiveLog = (obj: ListAssignmentsForHITRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssignmentsForHITResponseFilterSensitiveLog = (obj: ListAssignmentsForHITResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBonusPaymentsRequestFilterSensitiveLog = (obj: ListBonusPaymentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBonusPaymentsResponseFilterSensitiveLog = (obj: ListBonusPaymentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHITsRequestFilterSensitiveLog = (obj: ListHITsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHITsResponseFilterSensitiveLog = (obj: ListHITsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHITsForQualificationTypeRequestFilterSensitiveLog = (
+  obj: ListHITsForQualificationTypeRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHITsForQualificationTypeResponseFilterSensitiveLog = (
+  obj: ListHITsForQualificationTypeResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQualificationRequestsRequestFilterSensitiveLog = (obj: ListQualificationRequestsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QualificationRequestFilterSensitiveLog = (obj: QualificationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQualificationRequestsResponseFilterSensitiveLog = (obj: ListQualificationRequestsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQualificationTypesRequestFilterSensitiveLog = (obj: ListQualificationTypesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQualificationTypesResponseFilterSensitiveLog = (obj: ListQualificationTypesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReviewableHITsRequestFilterSensitiveLog = (obj: ListReviewableHITsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReviewableHITsResponseFilterSensitiveLog = (obj: ListReviewableHITsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReviewPolicyResultsForHITRequestFilterSensitiveLog = (
+  obj: ListReviewPolicyResultsForHITRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReviewActionDetailFilterSensitiveLog = (obj: ReviewActionDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReviewResultDetailFilterSensitiveLog = (obj: ReviewResultDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReviewReportFilterSensitiveLog = (obj: ReviewReport): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReviewPolicyResultsForHITResponseFilterSensitiveLog = (
+  obj: ListReviewPolicyResultsForHITResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkerBlocksRequestFilterSensitiveLog = (obj: ListWorkerBlocksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkerBlockFilterSensitiveLog = (obj: WorkerBlock): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkerBlocksResponseFilterSensitiveLog = (obj: ListWorkerBlocksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkersWithQualificationTypeRequestFilterSensitiveLog = (
+  obj: ListWorkersWithQualificationTypeRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkersWithQualificationTypeResponseFilterSensitiveLog = (
+  obj: ListWorkersWithQualificationTypeResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyWorkersRequestFilterSensitiveLog = (obj: NotifyWorkersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyWorkersFailureStatusFilterSensitiveLog = (obj: NotifyWorkersFailureStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyWorkersResponseFilterSensitiveLog = (obj: NotifyWorkersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectAssignmentRequestFilterSensitiveLog = (obj: RejectAssignmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectAssignmentResponseFilterSensitiveLog = (obj: RejectAssignmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectQualificationRequestRequestFilterSensitiveLog = (obj: RejectQualificationRequestRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectQualificationRequestResponseFilterSensitiveLog = (obj: RejectQualificationRequestResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendBonusRequestFilterSensitiveLog = (obj: SendBonusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendBonusResponseFilterSensitiveLog = (obj: SendBonusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationSpecificationFilterSensitiveLog = (obj: NotificationSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendTestEventNotificationRequestFilterSensitiveLog = (obj: SendTestEventNotificationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendTestEventNotificationResponseFilterSensitiveLog = (obj: SendTestEventNotificationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateExpirationForHITRequestFilterSensitiveLog = (obj: UpdateExpirationForHITRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateExpirationForHITResponseFilterSensitiveLog = (obj: UpdateExpirationForHITResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHITReviewStatusRequestFilterSensitiveLog = (obj: UpdateHITReviewStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHITReviewStatusResponseFilterSensitiveLog = (obj: UpdateHITReviewStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHITTypeOfHITRequestFilterSensitiveLog = (obj: UpdateHITTypeOfHITRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHITTypeOfHITResponseFilterSensitiveLog = (obj: UpdateHITTypeOfHITResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNotificationSettingsRequestFilterSensitiveLog = (obj: UpdateNotificationSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNotificationSettingsResponseFilterSensitiveLog = (obj: UpdateNotificationSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateQualificationTypeRequestFilterSensitiveLog = (obj: UpdateQualificationTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateQualificationTypeResponseFilterSensitiveLog = (obj: UpdateQualificationTypeResponse): any => ({
+  ...obj,
+});

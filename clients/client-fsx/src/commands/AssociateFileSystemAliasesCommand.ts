@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { AssociateFileSystemAliasesRequest, AssociateFileSystemAliasesResponse } from "../models/models_0";
+import {
+  AssociateFileSystemAliasesRequest,
+  AssociateFileSystemAliasesRequestFilterSensitiveLog,
+  AssociateFileSystemAliasesResponse,
+  AssociateFileSystemAliasesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateFileSystemAliasesCommand,
   serializeAws_json1_1AssociateFileSystemAliasesCommand,
@@ -82,8 +87,8 @@ export class AssociateFileSystemAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateFileSystemAliasesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateFileSystemAliasesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateFileSystemAliasesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateFileSystemAliasesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

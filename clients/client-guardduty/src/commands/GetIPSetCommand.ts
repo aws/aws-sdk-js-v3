@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetIPSetRequest, GetIPSetResponse } from "../models/models_0";
+import {
+  GetIPSetRequest,
+  GetIPSetRequestFilterSensitiveLog,
+  GetIPSetResponse,
+  GetIPSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetIPSetCommand,
   serializeAws_restJson1GetIPSetCommand,
@@ -72,8 +77,8 @@ export class GetIPSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIPSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetIPSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIPSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetIPSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

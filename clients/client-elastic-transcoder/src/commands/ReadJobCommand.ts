@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import { ReadJobRequest, ReadJobResponse } from "../models/models_0";
+import {
+  ReadJobRequest,
+  ReadJobRequestFilterSensitiveLog,
+  ReadJobResponse,
+  ReadJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ReadJobCommand,
   serializeAws_restJson1ReadJobCommand,
@@ -76,8 +81,8 @@ export class ReadJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReadJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ReadJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ReadJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ReadJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

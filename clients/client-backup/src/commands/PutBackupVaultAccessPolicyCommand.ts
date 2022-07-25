@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { PutBackupVaultAccessPolicyInput } from "../models/models_0";
+import { PutBackupVaultAccessPolicyInput, PutBackupVaultAccessPolicyInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1PutBackupVaultAccessPolicyCommand,
   serializeAws_restJson1PutBackupVaultAccessPolicyCommand,
@@ -74,7 +74,7 @@ export class PutBackupVaultAccessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBackupVaultAccessPolicyInput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutBackupVaultAccessPolicyInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

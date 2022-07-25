@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminInitiateAuthRequest, AdminInitiateAuthResponse } from "../models/models_0";
+import {
+  AdminInitiateAuthRequest,
+  AdminInitiateAuthRequestFilterSensitiveLog,
+  AdminInitiateAuthResponse,
+  AdminInitiateAuthResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AdminInitiateAuthCommand,
   serializeAws_json1_1AdminInitiateAuthCommand,
@@ -98,8 +103,8 @@ export class AdminInitiateAuthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AdminInitiateAuthRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AdminInitiateAuthResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminInitiateAuthRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AdminInitiateAuthResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

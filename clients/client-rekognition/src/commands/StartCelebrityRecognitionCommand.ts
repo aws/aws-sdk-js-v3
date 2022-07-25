@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartCelebrityRecognitionRequest, StartCelebrityRecognitionResponse } from "../models/models_0";
+import {
+  StartCelebrityRecognitionRequest,
+  StartCelebrityRecognitionRequestFilterSensitiveLog,
+  StartCelebrityRecognitionResponse,
+  StartCelebrityRecognitionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartCelebrityRecognitionCommand,
   serializeAws_json1_1StartCelebrityRecognitionCommand,
@@ -83,8 +88,8 @@ export class StartCelebrityRecognitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartCelebrityRecognitionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartCelebrityRecognitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartCelebrityRecognitionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartCelebrityRecognitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

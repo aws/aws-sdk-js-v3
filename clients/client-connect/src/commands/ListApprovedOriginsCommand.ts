@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListApprovedOriginsRequest, ListApprovedOriginsResponse } from "../models/models_0";
+import {
+  ListApprovedOriginsRequest,
+  ListApprovedOriginsRequestFilterSensitiveLog,
+  ListApprovedOriginsResponse,
+  ListApprovedOriginsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListApprovedOriginsCommand,
   serializeAws_restJson1ListApprovedOriginsCommand,
@@ -73,8 +78,8 @@ export class ListApprovedOriginsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApprovedOriginsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListApprovedOriginsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListApprovedOriginsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListApprovedOriginsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { DescribeModelVersionsRequest, DescribeModelVersionsResult } from "../models/models_0";
+import {
+  DescribeModelVersionsRequest,
+  DescribeModelVersionsRequestFilterSensitiveLog,
+  DescribeModelVersionsResult,
+  DescribeModelVersionsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeModelVersionsCommand,
   serializeAws_json1_1DescribeModelVersionsCommand,
@@ -72,8 +77,8 @@ export class DescribeModelVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeModelVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeModelVersionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeModelVersionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeModelVersionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

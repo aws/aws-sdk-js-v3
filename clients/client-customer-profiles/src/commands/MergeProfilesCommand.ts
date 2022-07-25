@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { MergeProfilesRequest, MergeProfilesResponse } from "../models/models_0";
+import {
+  MergeProfilesRequest,
+  MergeProfilesRequestFilterSensitiveLog,
+  MergeProfilesResponse,
+  MergeProfilesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1MergeProfilesCommand,
   serializeAws_restJson1MergeProfilesCommand,
@@ -115,8 +120,8 @@ export class MergeProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MergeProfilesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: MergeProfilesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: MergeProfilesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: MergeProfilesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

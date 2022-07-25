@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { NotifyWorkersRequest, NotifyWorkersResponse } from "../models/models_0";
+import {
+  NotifyWorkersRequest,
+  NotifyWorkersRequestFilterSensitiveLog,
+  NotifyWorkersResponse,
+  NotifyWorkersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1NotifyWorkersCommand,
@@ -81,8 +86,8 @@ export class NotifyWorkersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NotifyWorkersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: NotifyWorkersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: NotifyWorkersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: NotifyWorkersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

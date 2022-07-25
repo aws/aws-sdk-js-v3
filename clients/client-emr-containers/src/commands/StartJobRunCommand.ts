@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import { StartJobRunRequest, StartJobRunResponse } from "../models/models_0";
+import {
+  StartJobRunRequest,
+  StartJobRunRequestFilterSensitiveLog,
+  StartJobRunResponse,
+  StartJobRunResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartJobRunCommand,
   serializeAws_restJson1StartJobRunCommand,
@@ -72,8 +77,8 @@ export class StartJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartJobRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartJobRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartJobRunRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartJobRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

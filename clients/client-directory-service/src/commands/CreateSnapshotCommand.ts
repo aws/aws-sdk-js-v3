@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { CreateSnapshotRequest, CreateSnapshotResult } from "../models/models_0";
+import {
+  CreateSnapshotRequest,
+  CreateSnapshotRequestFilterSensitiveLog,
+  CreateSnapshotResult,
+  CreateSnapshotResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSnapshotCommand,
   serializeAws_json1_1CreateSnapshotCommand,
@@ -75,8 +80,8 @@ export class CreateSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSnapshotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSnapshotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSnapshotResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

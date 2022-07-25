@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import { DescribeLunaClientRequest, DescribeLunaClientResponse } from "../models/models_0";
+import {
+  DescribeLunaClientRequest,
+  DescribeLunaClientRequestFilterSensitiveLog,
+  DescribeLunaClientResponse,
+  DescribeLunaClientResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLunaClientCommand,
   serializeAws_json1_1DescribeLunaClientCommand,
@@ -82,8 +87,8 @@ export class DescribeLunaClientCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLunaClientRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLunaClientResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLunaClientRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLunaClientResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeAccountLimitsAnswer } from "../models/models_0";
+import { DescribeAccountLimitsAnswer, DescribeAccountLimitsAnswerFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDescribeAccountLimitsCommand,
   serializeAws_queryDescribeAccountLimitsCommand,
@@ -77,7 +77,7 @@ export class DescribeAccountLimitsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeAccountLimitsAnswer.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAccountLimitsAnswerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

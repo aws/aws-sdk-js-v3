@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { UpdateWorkspaceAliasRequest } from "../models/models_0";
+import { UpdateWorkspaceAliasRequest, UpdateWorkspaceAliasRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateWorkspaceAliasCommand,
   serializeAws_restJson1UpdateWorkspaceAliasCommand,
@@ -72,7 +72,7 @@ export class UpdateWorkspaceAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkspaceAliasRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateWorkspaceAliasRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

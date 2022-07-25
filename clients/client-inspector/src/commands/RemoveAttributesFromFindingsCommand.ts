@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { RemoveAttributesFromFindingsRequest, RemoveAttributesFromFindingsResponse } from "../models/models_0";
+import {
+  RemoveAttributesFromFindingsRequest,
+  RemoveAttributesFromFindingsRequestFilterSensitiveLog,
+  RemoveAttributesFromFindingsResponse,
+  RemoveAttributesFromFindingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveAttributesFromFindingsCommand,
   serializeAws_json1_1RemoveAttributesFromFindingsCommand,
@@ -75,8 +80,8 @@ export class RemoveAttributesFromFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveAttributesFromFindingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RemoveAttributesFromFindingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveAttributesFromFindingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RemoveAttributesFromFindingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

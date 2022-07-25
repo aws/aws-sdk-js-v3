@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { StopJobRequest, StopJobResult } from "../models/models_0";
+import {
+  StopJobRequest,
+  StopJobRequestFilterSensitiveLog,
+  StopJobResult,
+  StopJobResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1StopJobCommand, serializeAws_json1_1StopJobCommand } from "../protocols/Aws_json1_1";
 
 export interface StopJobCommandInput extends StopJobRequest {}
@@ -72,8 +77,8 @@ export class StopJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopJobResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StopJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopJobResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

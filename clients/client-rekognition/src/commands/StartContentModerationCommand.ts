@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartContentModerationRequest, StartContentModerationResponse } from "../models/models_0";
+import {
+  StartContentModerationRequest,
+  StartContentModerationRequestFilterSensitiveLog,
+  StartContentModerationResponse,
+  StartContentModerationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartContentModerationCommand,
   serializeAws_json1_1StartContentModerationCommand,
@@ -83,8 +88,8 @@ export class StartContentModerationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartContentModerationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartContentModerationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartContentModerationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartContentModerationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

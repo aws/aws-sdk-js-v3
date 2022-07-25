@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DeleteEntitlementRequest, DeleteEntitlementResult } from "../models/models_0";
+import {
+  DeleteEntitlementRequest,
+  DeleteEntitlementRequestFilterSensitiveLog,
+  DeleteEntitlementResult,
+  DeleteEntitlementResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEntitlementCommand,
   serializeAws_json1_1DeleteEntitlementCommand,
@@ -72,8 +77,8 @@ export class DeleteEntitlementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEntitlementRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEntitlementResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEntitlementRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEntitlementResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

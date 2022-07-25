@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { ListServerNeighborsRequest, ListServerNeighborsResponse } from "../models/models_0";
+import {
+  ListServerNeighborsRequest,
+  ListServerNeighborsRequestFilterSensitiveLog,
+  ListServerNeighborsResponse,
+  ListServerNeighborsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListServerNeighborsCommand,
   serializeAws_json1_1ListServerNeighborsCommand,
@@ -77,8 +82,8 @@ export class ListServerNeighborsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServerNeighborsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListServerNeighborsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListServerNeighborsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListServerNeighborsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

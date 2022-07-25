@@ -14,7 +14,9 @@ import {
 
 import {
   GetDeployablePatchSnapshotForInstanceRequest,
+  GetDeployablePatchSnapshotForInstanceRequestFilterSensitiveLog,
   GetDeployablePatchSnapshotForInstanceResult,
+  GetDeployablePatchSnapshotForInstanceResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand,
@@ -86,8 +88,8 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeployablePatchSnapshotForInstanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDeployablePatchSnapshotForInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDeployablePatchSnapshotForInstanceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDeployablePatchSnapshotForInstanceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

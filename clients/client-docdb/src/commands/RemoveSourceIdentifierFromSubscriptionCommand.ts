@@ -15,7 +15,9 @@ import {
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
 import {
   RemoveSourceIdentifierFromSubscriptionMessage,
+  RemoveSourceIdentifierFromSubscriptionMessageFilterSensitiveLog,
   RemoveSourceIdentifierFromSubscriptionResult,
+  RemoveSourceIdentifierFromSubscriptionResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
@@ -79,8 +81,8 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveSourceIdentifierFromSubscriptionMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: RemoveSourceIdentifierFromSubscriptionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveSourceIdentifierFromSubscriptionMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: RemoveSourceIdentifierFromSubscriptionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import { ListDeliveryStreamsInput, ListDeliveryStreamsOutput } from "../models/models_0";
+import {
+  ListDeliveryStreamsInput,
+  ListDeliveryStreamsInputFilterSensitiveLog,
+  ListDeliveryStreamsOutput,
+  ListDeliveryStreamsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListDeliveryStreamsCommand,
   serializeAws_json1_1ListDeliveryStreamsCommand,
@@ -79,8 +84,8 @@ export class ListDeliveryStreamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeliveryStreamsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDeliveryStreamsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDeliveryStreamsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDeliveryStreamsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

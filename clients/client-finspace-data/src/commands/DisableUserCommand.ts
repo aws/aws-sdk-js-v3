@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import { DisableUserRequest, DisableUserResponse } from "../models/models_0";
+import {
+  DisableUserRequest,
+  DisableUserRequestFilterSensitiveLog,
+  DisableUserResponse,
+  DisableUserResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisableUserCommand,
   serializeAws_restJson1DisableUserCommand,
@@ -72,8 +77,8 @@ export class DisableUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableUserRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableUserRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisableUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

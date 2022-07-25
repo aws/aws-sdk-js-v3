@@ -70,15 +70,6 @@ export interface ApiGatewayProxyConfig {
   StageName?: string;
 }
 
-export namespace ApiGatewayProxyConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiGatewayProxyConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A wrapper object holding the Amazon API Gateway endpoint input. </p>
  */
@@ -97,15 +88,6 @@ export interface ApiGatewayProxyInput {
    * <p>The name of the API Gateway stage. The name defaults to <code>prod</code>. </p>
    */
   StageName?: string;
-}
-
-export namespace ApiGatewayProxyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiGatewayProxyInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -147,15 +129,6 @@ export interface ApiGatewayProxySummary {
    * <p>The name of the API Gateway stage. The name defaults to <code>prod</code>. </p>
    */
   StageName?: string;
-}
-
-export namespace ApiGatewayProxySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiGatewayProxySummary): any => ({
-    ...obj,
-  });
 }
 
 export enum ApplicationState {
@@ -238,15 +211,6 @@ export interface ErrorResponse {
   AdditionalDetails?: Record<string, string>;
 }
 
-export namespace ErrorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum ProxyType {
   API_GATEWAY = "API_GATEWAY",
 }
@@ -327,16 +291,6 @@ export interface ApplicationSummary {
   CreatedTime?: Date;
 }
 
-export namespace ApplicationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationSummary): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Updating or deleting a resource can cause an inconsistent state.</p>
  */
@@ -406,16 +360,6 @@ export interface CreateApplicationRequest {
    *       request.</p>
    */
   ClientToken?: string;
-}
-
-export namespace CreateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
 }
 
 export interface CreateApplicationResponse {
@@ -490,16 +434,6 @@ export interface CreateApplicationResponse {
    * <p>A timestamp that indicates when the application is created.</p>
    */
   CreatedTime?: Date;
-}
-
-export namespace CreateApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationResponse): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -695,16 +629,6 @@ export interface CreateEnvironmentRequest {
   ClientToken?: string;
 }
 
-export namespace CreateEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
-}
-
 export enum EnvironmentState {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -764,16 +688,6 @@ export interface CreateEnvironmentResponse {
   CreatedTime?: Date;
 }
 
-export namespace CreateEnvironmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentResponse): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
-}
-
 export enum RouteActivationState {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
@@ -790,15 +704,6 @@ export interface DefaultRouteInput {
    *       route is created. </p>
    */
   ActivationState?: RouteActivationState | string;
-}
-
-export namespace DefaultRouteInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefaultRouteInput): any => ({
-    ...obj,
-  });
 }
 
 export enum RouteType {
@@ -844,15 +749,6 @@ export interface UriPathRouteInput {
    *       this route's service. </p>
    */
   IncludeChildPaths?: boolean;
-}
-
-export namespace UriPathRouteInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UriPathRouteInput): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRouteRequest {
@@ -902,16 +798,6 @@ export interface CreateRouteRequest {
    *       request.</p>
    */
   ClientToken?: string;
-}
-
-export namespace CreateRouteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRouteRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
 }
 
 export enum RouteState {
@@ -993,16 +879,6 @@ export interface CreateRouteResponse {
   CreatedTime?: Date;
 }
 
-export namespace CreateRouteResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRouteResponse): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
-}
-
 export enum ServiceEndpointType {
   LAMBDA = "LAMBDA",
   URL = "URL",
@@ -1016,15 +892,6 @@ export interface LambdaEndpointInput {
    * <p>The Amazon Resource Name (ARN) of the Lambda endpoint. </p>
    */
   Arn: string | undefined;
-}
-
-export namespace LambdaEndpointInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaEndpointInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1045,15 +912,6 @@ export interface UrlEndpointInput {
    *       host must be the same as the URL. </p>
    */
   HealthUrl?: string;
-}
-
-export namespace UrlEndpointInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UrlEndpointInput): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateServiceRequest {
@@ -1107,16 +965,6 @@ export interface CreateServiceRequest {
    *       request.</p>
    */
   ClientToken?: string;
-}
-
-export namespace CreateServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
 }
 
 export enum ServiceState {
@@ -1208,16 +1056,6 @@ export interface CreateServiceResponse {
   CreatedTime?: Date;
 }
 
-export namespace CreateServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceResponse): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface DeleteApplicationRequest {
   /**
    * <p>The ID of the environment. </p>
@@ -1228,15 +1066,6 @@ export interface DeleteApplicationRequest {
    * <p>The ID of the application.</p>
    */
   ApplicationIdentifier: string | undefined;
-}
-
-export namespace DeleteApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteApplicationResponse {
@@ -1271,29 +1100,11 @@ export interface DeleteApplicationResponse {
   LastUpdatedTime?: Date;
 }
 
-export namespace DeleteApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEnvironmentRequest {
   /**
    * <p>The ID of the environment. </p>
    */
   EnvironmentIdentifier: string | undefined;
-}
-
-export namespace DeleteEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteEnvironmentResponse {
@@ -1323,15 +1134,6 @@ export interface DeleteEnvironmentResponse {
   LastUpdatedTime?: Date;
 }
 
-export namespace DeleteEnvironmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the resource associated with the policy. </p>
@@ -1339,25 +1141,7 @@ export interface DeleteResourcePolicyRequest {
   Identifier: string | undefined;
 }
 
-export namespace DeleteResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourcePolicyResponse {}
-
-export namespace DeleteResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteRouteRequest {
   /**
@@ -1374,15 +1158,6 @@ export interface DeleteRouteRequest {
    * <p>The ID of the route to delete.</p>
    */
   RouteIdentifier: string | undefined;
-}
-
-export namespace DeleteRouteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRouteRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRouteResponse {
@@ -1417,15 +1192,6 @@ export interface DeleteRouteResponse {
   LastUpdatedTime?: Date;
 }
 
-export namespace DeleteRouteResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRouteResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteServiceRequest {
   /**
    * <p>The ID of the environment that the service is in.</p>
@@ -1446,15 +1212,6 @@ export interface DeleteServiceRequest {
    * <p>The ID of the service to delete.</p>
    */
   ServiceIdentifier: string | undefined;
-}
-
-export namespace DeleteServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteServiceResponse {
@@ -1492,15 +1249,6 @@ export interface DeleteServiceResponse {
    * <p>A timestamp that indicates when the service was last updated. </p>
    */
   LastUpdatedTime?: Date;
-}
-
-export namespace DeleteServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1569,16 +1317,6 @@ export interface EnvironmentSummary {
   CreatedTime?: Date;
 }
 
-export namespace EnvironmentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentSummary): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Provides summary information for the <code>EnvironmentVpc</code> resource as a response to
  *         <code>ListEnvironmentVpc</code>.</p>
@@ -1620,15 +1358,6 @@ export interface EnvironmentVpc {
   CreatedTime?: Date;
 }
 
-export namespace EnvironmentVpc {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentVpc): any => ({
-    ...obj,
-  });
-}
-
 export interface GetApplicationRequest {
   /**
    * <p>The ID of the environment. </p>
@@ -1639,15 +1368,6 @@ export interface GetApplicationRequest {
    * <p>The ID of the application.</p>
    */
   ApplicationIdentifier: string | undefined;
-}
-
-export namespace GetApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetApplicationResponse {
@@ -1723,30 +1443,11 @@ export interface GetApplicationResponse {
   CreatedTime?: Date;
 }
 
-export namespace GetApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationResponse): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetEnvironmentRequest {
   /**
    * <p>The ID of the environment.</p>
    */
   EnvironmentIdentifier: string | undefined;
-}
-
-export namespace GetEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEnvironmentResponse {
@@ -1811,16 +1512,6 @@ export interface GetEnvironmentResponse {
   CreatedTime?: Date;
 }
 
-export namespace GetEnvironmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentResponse): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource associated with the policy. </p>
@@ -1828,29 +1519,11 @@ export interface GetResourcePolicyRequest {
   Identifier: string | undefined;
 }
 
-export namespace GetResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourcePolicyResponse {
   /**
    * <p>A JSON-formatted string for an Amazon Web Services resource-based policy. </p>
    */
   Policy?: string;
-}
-
-export namespace GetResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRouteRequest {
@@ -1868,15 +1541,6 @@ export interface GetRouteRequest {
    * <p>The ID of the route.</p>
    */
   RouteIdentifier: string | undefined;
-}
-
-export namespace GetRouteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRouteRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRouteResponse {
@@ -1976,16 +1640,6 @@ export interface GetRouteResponse {
   CreatedTime?: Date;
 }
 
-export namespace GetRouteResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRouteResponse): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetServiceRequest {
   /**
    * <p>The ID of the environment.</p>
@@ -2003,15 +1657,6 @@ export interface GetServiceRequest {
   ServiceIdentifier: string | undefined;
 }
 
-export namespace GetServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration for the Lambda endpoint type. </p>
  */
@@ -2020,15 +1665,6 @@ export interface LambdaEndpointConfig {
    * <p>The Amazon Resource Name (ARN) of the Lambda endpoint. </p>
    */
   Arn?: string;
-}
-
-export namespace LambdaEndpointConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaEndpointConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2044,15 +1680,6 @@ export interface UrlEndpointConfig {
    * <p>The health check URL of the URL endpoint type. </p>
    */
   HealthUrl?: string;
-}
-
-export namespace UrlEndpointConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UrlEndpointConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface GetServiceResponse {
@@ -2146,16 +1773,6 @@ export interface GetServiceResponse {
   CreatedTime?: Date;
 }
 
-export namespace GetServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceResponse): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The resource policy is not valid.</p>
  */
@@ -2187,15 +1804,6 @@ export interface LambdaEndpointSummary {
   Arn?: string;
 }
 
-export namespace LambdaEndpointSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaEndpointSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationsRequest {
   /**
    * <p>The ID of the environment. </p>
@@ -2214,15 +1822,6 @@ export interface ListApplicationsRequest {
   MaxResults?: number;
 }
 
-export namespace ListApplicationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationsResponse {
   /**
    * <p>The list of <code>ApplicationSummary</code> objects. </p>
@@ -2233,18 +1832,6 @@ export interface ListApplicationsResponse {
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListApplicationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsResponse): any => ({
-    ...obj,
-    ...(obj.ApplicationSummaryList && {
-      ApplicationSummaryList: obj.ApplicationSummaryList.map((item) => ApplicationSummary.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListEnvironmentsRequest {
@@ -2260,15 +1847,6 @@ export interface ListEnvironmentsRequest {
   MaxResults?: number;
 }
 
-export namespace ListEnvironmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEnvironmentsResponse {
   /**
    * <p>The list of <code>EnvironmentSummary</code> objects. </p>
@@ -2279,18 +1857,6 @@ export interface ListEnvironmentsResponse {
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListEnvironmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentsResponse): any => ({
-    ...obj,
-    ...(obj.EnvironmentSummaryList && {
-      EnvironmentSummaryList: obj.EnvironmentSummaryList.map((item) => EnvironmentSummary.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListEnvironmentVpcsRequest {
@@ -2311,15 +1877,6 @@ export interface ListEnvironmentVpcsRequest {
   MaxResults?: number;
 }
 
-export namespace ListEnvironmentVpcsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentVpcsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEnvironmentVpcsResponse {
   /**
    * <p>The list of <code>EnvironmentVpc</code> objects. </p>
@@ -2330,15 +1887,6 @@ export interface ListEnvironmentVpcsResponse {
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListEnvironmentVpcsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentVpcsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRoutesRequest {
@@ -2362,15 +1910,6 @@ export interface ListRoutesRequest {
    *       results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListRoutesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRoutesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2467,16 +2006,6 @@ export interface RouteSummary {
   CreatedTime?: Date;
 }
 
-export namespace RouteSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RouteSummary): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListRoutesResponse {
   /**
    * <p>The list of <code>RouteSummary</code> objects. </p>
@@ -2487,18 +2016,6 @@ export interface ListRoutesResponse {
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListRoutesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRoutesResponse): any => ({
-    ...obj,
-    ...(obj.RouteSummaryList && {
-      RouteSummaryList: obj.RouteSummaryList.map((item) => RouteSummary.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListServicesRequest {
@@ -2524,15 +2041,6 @@ export interface ListServicesRequest {
   MaxResults?: number;
 }
 
-export namespace ListServicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServicesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The summary of the configuration for the URL endpoint type. </p>
  */
@@ -2551,15 +2059,6 @@ export interface UrlEndpointSummary {
    *       host must be the same as the URL.</p>
    */
   HealthUrl?: string;
-}
-
-export namespace UrlEndpointSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UrlEndpointSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2652,16 +2151,6 @@ export interface ServiceSummary {
   CreatedTime?: Date;
 }
 
-export namespace ServiceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceSummary): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListServicesResponse {
   /**
    * <p> The list of <code>ServiceSummary</code> objects. </p>
@@ -2674,18 +2163,6 @@ export interface ListServicesResponse {
   NextToken?: string;
 }
 
-export namespace ListServicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServicesResponse): any => ({
-    ...obj,
-    ...(obj.ServiceSummaryList && {
-      ServiceSummaryList: obj.ServiceSummaryList.map((item) => ServiceSummary.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. </p>
@@ -2693,30 +2170,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags assigned to the resource. </p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
 }
 
 export interface PutResourcePolicyRequest {
@@ -2732,25 +2190,7 @@ export interface PutResourcePolicyRequest {
   Policy: string | undefined;
 }
 
-export namespace PutResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutResourcePolicyResponse {}
-
-export namespace PutResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -2764,26 +2204,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2797,26 +2218,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-    ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateRouteRequest {
   /**
@@ -2845,15 +2247,6 @@ export interface UpdateRouteRequest {
    *       route is updated. </p>
    */
   ActivationState: RouteActivationState | string | undefined;
-}
-
-export namespace UpdateRouteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRouteRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRouteResponse {
@@ -2905,11 +2298,488 @@ export interface UpdateRouteResponse {
   LastUpdatedTime?: Date;
 }
 
-export namespace UpdateRouteResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRouteResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ApiGatewayProxyConfigFilterSensitiveLog = (obj: ApiGatewayProxyConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApiGatewayProxyInputFilterSensitiveLog = (obj: ApiGatewayProxyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApiGatewayProxySummaryFilterSensitiveLog = (obj: ApiGatewayProxySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorResponseFilterSensitiveLog = (obj: ErrorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationSummaryFilterSensitiveLog = (obj: ApplicationSummary): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicationRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationResponseFilterSensitiveLog = (obj: CreateApplicationResponse): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentRequestFilterSensitiveLog = (obj: CreateEnvironmentRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentResponseFilterSensitiveLog = (obj: CreateEnvironmentResponse): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DefaultRouteInputFilterSensitiveLog = (obj: DefaultRouteInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UriPathRouteInputFilterSensitiveLog = (obj: UriPathRouteInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRouteRequestFilterSensitiveLog = (obj: CreateRouteRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateRouteResponseFilterSensitiveLog = (obj: CreateRouteResponse): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const LambdaEndpointInputFilterSensitiveLog = (obj: LambdaEndpointInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UrlEndpointInputFilterSensitiveLog = (obj: UrlEndpointInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceRequestFilterSensitiveLog = (obj: CreateServiceRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceResponseFilterSensitiveLog = (obj: CreateServiceResponse): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationRequestFilterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationResponseFilterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentRequestFilterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentResponseFilterSensitiveLog = (obj: DeleteEnvironmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyRequestFilterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyResponseFilterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRouteRequestFilterSensitiveLog = (obj: DeleteRouteRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRouteResponseFilterSensitiveLog = (obj: DeleteRouteResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceRequestFilterSensitiveLog = (obj: DeleteServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceResponseFilterSensitiveLog = (obj: DeleteServiceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentSummaryFilterSensitiveLog = (obj: EnvironmentSummary): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentVpcFilterSensitiveLog = (obj: EnvironmentVpc): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationRequestFilterSensitiveLog = (obj: GetApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationResponseFilterSensitiveLog = (obj: GetApplicationResponse): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentRequestFilterSensitiveLog = (obj: GetEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentResponseFilterSensitiveLog = (obj: GetEnvironmentResponse): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePolicyRequestFilterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePolicyResponseFilterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRouteRequestFilterSensitiveLog = (obj: GetRouteRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRouteResponseFilterSensitiveLog = (obj: GetRouteResponse): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetServiceRequestFilterSensitiveLog = (obj: GetServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaEndpointConfigFilterSensitiveLog = (obj: LambdaEndpointConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UrlEndpointConfigFilterSensitiveLog = (obj: UrlEndpointConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceResponseFilterSensitiveLog = (obj: GetServiceResponse): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const LambdaEndpointSummaryFilterSensitiveLog = (obj: LambdaEndpointSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationsRequestFilterSensitiveLog = (obj: ListApplicationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationsResponseFilterSensitiveLog = (obj: ListApplicationsResponse): any => ({
+  ...obj,
+  ...(obj.ApplicationSummaryList && {
+    ApplicationSummaryList: obj.ApplicationSummaryList.map((item) => ApplicationSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentsRequestFilterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentsResponseFilterSensitiveLog = (obj: ListEnvironmentsResponse): any => ({
+  ...obj,
+  ...(obj.EnvironmentSummaryList && {
+    EnvironmentSummaryList: obj.EnvironmentSummaryList.map((item) => EnvironmentSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentVpcsRequestFilterSensitiveLog = (obj: ListEnvironmentVpcsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentVpcsResponseFilterSensitiveLog = (obj: ListEnvironmentVpcsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRoutesRequestFilterSensitiveLog = (obj: ListRoutesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RouteSummaryFilterSensitiveLog = (obj: RouteSummary): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListRoutesResponseFilterSensitiveLog = (obj: ListRoutesResponse): any => ({
+  ...obj,
+  ...(obj.RouteSummaryList && {
+    RouteSummaryList: obj.RouteSummaryList.map((item) => RouteSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListServicesRequestFilterSensitiveLog = (obj: ListServicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UrlEndpointSummaryFilterSensitiveLog = (obj: UrlEndpointSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceSummaryFilterSensitiveLog = (obj: ServiceSummary): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListServicesResponseFilterSensitiveLog = (obj: ListServicesResponse): any => ({
+  ...obj,
+  ...(obj.ServiceSummaryList && {
+    ServiceSummaryList: obj.ServiceSummaryList.map((item) => ServiceSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyRequestFilterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyResponseFilterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+  ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRouteRequestFilterSensitiveLog = (obj: UpdateRouteRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRouteResponseFilterSensitiveLog = (obj: UpdateRouteResponse): any => ({
+  ...obj,
+});

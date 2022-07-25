@@ -16,7 +16,9 @@ import {
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import {
   GetOpenIdTokenForDeveloperIdentityInput,
+  GetOpenIdTokenForDeveloperIdentityInputFilterSensitiveLog,
   GetOpenIdTokenForDeveloperIdentityResponse,
+  GetOpenIdTokenForDeveloperIdentityResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommand,
@@ -91,8 +93,8 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOpenIdTokenForDeveloperIdentityInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetOpenIdTokenForDeveloperIdentityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOpenIdTokenForDeveloperIdentityInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetOpenIdTokenForDeveloperIdentityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

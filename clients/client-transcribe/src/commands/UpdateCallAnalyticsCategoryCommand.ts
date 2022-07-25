@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateCallAnalyticsCategoryRequest, UpdateCallAnalyticsCategoryResponse } from "../models/models_0";
+import {
+  UpdateCallAnalyticsCategoryRequest,
+  UpdateCallAnalyticsCategoryRequestFilterSensitiveLog,
+  UpdateCallAnalyticsCategoryResponse,
+  UpdateCallAnalyticsCategoryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateCallAnalyticsCategoryCommand,
   serializeAws_json1_1UpdateCallAnalyticsCategoryCommand,
@@ -77,8 +82,8 @@ export class UpdateCallAnalyticsCategoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCallAnalyticsCategoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCallAnalyticsCategoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateCallAnalyticsCategoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateCallAnalyticsCategoryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

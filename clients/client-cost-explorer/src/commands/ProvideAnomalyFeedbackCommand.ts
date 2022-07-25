@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { ProvideAnomalyFeedbackRequest, ProvideAnomalyFeedbackResponse } from "../models/models_0";
+import {
+  ProvideAnomalyFeedbackRequest,
+  ProvideAnomalyFeedbackRequestFilterSensitiveLog,
+  ProvideAnomalyFeedbackResponse,
+  ProvideAnomalyFeedbackResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ProvideAnomalyFeedbackCommand,
   serializeAws_json1_1ProvideAnomalyFeedbackCommand,
@@ -72,8 +77,8 @@ export class ProvideAnomalyFeedbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ProvideAnomalyFeedbackRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ProvideAnomalyFeedbackResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ProvideAnomalyFeedbackRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ProvideAnomalyFeedbackResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

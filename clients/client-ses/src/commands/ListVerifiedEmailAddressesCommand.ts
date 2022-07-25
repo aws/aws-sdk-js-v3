@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListVerifiedEmailAddressesResponse } from "../models/models_0";
+import {
+  ListVerifiedEmailAddressesResponse,
+  ListVerifiedEmailAddressesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryListVerifiedEmailAddressesCommand,
   serializeAws_queryListVerifiedEmailAddressesCommand,
@@ -74,7 +77,7 @@ export class ListVerifiedEmailAddressesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: ListVerifiedEmailAddressesResponse.filterSensitiveLog,
+      outputFilterSensitiveLog: ListVerifiedEmailAddressesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

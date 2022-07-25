@@ -57,25 +57,7 @@ export interface AcceptPortfolioShareInput {
   PortfolioShareType?: PortfolioShareType | string;
 }
 
-export namespace AcceptPortfolioShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptPortfolioShareInput): any => ({
-    ...obj,
-  });
-}
-
 export interface AcceptPortfolioShareOutput {}
-
-export namespace AcceptPortfolioShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptPortfolioShareOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>One or more parameters provided to the operation are not valid.</p>
@@ -176,15 +158,6 @@ export interface AccessLevelFilter {
   Value?: string;
 }
 
-export namespace AccessLevelFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessLevelFilter): any => ({
-    ...obj,
-  });
-}
-
 export enum AccessStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -207,15 +180,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateBudgetWithResourceInput {
   /**
    * <p>The name of the budget you want to associate.</p>
@@ -228,25 +192,7 @@ export interface AssociateBudgetWithResourceInput {
   ResourceId: string | undefined;
 }
 
-export namespace AssociateBudgetWithResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateBudgetWithResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateBudgetWithResourceOutput {}
-
-export namespace AssociateBudgetWithResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateBudgetWithResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The specified resource is a duplicate.</p>
@@ -309,25 +255,7 @@ export interface AssociatePrincipalWithPortfolioInput {
   PrincipalType: PrincipalType | string | undefined;
 }
 
-export namespace AssociatePrincipalWithPortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatePrincipalWithPortfolioInput): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociatePrincipalWithPortfolioOutput {}
-
-export namespace AssociatePrincipalWithPortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatePrincipalWithPortfolioOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface AssociateProductWithPortfolioInput {
   /**
@@ -365,25 +293,7 @@ export interface AssociateProductWithPortfolioInput {
   SourcePortfolioId?: string;
 }
 
-export namespace AssociateProductWithPortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateProductWithPortfolioInput): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateProductWithPortfolioOutput {}
-
-export namespace AssociateProductWithPortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateProductWithPortfolioOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface AssociateServiceActionWithProvisioningArtifactInput {
   /**
@@ -421,25 +331,7 @@ export interface AssociateServiceActionWithProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
-export namespace AssociateServiceActionWithProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateServiceActionWithProvisioningArtifactInput): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateServiceActionWithProvisioningArtifactOutput {}
-
-export namespace AssociateServiceActionWithProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateServiceActionWithProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface AssociateTagOptionWithResourceInput {
   /**
@@ -453,25 +345,7 @@ export interface AssociateTagOptionWithResourceInput {
   TagOptionId: string | undefined;
 }
 
-export namespace AssociateTagOptionWithResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateTagOptionWithResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateTagOptionWithResourceOutput {}
-
-export namespace AssociateTagOptionWithResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateTagOptionWithResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>An attempt was made to modify a resource that is in a state that is not valid.
@@ -538,15 +412,6 @@ export interface ServiceActionAssociation {
   ProvisioningArtifactId: string | undefined;
 }
 
-export namespace ServiceActionAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceActionAssociation): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
   /**
    * <p>One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
@@ -571,15 +436,6 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
    *          </ul>
    */
   AcceptLanguage?: string;
-}
-
-export namespace BatchAssociateServiceActionWithProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateServiceActionWithProvisioningArtifactInput): any => ({
-    ...obj,
-  });
 }
 
 export enum ServiceActionAssociationErrorCode {
@@ -620,29 +476,11 @@ export interface FailedServiceActionAssociation {
   ErrorMessage?: string;
 }
 
-export namespace FailedServiceActionAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedServiceActionAssociation): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchAssociateServiceActionWithProvisioningArtifactOutput {
   /**
    * <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
    */
   FailedServiceActionAssociations?: FailedServiceActionAssociation[];
-}
-
-export namespace BatchAssociateServiceActionWithProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateServiceActionWithProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDisassociateServiceActionFromProvisioningArtifactInput {
@@ -671,29 +509,11 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
-export namespace BatchDisassociateServiceActionFromProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateServiceActionFromProvisioningArtifactInput): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput {
   /**
    * <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
    */
   FailedServiceActionAssociations?: FailedServiceActionAssociation[];
-}
-
-export namespace BatchDisassociateServiceActionFromProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateServiceActionFromProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum CopyOption {
@@ -758,29 +578,11 @@ export interface CopyProductInput {
   IdempotencyToken?: string;
 }
 
-export namespace CopyProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyProductInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CopyProductOutput {
   /**
    * <p>The token to use to track the progress of the operation.</p>
    */
   CopyProductToken?: string;
-}
-
-export namespace CopyProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyProductOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateConstraintInput {
@@ -913,15 +715,6 @@ export interface CreateConstraintInput {
   IdempotencyToken?: string;
 }
 
-export namespace CreateConstraintInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConstraintInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a constraint.</p>
  */
@@ -977,15 +770,6 @@ export interface ConstraintDetail {
   PortfolioId?: string;
 }
 
-export namespace ConstraintDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConstraintDetail): any => ({
-    ...obj,
-  });
-}
-
 export enum Status {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
@@ -1007,15 +791,6 @@ export interface CreateConstraintOutput {
    * <p>The status of the current request.</p>
    */
   Status?: Status | string;
-}
-
-export namespace CreateConstraintOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConstraintOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePortfolioInput {
@@ -1065,15 +840,6 @@ export interface CreatePortfolioInput {
   IdempotencyToken?: string;
 }
 
-export namespace CreatePortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePortfolioInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a portfolio.</p>
  */
@@ -1109,15 +875,6 @@ export interface PortfolioDetail {
   ProviderName?: string;
 }
 
-export namespace PortfolioDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortfolioDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePortfolioOutput {
   /**
    * <p>Information about the portfolio.</p>
@@ -1128,15 +885,6 @@ export interface CreatePortfolioOutput {
    * <p>Information about the tags associated with the portfolio.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreatePortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePortfolioOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum OrganizationNodeType {
@@ -1158,15 +906,6 @@ export interface OrganizationNode {
    * <p>The identifier of the organization node.</p>
    */
   Value?: string;
-}
-
-export namespace OrganizationNode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationNode): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePortfolioShareInput {
@@ -1215,29 +954,11 @@ export interface CreatePortfolioShareInput {
   ShareTagOptions?: boolean;
 }
 
-export namespace CreatePortfolioShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePortfolioShareInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePortfolioShareOutput {
   /**
    * <p>The portfolio shares a unique identifier that only returns if the portfolio is shared to an organization node.</p>
    */
   PortfolioShareToken?: string;
-}
-
-export namespace CreatePortfolioShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePortfolioShareOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1326,15 +1047,6 @@ export interface ProvisioningArtifactProperties {
   DisableTemplateValidation?: boolean;
 }
 
-export namespace ProvisioningArtifactProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningArtifactProperties): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProductInput {
   /**
    * <p>The language code.</p>
@@ -1414,15 +1126,6 @@ export interface CreateProductInput {
   IdempotencyToken?: string;
 }
 
-export namespace CreateProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProductInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary information about a product view.</p>
  */
@@ -1491,15 +1194,6 @@ export interface ProductViewSummary {
   SupportUrl?: string;
 }
 
-export namespace ProductViewSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProductViewSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a product view.</p>
  */
@@ -1537,15 +1231,6 @@ export interface ProductViewDetail {
    * <p>The UTC time stamp of the creation time.</p>
    */
   CreatedTime?: Date;
-}
-
-export namespace ProductViewDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProductViewDetail): any => ({
-    ...obj,
-  });
 }
 
 export enum ProvisioningArtifactGuidance {
@@ -1607,15 +1292,6 @@ export interface ProvisioningArtifactDetail {
   Guidance?: ProvisioningArtifactGuidance | string;
 }
 
-export namespace ProvisioningArtifactDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningArtifactDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProductOutput {
   /**
    * <p>Information about the product view.</p>
@@ -1631,15 +1307,6 @@ export interface CreateProductOutput {
    * <p>Information about the tags associated with the product.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProductOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ProvisionedProductPlanType {
@@ -1664,15 +1331,6 @@ export interface UpdateProvisioningParameter {
    * <p>If set to true, <code>Value</code> is ignored and the previous parameter value is kept.</p>
    */
   UsePreviousValue?: boolean;
-}
-
-export namespace UpdateProvisioningParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProvisioningParameter): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProvisionedProductPlanInput {
@@ -1753,15 +1411,6 @@ export interface CreateProvisionedProductPlanInput {
   Tags?: Tag[];
 }
 
-export namespace CreateProvisionedProductPlanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProvisionedProductPlanInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProvisionedProductPlanOutput {
   /**
    * <p>The name of the plan.</p>
@@ -1787,15 +1436,6 @@ export interface CreateProvisionedProductPlanOutput {
    * <p>The identifier of the provisioning artifact.</p>
    */
   ProvisioningArtifactId?: string;
-}
-
-export namespace CreateProvisionedProductPlanOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProvisionedProductPlanOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProvisioningArtifactInput {
@@ -1835,15 +1475,6 @@ export interface CreateProvisioningArtifactInput {
   IdempotencyToken?: string;
 }
 
-export namespace CreateProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProvisioningArtifactInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProvisioningArtifactOutput {
   /**
    * <p>Information about the provisioning artifact.</p>
@@ -1870,15 +1501,6 @@ export interface CreateProvisioningArtifactOutput {
    * <p>The status of the current request.</p>
    */
   Status?: Status | string;
-}
-
-export namespace CreateProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ServiceActionDefinitionKey {
@@ -1961,15 +1583,6 @@ export interface CreateServiceActionInput {
   IdempotencyToken?: string;
 }
 
-export namespace CreateServiceActionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceActionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Detailed information about the self-service action.</p>
  */
@@ -1995,15 +1608,6 @@ export interface ServiceActionSummary {
   DefinitionType?: ServiceActionDefinitionType | string;
 }
 
-export namespace ServiceActionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceActionSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object containing detailed information about the self-service action.</p>
  */
@@ -2019,29 +1623,11 @@ export interface ServiceActionDetail {
   Definition?: Record<string, string>;
 }
 
-export namespace ServiceActionDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceActionDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateServiceActionOutput {
   /**
    * <p>An object containing information about the self-service action.</p>
    */
   ServiceActionDetail?: ServiceActionDetail;
-}
-
-export namespace CreateServiceActionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceActionOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateTagOptionInput {
@@ -2054,15 +1640,6 @@ export interface CreateTagOptionInput {
    * <p>The TagOption value.</p>
    */
   Value: string | undefined;
-}
-
-export namespace CreateTagOptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTagOptionInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2095,29 +1672,11 @@ export interface TagOptionDetail {
   Owner?: string;
 }
 
-export namespace TagOptionDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagOptionDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTagOptionOutput {
   /**
    * <p>Information about the TagOption.</p>
    */
   TagOptionDetail?: TagOptionDetail;
-}
-
-export namespace CreateTagOptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTagOptionOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteConstraintInput {
@@ -2146,25 +1705,7 @@ export interface DeleteConstraintInput {
   Id: string | undefined;
 }
 
-export namespace DeleteConstraintInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConstraintInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteConstraintOutput {}
-
-export namespace DeleteConstraintOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConstraintOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeletePortfolioInput {
   /**
@@ -2192,25 +1733,7 @@ export interface DeletePortfolioInput {
   Id: string | undefined;
 }
 
-export namespace DeletePortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePortfolioInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePortfolioOutput {}
-
-export namespace DeletePortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePortfolioOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
@@ -2269,29 +1792,11 @@ export interface DeletePortfolioShareInput {
   OrganizationNode?: OrganizationNode;
 }
 
-export namespace DeletePortfolioShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePortfolioShareInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePortfolioShareOutput {
   /**
    * <p>The portfolio share unique identifier. This will only be returned if delete is made to an organization node.</p>
    */
   PortfolioShareToken?: string;
-}
-
-export namespace DeletePortfolioShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePortfolioShareOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteProductInput {
@@ -2320,25 +1825,7 @@ export interface DeleteProductInput {
   Id: string | undefined;
 }
 
-export namespace DeleteProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProductInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProductOutput {}
-
-export namespace DeleteProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProductOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteProvisionedProductPlanInput {
   /**
@@ -2372,25 +1859,7 @@ export interface DeleteProvisionedProductPlanInput {
   IgnoreErrors?: boolean;
 }
 
-export namespace DeleteProvisionedProductPlanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProvisionedProductPlanInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProvisionedProductPlanOutput {}
-
-export namespace DeleteProvisionedProductPlanOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProvisionedProductPlanOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteProvisioningArtifactInput {
   /**
@@ -2423,25 +1892,7 @@ export interface DeleteProvisioningArtifactInput {
   ProvisioningArtifactId: string | undefined;
 }
 
-export namespace DeleteProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProvisioningArtifactInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProvisioningArtifactOutput {}
-
-export namespace DeleteProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteServiceActionInput {
   /**
@@ -2469,25 +1920,7 @@ export interface DeleteServiceActionInput {
   AcceptLanguage?: string;
 }
 
-export namespace DeleteServiceActionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceActionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteServiceActionOutput {}
-
-export namespace DeleteServiceActionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceActionOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteTagOptionInput {
   /**
@@ -2496,25 +1929,7 @@ export interface DeleteTagOptionInput {
   Id: string | undefined;
 }
 
-export namespace DeleteTagOptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagOptionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTagOptionOutput {}
-
-export namespace DeleteTagOptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagOptionOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeConstraintInput {
   /**
@@ -2542,15 +1957,6 @@ export interface DescribeConstraintInput {
   Id: string | undefined;
 }
 
-export namespace DescribeConstraintInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConstraintInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConstraintOutput {
   /**
    * <p>Information about the constraint.</p>
@@ -2566,15 +1972,6 @@ export interface DescribeConstraintOutput {
    * <p>The status of the current request.</p>
    */
   Status?: Status | string;
-}
-
-export namespace DescribeConstraintOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConstraintOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCopyProductStatusInput {
@@ -2603,15 +2000,6 @@ export interface DescribeCopyProductStatusInput {
   CopyProductToken: string | undefined;
 }
 
-export namespace DescribeCopyProductStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCopyProductStatusInput): any => ({
-    ...obj,
-  });
-}
-
 export enum CopyProductStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -2633,15 +2021,6 @@ export interface DescribeCopyProductStatusOutput {
    * <p>The status message.</p>
    */
   StatusDetail?: string;
-}
-
-export namespace DescribeCopyProductStatusOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCopyProductStatusOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePortfolioInput {
@@ -2670,15 +2049,6 @@ export interface DescribePortfolioInput {
   Id: string | undefined;
 }
 
-export namespace DescribePortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePortfolioInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a budget.</p>
  */
@@ -2687,15 +2057,6 @@ export interface BudgetDetail {
    * <p>Name of the associated budget.</p>
    */
   BudgetName?: string;
-}
-
-export namespace BudgetDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BudgetDetail): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePortfolioOutput {
@@ -2718,15 +2079,6 @@ export interface DescribePortfolioOutput {
    * <p>Information about the associated budgets.</p>
    */
   Budgets?: BudgetDetail[];
-}
-
-export namespace DescribePortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePortfolioOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum DescribePortfolioShareType {
@@ -2762,15 +2114,6 @@ export interface DescribePortfolioSharesInput {
   PageSize?: number;
 }
 
-export namespace DescribePortfolioSharesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePortfolioSharesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the portfolio share.</p>
  */
@@ -2802,15 +2145,6 @@ export interface PortfolioShareDetail {
   ShareTagOptions?: boolean;
 }
 
-export namespace PortfolioShareDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortfolioShareDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePortfolioSharesOutput {
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
@@ -2823,29 +2157,11 @@ export interface DescribePortfolioSharesOutput {
   PortfolioShareDetails?: PortfolioShareDetail[];
 }
 
-export namespace DescribePortfolioSharesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePortfolioSharesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePortfolioShareStatusInput {
   /**
    * <p>The token for the portfolio share operation. This token is returned either by CreatePortfolioShare or by DeletePortfolioShare.</p>
    */
   PortfolioShareToken: string | undefined;
-}
-
-export namespace DescribePortfolioShareStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePortfolioShareStatusInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2868,15 +2184,6 @@ export interface ShareError {
   Error?: string;
 }
 
-export namespace ShareError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShareError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the portfolio share operation.</p>
  */
@@ -2890,15 +2197,6 @@ export interface ShareDetails {
    * <p>List of errors.</p>
    */
   ShareErrors?: ShareError[];
-}
-
-export namespace ShareDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShareDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum ShareStatus {
@@ -2936,15 +2234,6 @@ export interface DescribePortfolioShareStatusOutput {
   ShareDetails?: ShareDetails;
 }
 
-export namespace DescribePortfolioShareStatusOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePortfolioShareStatusOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProductInput {
   /**
    * <p>The language code.</p>
@@ -2976,15 +2265,6 @@ export interface DescribeProductInput {
   Name?: string;
 }
 
-export namespace DescribeProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProductInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A launch path object.</p>
  */
@@ -2998,15 +2278,6 @@ export interface LaunchPath {
    * <p>The name of the launch path.</p>
    */
   Name?: string;
-}
-
-export namespace LaunchPath {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchPath): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3039,15 +2310,6 @@ export interface ProvisioningArtifact {
   Guidance?: ProvisioningArtifactGuidance | string;
 }
 
-export namespace ProvisioningArtifact {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningArtifact): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProductOutput {
   /**
    * <p>Summary information about the product view.</p>
@@ -3068,15 +2330,6 @@ export interface DescribeProductOutput {
    * <p>Information about the associated launch paths.</p>
    */
   LaunchPaths?: LaunchPath[];
-}
-
-export namespace DescribeProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProductOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeProductAsAdminInput {
@@ -3120,15 +2373,6 @@ export interface DescribeProductAsAdminInput {
   SourcePortfolioId?: string;
 }
 
-export namespace DescribeProductAsAdminInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProductAsAdminInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary information about a provisioning artifact (also known as a version) for a product.</p>
  */
@@ -3159,15 +2403,6 @@ export interface ProvisioningArtifactSummary {
   ProvisioningArtifactMetadata?: Record<string, string>;
 }
 
-export namespace ProvisioningArtifactSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningArtifactSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProductAsAdminOutput {
   /**
    * <p>Information about the product view.</p>
@@ -3193,15 +2428,6 @@ export interface DescribeProductAsAdminOutput {
    * <p>Information about the associated budgets.</p>
    */
   Budgets?: BudgetDetail[];
-}
-
-export namespace DescribeProductAsAdminOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProductAsAdminOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeProductViewInput {
@@ -3230,15 +2456,6 @@ export interface DescribeProductViewInput {
   Id: string | undefined;
 }
 
-export namespace DescribeProductViewInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProductViewInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProductViewOutput {
   /**
    * <p>Summary information about the product.</p>
@@ -3249,15 +2466,6 @@ export interface DescribeProductViewOutput {
    * <p>Information about the provisioning artifacts for the product.</p>
    */
   ProvisioningArtifacts?: ProvisioningArtifact[];
-}
-
-export namespace DescribeProductViewOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProductViewOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3305,15 +2513,6 @@ export interface DescribeProvisionedProductInput {
   Name?: string;
 }
 
-export namespace DescribeProvisionedProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisionedProductInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a CloudWatch dashboard.</p>
  */
@@ -3322,15 +2521,6 @@ export interface CloudWatchDashboard {
    * <p>The name of the CloudWatch dashboard.</p>
    */
   Name?: string;
-}
-
-export namespace CloudWatchDashboard {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchDashboard): any => ({
-    ...obj,
-  });
 }
 
 export enum ProvisionedProductStatus {
@@ -3489,15 +2679,6 @@ export interface ProvisionedProductDetail {
   LaunchRoleArn?: string;
 }
 
-export namespace ProvisionedProductDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedProductDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProvisionedProductOutput {
   /**
    * <p>Information about the provisioned product.</p>
@@ -3508,15 +2689,6 @@ export interface DescribeProvisionedProductOutput {
    * <p>Any CloudWatch dashboards that were created when provisioning the product.</p>
    */
   CloudWatchDashboards?: CloudWatchDashboard[];
-}
-
-export namespace DescribeProvisionedProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisionedProductOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeProvisionedProductPlanInput {
@@ -3553,15 +2725,6 @@ export interface DescribeProvisionedProductPlanInput {
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
-}
-
-export namespace DescribeProvisionedProductPlanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisionedProductPlanInput): any => ({
-    ...obj,
-  });
 }
 
 export enum ProvisionedProductPlanStatus {
@@ -3657,15 +2820,6 @@ export interface ProvisionedProductPlanDetails {
   StatusMessage?: string;
 }
 
-export namespace ProvisionedProductPlanDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedProductPlanDetails): any => ({
-    ...obj,
-  });
-}
-
 export enum ChangeAction {
   ADD = "ADD",
   MODIFY = "MODIFY",
@@ -3714,15 +2868,6 @@ export interface ResourceTargetDefinition {
   RequiresRecreation?: RequiresRecreation | string;
 }
 
-export namespace ResourceTargetDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTargetDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a change to a resource attribute.</p>
  */
@@ -3742,15 +2887,6 @@ export interface ResourceChangeDetail {
    * <p>The ID of the entity that caused the change.</p>
    */
   CausingEntity?: string;
-}
-
-export namespace ResourceChangeDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceChangeDetail): any => ({
-    ...obj,
-  });
 }
 
 export enum Replacement {
@@ -3800,15 +2936,6 @@ export interface ResourceChange {
   Details?: ResourceChangeDetail[];
 }
 
-export namespace ResourceChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceChange): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProvisionedProductPlanOutput {
   /**
    * <p>Information about the plan.</p>
@@ -3824,15 +2951,6 @@ export interface DescribeProvisionedProductPlanOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace DescribeProvisionedProductPlanOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisionedProductPlanOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeProvisioningArtifactInput {
@@ -3881,15 +2999,6 @@ export interface DescribeProvisioningArtifactInput {
   Verbose?: boolean;
 }
 
-export namespace DescribeProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisioningArtifactInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProvisioningArtifactOutput {
   /**
    * <p>Information about the provisioning artifact.</p>
@@ -3905,15 +3014,6 @@ export interface DescribeProvisioningArtifactOutput {
    * <p>The status of the current request.</p>
    */
   Status?: Status | string;
-}
-
-export namespace DescribeProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeProvisioningParametersInput {
@@ -3969,15 +3069,6 @@ export interface DescribeProvisioningParametersInput {
   PathName?: string;
 }
 
-export namespace DescribeProvisioningParametersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisioningParametersInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary information about a constraint.</p>
  */
@@ -4013,15 +3104,6 @@ export interface ConstraintSummary {
   Description?: string;
 }
 
-export namespace ConstraintSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConstraintSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provisioning artifact output.</p>
  */
@@ -4035,15 +3117,6 @@ export interface ProvisioningArtifactOutput {
    * <p>Description of the provisioning artifact output key.</p>
    */
   Description?: string;
-}
-
-export namespace ProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4096,15 +3169,6 @@ export interface ParameterConstraints {
   MinValue?: string;
 }
 
-export namespace ParameterConstraints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterConstraints): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a parameter used to provision a product.</p>
  */
@@ -4141,15 +3205,6 @@ export interface ProvisioningArtifactParameter {
   ParameterConstraints?: ParameterConstraints;
 }
 
-export namespace ProvisioningArtifactParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningArtifactParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The user-defined preferences that will be applied during product provisioning, unless overridden by <code>ProvisioningPreferences</code> or <code>UpdateProvisioningPreferences</code>.</p>
  *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a> in the <i>AWS CloudFormation User Guide</i>.</p>
@@ -4168,15 +3223,6 @@ export interface ProvisioningArtifactPreferences {
   StackSetRegions?: string[];
 }
 
-export namespace ProvisioningArtifactPreferences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningArtifactPreferences): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary information about a TagOption.</p>
  */
@@ -4192,15 +3238,6 @@ export interface TagOptionSummary {
   Values?: string[];
 }
 
-export namespace TagOptionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagOptionSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Additional information provided by the administrator.</p>
  */
@@ -4214,15 +3251,6 @@ export interface UsageInstruction {
    * <p>The usage instruction value for this type.</p>
    */
   Value?: string;
-}
-
-export namespace UsageInstruction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsageInstruction): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeProvisioningParametersOutput {
@@ -4265,15 +3293,6 @@ export interface DescribeProvisioningParametersOutput {
   ProvisioningArtifactOutputKeys?: ProvisioningArtifactOutput[];
 }
 
-export namespace DescribeProvisioningParametersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProvisioningParametersOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRecordInput {
   /**
    * <p>The language code.</p>
@@ -4311,15 +3330,6 @@ export interface DescribeRecordInput {
   PageSize?: number;
 }
 
-export namespace DescribeRecordInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRecordInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The error code and description resulting from an operation.</p>
  */
@@ -4335,15 +3345,6 @@ export interface RecordError {
   Description?: string;
 }
 
-export namespace RecordError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a tag, which is a key-value pair.</p>
  */
@@ -4357,15 +3358,6 @@ export interface RecordTag {
    * <p>The value for this tag.</p>
    */
   Value?: string;
-}
-
-export namespace RecordTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordTag): any => ({
-    ...obj,
-  });
 }
 
 export enum RecordStatus {
@@ -4492,15 +3484,6 @@ export interface RecordDetail {
   LaunchRoleArn?: string;
 }
 
-export namespace RecordDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for the product created as the result of a request. For example, the output for
  *          a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.</p>
@@ -4522,15 +3505,6 @@ export interface RecordOutput {
   Description?: string;
 }
 
-export namespace RecordOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRecordOutput {
   /**
    * <p>Information about the product.</p>
@@ -4547,15 +3521,6 @@ export interface DescribeRecordOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace DescribeRecordOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRecordOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeServiceActionInput {
@@ -4584,29 +3549,11 @@ export interface DescribeServiceActionInput {
   AcceptLanguage?: string;
 }
 
-export namespace DescribeServiceActionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServiceActionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeServiceActionOutput {
   /**
    * <p>Detailed information about the self-service action.</p>
    */
   ServiceActionDetail?: ServiceActionDetail;
-}
-
-export namespace DescribeServiceActionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServiceActionOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeServiceActionExecutionParametersInput {
@@ -4640,15 +3587,6 @@ export interface DescribeServiceActionExecutionParametersInput {
   AcceptLanguage?: string;
 }
 
-export namespace DescribeServiceActionExecutionParametersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServiceActionExecutionParametersInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details of an execution parameter value that is passed to a self-service action when executed on a provisioned product.</p>
  */
@@ -4669,29 +3607,11 @@ export interface ExecutionParameter {
   DefaultValues?: string[];
 }
 
-export namespace ExecutionParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionParameter): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeServiceActionExecutionParametersOutput {
   /**
    * <p>The parameters of the self-service action.</p>
    */
   ServiceActionParameters?: ExecutionParameter[];
-}
-
-export namespace DescribeServiceActionExecutionParametersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServiceActionExecutionParametersOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeTagOptionInput {
@@ -4701,15 +3621,6 @@ export interface DescribeTagOptionInput {
   Id: string | undefined;
 }
 
-export namespace DescribeTagOptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagOptionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTagOptionOutput {
   /**
    * <p>Information about the TagOption.</p>
@@ -4717,36 +3628,9 @@ export interface DescribeTagOptionOutput {
   TagOptionDetail?: TagOptionDetail;
 }
 
-export namespace DescribeTagOptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagOptionOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableAWSOrganizationsAccessInput {}
 
-export namespace DisableAWSOrganizationsAccessInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableAWSOrganizationsAccessInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableAWSOrganizationsAccessOutput {}
-
-export namespace DisableAWSOrganizationsAccessOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableAWSOrganizationsAccessOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateBudgetFromResourceInput {
   /**
@@ -4760,25 +3644,7 @@ export interface DisassociateBudgetFromResourceInput {
   ResourceId: string | undefined;
 }
 
-export namespace DisassociateBudgetFromResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateBudgetFromResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateBudgetFromResourceOutput {}
-
-export namespace DisassociateBudgetFromResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateBudgetFromResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociatePrincipalFromPortfolioInput {
   /**
@@ -4811,25 +3677,7 @@ export interface DisassociatePrincipalFromPortfolioInput {
   PrincipalARN: string | undefined;
 }
 
-export namespace DisassociatePrincipalFromPortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociatePrincipalFromPortfolioInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociatePrincipalFromPortfolioOutput {}
-
-export namespace DisassociatePrincipalFromPortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociatePrincipalFromPortfolioOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateProductFromPortfolioInput {
   /**
@@ -4862,25 +3710,7 @@ export interface DisassociateProductFromPortfolioInput {
   PortfolioId: string | undefined;
 }
 
-export namespace DisassociateProductFromPortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateProductFromPortfolioInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateProductFromPortfolioOutput {}
-
-export namespace DisassociateProductFromPortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateProductFromPortfolioOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateServiceActionFromProvisioningArtifactInput {
   /**
@@ -4918,25 +3748,7 @@ export interface DisassociateServiceActionFromProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
-export namespace DisassociateServiceActionFromProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateServiceActionFromProvisioningArtifactInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateServiceActionFromProvisioningArtifactOutput {}
-
-export namespace DisassociateServiceActionFromProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateServiceActionFromProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateTagOptionFromResourceInput {
   /**
@@ -4950,47 +3762,11 @@ export interface DisassociateTagOptionFromResourceInput {
   TagOptionId: string | undefined;
 }
 
-export namespace DisassociateTagOptionFromResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateTagOptionFromResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateTagOptionFromResourceOutput {}
-
-export namespace DisassociateTagOptionFromResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateTagOptionFromResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface EnableAWSOrganizationsAccessInput {}
 
-export namespace EnableAWSOrganizationsAccessInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableAWSOrganizationsAccessInput): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableAWSOrganizationsAccessOutput {}
-
-export namespace EnableAWSOrganizationsAccessOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableAWSOrganizationsAccessOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface ExecuteProvisionedProductPlanInput {
   /**
@@ -5024,29 +3800,11 @@ export interface ExecuteProvisionedProductPlanInput {
   IdempotencyToken?: string;
 }
 
-export namespace ExecuteProvisionedProductPlanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteProvisionedProductPlanInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ExecuteProvisionedProductPlanOutput {
   /**
    * <p>Information about the result of provisioning the product.</p>
    */
   RecordDetail?: RecordDetail;
-}
-
-export namespace ExecuteProvisionedProductPlanOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteProvisionedProductPlanOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ExecuteProvisionedProductServiceActionInput {
@@ -5092,15 +3850,6 @@ export interface ExecuteProvisionedProductServiceActionInput {
   Parameters?: Record<string, string[]>;
 }
 
-export namespace ExecuteProvisionedProductServiceActionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteProvisionedProductServiceActionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ExecuteProvisionedProductServiceActionOutput {
   /**
    * <p>An object containing detailed information about the result of provisioning the product.</p>
@@ -5108,40 +3857,13 @@ export interface ExecuteProvisionedProductServiceActionOutput {
   RecordDetail?: RecordDetail;
 }
 
-export namespace ExecuteProvisionedProductServiceActionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteProvisionedProductServiceActionOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAWSOrganizationsAccessStatusInput {}
-
-export namespace GetAWSOrganizationsAccessStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAWSOrganizationsAccessStatusInput): any => ({
-    ...obj,
-  });
-}
 
 export interface GetAWSOrganizationsAccessStatusOutput {
   /**
    * <p>The status of the portfolio share feature.</p>
    */
   AccessStatus?: AccessStatus | string;
-}
-
-export namespace GetAWSOrganizationsAccessStatusOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAWSOrganizationsAccessStatusOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetProvisionedProductOutputsInput {
@@ -5190,15 +3912,6 @@ export interface GetProvisionedProductOutputsInput {
   PageToken?: string;
 }
 
-export namespace GetProvisionedProductOutputsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProvisionedProductOutputsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetProvisionedProductOutputsOutput {
   /**
    * <p>Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
@@ -5210,15 +3923,6 @@ export interface GetProvisionedProductOutputsOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace GetProvisionedProductOutputsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProvisionedProductOutputsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ImportAsProvisionedProductInput {
@@ -5270,29 +3974,11 @@ export interface ImportAsProvisionedProductInput {
   IdempotencyToken?: string;
 }
 
-export namespace ImportAsProvisionedProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportAsProvisionedProductInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportAsProvisionedProductOutput {
   /**
    * <p>Information about a request operation.</p>
    */
   RecordDetail?: RecordDetail;
-}
-
-export namespace ImportAsProvisionedProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportAsProvisionedProductOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAcceptedPortfolioSharesInput {
@@ -5346,15 +4032,6 @@ export interface ListAcceptedPortfolioSharesInput {
   PortfolioShareType?: PortfolioShareType | string;
 }
 
-export namespace ListAcceptedPortfolioSharesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAcceptedPortfolioSharesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAcceptedPortfolioSharesOutput {
   /**
    * <p>Information about the portfolios.</p>
@@ -5365,15 +4042,6 @@ export interface ListAcceptedPortfolioSharesOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListAcceptedPortfolioSharesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAcceptedPortfolioSharesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBudgetsForResourceInput {
@@ -5412,15 +4080,6 @@ export interface ListBudgetsForResourceInput {
   PageToken?: string;
 }
 
-export namespace ListBudgetsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBudgetsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBudgetsForResourceOutput {
   /**
    * <p>Information about the associated budgets.</p>
@@ -5431,15 +4090,6 @@ export interface ListBudgetsForResourceOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListBudgetsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBudgetsForResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListConstraintsForPortfolioInput {
@@ -5483,15 +4133,6 @@ export interface ListConstraintsForPortfolioInput {
   PageToken?: string;
 }
 
-export namespace ListConstraintsForPortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConstraintsForPortfolioInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConstraintsForPortfolioOutput {
   /**
    * <p>Information about the constraints.</p>
@@ -5502,15 +4143,6 @@ export interface ListConstraintsForPortfolioOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListConstraintsForPortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConstraintsForPortfolioOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLaunchPathsInput {
@@ -5549,15 +4181,6 @@ export interface ListLaunchPathsInput {
   PageToken?: string;
 }
 
-export namespace ListLaunchPathsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLaunchPathsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary information about a product path for a user.</p>
  */
@@ -5583,15 +4206,6 @@ export interface LaunchPathSummary {
   Name?: string;
 }
 
-export namespace LaunchPathSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchPathSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLaunchPathsOutput {
   /**
    * <p>Information about the launch path.</p>
@@ -5602,15 +4216,6 @@ export interface ListLaunchPathsOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListLaunchPathsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLaunchPathsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListOrganizationPortfolioAccessInput {
@@ -5668,15 +4273,6 @@ export interface ListOrganizationPortfolioAccessInput {
   PageSize?: number;
 }
 
-export namespace ListOrganizationPortfolioAccessInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrganizationPortfolioAccessInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOrganizationPortfolioAccessOutput {
   /**
    * <p>Displays information about the organization nodes.</p>
@@ -5687,15 +4283,6 @@ export interface ListOrganizationPortfolioAccessOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListOrganizationPortfolioAccessOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrganizationPortfolioAccessOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPortfolioAccessInput {
@@ -5739,15 +4326,6 @@ export interface ListPortfolioAccessInput {
   PageSize?: number;
 }
 
-export namespace ListPortfolioAccessInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPortfolioAccessInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPortfolioAccessOutput {
   /**
    * <p>Information about the AWS accounts with access to the portfolio.</p>
@@ -5758,15 +4336,6 @@ export interface ListPortfolioAccessOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListPortfolioAccessOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPortfolioAccessOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPortfoliosInput {
@@ -5800,15 +4369,6 @@ export interface ListPortfoliosInput {
   PageSize?: number;
 }
 
-export namespace ListPortfoliosInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPortfoliosInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPortfoliosOutput {
   /**
    * <p>Information about the portfolios.</p>
@@ -5819,15 +4379,6 @@ export interface ListPortfoliosOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListPortfoliosOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPortfoliosOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPortfoliosForProductInput {
@@ -5866,15 +4417,6 @@ export interface ListPortfoliosForProductInput {
   PageSize?: number;
 }
 
-export namespace ListPortfoliosForProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPortfoliosForProductInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPortfoliosForProductOutput {
   /**
    * <p>Information about the portfolios.</p>
@@ -5885,15 +4427,6 @@ export interface ListPortfoliosForProductOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListPortfoliosForProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPortfoliosForProductOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPrincipalsForPortfolioInput {
@@ -5932,15 +4465,6 @@ export interface ListPrincipalsForPortfolioInput {
   PageToken?: string;
 }
 
-export namespace ListPrincipalsForPortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPrincipalsForPortfolioInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a principal.</p>
  */
@@ -5956,15 +4480,6 @@ export interface Principal {
   PrincipalType?: PrincipalType | string;
 }
 
-export namespace Principal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Principal): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPrincipalsForPortfolioOutput {
   /**
    * <p>The IAM principals (users or roles) associated with the portfolio.</p>
@@ -5975,15 +4490,6 @@ export interface ListPrincipalsForPortfolioOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListPrincipalsForPortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPrincipalsForPortfolioOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListProvisionedProductPlansInput {
@@ -6027,15 +4533,6 @@ export interface ListProvisionedProductPlansInput {
   AccessLevelFilter?: AccessLevelFilter;
 }
 
-export namespace ListProvisionedProductPlansInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProvisionedProductPlansInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary information about a plan.</p>
  */
@@ -6071,15 +4568,6 @@ export interface ProvisionedProductPlanSummary {
   ProvisioningArtifactId?: string;
 }
 
-export namespace ProvisionedProductPlanSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedProductPlanSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProvisionedProductPlansOutput {
   /**
    * <p>Information about the plans.</p>
@@ -6090,15 +4578,6 @@ export interface ListProvisionedProductPlansOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListProvisionedProductPlansOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProvisionedProductPlansOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListProvisioningArtifactsInput {
@@ -6127,15 +4606,6 @@ export interface ListProvisioningArtifactsInput {
   ProductId: string | undefined;
 }
 
-export namespace ListProvisioningArtifactsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProvisioningArtifactsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProvisioningArtifactsOutput {
   /**
    * <p>Information about the provisioning artifacts.</p>
@@ -6146,15 +4616,6 @@ export interface ListProvisioningArtifactsOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListProvisioningArtifactsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProvisioningArtifactsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListProvisioningArtifactsForServiceActionInput {
@@ -6193,15 +4654,6 @@ export interface ListProvisioningArtifactsForServiceActionInput {
   AcceptLanguage?: string;
 }
 
-export namespace ListProvisioningArtifactsForServiceActionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProvisioningArtifactsForServiceActionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains summary information about a product view and a provisioning artifact.</p>
  */
@@ -6217,15 +4669,6 @@ export interface ProvisioningArtifactView {
   ProvisioningArtifact?: ProvisioningArtifact;
 }
 
-export namespace ProvisioningArtifactView {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningArtifactView): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProvisioningArtifactsForServiceActionOutput {
   /**
    * <p>An array of objects with information about product views and provisioning artifacts.</p>
@@ -6236,15 +4679,6 @@ export interface ListProvisioningArtifactsForServiceActionOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListProvisioningArtifactsForServiceActionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProvisioningArtifactsForServiceActionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6270,15 +4704,6 @@ export interface ListRecordHistorySearchFilter {
    * <p>The filter value.</p>
    */
   Value?: string;
-}
-
-export namespace ListRecordHistorySearchFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecordHistorySearchFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRecordHistoryInput {
@@ -6322,15 +4747,6 @@ export interface ListRecordHistoryInput {
   PageToken?: string;
 }
 
-export namespace ListRecordHistoryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecordHistoryInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRecordHistoryOutput {
   /**
    * <p>The records, in reverse chronological order.</p>
@@ -6341,15 +4757,6 @@ export interface ListRecordHistoryOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListRecordHistoryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecordHistoryOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourcesForTagOptionInput {
@@ -6386,15 +4793,6 @@ export interface ListResourcesForTagOptionInput {
   PageToken?: string;
 }
 
-export namespace ListResourcesForTagOptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesForTagOptionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a resource.</p>
  */
@@ -6425,15 +4823,6 @@ export interface ResourceDetail {
   CreatedTime?: Date;
 }
 
-export namespace ResourceDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourcesForTagOptionOutput {
   /**
    * <p>Information about the resources.</p>
@@ -6444,15 +4833,6 @@ export interface ListResourcesForTagOptionOutput {
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
-}
-
-export namespace ListResourcesForTagOptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesForTagOptionOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListServiceActionsInput {
@@ -6486,15 +4866,6 @@ export interface ListServiceActionsInput {
   PageToken?: string;
 }
 
-export namespace ListServiceActionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceActionsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServiceActionsOutput {
   /**
    * <p>An object containing information about the service actions associated with the provisioning artifact.</p>
@@ -6505,15 +4876,6 @@ export interface ListServiceActionsOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListServiceActionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceActionsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListServiceActionsForProvisioningArtifactInput {
@@ -6557,15 +4919,6 @@ export interface ListServiceActionsForProvisioningArtifactInput {
   AcceptLanguage?: string;
 }
 
-export namespace ListServiceActionsForProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceActionsForProvisioningArtifactInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServiceActionsForProvisioningArtifactOutput {
   /**
    * <p>An object containing information about the self-service actions associated with the provisioning artifact.</p>
@@ -6576,15 +4929,6 @@ export interface ListServiceActionsForProvisioningArtifactOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListServiceActionsForProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceActionsForProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListStackInstancesForProvisionedProductInput {
@@ -6621,15 +4965,6 @@ export interface ListStackInstancesForProvisionedProductInput {
    * <p>The maximum number of items to return with this call.</p>
    */
   PageSize?: number;
-}
-
-export namespace ListStackInstancesForProvisionedProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStackInstancesForProvisionedProductInput): any => ({
-    ...obj,
-  });
 }
 
 export enum StackInstanceStatus {
@@ -6674,15 +5009,6 @@ export interface StackInstance {
   StackInstanceStatus?: StackInstanceStatus | string;
 }
 
-export namespace StackInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackInstance): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStackInstancesForProvisionedProductOutput {
   /**
    * <p>List of stack instances.</p>
@@ -6693,15 +5019,6 @@ export interface ListStackInstancesForProvisionedProductOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListStackInstancesForProvisionedProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStackInstancesForProvisionedProductOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6724,15 +5041,6 @@ export interface ListTagOptionsFilters {
   Active?: boolean;
 }
 
-export namespace ListTagOptionsFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagOptionsFilters): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagOptionsInput {
   /**
    * <p>The search filters. If no search filters are specified, the output includes all TagOptions.</p>
@@ -6750,15 +5058,6 @@ export interface ListTagOptionsInput {
   PageToken?: string;
 }
 
-export namespace ListTagOptionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagOptionsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagOptionsOutput {
   /**
    * <p>Information about the TagOptions.</p>
@@ -6769,15 +5068,6 @@ export interface ListTagOptionsOutput {
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
-}
-
-export namespace ListTagOptionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagOptionsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6793,15 +5083,6 @@ export interface ProvisioningParameter {
    * <p>The parameter value.</p>
    */
   Value?: string;
-}
-
-export namespace ProvisioningParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningParameter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6865,15 +5146,6 @@ export interface ProvisioningPreferences {
    *          <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
    */
   StackSetMaxConcurrencyPercentage?: number;
-}
-
-export namespace ProvisioningPreferences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningPreferences): any => ({
-    ...obj,
-  });
 }
 
 export interface ProvisionProductInput {
@@ -6962,29 +5234,11 @@ export interface ProvisionProductInput {
   ProvisionToken?: string;
 }
 
-export namespace ProvisionProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionProductInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ProvisionProductOutput {
   /**
    * <p>Information about the result of provisioning the product.</p>
    */
   RecordDetail?: RecordDetail;
-}
-
-export namespace ProvisionProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionProductOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface RejectPortfolioShareInput {
@@ -7035,25 +5289,7 @@ export interface RejectPortfolioShareInput {
   PortfolioShareType?: PortfolioShareType | string;
 }
 
-export namespace RejectPortfolioShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectPortfolioShareInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectPortfolioShareOutput {}
-
-export namespace RejectPortfolioShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectPortfolioShareOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface ScanProvisionedProductsInput {
   /**
@@ -7091,15 +5327,6 @@ export interface ScanProvisionedProductsInput {
   PageToken?: string;
 }
 
-export namespace ScanProvisionedProductsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScanProvisionedProductsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ScanProvisionedProductsOutput {
   /**
    * <p>Information about the provisioned products.</p>
@@ -7110,15 +5337,6 @@ export interface ScanProvisionedProductsOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ScanProvisionedProductsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScanProvisionedProductsOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ProductViewFilterBy {
@@ -7186,15 +5404,6 @@ export interface SearchProductsInput {
   PageToken?: string;
 }
 
-export namespace SearchProductsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchProductsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A single product view aggregation value/count pair, containing metadata about each
  *          product to which the calling user has access.</p>
@@ -7209,15 +5418,6 @@ export interface ProductViewAggregationValue {
    * <p>An approximate count of the products that match the value.</p>
    */
   ApproximateCount?: number;
-}
-
-export namespace ProductViewAggregationValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProductViewAggregationValue): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchProductsOutput {
@@ -7235,15 +5435,6 @@ export interface SearchProductsOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace SearchProductsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchProductsOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ProductSource {
@@ -7307,15 +5498,6 @@ export interface SearchProductsAsAdminInput {
   ProductSource?: ProductSource | string;
 }
 
-export namespace SearchProductsAsAdminInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchProductsAsAdminInput): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchProductsAsAdminOutput {
   /**
    * <p>Information about the product views.</p>
@@ -7326,15 +5508,6 @@ export interface SearchProductsAsAdminOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace SearchProductsAsAdminOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchProductsAsAdminOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ProvisionedProductViewFilterBy {
@@ -7399,15 +5572,6 @@ export interface SearchProvisionedProductsInput {
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    */
   PageToken?: string;
-}
-
-export namespace SearchProvisionedProductsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchProvisionedProductsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7583,15 +5747,6 @@ export interface ProvisionedProductAttribute {
   UserArnSession?: string;
 }
 
-export namespace ProvisionedProductAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedProductAttribute): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchProvisionedProductsOutput {
   /**
    * <p>Information about the provisioned products.</p>
@@ -7607,15 +5762,6 @@ export interface SearchProvisionedProductsOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace SearchProvisionedProductsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchProvisionedProductsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface TerminateProvisionedProductInput {
@@ -7673,29 +5819,11 @@ export interface TerminateProvisionedProductInput {
   RetainPhysicalResources?: boolean;
 }
 
-export namespace TerminateProvisionedProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateProvisionedProductInput): any => ({
-    ...obj,
-  });
-}
-
 export interface TerminateProvisionedProductOutput {
   /**
    * <p>Information about the result of this request.</p>
    */
   RecordDetail?: RecordDetail;
-}
-
-export namespace TerminateProvisionedProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateProvisionedProductOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateConstraintInput {
@@ -7785,15 +5913,6 @@ export interface UpdateConstraintInput {
   Parameters?: string;
 }
 
-export namespace UpdateConstraintInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConstraintInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateConstraintOutput {
   /**
    * <p>Information about the constraint.</p>
@@ -7809,15 +5928,6 @@ export interface UpdateConstraintOutput {
    * <p>The status of the current request.</p>
    */
   Status?: Status | string;
-}
-
-export namespace UpdateConstraintOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConstraintOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePortfolioInput {
@@ -7871,15 +5981,6 @@ export interface UpdatePortfolioInput {
   RemoveTags?: string[];
 }
 
-export namespace UpdatePortfolioInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePortfolioInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePortfolioOutput {
   /**
    * <p>Information about the portfolio.</p>
@@ -7890,15 +5991,6 @@ export interface UpdatePortfolioOutput {
    * <p>Information about the tags associated with the portfolio.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace UpdatePortfolioOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePortfolioOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePortfolioShareInput {
@@ -7942,15 +6034,6 @@ export interface UpdatePortfolioShareInput {
   ShareTagOptions?: boolean;
 }
 
-export namespace UpdatePortfolioShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePortfolioShareInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePortfolioShareOutput {
   /**
    * <p>The token that tracks the status of the <code>UpdatePortfolioShare</code> operation for external account to account or  organizational type sharing.</p>
@@ -7963,15 +6046,6 @@ export interface UpdatePortfolioShareOutput {
    *       </p>
    */
   Status?: ShareStatus | string;
-}
-
-export namespace UpdatePortfolioShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePortfolioShareOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateProductInput {
@@ -8045,15 +6119,6 @@ export interface UpdateProductInput {
   RemoveTags?: string[];
 }
 
-export namespace UpdateProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProductInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateProductOutput {
   /**
    * <p>Information about the product view.</p>
@@ -8064,15 +6129,6 @@ export interface UpdateProductOutput {
    * <p>Information about the tags associated with the product.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace UpdateProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProductOutput): any => ({
-    ...obj,
-  });
 }
 
 export type StackSetOperationType = "CREATE" | "DELETE" | "UPDATE";
@@ -8149,15 +6205,6 @@ export interface UpdateProvisioningPreferences {
    *          </dl>
    */
   StackSetOperationType?: StackSetOperationType | string;
-}
-
-export namespace UpdateProvisioningPreferences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProvisioningPreferences): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateProvisionedProductInput {
@@ -8243,29 +6290,11 @@ export interface UpdateProvisionedProductInput {
   UpdateToken?: string;
 }
 
-export namespace UpdateProvisionedProductInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProvisionedProductInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateProvisionedProductOutput {
   /**
    * <p>Information about the result of the request.</p>
    */
   RecordDetail?: RecordDetail;
-}
-
-export namespace UpdateProvisionedProductOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProvisionedProductOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum PropertyKey {
@@ -8327,15 +6356,6 @@ export interface UpdateProvisionedProductPropertiesInput {
   IdempotencyToken?: string;
 }
 
-export namespace UpdateProvisionedProductPropertiesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProvisionedProductPropertiesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateProvisionedProductPropertiesOutput {
   /**
    * <p>The provisioned product identifier.</p>
@@ -8356,15 +6376,6 @@ export interface UpdateProvisionedProductPropertiesOutput {
    * <p>The status of the request.</p>
    */
   Status?: RecordStatus | string;
-}
-
-export namespace UpdateProvisionedProductPropertiesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProvisionedProductPropertiesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateProvisioningArtifactInput {
@@ -8423,15 +6434,6 @@ export interface UpdateProvisioningArtifactInput {
   Guidance?: ProvisioningArtifactGuidance | string;
 }
 
-export namespace UpdateProvisioningArtifactInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProvisioningArtifactInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateProvisioningArtifactOutput {
   /**
    * <p>Information about the provisioning artifact.</p>
@@ -8447,15 +6449,6 @@ export interface UpdateProvisioningArtifactOutput {
    * <p>The status of the current request.</p>
    */
   Status?: Status | string;
-}
-
-export namespace UpdateProvisioningArtifactOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProvisioningArtifactOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateServiceActionInput {
@@ -8499,29 +6492,11 @@ export interface UpdateServiceActionInput {
   AcceptLanguage?: string;
 }
 
-export namespace UpdateServiceActionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceActionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateServiceActionOutput {
   /**
    * <p>Detailed information about the self-service action.</p>
    */
   ServiceActionDetail?: ServiceActionDetail;
-}
-
-export namespace UpdateServiceActionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceActionOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateTagOptionInput {
@@ -8541,15 +6516,6 @@ export interface UpdateTagOptionInput {
   Active?: boolean;
 }
 
-export namespace UpdateTagOptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTagOptionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTagOptionOutput {
   /**
    * <p>Information about the TagOption.</p>
@@ -8557,11 +6523,1677 @@ export interface UpdateTagOptionOutput {
   TagOptionDetail?: TagOptionDetail;
 }
 
-export namespace UpdateTagOptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTagOptionOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcceptPortfolioShareInputFilterSensitiveLog = (obj: AcceptPortfolioShareInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptPortfolioShareOutputFilterSensitiveLog = (obj: AcceptPortfolioShareOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessLevelFilterFilterSensitiveLog = (obj: AccessLevelFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateBudgetWithResourceInputFilterSensitiveLog = (obj: AssociateBudgetWithResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateBudgetWithResourceOutputFilterSensitiveLog = (obj: AssociateBudgetWithResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociatePrincipalWithPortfolioInputFilterSensitiveLog = (
+  obj: AssociatePrincipalWithPortfolioInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociatePrincipalWithPortfolioOutputFilterSensitiveLog = (
+  obj: AssociatePrincipalWithPortfolioOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateProductWithPortfolioInputFilterSensitiveLog = (obj: AssociateProductWithPortfolioInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateProductWithPortfolioOutputFilterSensitiveLog = (
+  obj: AssociateProductWithPortfolioOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateServiceActionWithProvisioningArtifactInputFilterSensitiveLog = (
+  obj: AssociateServiceActionWithProvisioningArtifactInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateServiceActionWithProvisioningArtifactOutputFilterSensitiveLog = (
+  obj: AssociateServiceActionWithProvisioningArtifactOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateTagOptionWithResourceInputFilterSensitiveLog = (
+  obj: AssociateTagOptionWithResourceInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateTagOptionWithResourceOutputFilterSensitiveLog = (
+  obj: AssociateTagOptionWithResourceOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceActionAssociationFilterSensitiveLog = (obj: ServiceActionAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAssociateServiceActionWithProvisioningArtifactInputFilterSensitiveLog = (
+  obj: BatchAssociateServiceActionWithProvisioningArtifactInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedServiceActionAssociationFilterSensitiveLog = (obj: FailedServiceActionAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAssociateServiceActionWithProvisioningArtifactOutputFilterSensitiveLog = (
+  obj: BatchAssociateServiceActionWithProvisioningArtifactOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateServiceActionFromProvisioningArtifactInputFilterSensitiveLog = (
+  obj: BatchDisassociateServiceActionFromProvisioningArtifactInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateServiceActionFromProvisioningArtifactOutputFilterSensitiveLog = (
+  obj: BatchDisassociateServiceActionFromProvisioningArtifactOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyProductInputFilterSensitiveLog = (obj: CopyProductInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyProductOutputFilterSensitiveLog = (obj: CopyProductOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConstraintInputFilterSensitiveLog = (obj: CreateConstraintInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConstraintDetailFilterSensitiveLog = (obj: ConstraintDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConstraintOutputFilterSensitiveLog = (obj: CreateConstraintOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePortfolioInputFilterSensitiveLog = (obj: CreatePortfolioInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PortfolioDetailFilterSensitiveLog = (obj: PortfolioDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePortfolioOutputFilterSensitiveLog = (obj: CreatePortfolioOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationNodeFilterSensitiveLog = (obj: OrganizationNode): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePortfolioShareInputFilterSensitiveLog = (obj: CreatePortfolioShareInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePortfolioShareOutputFilterSensitiveLog = (obj: CreatePortfolioShareOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisioningArtifactPropertiesFilterSensitiveLog = (obj: ProvisioningArtifactProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProductInputFilterSensitiveLog = (obj: CreateProductInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProductViewSummaryFilterSensitiveLog = (obj: ProductViewSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProductViewDetailFilterSensitiveLog = (obj: ProductViewDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisioningArtifactDetailFilterSensitiveLog = (obj: ProvisioningArtifactDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProductOutputFilterSensitiveLog = (obj: CreateProductOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProvisioningParameterFilterSensitiveLog = (obj: UpdateProvisioningParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProvisionedProductPlanInputFilterSensitiveLog = (obj: CreateProvisionedProductPlanInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProvisionedProductPlanOutputFilterSensitiveLog = (obj: CreateProvisionedProductPlanOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProvisioningArtifactInputFilterSensitiveLog = (obj: CreateProvisioningArtifactInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProvisioningArtifactOutputFilterSensitiveLog = (obj: CreateProvisioningArtifactOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceActionInputFilterSensitiveLog = (obj: CreateServiceActionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceActionSummaryFilterSensitiveLog = (obj: ServiceActionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceActionDetailFilterSensitiveLog = (obj: ServiceActionDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceActionOutputFilterSensitiveLog = (obj: CreateServiceActionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTagOptionInputFilterSensitiveLog = (obj: CreateTagOptionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagOptionDetailFilterSensitiveLog = (obj: TagOptionDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTagOptionOutputFilterSensitiveLog = (obj: CreateTagOptionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConstraintInputFilterSensitiveLog = (obj: DeleteConstraintInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConstraintOutputFilterSensitiveLog = (obj: DeleteConstraintOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePortfolioInputFilterSensitiveLog = (obj: DeletePortfolioInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePortfolioOutputFilterSensitiveLog = (obj: DeletePortfolioOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePortfolioShareInputFilterSensitiveLog = (obj: DeletePortfolioShareInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePortfolioShareOutputFilterSensitiveLog = (obj: DeletePortfolioShareOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProductInputFilterSensitiveLog = (obj: DeleteProductInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProductOutputFilterSensitiveLog = (obj: DeleteProductOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProvisionedProductPlanInputFilterSensitiveLog = (obj: DeleteProvisionedProductPlanInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProvisionedProductPlanOutputFilterSensitiveLog = (obj: DeleteProvisionedProductPlanOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProvisioningArtifactInputFilterSensitiveLog = (obj: DeleteProvisioningArtifactInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProvisioningArtifactOutputFilterSensitiveLog = (obj: DeleteProvisioningArtifactOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceActionInputFilterSensitiveLog = (obj: DeleteServiceActionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceActionOutputFilterSensitiveLog = (obj: DeleteServiceActionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTagOptionInputFilterSensitiveLog = (obj: DeleteTagOptionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTagOptionOutputFilterSensitiveLog = (obj: DeleteTagOptionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConstraintInputFilterSensitiveLog = (obj: DescribeConstraintInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConstraintOutputFilterSensitiveLog = (obj: DescribeConstraintOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCopyProductStatusInputFilterSensitiveLog = (obj: DescribeCopyProductStatusInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCopyProductStatusOutputFilterSensitiveLog = (obj: DescribeCopyProductStatusOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePortfolioInputFilterSensitiveLog = (obj: DescribePortfolioInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BudgetDetailFilterSensitiveLog = (obj: BudgetDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePortfolioOutputFilterSensitiveLog = (obj: DescribePortfolioOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePortfolioSharesInputFilterSensitiveLog = (obj: DescribePortfolioSharesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PortfolioShareDetailFilterSensitiveLog = (obj: PortfolioShareDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePortfolioSharesOutputFilterSensitiveLog = (obj: DescribePortfolioSharesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePortfolioShareStatusInputFilterSensitiveLog = (obj: DescribePortfolioShareStatusInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ShareErrorFilterSensitiveLog = (obj: ShareError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ShareDetailsFilterSensitiveLog = (obj: ShareDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePortfolioShareStatusOutputFilterSensitiveLog = (obj: DescribePortfolioShareStatusOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProductInputFilterSensitiveLog = (obj: DescribeProductInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchPathFilterSensitiveLog = (obj: LaunchPath): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisioningArtifactFilterSensitiveLog = (obj: ProvisioningArtifact): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProductOutputFilterSensitiveLog = (obj: DescribeProductOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProductAsAdminInputFilterSensitiveLog = (obj: DescribeProductAsAdminInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisioningArtifactSummaryFilterSensitiveLog = (obj: ProvisioningArtifactSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProductAsAdminOutputFilterSensitiveLog = (obj: DescribeProductAsAdminOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProductViewInputFilterSensitiveLog = (obj: DescribeProductViewInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProductViewOutputFilterSensitiveLog = (obj: DescribeProductViewOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProvisionedProductInputFilterSensitiveLog = (obj: DescribeProvisionedProductInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchDashboardFilterSensitiveLog = (obj: CloudWatchDashboard): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionedProductDetailFilterSensitiveLog = (obj: ProvisionedProductDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProvisionedProductOutputFilterSensitiveLog = (obj: DescribeProvisionedProductOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProvisionedProductPlanInputFilterSensitiveLog = (
+  obj: DescribeProvisionedProductPlanInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionedProductPlanDetailsFilterSensitiveLog = (obj: ProvisionedProductPlanDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceTargetDefinitionFilterSensitiveLog = (obj: ResourceTargetDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceChangeDetailFilterSensitiveLog = (obj: ResourceChangeDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceChangeFilterSensitiveLog = (obj: ResourceChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProvisionedProductPlanOutputFilterSensitiveLog = (
+  obj: DescribeProvisionedProductPlanOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProvisioningArtifactInputFilterSensitiveLog = (obj: DescribeProvisioningArtifactInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProvisioningArtifactOutputFilterSensitiveLog = (obj: DescribeProvisioningArtifactOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProvisioningParametersInputFilterSensitiveLog = (
+  obj: DescribeProvisioningParametersInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConstraintSummaryFilterSensitiveLog = (obj: ConstraintSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisioningArtifactOutputFilterSensitiveLog = (obj: ProvisioningArtifactOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterConstraintsFilterSensitiveLog = (obj: ParameterConstraints): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisioningArtifactParameterFilterSensitiveLog = (obj: ProvisioningArtifactParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisioningArtifactPreferencesFilterSensitiveLog = (obj: ProvisioningArtifactPreferences): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagOptionSummaryFilterSensitiveLog = (obj: TagOptionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsageInstructionFilterSensitiveLog = (obj: UsageInstruction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProvisioningParametersOutputFilterSensitiveLog = (
+  obj: DescribeProvisioningParametersOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRecordInputFilterSensitiveLog = (obj: DescribeRecordInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordErrorFilterSensitiveLog = (obj: RecordError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordTagFilterSensitiveLog = (obj: RecordTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordDetailFilterSensitiveLog = (obj: RecordDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordOutputFilterSensitiveLog = (obj: RecordOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRecordOutputFilterSensitiveLog = (obj: DescribeRecordOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServiceActionInputFilterSensitiveLog = (obj: DescribeServiceActionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServiceActionOutputFilterSensitiveLog = (obj: DescribeServiceActionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServiceActionExecutionParametersInputFilterSensitiveLog = (
+  obj: DescribeServiceActionExecutionParametersInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutionParameterFilterSensitiveLog = (obj: ExecutionParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServiceActionExecutionParametersOutputFilterSensitiveLog = (
+  obj: DescribeServiceActionExecutionParametersOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTagOptionInputFilterSensitiveLog = (obj: DescribeTagOptionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTagOptionOutputFilterSensitiveLog = (obj: DescribeTagOptionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableAWSOrganizationsAccessInputFilterSensitiveLog = (obj: DisableAWSOrganizationsAccessInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableAWSOrganizationsAccessOutputFilterSensitiveLog = (
+  obj: DisableAWSOrganizationsAccessOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateBudgetFromResourceInputFilterSensitiveLog = (
+  obj: DisassociateBudgetFromResourceInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateBudgetFromResourceOutputFilterSensitiveLog = (
+  obj: DisassociateBudgetFromResourceOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociatePrincipalFromPortfolioInputFilterSensitiveLog = (
+  obj: DisassociatePrincipalFromPortfolioInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociatePrincipalFromPortfolioOutputFilterSensitiveLog = (
+  obj: DisassociatePrincipalFromPortfolioOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateProductFromPortfolioInputFilterSensitiveLog = (
+  obj: DisassociateProductFromPortfolioInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateProductFromPortfolioOutputFilterSensitiveLog = (
+  obj: DisassociateProductFromPortfolioOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateServiceActionFromProvisioningArtifactInputFilterSensitiveLog = (
+  obj: DisassociateServiceActionFromProvisioningArtifactInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateServiceActionFromProvisioningArtifactOutputFilterSensitiveLog = (
+  obj: DisassociateServiceActionFromProvisioningArtifactOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateTagOptionFromResourceInputFilterSensitiveLog = (
+  obj: DisassociateTagOptionFromResourceInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateTagOptionFromResourceOutputFilterSensitiveLog = (
+  obj: DisassociateTagOptionFromResourceOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableAWSOrganizationsAccessInputFilterSensitiveLog = (obj: EnableAWSOrganizationsAccessInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableAWSOrganizationsAccessOutputFilterSensitiveLog = (obj: EnableAWSOrganizationsAccessOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecuteProvisionedProductPlanInputFilterSensitiveLog = (obj: ExecuteProvisionedProductPlanInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecuteProvisionedProductPlanOutputFilterSensitiveLog = (
+  obj: ExecuteProvisionedProductPlanOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecuteProvisionedProductServiceActionInputFilterSensitiveLog = (
+  obj: ExecuteProvisionedProductServiceActionInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecuteProvisionedProductServiceActionOutputFilterSensitiveLog = (
+  obj: ExecuteProvisionedProductServiceActionOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAWSOrganizationsAccessStatusInputFilterSensitiveLog = (
+  obj: GetAWSOrganizationsAccessStatusInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAWSOrganizationsAccessStatusOutputFilterSensitiveLog = (
+  obj: GetAWSOrganizationsAccessStatusOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProvisionedProductOutputsInputFilterSensitiveLog = (obj: GetProvisionedProductOutputsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProvisionedProductOutputsOutputFilterSensitiveLog = (obj: GetProvisionedProductOutputsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportAsProvisionedProductInputFilterSensitiveLog = (obj: ImportAsProvisionedProductInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportAsProvisionedProductOutputFilterSensitiveLog = (obj: ImportAsProvisionedProductOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAcceptedPortfolioSharesInputFilterSensitiveLog = (obj: ListAcceptedPortfolioSharesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAcceptedPortfolioSharesOutputFilterSensitiveLog = (obj: ListAcceptedPortfolioSharesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBudgetsForResourceInputFilterSensitiveLog = (obj: ListBudgetsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBudgetsForResourceOutputFilterSensitiveLog = (obj: ListBudgetsForResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConstraintsForPortfolioInputFilterSensitiveLog = (obj: ListConstraintsForPortfolioInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConstraintsForPortfolioOutputFilterSensitiveLog = (obj: ListConstraintsForPortfolioOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLaunchPathsInputFilterSensitiveLog = (obj: ListLaunchPathsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchPathSummaryFilterSensitiveLog = (obj: LaunchPathSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLaunchPathsOutputFilterSensitiveLog = (obj: ListLaunchPathsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOrganizationPortfolioAccessInputFilterSensitiveLog = (
+  obj: ListOrganizationPortfolioAccessInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOrganizationPortfolioAccessOutputFilterSensitiveLog = (
+  obj: ListOrganizationPortfolioAccessOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPortfolioAccessInputFilterSensitiveLog = (obj: ListPortfolioAccessInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPortfolioAccessOutputFilterSensitiveLog = (obj: ListPortfolioAccessOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPortfoliosInputFilterSensitiveLog = (obj: ListPortfoliosInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPortfoliosOutputFilterSensitiveLog = (obj: ListPortfoliosOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPortfoliosForProductInputFilterSensitiveLog = (obj: ListPortfoliosForProductInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPortfoliosForProductOutputFilterSensitiveLog = (obj: ListPortfoliosForProductOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPrincipalsForPortfolioInputFilterSensitiveLog = (obj: ListPrincipalsForPortfolioInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrincipalFilterSensitiveLog = (obj: Principal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPrincipalsForPortfolioOutputFilterSensitiveLog = (obj: ListPrincipalsForPortfolioOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProvisionedProductPlansInputFilterSensitiveLog = (obj: ListProvisionedProductPlansInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionedProductPlanSummaryFilterSensitiveLog = (obj: ProvisionedProductPlanSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProvisionedProductPlansOutputFilterSensitiveLog = (obj: ListProvisionedProductPlansOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProvisioningArtifactsInputFilterSensitiveLog = (obj: ListProvisioningArtifactsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProvisioningArtifactsOutputFilterSensitiveLog = (obj: ListProvisioningArtifactsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProvisioningArtifactsForServiceActionInputFilterSensitiveLog = (
+  obj: ListProvisioningArtifactsForServiceActionInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisioningArtifactViewFilterSensitiveLog = (obj: ProvisioningArtifactView): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProvisioningArtifactsForServiceActionOutputFilterSensitiveLog = (
+  obj: ListProvisioningArtifactsForServiceActionOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecordHistorySearchFilterFilterSensitiveLog = (obj: ListRecordHistorySearchFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecordHistoryInputFilterSensitiveLog = (obj: ListRecordHistoryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecordHistoryOutputFilterSensitiveLog = (obj: ListRecordHistoryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesForTagOptionInputFilterSensitiveLog = (obj: ListResourcesForTagOptionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceDetailFilterSensitiveLog = (obj: ResourceDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesForTagOptionOutputFilterSensitiveLog = (obj: ListResourcesForTagOptionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServiceActionsInputFilterSensitiveLog = (obj: ListServiceActionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServiceActionsOutputFilterSensitiveLog = (obj: ListServiceActionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServiceActionsForProvisioningArtifactInputFilterSensitiveLog = (
+  obj: ListServiceActionsForProvisioningArtifactInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServiceActionsForProvisioningArtifactOutputFilterSensitiveLog = (
+  obj: ListServiceActionsForProvisioningArtifactOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStackInstancesForProvisionedProductInputFilterSensitiveLog = (
+  obj: ListStackInstancesForProvisionedProductInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackInstanceFilterSensitiveLog = (obj: StackInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStackInstancesForProvisionedProductOutputFilterSensitiveLog = (
+  obj: ListStackInstancesForProvisionedProductOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagOptionsFiltersFilterSensitiveLog = (obj: ListTagOptionsFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagOptionsInputFilterSensitiveLog = (obj: ListTagOptionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagOptionsOutputFilterSensitiveLog = (obj: ListTagOptionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisioningParameterFilterSensitiveLog = (obj: ProvisioningParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisioningPreferencesFilterSensitiveLog = (obj: ProvisioningPreferences): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionProductInputFilterSensitiveLog = (obj: ProvisionProductInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionProductOutputFilterSensitiveLog = (obj: ProvisionProductOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectPortfolioShareInputFilterSensitiveLog = (obj: RejectPortfolioShareInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectPortfolioShareOutputFilterSensitiveLog = (obj: RejectPortfolioShareOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScanProvisionedProductsInputFilterSensitiveLog = (obj: ScanProvisionedProductsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScanProvisionedProductsOutputFilterSensitiveLog = (obj: ScanProvisionedProductsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchProductsInputFilterSensitiveLog = (obj: SearchProductsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProductViewAggregationValueFilterSensitiveLog = (obj: ProductViewAggregationValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchProductsOutputFilterSensitiveLog = (obj: SearchProductsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchProductsAsAdminInputFilterSensitiveLog = (obj: SearchProductsAsAdminInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchProductsAsAdminOutputFilterSensitiveLog = (obj: SearchProductsAsAdminOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchProvisionedProductsInputFilterSensitiveLog = (obj: SearchProvisionedProductsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionedProductAttributeFilterSensitiveLog = (obj: ProvisionedProductAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchProvisionedProductsOutputFilterSensitiveLog = (obj: SearchProvisionedProductsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateProvisionedProductInputFilterSensitiveLog = (obj: TerminateProvisionedProductInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateProvisionedProductOutputFilterSensitiveLog = (obj: TerminateProvisionedProductOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConstraintInputFilterSensitiveLog = (obj: UpdateConstraintInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConstraintOutputFilterSensitiveLog = (obj: UpdateConstraintOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePortfolioInputFilterSensitiveLog = (obj: UpdatePortfolioInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePortfolioOutputFilterSensitiveLog = (obj: UpdatePortfolioOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePortfolioShareInputFilterSensitiveLog = (obj: UpdatePortfolioShareInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePortfolioShareOutputFilterSensitiveLog = (obj: UpdatePortfolioShareOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProductInputFilterSensitiveLog = (obj: UpdateProductInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProductOutputFilterSensitiveLog = (obj: UpdateProductOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProvisioningPreferencesFilterSensitiveLog = (obj: UpdateProvisioningPreferences): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProvisionedProductInputFilterSensitiveLog = (obj: UpdateProvisionedProductInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProvisionedProductOutputFilterSensitiveLog = (obj: UpdateProvisionedProductOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProvisionedProductPropertiesInputFilterSensitiveLog = (
+  obj: UpdateProvisionedProductPropertiesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProvisionedProductPropertiesOutputFilterSensitiveLog = (
+  obj: UpdateProvisionedProductPropertiesOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProvisioningArtifactInputFilterSensitiveLog = (obj: UpdateProvisioningArtifactInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProvisioningArtifactOutputFilterSensitiveLog = (obj: UpdateProvisioningArtifactOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceActionInputFilterSensitiveLog = (obj: UpdateServiceActionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceActionOutputFilterSensitiveLog = (obj: UpdateServiceActionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTagOptionInputFilterSensitiveLog = (obj: UpdateTagOptionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTagOptionOutputFilterSensitiveLog = (obj: UpdateTagOptionOutput): any => ({
+  ...obj,
+});

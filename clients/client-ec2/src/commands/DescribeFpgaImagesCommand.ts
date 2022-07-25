@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeFpgaImagesRequest, DescribeFpgaImagesResult } from "../models/models_3";
+import {
+  DescribeFpgaImagesRequest,
+  DescribeFpgaImagesRequestFilterSensitiveLog,
+  DescribeFpgaImagesResult,
+  DescribeFpgaImagesResultFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeFpgaImagesCommand,
   serializeAws_ec2DescribeFpgaImagesCommand,
@@ -74,8 +79,8 @@ export class DescribeFpgaImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFpgaImagesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFpgaImagesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFpgaImagesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFpgaImagesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

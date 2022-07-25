@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { DeactivatePipelineInput, DeactivatePipelineOutput } from "../models/models_0";
+import {
+  DeactivatePipelineInput,
+  DeactivatePipelineInputFilterSensitiveLog,
+  DeactivatePipelineOutput,
+  DeactivatePipelineOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeactivatePipelineCommand,
   serializeAws_json1_1DeactivatePipelineCommand,
@@ -75,8 +80,8 @@ export class DeactivatePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeactivatePipelineInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeactivatePipelineOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeactivatePipelineInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeactivatePipelineOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

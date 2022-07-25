@@ -14,7 +14,9 @@ import {
 
 import {
   TransferDomainToAnotherAwsAccountRequest,
+  TransferDomainToAnotherAwsAccountRequestFilterSensitiveLog,
   TransferDomainToAnotherAwsAccountResponse,
+  TransferDomainToAnotherAwsAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1TransferDomainToAnotherAwsAccountCommand,
@@ -111,8 +113,8 @@ export class TransferDomainToAnotherAwsAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TransferDomainToAnotherAwsAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TransferDomainToAnotherAwsAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TransferDomainToAnotherAwsAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TransferDomainToAnotherAwsAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { AddPermissionRequest, AddPermissionResponse } from "../models/models_0";
+import {
+  AddPermissionRequest,
+  AddPermissionRequestFilterSensitiveLog,
+  AddPermissionResponse,
+  AddPermissionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1AddPermissionCommand,
   serializeAws_restJson1AddPermissionCommand,
@@ -86,8 +91,8 @@ export class AddPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddPermissionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AddPermissionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddPermissionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AddPermissionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

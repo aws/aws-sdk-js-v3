@@ -51,15 +51,6 @@ export interface BatchDeleteBuildsInput {
   ids: string[] | undefined;
 }
 
-export namespace BatchDeleteBuildsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteBuildsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a build that could not be successfully deleted.</p>
  */
@@ -75,15 +66,6 @@ export interface BuildNotDeleted {
   statusCode?: string;
 }
 
-export namespace BuildNotDeleted {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuildNotDeleted): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteBuildsOutput {
   /**
    * <p>The IDs of the builds that were successfully deleted.</p>
@@ -94,15 +76,6 @@ export interface BatchDeleteBuildsOutput {
    * <p>Information about any builds that could not be successfully deleted.</p>
    */
   buildsNotDeleted?: BuildNotDeleted[];
-}
-
-export namespace BatchDeleteBuildsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteBuildsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -129,15 +102,6 @@ export interface BatchGetBuildBatchesInput {
    * <p>An array that contains the batch build identifiers to retrieve.</p>
    */
   ids: string[] | undefined;
-}
-
-export namespace BatchGetBuildBatchesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetBuildBatchesInput): any => ({
-    ...obj,
-  });
 }
 
 export enum BucketOwnerAccess {
@@ -242,15 +206,6 @@ export interface BuildArtifacts {
   bucketOwnerAccess?: BucketOwnerAccess | string;
 }
 
-export namespace BuildArtifacts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuildArtifacts): any => ({
-    ...obj,
-  });
-}
-
 export enum BatchReportModeType {
   REPORT_AGGREGATED_BATCH = "REPORT_AGGREGATED_BATCH",
   REPORT_INDIVIDUAL_BUILDS = "REPORT_INDIVIDUAL_BUILDS",
@@ -272,15 +227,6 @@ export interface BatchRestrictions {
    *         </p>
    */
   computeTypesAllowed?: string[];
-}
-
-export namespace BatchRestrictions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchRestrictions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -327,15 +273,6 @@ export interface ProjectBuildBatchConfig {
   batchReportMode?: BatchReportModeType | string;
 }
 
-export namespace ProjectBuildBatchConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectBuildBatchConfig): any => ({
-    ...obj,
-  });
-}
-
 export enum StatusType {
   FAILED = "FAILED",
   FAULT = "FAULT",
@@ -364,15 +301,6 @@ export interface ResolvedArtifact {
    * <p>The identifier of the artifact.</p>
    */
   identifier?: string;
-}
-
-export namespace ResolvedArtifact {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolvedArtifact): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -433,15 +361,6 @@ export interface BuildSummary {
   secondaryArtifacts?: ResolvedArtifact[];
 }
 
-export namespace BuildSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuildSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a batch build build group. Build groups are used to combine
  *             builds that can run in parallel, while still being able to set dependencies on other
@@ -475,15 +394,6 @@ export interface BuildGroup {
    *             build groups.</p>
    */
   priorBuildSummaryList?: BuildSummary[];
-}
-
-export namespace BuildGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuildGroup): any => ({
-    ...obj,
-  });
 }
 
 export enum CacheMode {
@@ -600,15 +510,6 @@ export interface ProjectCache {
   modes?: (CacheMode | string)[];
 }
 
-export namespace ProjectCache {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectCache): any => ({
-    ...obj,
-  });
-}
-
 export enum ComputeType {
   BUILD_GENERAL1_2XLARGE = "BUILD_GENERAL1_2XLARGE",
   BUILD_GENERAL1_LARGE = "BUILD_GENERAL1_LARGE",
@@ -670,15 +571,6 @@ export interface EnvironmentVariable {
   type?: EnvironmentVariableType | string;
 }
 
-export namespace EnvironmentVariable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentVariable): any => ({
-    ...obj,
-  });
-}
-
 export enum ImagePullCredentialsType {
   CODEBUILD = "CODEBUILD",
   SERVICE_ROLE = "SERVICE_ROLE",
@@ -719,15 +611,6 @@ export interface RegistryCredential {
    *             valid value, SECRETS_MANAGER, is for Secrets Manager. </p>
    */
   credentialProvider: CredentialProviderType | string | undefined;
-}
-
-export namespace RegistryCredential {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegistryCredential): any => ({
-    ...obj,
-  });
 }
 
 export enum EnvironmentType {
@@ -915,15 +798,6 @@ export interface ProjectEnvironment {
   imagePullCredentialsType?: ImagePullCredentialsType | string;
 }
 
-export namespace ProjectEnvironment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectEnvironment): any => ({
-    ...obj,
-  });
-}
-
 export enum FileSystemType {
   EFS = "EFS",
 }
@@ -979,15 +853,6 @@ export interface ProjectFileSystemLocation {
   mountOptions?: string;
 }
 
-export namespace ProjectFileSystemLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectFileSystemLocation): any => ({
-    ...obj,
-  });
-}
-
 export enum LogsConfigStatusType {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -1023,15 +888,6 @@ export interface CloudWatchLogsConfig {
    *                 with Log Groups and Log Streams</a>. </p>
    */
   streamName?: string;
-}
-
-export namespace CloudWatchLogsConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLogsConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1115,15 +971,6 @@ export interface S3LogsConfig {
   bucketOwnerAccess?: BucketOwnerAccess | string;
 }
 
-export namespace S3LogsConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3LogsConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about logs for a build project. These can be logs in CloudWatch Logs, built in a
  *             specified S3 bucket, or both. </p>
@@ -1141,15 +988,6 @@ export interface LogsConfig {
   s3Logs?: S3LogsConfig;
 }
 
-export namespace LogsConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogsConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Additional information about a build phase that has an error. You can use this
  *             information for troubleshooting.</p>
@@ -1165,15 +1003,6 @@ export interface PhaseContext {
    *             exit code.</p>
    */
   message?: string;
-}
-
-export namespace PhaseContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhaseContext): any => ({
-    ...obj,
-  });
 }
 
 export enum BuildBatchPhaseType {
@@ -1280,15 +1109,6 @@ export interface BuildBatchPhase {
   contexts?: PhaseContext[];
 }
 
-export namespace BuildBatchPhase {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuildBatchPhase): any => ({
-    ...obj,
-  });
-}
-
 export enum SourceAuthType {
   OAUTH = "OAUTH",
 }
@@ -1313,15 +1133,6 @@ export interface SourceAuth {
    * <p>The resource value that applies to the specified authorization type.</p>
    */
   resource?: string;
-}
-
-export namespace SourceAuth {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceAuth): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1366,15 +1177,6 @@ export interface BuildStatusConfig {
   targetUrl?: string;
 }
 
-export namespace BuildStatusConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuildStatusConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about the Git submodules configuration for an CodeBuild build project.
  *         </p>
@@ -1384,15 +1186,6 @@ export interface GitSubmodulesConfig {
    * <p> Set to true to fetch Git submodules for your CodeBuild build project. </p>
    */
   fetchSubmodules: boolean | undefined;
-}
-
-export namespace GitSubmodulesConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GitSubmodulesConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum SourceType {
@@ -1578,15 +1371,6 @@ export interface ProjectSource {
   sourceIdentifier?: string;
 }
 
-export namespace ProjectSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> A source identifier and its corresponding version. </p>
  */
@@ -1629,15 +1413,6 @@ export interface ProjectSourceVersion {
   sourceVersion: string | undefined;
 }
 
-export namespace ProjectSourceVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectSourceVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the VPC configuration that CodeBuild accesses.</p>
  */
@@ -1656,15 +1431,6 @@ export interface VpcConfig {
    * <p>A list of one or more security groups IDs in your Amazon VPC.</p>
    */
   securityGroupIds?: string[];
-}
-
-export namespace VpcConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1892,15 +1658,6 @@ export interface BuildBatch {
   debugSessionEnabled?: boolean;
 }
 
-export namespace BuildBatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuildBatch): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetBuildBatchesOutput {
   /**
    * <p>An array of <code>BuildBatch</code> objects that represent the retrieved batch
@@ -1914,29 +1671,11 @@ export interface BatchGetBuildBatchesOutput {
   buildBatchesNotFound?: string[];
 }
 
-export namespace BatchGetBuildBatchesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetBuildBatchesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetBuildsInput {
   /**
    * <p>The IDs of the builds.</p>
    */
   ids: string[] | undefined;
-}
-
-export namespace BatchGetBuildsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetBuildsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1955,15 +1694,6 @@ export interface DebugSession {
    *             build.</p>
    */
   sessionTarget?: string;
-}
-
-export namespace DebugSession {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DebugSession): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1989,15 +1719,6 @@ export interface ExportedEnvironmentVariable {
    * <p>The value assigned to the exported environment variable.</p>
    */
   value?: string;
-}
-
-export namespace ExportedEnvironmentVariable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportedEnvironmentVariable): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2049,15 +1770,6 @@ export interface LogsLocation {
   s3Logs?: S3LogsConfig;
 }
 
-export namespace LogsLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogsLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a network interface.</p>
  */
@@ -2071,15 +1783,6 @@ export interface NetworkInterface {
    * <p>The ID of the network interface.</p>
    */
   networkInterfaceId?: string;
-}
-
-export namespace NetworkInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInterface): any => ({
-    ...obj,
-  });
 }
 
 export enum BuildPhaseType {
@@ -2204,15 +1907,6 @@ export interface BuildPhase {
    *             build.</p>
    */
   contexts?: PhaseContext[];
-}
-
-export namespace BuildPhase {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuildPhase): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2481,15 +2175,6 @@ export interface Build {
   buildBatchArn?: string;
 }
 
-export namespace Build {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Build): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetBuildsOutput {
   /**
    * <p>Information about the requested builds.</p>
@@ -2502,15 +2187,6 @@ export interface BatchGetBuildsOutput {
   buildsNotFound?: string[];
 }
 
-export namespace BatchGetBuildsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetBuildsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetProjectsInput {
   /**
    * <p>The names or ARNs of the build projects. To get information about a project shared
@@ -2518,15 +2194,6 @@ export interface BatchGetProjectsInput {
    *             using its name.</p>
    */
   names: string[] | undefined;
-}
-
-export namespace BatchGetProjectsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetProjectsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2781,15 +2448,6 @@ export interface ProjectArtifacts {
   bucketOwnerAccess?: BucketOwnerAccess | string;
 }
 
-export namespace ProjectArtifacts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectArtifacts): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the build badge for the build project.</p>
  */
@@ -2805,15 +2463,6 @@ export interface ProjectBadge {
    *             project. </p>
    */
   badgeRequestUrl?: string;
-}
-
-export namespace ProjectBadge {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectBadge): any => ({
-    ...obj,
-  });
 }
 
 export enum ProjectVisibilityType {
@@ -2835,15 +2484,6 @@ export interface Tag {
    * <p>The tag's value.</p>
    */
   value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export enum WebhookBuildType {
@@ -2964,15 +2604,6 @@ export interface WebhookFilter {
   excludeMatchedPattern?: boolean;
 }
 
-export namespace WebhookFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebhookFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a webhook that connects repository events to a build project in
  *       CodeBuild.</p>
@@ -3027,15 +2658,6 @@ export interface Webhook {
    *     </p>
    */
   lastModifiedSecret?: Date;
-}
-
-export namespace Webhook {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Webhook): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3250,15 +2872,6 @@ export interface Project {
   resourceAccessRole?: string;
 }
 
-export namespace Project {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Project): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetProjectsOutput {
   /**
    * <p>Information about the requested build projects.</p>
@@ -3271,15 +2884,6 @@ export interface BatchGetProjectsOutput {
   projectsNotFound?: string[];
 }
 
-export namespace BatchGetProjectsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetProjectsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetReportGroupsInput {
   /**
    * <p>
@@ -3287,15 +2891,6 @@ export interface BatchGetReportGroupsInput {
    *     </p>
    */
   reportGroupArns: string[] | undefined;
-}
-
-export namespace BatchGetReportGroupsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetReportGroupsInput): any => ({
-    ...obj,
-  });
 }
 
 export enum ReportExportConfigType {
@@ -3356,15 +2951,6 @@ export interface S3ReportExportConfig {
   encryptionDisabled?: boolean;
 }
 
-export namespace S3ReportExportConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ReportExportConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about the location where the run of a report is exported. </p>
  */
@@ -3389,15 +2975,6 @@ export interface ReportExportConfig {
    *             bucket where the run of a report is exported. </p>
    */
   s3Destination?: S3ReportExportConfig;
-}
-
-export namespace ReportExportConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportExportConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum ReportGroupStatusType {
@@ -3484,15 +3061,6 @@ export interface ReportGroup {
   status?: ReportGroupStatusType | string;
 }
 
-export namespace ReportGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetReportGroupsOutput {
   /**
    * <p>
@@ -3509,15 +3077,6 @@ export interface BatchGetReportGroupsOutput {
   reportGroupsNotFound?: string[];
 }
 
-export namespace BatchGetReportGroupsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetReportGroupsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetReportsInput {
   /**
    * <p>
@@ -3525,15 +3084,6 @@ export interface BatchGetReportsInput {
    *     </p>
    */
   reportArns: string[] | undefined;
-}
-
-export namespace BatchGetReportsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetReportsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3575,15 +3125,6 @@ export interface CodeCoverageReportSummary {
   branchesMissed?: number;
 }
 
-export namespace CodeCoverageReportSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeCoverageReportSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum ReportStatusType {
   DELETING = "DELETING",
   FAILED = "FAILED",
@@ -3613,15 +3154,6 @@ export interface TestReportSummary {
    *         </p>
    */
   durationInNanoSeconds: number | undefined;
-}
-
-export namespace TestReportSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestReportSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3707,15 +3239,6 @@ export interface Report {
   codeCoverageSummary?: CodeCoverageReportSummary;
 }
 
-export namespace Report {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Report): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetReportsOutput {
   /**
    * <p>
@@ -3732,15 +3255,6 @@ export interface BatchGetReportsOutput {
   reportsNotFound?: string[];
 }
 
-export namespace BatchGetReportsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetReportsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies filters when retrieving batch builds.</p>
  */
@@ -3750,15 +3264,6 @@ export interface BuildBatchFilter {
    *             be retrieved.</p>
    */
   status?: StatusType | string;
-}
-
-export namespace BuildBatchFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuildBatchFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProjectInput {
@@ -3923,29 +3428,11 @@ export interface CreateProjectInput {
   concurrentBuildLimit?: number;
 }
 
-export namespace CreateProjectInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProjectOutput {
   /**
    * <p>Information about the build project that was created.</p>
    */
   project?: Project;
-}
-
-export namespace CreateProjectOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4000,15 +3487,6 @@ export interface CreateReportGroupInput {
   tags?: Tag[];
 }
 
-export namespace CreateReportGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReportGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateReportGroupOutput {
   /**
    * <p>
@@ -4016,15 +3494,6 @@ export interface CreateReportGroupOutput {
    *     </p>
    */
   reportGroup?: ReportGroup;
-}
-
-export namespace CreateReportGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReportGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateWebhookInput {
@@ -4060,30 +3529,12 @@ export interface CreateWebhookInput {
   buildType?: WebhookBuildType | string;
 }
 
-export namespace CreateWebhookInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWebhookInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWebhookOutput {
   /**
    * <p>Information about a webhook that connects repository events to a build project in
    *       CodeBuild.</p>
    */
   webhook?: Webhook;
-}
-
-export namespace CreateWebhookOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWebhookOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4131,15 +3582,6 @@ export interface DeleteBuildBatchInput {
   id: string | undefined;
 }
 
-export namespace DeleteBuildBatchInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBuildBatchInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBuildBatchOutput {
   /**
    * <p>The status code.</p>
@@ -4158,15 +3600,6 @@ export interface DeleteBuildBatchOutput {
   buildsNotDeleted?: BuildNotDeleted[];
 }
 
-export namespace DeleteBuildBatchOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBuildBatchOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProjectInput {
   /**
    * <p>The name of the build project.</p>
@@ -4174,25 +3607,7 @@ export interface DeleteProjectInput {
   name: string | undefined;
 }
 
-export namespace DeleteProjectInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProjectOutput {}
-
-export namespace DeleteProjectOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteReportInput {
   /**
@@ -4203,25 +3618,7 @@ export interface DeleteReportInput {
   arn: string | undefined;
 }
 
-export namespace DeleteReportInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReportInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteReportOutput {}
-
-export namespace DeleteReportOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReportOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteReportGroupInput {
   /**
@@ -4239,25 +3636,7 @@ export interface DeleteReportGroupInput {
   deleteReports?: boolean;
 }
 
-export namespace DeleteReportGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReportGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteReportGroupOutput {}
-
-export namespace DeleteReportGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReportGroupOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteResourcePolicyInput {
   /**
@@ -4266,40 +3645,13 @@ export interface DeleteResourcePolicyInput {
   resourceArn: string | undefined;
 }
 
-export namespace DeleteResourcePolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourcePolicyOutput {}
-
-export namespace DeleteResourcePolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteSourceCredentialsInput {
   /**
    * <p> The Amazon Resource Name (ARN) of the token.</p>
    */
   arn: string | undefined;
-}
-
-export namespace DeleteSourceCredentialsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSourceCredentialsInput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteSourceCredentialsOutput {
@@ -4309,15 +3661,6 @@ export interface DeleteSourceCredentialsOutput {
   arn?: string;
 }
 
-export namespace DeleteSourceCredentialsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSourceCredentialsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWebhookInput {
   /**
    * <p>The name of the CodeBuild project.</p>
@@ -4325,25 +3668,7 @@ export interface DeleteWebhookInput {
   projectName: string | undefined;
 }
 
-export namespace DeleteWebhookInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWebhookInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWebhookOutput {}
-
-export namespace DeleteWebhookOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWebhookOutput): any => ({
-    ...obj,
-  });
-}
 
 export enum ReportCodeCoverageSortByType {
   FILE_PATH = "FILE_PATH",
@@ -4406,15 +3731,6 @@ export interface DescribeCodeCoveragesInput {
   maxLineCoveragePercentage?: number;
 }
 
-export namespace DescribeCodeCoveragesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCodeCoveragesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains code coverage report information.</p>
  *         <p>Line coverage measures how many statements your tests cover. A statement is a single
@@ -4474,15 +3790,6 @@ export interface CodeCoverage {
   expired?: Date;
 }
 
-export namespace CodeCoverage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeCoverage): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCodeCoveragesOutput {
   /**
    * <p>If there are more items to return, this contains a token that is passed to a subsequent
@@ -4494,15 +3801,6 @@ export interface DescribeCodeCoveragesOutput {
    * <p>An array of <code>CodeCoverage</code> objects that contain the results.</p>
    */
   codeCoverages?: CodeCoverage[];
-}
-
-export namespace DescribeCodeCoveragesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCodeCoveragesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4551,15 +3849,6 @@ export interface TestCaseFilter {
   keyword?: string;
 }
 
-export namespace TestCaseFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestCaseFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTestCasesInput {
   /**
    * <p>
@@ -4593,15 +3882,6 @@ export interface DescribeTestCasesInput {
    *     </p>
    */
   filter?: TestCaseFilter;
-}
-
-export namespace DescribeTestCasesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTestCasesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4655,15 +3935,6 @@ export interface TestCase {
   expired?: Date;
 }
 
-export namespace TestCase {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestCase): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTestCasesOutput {
   /**
    * <p>
@@ -4682,15 +3953,6 @@ export interface DescribeTestCasesOutput {
    *     </p>
    */
   testCases?: TestCase[];
-}
-
-export namespace DescribeTestCasesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTestCasesOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ReportGroupTrendFieldType {
@@ -4783,15 +4045,6 @@ export interface GetReportGroupTrendInput {
   trendField: ReportGroupTrendFieldType | string | undefined;
 }
 
-export namespace GetReportGroupTrendInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReportGroupTrendInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the unmodified data for the report. For more information, see .</p>
  */
@@ -4805,15 +4058,6 @@ export interface ReportWithRawData {
    * <p>The value of the requested data field from the report.</p>
    */
   data?: string;
-}
-
-export namespace ReportWithRawData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportWithRawData): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4837,15 +4081,6 @@ export interface ReportGroupTrendStats {
   min?: string;
 }
 
-export namespace ReportGroupTrendStats {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportGroupTrendStats): any => ({
-    ...obj,
-  });
-}
-
 export interface GetReportGroupTrendOutput {
   /**
    * <p>Contains the accumulated trend data.</p>
@@ -4858,15 +4093,6 @@ export interface GetReportGroupTrendOutput {
   rawData?: ReportWithRawData[];
 }
 
-export namespace GetReportGroupTrendOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReportGroupTrendOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourcePolicyInput {
   /**
    * <p> The ARN of the resource that is associated with the resource policy. </p>
@@ -4874,29 +4100,11 @@ export interface GetResourcePolicyInput {
   resourceArn: string | undefined;
 }
 
-export namespace GetResourcePolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcePolicyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourcePolicyOutput {
   /**
    * <p> The resource policy for the resource identified by the input ARN parameter. </p>
    */
   policy?: string;
-}
-
-export namespace GetResourcePolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcePolicyOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ServerType {
@@ -4938,30 +4146,11 @@ export interface ImportSourceCredentialsInput {
   shouldOverwrite?: boolean;
 }
 
-export namespace ImportSourceCredentialsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportSourceCredentialsInput): any => ({
-    ...obj,
-    ...(obj.token && { token: SENSITIVE_STRING }),
-  });
-}
-
 export interface ImportSourceCredentialsOutput {
   /**
    * <p> The Amazon Resource Name (ARN) of the token. </p>
    */
   arn?: string;
-}
-
-export namespace ImportSourceCredentialsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportSourceCredentialsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface InvalidateProjectCacheInput {
@@ -4971,25 +4160,7 @@ export interface InvalidateProjectCacheInput {
   projectName: string | undefined;
 }
 
-export namespace InvalidateProjectCacheInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidateProjectCacheInput): any => ({
-    ...obj,
-  });
-}
-
 export interface InvalidateProjectCacheOutput {}
-
-export namespace InvalidateProjectCacheOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidateProjectCacheOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface ListBuildBatchesInput {
   /**
@@ -5025,15 +4196,6 @@ export interface ListBuildBatchesInput {
   nextToken?: string;
 }
 
-export namespace ListBuildBatchesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuildBatchesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBuildBatchesOutput {
   /**
    * <p>An array of strings that contains the batch build identifiers.</p>
@@ -5045,15 +4207,6 @@ export interface ListBuildBatchesOutput {
    *             call to <code>ListBuildBatches</code> to retrieve the next set of items.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListBuildBatchesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuildBatchesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBuildBatchesForProjectInput {
@@ -5097,15 +4250,6 @@ export interface ListBuildBatchesForProjectInput {
   nextToken?: string;
 }
 
-export namespace ListBuildBatchesForProjectInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuildBatchesForProjectInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBuildBatchesForProjectOutput {
   /**
    * <p>An array of strings that contains the batch build identifiers.</p>
@@ -5118,15 +4262,6 @@ export interface ListBuildBatchesForProjectOutput {
    *             items.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListBuildBatchesForProjectOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuildBatchesForProjectOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBuildsInput {
@@ -5158,15 +4293,6 @@ export interface ListBuildsInput {
   nextToken?: string;
 }
 
-export namespace ListBuildsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuildsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBuildsOutput {
   /**
    * <p>A list of build IDs, with each build ID representing a single build.</p>
@@ -5180,15 +4306,6 @@ export interface ListBuildsOutput {
    *             call.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListBuildsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuildsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBuildsForProjectInput {
@@ -5227,15 +4344,6 @@ export interface ListBuildsForProjectInput {
   nextToken?: string;
 }
 
-export namespace ListBuildsForProjectInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuildsForProjectInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBuildsForProjectOutput {
   /**
    * <p>A list of build identifiers for the specified build project, with each build ID representing a
@@ -5252,25 +4360,7 @@ export interface ListBuildsForProjectOutput {
   nextToken?: string;
 }
 
-export namespace ListBuildsForProjectOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuildsForProjectOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCuratedEnvironmentImagesInput {}
-
-export namespace ListCuratedEnvironmentImagesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCuratedEnvironmentImagesInput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Information about a Docker image that is managed by CodeBuild.</p>
@@ -5290,15 +4380,6 @@ export interface EnvironmentImage {
    * <p>A list of environment image versions.</p>
    */
   versions?: string[];
-}
-
-export namespace EnvironmentImage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentImage): any => ({
-    ...obj,
-  });
 }
 
 export enum LanguageType {
@@ -5331,15 +4412,6 @@ export interface EnvironmentLanguage {
   images?: EnvironmentImage[];
 }
 
-export namespace EnvironmentLanguage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentLanguage): any => ({
-    ...obj,
-  });
-}
-
 export enum PlatformType {
   AMAZON_LINUX = "AMAZON_LINUX",
   DEBIAN = "DEBIAN",
@@ -5363,30 +4435,12 @@ export interface EnvironmentPlatform {
   languages?: EnvironmentLanguage[];
 }
 
-export namespace EnvironmentPlatform {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentPlatform): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCuratedEnvironmentImagesOutput {
   /**
    * <p>Information about supported platforms for Docker images that are managed by
    *             CodeBuild.</p>
    */
   platforms?: EnvironmentPlatform[];
-}
-
-export namespace ListCuratedEnvironmentImagesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCuratedEnvironmentImagesOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ProjectSortByType {
@@ -5447,15 +4501,6 @@ export interface ListProjectsInput {
   nextToken?: string;
 }
 
-export namespace ListProjectsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProjectsOutput {
   /**
    * <p>If there are more than 100 items in the list, only the first 100 items are returned,
@@ -5470,15 +4515,6 @@ export interface ListProjectsOutput {
    *             build project.</p>
    */
   projects?: string[];
-}
-
-export namespace ListProjectsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ReportGroupSortByType {
@@ -5538,15 +4574,6 @@ export interface ListReportGroupsInput {
   maxResults?: number;
 }
 
-export namespace ListReportGroupsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReportGroupsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListReportGroupsOutput {
   /**
    * <p>
@@ -5567,15 +4594,6 @@ export interface ListReportGroupsOutput {
   reportGroups?: string[];
 }
 
-export namespace ListReportGroupsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReportGroupsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> A filter used to return reports with the status specified by the input
  *                 <code>status</code> parameter. </p>
@@ -5585,15 +4603,6 @@ export interface ReportFilter {
    * <p> The status used to filter reports. You can filter using one status only. </p>
    */
   status?: ReportStatusType | string;
-}
-
-export namespace ReportFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListReportsInput {
@@ -5643,15 +4652,6 @@ export interface ListReportsInput {
   filter?: ReportFilter;
 }
 
-export namespace ListReportsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReportsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListReportsOutput {
   /**
    * <p>
@@ -5670,15 +4670,6 @@ export interface ListReportsOutput {
    *     </p>
    */
   reports?: string[];
-}
-
-export namespace ListReportsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReportsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListReportsForReportGroupInput {
@@ -5723,15 +4714,6 @@ export interface ListReportsForReportGroupInput {
   filter?: ReportFilter;
 }
 
-export namespace ListReportsForReportGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReportsForReportGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListReportsForReportGroupOutput {
   /**
    * <p>
@@ -5750,15 +4732,6 @@ export interface ListReportsForReportGroupOutput {
    *     </p>
    */
   reports?: string[];
-}
-
-export namespace ListReportsForReportGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReportsForReportGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum SharedResourceSortByType {
@@ -5817,15 +4790,6 @@ export interface ListSharedProjectsInput {
   nextToken?: string;
 }
 
-export namespace ListSharedProjectsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSharedProjectsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSharedProjectsOutput {
   /**
    * <p> During a previous call, the maximum number of items that can be returned is the value
@@ -5842,15 +4806,6 @@ export interface ListSharedProjectsOutput {
    *         </p>
    */
   projects?: string[];
-}
-
-export namespace ListSharedProjectsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSharedProjectsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSharedReportGroupsInput {
@@ -5904,15 +4859,6 @@ export interface ListSharedReportGroupsInput {
   maxResults?: number;
 }
 
-export namespace ListSharedReportGroupsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSharedReportGroupsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSharedReportGroupsOutput {
   /**
    * <p> During a previous call, the maximum number of items that can be returned is the value
@@ -5931,25 +4877,7 @@ export interface ListSharedReportGroupsOutput {
   reportGroups?: string[];
 }
 
-export namespace ListSharedReportGroupsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSharedReportGroupsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSourceCredentialsInput {}
-
-export namespace ListSourceCredentialsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSourceCredentialsInput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> Information about the credentials for a GitHub, GitHub Enterprise, or Bitbucket
@@ -5974,15 +4902,6 @@ export interface SourceCredentialsInfo {
   authType?: AuthType | string;
 }
 
-export namespace SourceCredentialsInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceCredentialsInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSourceCredentialsOutput {
   /**
    * <p> A list of <code>SourceCredentialsInfo</code> objects. Each
@@ -5990,15 +4909,6 @@ export interface ListSourceCredentialsOutput {
    *             ARN, and type of source provider for one set of credentials. </p>
    */
   sourceCredentialsInfos?: SourceCredentialsInfo[];
-}
-
-export namespace ListSourceCredentialsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSourceCredentialsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface PutResourcePolicyInput {
@@ -6016,30 +4926,12 @@ export interface PutResourcePolicyInput {
   resourceArn: string | undefined;
 }
 
-export namespace PutResourcePolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourcePolicyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PutResourcePolicyOutput {
   /**
    * <p> The ARN of the <code>Project</code> or <code>ReportGroup</code> resource that is
    *             associated with a resource policy. </p>
    */
   resourceArn?: string;
-}
-
-export namespace PutResourcePolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourcePolicyOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface RetryBuildInput {
@@ -6058,29 +4950,11 @@ export interface RetryBuildInput {
   idempotencyToken?: string;
 }
 
-export namespace RetryBuildInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetryBuildInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RetryBuildOutput {
   /**
    * <p>Information about a build.</p>
    */
   build?: Build;
-}
-
-export namespace RetryBuildOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetryBuildOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum RetryBuildBatchType {
@@ -6109,29 +4983,11 @@ export interface RetryBuildBatchInput {
   retryType?: RetryBuildBatchType | string;
 }
 
-export namespace RetryBuildBatchInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetryBuildBatchInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RetryBuildBatchOutput {
   /**
    * <p>Contains information about a batch build.</p>
    */
   buildBatch?: BuildBatch;
-}
-
-export namespace RetryBuildBatchOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetryBuildBatchOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface StartBuildInput {
@@ -6390,29 +5246,11 @@ export interface StartBuildInput {
   debugSessionEnabled?: boolean;
 }
 
-export namespace StartBuildInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBuildInput): any => ({
-    ...obj,
-  });
-}
-
 export interface StartBuildOutput {
   /**
    * <p>Information about the build to be run.</p>
    */
   build?: Build;
-}
-
-export namespace StartBuildOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBuildOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface StartBuildBatchInput {
@@ -6669,29 +5507,11 @@ export interface StartBuildBatchInput {
   debugSessionEnabled?: boolean;
 }
 
-export namespace StartBuildBatchInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBuildBatchInput): any => ({
-    ...obj,
-  });
-}
-
 export interface StartBuildBatchOutput {
   /**
    * <p>A <code>BuildBatch</code> object that contains information about the batch build.</p>
    */
   buildBatch?: BuildBatch;
-}
-
-export namespace StartBuildBatchOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBuildBatchOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface StopBuildInput {
@@ -6701,29 +5521,11 @@ export interface StopBuildInput {
   id: string | undefined;
 }
 
-export namespace StopBuildInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopBuildInput): any => ({
-    ...obj,
-  });
-}
-
 export interface StopBuildOutput {
   /**
    * <p>Information about the build.</p>
    */
   build?: Build;
-}
-
-export namespace StopBuildOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopBuildOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface StopBuildBatchInput {
@@ -6733,29 +5535,11 @@ export interface StopBuildBatchInput {
   id: string | undefined;
 }
 
-export namespace StopBuildBatchInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopBuildBatchInput): any => ({
-    ...obj,
-  });
-}
-
 export interface StopBuildBatchOutput {
   /**
    * <p>Contains information about a batch build.</p>
    */
   buildBatch?: BuildBatch;
-}
-
-export namespace StopBuildBatchOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopBuildBatchOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateProjectInput {
@@ -6923,29 +5707,11 @@ export interface UpdateProjectInput {
   concurrentBuildLimit?: number;
 }
 
-export namespace UpdateProjectInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateProjectOutput {
   /**
    * <p>Information about the build project that was changed.</p>
    */
   project?: Project;
-}
-
-export namespace UpdateProjectOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateProjectVisibilityInput {
@@ -6977,15 +5743,6 @@ export interface UpdateProjectVisibilityInput {
   resourceAccessRole?: string;
 }
 
-export namespace UpdateProjectVisibilityInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectVisibilityInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateProjectVisibilityOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the build project.</p>
@@ -7012,15 +5769,6 @@ export interface UpdateProjectVisibilityOutput {
    *          </dl>
    */
   projectVisibility?: ProjectVisibilityType | string;
-}
-
-export namespace UpdateProjectVisibilityOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectVisibilityOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateReportGroupInput {
@@ -7060,15 +5808,6 @@ export interface UpdateReportGroupInput {
   tags?: Tag[];
 }
 
-export namespace UpdateReportGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReportGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateReportGroupOutput {
   /**
    * <p>
@@ -7076,15 +5815,6 @@ export interface UpdateReportGroupOutput {
    *     </p>
    */
   reportGroup?: ReportGroup;
-}
-
-export namespace UpdateReportGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReportGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateWebhookInput {
@@ -7125,15 +5855,6 @@ export interface UpdateWebhookInput {
   buildType?: WebhookBuildType | string;
 }
 
-export namespace UpdateWebhookInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWebhookInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateWebhookOutput {
   /**
    * <p> Information about a repository's webhook that is associated with a project in CodeBuild.
@@ -7142,11 +5863,1004 @@ export interface UpdateWebhookOutput {
   webhook?: Webhook;
 }
 
-export namespace UpdateWebhookOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWebhookOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const BatchDeleteBuildsInputFilterSensitiveLog = (obj: BatchDeleteBuildsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuildNotDeletedFilterSensitiveLog = (obj: BuildNotDeleted): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteBuildsOutputFilterSensitiveLog = (obj: BatchDeleteBuildsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetBuildBatchesInputFilterSensitiveLog = (obj: BatchGetBuildBatchesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuildArtifactsFilterSensitiveLog = (obj: BuildArtifacts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchRestrictionsFilterSensitiveLog = (obj: BatchRestrictions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectBuildBatchConfigFilterSensitiveLog = (obj: ProjectBuildBatchConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolvedArtifactFilterSensitiveLog = (obj: ResolvedArtifact): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuildSummaryFilterSensitiveLog = (obj: BuildSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuildGroupFilterSensitiveLog = (obj: BuildGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectCacheFilterSensitiveLog = (obj: ProjectCache): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentVariableFilterSensitiveLog = (obj: EnvironmentVariable): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegistryCredentialFilterSensitiveLog = (obj: RegistryCredential): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectEnvironmentFilterSensitiveLog = (obj: ProjectEnvironment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectFileSystemLocationFilterSensitiveLog = (obj: ProjectFileSystemLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchLogsConfigFilterSensitiveLog = (obj: CloudWatchLogsConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LogsConfigFilterSensitiveLog = (obj: S3LogsConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogsConfigFilterSensitiveLog = (obj: LogsConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PhaseContextFilterSensitiveLog = (obj: PhaseContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuildBatchPhaseFilterSensitiveLog = (obj: BuildBatchPhase): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceAuthFilterSensitiveLog = (obj: SourceAuth): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuildStatusConfigFilterSensitiveLog = (obj: BuildStatusConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GitSubmodulesConfigFilterSensitiveLog = (obj: GitSubmodulesConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectSourceFilterSensitiveLog = (obj: ProjectSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectSourceVersionFilterSensitiveLog = (obj: ProjectSourceVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcConfigFilterSensitiveLog = (obj: VpcConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuildBatchFilterSensitiveLog = (obj: BuildBatch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetBuildBatchesOutputFilterSensitiveLog = (obj: BatchGetBuildBatchesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetBuildsInputFilterSensitiveLog = (obj: BatchGetBuildsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DebugSessionFilterSensitiveLog = (obj: DebugSession): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportedEnvironmentVariableFilterSensitiveLog = (obj: ExportedEnvironmentVariable): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogsLocationFilterSensitiveLog = (obj: LogsLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuildPhaseFilterSensitiveLog = (obj: BuildPhase): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuildFilterSensitiveLog = (obj: Build): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetBuildsOutputFilterSensitiveLog = (obj: BatchGetBuildsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetProjectsInputFilterSensitiveLog = (obj: BatchGetProjectsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectArtifactsFilterSensitiveLog = (obj: ProjectArtifacts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectBadgeFilterSensitiveLog = (obj: ProjectBadge): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebhookFilterFilterSensitiveLog = (obj: WebhookFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebhookFilterSensitiveLog = (obj: Webhook): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectFilterSensitiveLog = (obj: Project): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetProjectsOutputFilterSensitiveLog = (obj: BatchGetProjectsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetReportGroupsInputFilterSensitiveLog = (obj: BatchGetReportGroupsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ReportExportConfigFilterSensitiveLog = (obj: S3ReportExportConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportExportConfigFilterSensitiveLog = (obj: ReportExportConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportGroupFilterSensitiveLog = (obj: ReportGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetReportGroupsOutputFilterSensitiveLog = (obj: BatchGetReportGroupsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetReportsInputFilterSensitiveLog = (obj: BatchGetReportsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeCoverageReportSummaryFilterSensitiveLog = (obj: CodeCoverageReportSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestReportSummaryFilterSensitiveLog = (obj: TestReportSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportFilterSensitiveLog = (obj: Report): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetReportsOutputFilterSensitiveLog = (obj: BatchGetReportsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuildBatchFilterFilterSensitiveLog = (obj: BuildBatchFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProjectInputFilterSensitiveLog = (obj: CreateProjectInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProjectOutputFilterSensitiveLog = (obj: CreateProjectOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReportGroupInputFilterSensitiveLog = (obj: CreateReportGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReportGroupOutputFilterSensitiveLog = (obj: CreateReportGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWebhookInputFilterSensitiveLog = (obj: CreateWebhookInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWebhookOutputFilterSensitiveLog = (obj: CreateWebhookOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBuildBatchInputFilterSensitiveLog = (obj: DeleteBuildBatchInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBuildBatchOutputFilterSensitiveLog = (obj: DeleteBuildBatchOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectInputFilterSensitiveLog = (obj: DeleteProjectInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectOutputFilterSensitiveLog = (obj: DeleteProjectOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReportInputFilterSensitiveLog = (obj: DeleteReportInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReportOutputFilterSensitiveLog = (obj: DeleteReportOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReportGroupInputFilterSensitiveLog = (obj: DeleteReportGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReportGroupOutputFilterSensitiveLog = (obj: DeleteReportGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyInputFilterSensitiveLog = (obj: DeleteResourcePolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyOutputFilterSensitiveLog = (obj: DeleteResourcePolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSourceCredentialsInputFilterSensitiveLog = (obj: DeleteSourceCredentialsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSourceCredentialsOutputFilterSensitiveLog = (obj: DeleteSourceCredentialsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWebhookInputFilterSensitiveLog = (obj: DeleteWebhookInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWebhookOutputFilterSensitiveLog = (obj: DeleteWebhookOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCodeCoveragesInputFilterSensitiveLog = (obj: DescribeCodeCoveragesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeCoverageFilterSensitiveLog = (obj: CodeCoverage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCodeCoveragesOutputFilterSensitiveLog = (obj: DescribeCodeCoveragesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestCaseFilterFilterSensitiveLog = (obj: TestCaseFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTestCasesInputFilterSensitiveLog = (obj: DescribeTestCasesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestCaseFilterSensitiveLog = (obj: TestCase): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTestCasesOutputFilterSensitiveLog = (obj: DescribeTestCasesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReportGroupTrendInputFilterSensitiveLog = (obj: GetReportGroupTrendInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportWithRawDataFilterSensitiveLog = (obj: ReportWithRawData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportGroupTrendStatsFilterSensitiveLog = (obj: ReportGroupTrendStats): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReportGroupTrendOutputFilterSensitiveLog = (obj: GetReportGroupTrendOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePolicyInputFilterSensitiveLog = (obj: GetResourcePolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePolicyOutputFilterSensitiveLog = (obj: GetResourcePolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportSourceCredentialsInputFilterSensitiveLog = (obj: ImportSourceCredentialsInput): any => ({
+  ...obj,
+  ...(obj.token && { token: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ImportSourceCredentialsOutputFilterSensitiveLog = (obj: ImportSourceCredentialsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InvalidateProjectCacheInputFilterSensitiveLog = (obj: InvalidateProjectCacheInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InvalidateProjectCacheOutputFilterSensitiveLog = (obj: InvalidateProjectCacheOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBuildBatchesInputFilterSensitiveLog = (obj: ListBuildBatchesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBuildBatchesOutputFilterSensitiveLog = (obj: ListBuildBatchesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBuildBatchesForProjectInputFilterSensitiveLog = (obj: ListBuildBatchesForProjectInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBuildBatchesForProjectOutputFilterSensitiveLog = (obj: ListBuildBatchesForProjectOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBuildsInputFilterSensitiveLog = (obj: ListBuildsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBuildsOutputFilterSensitiveLog = (obj: ListBuildsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBuildsForProjectInputFilterSensitiveLog = (obj: ListBuildsForProjectInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBuildsForProjectOutputFilterSensitiveLog = (obj: ListBuildsForProjectOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCuratedEnvironmentImagesInputFilterSensitiveLog = (obj: ListCuratedEnvironmentImagesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentImageFilterSensitiveLog = (obj: EnvironmentImage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentLanguageFilterSensitiveLog = (obj: EnvironmentLanguage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentPlatformFilterSensitiveLog = (obj: EnvironmentPlatform): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCuratedEnvironmentImagesOutputFilterSensitiveLog = (obj: ListCuratedEnvironmentImagesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProjectsInputFilterSensitiveLog = (obj: ListProjectsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProjectsOutputFilterSensitiveLog = (obj: ListProjectsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReportGroupsInputFilterSensitiveLog = (obj: ListReportGroupsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReportGroupsOutputFilterSensitiveLog = (obj: ListReportGroupsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportFilterFilterSensitiveLog = (obj: ReportFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReportsInputFilterSensitiveLog = (obj: ListReportsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReportsOutputFilterSensitiveLog = (obj: ListReportsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReportsForReportGroupInputFilterSensitiveLog = (obj: ListReportsForReportGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReportsForReportGroupOutputFilterSensitiveLog = (obj: ListReportsForReportGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSharedProjectsInputFilterSensitiveLog = (obj: ListSharedProjectsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSharedProjectsOutputFilterSensitiveLog = (obj: ListSharedProjectsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSharedReportGroupsInputFilterSensitiveLog = (obj: ListSharedReportGroupsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSharedReportGroupsOutputFilterSensitiveLog = (obj: ListSharedReportGroupsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSourceCredentialsInputFilterSensitiveLog = (obj: ListSourceCredentialsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceCredentialsInfoFilterSensitiveLog = (obj: SourceCredentialsInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSourceCredentialsOutputFilterSensitiveLog = (obj: ListSourceCredentialsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyInputFilterSensitiveLog = (obj: PutResourcePolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyOutputFilterSensitiveLog = (obj: PutResourcePolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetryBuildInputFilterSensitiveLog = (obj: RetryBuildInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetryBuildOutputFilterSensitiveLog = (obj: RetryBuildOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetryBuildBatchInputFilterSensitiveLog = (obj: RetryBuildBatchInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetryBuildBatchOutputFilterSensitiveLog = (obj: RetryBuildBatchOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBuildInputFilterSensitiveLog = (obj: StartBuildInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBuildOutputFilterSensitiveLog = (obj: StartBuildOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBuildBatchInputFilterSensitiveLog = (obj: StartBuildBatchInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBuildBatchOutputFilterSensitiveLog = (obj: StartBuildBatchOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopBuildInputFilterSensitiveLog = (obj: StopBuildInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopBuildOutputFilterSensitiveLog = (obj: StopBuildOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopBuildBatchInputFilterSensitiveLog = (obj: StopBuildBatchInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopBuildBatchOutputFilterSensitiveLog = (obj: StopBuildBatchOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectInputFilterSensitiveLog = (obj: UpdateProjectInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectOutputFilterSensitiveLog = (obj: UpdateProjectOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectVisibilityInputFilterSensitiveLog = (obj: UpdateProjectVisibilityInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectVisibilityOutputFilterSensitiveLog = (obj: UpdateProjectVisibilityOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateReportGroupInputFilterSensitiveLog = (obj: UpdateReportGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateReportGroupOutputFilterSensitiveLog = (obj: UpdateReportGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWebhookInputFilterSensitiveLog = (obj: UpdateWebhookInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWebhookOutputFilterSensitiveLog = (obj: UpdateWebhookOutput): any => ({
+  ...obj,
+});

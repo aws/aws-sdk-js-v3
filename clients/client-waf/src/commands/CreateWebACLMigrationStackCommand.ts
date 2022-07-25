@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateWebACLMigrationStackRequest, CreateWebACLMigrationStackResponse } from "../models/models_0";
+import {
+  CreateWebACLMigrationStackRequest,
+  CreateWebACLMigrationStackRequestFilterSensitiveLog,
+  CreateWebACLMigrationStackResponse,
+  CreateWebACLMigrationStackResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateWebACLMigrationStackCommand,
   serializeAws_json1_1CreateWebACLMigrationStackCommand,
@@ -79,8 +84,8 @@ export class CreateWebACLMigrationStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWebACLMigrationStackRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateWebACLMigrationStackResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateWebACLMigrationStackRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateWebACLMigrationStackResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

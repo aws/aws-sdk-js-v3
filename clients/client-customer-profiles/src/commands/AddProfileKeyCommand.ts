@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { AddProfileKeyRequest, AddProfileKeyResponse } from "../models/models_0";
+import {
+  AddProfileKeyRequest,
+  AddProfileKeyRequestFilterSensitiveLog,
+  AddProfileKeyResponse,
+  AddProfileKeyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1AddProfileKeyCommand,
   serializeAws_restJson1AddProfileKeyCommand,
@@ -75,8 +80,8 @@ export class AddProfileKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddProfileKeyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AddProfileKeyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddProfileKeyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AddProfileKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

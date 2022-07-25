@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { DescribeIdentityProviderConfigRequest, DescribeIdentityProviderConfigResponse } from "../models/models_0";
+import {
+  DescribeIdentityProviderConfigRequest,
+  DescribeIdentityProviderConfigRequestFilterSensitiveLog,
+  DescribeIdentityProviderConfigResponse,
+  DescribeIdentityProviderConfigResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeIdentityProviderConfigCommand,
   serializeAws_restJson1DescribeIdentityProviderConfigCommand,
@@ -74,8 +79,8 @@ export class DescribeIdentityProviderConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIdentityProviderConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIdentityProviderConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeIdentityProviderConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeIdentityProviderConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

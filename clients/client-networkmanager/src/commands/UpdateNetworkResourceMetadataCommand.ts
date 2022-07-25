@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateNetworkResourceMetadataRequest, UpdateNetworkResourceMetadataResponse } from "../models/models_0";
+import {
+  UpdateNetworkResourceMetadataRequest,
+  UpdateNetworkResourceMetadataRequestFilterSensitiveLog,
+  UpdateNetworkResourceMetadataResponse,
+  UpdateNetworkResourceMetadataResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1UpdateNetworkResourceMetadataCommand,
@@ -74,8 +79,8 @@ export class UpdateNetworkResourceMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNetworkResourceMetadataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNetworkResourceMetadataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateNetworkResourceMetadataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNetworkResourceMetadataResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

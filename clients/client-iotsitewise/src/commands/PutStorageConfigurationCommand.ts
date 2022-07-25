@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { PutStorageConfigurationRequest, PutStorageConfigurationResponse } from "../models/models_0";
+import {
+  PutStorageConfigurationRequest,
+  PutStorageConfigurationRequestFilterSensitiveLog,
+  PutStorageConfigurationResponse,
+  PutStorageConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutStorageConfigurationCommand,
   serializeAws_restJson1PutStorageConfigurationCommand,
@@ -72,8 +77,8 @@ export class PutStorageConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutStorageConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutStorageConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutStorageConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutStorageConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

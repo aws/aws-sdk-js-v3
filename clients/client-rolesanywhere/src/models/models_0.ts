@@ -37,17 +37,6 @@ export interface Tag {
   value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-    ...(obj.key && { key: SENSITIVE_STRING }),
-    ...(obj.value && { value: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateProfileRequest {
   /**
    * <p>The name of the profile.</p>
@@ -88,16 +77,6 @@ export interface CreateProfileRequest {
    * <p>The tags to attach to the profile.</p>
    */
   tags?: Tag[];
-}
-
-export namespace CreateProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProfileRequest): any => ({
-    ...obj,
-    ...(obj.tags && { tags: obj.tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -165,29 +144,11 @@ export interface ProfileDetail {
   durationSeconds?: number;
 }
 
-export namespace ProfileDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProfileDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface ProfileDetailResponse {
   /**
    * <p>The state of the profile after a read or write operation.</p>
    */
   profile?: ProfileDetail;
-}
-
-export namespace ProfileDetailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProfileDetailResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -250,15 +211,6 @@ export namespace SourceData {
     if (value.acmPcaArn !== undefined) return visitor.acmPcaArn(value.acmPcaArn);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceData): any => {
-    if (obj.x509CertificateData !== undefined) return { x509CertificateData: obj.x509CertificateData };
-    if (obj.acmPcaArn !== undefined) return { acmPcaArn: obj.acmPcaArn };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export enum TrustAnchorType {
@@ -282,16 +234,6 @@ export interface Source {
   sourceData?: SourceData;
 }
 
-export namespace Source {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Source): any => ({
-    ...obj,
-    ...(obj.sourceData && { sourceData: SourceData.filterSensitiveLog(obj.sourceData) }),
-  });
-}
-
 export interface CreateTrustAnchorRequest {
   /**
    * <p>The name of the trust anchor.</p>
@@ -312,17 +254,6 @@ export interface CreateTrustAnchorRequest {
    * <p>The tags to attach to the trust anchor.</p>
    */
   tags?: Tag[];
-}
-
-export namespace CreateTrustAnchorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTrustAnchorRequest): any => ({
-    ...obj,
-    ...(obj.source && { source: Source.filterSensitiveLog(obj.source) }),
-    ...(obj.tags && { tags: obj.tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -365,31 +296,11 @@ export interface TrustAnchorDetail {
   updatedAt?: Date;
 }
 
-export namespace TrustAnchorDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrustAnchorDetail): any => ({
-    ...obj,
-    ...(obj.source && { source: Source.filterSensitiveLog(obj.source) }),
-  });
-}
-
 export interface TrustAnchorDetailResponse {
   /**
    * <p>The state of the trust anchor after a read or write operation. </p>
    */
   trustAnchor: TrustAnchorDetail | undefined;
-}
-
-export namespace TrustAnchorDetailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrustAnchorDetailResponse): any => ({
-    ...obj,
-    ...(obj.trustAnchor && { trustAnchor: TrustAnchorDetail.filterSensitiveLog(obj.trustAnchor) }),
-  });
 }
 
 /**
@@ -425,15 +336,6 @@ export interface CredentialSummary {
    * <p>Indicates whether the <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> operation was successful. </p>
    */
   failed?: boolean;
-}
-
-export namespace CredentialSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CredentialSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -481,29 +383,11 @@ export interface CrlDetail {
   updatedAt?: Date;
 }
 
-export namespace CrlDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CrlDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface CrlDetailResponse {
   /**
    * <p>The state of the certificate revocation list (CRL) after a read or write operation.</p>
    */
   crl: CrlDetail | undefined;
-}
-
-export namespace CrlDetailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CrlDetailResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -530,15 +414,6 @@ export interface ScalarCrlRequest {
    * <p>The unique identifier of the certificate revocation list (CRL).</p>
    */
   crlId: string | undefined;
-}
-
-export namespace ScalarCrlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalarCrlRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ImportCrlRequest {
@@ -568,16 +443,6 @@ export interface ImportCrlRequest {
   trustAnchorArn: string | undefined;
 }
 
-export namespace ImportCrlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportCrlRequest): any => ({
-    ...obj,
-    ...(obj.tags && { tags: obj.tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface ListCrlsResponse {
   /**
    * <p>A token that indicates where the output should continue from, if a previous operation did not show all results. To get the next results, call the operation again with this value.</p>
@@ -590,15 +455,6 @@ export interface ListCrlsResponse {
   crls?: CrlDetail[];
 }
 
-export namespace ListCrlsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCrlsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRequest {
   /**
    * <p>A token that indicates where the output should continue from, if a previous operation did not show all results. To get the next results, call the operation again with this value.</p>
@@ -609,15 +465,6 @@ export interface ListRequest {
    * <p>The number of resources in the paginated list. </p>
    */
   pageSize?: number;
-}
-
-export namespace ListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateCrlRequest {
@@ -637,29 +484,11 @@ export interface UpdateCrlRequest {
   crlData?: Uint8Array;
 }
 
-export namespace UpdateCrlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCrlRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ScalarProfileRequest {
   /**
    * <p>The unique identifier of the profile.</p>
    */
   profileId: string | undefined;
-}
-
-export namespace ScalarProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalarProfileRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ScalarTrustAnchorRequest {
@@ -669,29 +498,11 @@ export interface ScalarTrustAnchorRequest {
   trustAnchorId: string | undefined;
 }
 
-export namespace ScalarTrustAnchorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalarTrustAnchorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ScalarSubjectRequest {
   /**
    * <p>The unique identifier of the subject. </p>
    */
   subjectId: string | undefined;
-}
-
-export namespace ScalarSubjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalarSubjectRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -712,15 +523,6 @@ export interface InstanceProperty {
    * <p>Indicates whether the <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a> operation was successful. </p>
    */
   failed?: boolean;
-}
-
-export namespace InstanceProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceProperty): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -773,29 +575,11 @@ export interface SubjectDetail {
   instanceProperties?: InstanceProperty[];
 }
 
-export namespace SubjectDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubjectDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface SubjectDetailResponse {
   /**
    * <p>The state of the subject after a read or write operation.</p>
    */
   subject?: SubjectDetail;
-}
-
-export namespace SubjectDetailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubjectDetailResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListProfilesResponse {
@@ -808,15 +592,6 @@ export interface ListProfilesResponse {
    * <p>A list of profiles.</p>
    */
   profiles?: ProfileDetail[];
-}
-
-export namespace ListProfilesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProfilesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -859,15 +634,6 @@ export interface SubjectSummary {
   updatedAt?: Date;
 }
 
-export namespace SubjectSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubjectSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSubjectsResponse {
   /**
    * <p>A list of subjects.</p>
@@ -880,15 +646,6 @@ export interface ListSubjectsResponse {
   nextToken?: string;
 }
 
-export namespace ListSubjectsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSubjectsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -896,30 +653,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags attached to the resource.</p>
    */
   tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-    ...(obj.tags && { tags: obj.tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface ListTrustAnchorsResponse {
@@ -932,18 +670,6 @@ export interface ListTrustAnchorsResponse {
    * <p>A list of trust anchors.</p>
    */
   trustAnchors?: TrustAnchorDetail[];
-}
-
-export namespace ListTrustAnchorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrustAnchorsResponse): any => ({
-    ...obj,
-    ...(obj.trustAnchors && {
-      trustAnchors: obj.trustAnchors.map((item) => TrustAnchorDetail.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface UpdateProfileRequest {
@@ -978,15 +704,6 @@ export interface UpdateProfileRequest {
   durationSeconds?: number;
 }
 
-export namespace UpdateProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -999,26 +716,7 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.tags && { tags: obj.tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Too many tags.</p>
@@ -1056,16 +754,6 @@ export interface UpdateTrustAnchorRequest {
   source?: Source;
 }
 
-export namespace UpdateTrustAnchorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTrustAnchorRequest): any => ({
-    ...obj,
-    ...(obj.source && { source: Source.filterSensitiveLog(obj.source) }),
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1078,23 +766,265 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-    ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+  ...(obj.key && { key: SENSITIVE_STRING }),
+  ...(obj.value && { value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateProfileRequestFilterSensitiveLog = (obj: CreateProfileRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ProfileDetailFilterSensitiveLog = (obj: ProfileDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProfileDetailResponseFilterSensitiveLog = (obj: ProfileDetailResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceDataFilterSensitiveLog = (obj: SourceData): any => {
+  if (obj.x509CertificateData !== undefined) return { x509CertificateData: obj.x509CertificateData };
+  if (obj.acmPcaArn !== undefined) return { acmPcaArn: obj.acmPcaArn };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const SourceFilterSensitiveLog = (obj: Source): any => ({
+  ...obj,
+  ...(obj.sourceData && { sourceData: SourceDataFilterSensitiveLog(obj.sourceData) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateTrustAnchorRequestFilterSensitiveLog = (obj: CreateTrustAnchorRequest): any => ({
+  ...obj,
+  ...(obj.source && { source: SourceFilterSensitiveLog(obj.source) }),
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const TrustAnchorDetailFilterSensitiveLog = (obj: TrustAnchorDetail): any => ({
+  ...obj,
+  ...(obj.source && { source: SourceFilterSensitiveLog(obj.source) }),
+});
+
+/**
+ * @internal
+ */
+export const TrustAnchorDetailResponseFilterSensitiveLog = (obj: TrustAnchorDetailResponse): any => ({
+  ...obj,
+  ...(obj.trustAnchor && { trustAnchor: TrustAnchorDetailFilterSensitiveLog(obj.trustAnchor) }),
+});
+
+/**
+ * @internal
+ */
+export const CredentialSummaryFilterSensitiveLog = (obj: CredentialSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CrlDetailFilterSensitiveLog = (obj: CrlDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CrlDetailResponseFilterSensitiveLog = (obj: CrlDetailResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalarCrlRequestFilterSensitiveLog = (obj: ScalarCrlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportCrlRequestFilterSensitiveLog = (obj: ImportCrlRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListCrlsResponseFilterSensitiveLog = (obj: ListCrlsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRequestFilterSensitiveLog = (obj: ListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCrlRequestFilterSensitiveLog = (obj: UpdateCrlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalarProfileRequestFilterSensitiveLog = (obj: ScalarProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalarTrustAnchorRequestFilterSensitiveLog = (obj: ScalarTrustAnchorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalarSubjectRequestFilterSensitiveLog = (obj: ScalarSubjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstancePropertyFilterSensitiveLog = (obj: InstanceProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubjectDetailFilterSensitiveLog = (obj: SubjectDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubjectDetailResponseFilterSensitiveLog = (obj: SubjectDetailResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProfilesResponseFilterSensitiveLog = (obj: ListProfilesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubjectSummaryFilterSensitiveLog = (obj: SubjectSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSubjectsResponseFilterSensitiveLog = (obj: ListSubjectsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListTrustAnchorsResponseFilterSensitiveLog = (obj: ListTrustAnchorsResponse): any => ({
+  ...obj,
+  ...(obj.trustAnchors && { trustAnchors: obj.trustAnchors.map((item) => TrustAnchorDetailFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateProfileRequestFilterSensitiveLog = (obj: UpdateProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: obj.tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTrustAnchorRequestFilterSensitiveLog = (obj: UpdateTrustAnchorRequest): any => ({
+  ...obj,
+  ...(obj.source && { source: SourceFilterSensitiveLog(obj.source) }),
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+  ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutDedicatedIpInPoolRequest, PutDedicatedIpInPoolResponse } from "../models/models_0";
+import {
+  PutDedicatedIpInPoolRequest,
+  PutDedicatedIpInPoolRequestFilterSensitiveLog,
+  PutDedicatedIpInPoolResponse,
+  PutDedicatedIpInPoolResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
   deserializeAws_restJson1PutDedicatedIpInPoolCommand,
@@ -81,8 +86,8 @@ export class PutDedicatedIpInPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDedicatedIpInPoolRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutDedicatedIpInPoolResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutDedicatedIpInPoolRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutDedicatedIpInPoolResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

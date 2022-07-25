@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { UpdateServiceIntegrationRequest, UpdateServiceIntegrationResponse } from "../models/models_0";
+import {
+  UpdateServiceIntegrationRequest,
+  UpdateServiceIntegrationRequestFilterSensitiveLog,
+  UpdateServiceIntegrationResponse,
+  UpdateServiceIntegrationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateServiceIntegrationCommand,
   serializeAws_restJson1UpdateServiceIntegrationCommand,
@@ -74,8 +79,8 @@ export class UpdateServiceIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServiceIntegrationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServiceIntegrationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateServiceIntegrationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateServiceIntegrationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

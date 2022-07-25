@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetTransitGatewayPeeringRequest, GetTransitGatewayPeeringResponse } from "../models/models_0";
+import {
+  GetTransitGatewayPeeringRequest,
+  GetTransitGatewayPeeringRequestFilterSensitiveLog,
+  GetTransitGatewayPeeringResponse,
+  GetTransitGatewayPeeringResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1GetTransitGatewayPeeringCommand,
@@ -72,8 +77,8 @@ export class GetTransitGatewayPeeringCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTransitGatewayPeeringRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTransitGatewayPeeringResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTransitGatewayPeeringRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTransitGatewayPeeringResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

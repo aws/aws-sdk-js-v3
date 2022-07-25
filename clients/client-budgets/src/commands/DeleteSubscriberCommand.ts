@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import { DeleteSubscriberRequest, DeleteSubscriberResponse } from "../models/models_0";
+import {
+  DeleteSubscriberRequest,
+  DeleteSubscriberRequestFilterSensitiveLog,
+  DeleteSubscriberResponse,
+  DeleteSubscriberResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSubscriberCommand,
   serializeAws_json1_1DeleteSubscriberCommand,
@@ -75,8 +80,8 @@ export class DeleteSubscriberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSubscriberRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSubscriberResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSubscriberRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSubscriberResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

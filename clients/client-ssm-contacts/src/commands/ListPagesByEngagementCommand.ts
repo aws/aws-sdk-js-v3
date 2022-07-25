@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListPagesByEngagementRequest, ListPagesByEngagementResult } from "../models/models_0";
+import {
+  ListPagesByEngagementRequest,
+  ListPagesByEngagementRequestFilterSensitiveLog,
+  ListPagesByEngagementResult,
+  ListPagesByEngagementResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListPagesByEngagementCommand,
   serializeAws_json1_1ListPagesByEngagementCommand,
@@ -72,8 +77,8 @@ export class ListPagesByEngagementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPagesByEngagementRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPagesByEngagementResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPagesByEngagementRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPagesByEngagementResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

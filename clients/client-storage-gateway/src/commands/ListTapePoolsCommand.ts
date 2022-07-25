@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListTapePoolsInput, ListTapePoolsOutput } from "../models/models_0";
+import {
+  ListTapePoolsInput,
+  ListTapePoolsInputFilterSensitiveLog,
+  ListTapePoolsOutput,
+  ListTapePoolsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListTapePoolsCommand,
   serializeAws_json1_1ListTapePoolsCommand,
@@ -80,8 +85,8 @@ export class ListTapePoolsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTapePoolsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTapePoolsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTapePoolsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTapePoolsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

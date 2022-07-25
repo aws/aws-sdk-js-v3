@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteObjectTaggingOutput, DeleteObjectTaggingRequest } from "../models/models_0";
+import {
+  DeleteObjectTaggingOutput,
+  DeleteObjectTaggingOutputFilterSensitiveLog,
+  DeleteObjectTaggingRequest,
+  DeleteObjectTaggingRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteObjectTaggingCommand,
   serializeAws_restXmlDeleteObjectTaggingCommand,
@@ -98,8 +103,8 @@ export class DeleteObjectTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteObjectTaggingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteObjectTaggingOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteObjectTaggingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteObjectTaggingOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import { DeleteNotificationRuleRequest, DeleteNotificationRuleResult } from "../models/models_0";
+import {
+  DeleteNotificationRuleRequest,
+  DeleteNotificationRuleRequestFilterSensitiveLog,
+  DeleteNotificationRuleResult,
+  DeleteNotificationRuleResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteNotificationRuleCommand,
   serializeAws_restJson1DeleteNotificationRuleCommand,
@@ -76,8 +81,8 @@ export class DeleteNotificationRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNotificationRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNotificationRuleResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteNotificationRuleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteNotificationRuleResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

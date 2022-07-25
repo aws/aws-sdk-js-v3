@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { GetEventSelectorsRequest, GetEventSelectorsResponse } from "../models/models_0";
+import {
+  GetEventSelectorsRequest,
+  GetEventSelectorsRequestFilterSensitiveLog,
+  GetEventSelectorsResponse,
+  GetEventSelectorsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetEventSelectorsCommand,
   serializeAws_json1_1GetEventSelectorsCommand,
@@ -88,8 +93,8 @@ export class GetEventSelectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEventSelectorsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetEventSelectorsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEventSelectorsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetEventSelectorsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

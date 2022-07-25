@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { ImportKeyMaterialRequest, ImportKeyMaterialResponse } from "../models/models_0";
+import {
+  ImportKeyMaterialRequest,
+  ImportKeyMaterialRequestFilterSensitiveLog,
+  ImportKeyMaterialResponse,
+  ImportKeyMaterialResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ImportKeyMaterialCommand,
   serializeAws_json1_1ImportKeyMaterialCommand,
@@ -136,8 +141,8 @@ export class ImportKeyMaterialCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportKeyMaterialRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ImportKeyMaterialResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportKeyMaterialRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ImportKeyMaterialResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

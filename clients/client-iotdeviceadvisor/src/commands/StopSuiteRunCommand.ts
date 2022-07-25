@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
-import { StopSuiteRunRequest, StopSuiteRunResponse } from "../models/models_0";
+import {
+  StopSuiteRunRequest,
+  StopSuiteRunRequestFilterSensitiveLog,
+  StopSuiteRunResponse,
+  StopSuiteRunResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StopSuiteRunCommand,
   serializeAws_restJson1StopSuiteRunCommand,
@@ -73,8 +78,8 @@ export class StopSuiteRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopSuiteRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopSuiteRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopSuiteRunRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopSuiteRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

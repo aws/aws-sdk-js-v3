@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { PutInstancePublicPortsRequest, PutInstancePublicPortsResult } from "../models/models_1";
+import {
+  PutInstancePublicPortsRequest,
+  PutInstancePublicPortsRequestFilterSensitiveLog,
+  PutInstancePublicPortsResult,
+  PutInstancePublicPortsResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1PutInstancePublicPortsCommand,
   serializeAws_json1_1PutInstancePublicPortsCommand,
@@ -80,8 +85,8 @@ export class PutInstancePublicPortsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutInstancePublicPortsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutInstancePublicPortsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutInstancePublicPortsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutInstancePublicPortsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

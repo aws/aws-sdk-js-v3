@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeLaunchTemplateVersionsRequest, DescribeLaunchTemplateVersionsResult } from "../models/models_3";
+import {
+  DescribeLaunchTemplateVersionsRequest,
+  DescribeLaunchTemplateVersionsRequestFilterSensitiveLog,
+  DescribeLaunchTemplateVersionsResult,
+  DescribeLaunchTemplateVersionsResultFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeLaunchTemplateVersionsCommand,
   serializeAws_ec2DescribeLaunchTemplateVersionsCommand,
@@ -77,8 +82,8 @@ export class DescribeLaunchTemplateVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLaunchTemplateVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLaunchTemplateVersionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLaunchTemplateVersionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLaunchTemplateVersionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

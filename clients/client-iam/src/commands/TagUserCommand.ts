@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagUserRequest } from "../models/models_0";
+import { TagUserRequest, TagUserRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryTagUserCommand, serializeAws_queryTagUserCommand } from "../protocols/Aws_query";
 
 export interface TagUserCommandInput extends TagUserRequest {}
@@ -108,7 +108,7 @@ export class TagUserCommand extends $Command<TagUserCommandInput, TagUserCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagUserRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: TagUserRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateQueueMaxContactsRequest } from "../models/models_1";
+import { UpdateQueueMaxContactsRequest, UpdateQueueMaxContactsRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateQueueMaxContactsCommand,
   serializeAws_restJson1UpdateQueueMaxContactsCommand,
@@ -74,7 +74,7 @@ export class UpdateQueueMaxContactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateQueueMaxContactsRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateQueueMaxContactsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { UpdateFunctionRequest, UpdateFunctionResult } from "../models/models_1";
+import {
+  UpdateFunctionRequest,
+  UpdateFunctionRequestFilterSensitiveLog,
+  UpdateFunctionResult,
+  UpdateFunctionResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlUpdateFunctionCommand,
   serializeAws_restXmlUpdateFunctionCommand,
@@ -77,8 +82,8 @@ export class UpdateFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFunctionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFunctionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFunctionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFunctionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

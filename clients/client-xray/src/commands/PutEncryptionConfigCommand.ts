@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutEncryptionConfigRequest, PutEncryptionConfigResult } from "../models/models_0";
+import {
+  PutEncryptionConfigRequest,
+  PutEncryptionConfigRequestFilterSensitiveLog,
+  PutEncryptionConfigResult,
+  PutEncryptionConfigResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutEncryptionConfigCommand,
   serializeAws_restJson1PutEncryptionConfigCommand,
@@ -72,8 +77,8 @@ export class PutEncryptionConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEncryptionConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutEncryptionConfigResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutEncryptionConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutEncryptionConfigResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

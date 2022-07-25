@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { DescribeAccountHealthRequest, DescribeAccountHealthResponse } from "../models/models_0";
+import {
+  DescribeAccountHealthRequest,
+  DescribeAccountHealthRequestFilterSensitiveLog,
+  DescribeAccountHealthResponse,
+  DescribeAccountHealthResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAccountHealthCommand,
   serializeAws_restJson1DescribeAccountHealthCommand,
@@ -74,8 +79,8 @@ export class DescribeAccountHealthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountHealthRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountHealthResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAccountHealthRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAccountHealthResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

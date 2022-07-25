@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { RecordLifecycleActionHeartbeatAnswer, RecordLifecycleActionHeartbeatType } from "../models/models_0";
+import {
+  RecordLifecycleActionHeartbeatAnswer,
+  RecordLifecycleActionHeartbeatAnswerFilterSensitiveLog,
+  RecordLifecycleActionHeartbeatType,
+  RecordLifecycleActionHeartbeatTypeFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryRecordLifecycleActionHeartbeatCommand,
   serializeAws_queryRecordLifecycleActionHeartbeatCommand,
@@ -110,8 +115,8 @@ export class RecordLifecycleActionHeartbeatCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RecordLifecycleActionHeartbeatType.filterSensitiveLog,
-      outputFilterSensitiveLog: RecordLifecycleActionHeartbeatAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: RecordLifecycleActionHeartbeatTypeFilterSensitiveLog,
+      outputFilterSensitiveLog: RecordLifecycleActionHeartbeatAnswerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

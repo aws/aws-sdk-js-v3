@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { ResetDeploymentsRequest, ResetDeploymentsResponse } from "../models/models_0";
+import {
+  ResetDeploymentsRequest,
+  ResetDeploymentsRequestFilterSensitiveLog,
+  ResetDeploymentsResponse,
+  ResetDeploymentsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ResetDeploymentsCommand,
   serializeAws_restJson1ResetDeploymentsCommand,
@@ -72,8 +77,8 @@ export class ResetDeploymentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetDeploymentsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResetDeploymentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetDeploymentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResetDeploymentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteCellRequest } from "../models/models_0";
+import { DeleteCellRequest, DeleteCellRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCellCommand,
   serializeAws_restJson1DeleteCellCommand,
@@ -76,7 +76,7 @@ export class DeleteCellCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCellRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCellRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

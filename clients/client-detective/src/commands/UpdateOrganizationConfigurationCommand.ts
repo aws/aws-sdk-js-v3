@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { UpdateOrganizationConfigurationRequest } from "../models/models_0";
+import {
+  UpdateOrganizationConfigurationRequest,
+  UpdateOrganizationConfigurationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateOrganizationConfigurationCommand,
   serializeAws_restJson1UpdateOrganizationConfigurationCommand,
@@ -74,7 +77,7 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOrganizationConfigurationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateOrganizationConfigurationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

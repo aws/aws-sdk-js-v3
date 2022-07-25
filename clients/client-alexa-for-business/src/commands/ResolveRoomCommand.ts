@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { ResolveRoomRequest, ResolveRoomResponse } from "../models/models_0";
+import {
+  ResolveRoomRequest,
+  ResolveRoomRequestFilterSensitiveLog,
+  ResolveRoomResponse,
+  ResolveRoomResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ResolveRoomCommand,
   serializeAws_json1_1ResolveRoomCommand,
@@ -78,8 +83,8 @@ export class ResolveRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResolveRoomRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResolveRoomResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResolveRoomRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResolveRoomResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

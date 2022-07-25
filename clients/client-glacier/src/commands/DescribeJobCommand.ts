@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { DescribeJobInput, GlacierJobDescription } from "../models/models_0";
+import {
+  DescribeJobInput,
+  DescribeJobInputFilterSensitiveLog,
+  GlacierJobDescription,
+  GlacierJobDescriptionFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeJobCommand,
   serializeAws_restJson1DescribeJobCommand,
@@ -95,8 +100,8 @@ export class DescribeJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GlacierJobDescription.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeJobInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GlacierJobDescriptionFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

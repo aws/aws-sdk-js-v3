@@ -15,7 +15,9 @@ import {
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import {
   AssociateDeviceWithNetworkProfileRequest,
+  AssociateDeviceWithNetworkProfileRequestFilterSensitiveLog,
   AssociateDeviceWithNetworkProfileResponse,
+  AssociateDeviceWithNetworkProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateDeviceWithNetworkProfileCommand,
@@ -77,8 +79,8 @@ export class AssociateDeviceWithNetworkProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateDeviceWithNetworkProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateDeviceWithNetworkProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateDeviceWithNetworkProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateDeviceWithNetworkProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

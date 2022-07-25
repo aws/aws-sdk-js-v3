@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { GetStoredQueryRequest, GetStoredQueryResponse } from "../models/models_0";
+import {
+  GetStoredQueryRequest,
+  GetStoredQueryRequestFilterSensitiveLog,
+  GetStoredQueryResponse,
+  GetStoredQueryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetStoredQueryCommand,
   serializeAws_json1_1GetStoredQueryCommand,
@@ -72,8 +77,8 @@ export class GetStoredQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStoredQueryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetStoredQueryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetStoredQueryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetStoredQueryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

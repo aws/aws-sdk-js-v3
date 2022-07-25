@@ -15,7 +15,9 @@ import {
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import {
   RebalanceSlotsInGlobalReplicationGroupMessage,
+  RebalanceSlotsInGlobalReplicationGroupMessageFilterSensitiveLog,
   RebalanceSlotsInGlobalReplicationGroupResult,
+  RebalanceSlotsInGlobalReplicationGroupResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand,
@@ -78,8 +80,8 @@ export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebalanceSlotsInGlobalReplicationGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: RebalanceSlotsInGlobalReplicationGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RebalanceSlotsInGlobalReplicationGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: RebalanceSlotsInGlobalReplicationGroupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

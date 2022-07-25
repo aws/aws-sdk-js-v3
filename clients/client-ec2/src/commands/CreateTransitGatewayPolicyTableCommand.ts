@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateTransitGatewayPolicyTableRequest, CreateTransitGatewayPolicyTableResult } from "../models/models_2";
+import {
+  CreateTransitGatewayPolicyTableRequest,
+  CreateTransitGatewayPolicyTableRequestFilterSensitiveLog,
+  CreateTransitGatewayPolicyTableResult,
+  CreateTransitGatewayPolicyTableResultFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_ec2CreateTransitGatewayPolicyTableCommand,
   serializeAws_ec2CreateTransitGatewayPolicyTableCommand,
@@ -74,8 +79,8 @@ export class CreateTransitGatewayPolicyTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTransitGatewayPolicyTableRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateTransitGatewayPolicyTableResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTransitGatewayPolicyTableRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateTransitGatewayPolicyTableResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

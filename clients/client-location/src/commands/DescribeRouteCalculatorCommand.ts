@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { DescribeRouteCalculatorRequest, DescribeRouteCalculatorResponse } from "../models/models_0";
+import {
+  DescribeRouteCalculatorRequest,
+  DescribeRouteCalculatorRequestFilterSensitiveLog,
+  DescribeRouteCalculatorResponse,
+  DescribeRouteCalculatorResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeRouteCalculatorCommand,
   serializeAws_restJson1DescribeRouteCalculatorCommand,
@@ -72,8 +77,8 @@ export class DescribeRouteCalculatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRouteCalculatorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRouteCalculatorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRouteCalculatorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRouteCalculatorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

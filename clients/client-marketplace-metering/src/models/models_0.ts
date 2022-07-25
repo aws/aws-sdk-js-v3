@@ -21,15 +21,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Usage allocations allow you to split usage into buckets by tags.</p>
  *         <p>Each <code>UsageAllocation</code> indicates the usage quantity for a specific set of
@@ -46,15 +37,6 @@ export interface UsageAllocation {
    *             this parameter can be left out.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace UsageAllocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsageAllocation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -98,15 +80,6 @@ export interface UsageRecord {
   UsageAllocations?: UsageAllocation[];
 }
 
-export namespace UsageRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsageRecord): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A <code>BatchMeterUsageRequest</code> contains <code>UsageRecords</code>, which
  *             indicate quantities of usage within your application.</p>
@@ -123,15 +96,6 @@ export interface BatchMeterUsageRequest {
    *             code should be the same as the one used during the publishing of a new product.</p>
    */
   ProductCode: string | undefined;
-}
-
-export namespace BatchMeterUsageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchMeterUsageRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum UsageRecordResultStatus {
@@ -199,15 +163,6 @@ export interface UsageRecordResult {
   Status?: UsageRecordResultStatus | string;
 }
 
-export namespace UsageRecordResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsageRecordResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the <code>UsageRecords</code> processed by <code>BatchMeterUsage</code> and
  *             any records that have failed due to transient error.</p>
@@ -227,15 +182,6 @@ export interface BatchMeterUsageResult {
    *             list as input in the <code>BatchMeterUsageRequest</code>.</p>
    */
   UnprocessedRecords?: UsageRecord[];
-}
-
-export namespace BatchMeterUsageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchMeterUsageResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -523,29 +469,11 @@ export interface MeterUsageRequest {
   UsageAllocations?: UsageAllocation[];
 }
 
-export namespace MeterUsageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MeterUsageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface MeterUsageResult {
   /**
    * <p>Metering record id.</p>
    */
   MeteringRecordId?: string;
-}
-
-export namespace MeterUsageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MeterUsageResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -628,15 +556,6 @@ export interface RegisterUsageRequest {
   Nonce?: string;
 }
 
-export namespace RegisterUsageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterUsageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterUsageResult {
   /**
    * <p>(Optional) Only included when public key version has expired</p>
@@ -647,15 +566,6 @@ export interface RegisterUsageResult {
    * <p>JWT Token</p>
    */
   Signature?: string;
-}
-
-export namespace RegisterUsageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterUsageResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -716,15 +626,6 @@ export interface ResolveCustomerRequest {
   RegistrationToken: string | undefined;
 }
 
-export namespace ResolveCustomerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolveCustomerRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of the <code>ResolveCustomer</code> operation. Contains the
  *                 <code>CustomerIdentifier</code>
@@ -754,11 +655,86 @@ export interface ResolveCustomerResult {
   CustomerAWSAccountId?: string;
 }
 
-export namespace ResolveCustomerResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolveCustomerResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsageAllocationFilterSensitiveLog = (obj: UsageAllocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsageRecordFilterSensitiveLog = (obj: UsageRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchMeterUsageRequestFilterSensitiveLog = (obj: BatchMeterUsageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsageRecordResultFilterSensitiveLog = (obj: UsageRecordResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchMeterUsageResultFilterSensitiveLog = (obj: BatchMeterUsageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MeterUsageRequestFilterSensitiveLog = (obj: MeterUsageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MeterUsageResultFilterSensitiveLog = (obj: MeterUsageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterUsageRequestFilterSensitiveLog = (obj: RegisterUsageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterUsageResultFilterSensitiveLog = (obj: RegisterUsageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolveCustomerRequestFilterSensitiveLog = (obj: ResolveCustomerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolveCustomerResultFilterSensitiveLog = (obj: ResolveCustomerResult): any => ({
+  ...obj,
+});

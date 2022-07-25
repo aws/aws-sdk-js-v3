@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBClusterParameterGroupNameMessage, ResetDBClusterParameterGroupMessage } from "../models/models_0";
+import {
+  DBClusterParameterGroupNameMessage,
+  DBClusterParameterGroupNameMessageFilterSensitiveLog,
+  ResetDBClusterParameterGroupMessage,
+  ResetDBClusterParameterGroupMessageFilterSensitiveLog,
+} from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryResetDBClusterParameterGroupCommand,
@@ -81,8 +86,8 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetDBClusterParameterGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterParameterGroupNameMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetDBClusterParameterGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterParameterGroupNameMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { DisconnectSourceServerRequest, SourceServer } from "../models/models_0";
+import {
+  DisconnectSourceServerRequest,
+  DisconnectSourceServerRequestFilterSensitiveLog,
+  SourceServer,
+  SourceServerFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisconnectSourceServerCommand,
   serializeAws_restJson1DisconnectSourceServerCommand,
@@ -72,8 +77,8 @@ export class DisconnectSourceServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisconnectSourceServerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SourceServer.filterSensitiveLog,
+      inputFilterSensitiveLog: DisconnectSourceServerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SourceServerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

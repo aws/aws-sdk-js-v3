@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { GetMetricWidgetImageInput, GetMetricWidgetImageOutput } from "../models/models_0";
+import {
+  GetMetricWidgetImageInput,
+  GetMetricWidgetImageInputFilterSensitiveLog,
+  GetMetricWidgetImageOutput,
+  GetMetricWidgetImageOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetMetricWidgetImageCommand,
   serializeAws_queryGetMetricWidgetImageCommand,
@@ -89,8 +94,8 @@ export class GetMetricWidgetImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMetricWidgetImageInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMetricWidgetImageOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMetricWidgetImageInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMetricWidgetImageOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

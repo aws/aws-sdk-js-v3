@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteThingRequest, DeleteThingResponse } from "../models/models_1";
+import {
+  DeleteThingRequest,
+  DeleteThingRequestFilterSensitiveLog,
+  DeleteThingResponse,
+  DeleteThingResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteThingCommand,
   serializeAws_restJson1DeleteThingCommand,
@@ -74,8 +79,8 @@ export class DeleteThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteThingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteThingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteThingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteThingResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

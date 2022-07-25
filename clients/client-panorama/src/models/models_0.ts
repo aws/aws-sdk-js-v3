@@ -34,15 +34,6 @@ export interface AlternateSoftwareMetadata {
   Version?: string;
 }
 
-export namespace AlternateSoftwareMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlternateSoftwareMetadata): any => ({
-    ...obj,
-  });
-}
-
 export enum ApplicationInstanceHealthStatus {
   ERROR = "ERROR",
   NOT_AVAILABLE = "NOT_AVAILABLE",
@@ -123,15 +114,6 @@ export interface ApplicationInstance {
   Tags?: Record<string, string>;
 }
 
-export namespace ApplicationInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationInstance): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A conflict exception error argument.</p>
  */
@@ -145,15 +127,6 @@ export interface ConflictExceptionErrorArgument {
    * <p>The error argument's value.</p>
    */
   Value: string | undefined;
-}
-
-export namespace ConflictExceptionErrorArgument {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictExceptionErrorArgument): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -236,14 +209,6 @@ export namespace ManifestOverridesPayload {
     if (value.PayloadData !== undefined) return visitor.PayloadData(value.PayloadData);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManifestOverridesPayload): any => {
-    if (obj.PayloadData !== undefined) return { PayloadData: obj.PayloadData };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -275,14 +240,6 @@ export namespace ManifestPayload {
   export const visit = <T>(value: ManifestPayload, visitor: Visitor<T>): T => {
     if (value.PayloadData !== undefined) return visitor.PayloadData(value.PayloadData);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManifestPayload): any => {
-    if (obj.PayloadData !== undefined) return { PayloadData: obj.PayloadData };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -328,33 +285,11 @@ export interface CreateApplicationInstanceRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateApplicationInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationInstanceRequest): any => ({
-    ...obj,
-    ...(obj.ManifestPayload && { ManifestPayload: ManifestPayload.filterSensitiveLog(obj.ManifestPayload) }),
-    ...(obj.ManifestOverridesPayload && {
-      ManifestOverridesPayload: ManifestOverridesPayload.filterSensitiveLog(obj.ManifestOverridesPayload),
-    }),
-  });
-}
-
 export interface CreateApplicationInstanceResponse {
   /**
    * <p>The application instance's ID.</p>
    */
   ApplicationInstanceId: string | undefined;
-}
-
-export namespace CreateApplicationInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationInstanceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -442,15 +377,6 @@ export interface ValidationExceptionErrorArgument {
   Value: string | undefined;
 }
 
-export namespace ValidationExceptionErrorArgument {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionErrorArgument): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A validation exception field.</p>
  */
@@ -464,15 +390,6 @@ export interface ValidationExceptionField {
    * <p>The field's message.</p>
    */
   Message: string | undefined;
-}
-
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
 }
 
 export enum ValidationExceptionReason {
@@ -536,15 +453,6 @@ export interface OTAJobConfig {
   ImageVersion: string | undefined;
 }
 
-export namespace OTAJobConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OTAJobConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A job's configuration.</p>
  */
@@ -553,15 +461,6 @@ export interface DeviceJobConfig {
    * <p>A configuration for an over-the-air (OTA) upgrade. Required for OTA jobs.</p>
    */
   OTAJobConfig?: OTAJobConfig;
-}
-
-export namespace DeviceJobConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceJobConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum JobType {
@@ -585,15 +484,6 @@ export interface CreateJobForDevicesRequest {
   JobType: JobType | string | undefined;
 }
 
-export namespace CreateJobForDevicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobForDevicesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A job for a device.</p>
  */
@@ -609,29 +499,11 @@ export interface Job {
   DeviceId?: string;
 }
 
-export namespace Job {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Job): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateJobForDevicesResponse {
   /**
    * <p>A list of jobs.</p>
    */
   Jobs: Job[] | undefined;
-}
-
-export namespace CreateJobForDevicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobForDevicesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -685,15 +557,6 @@ export interface JobResourceTags {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace JobResourceTags {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobResourceTags): any => ({
-    ...obj,
-  });
-}
-
 export enum TemplateType {
   RTSP_CAMERA_STREAM = "RTSP_CAMERA_STREAM",
 }
@@ -735,30 +598,11 @@ export interface CreateNodeFromTemplateJobRequest {
   JobTags?: JobResourceTags[];
 }
 
-export namespace CreateNodeFromTemplateJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNodeFromTemplateJobRequest): any => ({
-    ...obj,
-    ...(obj.TemplateParameters && { TemplateParameters: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateNodeFromTemplateJobResponse {
   /**
    * <p>The job's ID.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace CreateNodeFromTemplateJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNodeFromTemplateJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePackageRequest {
@@ -771,15 +615,6 @@ export interface CreatePackageRequest {
    * <p>Tags for the package.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreatePackageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePackageRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -812,15 +647,6 @@ export interface StorageLocation {
   ManifestPrefixLocation: string | undefined;
 }
 
-export namespace StorageLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageLocation): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePackageResponse {
   /**
    * <p>The package's ID.</p>
@@ -836,15 +662,6 @@ export interface CreatePackageResponse {
    * <p>The package's storage location.</p>
    */
   StorageLocation: StorageLocation | undefined;
-}
-
-export namespace CreatePackageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePackageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -867,15 +684,6 @@ export interface S3Location {
   ObjectKey: string | undefined;
 }
 
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A package version input configuration.</p>
  */
@@ -886,15 +694,6 @@ export interface PackageVersionInputConfig {
   S3Location: S3Location | undefined;
 }
 
-export namespace PackageVersionInputConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageVersionInputConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A configuration for a package import job.</p>
  */
@@ -903,15 +702,6 @@ export interface PackageImportJobInputConfig {
    * <p>The package version's input configuration.</p>
    */
   PackageVersionInputConfig?: PackageVersionInputConfig;
-}
-
-export namespace PackageImportJobInputConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageImportJobInputConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum PackageImportJobType {
@@ -939,15 +729,6 @@ export interface PackageVersionOutputConfig {
   MarkLatest?: boolean;
 }
 
-export namespace PackageVersionOutputConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageVersionOutputConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An output configuration for a package import job.</p>
  */
@@ -956,15 +737,6 @@ export interface PackageImportJobOutputConfig {
    * <p>The package version's output configuration.</p>
    */
   PackageVersionOutputConfig?: PackageVersionOutputConfig;
-}
-
-export namespace PackageImportJobOutputConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageImportJobOutputConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePackageImportJobRequest {
@@ -994,29 +766,11 @@ export interface CreatePackageImportJobRequest {
   JobTags?: JobResourceTags[];
 }
 
-export namespace CreatePackageImportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePackageImportJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePackageImportJobResponse {
   /**
    * <p>The job's ID.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace CreatePackageImportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePackageImportJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDeviceRequest {
@@ -1026,29 +780,11 @@ export interface DeleteDeviceRequest {
   DeviceId: string | undefined;
 }
 
-export namespace DeleteDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDeviceResponse {
   /**
    * <p>The device's ID.</p>
    */
   DeviceId?: string;
-}
-
-export namespace DeleteDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeviceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeletePackageRequest {
@@ -1064,25 +800,7 @@ export interface DeletePackageRequest {
   ForceDelete?: boolean;
 }
 
-export namespace DeletePackageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePackageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePackageResponse {}
-
-export namespace DeletePackageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePackageResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeregisterPackageVersionRequest {
   /**
@@ -1111,40 +829,13 @@ export interface DeregisterPackageVersionRequest {
   UpdatedLatestPatchVersion?: string;
 }
 
-export namespace DeregisterPackageVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterPackageVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterPackageVersionResponse {}
-
-export namespace DeregisterPackageVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterPackageVersionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeApplicationInstanceRequest {
   /**
    * <p>The application instance's ID.</p>
    */
   ApplicationInstanceId: string | undefined;
-}
-
-export namespace DescribeApplicationInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApplicationInstanceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeApplicationInstanceResponse {
@@ -1219,29 +910,11 @@ export interface DescribeApplicationInstanceResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace DescribeApplicationInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApplicationInstanceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeApplicationInstanceDetailsRequest {
   /**
    * <p>The application instance's ID.</p>
    */
   ApplicationInstanceId: string | undefined;
-}
-
-export namespace DescribeApplicationInstanceDetailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApplicationInstanceDetailsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeApplicationInstanceDetailsResponse {
@@ -1286,33 +959,11 @@ export interface DescribeApplicationInstanceDetailsResponse {
   ApplicationInstanceId?: string;
 }
 
-export namespace DescribeApplicationInstanceDetailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApplicationInstanceDetailsResponse): any => ({
-    ...obj,
-    ...(obj.ManifestPayload && { ManifestPayload: ManifestPayload.filterSensitiveLog(obj.ManifestPayload) }),
-    ...(obj.ManifestOverridesPayload && {
-      ManifestOverridesPayload: ManifestOverridesPayload.filterSensitiveLog(obj.ManifestOverridesPayload),
-    }),
-  });
-}
-
 export interface DescribeDeviceRequest {
   /**
    * <p>The device's ID.</p>
    */
   DeviceId: string | undefined;
-}
-
-export namespace DescribeDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DeviceBrand {
@@ -1346,15 +997,6 @@ export interface EthernetStatus {
   HwAddress?: string;
 }
 
-export namespace EthernetStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EthernetStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about an NTP server connection.</p>
  */
@@ -1373,15 +1015,6 @@ export interface NtpStatus {
    * <p>The domain name of the server.</p>
    */
   NtpServerName?: string;
-}
-
-export namespace NtpStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NtpStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1407,15 +1040,6 @@ export interface NetworkStatus {
    * <p>When the network status changed.</p>
    */
   LastUpdatedTime?: Date;
-}
-
-export namespace NetworkStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkStatus): any => ({
-    ...obj,
-  });
 }
 
 export enum DeviceConnectionStatus {
@@ -1451,15 +1075,6 @@ export interface StaticIpConnectionInfo {
   DefaultGateway: string | undefined;
 }
 
-export namespace StaticIpConnectionInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StaticIpConnectionInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A device's network configuration.</p>
  */
@@ -1475,15 +1090,6 @@ export interface EthernetPayload {
   StaticIpConnectionInfo?: StaticIpConnectionInfo;
 }
 
-export namespace EthernetPayload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EthernetPayload): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Network time protocol (NTP) server settings. Use this option to connect to local NTP servers instead of
  *         <code>pool.ntp.org</code>.</p>
@@ -1493,15 +1099,6 @@ export interface NtpPayload {
    * <p>NTP servers to use, in order of preference.</p>
    */
   NtpServers: string[] | undefined;
-}
-
-export namespace NtpPayload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NtpPayload): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1522,15 +1119,6 @@ export interface NetworkPayload {
    * <p>Network time protocol (NTP) server settings.</p>
    */
   Ntp?: NtpPayload;
-}
-
-export namespace NetworkPayload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkPayload): any => ({
-    ...obj,
-  });
 }
 
 export enum DeviceStatus {
@@ -1639,29 +1227,11 @@ export interface DescribeDeviceResponse {
   Brand?: DeviceBrand | string;
 }
 
-export namespace DescribeDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDeviceJobRequest {
   /**
    * <p>The job's ID.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace DescribeDeviceJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum UpdateProgress {
@@ -1716,15 +1286,6 @@ export interface DescribeDeviceJobResponse {
   CreatedTime?: Date;
 }
 
-export namespace DescribeDeviceJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeNodeRequest {
   /**
    * <p>The node's ID.</p>
@@ -1735,15 +1296,6 @@ export interface DescribeNodeRequest {
    * <p>The account ID of the node's owner.</p>
    */
   OwnerAccount?: string;
-}
-
-export namespace DescribeNodeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNodeRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum NodeCategory {
@@ -1791,15 +1343,6 @@ export interface NodeInputPort {
   MaxConnections?: number;
 }
 
-export namespace NodeInputPort {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeInputPort): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A node output port.</p>
  */
@@ -1820,15 +1363,6 @@ export interface NodeOutputPort {
   Type?: PortType | string;
 }
 
-export namespace NodeOutputPort {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeOutputPort): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A node interface.</p>
  */
@@ -1842,15 +1376,6 @@ export interface NodeInterface {
    * <p>The node interface's outputs.</p>
    */
   Outputs: NodeOutputPort[] | undefined;
-}
-
-export namespace NodeInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeInterface): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeNodeResponse {
@@ -1925,29 +1450,11 @@ export interface DescribeNodeResponse {
   LastUpdatedTime: Date | undefined;
 }
 
-export namespace DescribeNodeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNodeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeNodeFromTemplateJobRequest {
   /**
    * <p>The job's ID.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace DescribeNodeFromTemplateJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNodeFromTemplateJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum NodeFromTemplateJobStatus {
@@ -2018,30 +1525,11 @@ export interface DescribeNodeFromTemplateJobResponse {
   JobTags?: JobResourceTags[];
 }
 
-export namespace DescribeNodeFromTemplateJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNodeFromTemplateJobResponse): any => ({
-    ...obj,
-    ...(obj.TemplateParameters && { TemplateParameters: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribePackageRequest {
   /**
    * <p>The package's ID.</p>
    */
   PackageId: string | undefined;
-}
-
-export namespace DescribePackageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackageRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePackageResponse {
@@ -2086,29 +1574,11 @@ export interface DescribePackageResponse {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace DescribePackageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackageResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePackageImportJobRequest {
   /**
    * <p>The job's ID.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace DescribePackageImportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackageImportJobRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2124,15 +1594,6 @@ export interface OutPutS3Location {
    * <p>The object's key.</p>
    */
   ObjectKey: string | undefined;
-}
-
-export namespace OutPutS3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutPutS3Location): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2158,15 +1619,6 @@ export interface PackageImportJobOutput {
    * <p>The package's output location.</p>
    */
   OutputS3Location: OutPutS3Location | undefined;
-}
-
-export namespace PackageImportJobOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageImportJobOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum PackageImportJobStatus {
@@ -2232,15 +1684,6 @@ export interface DescribePackageImportJobResponse {
   JobTags?: JobResourceTags[];
 }
 
-export namespace DescribePackageImportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackageImportJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePackageVersionRequest {
   /**
    * <p>The version's owner account.</p>
@@ -2261,15 +1704,6 @@ export interface DescribePackageVersionRequest {
    * <p>The version's patch version.</p>
    */
   PatchVersion?: string;
-}
-
-export namespace DescribePackageVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackageVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum PackageVersionStatus {
@@ -2331,15 +1765,6 @@ export interface DescribePackageVersionResponse {
   RegisteredTime?: Date;
 }
 
-export namespace DescribePackageVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackageVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A device.</p>
  */
@@ -2380,15 +1805,6 @@ export interface Device {
   Brand?: DeviceBrand | string;
 }
 
-export namespace Device {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Device): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A job that runs on a device.</p>
  */
@@ -2414,15 +1830,6 @@ export interface DeviceJob {
   CreatedTime?: Date;
 }
 
-export namespace DeviceJob {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceJob): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationInstanceDependenciesRequest {
   /**
    * <p>The application instance's ID.</p>
@@ -2438,15 +1845,6 @@ export interface ListApplicationInstanceDependenciesRequest {
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListApplicationInstanceDependenciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationInstanceDependenciesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2469,15 +1867,6 @@ export interface PackageObject {
   PatchVersion: string | undefined;
 }
 
-export namespace PackageObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageObject): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationInstanceDependenciesResponse {
   /**
    * <p>A list of package objects.</p>
@@ -2488,15 +1877,6 @@ export interface ListApplicationInstanceDependenciesResponse {
    * <p>A pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListApplicationInstanceDependenciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationInstanceDependenciesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListApplicationInstanceNodeInstancesRequest {
@@ -2514,15 +1894,6 @@ export interface ListApplicationInstanceNodeInstancesRequest {
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListApplicationInstanceNodeInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationInstanceNodeInstancesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum NodeInstanceStatus {
@@ -2571,15 +1942,6 @@ export interface NodeInstance {
   CurrentStatus: NodeInstanceStatus | string | undefined;
 }
 
-export namespace NodeInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeInstance): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationInstanceNodeInstancesResponse {
   /**
    * <p>A list of node instances.</p>
@@ -2590,15 +1952,6 @@ export interface ListApplicationInstanceNodeInstancesResponse {
    * <p>A pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListApplicationInstanceNodeInstancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationInstanceNodeInstancesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum StatusFilter {
@@ -2633,15 +1986,6 @@ export interface ListApplicationInstancesRequest {
   NextToken?: string;
 }
 
-export namespace ListApplicationInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationInstancesResponse {
   /**
    * <p>A list of application instances.</p>
@@ -2652,15 +1996,6 @@ export interface ListApplicationInstancesResponse {
    * <p>A pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListApplicationInstancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationInstancesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDevicesRequest {
@@ -2675,15 +2010,6 @@ export interface ListDevicesRequest {
   MaxResults?: number;
 }
 
-export namespace ListDevicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDevicesResponse {
   /**
    * <p>A list of devices.</p>
@@ -2694,15 +2020,6 @@ export interface ListDevicesResponse {
    * <p>A pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDevicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDevicesJobsRequest {
@@ -2722,15 +2039,6 @@ export interface ListDevicesJobsRequest {
   MaxResults?: number;
 }
 
-export namespace ListDevicesJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDevicesJobsResponse {
   /**
    * <p>A list of jobs.</p>
@@ -2743,15 +2051,6 @@ export interface ListDevicesJobsResponse {
   NextToken?: string;
 }
 
-export namespace ListDevicesJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesJobsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNodeFromTemplateJobsRequest {
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
@@ -2762,15 +2061,6 @@ export interface ListNodeFromTemplateJobsRequest {
    * <p>The maximum number of node from template jobs to return in one page of results.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListNodeFromTemplateJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNodeFromTemplateJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2808,15 +2098,6 @@ export interface NodeFromTemplateJob {
   NodeName?: string;
 }
 
-export namespace NodeFromTemplateJob {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeFromTemplateJob): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNodeFromTemplateJobsResponse {
   /**
    * <p>A list of jobs.</p>
@@ -2827,15 +2108,6 @@ export interface ListNodeFromTemplateJobsResponse {
    * <p>A pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListNodeFromTemplateJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNodeFromTemplateJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListNodesRequest {
@@ -2873,15 +2145,6 @@ export interface ListNodesRequest {
    * <p>The maximum number of nodes to return in one page of results.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListNodesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNodesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2944,15 +2207,6 @@ export interface Node {
   CreatedTime: Date | undefined;
 }
 
-export namespace Node {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Node): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNodesResponse {
   /**
    * <p>A list of nodes.</p>
@@ -2965,15 +2219,6 @@ export interface ListNodesResponse {
   NextToken?: string;
 }
 
-export namespace ListNodesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNodesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPackageImportJobsRequest {
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
@@ -2984,15 +2229,6 @@ export interface ListPackageImportJobsRequest {
    * <p>The maximum number of package import jobs to return in one page of results.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListPackageImportJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackageImportJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3030,15 +2266,6 @@ export interface PackageImportJob {
   LastUpdatedTime?: Date;
 }
 
-export namespace PackageImportJob {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageImportJob): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPackageImportJobsResponse {
   /**
    * <p>A list of package import jobs.</p>
@@ -3051,15 +2278,6 @@ export interface ListPackageImportJobsResponse {
   NextToken?: string;
 }
 
-export namespace ListPackageImportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackageImportJobsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPackagesRequest {
   /**
    * <p>The maximum number of packages to return in one page of results.</p>
@@ -3070,15 +2288,6 @@ export interface ListPackagesRequest {
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPackagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackagesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3111,15 +2320,6 @@ export interface PackageListItem {
   Tags?: Record<string, string>;
 }
 
-export namespace PackageListItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageListItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPackagesResponse {
   /**
    * <p>A list of packages.</p>
@@ -3132,15 +2332,6 @@ export interface ListPackagesResponse {
   NextToken?: string;
 }
 
-export namespace ListPackagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackagesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The resource's ARN.</p>
@@ -3148,29 +2339,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ProvisionDeviceRequest {
@@ -3193,15 +2366,6 @@ export interface ProvisionDeviceRequest {
    * <p>A networking configuration for the device.</p>
    */
   NetworkingConfiguration?: NetworkPayload;
-}
-
-export namespace ProvisionDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionDeviceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ProvisionDeviceResponse {
@@ -3231,15 +2395,6 @@ export interface ProvisionDeviceResponse {
   IotThingName?: string;
 }
 
-export namespace ProvisionDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionDeviceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterPackageVersionRequest {
   /**
    * <p>An owner account.</p>
@@ -3267,25 +2422,7 @@ export interface RegisterPackageVersionRequest {
   MarkLatest?: boolean;
 }
 
-export namespace RegisterPackageVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterPackageVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterPackageVersionResponse {}
-
-export namespace RegisterPackageVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterPackageVersionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface RemoveApplicationInstanceRequest {
   /**
@@ -3294,25 +2431,7 @@ export interface RemoveApplicationInstanceRequest {
   ApplicationInstanceId: string | undefined;
 }
 
-export namespace RemoveApplicationInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveApplicationInstanceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveApplicationInstanceResponse {}
-
-export namespace RemoveApplicationInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveApplicationInstanceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -3326,25 +2445,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -3358,25 +2459,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDeviceMetadataRequest {
   /**
@@ -3390,15 +2473,6 @@ export interface UpdateDeviceMetadataRequest {
   Description?: string;
 }
 
-export namespace UpdateDeviceMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeviceMetadataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDeviceMetadataResponse {
   /**
    * <p>The device's ID.</p>
@@ -3406,11 +2480,751 @@ export interface UpdateDeviceMetadataResponse {
   DeviceId?: string;
 }
 
-export namespace UpdateDeviceMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeviceMetadataResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AlternateSoftwareMetadataFilterSensitiveLog = (obj: AlternateSoftwareMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationInstanceFilterSensitiveLog = (obj: ApplicationInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConflictExceptionErrorArgumentFilterSensitiveLog = (obj: ConflictExceptionErrorArgument): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManifestOverridesPayloadFilterSensitiveLog = (obj: ManifestOverridesPayload): any => {
+  if (obj.PayloadData !== undefined) return { PayloadData: obj.PayloadData };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ManifestPayloadFilterSensitiveLog = (obj: ManifestPayload): any => {
+  if (obj.PayloadData !== undefined) return { PayloadData: obj.PayloadData };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateApplicationInstanceRequestFilterSensitiveLog = (obj: CreateApplicationInstanceRequest): any => ({
+  ...obj,
+  ...(obj.ManifestPayload && { ManifestPayload: ManifestPayloadFilterSensitiveLog(obj.ManifestPayload) }),
+  ...(obj.ManifestOverridesPayload && {
+    ManifestOverridesPayload: ManifestOverridesPayloadFilterSensitiveLog(obj.ManifestOverridesPayload),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationInstanceResponseFilterSensitiveLog = (obj: CreateApplicationInstanceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionErrorArgumentFilterSensitiveLog = (obj: ValidationExceptionErrorArgument): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OTAJobConfigFilterSensitiveLog = (obj: OTAJobConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceJobConfigFilterSensitiveLog = (obj: DeviceJobConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobForDevicesRequestFilterSensitiveLog = (obj: CreateJobForDevicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobFilterSensitiveLog = (obj: Job): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobForDevicesResponseFilterSensitiveLog = (obj: CreateJobForDevicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobResourceTagsFilterSensitiveLog = (obj: JobResourceTags): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNodeFromTemplateJobRequestFilterSensitiveLog = (obj: CreateNodeFromTemplateJobRequest): any => ({
+  ...obj,
+  ...(obj.TemplateParameters && { TemplateParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateNodeFromTemplateJobResponseFilterSensitiveLog = (obj: CreateNodeFromTemplateJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePackageRequestFilterSensitiveLog = (obj: CreatePackageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageLocationFilterSensitiveLog = (obj: StorageLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePackageResponseFilterSensitiveLog = (obj: CreatePackageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageVersionInputConfigFilterSensitiveLog = (obj: PackageVersionInputConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageImportJobInputConfigFilterSensitiveLog = (obj: PackageImportJobInputConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageVersionOutputConfigFilterSensitiveLog = (obj: PackageVersionOutputConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageImportJobOutputConfigFilterSensitiveLog = (obj: PackageImportJobOutputConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePackageImportJobRequestFilterSensitiveLog = (obj: CreatePackageImportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePackageImportJobResponseFilterSensitiveLog = (obj: CreatePackageImportJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeviceRequestFilterSensitiveLog = (obj: DeleteDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeviceResponseFilterSensitiveLog = (obj: DeleteDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePackageRequestFilterSensitiveLog = (obj: DeletePackageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePackageResponseFilterSensitiveLog = (obj: DeletePackageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterPackageVersionRequestFilterSensitiveLog = (obj: DeregisterPackageVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterPackageVersionResponseFilterSensitiveLog = (obj: DeregisterPackageVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeApplicationInstanceRequestFilterSensitiveLog = (obj: DescribeApplicationInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeApplicationInstanceResponseFilterSensitiveLog = (
+  obj: DescribeApplicationInstanceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeApplicationInstanceDetailsRequestFilterSensitiveLog = (
+  obj: DescribeApplicationInstanceDetailsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeApplicationInstanceDetailsResponseFilterSensitiveLog = (
+  obj: DescribeApplicationInstanceDetailsResponse
+): any => ({
+  ...obj,
+  ...(obj.ManifestPayload && { ManifestPayload: ManifestPayloadFilterSensitiveLog(obj.ManifestPayload) }),
+  ...(obj.ManifestOverridesPayload && {
+    ManifestOverridesPayload: ManifestOverridesPayloadFilterSensitiveLog(obj.ManifestOverridesPayload),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeviceRequestFilterSensitiveLog = (obj: DescribeDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EthernetStatusFilterSensitiveLog = (obj: EthernetStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NtpStatusFilterSensitiveLog = (obj: NtpStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkStatusFilterSensitiveLog = (obj: NetworkStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StaticIpConnectionInfoFilterSensitiveLog = (obj: StaticIpConnectionInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EthernetPayloadFilterSensitiveLog = (obj: EthernetPayload): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NtpPayloadFilterSensitiveLog = (obj: NtpPayload): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkPayloadFilterSensitiveLog = (obj: NetworkPayload): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeviceResponseFilterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeviceJobRequestFilterSensitiveLog = (obj: DescribeDeviceJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeviceJobResponseFilterSensitiveLog = (obj: DescribeDeviceJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNodeRequestFilterSensitiveLog = (obj: DescribeNodeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeInputPortFilterSensitiveLog = (obj: NodeInputPort): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeOutputPortFilterSensitiveLog = (obj: NodeOutputPort): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeInterfaceFilterSensitiveLog = (obj: NodeInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNodeResponseFilterSensitiveLog = (obj: DescribeNodeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNodeFromTemplateJobRequestFilterSensitiveLog = (obj: DescribeNodeFromTemplateJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNodeFromTemplateJobResponseFilterSensitiveLog = (
+  obj: DescribeNodeFromTemplateJobResponse
+): any => ({
+  ...obj,
+  ...(obj.TemplateParameters && { TemplateParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribePackageRequestFilterSensitiveLog = (obj: DescribePackageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePackageResponseFilterSensitiveLog = (obj: DescribePackageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePackageImportJobRequestFilterSensitiveLog = (obj: DescribePackageImportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutPutS3LocationFilterSensitiveLog = (obj: OutPutS3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageImportJobOutputFilterSensitiveLog = (obj: PackageImportJobOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePackageImportJobResponseFilterSensitiveLog = (obj: DescribePackageImportJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePackageVersionRequestFilterSensitiveLog = (obj: DescribePackageVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePackageVersionResponseFilterSensitiveLog = (obj: DescribePackageVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceFilterSensitiveLog = (obj: Device): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceJobFilterSensitiveLog = (obj: DeviceJob): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationInstanceDependenciesRequestFilterSensitiveLog = (
+  obj: ListApplicationInstanceDependenciesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageObjectFilterSensitiveLog = (obj: PackageObject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationInstanceDependenciesResponseFilterSensitiveLog = (
+  obj: ListApplicationInstanceDependenciesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationInstanceNodeInstancesRequestFilterSensitiveLog = (
+  obj: ListApplicationInstanceNodeInstancesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeInstanceFilterSensitiveLog = (obj: NodeInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationInstanceNodeInstancesResponseFilterSensitiveLog = (
+  obj: ListApplicationInstanceNodeInstancesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationInstancesRequestFilterSensitiveLog = (obj: ListApplicationInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationInstancesResponseFilterSensitiveLog = (obj: ListApplicationInstancesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDevicesRequestFilterSensitiveLog = (obj: ListDevicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDevicesResponseFilterSensitiveLog = (obj: ListDevicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDevicesJobsRequestFilterSensitiveLog = (obj: ListDevicesJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDevicesJobsResponseFilterSensitiveLog = (obj: ListDevicesJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNodeFromTemplateJobsRequestFilterSensitiveLog = (obj: ListNodeFromTemplateJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeFromTemplateJobFilterSensitiveLog = (obj: NodeFromTemplateJob): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNodeFromTemplateJobsResponseFilterSensitiveLog = (obj: ListNodeFromTemplateJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNodesRequestFilterSensitiveLog = (obj: ListNodesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeFilterSensitiveLog = (obj: Node): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNodesResponseFilterSensitiveLog = (obj: ListNodesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackageImportJobsRequestFilterSensitiveLog = (obj: ListPackageImportJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageImportJobFilterSensitiveLog = (obj: PackageImportJob): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackageImportJobsResponseFilterSensitiveLog = (obj: ListPackageImportJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackagesRequestFilterSensitiveLog = (obj: ListPackagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageListItemFilterSensitiveLog = (obj: PackageListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackagesResponseFilterSensitiveLog = (obj: ListPackagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionDeviceRequestFilterSensitiveLog = (obj: ProvisionDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionDeviceResponseFilterSensitiveLog = (obj: ProvisionDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterPackageVersionRequestFilterSensitiveLog = (obj: RegisterPackageVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterPackageVersionResponseFilterSensitiveLog = (obj: RegisterPackageVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveApplicationInstanceRequestFilterSensitiveLog = (obj: RemoveApplicationInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveApplicationInstanceResponseFilterSensitiveLog = (obj: RemoveApplicationInstanceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeviceMetadataRequestFilterSensitiveLog = (obj: UpdateDeviceMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeviceMetadataResponseFilterSensitiveLog = (obj: UpdateDeviceMetadataResponse): any => ({
+  ...obj,
+});

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { DeleteWebhookRequest, DeleteWebhookResult } from "../models/models_0";
+import {
+  DeleteWebhookRequest,
+  DeleteWebhookRequestFilterSensitiveLog,
+  DeleteWebhookResult,
+  DeleteWebhookResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteWebhookCommand,
   serializeAws_restJson1DeleteWebhookCommand,
@@ -72,8 +77,8 @@ export class DeleteWebhookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWebhookRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWebhookResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteWebhookRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteWebhookResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

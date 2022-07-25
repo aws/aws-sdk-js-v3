@@ -84,15 +84,6 @@ export interface CreateProjectRequest {
   snapshotId?: string;
 }
 
-export namespace CreateProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Information about an instance of an AWS resource associated with a project.
@@ -133,15 +124,6 @@ export interface Resource {
    *         </p>
    */
   attributes?: Record<string, string>;
-}
-
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
 }
 
 export enum ProjectState {
@@ -213,15 +195,6 @@ export interface ProjectDetails {
   resources?: Resource[];
 }
 
-export namespace ProjectDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Result structure used in response to a request to create a project.
@@ -234,15 +207,6 @@ export interface CreateProjectResult {
    *         </p>
    */
   details?: ProjectDetails;
-}
-
-export namespace CreateProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -415,15 +379,6 @@ export interface DeleteProjectRequest {
   projectId: string | undefined;
 }
 
-export namespace DeleteProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Result structure used in response to request to delete a project.
@@ -446,15 +401,6 @@ export interface DeleteProjectResult {
   orphanedResources?: Resource[];
 }
 
-export namespace DeleteProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Request structure to request the details of a specific bundle.
@@ -467,15 +413,6 @@ export interface DescribeBundleRequest {
    *         </p>
    */
   bundleId: string | undefined;
-}
-
-export namespace DescribeBundleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBundleRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum Platform {
@@ -537,15 +474,6 @@ export interface BundleDetails {
   availablePlatforms?: (Platform | string)[];
 }
 
-export namespace BundleDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BundleDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Result structure contains the details of the bundle.
@@ -558,15 +486,6 @@ export interface DescribeBundleResult {
    *         </p>
    */
   details?: BundleDetails;
-}
-
-export namespace DescribeBundleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBundleResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -590,15 +509,6 @@ export interface DescribeProjectRequest {
   syncFromResources?: boolean;
 }
 
-export namespace DescribeProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Result structure used for requests of project details.
@@ -611,15 +521,6 @@ export interface DescribeProjectResult {
    *         </p>
    */
   details?: ProjectDetails;
-}
-
-export namespace DescribeProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -651,15 +552,6 @@ export interface ExportBundleRequest {
   platform?: Platform | string;
 }
 
-export namespace ExportBundleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportBundleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Result structure which contains link to download custom-generated SDK and
@@ -678,15 +570,6 @@ export interface ExportBundleResult {
   downloadUrl?: string;
 }
 
-export namespace ExportBundleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportBundleResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Request structure used in requests to export project configuration details.
@@ -699,15 +582,6 @@ export interface ExportProjectRequest {
    *         </p>
    */
   projectId: string | undefined;
-}
-
-export namespace ExportProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportProjectRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -744,15 +618,6 @@ export interface ExportProjectResult {
   snapshotId?: string;
 }
 
-export namespace ExportProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportProjectResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Request structure to request all available bundles.
@@ -776,15 +641,6 @@ export interface ListBundlesRequest {
   nextToken?: string;
 }
 
-export namespace ListBundlesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBundlesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Result structure contains a list of all available bundles with details.
@@ -805,15 +661,6 @@ export interface ListBundlesResult {
    *         </p>
    */
   nextToken?: string;
-}
-
-export namespace ListBundlesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBundlesResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -839,15 +686,6 @@ export interface ListProjectsRequest {
   nextToken?: string;
 }
 
-export namespace ListProjectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Summary information about an AWS Mobile Hub project.
@@ -867,15 +705,6 @@ export interface ProjectSummary {
    *         </p>
    */
   projectId?: string;
-}
-
-export namespace ProjectSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -901,15 +730,6 @@ export interface ListProjectsResult {
   nextToken?: string;
 }
 
-export namespace ListProjectsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Request structure used for requests to update project configuration.
@@ -933,15 +753,6 @@ export interface UpdateProjectRequest {
   projectId: string | undefined;
 }
 
-export namespace UpdateProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Result structure used for requests to updated project configuration.
@@ -956,11 +767,156 @@ export interface UpdateProjectResult {
   details?: ProjectDetails;
 }
 
-export namespace UpdateProjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CreateProjectRequestFilterSensitiveLog = (obj: CreateProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectDetailsFilterSensitiveLog = (obj: ProjectDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProjectResultFilterSensitiveLog = (obj: CreateProjectResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectRequestFilterSensitiveLog = (obj: DeleteProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectResultFilterSensitiveLog = (obj: DeleteProjectResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBundleRequestFilterSensitiveLog = (obj: DescribeBundleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BundleDetailsFilterSensitiveLog = (obj: BundleDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBundleResultFilterSensitiveLog = (obj: DescribeBundleResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProjectRequestFilterSensitiveLog = (obj: DescribeProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProjectResultFilterSensitiveLog = (obj: DescribeProjectResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportBundleRequestFilterSensitiveLog = (obj: ExportBundleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportBundleResultFilterSensitiveLog = (obj: ExportBundleResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportProjectRequestFilterSensitiveLog = (obj: ExportProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportProjectResultFilterSensitiveLog = (obj: ExportProjectResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBundlesRequestFilterSensitiveLog = (obj: ListBundlesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBundlesResultFilterSensitiveLog = (obj: ListBundlesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProjectsRequestFilterSensitiveLog = (obj: ListProjectsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectSummaryFilterSensitiveLog = (obj: ProjectSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProjectsResultFilterSensitiveLog = (obj: ListProjectsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectRequestFilterSensitiveLog = (obj: UpdateProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectResultFilterSensitiveLog = (obj: UpdateProjectResult): any => ({
+  ...obj,
+});

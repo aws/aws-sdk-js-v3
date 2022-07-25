@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { ListKeyGroupsRequest, ListKeyGroupsResult } from "../models/models_1";
+import {
+  ListKeyGroupsRequest,
+  ListKeyGroupsRequestFilterSensitiveLog,
+  ListKeyGroupsResult,
+  ListKeyGroupsResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlListKeyGroupsCommand,
   serializeAws_restXmlListKeyGroupsCommand,
@@ -77,8 +82,8 @@ export class ListKeyGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListKeyGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListKeyGroupsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListKeyGroupsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListKeyGroupsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

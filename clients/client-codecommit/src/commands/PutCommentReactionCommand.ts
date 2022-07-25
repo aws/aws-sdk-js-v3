@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { PutCommentReactionInput } from "../models/models_1";
+import { PutCommentReactionInput, PutCommentReactionInputFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_json1_1PutCommentReactionCommand,
   serializeAws_json1_1PutCommentReactionCommand,
@@ -73,7 +73,7 @@ export class PutCommentReactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutCommentReactionInput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutCommentReactionInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { StartDataIngestionJobRequest, StartDataIngestionJobResponse } from "../models/models_0";
+import {
+  StartDataIngestionJobRequest,
+  StartDataIngestionJobRequestFilterSensitiveLog,
+  StartDataIngestionJobResponse,
+  StartDataIngestionJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0StartDataIngestionJobCommand,
   serializeAws_json1_0StartDataIngestionJobCommand,
@@ -73,8 +78,8 @@ export class StartDataIngestionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDataIngestionJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartDataIngestionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartDataIngestionJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartDataIngestionJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

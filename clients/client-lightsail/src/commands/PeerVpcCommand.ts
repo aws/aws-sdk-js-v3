@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { PeerVpcRequest, PeerVpcResult } from "../models/models_1";
+import {
+  PeerVpcRequest,
+  PeerVpcRequestFilterSensitiveLog,
+  PeerVpcResult,
+  PeerVpcResultFilterSensitiveLog,
+} from "../models/models_1";
 import { deserializeAws_json1_1PeerVpcCommand, serializeAws_json1_1PeerVpcCommand } from "../protocols/Aws_json1_1";
 
 export interface PeerVpcCommandInput extends PeerVpcRequest {}
@@ -65,8 +70,8 @@ export class PeerVpcCommand extends $Command<PeerVpcCommandInput, PeerVpcCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PeerVpcRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PeerVpcResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PeerVpcRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PeerVpcResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SendCommandRequest, SendCommandResult } from "../models/models_1";
+import {
+  SendCommandRequest,
+  SendCommandRequestFilterSensitiveLog,
+  SendCommandResult,
+  SendCommandResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1SendCommandCommand,
   serializeAws_json1_1SendCommandCommand,
@@ -72,8 +77,8 @@ export class SendCommandCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendCommandRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendCommandResult.filterSensitiveLog,
+      inputFilterSensitiveLog: SendCommandRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SendCommandResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

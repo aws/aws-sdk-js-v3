@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { ListManagedDataIdentifiersRequest, ListManagedDataIdentifiersResponse } from "../models/models_0";
+import {
+  ListManagedDataIdentifiersRequest,
+  ListManagedDataIdentifiersRequestFilterSensitiveLog,
+  ListManagedDataIdentifiersResponse,
+  ListManagedDataIdentifiersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListManagedDataIdentifiersCommand,
   serializeAws_restJson1ListManagedDataIdentifiersCommand,
@@ -72,8 +77,8 @@ export class ListManagedDataIdentifiersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListManagedDataIdentifiersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListManagedDataIdentifiersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListManagedDataIdentifiersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListManagedDataIdentifiersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

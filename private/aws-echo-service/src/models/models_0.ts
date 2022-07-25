@@ -1,31 +1,14 @@
 // smithy-typescript generated code
 import { EchoServiceServiceException as __BaseException } from "./EchoServiceServiceException";
+
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
 
 export interface EchoInput {
   string?: string;
 }
 
-export namespace EchoInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EchoInput): any => ({
-    ...obj,
-  });
-}
-
 export interface EchoOutput {
   string?: string;
-}
-
-export namespace EchoOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EchoOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -51,24 +34,34 @@ export interface LengthInput {
   string: string | undefined;
 }
 
-export namespace LengthInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LengthInput): any => ({
-    ...obj,
-  });
-}
-
 export interface LengthOutput {
   length?: number;
 }
 
-export namespace LengthOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LengthOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const EchoInputFilterSensitiveLog = (obj: EchoInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EchoOutputFilterSensitiveLog = (obj: EchoOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LengthInputFilterSensitiveLog = (obj: LengthInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LengthOutputFilterSensitiveLog = (obj: LengthOutput): any => ({
+  ...obj,
+});

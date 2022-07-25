@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeSafetyRuleRequest, DescribeSafetyRuleResponse } from "../models/models_0";
+import {
+  DescribeSafetyRuleRequest,
+  DescribeSafetyRuleRequestFilterSensitiveLog,
+  DescribeSafetyRuleResponse,
+  DescribeSafetyRuleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeSafetyRuleCommand,
   serializeAws_restJson1DescribeSafetyRuleCommand,
@@ -76,8 +81,8 @@ export class DescribeSafetyRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSafetyRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSafetyRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSafetyRuleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSafetyRuleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

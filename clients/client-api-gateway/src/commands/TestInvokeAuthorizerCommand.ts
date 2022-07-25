@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { TestInvokeAuthorizerRequest, TestInvokeAuthorizerResponse } from "../models/models_0";
+import {
+  TestInvokeAuthorizerRequest,
+  TestInvokeAuthorizerRequestFilterSensitiveLog,
+  TestInvokeAuthorizerResponse,
+  TestInvokeAuthorizerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1TestInvokeAuthorizerCommand,
   serializeAws_restJson1TestInvokeAuthorizerCommand,
@@ -72,8 +77,8 @@ export class TestInvokeAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestInvokeAuthorizerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TestInvokeAuthorizerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TestInvokeAuthorizerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TestInvokeAuthorizerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

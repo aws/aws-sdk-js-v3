@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { CreateImagePipelineRequest, CreateImagePipelineResponse } from "../models/models_0";
+import {
+  CreateImagePipelineRequest,
+  CreateImagePipelineRequestFilterSensitiveLog,
+  CreateImagePipelineResponse,
+  CreateImagePipelineResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateImagePipelineCommand,
   serializeAws_restJson1CreateImagePipelineCommand,
@@ -73,8 +78,8 @@ export class CreateImagePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateImagePipelineRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateImagePipelineResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateImagePipelineRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateImagePipelineResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,9 @@ import {
 
 import {
   NotifyResourceDeploymentStatusChangeInput,
+  NotifyResourceDeploymentStatusChangeInputFilterSensitiveLog,
   NotifyResourceDeploymentStatusChangeOutput,
+  NotifyResourceDeploymentStatusChangeOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0NotifyResourceDeploymentStatusChangeCommand,
@@ -78,8 +80,8 @@ export class NotifyResourceDeploymentStatusChangeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NotifyResourceDeploymentStatusChangeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: NotifyResourceDeploymentStatusChangeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: NotifyResourceDeploymentStatusChangeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: NotifyResourceDeploymentStatusChangeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

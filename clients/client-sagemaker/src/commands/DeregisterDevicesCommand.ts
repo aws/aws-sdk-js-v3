@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeregisterDevicesRequest } from "../models/models_1";
+import { DeregisterDevicesRequest, DeregisterDevicesRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_json1_1DeregisterDevicesCommand,
   serializeAws_json1_1DeregisterDevicesCommand,
@@ -72,7 +72,7 @@ export class DeregisterDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterDevicesRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterDevicesRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteRoleAliasRequest, DeleteRoleAliasResponse } from "../models/models_0";
+import {
+  DeleteRoleAliasRequest,
+  DeleteRoleAliasRequestFilterSensitiveLog,
+  DeleteRoleAliasResponse,
+  DeleteRoleAliasResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRoleAliasCommand,
   serializeAws_restJson1DeleteRoleAliasCommand,
@@ -73,8 +78,8 @@ export class DeleteRoleAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRoleAliasRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRoleAliasResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRoleAliasRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRoleAliasResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -50,15 +50,6 @@ export interface KeyPairIds {
   Items?: string[];
 }
 
-export namespace KeyPairIds {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyPairIds): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of identifiers for the public keys that CloudFront can use to verify the
  * 			signatures of signed URLs and signed cookies.</p>
@@ -73,15 +64,6 @@ export interface KGKeyPairIds {
    * <p>A list of CloudFront key pair identifiers.</p>
    */
   KeyPairIds?: KeyPairIds;
-}
-
-export namespace KGKeyPairIds {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KGKeyPairIds): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -108,15 +90,6 @@ export interface ActiveTrustedKeyGroups {
   Items?: KGKeyPairIds[];
 }
 
-export namespace ActiveTrustedKeyGroups {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActiveTrustedKeyGroups): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of Amazon Web Services accounts and the active CloudFront key pairs in each account that CloudFront can use to
  * 			verify the signatures of signed URLs and signed cookies.</p>
@@ -134,15 +107,6 @@ export interface Signer {
    * <p>A list of CloudFront key pair identifiers.</p>
    */
   KeyPairIds?: KeyPairIds;
-}
-
-export namespace Signer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Signer): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -169,15 +133,6 @@ export interface ActiveTrustedSigners {
   Items?: Signer[];
 }
 
-export namespace ActiveTrustedSigners {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActiveTrustedSigners): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains information about CNAMEs (alternate domain names), if any,
  * 			for this distribution. </p>
@@ -194,15 +149,6 @@ export interface Aliases {
    * 			this distribution.</p>
    */
   Items?: string[];
-}
-
-export namespace Aliases {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Aliases): any => ({
-    ...obj,
-  });
 }
 
 export type ICPRecordalStatus = "APPROVED" | "PENDING" | "SUSPENDED";
@@ -248,15 +194,6 @@ export interface AliasICPRecordal {
   ICPRecordalStatus?: ICPRecordalStatus | string;
 }
 
-export namespace AliasICPRecordal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AliasICPRecordal): any => ({
-    ...obj,
-  });
-}
-
 export type Method = "DELETE" | "GET" | "HEAD" | "OPTIONS" | "PATCH" | "POST" | "PUT";
 
 /**
@@ -289,15 +226,6 @@ export interface CachedMethods {
    * 			to.</p>
    */
   Items: (Method | string)[] | undefined;
-}
-
-export namespace CachedMethods {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CachedMethods): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -355,15 +283,6 @@ export interface AllowedMethods {
   CachedMethods?: CachedMethods;
 }
 
-export namespace AllowedMethods {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllowedMethods): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateAliasRequest {
   /**
    * <p>The ID of the distribution that you’re associating the alias with.</p>
@@ -374,15 +293,6 @@ export interface AssociateAliasRequest {
    * <p>The alias (also known as a CNAME) to add to the target distribution.</p>
    */
   Alias: string | undefined;
-}
-
-export namespace AssociateAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateAliasRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -507,15 +417,6 @@ export interface CookieNames {
   Items?: string[];
 }
 
-export namespace CookieNames {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CookieNames): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This field is deprecated. We recommend that you use a cache policy or an origin
  * 			request policy instead of this field.</p>
@@ -568,15 +469,6 @@ export interface CookiePreference {
   WhitelistedNames?: CookieNames;
 }
 
-export namespace CookiePreference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CookiePreference): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a list of HTTP header names.</p>
  */
@@ -590,15 +482,6 @@ export interface Headers {
    * <p>A list of HTTP header names.</p>
    */
   Items?: string[];
-}
-
-export namespace Headers {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Headers): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -627,15 +510,6 @@ export interface QueryStringCacheKeys {
    * 			<code>Items</code>. </p>
    */
   Items?: string[];
-}
-
-export namespace QueryStringCacheKeys {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryStringCacheKeys): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -721,15 +595,6 @@ export interface ForwardedValues {
   QueryStringCacheKeys?: QueryStringCacheKeys;
 }
 
-export namespace ForwardedValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForwardedValues): any => ({
-    ...obj,
-  });
-}
-
 export type EventType = "origin-request" | "origin-response" | "viewer-request" | "viewer-response";
 
 /**
@@ -751,15 +616,6 @@ export interface FunctionAssociation {
   EventType: EventType | string | undefined;
 }
 
-export namespace FunctionAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionAssociation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of CloudFront functions that are associated with a cache behavior in a CloudFront distribution.
  * 			CloudFront functions must be published to the <code>LIVE</code> stage to associate them with a
@@ -777,15 +633,6 @@ export interface FunctionAssociations {
    * 			cache behavior.</p>
    */
   Items?: FunctionAssociation[];
-}
-
-export namespace FunctionAssociations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionAssociations): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -835,15 +682,6 @@ export interface LambdaFunctionAssociation {
   IncludeBody?: boolean;
 }
 
-export namespace LambdaFunctionAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaFunctionAssociation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that specifies a list of Lambda@Edge functions associations for a cache
  * 			behavior.</p>
@@ -872,15 +710,6 @@ export interface LambdaFunctionAssociations {
   Items?: LambdaFunctionAssociation[];
 }
 
-export namespace LambdaFunctionAssociations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaFunctionAssociations): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of key groups whose public keys CloudFront can use to verify the signatures of signed
  * 			URLs and signed cookies.</p>
@@ -904,15 +733,6 @@ export interface TrustedKeyGroups {
   Items?: string[];
 }
 
-export namespace TrustedKeyGroups {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrustedKeyGroups): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of Amazon Web Services accounts whose public keys CloudFront can use to verify the signatures of signed
  * 			URLs and signed cookies.</p>
@@ -934,15 +754,6 @@ export interface TrustedSigners {
    * <p>A list of Amazon Web Services account identifiers.</p>
    */
   Items?: string[];
-}
-
-export namespace TrustedSigners {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrustedSigners): any => ({
-    ...obj,
-  });
 }
 
 export type ViewerProtocolPolicy = "allow-all" | "https-only" | "redirect-to-https";
@@ -1204,15 +1015,6 @@ export interface CacheBehavior {
   MaxTTL?: number;
 }
 
-export namespace CacheBehavior {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheBehavior): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains zero or more <code>CacheBehavior</code> elements.
  * 		</p>
@@ -1228,15 +1030,6 @@ export interface CacheBehaviors {
    * 				<code>Quantity</code> is <code>0</code>, you can omit <code>Items</code>.</p>
    */
   Items?: CacheBehavior[];
-}
-
-export namespace CacheBehaviors {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheBehaviors): any => ({
-    ...obj,
-  });
 }
 
 export type CachePolicyCookieBehavior = "all" | "allExcept" | "none" | "whitelist";
@@ -1290,15 +1083,6 @@ export interface CachePolicyCookiesConfig {
   Cookies?: CookieNames;
 }
 
-export namespace CachePolicyCookiesConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CachePolicyCookiesConfig): any => ({
-    ...obj,
-  });
-}
-
 export type CachePolicyHeaderBehavior = "none" | "whitelist";
 
 /**
@@ -1336,15 +1120,6 @@ export interface CachePolicyHeadersConfig {
   Headers?: Headers;
 }
 
-export namespace CachePolicyHeadersConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CachePolicyHeadersConfig): any => ({
-    ...obj,
-  });
-}
-
 export type CachePolicyQueryStringBehavior = "all" | "allExcept" | "none" | "whitelist";
 
 /**
@@ -1360,15 +1135,6 @@ export interface QueryStringNames {
    * <p>A list of query string names.</p>
    */
   Items?: string[];
-}
-
-export namespace QueryStringNames {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryStringNames): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1432,15 +1198,6 @@ export interface CachePolicyQueryStringsConfig {
    * 			but all other query strings are).</p>
    */
   QueryStrings?: QueryStringNames;
-}
-
-export namespace CachePolicyQueryStringsConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CachePolicyQueryStringsConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1544,15 +1301,6 @@ export interface ParametersInCacheKeyAndForwardedToOrigin {
   QueryStringsConfig: CachePolicyQueryStringsConfig | undefined;
 }
 
-export namespace ParametersInCacheKeyAndForwardedToOrigin {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParametersInCacheKeyAndForwardedToOrigin): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A cache policy configuration.</p>
  * 		       <p>This configuration determines the following:</p>
@@ -1626,15 +1374,6 @@ export interface CachePolicyConfig {
   ParametersInCacheKeyAndForwardedToOrigin?: ParametersInCacheKeyAndForwardedToOrigin;
 }
 
-export namespace CachePolicyConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CachePolicyConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A cache policy.</p>
  * 		       <p>When it’s attached to a cache behavior, the cache policy determines the
@@ -1671,15 +1410,6 @@ export interface CachePolicy {
    * <p>The cache policy configuration.</p>
    */
   CachePolicyConfig: CachePolicyConfig | undefined;
-}
-
-export namespace CachePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CachePolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1744,15 +1474,6 @@ export interface CachePolicySummary {
   CachePolicy: CachePolicy | undefined;
 }
 
-export namespace CachePolicySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CachePolicySummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of cache policies.</p>
  */
@@ -1778,15 +1499,6 @@ export interface CachePolicyList {
    * <p>Contains the cache policies in the list.</p>
    */
   Items?: CachePolicySummary[];
-}
-
-export namespace CachePolicyList {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CachePolicyList): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1819,15 +1531,6 @@ export interface CreateCachePolicyRequest {
   CachePolicyConfig: CachePolicyConfig | undefined;
 }
 
-export namespace CreateCachePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCachePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCachePolicyResult {
   /**
    * <p>A cache policy.</p>
@@ -1843,15 +1546,6 @@ export interface CreateCachePolicyResult {
    * <p>The current version of the cache policy.</p>
    */
   ETag?: string;
-}
-
-export namespace CreateCachePolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCachePolicyResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2019,15 +1713,6 @@ export interface CloudFrontOriginAccessIdentityConfig {
   Comment: string | undefined;
 }
 
-export namespace CloudFrontOriginAccessIdentityConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudFrontOriginAccessIdentityConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request to create a new origin access identity (OAI). An origin access identity is a
  * 			special CloudFront user that you can associate with Amazon S3 origins, so that you can secure all or
@@ -2040,15 +1725,6 @@ export interface CreateCloudFrontOriginAccessIdentityRequest {
    * <p>The current configuration information for the identity.</p>
    */
   CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig | undefined;
-}
-
-export namespace CreateCloudFrontOriginAccessIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCloudFrontOriginAccessIdentityRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2073,15 +1749,6 @@ export interface CloudFrontOriginAccessIdentity {
   CloudFrontOriginAccessIdentityConfig?: CloudFrontOriginAccessIdentityConfig;
 }
 
-export namespace CloudFrontOriginAccessIdentity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudFrontOriginAccessIdentity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The returned result of the corresponding request.</p>
  */
@@ -2100,15 +1767,6 @@ export interface CreateCloudFrontOriginAccessIdentityResult {
    * <p>The current version of the origin access identity created.</p>
    */
   ETag?: string;
-}
-
-export namespace CreateCloudFrontOriginAccessIdentityResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCloudFrontOriginAccessIdentityResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2258,15 +1916,6 @@ export interface CustomErrorResponse {
   ErrorCachingMinTTL?: number;
 }
 
-export namespace CustomErrorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomErrorResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that controls:</p>
  * 		       <ul>
@@ -2295,15 +1944,6 @@ export interface CustomErrorResponses {
    * 		</p>
    */
   Items?: CustomErrorResponse[];
-}
-
-export namespace CustomErrorResponses {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomErrorResponses): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2533,15 +2173,6 @@ export interface DefaultCacheBehavior {
   MaxTTL?: number;
 }
 
-export namespace DefaultCacheBehavior {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefaultCacheBehavior): any => ({
-    ...obj,
-  });
-}
-
 export type HttpVersion = "http1.1" | "http2";
 
 /**
@@ -2584,15 +2215,6 @@ export interface LoggingConfig {
   Prefix: string | undefined;
 }
 
-export namespace LoggingConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex data type for the status codes that you specify that, when returned by a primary origin, trigger
  * 		CloudFront to failover to a second origin.</p>
@@ -2609,15 +2231,6 @@ export interface StatusCodes {
   Items: number[] | undefined;
 }
 
-export namespace StatusCodes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatusCodes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex data type that includes information about the failover criteria for an origin group, including
  * 		the status codes for which CloudFront will failover from the primary origin to the second origin.</p>
@@ -2630,15 +2243,6 @@ export interface OriginGroupFailoverCriteria {
   StatusCodes: StatusCodes | undefined;
 }
 
-export namespace OriginGroupFailoverCriteria {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginGroupFailoverCriteria): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An origin in an origin group.</p>
  */
@@ -2647,15 +2251,6 @@ export interface OriginGroupMember {
    * <p>The ID for an origin in an origin group.</p>
    */
   OriginId: string | undefined;
-}
-
-export namespace OriginGroupMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginGroupMember): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2671,15 +2266,6 @@ export interface OriginGroupMembers {
    * <p>Items (origins) in an origin group.</p>
    */
   Items: OriginGroupMember[] | undefined;
-}
-
-export namespace OriginGroupMembers {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginGroupMembers): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2705,15 +2291,6 @@ export interface OriginGroup {
   Members: OriginGroupMembers | undefined;
 }
 
-export namespace OriginGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex data type for the origin groups specified for a distribution.</p>
  */
@@ -2727,15 +2304,6 @@ export interface OriginGroups {
    * <p>The items (origin groups) in a distribution.</p>
    */
   Items?: OriginGroup[];
-}
-
-export namespace OriginGroups {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginGroups): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2757,16 +2325,6 @@ export interface OriginCustomHeader {
   HeaderValue: string | undefined;
 }
 
-export namespace OriginCustomHeader {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginCustomHeader): any => ({
-    ...obj,
-    ...(obj.HeaderValue && { HeaderValue: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>A complex type that contains the list of Custom Headers for each origin. </p>
  */
@@ -2783,16 +2341,6 @@ export interface CustomHeaders {
    * 			to the origin. If Quantity is <code>0</code>, omit <code>Items</code>.</p>
    */
   Items?: OriginCustomHeader[];
-}
-
-export namespace CustomHeaders {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomHeaders): any => ({
-    ...obj,
-    ...(obj.Items && { Items: obj.Items.map((item) => OriginCustomHeader.filterSensitiveLog(item)) }),
-  });
 }
 
 export type OriginProtocolPolicy = "http-only" | "https-only" | "match-viewer";
@@ -2814,15 +2362,6 @@ export interface OriginSslProtocols {
    * <p>A list that contains allowed SSL/TLS protocols for this distribution.</p>
    */
   Items: (SslProtocol | string)[] | undefined;
-}
-
-export namespace OriginSslProtocols {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginSslProtocols): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2896,15 +2435,6 @@ export interface CustomOriginConfig {
   OriginKeepaliveTimeout?: number;
 }
 
-export namespace CustomOriginConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomOriginConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>CloudFront Origin Shield.</p>
  * 		       <p>Using Origin Shield can help reduce the load on your origin. For more
@@ -2930,15 +2460,6 @@ export interface OriginShield {
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   OriginShieldRegion?: string;
-}
-
-export namespace OriginShield {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginShield): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2969,15 +2490,6 @@ export interface S3OriginConfig {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   OriginAccessIdentity: string | undefined;
-}
-
-export namespace S3OriginConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3OriginConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3090,16 +2602,6 @@ export interface Origin {
   OriginShield?: OriginShield;
 }
 
-export namespace Origin {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Origin): any => ({
-    ...obj,
-    ...(obj.CustomHeaders && { CustomHeaders: CustomHeaders.filterSensitiveLog(obj.CustomHeaders) }),
-  });
-}
-
 /**
  * <p>Contains information about the origins for this distribution.</p>
  */
@@ -3113,15 +2615,6 @@ export interface Origins {
    * <p>A list of origins.</p>
    */
   Items: Origin[] | undefined;
-}
-
-export namespace Origins {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Origins): any => ({
-    ...obj,
-  });
 }
 
 export type PriceClass = "PriceClass_100" | "PriceClass_200" | "PriceClass_All";
@@ -3179,15 +2672,6 @@ export interface GeoRestriction {
   Items?: string[];
 }
 
-export namespace GeoRestriction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GeoRestriction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that identifies ways in which you want to restrict distribution of your
  * 			content.</p>
@@ -3198,15 +2682,6 @@ export interface Restrictions {
    * 			determines the location of your users using <code>MaxMind</code> GeoIP databases.</p>
    */
   GeoRestriction: GeoRestriction | undefined;
-}
-
-export namespace Restrictions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Restrictions): any => ({
-    ...obj,
-  });
 }
 
 export type MinimumProtocolVersion =
@@ -3438,15 +2913,6 @@ export interface ViewerCertificate {
   CertificateSource?: CertificateSource | string;
 }
 
-export namespace ViewerCertificate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ViewerCertificate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A distribution configuration.</p>
  */
@@ -3639,16 +3105,6 @@ export interface DistributionConfig {
   IsIPV6Enabled?: boolean;
 }
 
-export namespace DistributionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DistributionConfig): any => ({
-    ...obj,
-    ...(obj.Comment && { Comment: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The request to create a new distribution.</p>
  */
@@ -3657,18 +3113,6 @@ export interface CreateDistributionRequest {
    * <p>The distribution's configuration information.</p>
    */
   DistributionConfig: DistributionConfig | undefined;
-}
-
-export namespace CreateDistributionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDistributionRequest): any => ({
-    ...obj,
-    ...(obj.DistributionConfig && {
-      DistributionConfig: DistributionConfig.filterSensitiveLog(obj.DistributionConfig),
-    }),
-  });
 }
 
 /**
@@ -3748,18 +3192,6 @@ export interface Distribution {
   AliasICPRecordals?: AliasICPRecordal[];
 }
 
-export namespace Distribution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Distribution): any => ({
-    ...obj,
-    ...(obj.DistributionConfig && {
-      DistributionConfig: DistributionConfig.filterSensitiveLog(obj.DistributionConfig),
-    }),
-  });
-}
-
 /**
  * <p>The returned result of the corresponding request.</p>
  */
@@ -3778,16 +3210,6 @@ export interface CreateDistributionResult {
    * <p>The current version of the distribution created.</p>
    */
   ETag?: string;
-}
-
-export namespace CreateDistributionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDistributionResult): any => ({
-    ...obj,
-    ...(obj.Distribution && { Distribution: Distribution.filterSensitiveLog(obj.Distribution) }),
-  });
 }
 
 /**
@@ -4956,15 +4378,6 @@ export interface Tag {
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> A complex type that contains zero or more <code>Tag</code> elements.</p>
  */
@@ -4973,15 +4386,6 @@ export interface Tags {
    * <p> A complex type that contains <code>Tag</code> elements.</p>
    */
   Items?: Tag[];
-}
-
-export namespace Tags {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tags): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5000,18 +4404,6 @@ export interface DistributionConfigWithTags {
   Tags: Tags | undefined;
 }
 
-export namespace DistributionConfigWithTags {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DistributionConfigWithTags): any => ({
-    ...obj,
-    ...(obj.DistributionConfig && {
-      DistributionConfig: DistributionConfig.filterSensitiveLog(obj.DistributionConfig),
-    }),
-  });
-}
-
 /**
  * <p>The request to create a new distribution with tags. </p>
  */
@@ -5020,18 +4412,6 @@ export interface CreateDistributionWithTagsRequest {
    * <p>The distribution's configuration information. </p>
    */
   DistributionConfigWithTags: DistributionConfigWithTags | undefined;
-}
-
-export namespace CreateDistributionWithTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDistributionWithTagsRequest): any => ({
-    ...obj,
-    ...(obj.DistributionConfigWithTags && {
-      DistributionConfigWithTags: DistributionConfigWithTags.filterSensitiveLog(obj.DistributionConfigWithTags),
-    }),
-  });
 }
 
 /**
@@ -5052,16 +4432,6 @@ export interface CreateDistributionWithTagsResult {
    * <p>The current version of the distribution created.</p>
    */
   ETag?: string;
-}
-
-export namespace CreateDistributionWithTagsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDistributionWithTagsResult): any => ({
-    ...obj,
-    ...(obj.Distribution && { Distribution: Distribution.filterSensitiveLog(obj.Distribution) }),
-  });
 }
 
 /**
@@ -5107,15 +4477,6 @@ export interface ContentTypeProfile {
   ContentType: string | undefined;
 }
 
-export namespace ContentTypeProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContentTypeProfile): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Field-level encryption content type-profile. </p>
  */
@@ -5129,15 +4490,6 @@ export interface ContentTypeProfiles {
    * <p>Items in a field-level encryption content type-profile mapping. </p>
    */
   Items?: ContentTypeProfile[];
-}
-
-export namespace ContentTypeProfiles {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContentTypeProfiles): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5158,15 +4510,6 @@ export interface ContentTypeProfileConfig {
   ContentTypeProfiles?: ContentTypeProfiles;
 }
 
-export namespace ContentTypeProfileConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContentTypeProfileConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Query argument-profile mapping for field-level encryption.</p>
  */
@@ -5180,15 +4523,6 @@ export interface QueryArgProfile {
    * <p>ID of profile to use for field-level encryption query argument-profile mapping</p>
    */
   ProfileId: string | undefined;
-}
-
-export namespace QueryArgProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryArgProfile): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5206,15 +4540,6 @@ export interface QueryArgProfiles {
   Items?: QueryArgProfile[];
 }
 
-export namespace QueryArgProfiles {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryArgProfiles): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration for query argument-profile mapping for field-level encryption.</p>
  */
@@ -5229,15 +4554,6 @@ export interface QueryArgProfileConfig {
    * <p>Profiles specified for query argument-profile mapping for field-level encryption.</p>
    */
   QueryArgProfiles?: QueryArgProfiles;
-}
-
-export namespace QueryArgProfileConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryArgProfileConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5268,29 +4584,11 @@ export interface FieldLevelEncryptionConfig {
   ContentTypeProfileConfig?: ContentTypeProfileConfig;
 }
 
-export namespace FieldLevelEncryptionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldLevelEncryptionConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFieldLevelEncryptionConfigRequest {
   /**
    * <p>The request to create a new field-level encryption configuration.</p>
    */
   FieldLevelEncryptionConfig: FieldLevelEncryptionConfig | undefined;
-}
-
-export namespace CreateFieldLevelEncryptionConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFieldLevelEncryptionConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5314,15 +4612,6 @@ export interface FieldLevelEncryption {
   FieldLevelEncryptionConfig: FieldLevelEncryptionConfig | undefined;
 }
 
-export namespace FieldLevelEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldLevelEncryption): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFieldLevelEncryptionConfigResult {
   /**
    * <p>Returned when you create a new field-level encryption configuration.</p>
@@ -5338,15 +4627,6 @@ export interface CreateFieldLevelEncryptionConfigResult {
    * <p>The current version of the field level encryption configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   ETag?: string;
-}
-
-export namespace CreateFieldLevelEncryptionConfigResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFieldLevelEncryptionConfigResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5490,15 +4770,6 @@ export interface FieldPatterns {
   Items?: string[];
 }
 
-export namespace FieldPatterns {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldPatterns): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Complex data type for field-level encryption profiles that includes the encryption key and field pattern specifications. </p>
  */
@@ -5523,15 +4794,6 @@ export interface EncryptionEntity {
   FieldPatterns: FieldPatterns | undefined;
 }
 
-export namespace EncryptionEntity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionEntity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Complex data type for field-level encryption profiles that includes all of the encryption entities. </p>
  */
@@ -5545,15 +4807,6 @@ export interface EncryptionEntities {
    * <p>An array of field patterns in a field-level encryption content type-profile mapping. </p>
    */
   Items?: EncryptionEntity[];
-}
-
-export namespace EncryptionEntities {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionEntities): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5583,29 +4836,11 @@ export interface FieldLevelEncryptionProfileConfig {
   EncryptionEntities: EncryptionEntities | undefined;
 }
 
-export namespace FieldLevelEncryptionProfileConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldLevelEncryptionProfileConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFieldLevelEncryptionProfileRequest {
   /**
    * <p>The request to create a field-level encryption profile.</p>
    */
   FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfig | undefined;
-}
-
-export namespace CreateFieldLevelEncryptionProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFieldLevelEncryptionProfileRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5629,15 +4864,6 @@ export interface FieldLevelEncryptionProfile {
   FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfig | undefined;
 }
 
-export namespace FieldLevelEncryptionProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldLevelEncryptionProfile): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFieldLevelEncryptionProfileResult {
   /**
    * <p>Returned when you create a new field-level encryption profile.</p>
@@ -5653,15 +4879,6 @@ export interface CreateFieldLevelEncryptionProfileResult {
    * <p>The current version of the field level encryption profile. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   ETag?: string;
-}
-
-export namespace CreateFieldLevelEncryptionProfileResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFieldLevelEncryptionProfileResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5810,15 +5027,6 @@ export interface FunctionConfig {
   Runtime: FunctionRuntime | string | undefined;
 }
 
-export namespace FunctionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFunctionRequest {
   /**
    * <p>A name to identify the function.</p>
@@ -5836,16 +5044,6 @@ export interface CreateFunctionRequest {
    * 			code for CloudFront Functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
   FunctionCode: Uint8Array | undefined;
-}
-
-export namespace CreateFunctionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFunctionRequest): any => ({
-    ...obj,
-    ...(obj.FunctionCode && { FunctionCode: SENSITIVE_STRING }),
-  });
 }
 
 export enum FunctionStage {
@@ -5884,15 +5082,6 @@ export interface FunctionMetadata {
   LastModifiedTime: Date | undefined;
 }
 
-export namespace FunctionMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains configuration information and metadata about a CloudFront function.</p>
  */
@@ -5918,15 +5107,6 @@ export interface FunctionSummary {
   FunctionMetadata: FunctionMetadata | undefined;
 }
 
-export namespace FunctionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFunctionResult {
   /**
    * <p>Contains configuration information and metadata about a CloudFront function.</p>
@@ -5943,15 +5123,6 @@ export interface CreateFunctionResult {
    * <p>The version identifier for the current version of the CloudFront function.</p>
    */
   ETag?: string;
-}
-
-export namespace CreateFunctionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFunctionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6060,15 +5231,6 @@ export interface Paths {
   Items?: string[];
 }
 
-export namespace Paths {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Paths): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An invalidation batch.</p>
  */
@@ -6098,15 +5260,6 @@ export interface InvalidationBatch {
   CallerReference: string | undefined;
 }
 
-export namespace InvalidationBatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidationBatch): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request to create an invalidation.</p>
  */
@@ -6120,15 +5273,6 @@ export interface CreateInvalidationRequest {
    * <p>The batch information for the invalidation.</p>
    */
   InvalidationBatch: InvalidationBatch | undefined;
-}
-
-export namespace CreateInvalidationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInvalidationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6158,15 +5302,6 @@ export interface Invalidation {
   InvalidationBatch: InvalidationBatch | undefined;
 }
 
-export namespace Invalidation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Invalidation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The returned result of the corresponding request.</p>
  */
@@ -6181,15 +5316,6 @@ export interface CreateInvalidationResult {
    * <p>The invalidation's information.</p>
    */
   Invalidation?: Invalidation;
-}
-
-export namespace CreateInvalidationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInvalidationResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6235,29 +5361,11 @@ export interface KeyGroupConfig {
   Comment?: string;
 }
 
-export namespace KeyGroupConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyGroupConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateKeyGroupRequest {
   /**
    * <p>A key group configuration.</p>
    */
   KeyGroupConfig: KeyGroupConfig | undefined;
-}
-
-export namespace CreateKeyGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateKeyGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6281,15 +5389,6 @@ export interface KeyGroup {
   KeyGroupConfig: KeyGroupConfig | undefined;
 }
 
-export namespace KeyGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateKeyGroupResult {
   /**
    * <p>The key group that was just created.</p>
@@ -6305,15 +5404,6 @@ export interface CreateKeyGroupResult {
    * <p>The identifier for this version of the key group.</p>
    */
   ETag?: string;
-}
-
-export namespace CreateKeyGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateKeyGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6400,15 +5490,6 @@ export interface RealtimeMetricsSubscriptionConfig {
   RealtimeMetricsSubscriptionStatus: RealtimeMetricsSubscriptionStatus | string | undefined;
 }
 
-export namespace RealtimeMetricsSubscriptionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RealtimeMetricsSubscriptionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A monitoring subscription. This structure contains information about whether additional
  * 			CloudWatch metrics are enabled for a given CloudFront distribution.</p>
@@ -6418,15 +5499,6 @@ export interface MonitoringSubscription {
    * <p>A subscription configuration for additional CloudWatch metrics.</p>
    */
   RealtimeMetricsSubscriptionConfig?: RealtimeMetricsSubscriptionConfig;
-}
-
-export namespace MonitoringSubscription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitoringSubscription): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateMonitoringSubscriptionRequest {
@@ -6442,30 +5514,12 @@ export interface CreateMonitoringSubscriptionRequest {
   MonitoringSubscription: MonitoringSubscription | undefined;
 }
 
-export namespace CreateMonitoringSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMonitoringSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateMonitoringSubscriptionResult {
   /**
    * <p>A monitoring subscription. This structure contains information about whether additional
    * 			CloudWatch metrics are enabled for a given CloudFront distribution.</p>
    */
   MonitoringSubscription?: MonitoringSubscription;
-}
-
-export namespace CreateMonitoringSubscriptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMonitoringSubscriptionResult): any => ({
-    ...obj,
-  });
 }
 
 export type OriginRequestPolicyCookieBehavior = "all" | "none" | "whitelist";
@@ -6506,15 +5560,6 @@ export interface OriginRequestPolicyCookiesConfig {
    * <p>Contains a list of cookie names.</p>
    */
   Cookies?: CookieNames;
-}
-
-export namespace OriginRequestPolicyCookiesConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginRequestPolicyCookiesConfig): any => ({
-    ...obj,
-  });
 }
 
 export type OriginRequestPolicyHeaderBehavior = "allViewer" | "allViewerAndWhitelistCloudFront" | "none" | "whitelist";
@@ -6563,15 +5608,6 @@ export interface OriginRequestPolicyHeadersConfig {
   Headers?: Headers;
 }
 
-export namespace OriginRequestPolicyHeadersConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginRequestPolicyHeadersConfig): any => ({
-    ...obj,
-  });
-}
-
 export type OriginRequestPolicyQueryStringBehavior = "all" | "none" | "whitelist";
 
 /**
@@ -6610,15 +5646,6 @@ export interface OriginRequestPolicyQueryStringsConfig {
    * 			CloudFront sends to the origin.</p>
    */
   QueryStrings?: QueryStringNames;
-}
-
-export namespace OriginRequestPolicyQueryStringsConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginRequestPolicyQueryStringsConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6674,29 +5701,11 @@ export interface OriginRequestPolicyConfig {
   QueryStringsConfig: OriginRequestPolicyQueryStringsConfig | undefined;
 }
 
-export namespace OriginRequestPolicyConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginRequestPolicyConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateOriginRequestPolicyRequest {
   /**
    * <p>An origin request policy configuration.</p>
    */
   OriginRequestPolicyConfig: OriginRequestPolicyConfig | undefined;
-}
-
-export namespace CreateOriginRequestPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOriginRequestPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6741,15 +5750,6 @@ export interface OriginRequestPolicy {
   OriginRequestPolicyConfig: OriginRequestPolicyConfig | undefined;
 }
 
-export namespace OriginRequestPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginRequestPolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateOriginRequestPolicyResult {
   /**
    * <p>An origin request policy.</p>
@@ -6765,15 +5765,6 @@ export interface CreateOriginRequestPolicyResult {
    * <p>The current version of the origin request policy.</p>
    */
   ETag?: string;
-}
-
-export namespace CreateOriginRequestPolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOriginRequestPolicyResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6918,29 +5909,11 @@ export interface PublicKeyConfig {
   Comment?: string;
 }
 
-export namespace PublicKeyConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicKeyConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePublicKeyRequest {
   /**
    * <p>A CloudFront public key configuration.</p>
    */
   PublicKeyConfig: PublicKeyConfig | undefined;
-}
-
-export namespace CreatePublicKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePublicKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6963,15 +5936,6 @@ export interface PublicKey {
   PublicKeyConfig: PublicKeyConfig | undefined;
 }
 
-export namespace PublicKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicKey): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePublicKeyResult {
   /**
    * <p>The public key.</p>
@@ -6987,15 +5951,6 @@ export interface CreatePublicKeyResult {
    * <p>The identifier for this version of the public key.</p>
    */
   ETag?: string;
-}
-
-export namespace CreatePublicKeyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePublicKeyResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7060,15 +6015,6 @@ export interface KinesisStreamConfig {
   StreamARN: string | undefined;
 }
 
-export namespace KinesisStreamConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisStreamConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the Amazon Kinesis data stream where you are sending real-time
  * 			log data in a real-time log configuration.</p>
@@ -7085,15 +6031,6 @@ export interface EndPoint {
    * 			real-time log data.</p>
    */
   KinesisStreamConfig?: KinesisStreamConfig;
-}
-
-export namespace EndPoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndPoint): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRealtimeLogConfigRequest {
@@ -7121,15 +6058,6 @@ export interface CreateRealtimeLogConfigRequest {
    * 			provide an integer between 1 and 100, inclusive.</p>
    */
   SamplingRate: number | undefined;
-}
-
-export namespace CreateRealtimeLogConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRealtimeLogConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7169,29 +6097,11 @@ export interface RealtimeLogConfig {
   Fields: string[] | undefined;
 }
 
-export namespace RealtimeLogConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RealtimeLogConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRealtimeLogConfigResult {
   /**
    * <p>A real-time log configuration.</p>
    */
   RealtimeLogConfig?: RealtimeLogConfig;
-}
-
-export namespace CreateRealtimeLogConfigResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRealtimeLogConfigResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7258,15 +6168,6 @@ export interface ResponseHeadersPolicyAccessControlAllowHeaders {
   Items: string[] | undefined;
 }
 
-export namespace ResponseHeadersPolicyAccessControlAllowHeaders {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyAccessControlAllowHeaders): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of HTTP methods that CloudFront includes as values for the
  * 				<code>Access-Control-Allow-Methods</code> HTTP response header.</p>
@@ -7330,15 +6231,6 @@ export interface ResponseHeadersPolicyAccessControlAllowMethods {
   Items: (ResponseHeadersPolicyAccessControlAllowMethodsValues | string)[] | undefined;
 }
 
-export namespace ResponseHeadersPolicyAccessControlAllowMethods {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyAccessControlAllowMethods): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of origins (domain names) that CloudFront can use as the value for the
  * 			<code>Access-Control-Allow-Origin</code> HTTP response header.</p>
@@ -7358,15 +6250,6 @@ export interface ResponseHeadersPolicyAccessControlAllowOrigins {
   Items: string[] | undefined;
 }
 
-export namespace ResponseHeadersPolicyAccessControlAllowOrigins {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyAccessControlAllowOrigins): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of HTTP headers that CloudFront includes as values for the
  * 				<code>Access-Control-Expose-Headers</code> HTTP response header.</p>
@@ -7383,15 +6266,6 @@ export interface ResponseHeadersPolicyAccessControlExposeHeaders {
    * <p>The list of HTTP headers. You can specify <code>*</code> to expose all headers.</p>
    */
   Items?: string[];
-}
-
-export namespace ResponseHeadersPolicyAccessControlExposeHeaders {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyAccessControlExposeHeaders): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7458,15 +6332,6 @@ export interface ResponseHeadersPolicyCorsConfig {
   OriginOverride: boolean | undefined;
 }
 
-export namespace ResponseHeadersPolicyCorsConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyCorsConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP response header name and its value. CloudFront includes this header in HTTP responses that
  * 			it sends for requests that match a cache behavior that’s associated with this response
@@ -7490,15 +6355,6 @@ export interface ResponseHeadersPolicyCustomHeader {
   Override: boolean | undefined;
 }
 
-export namespace ResponseHeadersPolicyCustomHeader {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyCustomHeader): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of HTTP response header names and their values. CloudFront includes these headers in HTTP
  * 			responses that it sends for requests that match a cache behavior that’s associated with
@@ -7514,15 +6370,6 @@ export interface ResponseHeadersPolicyCustomHeadersConfig {
    * <p>The list of HTTP response headers and their values.</p>
    */
   Items?: ResponseHeadersPolicyCustomHeader[];
-}
-
-export namespace ResponseHeadersPolicyCustomHeadersConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyCustomHeadersConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7546,15 +6393,6 @@ export interface ResponseHeadersPolicyContentSecurityPolicy {
   ContentSecurityPolicy: string | undefined;
 }
 
-export namespace ResponseHeadersPolicyContentSecurityPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyContentSecurityPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Determines whether CloudFront includes the <code>X-Content-Type-Options</code> HTTP response
  * 			header with its value set to <code>nosniff</code>.</p>
@@ -7568,15 +6406,6 @@ export interface ResponseHeadersPolicyContentTypeOptions {
    * 			headers policy.</p>
    */
   Override: boolean | undefined;
-}
-
-export namespace ResponseHeadersPolicyContentTypeOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyContentTypeOptions): any => ({
-    ...obj,
-  });
 }
 
 export enum FrameOptionsList {
@@ -7604,15 +6433,6 @@ export interface ResponseHeadersPolicyFrameOptions {
    * 		       <p>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a> in the MDN Web Docs.</p>
    */
   FrameOption: FrameOptionsList | string | undefined;
-}
-
-export namespace ResponseHeadersPolicyFrameOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyFrameOptions): any => ({
-    ...obj,
-  });
 }
 
 export enum ReferrerPolicyList {
@@ -7690,15 +6510,6 @@ export interface ResponseHeadersPolicyReferrerPolicy {
   ReferrerPolicy: ReferrerPolicyList | string | undefined;
 }
 
-export namespace ResponseHeadersPolicyReferrerPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyReferrerPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Determines whether CloudFront includes the <code>Strict-Transport-Security</code> HTTP response
  * 			header and the header’s value.</p>
@@ -7730,15 +6541,6 @@ export interface ResponseHeadersPolicyStrictTransportSecurity {
    * 				<code>Strict-Transport-Security</code> HTTP response header.</p>
    */
   AccessControlMaxAgeSec: number | undefined;
-}
-
-export namespace ResponseHeadersPolicyStrictTransportSecurity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyStrictTransportSecurity): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7780,15 +6582,6 @@ export interface ResponseHeadersPolicyXSSProtection {
    * 		       <p>For more information about using a reporting URL, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
    */
   ReportUri?: string;
-}
-
-export namespace ResponseHeadersPolicyXSSProtection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyXSSProtection): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7846,15 +6639,6 @@ export interface ResponseHeadersPolicySecurityHeadersConfig {
   StrictTransportSecurity?: ResponseHeadersPolicyStrictTransportSecurity;
 }
 
-export namespace ResponseHeadersPolicySecurityHeadersConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicySecurityHeadersConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A configuration for enabling the <code>Server-Timing</code> header in HTTP responses sent
  * 			from CloudFront. CloudFront adds this header to HTTP responses that it sends in response to requests
@@ -7885,15 +6669,6 @@ export interface ResponseHeadersPolicyServerTimingHeadersConfig {
    * 			decimal places.</p>
    */
   SamplingRate?: number;
-}
-
-export namespace ResponseHeadersPolicyServerTimingHeadersConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyServerTimingHeadersConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7939,30 +6714,12 @@ export interface ResponseHeadersPolicyConfig {
   ServerTimingHeadersConfig?: ResponseHeadersPolicyServerTimingHeadersConfig;
 }
 
-export namespace ResponseHeadersPolicyConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateResponseHeadersPolicyRequest {
   /**
    * <p>Contains metadata about the response headers policy, and a set of configurations that
    * 			specify the response headers.</p>
    */
   ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfig | undefined;
-}
-
-export namespace CreateResponseHeadersPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResponseHeadersPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7996,15 +6753,6 @@ export interface ResponseHeadersPolicy {
   ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfig | undefined;
 }
 
-export namespace ResponseHeadersPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateResponseHeadersPolicyResult {
   /**
    * <p>Contains a response headers policy.</p>
@@ -8020,15 +6768,6 @@ export interface CreateResponseHeadersPolicyResult {
    * <p>The version identifier for the current version of the response headers policy.</p>
    */
   ETag?: string;
-}
-
-export namespace CreateResponseHeadersPolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResponseHeadersPolicyResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8153,15 +6892,6 @@ export interface StreamingLoggingConfig {
   Prefix: string | undefined;
 }
 
-export namespace StreamingLoggingConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingLoggingConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains information about the Amazon S3 bucket from which you want
  * 			CloudFront to get your media files for distribution.</p>
@@ -8188,15 +6918,6 @@ export interface S3Origin {
    * 				Amazon CloudFront Developer Guide</i>.</p>
    */
   OriginAccessIdentity: string | undefined;
-}
-
-export namespace S3Origin {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Origin): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8258,15 +6979,6 @@ export interface StreamingDistributionConfig {
   Enabled: boolean | undefined;
 }
 
-export namespace StreamingDistributionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingDistributionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request to create a new streaming distribution.</p>
  */
@@ -8275,15 +6987,6 @@ export interface CreateStreamingDistributionRequest {
    * <p>The streaming distribution's configuration information.</p>
    */
   StreamingDistributionConfig: StreamingDistributionConfig | undefined;
-}
-
-export namespace CreateStreamingDistributionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingDistributionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8340,15 +7043,6 @@ export interface StreamingDistribution {
   StreamingDistributionConfig: StreamingDistributionConfig | undefined;
 }
 
-export namespace StreamingDistribution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingDistribution): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The returned result of the corresponding request.</p>
  */
@@ -8367,15 +7061,6 @@ export interface CreateStreamingDistributionResult {
    * <p>The current version of the streaming distribution created.</p>
    */
   ETag?: string;
-}
-
-export namespace CreateStreamingDistributionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingDistributionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8458,15 +7143,6 @@ export interface StreamingDistributionConfigWithTags {
   Tags: Tags | undefined;
 }
 
-export namespace StreamingDistributionConfigWithTags {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingDistributionConfigWithTags): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request to create a new streaming distribution with tags.</p>
  */
@@ -8475,15 +7151,6 @@ export interface CreateStreamingDistributionWithTagsRequest {
    * <p> The streaming distribution's configuration information. </p>
    */
   StreamingDistributionConfigWithTags: StreamingDistributionConfigWithTags | undefined;
-}
-
-export namespace CreateStreamingDistributionWithTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingDistributionWithTagsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8506,15 +7173,6 @@ export interface CreateStreamingDistributionWithTagsResult {
   ETag?: string;
 }
 
-export namespace CreateStreamingDistributionWithTagsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingDistributionWithTagsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCachePolicyRequest {
   /**
    * <p>The unique identifier for the cache policy that you are deleting. To get the
@@ -8529,15 +7187,6 @@ export interface DeleteCachePolicyRequest {
    * 			<code>GetCachePolicyConfig</code>.</p>
    */
   IfMatch?: string;
-}
-
-export namespace DeleteCachePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCachePolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8641,15 +7290,6 @@ export interface DeleteCloudFrontOriginAccessIdentityRequest {
   IfMatch?: string;
 }
 
-export namespace DeleteCloudFrontOriginAccessIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCloudFrontOriginAccessIdentityRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified origin access identity does not exist.</p>
  */
@@ -8733,15 +7373,6 @@ export interface DeleteDistributionRequest {
   IfMatch?: string;
 }
 
-export namespace DeleteDistributionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDistributionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified CloudFront distribution is not disabled. You must disable
  * 			the distribution before you can delete it.</p>
@@ -8775,15 +7406,6 @@ export interface DeleteFieldLevelEncryptionConfigRequest {
    * 			configuration identity to delete. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   IfMatch?: string;
-}
-
-export namespace DeleteFieldLevelEncryptionConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFieldLevelEncryptionConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8820,15 +7442,6 @@ export interface DeleteFieldLevelEncryptionProfileRequest {
   IfMatch?: string;
 }
 
-export namespace DeleteFieldLevelEncryptionProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFieldLevelEncryptionProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified profile for field-level encryption is in use.</p>
  */
@@ -8861,15 +7474,6 @@ export interface DeleteFunctionRequest {
    * 			you can get using <code>DescribeFunction</code>.</p>
    */
   IfMatch: string | undefined;
-}
-
-export namespace DeleteFunctionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFunctionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8930,15 +7534,6 @@ export interface DeleteKeyGroupRequest {
   IfMatch?: string;
 }
 
-export namespace DeleteKeyGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteKeyGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A resource that was specified is not valid.</p>
  */
@@ -8959,3 +7554,1148 @@ export class NoSuchResource extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * @internal
+ */
+export const KeyPairIdsFilterSensitiveLog = (obj: KeyPairIds): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KGKeyPairIdsFilterSensitiveLog = (obj: KGKeyPairIds): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActiveTrustedKeyGroupsFilterSensitiveLog = (obj: ActiveTrustedKeyGroups): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SignerFilterSensitiveLog = (obj: Signer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActiveTrustedSignersFilterSensitiveLog = (obj: ActiveTrustedSigners): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AliasesFilterSensitiveLog = (obj: Aliases): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AliasICPRecordalFilterSensitiveLog = (obj: AliasICPRecordal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CachedMethodsFilterSensitiveLog = (obj: CachedMethods): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllowedMethodsFilterSensitiveLog = (obj: AllowedMethods): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateAliasRequestFilterSensitiveLog = (obj: AssociateAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CookieNamesFilterSensitiveLog = (obj: CookieNames): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CookiePreferenceFilterSensitiveLog = (obj: CookiePreference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HeadersFilterSensitiveLog = (obj: Headers): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryStringCacheKeysFilterSensitiveLog = (obj: QueryStringCacheKeys): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ForwardedValuesFilterSensitiveLog = (obj: ForwardedValues): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionAssociationFilterSensitiveLog = (obj: FunctionAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionAssociationsFilterSensitiveLog = (obj: FunctionAssociations): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionAssociationFilterSensitiveLog = (obj: LambdaFunctionAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionAssociationsFilterSensitiveLog = (obj: LambdaFunctionAssociations): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrustedKeyGroupsFilterSensitiveLog = (obj: TrustedKeyGroups): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrustedSignersFilterSensitiveLog = (obj: TrustedSigners): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheBehaviorFilterSensitiveLog = (obj: CacheBehavior): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheBehaviorsFilterSensitiveLog = (obj: CacheBehaviors): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CachePolicyCookiesConfigFilterSensitiveLog = (obj: CachePolicyCookiesConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CachePolicyHeadersConfigFilterSensitiveLog = (obj: CachePolicyHeadersConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryStringNamesFilterSensitiveLog = (obj: QueryStringNames): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CachePolicyQueryStringsConfigFilterSensitiveLog = (obj: CachePolicyQueryStringsConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParametersInCacheKeyAndForwardedToOriginFilterSensitiveLog = (
+  obj: ParametersInCacheKeyAndForwardedToOrigin
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CachePolicyConfigFilterSensitiveLog = (obj: CachePolicyConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CachePolicyFilterSensitiveLog = (obj: CachePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CachePolicySummaryFilterSensitiveLog = (obj: CachePolicySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CachePolicyListFilterSensitiveLog = (obj: CachePolicyList): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCachePolicyRequestFilterSensitiveLog = (obj: CreateCachePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCachePolicyResultFilterSensitiveLog = (obj: CreateCachePolicyResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudFrontOriginAccessIdentityConfigFilterSensitiveLog = (
+  obj: CloudFrontOriginAccessIdentityConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCloudFrontOriginAccessIdentityRequestFilterSensitiveLog = (
+  obj: CreateCloudFrontOriginAccessIdentityRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudFrontOriginAccessIdentityFilterSensitiveLog = (obj: CloudFrontOriginAccessIdentity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCloudFrontOriginAccessIdentityResultFilterSensitiveLog = (
+  obj: CreateCloudFrontOriginAccessIdentityResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomErrorResponseFilterSensitiveLog = (obj: CustomErrorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomErrorResponsesFilterSensitiveLog = (obj: CustomErrorResponses): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefaultCacheBehaviorFilterSensitiveLog = (obj: DefaultCacheBehavior): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingConfigFilterSensitiveLog = (obj: LoggingConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatusCodesFilterSensitiveLog = (obj: StatusCodes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginGroupFailoverCriteriaFilterSensitiveLog = (obj: OriginGroupFailoverCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginGroupMemberFilterSensitiveLog = (obj: OriginGroupMember): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginGroupMembersFilterSensitiveLog = (obj: OriginGroupMembers): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginGroupFilterSensitiveLog = (obj: OriginGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginGroupsFilterSensitiveLog = (obj: OriginGroups): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginCustomHeaderFilterSensitiveLog = (obj: OriginCustomHeader): any => ({
+  ...obj,
+  ...(obj.HeaderValue && { HeaderValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CustomHeadersFilterSensitiveLog = (obj: CustomHeaders): any => ({
+  ...obj,
+  ...(obj.Items && { Items: obj.Items.map((item) => OriginCustomHeaderFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const OriginSslProtocolsFilterSensitiveLog = (obj: OriginSslProtocols): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomOriginConfigFilterSensitiveLog = (obj: CustomOriginConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginShieldFilterSensitiveLog = (obj: OriginShield): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3OriginConfigFilterSensitiveLog = (obj: S3OriginConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginFilterSensitiveLog = (obj: Origin): any => ({
+  ...obj,
+  ...(obj.CustomHeaders && { CustomHeaders: CustomHeadersFilterSensitiveLog(obj.CustomHeaders) }),
+});
+
+/**
+ * @internal
+ */
+export const OriginsFilterSensitiveLog = (obj: Origins): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeoRestrictionFilterSensitiveLog = (obj: GeoRestriction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestrictionsFilterSensitiveLog = (obj: Restrictions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ViewerCertificateFilterSensitiveLog = (obj: ViewerCertificate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DistributionConfigFilterSensitiveLog = (obj: DistributionConfig): any => ({
+  ...obj,
+  ...(obj.Comment && { Comment: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDistributionRequestFilterSensitiveLog = (obj: CreateDistributionRequest): any => ({
+  ...obj,
+  ...(obj.DistributionConfig && { DistributionConfig: DistributionConfigFilterSensitiveLog(obj.DistributionConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const DistributionFilterSensitiveLog = (obj: Distribution): any => ({
+  ...obj,
+  ...(obj.DistributionConfig && { DistributionConfig: DistributionConfigFilterSensitiveLog(obj.DistributionConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDistributionResultFilterSensitiveLog = (obj: CreateDistributionResult): any => ({
+  ...obj,
+  ...(obj.Distribution && { Distribution: DistributionFilterSensitiveLog(obj.Distribution) }),
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagsFilterSensitiveLog = (obj: Tags): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DistributionConfigWithTagsFilterSensitiveLog = (obj: DistributionConfigWithTags): any => ({
+  ...obj,
+  ...(obj.DistributionConfig && { DistributionConfig: DistributionConfigFilterSensitiveLog(obj.DistributionConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDistributionWithTagsRequestFilterSensitiveLog = (obj: CreateDistributionWithTagsRequest): any => ({
+  ...obj,
+  ...(obj.DistributionConfigWithTags && {
+    DistributionConfigWithTags: DistributionConfigWithTagsFilterSensitiveLog(obj.DistributionConfigWithTags),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDistributionWithTagsResultFilterSensitiveLog = (obj: CreateDistributionWithTagsResult): any => ({
+  ...obj,
+  ...(obj.Distribution && { Distribution: DistributionFilterSensitiveLog(obj.Distribution) }),
+});
+
+/**
+ * @internal
+ */
+export const ContentTypeProfileFilterSensitiveLog = (obj: ContentTypeProfile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContentTypeProfilesFilterSensitiveLog = (obj: ContentTypeProfiles): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContentTypeProfileConfigFilterSensitiveLog = (obj: ContentTypeProfileConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryArgProfileFilterSensitiveLog = (obj: QueryArgProfile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryArgProfilesFilterSensitiveLog = (obj: QueryArgProfiles): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryArgProfileConfigFilterSensitiveLog = (obj: QueryArgProfileConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FieldLevelEncryptionConfigFilterSensitiveLog = (obj: FieldLevelEncryptionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFieldLevelEncryptionConfigRequestFilterSensitiveLog = (
+  obj: CreateFieldLevelEncryptionConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FieldLevelEncryptionFilterSensitiveLog = (obj: FieldLevelEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFieldLevelEncryptionConfigResultFilterSensitiveLog = (
+  obj: CreateFieldLevelEncryptionConfigResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FieldPatternsFilterSensitiveLog = (obj: FieldPatterns): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionEntityFilterSensitiveLog = (obj: EncryptionEntity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionEntitiesFilterSensitiveLog = (obj: EncryptionEntities): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FieldLevelEncryptionProfileConfigFilterSensitiveLog = (obj: FieldLevelEncryptionProfileConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFieldLevelEncryptionProfileRequestFilterSensitiveLog = (
+  obj: CreateFieldLevelEncryptionProfileRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FieldLevelEncryptionProfileFilterSensitiveLog = (obj: FieldLevelEncryptionProfile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFieldLevelEncryptionProfileResultFilterSensitiveLog = (
+  obj: CreateFieldLevelEncryptionProfileResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionConfigFilterSensitiveLog = (obj: FunctionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFunctionRequestFilterSensitiveLog = (obj: CreateFunctionRequest): any => ({
+  ...obj,
+  ...(obj.FunctionCode && { FunctionCode: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FunctionMetadataFilterSensitiveLog = (obj: FunctionMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionSummaryFilterSensitiveLog = (obj: FunctionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFunctionResultFilterSensitiveLog = (obj: CreateFunctionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PathsFilterSensitiveLog = (obj: Paths): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InvalidationBatchFilterSensitiveLog = (obj: InvalidationBatch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInvalidationRequestFilterSensitiveLog = (obj: CreateInvalidationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InvalidationFilterSensitiveLog = (obj: Invalidation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInvalidationResultFilterSensitiveLog = (obj: CreateInvalidationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeyGroupConfigFilterSensitiveLog = (obj: KeyGroupConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateKeyGroupRequestFilterSensitiveLog = (obj: CreateKeyGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeyGroupFilterSensitiveLog = (obj: KeyGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateKeyGroupResultFilterSensitiveLog = (obj: CreateKeyGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RealtimeMetricsSubscriptionConfigFilterSensitiveLog = (obj: RealtimeMetricsSubscriptionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonitoringSubscriptionFilterSensitiveLog = (obj: MonitoringSubscription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMonitoringSubscriptionRequestFilterSensitiveLog = (
+  obj: CreateMonitoringSubscriptionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMonitoringSubscriptionResultFilterSensitiveLog = (obj: CreateMonitoringSubscriptionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginRequestPolicyCookiesConfigFilterSensitiveLog = (obj: OriginRequestPolicyCookiesConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginRequestPolicyHeadersConfigFilterSensitiveLog = (obj: OriginRequestPolicyHeadersConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginRequestPolicyQueryStringsConfigFilterSensitiveLog = (
+  obj: OriginRequestPolicyQueryStringsConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginRequestPolicyConfigFilterSensitiveLog = (obj: OriginRequestPolicyConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOriginRequestPolicyRequestFilterSensitiveLog = (obj: CreateOriginRequestPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginRequestPolicyFilterSensitiveLog = (obj: OriginRequestPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOriginRequestPolicyResultFilterSensitiveLog = (obj: CreateOriginRequestPolicyResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublicKeyConfigFilterSensitiveLog = (obj: PublicKeyConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePublicKeyRequestFilterSensitiveLog = (obj: CreatePublicKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublicKeyFilterSensitiveLog = (obj: PublicKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePublicKeyResultFilterSensitiveLog = (obj: CreatePublicKeyResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisStreamConfigFilterSensitiveLog = (obj: KinesisStreamConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndPointFilterSensitiveLog = (obj: EndPoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRealtimeLogConfigRequestFilterSensitiveLog = (obj: CreateRealtimeLogConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RealtimeLogConfigFilterSensitiveLog = (obj: RealtimeLogConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRealtimeLogConfigResultFilterSensitiveLog = (obj: CreateRealtimeLogConfigResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyAccessControlAllowHeadersFilterSensitiveLog = (
+  obj: ResponseHeadersPolicyAccessControlAllowHeaders
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyAccessControlAllowMethodsFilterSensitiveLog = (
+  obj: ResponseHeadersPolicyAccessControlAllowMethods
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyAccessControlAllowOriginsFilterSensitiveLog = (
+  obj: ResponseHeadersPolicyAccessControlAllowOrigins
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyAccessControlExposeHeadersFilterSensitiveLog = (
+  obj: ResponseHeadersPolicyAccessControlExposeHeaders
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyCorsConfigFilterSensitiveLog = (obj: ResponseHeadersPolicyCorsConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyCustomHeaderFilterSensitiveLog = (obj: ResponseHeadersPolicyCustomHeader): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyCustomHeadersConfigFilterSensitiveLog = (
+  obj: ResponseHeadersPolicyCustomHeadersConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyContentSecurityPolicyFilterSensitiveLog = (
+  obj: ResponseHeadersPolicyContentSecurityPolicy
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyContentTypeOptionsFilterSensitiveLog = (
+  obj: ResponseHeadersPolicyContentTypeOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyFrameOptionsFilterSensitiveLog = (obj: ResponseHeadersPolicyFrameOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyReferrerPolicyFilterSensitiveLog = (
+  obj: ResponseHeadersPolicyReferrerPolicy
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyStrictTransportSecurityFilterSensitiveLog = (
+  obj: ResponseHeadersPolicyStrictTransportSecurity
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyXSSProtectionFilterSensitiveLog = (obj: ResponseHeadersPolicyXSSProtection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicySecurityHeadersConfigFilterSensitiveLog = (
+  obj: ResponseHeadersPolicySecurityHeadersConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyServerTimingHeadersConfigFilterSensitiveLog = (
+  obj: ResponseHeadersPolicyServerTimingHeadersConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyConfigFilterSensitiveLog = (obj: ResponseHeadersPolicyConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResponseHeadersPolicyRequestFilterSensitiveLog = (obj: CreateResponseHeadersPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseHeadersPolicyFilterSensitiveLog = (obj: ResponseHeadersPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResponseHeadersPolicyResultFilterSensitiveLog = (obj: CreateResponseHeadersPolicyResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamingLoggingConfigFilterSensitiveLog = (obj: StreamingLoggingConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3OriginFilterSensitiveLog = (obj: S3Origin): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamingDistributionConfigFilterSensitiveLog = (obj: StreamingDistributionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingDistributionRequestFilterSensitiveLog = (obj: CreateStreamingDistributionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamingDistributionFilterSensitiveLog = (obj: StreamingDistribution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingDistributionResultFilterSensitiveLog = (obj: CreateStreamingDistributionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamingDistributionConfigWithTagsFilterSensitiveLog = (
+  obj: StreamingDistributionConfigWithTags
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingDistributionWithTagsRequestFilterSensitiveLog = (
+  obj: CreateStreamingDistributionWithTagsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingDistributionWithTagsResultFilterSensitiveLog = (
+  obj: CreateStreamingDistributionWithTagsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCachePolicyRequestFilterSensitiveLog = (obj: DeleteCachePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCloudFrontOriginAccessIdentityRequestFilterSensitiveLog = (
+  obj: DeleteCloudFrontOriginAccessIdentityRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDistributionRequestFilterSensitiveLog = (obj: DeleteDistributionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFieldLevelEncryptionConfigRequestFilterSensitiveLog = (
+  obj: DeleteFieldLevelEncryptionConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFieldLevelEncryptionProfileRequestFilterSensitiveLog = (
+  obj: DeleteFieldLevelEncryptionProfileRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFunctionRequestFilterSensitiveLog = (obj: DeleteFunctionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteKeyGroupRequestFilterSensitiveLog = (obj: DeleteKeyGroupRequest): any => ({
+  ...obj,
+});

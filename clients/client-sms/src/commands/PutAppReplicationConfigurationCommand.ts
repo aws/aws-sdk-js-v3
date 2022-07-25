@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutAppReplicationConfigurationRequest, PutAppReplicationConfigurationResponse } from "../models/models_0";
+import {
+  PutAppReplicationConfigurationRequest,
+  PutAppReplicationConfigurationRequestFilterSensitiveLog,
+  PutAppReplicationConfigurationResponse,
+  PutAppReplicationConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutAppReplicationConfigurationCommand,
   serializeAws_json1_1PutAppReplicationConfigurationCommand,
@@ -74,8 +79,8 @@ export class PutAppReplicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAppReplicationConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutAppReplicationConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAppReplicationConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutAppReplicationConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

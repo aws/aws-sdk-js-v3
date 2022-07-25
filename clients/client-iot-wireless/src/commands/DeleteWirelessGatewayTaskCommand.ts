@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { DeleteWirelessGatewayTaskRequest, DeleteWirelessGatewayTaskResponse } from "../models/models_0";
+import {
+  DeleteWirelessGatewayTaskRequest,
+  DeleteWirelessGatewayTaskRequestFilterSensitiveLog,
+  DeleteWirelessGatewayTaskResponse,
+  DeleteWirelessGatewayTaskResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteWirelessGatewayTaskCommand,
   serializeAws_restJson1DeleteWirelessGatewayTaskCommand,
@@ -72,8 +77,8 @@ export class DeleteWirelessGatewayTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWirelessGatewayTaskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWirelessGatewayTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteWirelessGatewayTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteWirelessGatewayTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

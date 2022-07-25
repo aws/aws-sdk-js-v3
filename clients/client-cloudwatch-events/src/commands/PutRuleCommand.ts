@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { PutRuleRequest, PutRuleResponse } from "../models/models_0";
+import {
+  PutRuleRequest,
+  PutRuleRequestFilterSensitiveLog,
+  PutRuleResponse,
+  PutRuleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1PutRuleCommand, serializeAws_json1_1PutRuleCommand } from "../protocols/Aws_json1_1";
 
 export interface PutRuleCommandInput extends PutRuleRequest {}
@@ -115,8 +120,8 @@ export class PutRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutRuleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutRuleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

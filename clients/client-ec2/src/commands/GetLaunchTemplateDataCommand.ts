@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetLaunchTemplateDataRequest, GetLaunchTemplateDataResult } from "../models/models_5";
+import {
+  GetLaunchTemplateDataRequest,
+  GetLaunchTemplateDataRequestFilterSensitiveLog,
+  GetLaunchTemplateDataResult,
+  GetLaunchTemplateDataResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2GetLaunchTemplateDataCommand,
   serializeAws_ec2GetLaunchTemplateDataCommand,
@@ -78,8 +83,8 @@ export class GetLaunchTemplateDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLaunchTemplateDataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetLaunchTemplateDataResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLaunchTemplateDataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetLaunchTemplateDataResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

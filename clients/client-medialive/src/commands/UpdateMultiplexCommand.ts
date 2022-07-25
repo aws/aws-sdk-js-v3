@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { UpdateMultiplexRequest, UpdateMultiplexResponse } from "../models/models_2";
+import {
+  UpdateMultiplexRequest,
+  UpdateMultiplexRequestFilterSensitiveLog,
+  UpdateMultiplexResponse,
+  UpdateMultiplexResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateMultiplexCommand,
   serializeAws_restJson1UpdateMultiplexCommand,
@@ -72,8 +77,8 @@ export class UpdateMultiplexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMultiplexRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMultiplexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateMultiplexRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMultiplexResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

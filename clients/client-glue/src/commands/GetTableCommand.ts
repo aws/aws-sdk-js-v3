@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetTableRequest, GetTableResponse } from "../models/models_1";
+import {
+  GetTableRequest,
+  GetTableRequestFilterSensitiveLog,
+  GetTableResponse,
+  GetTableResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { deserializeAws_json1_1GetTableCommand, serializeAws_json1_1GetTableCommand } from "../protocols/Aws_json1_1";
 
 export interface GetTableCommandInput extends GetTableRequest {}
@@ -66,8 +71,8 @@ export class GetTableCommand extends $Command<GetTableCommandInput, GetTableComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTableRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTableResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTableRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTableResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

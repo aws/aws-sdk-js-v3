@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateOpenIDConnectProviderThumbprintRequest } from "../models/models_1";
+import {
+  UpdateOpenIDConnectProviderThumbprintRequest,
+  UpdateOpenIDConnectProviderThumbprintRequestFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand,
   serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand,
@@ -94,7 +97,7 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOpenIDConnectProviderThumbprintRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateOpenIDConnectProviderThumbprintRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { AssociatePhoneNumberContactFlowRequest } from "../models/models_0";
+import {
+  AssociatePhoneNumberContactFlowRequest,
+  AssociatePhoneNumberContactFlowRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1AssociatePhoneNumberContactFlowCommand,
   serializeAws_restJson1AssociatePhoneNumberContactFlowCommand,
@@ -72,7 +75,7 @@ export class AssociatePhoneNumberContactFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociatePhoneNumberContactFlowRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociatePhoneNumberContactFlowRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

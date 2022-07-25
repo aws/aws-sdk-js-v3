@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { UpdateCapacityProviderRequest, UpdateCapacityProviderResponse } from "../models/models_0";
+import {
+  UpdateCapacityProviderRequest,
+  UpdateCapacityProviderRequestFilterSensitiveLog,
+  UpdateCapacityProviderResponse,
+  UpdateCapacityProviderResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateCapacityProviderCommand,
   serializeAws_json1_1UpdateCapacityProviderCommand,
@@ -72,8 +77,8 @@ export class UpdateCapacityProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCapacityProviderRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCapacityProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateCapacityProviderRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateCapacityProviderResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

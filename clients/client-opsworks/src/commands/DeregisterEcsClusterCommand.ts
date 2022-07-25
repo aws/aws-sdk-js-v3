@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeregisterEcsClusterRequest } from "../models/models_0";
+import { DeregisterEcsClusterRequest, DeregisterEcsClusterRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1DeregisterEcsClusterCommand,
@@ -80,7 +80,7 @@ export class DeregisterEcsClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterEcsClusterRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterEcsClusterRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

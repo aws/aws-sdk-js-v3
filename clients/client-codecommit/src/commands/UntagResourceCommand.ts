@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { UntagResourceInput } from "../models/models_1";
+import { UntagResourceInput, UntagResourceInputFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_json1_1UntagResourceCommand,
   serializeAws_json1_1UntagResourceCommand,
@@ -74,7 +74,7 @@ export class UntagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceInput.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagResourceInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

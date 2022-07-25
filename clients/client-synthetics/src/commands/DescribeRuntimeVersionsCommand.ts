@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeRuntimeVersionsRequest, DescribeRuntimeVersionsResponse } from "../models/models_0";
+import {
+  DescribeRuntimeVersionsRequest,
+  DescribeRuntimeVersionsRequestFilterSensitiveLog,
+  DescribeRuntimeVersionsResponse,
+  DescribeRuntimeVersionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeRuntimeVersionsCommand,
   serializeAws_restJson1DescribeRuntimeVersionsCommand,
@@ -74,8 +79,8 @@ export class DescribeRuntimeVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRuntimeVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRuntimeVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRuntimeVersionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRuntimeVersionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

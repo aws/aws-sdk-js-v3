@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListBonusPaymentsRequest, ListBonusPaymentsResponse } from "../models/models_0";
+import {
+  ListBonusPaymentsRequest,
+  ListBonusPaymentsRequestFilterSensitiveLog,
+  ListBonusPaymentsResponse,
+  ListBonusPaymentsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1ListBonusPaymentsCommand,
@@ -77,8 +82,8 @@ export class ListBonusPaymentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBonusPaymentsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListBonusPaymentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBonusPaymentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListBonusPaymentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

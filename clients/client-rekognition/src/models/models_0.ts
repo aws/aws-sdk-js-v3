@@ -52,15 +52,6 @@ export interface AgeRange {
   High?: number;
 }
 
-export namespace AgeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AgeRange): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the S3 bucket name and object name.</p>
  *          <p>The region for the S3 bucket containing the S3 object must match the region you use for
@@ -87,15 +78,6 @@ export interface S3Object {
   Version?: string;
 }
 
-export namespace S3Object {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Object): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The S3 bucket that contains an Amazon Sagemaker Ground Truth format manifest file.
  * </p>
@@ -113,15 +95,6 @@ export interface GroundTruthManifest {
   S3Object?: S3Object;
 }
 
-export namespace GroundTruthManifest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroundTruthManifest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Assets are the images that you use to train and evaluate a model version.
  *          Assets can also contain validation information that you use to debug a failed model training.
@@ -133,15 +106,6 @@ export interface Asset {
    * </p>
    */
   GroundTruthManifest?: GroundTruthManifest;
-}
-
-export namespace Asset {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Asset): any => ({
-    ...obj,
-  });
 }
 
 export enum Attribute {
@@ -175,15 +139,6 @@ export interface AudioMetadata {
   NumberOfChannels?: number;
 }
 
-export namespace AudioMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates whether or not the face has a beard, and the confidence level in the
  *       determination.</p>
@@ -198,15 +153,6 @@ export interface Beard {
    * <p>Level of confidence in the determination.</p>
    */
   Confidence?: number;
-}
-
-export namespace Beard {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Beard): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -239,15 +185,6 @@ export interface BlackFrame {
    *       set. You can reduce this value to allow more noise on the black frame.</p>
    */
   MinCoveragePercentage?: number;
-}
-
-export namespace BlackFrame {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlackFrame): any => ({
-    ...obj,
-  });
 }
 
 export enum BodyPart {
@@ -299,15 +236,6 @@ export interface BoundingBox {
   Top?: number;
 }
 
-export namespace BoundingBox {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BoundingBox): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an item of Personal Protective Equipment covering a corresponding body part. For more
  *          information, see <a>DetectProtectiveEquipment</a>.</p>
@@ -322,15 +250,6 @@ export interface CoversBodyPart {
    * <p>True if the PPE covers the corresponding body part, otherwise false.</p>
    */
   Value?: boolean;
-}
-
-export namespace CoversBodyPart {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CoversBodyPart): any => ({
-    ...obj,
-  });
 }
 
 export enum ProtectiveEquipmentType {
@@ -366,15 +285,6 @@ export interface EquipmentDetection {
   CoversBodyPart?: CoversBodyPart;
 }
 
-export namespace EquipmentDetection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EquipmentDetection): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a body part detected by <a>DetectProtectiveEquipment</a> that contains PPE.
  *          An array of <code>ProtectiveEquipmentBodyPart</code> objects is returned for each person detected by
@@ -396,15 +306,6 @@ export interface ProtectiveEquipmentBodyPart {
    * <p>An array of Personal Protective Equipment items detected around a body part.</p>
    */
   EquipmentDetections?: EquipmentDetection[];
-}
-
-export namespace ProtectiveEquipmentBodyPart {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProtectiveEquipmentBodyPart): any => ({
-    ...obj,
-  });
 }
 
 export type EmotionName =
@@ -434,15 +335,6 @@ export interface Emotion {
    * <p>Level of confidence in the determination.</p>
    */
   Confidence?: number;
-}
-
-export namespace Emotion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Emotion): any => ({
-    ...obj,
-  });
 }
 
 export enum LandmarkType {
@@ -502,15 +394,6 @@ export interface Landmark {
   Y?: number;
 }
 
-export namespace Landmark {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Landmark): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates the pose of the face as determined by its pitch, roll, and yaw.</p>
  */
@@ -531,15 +414,6 @@ export interface Pose {
   Pitch?: number;
 }
 
-export namespace Pose {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Pose): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Identifies face image brightness and sharpness. </p>
  */
@@ -557,15 +431,6 @@ export interface ImageQuality {
   Sharpness?: number;
 }
 
-export namespace ImageQuality {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageQuality): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates whether or not the face is smiling, and the confidence level in the
  *       determination.</p>
@@ -580,15 +445,6 @@ export interface Smile {
    * <p>Level of confidence in the determination.</p>
    */
   Confidence?: number;
-}
-
-export namespace Smile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Smile): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -636,15 +492,6 @@ export interface ComparedFace {
   Smile?: Smile;
 }
 
-export namespace ComparedFace {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComparedFace): any => ({
-    ...obj,
-  });
-}
-
 export enum KnownGenderType {
   Female = "Female",
   Male = "Male",
@@ -661,15 +508,6 @@ export interface KnownGender {
    * <p>A string value of the KnownGender info about the Celebrity.</p>
    */
   Type?: KnownGenderType | string;
-}
-
-export namespace KnownGender {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KnownGender): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -711,15 +549,6 @@ export interface Celebrity {
   KnownGender?: KnownGender;
 }
 
-export namespace Celebrity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Celebrity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates whether or not the face is wearing eye glasses, and the confidence level in
  *       the determination.</p>
@@ -736,15 +565,6 @@ export interface Eyeglasses {
   Confidence?: number;
 }
 
-export namespace Eyeglasses {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Eyeglasses): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates whether or not the eyes on the face are open, and the confidence level in the
  *       determination.</p>
@@ -759,15 +579,6 @@ export interface EyeOpen {
    * <p>Level of confidence in the determination.</p>
    */
   Confidence?: number;
-}
-
-export namespace EyeOpen {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EyeOpen): any => ({
-    ...obj,
-  });
 }
 
 export enum GenderType {
@@ -802,15 +613,6 @@ export interface Gender {
   Confidence?: number;
 }
 
-export namespace Gender {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Gender): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates whether or not the mouth on the face is open, and the confidence level in the
  *       determination.</p>
@@ -825,15 +627,6 @@ export interface MouthOpen {
    * <p>Level of confidence in the determination.</p>
    */
   Confidence?: number;
-}
-
-export namespace MouthOpen {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MouthOpen): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -852,15 +645,6 @@ export interface Mustache {
   Confidence?: number;
 }
 
-export namespace Mustache {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Mustache): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates whether or not the face is wearing sunglasses, and the confidence level in
  *       the determination.</p>
@@ -875,15 +659,6 @@ export interface Sunglasses {
    * <p>Level of confidence in the determination.</p>
    */
   Confidence?: number;
-}
-
-export namespace Sunglasses {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Sunglasses): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1001,15 +776,6 @@ export interface FaceDetail {
   Confidence?: number;
 }
 
-export namespace FaceDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FaceDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a recognized celebrity.</p>
  */
@@ -1050,15 +816,6 @@ export interface CelebrityDetail {
   KnownGender?: KnownGender;
 }
 
-export namespace CelebrityDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CelebrityDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a detected celebrity and the time the celebrity was detected in a stored video.
  *         For more information, see GetCelebrityRecognition in the Amazon Rekognition Developer Guide.</p>
@@ -1073,15 +830,6 @@ export interface CelebrityRecognition {
    * <p>Information about a recognized celebrity.</p>
    */
   Celebrity?: CelebrityDetail;
-}
-
-export namespace CelebrityRecognition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CelebrityRecognition): any => ({
-    ...obj,
-  });
 }
 
 export enum CelebrityRecognitionSortBy {
@@ -1105,15 +853,6 @@ export interface ComparedSourceImageFace {
    * <p>Confidence level that the selected bounding box contains a face.</p>
    */
   Confidence?: number;
-}
-
-export namespace ComparedSourceImageFace {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComparedSourceImageFace): any => ({
-    ...obj,
-  });
 }
 
 export enum QualityFilter {
@@ -1161,15 +900,6 @@ export interface Image {
   S3Object?: S3Object;
 }
 
-export namespace Image {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Image): any => ({
-    ...obj,
-  });
-}
-
 export interface CompareFacesRequest {
   /**
    * <p>The input image as base64-encoded bytes or an S3 object.
@@ -1215,15 +945,6 @@ export interface CompareFacesRequest {
   QualityFilter?: QualityFilter | string;
 }
 
-export namespace CompareFacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompareFacesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about a face in a target image that matches the source image face
  *       analyzed by <code>CompareFaces</code>. The <code>Face</code> property contains the bounding
@@ -1241,15 +962,6 @@ export interface CompareFacesMatch {
    *       contains a face).</p>
    */
   Face?: ComparedFace;
-}
-
-export namespace CompareFacesMatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompareFacesMatch): any => ({
-    ...obj,
-  });
 }
 
 export enum OrientationCorrection {
@@ -1306,15 +1018,6 @@ export interface CompareFacesResponse {
    *     </p>
    */
   TargetImageOrientationCorrection?: OrientationCorrection | string;
-}
-
-export namespace CompareFacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompareFacesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1542,15 +1245,6 @@ export interface ConnectedHomeSettings {
   MinConfidence?: number;
 }
 
-export namespace ConnectedHomeSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectedHomeSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             The label detection settings you want to use in your stream processor. This includes the labels you want the stream processor to detect and the minimum confidence level allowed to label objects.
@@ -1570,15 +1264,6 @@ export interface ConnectedHomeSettingsForUpdate {
    *         </p>
    */
   MinConfidence?: number;
-}
-
-export namespace ConnectedHomeSettingsForUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectedHomeSettingsForUpdate): any => ({
-    ...obj,
-  });
 }
 
 export enum ContentClassifier {
@@ -1613,15 +1298,6 @@ export interface ModerationLabel {
   ParentName?: string;
 }
 
-export namespace ModerationLabel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModerationLabel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an inappropriate, unwanted, or offensive content label detection in a stored video.</p>
  */
@@ -1635,15 +1311,6 @@ export interface ContentModerationDetection {
    * <p>The content moderation label detected by in the stored video.</p>
    */
   ModerationLabel?: ModerationLabel;
-}
-
-export namespace ContentModerationDetection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContentModerationDetection): any => ({
-    ...obj,
-  });
 }
 
 export enum ContentModerationSortBy {
@@ -1665,15 +1332,6 @@ export interface CreateCollectionRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateCollectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCollectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCollectionResponse {
   /**
    * <p>HTTP status code indicating the result of the operation.</p>
@@ -1690,15 +1348,6 @@ export interface CreateCollectionResponse {
    * <p>Version number of the face detection model associated with the collection you are creating.</p>
    */
   FaceModelVersion?: string;
-}
-
-export namespace CreateCollectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCollectionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1788,15 +1437,6 @@ export interface DatasetSource {
   DatasetArn?: string;
 }
 
-export namespace DatasetSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetSource): any => ({
-    ...obj,
-  });
-}
-
 export enum DatasetType {
   TEST = "TEST",
   TRAIN = "TRAIN",
@@ -1829,15 +1469,6 @@ export interface CreateDatasetRequest {
   ProjectArn: string | undefined;
 }
 
-export namespace CreateDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatasetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDatasetResponse {
   /**
    * <p>
@@ -1845,15 +1476,6 @@ export interface CreateDatasetResponse {
    * </p>
    */
   DatasetArn?: string;
-}
-
-export namespace CreateDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatasetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1921,30 +1543,12 @@ export interface CreateProjectRequest {
   ProjectName: string | undefined;
 }
 
-export namespace CreateProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProjectResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the new project. You can use the ARN to
    *       configure IAM access to the project. </p>
    */
   ProjectArn?: string;
-}
-
-export namespace CreateProjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1990,15 +1594,6 @@ export interface OutputConfig {
   S3KeyPrefix?: string;
 }
 
-export namespace OutputConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The dataset used for testing. Optionally, if <code>AutoCreate</code> is set,  Amazon Rekognition Custom Labels uses the
  *          training dataset to create a test dataset with a temporary split of the training dataset. </p>
@@ -2016,15 +1611,6 @@ export interface TestingData {
   AutoCreate?: boolean;
 }
 
-export namespace TestingData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestingData): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The dataset used for training.</p>
  */
@@ -2033,15 +1619,6 @@ export interface TrainingData {
    * <p>A Sagemaker GroundTruth manifest file that contains the training images (assets).</p>
    */
   Assets?: Asset[];
-}
-
-export namespace TrainingData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrainingData): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProjectVersionRequest {
@@ -2113,30 +1690,12 @@ export interface CreateProjectVersionRequest {
   KmsKeyId?: string;
 }
 
-export namespace CreateProjectVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProjectVersionResponse {
   /**
    * <p>The ARN of the model version that was created. Use <code>DescribeProjectVersion</code>
    *          to get the current status of the training operation.</p>
    */
   ProjectVersionArn?: string;
-}
-
-export namespace CreateProjectVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2155,15 +1714,6 @@ export interface StreamProcessorDataSharingPreference {
   OptIn: boolean | undefined;
 }
 
-export namespace StreamProcessorDataSharingPreference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamProcessorDataSharingPreference): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor. For more information, see
  *             CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>
@@ -2175,15 +1725,6 @@ export interface KinesisVideoStream {
   Arn?: string;
 }
 
-export namespace KinesisVideoStream {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisVideoStream): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the source streaming video. </p>
  */
@@ -2192,15 +1733,6 @@ export interface StreamProcessorInput {
    * <p>The Kinesis video stream input stream for the source streaming video.</p>
    */
   KinesisVideoStream?: KinesisVideoStream;
-}
-
-export namespace StreamProcessorInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamProcessorInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2219,15 +1751,6 @@ export interface StreamProcessorNotificationChannel {
   SNSTopicArn: string | undefined;
 }
 
-export namespace StreamProcessorNotificationChannel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamProcessorNotificationChannel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Kinesis data stream Amazon Rekognition to which the analysis results of a Amazon Rekognition stream processor are streamed. For more information, see
  *             CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>
@@ -2237,15 +1760,6 @@ export interface KinesisDataStream {
    * <p>ARN of the output Amazon Kinesis Data Streams stream.</p>
    */
   Arn?: string;
-}
-
-export namespace KinesisDataStream {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisDataStream): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2272,15 +1786,6 @@ export interface S3Destination {
   KeyPrefix?: string;
 }
 
-export namespace S3Destination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Destination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the Amazon Kinesis Data Streams stream to which a Amazon Rekognition Video stream processor streams the results of a video analysis. For more
  *            information, see CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>
@@ -2297,15 +1802,6 @@ export interface StreamProcessorOutput {
    *         </p>
    */
   S3Destination?: S3Destination;
-}
-
-export namespace StreamProcessorOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamProcessorOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2331,15 +1827,6 @@ export interface Point {
   Y?: number;
 }
 
-export namespace Point {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Point): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a location within the frame that Rekognition checks for objects of interest such as text, labels, or faces. It uses a <code>BoundingBox</code>
  *       or object or <code>Polygon</code> to set a region of the screen.</p>
@@ -2361,15 +1848,6 @@ export interface RegionOfInterest {
   Polygon?: Point[];
 }
 
-export namespace RegionOfInterest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegionOfInterest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input face recognition parameters for an Amazon Rekognition stream processor.
  *             Includes the collection to use for face recognition and the face attributes to detect.
@@ -2386,15 +1864,6 @@ export interface FaceSearchSettings {
    *         0 is the lowest confidence. 100 is the highest confidence. Values between 0 and 100 are accepted, and values lower than 80 are set to 80.</p>
    */
   FaceMatchThreshold?: number;
-}
-
-export namespace FaceSearchSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FaceSearchSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2417,15 +1886,6 @@ export interface StreamProcessorSettings {
    *         </p>
    */
   ConnectedHome?: ConnectedHomeSettings;
-}
-
-export namespace StreamProcessorSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamProcessorSettings): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateStreamProcessorRequest {
@@ -2503,29 +1963,11 @@ export interface CreateStreamProcessorRequest {
   DataSharingPreference?: StreamProcessorDataSharingPreference;
 }
 
-export namespace CreateStreamProcessorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamProcessorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateStreamProcessorResponse {
   /**
    * <p>Amazon Resource Number for the newly created stream processor.</p>
    */
   StreamProcessorArn?: string;
-}
-
-export namespace CreateStreamProcessorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamProcessorResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2543,15 +1985,6 @@ export interface Geometry {
    * <p>Within the bounding box, a fine-grained polygon around the detected item.</p>
    */
   Polygon?: Point[];
-}
-
-export namespace Geometry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Geometry): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2577,15 +2010,6 @@ export interface CustomLabel {
   Geometry?: Geometry;
 }
 
-export namespace CustomLabel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomLabel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  * Describes updates or additions to a dataset. A Single update or addition
@@ -2608,15 +2032,6 @@ export interface DatasetChanges {
    *    </p>
    */
   GroundTruth: Uint8Array | undefined;
-}
-
-export namespace DatasetChanges {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetChanges): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2653,15 +2068,6 @@ export interface DatasetStats {
    *       </p>
    */
   ErrorEntries?: number;
-}
-
-export namespace DatasetStats {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetStats): any => ({
-    ...obj,
-  });
 }
 
 export enum DatasetStatus {
@@ -2733,15 +2139,6 @@ export interface DatasetDescription {
   DatasetStats?: DatasetStats;
 }
 
-export namespace DatasetDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *    Statistics about a label used in a dataset. For more information, see <a>DatasetLabelDescription</a>.
@@ -2763,15 +2160,6 @@ export interface DatasetLabelStats {
   BoundingBoxCount?: number;
 }
 
-export namespace DatasetLabelStats {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetLabelStats): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  * Describes a dataset label. For more information, see <a>ListDatasetLabels</a>.
@@ -2791,15 +2179,6 @@ export interface DatasetLabelDescription {
    * </p>
    */
   LabelStats?: DatasetLabelStats;
-}
-
-export namespace DatasetLabelDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetLabelDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2854,15 +2233,6 @@ export interface DatasetMetadata {
   StatusMessageCode?: DatasetStatusMessageCode | string;
 }
 
-export namespace DatasetMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCollectionRequest {
   /**
    * <p>ID of the collection to delete.</p>
@@ -2870,29 +2240,11 @@ export interface DeleteCollectionRequest {
   CollectionId: string | undefined;
 }
 
-export namespace DeleteCollectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCollectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCollectionResponse {
   /**
    * <p>HTTP status code that indicates the result of the operation.</p>
    */
   StatusCode?: number;
-}
-
-export namespace DeleteCollectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCollectionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDatasetRequest {
@@ -2904,25 +2256,7 @@ export interface DeleteDatasetRequest {
   DatasetArn: string | undefined;
 }
 
-export namespace DeleteDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDatasetResponse {}
-
-export namespace DeleteDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteFacesRequest {
   /**
@@ -2936,15 +2270,6 @@ export interface DeleteFacesRequest {
   FaceIds: string[] | undefined;
 }
 
-export namespace DeleteFacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFacesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFacesResponse {
   /**
    * <p>An array of strings (face IDs) of the faces that were deleted.</p>
@@ -2952,29 +2277,11 @@ export interface DeleteFacesResponse {
   DeletedFaces?: string[];
 }
 
-export namespace DeleteFacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFacesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProjectRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the project that you want to delete.</p>
    */
   ProjectArn: string | undefined;
-}
-
-export namespace DeleteProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ProjectStatus {
@@ -2990,29 +2297,11 @@ export interface DeleteProjectResponse {
   Status?: ProjectStatus | string;
 }
 
-export namespace DeleteProjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProjectVersionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the model version that you want to delete.</p>
    */
   ProjectVersionArn: string | undefined;
-}
-
-export namespace DeleteProjectVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ProjectVersionStatus {
@@ -3034,15 +2323,6 @@ export interface DeleteProjectVersionResponse {
   Status?: ProjectVersionStatus | string;
 }
 
-export namespace DeleteProjectVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStreamProcessorRequest {
   /**
    * <p>The name of the stream processor you want to delete.</p>
@@ -3050,40 +2330,13 @@ export interface DeleteStreamProcessorRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteStreamProcessorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamProcessorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStreamProcessorResponse {}
-
-export namespace DeleteStreamProcessorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamProcessorResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeCollectionRequest {
   /**
    * <p>The ID of the collection to describe.</p>
    */
   CollectionId: string | undefined;
-}
-
-export namespace DescribeCollectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCollectionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCollectionResponse {
@@ -3113,15 +2366,6 @@ export interface DescribeCollectionResponse {
   CreationTimestamp?: Date;
 }
 
-export namespace DescribeCollectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCollectionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDatasetRequest {
   /**
    * <p>
@@ -3131,15 +2375,6 @@ export interface DescribeDatasetRequest {
   DatasetArn: string | undefined;
 }
 
-export namespace DescribeDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDatasetResponse {
   /**
    * <p>
@@ -3147,15 +2382,6 @@ export interface DescribeDatasetResponse {
    * </p>
    */
   DatasetDescription?: DatasetDescription;
-}
-
-export namespace DescribeDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeProjectsRequest {
@@ -3178,15 +2404,6 @@ export interface DescribeProjectsRequest {
    *       the response includes descriptions for all the projects in your AWS account.</p>
    */
   ProjectNames?: string[];
-}
-
-export namespace DescribeProjectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3216,15 +2433,6 @@ export interface ProjectDescription {
   Datasets?: DatasetMetadata[];
 }
 
-export namespace ProjectDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProjectsResponse {
   /**
    * <p>A list of project descriptions. The list is sorted by the date and time the projects are created.</p>
@@ -3237,15 +2445,6 @@ export interface DescribeProjectsResponse {
    *          You can use this pagination token to retrieve the next set of results. </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeProjectsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3305,15 +2504,6 @@ export interface DescribeProjectVersionsRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeProjectVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The S3 bucket that contains the training summary. The training summary includes
  *          aggregated evaluation metrics for the entire testing dataset and metrics for each
@@ -3332,15 +2522,6 @@ export interface Summary {
    *       Developer Guide. </p>
    */
   S3Object?: S3Object;
-}
-
-export namespace Summary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Summary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3362,15 +2543,6 @@ export interface EvaluationResult {
   Summary?: Summary;
 }
 
-export namespace EvaluationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluationResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the Amazon S3 bucket location of the validation data for a model training job. </p>
  *          <p>The validation data includes error information for individual JSON Lines in the dataset.
@@ -3389,15 +2561,6 @@ export interface ValidationData {
    * <p>The assets that comprise the validation data. </p>
    */
   Assets?: Asset[];
-}
-
-export namespace ValidationData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationData): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3421,15 +2584,6 @@ export interface TestingDataResult {
   Validation?: ValidationData;
 }
 
-export namespace TestingDataResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestingDataResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Sagemaker Groundtruth format manifest files for the input, output and validation datasets that are used and created during testing.</p>
  */
@@ -3448,15 +2602,6 @@ export interface TrainingDataResult {
    * <p>The location of the data validation manifest. The data validation manifest is created for the training dataset during model training.</p>
    */
   Validation?: ValidationData;
-}
-
-export namespace TrainingDataResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrainingDataResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3532,15 +2677,6 @@ export interface ProjectVersionDescription {
   KmsKeyId?: string;
 }
 
-export namespace ProjectVersionDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectVersionDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProjectVersionsResponse {
   /**
    * <p>A list of model descriptions. The list is sorted by the creation date and time of
@@ -3556,29 +2692,11 @@ export interface DescribeProjectVersionsResponse {
   NextToken?: string;
 }
 
-export namespace DescribeProjectVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeStreamProcessorRequest {
   /**
    * <p>Name of the stream processor for which you want information.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DescribeStreamProcessorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStreamProcessorRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum StreamProcessorStatus {
@@ -3675,15 +2793,6 @@ export interface DescribeStreamProcessorResponse {
   DataSharingPreference?: StreamProcessorDataSharingPreference;
 }
 
-export namespace DescribeStreamProcessorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStreamProcessorResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectCustomLabelsRequest {
   /**
    * <p>The ARN of the model version that you want to use.</p>
@@ -3736,29 +2845,11 @@ export interface DetectCustomLabelsRequest {
   MinConfidence?: number;
 }
 
-export namespace DetectCustomLabelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectCustomLabelsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectCustomLabelsResponse {
   /**
    * <p>An array of custom labels detected in the input image.</p>
    */
   CustomLabels?: CustomLabel[];
-}
-
-export namespace DetectCustomLabelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectCustomLabelsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3814,15 +2905,6 @@ export interface DetectFacesRequest {
   Attributes?: (Attribute | string)[];
 }
 
-export namespace DetectFacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectFacesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectFacesResponse {
   /**
    * <p>Details of each face found in the image. </p>
@@ -3842,15 +2924,6 @@ export interface DetectFacesResponse {
    *     </p>
    */
   OrientationCorrection?: OrientationCorrection | string;
-}
-
-export namespace DetectFacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectFacesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3875,15 +2948,6 @@ export interface DetectionFilter {
    *       this value will be excluded from the result. Value is relative to the video frame width.</p>
    */
   MinBoundingBoxWidth?: number;
-}
-
-export namespace DetectionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectionFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface DetectLabelsRequest {
@@ -3912,15 +2976,6 @@ export interface DetectLabelsRequest {
   MinConfidence?: number;
 }
 
-export namespace DetectLabelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectLabelsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An instance of a label returned by Amazon Rekognition Image (<a>DetectLabels</a>)
  *       or by Amazon Rekognition Video (<a>GetLabelDetection</a>).</p>
@@ -3937,15 +2992,6 @@ export interface Instance {
   Confidence?: number;
 }
 
-export namespace Instance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Instance): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A parent label for a label. A label can have 0, 1, or more parents. </p>
  */
@@ -3954,15 +3000,6 @@ export interface Parent {
    * <p>The name of the parent label.</p>
    */
   Name?: string;
-}
-
-export namespace Parent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Parent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3994,15 +3031,6 @@ export interface Label {
   Parents?: Parent[];
 }
 
-export namespace Label {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Label): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectLabelsResponse {
   /**
    * <p>An array of labels for the real-world objects detected. </p>
@@ -4029,15 +3057,6 @@ export interface DetectLabelsResponse {
   LabelModelVersion?: string;
 }
 
-export namespace DetectLabelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectLabelsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Allows you to set attributes of the image. Currently, you can declare an image as free of
  *       personally identifiable information.</p>
@@ -4047,15 +3066,6 @@ export interface HumanLoopDataAttributes {
    * <p>Sets whether the input image is free of personally identifiable information.</p>
    */
   ContentClassifiers?: (ContentClassifier | string)[];
-}
-
-export namespace HumanLoopDataAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HumanLoopDataAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4079,15 +3089,6 @@ export interface HumanLoopConfig {
    * <p>Sets attributes of the input data.</p>
    */
   DataAttributes?: HumanLoopDataAttributes;
-}
-
-export namespace HumanLoopConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HumanLoopConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface DetectModerationLabelsRequest {
@@ -4116,15 +3117,6 @@ export interface DetectModerationLabelsRequest {
   HumanLoopConfig?: HumanLoopConfig;
 }
 
-export namespace DetectModerationLabelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectModerationLabelsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Shows the results of the human in the loop evaluation. If there is no HumanLoopArn, the input did
  *        not trigger human review.</p>
@@ -4147,15 +3139,6 @@ export interface HumanLoopActivationOutput {
   HumanLoopActivationConditionsEvaluationResults?: __LazyJsonString | string;
 }
 
-export namespace HumanLoopActivationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HumanLoopActivationOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectModerationLabelsResponse {
   /**
    * <p>Array of detected Moderation labels and the time, in milliseconds from the
@@ -4172,15 +3155,6 @@ export interface DetectModerationLabelsResponse {
    * <p>Shows the results of the human in the loop evaluation.</p>
    */
   HumanLoopActivationOutput?: HumanLoopActivationOutput;
-}
-
-export namespace DetectModerationLabelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectModerationLabelsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4261,15 +3235,6 @@ export interface ProtectiveEquipmentSummarizationAttributes {
   RequiredEquipmentTypes: (ProtectiveEquipmentType | string)[] | undefined;
 }
 
-export namespace ProtectiveEquipmentSummarizationAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProtectiveEquipmentSummarizationAttributes): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectProtectiveEquipmentRequest {
   /**
    * <p>The image in which you want to detect PPE on detected persons. The image can be passed as image bytes or you can
@@ -4281,15 +3246,6 @@ export interface DetectProtectiveEquipmentRequest {
    * <p>An array of PPE types that you want to summarize.</p>
    */
   SummarizationAttributes?: ProtectiveEquipmentSummarizationAttributes;
-}
-
-export namespace DetectProtectiveEquipmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectProtectiveEquipmentRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4318,15 +3274,6 @@ export interface ProtectiveEquipmentPerson {
    *          <code>DetectProtectiveEquipment</code>.</p>
    */
   Id?: number;
-}
-
-export namespace ProtectiveEquipmentPerson {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProtectiveEquipmentPerson): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4368,15 +3315,6 @@ export interface ProtectiveEquipmentSummary {
   PersonsIndeterminate?: number[];
 }
 
-export namespace ProtectiveEquipmentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProtectiveEquipmentSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectProtectiveEquipmentResponse {
   /**
    * <p>The version number of the PPE detection model used to detect PPE in the image.</p>
@@ -4393,15 +3331,6 @@ export interface DetectProtectiveEquipmentResponse {
    *       parameter.</p>
    */
   Summary?: ProtectiveEquipmentSummary;
-}
-
-export namespace DetectProtectiveEquipmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectProtectiveEquipmentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4423,15 +3352,6 @@ export interface DetectTextFilters {
   RegionsOfInterest?: RegionOfInterest[];
 }
 
-export namespace DetectTextFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectTextFilters): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectTextRequest {
   /**
    * <p>The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI
@@ -4446,15 +3366,6 @@ export interface DetectTextRequest {
    * <p>Optional parameters that let you set the criteria that the text must meet to be included in your response.</p>
    */
   Filters?: DetectTextFilters;
-}
-
-export namespace DetectTextRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectTextRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum TextTypes {
@@ -4511,15 +3422,6 @@ export interface TextDetection {
   Geometry?: Geometry;
 }
 
-export namespace TextDetection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextDetection): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectTextResponse {
   /**
    * <p>An array of text that was detected in the input image.</p>
@@ -4530,15 +3432,6 @@ export interface DetectTextResponse {
    * <p>The model version used to detect text.</p>
    */
   TextModelVersion?: string;
-}
-
-export namespace DetectTextResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectTextResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4555,15 +3448,6 @@ export interface DistributeDataset {
   Arn: string | undefined;
 }
 
-export namespace DistributeDataset {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DistributeDataset): any => ({
-    ...obj,
-  });
-}
-
 export interface DistributeDatasetEntriesRequest {
   /**
    * <p>The ARNS for the training dataset and test dataset that you want to use. The datasets must belong to
@@ -4573,25 +3457,7 @@ export interface DistributeDatasetEntriesRequest {
   Datasets: DistributeDataset[] | undefined;
 }
 
-export namespace DistributeDatasetEntriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DistributeDatasetEntriesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DistributeDatasetEntriesResponse {}
-
-export namespace DistributeDatasetEntriesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DistributeDatasetEntriesResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Describes the face properties such as the bounding box, face ID, image ID of the input
@@ -4632,15 +3498,6 @@ export interface Face {
   IndexFacesModelVersion?: string;
 }
 
-export namespace Face {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Face): any => ({
-    ...obj,
-  });
-}
-
 export enum FaceAttributes {
   ALL = "ALL",
   DEFAULT = "DEFAULT",
@@ -4661,15 +3518,6 @@ export interface FaceDetection {
   Face?: FaceDetail;
 }
 
-export namespace FaceDetection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FaceDetection): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides face metadata. In addition, it also provides the confidence in the match of
  *       this face with the input face.</p>
@@ -4685,15 +3533,6 @@ export interface FaceMatch {
    *       image, and external image ID that you assigned.</p>
    */
   Face?: Face;
-}
-
-export namespace FaceMatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FaceMatch): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4713,15 +3552,6 @@ export interface FaceRecord {
   FaceDetail?: FaceDetail;
 }
 
-export namespace FaceRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FaceRecord): any => ({
-    ...obj,
-  });
-}
-
 export enum FaceSearchSortBy {
   INDEX = "INDEX",
   TIMESTAMP = "TIMESTAMP",
@@ -4733,15 +3563,6 @@ export interface GetCelebrityInfoRequest {
    *    which recognizes celebrities in an image. </p>
    */
   Id: string | undefined;
-}
-
-export namespace GetCelebrityInfoRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCelebrityInfoRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCelebrityInfoResponse {
@@ -4759,15 +3580,6 @@ export interface GetCelebrityInfoResponse {
    * <p>Retrieves the known gender for the celebrity.</p>
    */
   KnownGender?: KnownGender;
-}
-
-export namespace GetCelebrityInfoResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCelebrityInfoResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCelebrityRecognitionRequest {
@@ -4795,15 +3607,6 @@ export interface GetCelebrityRecognitionRequest {
    *         specify <code>TIMESTAMP</code> to sort by the time the celebrity was recognized.</p>
    */
   SortBy?: CelebrityRecognitionSortBy | string;
-}
-
-export namespace GetCelebrityRecognitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCelebrityRecognitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum VideoJobStatus {
@@ -4860,15 +3663,6 @@ export interface VideoMetadata {
   ColorRange?: VideoColorRange | string;
 }
 
-export namespace VideoMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCelebrityRecognitionResponse {
   /**
    * <p>The current status of the celebrity recognition job.</p>
@@ -4896,15 +3690,6 @@ export interface GetCelebrityRecognitionResponse {
    * <p>Array of celebrities recognized in the video.</p>
    */
   Celebrities?: CelebrityRecognition[];
-}
-
-export namespace GetCelebrityRecognitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCelebrityRecognitionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetContentModerationRequest {
@@ -4936,15 +3721,6 @@ export interface GetContentModerationRequest {
    *        The default sort is by <code>TIMESTAMP</code>.</p>
    */
   SortBy?: ContentModerationSortBy | string;
-}
-
-export namespace GetContentModerationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContentModerationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetContentModerationResponse {
@@ -4981,15 +3757,6 @@ export interface GetContentModerationResponse {
   ModerationModelVersion?: string;
 }
 
-export namespace GetContentModerationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContentModerationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFaceDetectionRequest {
   /**
    * <p>Unique identifier for the face detection job. The <code>JobId</code> is returned from <code>StartFaceDetection</code>.</p>
@@ -5008,15 +3775,6 @@ export interface GetFaceDetectionRequest {
    *        token in the response. You can use this pagination token to retrieve the next set of faces.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetFaceDetectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFaceDetectionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFaceDetectionResponse {
@@ -5048,15 +3806,6 @@ export interface GetFaceDetectionResponse {
   Faces?: FaceDetection[];
 }
 
-export namespace GetFaceDetectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFaceDetectionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFaceSearchRequest {
   /**
    * <p>The job identifer for the search request. You get the job identifier from an initial call to <code>StartFaceSearch</code>.</p>
@@ -5083,15 +3832,6 @@ export interface GetFaceSearchRequest {
   SortBy?: FaceSearchSortBy | string;
 }
 
-export namespace GetFaceSearchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFaceSearchRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about a person detected in a video analysis request.</p>
  */
@@ -5110,15 +3850,6 @@ export interface PersonDetail {
    * <p>Face details for the detected person.</p>
    */
   Face?: FaceDetail;
-}
-
-export namespace PersonDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PersonDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5142,15 +3873,6 @@ export interface PersonMatch {
    * <p>Information about the faces in the input collection that match the face of a person in the video.</p>
    */
   FaceMatches?: FaceMatch[];
-}
-
-export namespace PersonMatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PersonMatch): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFaceSearchResponse {
@@ -5185,15 +3907,6 @@ export interface GetFaceSearchResponse {
    *        and person information (<code>Person</code>) for the matched person. </p>
    */
   Persons?: PersonMatch[];
-}
-
-export namespace GetFaceSearchResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFaceSearchResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum LabelDetectionSortBy {
@@ -5231,15 +3944,6 @@ export interface GetLabelDetectionRequest {
   SortBy?: LabelDetectionSortBy | string;
 }
 
-export namespace GetLabelDetectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLabelDetectionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a label detected in a video analysis request and the time the label was detected in the video. </p>
  */
@@ -5253,15 +3957,6 @@ export interface LabelDetection {
    * <p>Details about the detected label.</p>
    */
   Label?: Label;
-}
-
-export namespace LabelDetection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelDetection): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLabelDetectionResponse {
@@ -5299,15 +3994,6 @@ export interface GetLabelDetectionResponse {
   LabelModelVersion?: string;
 }
 
-export namespace GetLabelDetectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLabelDetectionResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum PersonTrackingSortBy {
   INDEX = "INDEX",
   TIMESTAMP = "TIMESTAMP",
@@ -5342,15 +4028,6 @@ export interface GetPersonTrackingRequest {
   SortBy?: PersonTrackingSortBy | string;
 }
 
-export namespace GetPersonTrackingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPersonTrackingRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details and path tracking information for a single time a person's path is tracked in a video.
  *             Amazon Rekognition operations that track people's paths return an array of <code>PersonDetection</code> objects
@@ -5368,15 +4045,6 @@ export interface PersonDetection {
    * <p>Details about a person whose path was tracked in a video.</p>
    */
   Person?: PersonDetail;
-}
-
-export namespace PersonDetection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PersonDetection): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPersonTrackingResponse {
@@ -5408,15 +4076,6 @@ export interface GetPersonTrackingResponse {
   Persons?: PersonDetection[];
 }
 
-export namespace GetPersonTrackingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPersonTrackingResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSegmentDetectionRequest {
   /**
    * <p>Job identifier for the text detection operation for which you want results returned.
@@ -5436,15 +4095,6 @@ export interface GetSegmentDetectionRequest {
   NextToken?: string;
 }
 
-export namespace GetSegmentDetectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSegmentDetectionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a shot detection segment detected in a video. For more information,
  *       see <a>SegmentDetection</a>.</p>
@@ -5459,15 +4109,6 @@ export interface ShotSegment {
    * <p>The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.</p>
    */
   Confidence?: number;
-}
-
-export namespace ShotSegment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShotSegment): any => ({
-    ...obj,
-  });
 }
 
 export enum TechnicalCueType {
@@ -5493,15 +4134,6 @@ export interface TechnicalCueSegment {
    * <p>The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.</p>
    */
   Confidence?: number;
-}
-
-export namespace TechnicalCueSegment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TechnicalCueSegment): any => ({
-    ...obj,
-  });
 }
 
 export enum SegmentType {
@@ -5590,15 +4222,6 @@ export interface SegmentDetection {
   DurationFrames?: number;
 }
 
-export namespace SegmentDetection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SegmentDetection): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the type of a segment requested in a call to <a>StartSegmentDetection</a>.
  *       An array of <code>SegmentTypeInfo</code> objects is returned  by the response from <a>GetSegmentDetection</a>.</p>
@@ -5613,15 +4236,6 @@ export interface SegmentTypeInfo {
    * <p>The version of the model used to detect segments.</p>
    */
   ModelVersion?: string;
-}
-
-export namespace SegmentTypeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SegmentTypeInfo): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSegmentDetectionResponse {
@@ -5675,15 +4289,6 @@ export interface GetSegmentDetectionResponse {
   SelectedSegmentTypes?: SegmentTypeInfo[];
 }
 
-export namespace GetSegmentDetectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSegmentDetectionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTextDetectionRequest {
   /**
    * <p>Job identifier for the text detection operation for which you want results returned.
@@ -5703,15 +4308,6 @@ export interface GetTextDetectionRequest {
   NextToken?: string;
 }
 
-export namespace GetTextDetectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTextDetectionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about text detected in a video. Incudes the detected text,
  *         the time in milliseconds from the start of the video that the text was detected, and where it was detected on the screen.</p>
@@ -5726,15 +4322,6 @@ export interface TextDetectionResult {
    * <p>Details about text detected in a video.</p>
    */
   TextDetection?: TextDetection;
-}
-
-export namespace TextDetectionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextDetectionResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTextDetectionResponse {
@@ -5770,15 +4357,6 @@ export interface GetTextDetectionResponse {
    * <p>Version number of the text detection model that was used to detect text.</p>
    */
   TextModelVersion?: string;
-}
-
-export namespace GetTextDetectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTextDetectionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5878,15 +4456,6 @@ export interface IndexFacesRequest {
   QualityFilter?: QualityFilter | string;
 }
 
-export namespace IndexFacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IndexFacesRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum Reason {
   EXCEEDS_MAX_FACES = "EXCEEDS_MAX_FACES",
   EXTREME_POSE = "EXTREME_POSE",
@@ -5935,15 +4504,6 @@ export interface UnindexedFace {
    *       <code>IndexFaces</code>detected, but didn't index. </p>
    */
   FaceDetail?: FaceDetail;
-}
-
-export namespace UnindexedFace {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnindexedFace): any => ({
-    ...obj,
-  });
 }
 
 export interface IndexFacesResponse {
@@ -6000,15 +4560,6 @@ export interface IndexFacesResponse {
   UnindexedFaces?: UnindexedFace[];
 }
 
-export namespace IndexFacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IndexFacesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Specifies the starting point in a Kinesis stream to start processing.
@@ -6032,15 +4583,6 @@ export interface KinesisVideoStreamStartSelector {
   FragmentNumber?: string;
 }
 
-export namespace KinesisVideoStreamStartSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisVideoStreamStartSelector): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCollectionsRequest {
   /**
    * <p>Pagination token from the previous response.</p>
@@ -6051,15 +4593,6 @@ export interface ListCollectionsRequest {
    * <p>Maximum number of collection IDs to return. </p>
    */
   MaxResults?: number;
-}
-
-export namespace ListCollectionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCollectionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCollectionsResponse {
@@ -6080,15 +4613,6 @@ export interface ListCollectionsResponse {
    *       by the collection in <code>CollectionId[2]</code>.</p>
    */
   FaceModelVersions?: string[];
-}
-
-export namespace ListCollectionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCollectionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDatasetEntriesRequest {
@@ -6143,15 +4667,6 @@ export interface ListDatasetEntriesRequest {
   MaxResults?: number;
 }
 
-export namespace ListDatasetEntriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetEntriesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDatasetEntriesResponse {
   /**
    * <p>
@@ -6166,15 +4681,6 @@ export interface ListDatasetEntriesResponse {
    *       token to retrieve the next set of results. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListDatasetEntriesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetEntriesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDatasetLabelsRequest {
@@ -6200,15 +4706,6 @@ export interface ListDatasetLabelsRequest {
   MaxResults?: number;
 }
 
-export namespace ListDatasetLabelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetLabelsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDatasetLabelsResponse {
   /**
    * <p>
@@ -6223,15 +4720,6 @@ export interface ListDatasetLabelsResponse {
    *       token to retrieve the next set of results. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListDatasetLabelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetLabelsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFacesRequest {
@@ -6253,15 +4741,6 @@ export interface ListFacesRequest {
   MaxResults?: number;
 }
 
-export namespace ListFacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFacesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFacesResponse {
   /**
    * <p>An array of <code>Face</code> objects. </p>
@@ -6280,15 +4759,6 @@ export interface ListFacesResponse {
   FaceModelVersion?: string;
 }
 
-export namespace ListFacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFacesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStreamProcessorsRequest {
   /**
    * <p>If the previous response was incomplete (because there are more stream processors to retrieve), Amazon Rekognition Video
@@ -6300,15 +4770,6 @@ export interface ListStreamProcessorsRequest {
    * <p>Maximum number of stream processors you want Amazon Rekognition Video to return in the response. The default is 1000. </p>
    */
   MaxResults?: number;
-}
-
-export namespace ListStreamProcessorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamProcessorsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6329,15 +4790,6 @@ export interface StreamProcessor {
   Status?: StreamProcessorStatus | string;
 }
 
-export namespace StreamProcessor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamProcessor): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStreamProcessorsResponse {
   /**
    * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent
@@ -6351,15 +4803,6 @@ export interface ListStreamProcessorsResponse {
   StreamProcessors?: StreamProcessor[];
 }
 
-export namespace ListStreamProcessorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamProcessorsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>
@@ -6369,15 +4812,6 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>
@@ -6385,15 +4819,6 @@ export interface ListTagsForResourceResponse {
    *     </p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6413,15 +4838,6 @@ export interface NotificationChannel {
   RoleArn: string | undefined;
 }
 
-export namespace NotificationChannel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationChannel): any => ({
-    ...obj,
-  });
-}
-
 export interface RecognizeCelebritiesRequest {
   /**
    * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call
@@ -6431,15 +4847,6 @@ export interface RecognizeCelebritiesRequest {
    *       Images in the Amazon Rekognition developer guide.</p>
    */
   Image: Image | undefined;
-}
-
-export namespace RecognizeCelebritiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecognizeCelebritiesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RecognizeCelebritiesResponse {
@@ -6479,15 +4886,6 @@ export interface RecognizeCelebritiesResponse {
   OrientationCorrection?: OrientationCorrection | string;
 }
 
-export namespace RecognizeCelebritiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecognizeCelebritiesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchFacesRequest {
   /**
    * <p>ID of the collection the face belongs to.</p>
@@ -6514,15 +4912,6 @@ export interface SearchFacesRequest {
   FaceMatchThreshold?: number;
 }
 
-export namespace SearchFacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchFacesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchFacesResponse {
   /**
    * <p>ID of the face that was searched for matches in a collection.</p>
@@ -6539,15 +4928,6 @@ export interface SearchFacesResponse {
    * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
    */
   FaceModelVersion?: string;
-}
-
-export namespace SearchFacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchFacesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchFacesByImageRequest {
@@ -6597,15 +4977,6 @@ export interface SearchFacesByImageRequest {
   QualityFilter?: QualityFilter | string;
 }
 
-export namespace SearchFacesByImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchFacesByImageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchFacesByImageResponse {
   /**
    * <p>The bounding box around the face in the input image that Amazon Rekognition used for the
@@ -6631,15 +5002,6 @@ export interface SearchFacesByImageResponse {
   FaceModelVersion?: string;
 }
 
-export namespace SearchFacesByImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchFacesByImageResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
  *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
@@ -6649,15 +5011,6 @@ export interface Video {
    * <p>The Amazon S3 bucket name and file name for the video.</p>
    */
   S3Object?: S3Object;
-}
-
-export namespace Video {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Video): any => ({
-    ...obj,
-  });
 }
 
 export interface StartCelebrityRecognitionRequest {
@@ -6687,30 +5040,12 @@ export interface StartCelebrityRecognitionRequest {
   JobTag?: string;
 }
 
-export namespace StartCelebrityRecognitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartCelebrityRecognitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartCelebrityRecognitionResponse {
   /**
    * <p>The identifier for the celebrity recognition analysis job. Use <code>JobId</code> to identify the job in
    *       a subsequent call to <code>GetCelebrityRecognition</code>.</p>
    */
   JobId?: string;
-}
-
-export namespace StartCelebrityRecognitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartCelebrityRecognitionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6778,30 +5113,12 @@ export interface StartContentModerationRequest {
   JobTag?: string;
 }
 
-export namespace StartContentModerationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartContentModerationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartContentModerationResponse {
   /**
    * <p>The identifier for the content analysis job. Use <code>JobId</code> to identify the job in
    *       a subsequent call to <code>GetContentModeration</code>.</p>
    */
   JobId?: string;
-}
-
-export namespace StartContentModerationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartContentModerationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartFaceDetectionRequest {
@@ -6840,30 +5157,12 @@ export interface StartFaceDetectionRequest {
   JobTag?: string;
 }
 
-export namespace StartFaceDetectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFaceDetectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartFaceDetectionResponse {
   /**
    * <p>The identifier for the face detection job. Use <code>JobId</code> to identify the job in
    *     a subsequent call to <code>GetFaceDetection</code>.</p>
    */
   JobId?: string;
-}
-
-export namespace StartFaceDetectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFaceDetectionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartFaceSearchRequest {
@@ -6902,29 +5201,11 @@ export interface StartFaceSearchRequest {
   JobTag?: string;
 }
 
-export namespace StartFaceSearchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFaceSearchRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartFaceSearchResponse {
   /**
    * <p>The identifier for the search job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetFaceSearch</code>. </p>
    */
   JobId?: string;
-}
-
-export namespace StartFaceSearchResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFaceSearchResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartLabelDetectionRequest {
@@ -6964,30 +5245,12 @@ export interface StartLabelDetectionRequest {
   JobTag?: string;
 }
 
-export namespace StartLabelDetectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartLabelDetectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartLabelDetectionResponse {
   /**
    * <p>The identifier for the label detection job. Use <code>JobId</code> to identify the job in
    *     a subsequent call to <code>GetLabelDetection</code>. </p>
    */
   JobId?: string;
-}
-
-export namespace StartLabelDetectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartLabelDetectionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartPersonTrackingRequest {
@@ -7017,30 +5280,12 @@ export interface StartPersonTrackingRequest {
   JobTag?: string;
 }
 
-export namespace StartPersonTrackingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartPersonTrackingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartPersonTrackingResponse {
   /**
    * <p>The identifier for the person detection job. Use <code>JobId</code> to identify the job in
    *     a subsequent call to <code>GetPersonTracking</code>.</p>
    */
   JobId?: string;
-}
-
-export namespace StartPersonTrackingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartPersonTrackingResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartProjectVersionRequest {
@@ -7059,29 +5304,11 @@ export interface StartProjectVersionRequest {
   MinInferenceUnits: number | undefined;
 }
 
-export namespace StartProjectVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartProjectVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartProjectVersionResponse {
   /**
    * <p>The current running status of the model. </p>
    */
   Status?: ProjectVersionStatus | string;
-}
-
-export namespace StartProjectVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartProjectVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7098,15 +5325,6 @@ export interface StartShotDetectionFilter {
    *         segments with confidence values greater than or equal to 50 percent.</p>
    */
   MinSegmentConfidence?: number;
-}
-
-export namespace StartShotDetectionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartShotDetectionFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7133,15 +5351,6 @@ export interface StartTechnicalCueDetectionFilter {
   BlackFrame?: BlackFrame;
 }
 
-export namespace StartTechnicalCueDetectionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTechnicalCueDetectionFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Filters applied to the technical cue or shot detection segments.
  *       For more information, see <a>StartSegmentDetection</a>.
@@ -7157,15 +5366,6 @@ export interface StartSegmentDetectionFilters {
    * <p>Filters that are specific to shot detections.</p>
    */
   ShotFilter?: StartShotDetectionFilter;
-}
-
-export namespace StartSegmentDetectionFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSegmentDetectionFilters): any => ({
-    ...obj,
-  });
 }
 
 export interface StartSegmentDetectionRequest {
@@ -7205,30 +5405,12 @@ export interface StartSegmentDetectionRequest {
   SegmentTypes: (SegmentType | string)[] | undefined;
 }
 
-export namespace StartSegmentDetectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSegmentDetectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartSegmentDetectionResponse {
   /**
    * <p>Unique identifier for the segment detection job. The <code>JobId</code> is returned from <code>StartSegmentDetection</code>.
    *     </p>
    */
   JobId?: string;
-}
-
-export namespace StartSegmentDetectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSegmentDetectionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7241,15 +5423,6 @@ export interface StreamProcessingStartSelector {
    *         </p>
    */
   KVSStreamStartSelector?: KinesisVideoStreamStartSelector;
-}
-
-export namespace StreamProcessingStartSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamProcessingStartSelector): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7265,15 +5438,6 @@ export interface StreamProcessingStopSelector {
    *         </p>
    */
   MaxDurationInSeconds?: number;
-}
-
-export namespace StreamProcessingStopSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamProcessingStopSelector): any => ({
-    ...obj,
-  });
 }
 
 export interface StartStreamProcessorRequest {
@@ -7302,15 +5466,6 @@ export interface StartStreamProcessorRequest {
   StopSelector?: StreamProcessingStopSelector;
 }
 
-export namespace StartStreamProcessorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartStreamProcessorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartStreamProcessorResponse {
   /**
    * <p>
@@ -7318,15 +5473,6 @@ export interface StartStreamProcessorResponse {
    *         </p>
    */
   SessionId?: string;
-}
-
-export namespace StartStreamProcessorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartStreamProcessorResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7345,15 +5491,6 @@ export interface StartTextDetectionFilters {
    *       of the screen.</p>
    */
   RegionsOfInterest?: RegionOfInterest[];
-}
-
-export namespace StartTextDetectionFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTextDetectionFilters): any => ({
-    ...obj,
-  });
 }
 
 export interface StartTextDetectionRequest {
@@ -7389,29 +5526,11 @@ export interface StartTextDetectionRequest {
   Filters?: StartTextDetectionFilters;
 }
 
-export namespace StartTextDetectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTextDetectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartTextDetectionResponse {
   /**
    * <p>Identifier for the text detection job.  Use <code>JobId</code> to identify the job in a subsequent call to <code>GetTextDetection</code>.</p>
    */
   JobId?: string;
-}
-
-export namespace StartTextDetectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTextDetectionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StopProjectVersionRequest {
@@ -7422,29 +5541,11 @@ export interface StopProjectVersionRequest {
   ProjectVersionArn: string | undefined;
 }
 
-export namespace StopProjectVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopProjectVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopProjectVersionResponse {
   /**
    * <p>The current status of the stop operation. </p>
    */
   Status?: ProjectVersionStatus | string;
-}
-
-export namespace StopProjectVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopProjectVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StopStreamProcessorRequest {
@@ -7454,25 +5555,7 @@ export interface StopStreamProcessorRequest {
   Name: string | undefined;
 }
 
-export namespace StopStreamProcessorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopStreamProcessorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopStreamProcessorResponse {}
-
-export namespace StopStreamProcessorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopStreamProcessorResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -7490,25 +5573,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -7526,25 +5591,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDatasetEntriesRequest {
   /**
@@ -7562,25 +5609,7 @@ export interface UpdateDatasetEntriesRequest {
   Changes: DatasetChanges | undefined;
 }
 
-export namespace UpdateDatasetEntriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDatasetEntriesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDatasetEntriesResponse {}
-
-export namespace UpdateDatasetEntriesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDatasetEntriesResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum StreamProcessorParameterToDelete {
   ConnectedHomeMinConfidence = "ConnectedHomeMinConfidence",
@@ -7599,15 +5628,6 @@ export interface StreamProcessorSettingsForUpdate {
    *         </p>
    */
   ConnectedHomeForUpdate?: ConnectedHomeSettingsForUpdate;
-}
-
-export namespace StreamProcessorSettingsForUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamProcessorSettingsForUpdate): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateStreamProcessorRequest {
@@ -7648,22 +5668,1562 @@ export interface UpdateStreamProcessorRequest {
   ParametersToDelete?: (StreamProcessorParameterToDelete | string)[];
 }
 
-export namespace UpdateStreamProcessorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStreamProcessorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateStreamProcessorResponse {}
 
-export namespace UpdateStreamProcessorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStreamProcessorResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AgeRangeFilterSensitiveLog = (obj: AgeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ObjectFilterSensitiveLog = (obj: S3Object): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroundTruthManifestFilterSensitiveLog = (obj: GroundTruthManifest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssetFilterSensitiveLog = (obj: Asset): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioMetadataFilterSensitiveLog = (obj: AudioMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BeardFilterSensitiveLog = (obj: Beard): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlackFrameFilterSensitiveLog = (obj: BlackFrame): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BoundingBoxFilterSensitiveLog = (obj: BoundingBox): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CoversBodyPartFilterSensitiveLog = (obj: CoversBodyPart): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EquipmentDetectionFilterSensitiveLog = (obj: EquipmentDetection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProtectiveEquipmentBodyPartFilterSensitiveLog = (obj: ProtectiveEquipmentBodyPart): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EmotionFilterSensitiveLog = (obj: Emotion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LandmarkFilterSensitiveLog = (obj: Landmark): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PoseFilterSensitiveLog = (obj: Pose): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageQualityFilterSensitiveLog = (obj: ImageQuality): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SmileFilterSensitiveLog = (obj: Smile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComparedFaceFilterSensitiveLog = (obj: ComparedFace): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KnownGenderFilterSensitiveLog = (obj: KnownGender): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CelebrityFilterSensitiveLog = (obj: Celebrity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EyeglassesFilterSensitiveLog = (obj: Eyeglasses): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EyeOpenFilterSensitiveLog = (obj: EyeOpen): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenderFilterSensitiveLog = (obj: Gender): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MouthOpenFilterSensitiveLog = (obj: MouthOpen): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MustacheFilterSensitiveLog = (obj: Mustache): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SunglassesFilterSensitiveLog = (obj: Sunglasses): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FaceDetailFilterSensitiveLog = (obj: FaceDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CelebrityDetailFilterSensitiveLog = (obj: CelebrityDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CelebrityRecognitionFilterSensitiveLog = (obj: CelebrityRecognition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComparedSourceImageFaceFilterSensitiveLog = (obj: ComparedSourceImageFace): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageFilterSensitiveLog = (obj: Image): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompareFacesRequestFilterSensitiveLog = (obj: CompareFacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompareFacesMatchFilterSensitiveLog = (obj: CompareFacesMatch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompareFacesResponseFilterSensitiveLog = (obj: CompareFacesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectedHomeSettingsFilterSensitiveLog = (obj: ConnectedHomeSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectedHomeSettingsForUpdateFilterSensitiveLog = (obj: ConnectedHomeSettingsForUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModerationLabelFilterSensitiveLog = (obj: ModerationLabel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContentModerationDetectionFilterSensitiveLog = (obj: ContentModerationDetection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCollectionRequestFilterSensitiveLog = (obj: CreateCollectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCollectionResponseFilterSensitiveLog = (obj: CreateCollectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetSourceFilterSensitiveLog = (obj: DatasetSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetRequestFilterSensitiveLog = (obj: CreateDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetResponseFilterSensitiveLog = (obj: CreateDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProjectRequestFilterSensitiveLog = (obj: CreateProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProjectResponseFilterSensitiveLog = (obj: CreateProjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputConfigFilterSensitiveLog = (obj: OutputConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestingDataFilterSensitiveLog = (obj: TestingData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrainingDataFilterSensitiveLog = (obj: TrainingData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProjectVersionRequestFilterSensitiveLog = (obj: CreateProjectVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProjectVersionResponseFilterSensitiveLog = (obj: CreateProjectVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamProcessorDataSharingPreferenceFilterSensitiveLog = (
+  obj: StreamProcessorDataSharingPreference
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisVideoStreamFilterSensitiveLog = (obj: KinesisVideoStream): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamProcessorInputFilterSensitiveLog = (obj: StreamProcessorInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamProcessorNotificationChannelFilterSensitiveLog = (obj: StreamProcessorNotificationChannel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisDataStreamFilterSensitiveLog = (obj: KinesisDataStream): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationFilterSensitiveLog = (obj: S3Destination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamProcessorOutputFilterSensitiveLog = (obj: StreamProcessorOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PointFilterSensitiveLog = (obj: Point): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegionOfInterestFilterSensitiveLog = (obj: RegionOfInterest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FaceSearchSettingsFilterSensitiveLog = (obj: FaceSearchSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamProcessorSettingsFilterSensitiveLog = (obj: StreamProcessorSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamProcessorRequestFilterSensitiveLog = (obj: CreateStreamProcessorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamProcessorResponseFilterSensitiveLog = (obj: CreateStreamProcessorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeometryFilterSensitiveLog = (obj: Geometry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomLabelFilterSensitiveLog = (obj: CustomLabel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetChangesFilterSensitiveLog = (obj: DatasetChanges): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetStatsFilterSensitiveLog = (obj: DatasetStats): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetDescriptionFilterSensitiveLog = (obj: DatasetDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetLabelStatsFilterSensitiveLog = (obj: DatasetLabelStats): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetLabelDescriptionFilterSensitiveLog = (obj: DatasetLabelDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetMetadataFilterSensitiveLog = (obj: DatasetMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCollectionRequestFilterSensitiveLog = (obj: DeleteCollectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCollectionResponseFilterSensitiveLog = (obj: DeleteCollectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDatasetRequestFilterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDatasetResponseFilterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFacesRequestFilterSensitiveLog = (obj: DeleteFacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFacesResponseFilterSensitiveLog = (obj: DeleteFacesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectRequestFilterSensitiveLog = (obj: DeleteProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectResponseFilterSensitiveLog = (obj: DeleteProjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectVersionRequestFilterSensitiveLog = (obj: DeleteProjectVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectVersionResponseFilterSensitiveLog = (obj: DeleteProjectVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStreamProcessorRequestFilterSensitiveLog = (obj: DeleteStreamProcessorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStreamProcessorResponseFilterSensitiveLog = (obj: DeleteStreamProcessorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCollectionRequestFilterSensitiveLog = (obj: DescribeCollectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCollectionResponseFilterSensitiveLog = (obj: DescribeCollectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatasetRequestFilterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatasetResponseFilterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProjectsRequestFilterSensitiveLog = (obj: DescribeProjectsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectDescriptionFilterSensitiveLog = (obj: ProjectDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProjectsResponseFilterSensitiveLog = (obj: DescribeProjectsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProjectVersionsRequestFilterSensitiveLog = (obj: DescribeProjectVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SummaryFilterSensitiveLog = (obj: Summary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluationResultFilterSensitiveLog = (obj: EvaluationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationDataFilterSensitiveLog = (obj: ValidationData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestingDataResultFilterSensitiveLog = (obj: TestingDataResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrainingDataResultFilterSensitiveLog = (obj: TrainingDataResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectVersionDescriptionFilterSensitiveLog = (obj: ProjectVersionDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProjectVersionsResponseFilterSensitiveLog = (obj: DescribeProjectVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStreamProcessorRequestFilterSensitiveLog = (obj: DescribeStreamProcessorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStreamProcessorResponseFilterSensitiveLog = (obj: DescribeStreamProcessorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectCustomLabelsRequestFilterSensitiveLog = (obj: DetectCustomLabelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectCustomLabelsResponseFilterSensitiveLog = (obj: DetectCustomLabelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectFacesRequestFilterSensitiveLog = (obj: DetectFacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectFacesResponseFilterSensitiveLog = (obj: DetectFacesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectionFilterFilterSensitiveLog = (obj: DetectionFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectLabelsRequestFilterSensitiveLog = (obj: DetectLabelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParentFilterSensitiveLog = (obj: Parent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LabelFilterSensitiveLog = (obj: Label): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectLabelsResponseFilterSensitiveLog = (obj: DetectLabelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HumanLoopDataAttributesFilterSensitiveLog = (obj: HumanLoopDataAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HumanLoopConfigFilterSensitiveLog = (obj: HumanLoopConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectModerationLabelsRequestFilterSensitiveLog = (obj: DetectModerationLabelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HumanLoopActivationOutputFilterSensitiveLog = (obj: HumanLoopActivationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectModerationLabelsResponseFilterSensitiveLog = (obj: DetectModerationLabelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProtectiveEquipmentSummarizationAttributesFilterSensitiveLog = (
+  obj: ProtectiveEquipmentSummarizationAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectProtectiveEquipmentRequestFilterSensitiveLog = (obj: DetectProtectiveEquipmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProtectiveEquipmentPersonFilterSensitiveLog = (obj: ProtectiveEquipmentPerson): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProtectiveEquipmentSummaryFilterSensitiveLog = (obj: ProtectiveEquipmentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectProtectiveEquipmentResponseFilterSensitiveLog = (obj: DetectProtectiveEquipmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectTextFiltersFilterSensitiveLog = (obj: DetectTextFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectTextRequestFilterSensitiveLog = (obj: DetectTextRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextDetectionFilterSensitiveLog = (obj: TextDetection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectTextResponseFilterSensitiveLog = (obj: DetectTextResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DistributeDatasetFilterSensitiveLog = (obj: DistributeDataset): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DistributeDatasetEntriesRequestFilterSensitiveLog = (obj: DistributeDatasetEntriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DistributeDatasetEntriesResponseFilterSensitiveLog = (obj: DistributeDatasetEntriesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FaceFilterSensitiveLog = (obj: Face): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FaceDetectionFilterSensitiveLog = (obj: FaceDetection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FaceMatchFilterSensitiveLog = (obj: FaceMatch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FaceRecordFilterSensitiveLog = (obj: FaceRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCelebrityInfoRequestFilterSensitiveLog = (obj: GetCelebrityInfoRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCelebrityInfoResponseFilterSensitiveLog = (obj: GetCelebrityInfoResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCelebrityRecognitionRequestFilterSensitiveLog = (obj: GetCelebrityRecognitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoMetadataFilterSensitiveLog = (obj: VideoMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCelebrityRecognitionResponseFilterSensitiveLog = (obj: GetCelebrityRecognitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContentModerationRequestFilterSensitiveLog = (obj: GetContentModerationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContentModerationResponseFilterSensitiveLog = (obj: GetContentModerationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFaceDetectionRequestFilterSensitiveLog = (obj: GetFaceDetectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFaceDetectionResponseFilterSensitiveLog = (obj: GetFaceDetectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFaceSearchRequestFilterSensitiveLog = (obj: GetFaceSearchRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PersonDetailFilterSensitiveLog = (obj: PersonDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PersonMatchFilterSensitiveLog = (obj: PersonMatch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFaceSearchResponseFilterSensitiveLog = (obj: GetFaceSearchResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLabelDetectionRequestFilterSensitiveLog = (obj: GetLabelDetectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LabelDetectionFilterSensitiveLog = (obj: LabelDetection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLabelDetectionResponseFilterSensitiveLog = (obj: GetLabelDetectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPersonTrackingRequestFilterSensitiveLog = (obj: GetPersonTrackingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PersonDetectionFilterSensitiveLog = (obj: PersonDetection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPersonTrackingResponseFilterSensitiveLog = (obj: GetPersonTrackingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentDetectionRequestFilterSensitiveLog = (obj: GetSegmentDetectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ShotSegmentFilterSensitiveLog = (obj: ShotSegment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TechnicalCueSegmentFilterSensitiveLog = (obj: TechnicalCueSegment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SegmentDetectionFilterSensitiveLog = (obj: SegmentDetection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SegmentTypeInfoFilterSensitiveLog = (obj: SegmentTypeInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentDetectionResponseFilterSensitiveLog = (obj: GetSegmentDetectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTextDetectionRequestFilterSensitiveLog = (obj: GetTextDetectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextDetectionResultFilterSensitiveLog = (obj: TextDetectionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTextDetectionResponseFilterSensitiveLog = (obj: GetTextDetectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IndexFacesRequestFilterSensitiveLog = (obj: IndexFacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnindexedFaceFilterSensitiveLog = (obj: UnindexedFace): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IndexFacesResponseFilterSensitiveLog = (obj: IndexFacesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisVideoStreamStartSelectorFilterSensitiveLog = (obj: KinesisVideoStreamStartSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCollectionsRequestFilterSensitiveLog = (obj: ListCollectionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCollectionsResponseFilterSensitiveLog = (obj: ListCollectionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetEntriesRequestFilterSensitiveLog = (obj: ListDatasetEntriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetEntriesResponseFilterSensitiveLog = (obj: ListDatasetEntriesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetLabelsRequestFilterSensitiveLog = (obj: ListDatasetLabelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetLabelsResponseFilterSensitiveLog = (obj: ListDatasetLabelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFacesRequestFilterSensitiveLog = (obj: ListFacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFacesResponseFilterSensitiveLog = (obj: ListFacesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStreamProcessorsRequestFilterSensitiveLog = (obj: ListStreamProcessorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamProcessorFilterSensitiveLog = (obj: StreamProcessor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStreamProcessorsResponseFilterSensitiveLog = (obj: ListStreamProcessorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationChannelFilterSensitiveLog = (obj: NotificationChannel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecognizeCelebritiesRequestFilterSensitiveLog = (obj: RecognizeCelebritiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecognizeCelebritiesResponseFilterSensitiveLog = (obj: RecognizeCelebritiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchFacesRequestFilterSensitiveLog = (obj: SearchFacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchFacesResponseFilterSensitiveLog = (obj: SearchFacesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchFacesByImageRequestFilterSensitiveLog = (obj: SearchFacesByImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchFacesByImageResponseFilterSensitiveLog = (obj: SearchFacesByImageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoFilterSensitiveLog = (obj: Video): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartCelebrityRecognitionRequestFilterSensitiveLog = (obj: StartCelebrityRecognitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartCelebrityRecognitionResponseFilterSensitiveLog = (obj: StartCelebrityRecognitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartContentModerationRequestFilterSensitiveLog = (obj: StartContentModerationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartContentModerationResponseFilterSensitiveLog = (obj: StartContentModerationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFaceDetectionRequestFilterSensitiveLog = (obj: StartFaceDetectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFaceDetectionResponseFilterSensitiveLog = (obj: StartFaceDetectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFaceSearchRequestFilterSensitiveLog = (obj: StartFaceSearchRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFaceSearchResponseFilterSensitiveLog = (obj: StartFaceSearchResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartLabelDetectionRequestFilterSensitiveLog = (obj: StartLabelDetectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartLabelDetectionResponseFilterSensitiveLog = (obj: StartLabelDetectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartPersonTrackingRequestFilterSensitiveLog = (obj: StartPersonTrackingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartPersonTrackingResponseFilterSensitiveLog = (obj: StartPersonTrackingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartProjectVersionRequestFilterSensitiveLog = (obj: StartProjectVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartProjectVersionResponseFilterSensitiveLog = (obj: StartProjectVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartShotDetectionFilterFilterSensitiveLog = (obj: StartShotDetectionFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTechnicalCueDetectionFilterFilterSensitiveLog = (obj: StartTechnicalCueDetectionFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSegmentDetectionFiltersFilterSensitiveLog = (obj: StartSegmentDetectionFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSegmentDetectionRequestFilterSensitiveLog = (obj: StartSegmentDetectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSegmentDetectionResponseFilterSensitiveLog = (obj: StartSegmentDetectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamProcessingStartSelectorFilterSensitiveLog = (obj: StreamProcessingStartSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamProcessingStopSelectorFilterSensitiveLog = (obj: StreamProcessingStopSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartStreamProcessorRequestFilterSensitiveLog = (obj: StartStreamProcessorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartStreamProcessorResponseFilterSensitiveLog = (obj: StartStreamProcessorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTextDetectionFiltersFilterSensitiveLog = (obj: StartTextDetectionFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTextDetectionRequestFilterSensitiveLog = (obj: StartTextDetectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTextDetectionResponseFilterSensitiveLog = (obj: StartTextDetectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopProjectVersionRequestFilterSensitiveLog = (obj: StopProjectVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopProjectVersionResponseFilterSensitiveLog = (obj: StopProjectVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopStreamProcessorRequestFilterSensitiveLog = (obj: StopStreamProcessorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopStreamProcessorResponseFilterSensitiveLog = (obj: StopStreamProcessorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDatasetEntriesRequestFilterSensitiveLog = (obj: UpdateDatasetEntriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDatasetEntriesResponseFilterSensitiveLog = (obj: UpdateDatasetEntriesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamProcessorSettingsForUpdateFilterSensitiveLog = (obj: StreamProcessorSettingsForUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStreamProcessorRequestFilterSensitiveLog = (obj: UpdateStreamProcessorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStreamProcessorResponseFilterSensitiveLog = (obj: UpdateStreamProcessorResponse): any => ({
+  ...obj,
+});

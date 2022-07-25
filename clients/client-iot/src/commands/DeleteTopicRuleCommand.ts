@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteTopicRuleRequest } from "../models/models_1";
+import { DeleteTopicRuleRequest, DeleteTopicRuleRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteTopicRuleCommand,
   serializeAws_restJson1DeleteTopicRuleCommand,
@@ -73,7 +73,7 @@ export class DeleteTopicRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTopicRuleRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTopicRuleRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

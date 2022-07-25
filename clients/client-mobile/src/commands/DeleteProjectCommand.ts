@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
-import { DeleteProjectRequest, DeleteProjectResult } from "../models/models_0";
+import {
+  DeleteProjectRequest,
+  DeleteProjectRequestFilterSensitiveLog,
+  DeleteProjectResult,
+  DeleteProjectResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteProjectCommand,
   serializeAws_restJson1DeleteProjectCommand,
@@ -74,8 +79,8 @@ export class DeleteProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProjectResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteProjectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteProjectResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

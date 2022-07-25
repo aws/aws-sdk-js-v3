@@ -15,7 +15,9 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   DisassociateAssessmentReportEvidenceFolderRequest,
+  DisassociateAssessmentReportEvidenceFolderRequestFilterSensitiveLog,
   DisassociateAssessmentReportEvidenceFolderResponse,
+  DisassociateAssessmentReportEvidenceFolderResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateAssessmentReportEvidenceFolderCommand,
@@ -81,8 +83,8 @@ export class DisassociateAssessmentReportEvidenceFolderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateAssessmentReportEvidenceFolderRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateAssessmentReportEvidenceFolderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateAssessmentReportEvidenceFolderRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateAssessmentReportEvidenceFolderResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

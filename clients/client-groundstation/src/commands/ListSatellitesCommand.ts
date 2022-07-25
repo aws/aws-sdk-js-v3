@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import { ListSatellitesRequest, ListSatellitesResponse } from "../models/models_0";
+import {
+  ListSatellitesRequest,
+  ListSatellitesRequestFilterSensitiveLog,
+  ListSatellitesResponse,
+  ListSatellitesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListSatellitesCommand,
   serializeAws_restJson1ListSatellitesCommand,
@@ -72,8 +77,8 @@ export class ListSatellitesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSatellitesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSatellitesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSatellitesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSatellitesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import { TagResourceInput, TagResourceResponse } from "../models/models_0";
+import {
+  TagResourceInput,
+  TagResourceInputFilterSensitiveLog,
+  TagResourceResponse,
+  TagResourceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1TagResourceCommand,
   serializeAws_json1_1TagResourceCommand,
@@ -88,8 +93,8 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: TagResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TagResourceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: TagResourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

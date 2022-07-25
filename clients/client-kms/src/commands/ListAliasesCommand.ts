@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { ListAliasesRequest, ListAliasesResponse } from "../models/models_0";
+import {
+  ListAliasesRequest,
+  ListAliasesRequestFilterSensitiveLog,
+  ListAliasesResponse,
+  ListAliasesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListAliasesCommand,
   serializeAws_json1_1ListAliasesCommand,
@@ -114,8 +119,8 @@ export class ListAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAliasesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAliasesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAliasesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAliasesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

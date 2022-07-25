@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CreateSnapshotRequest, CreateSnapshotResponse } from "../models/models_0";
+import {
+  CreateSnapshotRequest,
+  CreateSnapshotRequestFilterSensitiveLog,
+  CreateSnapshotResponse,
+  CreateSnapshotResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSnapshotCommand,
   serializeAws_json1_1CreateSnapshotCommand,
@@ -99,8 +104,8 @@ export class CreateSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSnapshotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSnapshotResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSnapshotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSnapshotResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

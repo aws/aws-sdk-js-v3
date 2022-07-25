@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AbortDocumentVersionUploadRequest } from "../models/models_0";
+import {
+  AbortDocumentVersionUploadRequest,
+  AbortDocumentVersionUploadRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1AbortDocumentVersionUploadCommand,
   serializeAws_restJson1AbortDocumentVersionUploadCommand,
@@ -75,7 +78,7 @@ export class AbortDocumentVersionUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AbortDocumentVersionUploadRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AbortDocumentVersionUploadRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

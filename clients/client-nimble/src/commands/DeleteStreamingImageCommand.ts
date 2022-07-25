@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteStreamingImageRequest, DeleteStreamingImageResponse } from "../models/models_0";
+import {
+  DeleteStreamingImageRequest,
+  DeleteStreamingImageRequestFilterSensitiveLog,
+  DeleteStreamingImageResponse,
+  DeleteStreamingImageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1DeleteStreamingImageCommand,
@@ -72,8 +77,8 @@ export class DeleteStreamingImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStreamingImageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStreamingImageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteStreamingImageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteStreamingImageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

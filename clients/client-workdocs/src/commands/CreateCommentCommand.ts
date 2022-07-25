@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateCommentRequest, CreateCommentResponse } from "../models/models_0";
+import {
+  CreateCommentRequest,
+  CreateCommentRequestFilterSensitiveLog,
+  CreateCommentResponse,
+  CreateCommentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateCommentCommand,
   serializeAws_restJson1CreateCommentCommand,
@@ -72,8 +77,8 @@ export class CreateCommentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCommentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateCommentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCommentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateCommentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

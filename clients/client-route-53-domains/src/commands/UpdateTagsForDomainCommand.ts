@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateTagsForDomainRequest, UpdateTagsForDomainResponse } from "../models/models_0";
+import {
+  UpdateTagsForDomainRequest,
+  UpdateTagsForDomainRequestFilterSensitiveLog,
+  UpdateTagsForDomainResponse,
+  UpdateTagsForDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateTagsForDomainCommand,
   serializeAws_json1_1UpdateTagsForDomainCommand,
@@ -73,8 +78,8 @@ export class UpdateTagsForDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTagsForDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTagsForDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTagsForDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTagsForDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

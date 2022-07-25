@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { SetCognitoEventsRequest } from "../models/models_0";
+import { SetCognitoEventsRequest, SetCognitoEventsRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1SetCognitoEventsCommand,
   serializeAws_restJson1SetCognitoEventsCommand,
@@ -72,7 +72,7 @@ export class SetCognitoEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetCognitoEventsRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: SetCognitoEventsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

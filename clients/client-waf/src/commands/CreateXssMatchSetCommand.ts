@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateXssMatchSetRequest, CreateXssMatchSetResponse } from "../models/models_0";
+import {
+  CreateXssMatchSetRequest,
+  CreateXssMatchSetRequestFilterSensitiveLog,
+  CreateXssMatchSetResponse,
+  CreateXssMatchSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateXssMatchSetCommand,
   serializeAws_json1_1CreateXssMatchSetCommand,
@@ -101,8 +106,8 @@ export class CreateXssMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateXssMatchSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateXssMatchSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateXssMatchSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateXssMatchSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

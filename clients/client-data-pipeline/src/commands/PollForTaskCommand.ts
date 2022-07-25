@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { PollForTaskInput, PollForTaskOutput } from "../models/models_0";
+import {
+  PollForTaskInput,
+  PollForTaskInputFilterSensitiveLog,
+  PollForTaskOutput,
+  PollForTaskOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PollForTaskCommand,
   serializeAws_json1_1PollForTaskCommand,
@@ -150,8 +155,8 @@ export class PollForTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PollForTaskInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PollForTaskOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PollForTaskInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PollForTaskOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

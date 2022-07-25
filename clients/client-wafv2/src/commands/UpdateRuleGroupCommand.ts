@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateRuleGroupRequest, UpdateRuleGroupResponse } from "../models/models_0";
+import {
+  UpdateRuleGroupRequest,
+  UpdateRuleGroupRequestFilterSensitiveLog,
+  UpdateRuleGroupResponse,
+  UpdateRuleGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateRuleGroupCommand,
   serializeAws_json1_1UpdateRuleGroupCommand,
@@ -78,8 +83,8 @@ export class UpdateRuleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRuleGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRuleGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRuleGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRuleGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

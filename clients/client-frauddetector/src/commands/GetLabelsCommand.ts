@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { GetLabelsRequest, GetLabelsResult } from "../models/models_0";
+import {
+  GetLabelsRequest,
+  GetLabelsRequestFilterSensitiveLog,
+  GetLabelsResult,
+  GetLabelsResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1GetLabelsCommand, serializeAws_json1_1GetLabelsCommand } from "../protocols/Aws_json1_1";
 
 export interface GetLabelsCommandInput extends GetLabelsRequest {}
@@ -74,8 +79,8 @@ export class GetLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLabelsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetLabelsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLabelsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetLabelsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import { ResumeServiceRequest, ResumeServiceResponse } from "../models/models_0";
+import {
+  ResumeServiceRequest,
+  ResumeServiceRequestFilterSensitiveLog,
+  ResumeServiceResponse,
+  ResumeServiceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0ResumeServiceCommand,
   serializeAws_json1_0ResumeServiceCommand,
@@ -74,8 +79,8 @@ export class ResumeServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResumeServiceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResumeServiceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResumeServiceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResumeServiceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

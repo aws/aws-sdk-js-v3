@@ -41,15 +41,6 @@ export interface AliasListEntry {
   LastUpdatedDate?: Date;
 }
 
-export namespace AliasListEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AliasListEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because it attempted to create a resource that already
  *       exists.</p>
@@ -91,29 +82,11 @@ export interface CancelKeyDeletionRequest {
   KeyId: string | undefined;
 }
 
-export namespace CancelKeyDeletionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelKeyDeletionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelKeyDeletionResponse {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key whose deletion is canceled.</p>
    */
   KeyId?: string;
-}
-
-export namespace CancelKeyDeletionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelKeyDeletionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -368,25 +341,7 @@ export interface ConnectCustomKeyStoreRequest {
   CustomKeyStoreId: string | undefined;
 }
 
-export namespace ConnectCustomKeyStoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectCustomKeyStoreRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ConnectCustomKeyStoreResponse {}
-
-export namespace ConnectCustomKeyStoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectCustomKeyStoreResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The request was rejected because of the <code>ConnectionState</code> of the custom key
@@ -506,15 +461,6 @@ export interface CreateAliasRequest {
   TargetKeyId: string | undefined;
 }
 
-export namespace CreateAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because the specified alias name is not valid.</p>
  */
@@ -586,30 +532,11 @@ export interface CreateCustomKeyStoreRequest {
   KeyStorePassword?: string;
 }
 
-export namespace CreateCustomKeyStoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomKeyStoreRequest): any => ({
-    ...obj,
-    ...(obj.KeyStorePassword && { KeyStorePassword: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateCustomKeyStoreResponse {
   /**
    * <p>A unique identifier for the new custom key store.</p>
    */
   CustomKeyStoreId?: string;
-}
-
-export namespace CreateCustomKeyStoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomKeyStoreResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -691,15 +618,6 @@ export interface GrantConstraints {
    *       same as the encryption context specified in this constraint.</p>
    */
   EncryptionContextEquals?: Record<string, string>;
-}
-
-export namespace GrantConstraints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GrantConstraints): any => ({
-    ...obj,
-  });
 }
 
 export enum GrantOperation {
@@ -828,15 +746,6 @@ export interface CreateGrantRequest {
   Name?: string;
 }
 
-export namespace CreateGrantRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGrantRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGrantResponse {
   /**
    * <p>The grant token.</p>
@@ -850,15 +759,6 @@ export interface CreateGrantResponse {
    *          <p>You can use the <code>GrantId</code> in a <a>ListGrants</a>, <a>RetireGrant</a>, or <a>RevokeGrant</a> operation.</p>
    */
   GrantId?: string;
-}
-
-export namespace CreateGrantResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGrantResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -959,15 +859,6 @@ export interface Tag {
    * <p>The value of the tag.</p>
    */
   TagValue: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateKeyRequest {
@@ -1262,15 +1153,6 @@ export interface CreateKeyRequest {
   MultiRegion?: boolean;
 }
 
-export namespace CreateKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum EncryptionAlgorithmSpec {
   RSAES_OAEP_SHA_1 = "RSAES_OAEP_SHA_1",
   RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256",
@@ -1326,15 +1208,6 @@ export interface MultiRegionKey {
   Region?: string;
 }
 
-export namespace MultiRegionKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiRegionKey): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the configuration of this multi-Region key. This field appears only when the KMS
  *       key is a primary or replica of a multi-Region key.</p>
@@ -1359,15 +1232,6 @@ export interface MultiRegionConfiguration {
    *       key if it is a replica key.</p>
    */
   ReplicaKeys?: MultiRegionKey[];
-}
-
-export namespace MultiRegionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiRegionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum SigningAlgorithmSpec {
@@ -1572,29 +1436,11 @@ export interface KeyMetadata {
   MacAlgorithms?: (MacAlgorithmSpec | string)[];
 }
 
-export namespace KeyMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateKeyResponse {
   /**
    * <p>Metadata associated with the KMS key.</p>
    */
   KeyMetadata?: KeyMetadata;
-}
-
-export namespace CreateKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateKeyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1801,15 +1647,6 @@ export interface CustomKeyStoresListEntry {
   CreationDate?: Date;
 }
 
-export namespace CustomKeyStoresListEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomKeyStoresListEntry): any => ({
-    ...obj,
-  });
-}
-
 export enum DataKeyPairSpec {
   ECC_NIST_P256 = "ECC_NIST_P256",
   ECC_NIST_P384 = "ECC_NIST_P384",
@@ -1894,15 +1731,6 @@ export interface DecryptRequest {
   EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
 }
 
-export namespace DecryptRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecryptRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DecryptResponse {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that was used to decrypt the ciphertext.</p>
@@ -1918,16 +1746,6 @@ export interface DecryptResponse {
    * <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
    */
   EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
-}
-
-export namespace DecryptResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecryptResponse): any => ({
-    ...obj,
-    ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -2041,15 +1859,6 @@ export interface DeleteAliasRequest {
   AliasName: string | undefined;
 }
 
-export namespace DeleteAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCustomKeyStoreRequest {
   /**
    * <p>Enter the ID of the custom key store you want to delete. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
@@ -2057,25 +1866,7 @@ export interface DeleteCustomKeyStoreRequest {
   CustomKeyStoreId: string | undefined;
 }
 
-export namespace DeleteCustomKeyStoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomKeyStoreRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCustomKeyStoreResponse {}
-
-export namespace DeleteCustomKeyStoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomKeyStoreResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteImportedKeyMaterialRequest {
   /**
@@ -2097,15 +1888,6 @@ export interface DeleteImportedKeyMaterialRequest {
    *          <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
    */
   KeyId: string | undefined;
-}
-
-export namespace DeleteImportedKeyMaterialRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImportedKeyMaterialRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCustomKeyStoresRequest {
@@ -2143,15 +1925,6 @@ export interface DescribeCustomKeyStoresRequest {
   Marker?: string;
 }
 
-export namespace DescribeCustomKeyStoresRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomKeyStoresRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCustomKeyStoresResponse {
   /**
    * <p>Contains metadata about each custom key store.</p>
@@ -2171,15 +1944,6 @@ export interface DescribeCustomKeyStoresResponse {
    *     subsequent request.</p>
    */
   Truncated?: boolean;
-}
-
-export namespace DescribeCustomKeyStoresResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomKeyStoresResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2241,29 +2005,11 @@ export interface DescribeKeyRequest {
   GrantTokens?: string[];
 }
 
-export namespace DescribeKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeKeyResponse {
   /**
    * <p>Metadata associated with the key.</p>
    */
   KeyMetadata?: KeyMetadata;
-}
-
-export namespace DescribeKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeKeyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisableKeyRequest {
@@ -2284,15 +2030,6 @@ export interface DisableKeyRequest {
    *          <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
    */
   KeyId: string | undefined;
-}
-
-export namespace DisableKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DisableKeyRotationRequest {
@@ -2317,15 +2054,6 @@ export interface DisableKeyRotationRequest {
   KeyId: string | undefined;
 }
 
-export namespace DisableKeyRotationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableKeyRotationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisconnectCustomKeyStoreRequest {
   /**
    * <p>Enter the ID of the custom key store you want to disconnect. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
@@ -2333,25 +2061,7 @@ export interface DisconnectCustomKeyStoreRequest {
   CustomKeyStoreId: string | undefined;
 }
 
-export namespace DisconnectCustomKeyStoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisconnectCustomKeyStoreRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisconnectCustomKeyStoreResponse {}
-
-export namespace DisconnectCustomKeyStoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisconnectCustomKeyStoreResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface EnableKeyRequest {
   /**
@@ -2371,15 +2081,6 @@ export interface EnableKeyRequest {
    *          <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
    */
   KeyId: string | undefined;
-}
-
-export namespace EnableKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface EnableKeyRotationRequest {
@@ -2402,15 +2103,6 @@ export interface EnableKeyRotationRequest {
    *          <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
    */
   KeyId: string | undefined;
-}
-
-export namespace EnableKeyRotationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableKeyRotationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface EncryptRequest {
@@ -2476,16 +2168,6 @@ export interface EncryptRequest {
   EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
 }
 
-export namespace EncryptRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptRequest): any => ({
-    ...obj,
-    ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
-  });
-}
-
 export interface EncryptResponse {
   /**
    * <p>The encrypted plaintext. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -2501,15 +2183,6 @@ export interface EncryptResponse {
    * <p>The encryption algorithm that was used to encrypt the plaintext.</p>
    */
   EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
-}
-
-export namespace EncryptResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2597,15 +2270,6 @@ export interface GenerateDataKeyRequest {
   GrantTokens?: string[];
 }
 
-export namespace GenerateDataKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateDataKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GenerateDataKeyResponse {
   /**
    * <p>The encrypted copy of the data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -2622,16 +2286,6 @@ export interface GenerateDataKeyResponse {
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the data key.</p>
    */
   KeyId?: string;
-}
-
-export namespace GenerateDataKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateDataKeyResponse): any => ({
-    ...obj,
-    ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
-  });
 }
 
 export interface GenerateDataKeyPairRequest {
@@ -2689,15 +2343,6 @@ export interface GenerateDataKeyPairRequest {
   GrantTokens?: string[];
 }
 
-export namespace GenerateDataKeyPairRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateDataKeyPairRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GenerateDataKeyPairResponse {
   /**
    * <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -2723,16 +2368,6 @@ export interface GenerateDataKeyPairResponse {
    * <p>The type of data key pair that was generated.</p>
    */
   KeyPairSpec?: DataKeyPairSpec | string;
-}
-
-export namespace GenerateDataKeyPairResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateDataKeyPairResponse): any => ({
-    ...obj,
-    ...(obj.PrivateKeyPlaintext && { PrivateKeyPlaintext: SENSITIVE_STRING }),
-  });
 }
 
 export interface GenerateDataKeyPairWithoutPlaintextRequest {
@@ -2790,15 +2425,6 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
   GrantTokens?: string[];
 }
 
-export namespace GenerateDataKeyPairWithoutPlaintextRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateDataKeyPairWithoutPlaintextRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GenerateDataKeyPairWithoutPlaintextResponse {
   /**
    * <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -2819,15 +2445,6 @@ export interface GenerateDataKeyPairWithoutPlaintextResponse {
    * <p>The type of data key pair that was generated.</p>
    */
   KeyPairSpec?: DataKeyPairSpec | string;
-}
-
-export namespace GenerateDataKeyPairWithoutPlaintextResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateDataKeyPairWithoutPlaintextResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GenerateDataKeyWithoutPlaintextRequest {
@@ -2891,15 +2508,6 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
   GrantTokens?: string[];
 }
 
-export namespace GenerateDataKeyWithoutPlaintextRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateDataKeyWithoutPlaintextRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GenerateDataKeyWithoutPlaintextResponse {
   /**
    * <p>The encrypted data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -2910,15 +2518,6 @@ export interface GenerateDataKeyWithoutPlaintextResponse {
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the data key.</p>
    */
   KeyId?: string;
-}
-
-export namespace GenerateDataKeyWithoutPlaintextResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateDataKeyWithoutPlaintextResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GenerateMacRequest {
@@ -2954,16 +2553,6 @@ export interface GenerateMacRequest {
   GrantTokens?: string[];
 }
 
-export namespace GenerateMacRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateMacRequest): any => ({
-    ...obj,
-    ...(obj.Message && { Message: SENSITIVE_STRING }),
-  });
-}
-
 export interface GenerateMacResponse {
   /**
    * <p>The hash-based message authentication code (HMAC) for the given message, key, and MAC
@@ -2982,15 +2571,6 @@ export interface GenerateMacResponse {
   KeyId?: string;
 }
 
-export namespace GenerateMacResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateMacResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GenerateRandomRequest {
   /**
    * <p>The length of the random byte string. This parameter is required.</p>
@@ -3004,30 +2584,11 @@ export interface GenerateRandomRequest {
   CustomKeyStoreId?: string;
 }
 
-export namespace GenerateRandomRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateRandomRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GenerateRandomResponse {
   /**
    * <p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    */
   Plaintext?: Uint8Array;
-}
-
-export namespace GenerateRandomResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateRandomResponse): any => ({
-    ...obj,
-    ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
-  });
 }
 
 export interface GetKeyPolicyRequest {
@@ -3056,29 +2617,11 @@ export interface GetKeyPolicyRequest {
   PolicyName: string | undefined;
 }
 
-export namespace GetKeyPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetKeyPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetKeyPolicyResponse {
   /**
    * <p>A key policy document in JSON format.</p>
    */
   Policy?: string;
-}
-
-export namespace GetKeyPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetKeyPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetKeyRotationStatusRequest {
@@ -3103,29 +2646,11 @@ export interface GetKeyRotationStatusRequest {
   KeyId: string | undefined;
 }
 
-export namespace GetKeyRotationStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetKeyRotationStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetKeyRotationStatusResponse {
   /**
    * <p>A Boolean value that specifies whether key rotation is enabled.</p>
    */
   KeyRotationEnabled?: boolean;
-}
-
-export namespace GetKeyRotationStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetKeyRotationStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum WrappingKeySpec {
@@ -3166,15 +2691,6 @@ export interface GetParametersForImportRequest {
   WrappingKeySpec: WrappingKeySpec | string | undefined;
 }
 
-export namespace GetParametersForImportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetParametersForImportRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetParametersForImportResponse {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <a>ImportKeyMaterial</a> request. This is the same KMS key specified in the <code>GetParametersForImport</code>
@@ -3199,16 +2715,6 @@ export interface GetParametersForImportResponse {
    *       another <code>GetParametersForImport</code> request to get new ones.</p>
    */
   ParametersValidTo?: Date;
-}
-
-export namespace GetParametersForImportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetParametersForImportResponse): any => ({
-    ...obj,
-    ...(obj.PublicKey && { PublicKey: SENSITIVE_STRING }),
-  });
 }
 
 export interface GetPublicKeyRequest {
@@ -3245,15 +2751,6 @@ export interface GetPublicKeyRequest {
    *     <i>Key Management Service Developer Guide</i>.</p>
    */
   GrantTokens?: string[];
-}
-
-export namespace GetPublicKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPublicKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPublicKeyResponse {
@@ -3312,15 +2809,6 @@ export interface GetPublicKeyResponse {
   SigningAlgorithms?: (SigningAlgorithmSpec | string)[];
 }
 
-export namespace GetPublicKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPublicKeyResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a grant.</p>
  */
@@ -3377,15 +2865,6 @@ export interface GrantListEntry {
   Constraints?: GrantConstraints;
 }
 
-export namespace GrantListEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GrantListEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportKeyMaterialRequest {
   /**
    * <p>The identifier of the symmetric encryption KMS key that receives the imported key
@@ -3439,25 +2918,7 @@ export interface ImportKeyMaterialRequest {
   ExpirationModel?: ExpirationModelType | string;
 }
 
-export namespace ImportKeyMaterialRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportKeyMaterialRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportKeyMaterialResponse {}
-
-export namespace ImportKeyMaterialResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportKeyMaterialResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The request was rejected because the key material in the request is, expired, invalid, or
@@ -3531,15 +2992,6 @@ export interface KeyListEntry {
    * <p>ARN of the key.</p>
    */
   KeyArn?: string;
-}
-
-export namespace KeyListEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyListEntry): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3622,15 +3074,6 @@ export interface ListAliasesRequest {
   Marker?: string;
 }
 
-export namespace ListAliasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAliasesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAliasesResponse {
   /**
    * <p>A list of aliases.</p>
@@ -3650,15 +3093,6 @@ export interface ListAliasesResponse {
    *     subsequent request.</p>
    */
   Truncated?: boolean;
-}
-
-export namespace ListAliasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAliasesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGrantsRequest {
@@ -3711,15 +3145,6 @@ export interface ListGrantsRequest {
   GranteePrincipal?: string;
 }
 
-export namespace ListGrantsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGrantsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGrantsResponse {
   /**
    * <p>A list of grants.</p>
@@ -3739,15 +3164,6 @@ export interface ListGrantsResponse {
    *     subsequent request.</p>
    */
   Truncated?: boolean;
-}
-
-export namespace ListGrantsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGrantsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListKeyPoliciesRequest {
@@ -3787,15 +3203,6 @@ export interface ListKeyPoliciesRequest {
   Marker?: string;
 }
 
-export namespace ListKeyPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListKeyPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListKeyPoliciesResponse {
   /**
    * <p>A list of key policy names. The only valid value is <code>default</code>.</p>
@@ -3817,15 +3224,6 @@ export interface ListKeyPoliciesResponse {
   Truncated?: boolean;
 }
 
-export namespace ListKeyPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListKeyPoliciesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListKeysRequest {
   /**
    * <p>Use this parameter to specify the maximum number of items to return. When this
@@ -3842,15 +3240,6 @@ export interface ListKeysRequest {
    *     you just received.</p>
    */
   Marker?: string;
-}
-
-export namespace ListKeysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListKeysRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListKeysResponse {
@@ -3872,15 +3261,6 @@ export interface ListKeysResponse {
    *     subsequent request.</p>
    */
   Truncated?: boolean;
-}
-
-export namespace ListKeysResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListKeysResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourceTagsRequest {
@@ -3921,15 +3301,6 @@ export interface ListResourceTagsRequest {
   Marker?: string;
 }
 
-export namespace ListResourceTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourceTagsResponse {
   /**
    * <p>A list of tags. Each tag consists of a tag key and a tag value.</p>
@@ -3953,15 +3324,6 @@ export interface ListResourceTagsResponse {
    *     subsequent request.</p>
    */
   Truncated?: boolean;
-}
-
-export namespace ListResourceTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceTagsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRetirableGrantsRequest {
@@ -3991,15 +3353,6 @@ export interface ListRetirableGrantsRequest {
    *         <i>Amazon Web Services General Reference</i>.</p>
    */
   RetiringPrincipal: string | undefined;
-}
-
-export namespace ListRetirableGrantsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRetirableGrantsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum MessageType {
@@ -4083,15 +3436,6 @@ export interface PutKeyPolicyRequest {
    *          <p>The default value is false.</p>
    */
   BypassPolicyLockoutSafetyCheck?: boolean;
-}
-
-export namespace PutKeyPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutKeyPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ReEncryptRequest {
@@ -4213,15 +3557,6 @@ export interface ReEncryptRequest {
   GrantTokens?: string[];
 }
 
-export namespace ReEncryptRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReEncryptRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ReEncryptResponse {
   /**
    * <p>The reencrypted data. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -4248,15 +3583,6 @@ export interface ReEncryptResponse {
    * <p>The encryption algorithm that was used to reencrypt the data.</p>
    */
   DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
-}
-
-export namespace ReEncryptResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReEncryptResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ReplicateKeyRequest {
@@ -4395,15 +3721,6 @@ export interface ReplicateKeyRequest {
   Tags?: Tag[];
 }
 
-export namespace ReplicateKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicateKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ReplicateKeyResponse {
   /**
    * <p>Displays details about the new replica key, including its Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) and
@@ -4423,15 +3740,6 @@ export interface ReplicateKeyResponse {
    *       pairs.</p>
    */
   ReplicaTags?: Tag[];
-}
-
-export namespace ReplicateKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicateKeyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RetireGrantRequest {
@@ -4464,15 +3772,6 @@ export interface RetireGrantRequest {
   GrantId?: string;
 }
 
-export namespace RetireGrantRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetireGrantRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RevokeGrantRequest {
   /**
    * <p>A unique identifier for the KMS key associated with the grant. To get the key ID and key
@@ -4500,15 +3799,6 @@ export interface RevokeGrantRequest {
    *         <a>ListGrants</a>, or <a>ListRetirableGrants</a>.</p>
    */
   GrantId: string | undefined;
-}
-
-export namespace RevokeGrantRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeGrantRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ScheduleKeyDeletionRequest {
@@ -4542,15 +3832,6 @@ export interface ScheduleKeyDeletionRequest {
   PendingWindowInDays?: number;
 }
 
-export namespace ScheduleKeyDeletionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleKeyDeletionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ScheduleKeyDeletionResponse {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key whose deletion is scheduled.</p>
@@ -4578,15 +3859,6 @@ export interface ScheduleKeyDeletionResponse {
    *       immediately.</p>
    */
   PendingWindowInDays?: number;
-}
-
-export namespace ScheduleKeyDeletionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleKeyDeletionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SignRequest {
@@ -4648,16 +3920,6 @@ export interface SignRequest {
   SigningAlgorithm: SigningAlgorithmSpec | string | undefined;
 }
 
-export namespace SignRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SignRequest): any => ({
-    ...obj,
-    ...(obj.Message && { Message: SENSITIVE_STRING }),
-  });
-}
-
 export interface SignResponse {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key that was used to sign the message.</p>
@@ -4688,15 +3950,6 @@ export interface SignResponse {
    * <p>The signing algorithm that was used to sign the message.</p>
    */
   SigningAlgorithm?: SigningAlgorithmSpec | string;
-}
-
-export namespace SignResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SignResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -4730,15 +3983,6 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * <p>Identifies the KMS key from which you are removing tags.</p>
@@ -4763,15 +4007,6 @@ export interface UntagResourceRequest {
    * <p>One or more tag keys. Specify only the tag keys, not the tag values.</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAliasRequest {
@@ -4807,15 +4042,6 @@ export interface UpdateAliasRequest {
   TargetKeyId: string | undefined;
 }
 
-export namespace UpdateAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCustomKeyStoreRequest {
   /**
    * <p>Identifies the custom key store that you want to update. Enter the ID of the custom key
@@ -4849,26 +4075,7 @@ export interface UpdateCustomKeyStoreRequest {
   CloudHsmClusterId?: string;
 }
 
-export namespace UpdateCustomKeyStoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomKeyStoreRequest): any => ({
-    ...obj,
-    ...(obj.KeyStorePassword && { KeyStorePassword: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateCustomKeyStoreResponse {}
-
-export namespace UpdateCustomKeyStoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomKeyStoreResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateKeyDescriptionRequest {
   /**
@@ -4894,15 +4101,6 @@ export interface UpdateKeyDescriptionRequest {
    * <p>New description for the KMS key.</p>
    */
   Description: string | undefined;
-}
-
-export namespace UpdateKeyDescriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateKeyDescriptionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePrimaryRegionRequest {
@@ -4933,15 +4131,6 @@ export interface UpdatePrimaryRegionRequest {
    *       key.</p>
    */
   PrimaryRegion: string | undefined;
-}
-
-export namespace UpdatePrimaryRegionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePrimaryRegionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface VerifyRequest {
@@ -5014,16 +4203,6 @@ export interface VerifyRequest {
   GrantTokens?: string[];
 }
 
-export namespace VerifyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyRequest): any => ({
-    ...obj,
-    ...(obj.Message && { Message: SENSITIVE_STRING }),
-  });
-}
-
 export interface VerifyResponse {
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key that was used to verify the signature.</p>
@@ -5043,15 +4222,6 @@ export interface VerifyResponse {
    * <p>The signing algorithm that was used to verify the signature.</p>
    */
   SigningAlgorithm?: SigningAlgorithmSpec | string;
-}
-
-export namespace VerifyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface VerifyMacRequest {
@@ -5091,16 +4261,6 @@ export interface VerifyMacRequest {
   GrantTokens?: string[];
 }
 
-export namespace VerifyMacRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyMacRequest): any => ({
-    ...obj,
-    ...(obj.Message && { Message: SENSITIVE_STRING }),
-  });
-}
-
 export interface VerifyMacResponse {
   /**
    * <p>The HMAC KMS key used in the verification.</p>
@@ -5124,11 +4284,673 @@ export interface VerifyMacResponse {
   MacAlgorithm?: MacAlgorithmSpec | string;
 }
 
-export namespace VerifyMacResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyMacResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AliasListEntryFilterSensitiveLog = (obj: AliasListEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelKeyDeletionRequestFilterSensitiveLog = (obj: CancelKeyDeletionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelKeyDeletionResponseFilterSensitiveLog = (obj: CancelKeyDeletionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectCustomKeyStoreRequestFilterSensitiveLog = (obj: ConnectCustomKeyStoreRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectCustomKeyStoreResponseFilterSensitiveLog = (obj: ConnectCustomKeyStoreResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAliasRequestFilterSensitiveLog = (obj: CreateAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomKeyStoreRequestFilterSensitiveLog = (obj: CreateCustomKeyStoreRequest): any => ({
+  ...obj,
+  ...(obj.KeyStorePassword && { KeyStorePassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomKeyStoreResponseFilterSensitiveLog = (obj: CreateCustomKeyStoreResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GrantConstraintsFilterSensitiveLog = (obj: GrantConstraints): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGrantRequestFilterSensitiveLog = (obj: CreateGrantRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGrantResponseFilterSensitiveLog = (obj: CreateGrantResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateKeyRequestFilterSensitiveLog = (obj: CreateKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiRegionKeyFilterSensitiveLog = (obj: MultiRegionKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiRegionConfigurationFilterSensitiveLog = (obj: MultiRegionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeyMetadataFilterSensitiveLog = (obj: KeyMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateKeyResponseFilterSensitiveLog = (obj: CreateKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomKeyStoresListEntryFilterSensitiveLog = (obj: CustomKeyStoresListEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecryptRequestFilterSensitiveLog = (obj: DecryptRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecryptResponseFilterSensitiveLog = (obj: DecryptResponse): any => ({
+  ...obj,
+  ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteAliasRequestFilterSensitiveLog = (obj: DeleteAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomKeyStoreRequestFilterSensitiveLog = (obj: DeleteCustomKeyStoreRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomKeyStoreResponseFilterSensitiveLog = (obj: DeleteCustomKeyStoreResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImportedKeyMaterialRequestFilterSensitiveLog = (obj: DeleteImportedKeyMaterialRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomKeyStoresRequestFilterSensitiveLog = (obj: DescribeCustomKeyStoresRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomKeyStoresResponseFilterSensitiveLog = (obj: DescribeCustomKeyStoresResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeKeyRequestFilterSensitiveLog = (obj: DescribeKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeKeyResponseFilterSensitiveLog = (obj: DescribeKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableKeyRequestFilterSensitiveLog = (obj: DisableKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableKeyRotationRequestFilterSensitiveLog = (obj: DisableKeyRotationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisconnectCustomKeyStoreRequestFilterSensitiveLog = (obj: DisconnectCustomKeyStoreRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisconnectCustomKeyStoreResponseFilterSensitiveLog = (obj: DisconnectCustomKeyStoreResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableKeyRequestFilterSensitiveLog = (obj: EnableKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableKeyRotationRequestFilterSensitiveLog = (obj: EnableKeyRotationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptRequestFilterSensitiveLog = (obj: EncryptRequest): any => ({
+  ...obj,
+  ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EncryptResponseFilterSensitiveLog = (obj: EncryptResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateDataKeyRequestFilterSensitiveLog = (obj: GenerateDataKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateDataKeyResponseFilterSensitiveLog = (obj: GenerateDataKeyResponse): any => ({
+  ...obj,
+  ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GenerateDataKeyPairRequestFilterSensitiveLog = (obj: GenerateDataKeyPairRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateDataKeyPairResponseFilterSensitiveLog = (obj: GenerateDataKeyPairResponse): any => ({
+  ...obj,
+  ...(obj.PrivateKeyPlaintext && { PrivateKeyPlaintext: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GenerateDataKeyPairWithoutPlaintextRequestFilterSensitiveLog = (
+  obj: GenerateDataKeyPairWithoutPlaintextRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateDataKeyPairWithoutPlaintextResponseFilterSensitiveLog = (
+  obj: GenerateDataKeyPairWithoutPlaintextResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateDataKeyWithoutPlaintextRequestFilterSensitiveLog = (
+  obj: GenerateDataKeyWithoutPlaintextRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateDataKeyWithoutPlaintextResponseFilterSensitiveLog = (
+  obj: GenerateDataKeyWithoutPlaintextResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateMacRequestFilterSensitiveLog = (obj: GenerateMacRequest): any => ({
+  ...obj,
+  ...(obj.Message && { Message: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GenerateMacResponseFilterSensitiveLog = (obj: GenerateMacResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateRandomRequestFilterSensitiveLog = (obj: GenerateRandomRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateRandomResponseFilterSensitiveLog = (obj: GenerateRandomResponse): any => ({
+  ...obj,
+  ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetKeyPolicyRequestFilterSensitiveLog = (obj: GetKeyPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetKeyPolicyResponseFilterSensitiveLog = (obj: GetKeyPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetKeyRotationStatusRequestFilterSensitiveLog = (obj: GetKeyRotationStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetKeyRotationStatusResponseFilterSensitiveLog = (obj: GetKeyRotationStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetParametersForImportRequestFilterSensitiveLog = (obj: GetParametersForImportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetParametersForImportResponseFilterSensitiveLog = (obj: GetParametersForImportResponse): any => ({
+  ...obj,
+  ...(obj.PublicKey && { PublicKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetPublicKeyRequestFilterSensitiveLog = (obj: GetPublicKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPublicKeyResponseFilterSensitiveLog = (obj: GetPublicKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GrantListEntryFilterSensitiveLog = (obj: GrantListEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportKeyMaterialRequestFilterSensitiveLog = (obj: ImportKeyMaterialRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportKeyMaterialResponseFilterSensitiveLog = (obj: ImportKeyMaterialResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeyListEntryFilterSensitiveLog = (obj: KeyListEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAliasesRequestFilterSensitiveLog = (obj: ListAliasesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAliasesResponseFilterSensitiveLog = (obj: ListAliasesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGrantsRequestFilterSensitiveLog = (obj: ListGrantsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGrantsResponseFilterSensitiveLog = (obj: ListGrantsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListKeyPoliciesRequestFilterSensitiveLog = (obj: ListKeyPoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListKeyPoliciesResponseFilterSensitiveLog = (obj: ListKeyPoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListKeysRequestFilterSensitiveLog = (obj: ListKeysRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListKeysResponseFilterSensitiveLog = (obj: ListKeysResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceTagsRequestFilterSensitiveLog = (obj: ListResourceTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceTagsResponseFilterSensitiveLog = (obj: ListResourceTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRetirableGrantsRequestFilterSensitiveLog = (obj: ListRetirableGrantsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutKeyPolicyRequestFilterSensitiveLog = (obj: PutKeyPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReEncryptRequestFilterSensitiveLog = (obj: ReEncryptRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReEncryptResponseFilterSensitiveLog = (obj: ReEncryptResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicateKeyRequestFilterSensitiveLog = (obj: ReplicateKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicateKeyResponseFilterSensitiveLog = (obj: ReplicateKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetireGrantRequestFilterSensitiveLog = (obj: RetireGrantRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeGrantRequestFilterSensitiveLog = (obj: RevokeGrantRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleKeyDeletionRequestFilterSensitiveLog = (obj: ScheduleKeyDeletionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleKeyDeletionResponseFilterSensitiveLog = (obj: ScheduleKeyDeletionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SignRequestFilterSensitiveLog = (obj: SignRequest): any => ({
+  ...obj,
+  ...(obj.Message && { Message: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SignResponseFilterSensitiveLog = (obj: SignResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAliasRequestFilterSensitiveLog = (obj: UpdateAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCustomKeyStoreRequestFilterSensitiveLog = (obj: UpdateCustomKeyStoreRequest): any => ({
+  ...obj,
+  ...(obj.KeyStorePassword && { KeyStorePassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateCustomKeyStoreResponseFilterSensitiveLog = (obj: UpdateCustomKeyStoreResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateKeyDescriptionRequestFilterSensitiveLog = (obj: UpdateKeyDescriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePrimaryRegionRequestFilterSensitiveLog = (obj: UpdatePrimaryRegionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifyRequestFilterSensitiveLog = (obj: VerifyRequest): any => ({
+  ...obj,
+  ...(obj.Message && { Message: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const VerifyResponseFilterSensitiveLog = (obj: VerifyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifyMacRequestFilterSensitiveLog = (obj: VerifyMacRequest): any => ({
+  ...obj,
+  ...(obj.Message && { Message: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const VerifyMacResponseFilterSensitiveLog = (obj: VerifyMacResponse): any => ({
+  ...obj,
+});

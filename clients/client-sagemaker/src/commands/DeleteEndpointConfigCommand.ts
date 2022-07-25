@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteEndpointConfigInput } from "../models/models_1";
+import { DeleteEndpointConfigInput, DeleteEndpointConfigInputFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteEndpointConfigCommand,
   serializeAws_json1_1DeleteEndpointConfigCommand,
@@ -80,7 +80,7 @@ export class DeleteEndpointConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEndpointConfigInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEndpointConfigInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { ListActionTypesInput, ListActionTypesOutput } from "../models/models_0";
+import {
+  ListActionTypesInput,
+  ListActionTypesInputFilterSensitiveLog,
+  ListActionTypesOutput,
+  ListActionTypesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListActionTypesCommand,
   serializeAws_json1_1ListActionTypesCommand,
@@ -73,8 +78,8 @@ export class ListActionTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListActionTypesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListActionTypesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListActionTypesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListActionTypesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

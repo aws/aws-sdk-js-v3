@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import { CreateCustomPluginRequest, CreateCustomPluginResponse } from "../models/models_0";
+import {
+  CreateCustomPluginRequest,
+  CreateCustomPluginRequestFilterSensitiveLog,
+  CreateCustomPluginResponse,
+  CreateCustomPluginResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateCustomPluginCommand,
   serializeAws_restJson1CreateCustomPluginCommand,
@@ -72,8 +77,8 @@ export class CreateCustomPluginCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomPluginRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomPluginResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCustomPluginRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateCustomPluginResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

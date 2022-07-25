@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import { ListBackendJobsRequest, ListBackendJobsResponse } from "../models/models_0";
+import {
+  ListBackendJobsRequest,
+  ListBackendJobsRequestFilterSensitiveLog,
+  ListBackendJobsResponse,
+  ListBackendJobsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListBackendJobsCommand,
   serializeAws_restJson1ListBackendJobsCommand,
@@ -72,8 +77,8 @@ export class ListBackendJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBackendJobsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListBackendJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBackendJobsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListBackendJobsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

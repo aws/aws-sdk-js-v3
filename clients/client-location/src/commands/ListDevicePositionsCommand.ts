@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { ListDevicePositionsRequest, ListDevicePositionsResponse } from "../models/models_0";
+import {
+  ListDevicePositionsRequest,
+  ListDevicePositionsRequestFilterSensitiveLog,
+  ListDevicePositionsResponse,
+  ListDevicePositionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListDevicePositionsCommand,
   serializeAws_restJson1ListDevicePositionsCommand,
@@ -72,8 +77,8 @@ export class ListDevicePositionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDevicePositionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDevicePositionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDevicePositionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDevicePositionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { StartTopicsDetectionJobRequest, StartTopicsDetectionJobResponse } from "../models/models_0";
+import {
+  StartTopicsDetectionJobRequest,
+  StartTopicsDetectionJobRequestFilterSensitiveLog,
+  StartTopicsDetectionJobResponse,
+  StartTopicsDetectionJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartTopicsDetectionJobCommand,
   serializeAws_json1_1StartTopicsDetectionJobCommand,
@@ -73,8 +78,8 @@ export class StartTopicsDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartTopicsDetectionJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartTopicsDetectionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartTopicsDetectionJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartTopicsDetectionJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import { DisassociateGatewayFromServerInput, DisassociateGatewayFromServerOutput } from "../models/models_0";
+import {
+  DisassociateGatewayFromServerInput,
+  DisassociateGatewayFromServerInputFilterSensitiveLog,
+  DisassociateGatewayFromServerOutput,
+  DisassociateGatewayFromServerOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DisassociateGatewayFromServerCommand,
   serializeAws_json1_0DisassociateGatewayFromServerCommand,
@@ -75,8 +80,8 @@ export class DisassociateGatewayFromServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateGatewayFromServerInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateGatewayFromServerOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateGatewayFromServerInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateGatewayFromServerOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateFileSystemInput, DisassociateFileSystemOutput } from "../models/models_0";
+import {
+  DisassociateFileSystemInput,
+  DisassociateFileSystemInputFilterSensitiveLog,
+  DisassociateFileSystemOutput,
+  DisassociateFileSystemOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateFileSystemCommand,
   serializeAws_json1_1DisassociateFileSystemCommand,
@@ -74,8 +79,8 @@ export class DisassociateFileSystemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateFileSystemInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateFileSystemOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateFileSystemInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateFileSystemOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

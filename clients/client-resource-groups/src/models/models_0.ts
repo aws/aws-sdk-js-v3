@@ -45,15 +45,6 @@ export interface GroupConfigurationParameter {
   Values?: string[];
 }
 
-export namespace GroupConfigurationParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupConfigurationParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An item in a group configuration. A group service configuration can have one or more
  *             items. For details about group service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for
@@ -74,15 +65,6 @@ export interface GroupConfigurationItem {
    *                 resource types and parameters</a>.</p>
    */
   Parameters?: GroupConfigurationParameter[];
-}
-
-export namespace GroupConfigurationItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupConfigurationItem): any => ({
-    ...obj,
-  });
 }
 
 export enum QueryType {
@@ -272,15 +254,6 @@ export interface ResourceQuery {
   Query: string | undefined;
 }
 
-export namespace ResourceQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceQuery): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGroupInput {
   /**
    * <p>The name of the group, which is the identifier of the group in other operations. You
@@ -327,15 +300,6 @@ export interface CreateGroupInput {
   Configuration?: GroupConfigurationItem[];
 }
 
-export namespace CreateGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A resource group that contains AWS resources. You can assign resources to the group
  *             by associating either of the following elements with the group:</p>
@@ -370,15 +334,6 @@ export interface Group {
    * <p>The description of the resource group.</p>
    */
   Description?: string;
-}
-
-export namespace Group {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Group): any => ({
-    ...obj,
-  });
 }
 
 export enum GroupConfigurationStatus {
@@ -418,15 +373,6 @@ export interface GroupConfiguration {
   FailureReason?: string;
 }
 
-export namespace GroupConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGroupOutput {
   /**
    * <p>The description of the resource group.</p>
@@ -451,15 +397,6 @@ export interface CreateGroupOutput {
    *                 groups</a>.</p>
    */
   GroupConfiguration?: GroupConfiguration;
-}
-
-export namespace CreateGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -561,29 +498,11 @@ export interface DeleteGroupInput {
   Group?: string;
 }
 
-export namespace DeleteGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGroupOutput {
   /**
    * <p>A full description of the deleted resource group.</p>
    */
   Group?: Group;
-}
-
-export namespace DeleteGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -621,29 +540,11 @@ export interface GetGroupInput {
   Group?: string;
 }
 
-export namespace GetGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGroupOutput {
   /**
    * <p>A full description of the resource group.</p>
    */
   Group?: Group;
-}
-
-export namespace GetGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetGroupConfigurationInput {
@@ -653,15 +554,6 @@ export interface GetGroupConfigurationInput {
   Group?: string;
 }
 
-export namespace GetGroupConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupConfigurationInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGroupConfigurationOutput {
   /**
    * <p>The service configuration associated with the specified group. For details about the
@@ -669,15 +561,6 @@ export interface GetGroupConfigurationOutput {
    *                 groups</a>.</p>
    */
   GroupConfiguration?: GroupConfiguration;
-}
-
-export namespace GetGroupConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupConfigurationOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetGroupQueryInput {
@@ -692,15 +575,6 @@ export interface GetGroupQueryInput {
    * <p>The name or the ARN of the resource group to query.</p>
    */
   Group?: string;
-}
-
-export namespace GetGroupQueryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupQueryInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -721,15 +595,6 @@ export interface GroupQuery {
   ResourceQuery: ResourceQuery | undefined;
 }
 
-export namespace GroupQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupQuery): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGroupQueryOutput {
   /**
    * <p>The resource query associated with the specified group. For more information about
@@ -739,29 +604,11 @@ export interface GetGroupQueryOutput {
   GroupQuery?: GroupQuery;
 }
 
-export namespace GetGroupQueryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupQueryOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTagsInput {
   /**
    * <p>The ARN of the resource group whose tags you want to retrieve.</p>
    */
   Arn: string | undefined;
-}
-
-export namespace GetTagsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTagsInput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTagsOutput {
@@ -776,15 +623,6 @@ export interface GetTagsOutput {
   Tags?: Record<string, string>;
 }
 
-export namespace GetTagsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTagsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GroupResourcesInput {
   /**
    * <p>The name or the ARN of the resource group to add resources to.</p>
@@ -795,15 +633,6 @@ export interface GroupResourcesInput {
    * <p>The list of ARNs for resources to be added to the group. </p>
    */
   ResourceArns: string[] | undefined;
-}
-
-export namespace GroupResourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupResourcesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -826,15 +655,6 @@ export interface FailedResource {
   ErrorCode?: string;
 }
 
-export namespace FailedResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedResource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that identifies a resource that is currently pending addition to the group
  *             as a member. Adding a resource to a resource group happens asynchronously as a
@@ -845,15 +665,6 @@ export interface PendingResource {
    * <p>The Amazon resource name (ARN) of the resource that's in a pending state.</p>
    */
   ResourceArn?: string;
-}
-
-export namespace PendingResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingResource): any => ({
-    ...obj,
-  });
 }
 
 export interface GroupResourcesOutput {
@@ -880,15 +691,6 @@ export interface GroupResourcesOutput {
   Pending?: PendingResource[];
 }
 
-export namespace GroupResourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupResourcesOutput): any => ({
-    ...obj,
-  });
-}
-
 export enum ResourceFilterName {
   ResourceType = "resource-type",
 }
@@ -908,15 +710,6 @@ export interface ResourceFilter {
    *             case-sensitive.</p>
    */
   Values: string[] | undefined;
-}
-
-export namespace ResourceFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGroupResourcesInput {
@@ -993,15 +786,6 @@ export interface ListGroupResourcesInput {
   NextToken?: string;
 }
 
-export namespace ListGroupResourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupResourcesInput): any => ({
-    ...obj,
-  });
-}
-
 export enum QueryErrorCode {
   CLOUDFORMATION_STACK_INACTIVE = "CLOUDFORMATION_STACK_INACTIVE",
   CLOUDFORMATION_STACK_NOT_EXISTING = "CLOUDFORMATION_STACK_NOT_EXISTING",
@@ -1032,15 +816,6 @@ export interface QueryError {
   Message?: string;
 }
 
-export namespace QueryError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that contains the ARN of a resource and its resource type.</p>
  */
@@ -1054,15 +829,6 @@ export interface ResourceIdentifier {
    * <p>The resource type of a resource, such as <code>AWS::EC2::Instance</code>.</p>
    */
   ResourceType?: string;
-}
-
-export namespace ResourceIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceIdentifier): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceStatusValue {
@@ -1080,15 +846,6 @@ export interface ResourceStatus {
    * <p>The current status.</p>
    */
   Name?: ResourceStatusValue | string;
-}
-
-export namespace ResourceStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1111,15 +868,6 @@ export interface ListGroupResourcesItem {
    *         </note>
    */
   Status?: ResourceStatus;
-}
-
-export namespace ListGroupResourcesItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupResourcesItem): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGroupResourcesOutput {
@@ -1159,15 +907,6 @@ export interface ListGroupResourcesOutput {
    *                 <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
    */
   QueryErrors?: QueryError[];
-}
-
-export namespace ListGroupResourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupResourcesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1212,15 +951,6 @@ export interface GroupFilter {
    *             case-sensitive.</p>
    */
   Values: string[] | undefined;
-}
-
-export namespace GroupFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGroupsInput {
@@ -1280,15 +1010,6 @@ export interface ListGroupsInput {
   NextToken?: string;
 }
 
-export namespace ListGroupsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The unique identifiers for a resource group.</p>
  */
@@ -1302,15 +1023,6 @@ export interface GroupIdentifier {
    * <p>The ARN of the resource group.</p>
    */
   GroupArn?: string;
-}
-
-export namespace GroupIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupIdentifier): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGroupsOutput {
@@ -1344,15 +1056,6 @@ export interface ListGroupsOutput {
   NextToken?: string;
 }
 
-export namespace ListGroupsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface PutGroupConfigurationInput {
   /**
    * <p>The name or ARN of the resource group with the configuration that you want to
@@ -1374,25 +1077,7 @@ export interface PutGroupConfigurationInput {
   Configuration?: GroupConfigurationItem[];
 }
 
-export namespace PutGroupConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutGroupConfigurationInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PutGroupConfigurationOutput {}
-
-export namespace PutGroupConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutGroupConfigurationOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface SearchResourcesInput {
   /**
@@ -1422,15 +1107,6 @@ export interface SearchResourcesInput {
   NextToken?: string;
 }
 
-export namespace SearchResourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchResourcesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchResourcesOutput {
   /**
    * <p>The ARNs and resource types of resources that are members of the group that you
@@ -1455,15 +1131,6 @@ export interface SearchResourcesOutput {
   QueryErrors?: QueryError[];
 }
 
-export namespace SearchResourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchResourcesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagInput {
   /**
    * <p>The ARN of the resource group to which to add tags.</p>
@@ -1475,15 +1142,6 @@ export interface TagInput {
    *             key-value pairs.</p>
    */
   Tags: Record<string, string> | undefined;
-}
-
-export namespace TagInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagInput): any => ({
-    ...obj,
-  });
 }
 
 export interface TagOutput {
@@ -1498,15 +1156,6 @@ export interface TagOutput {
   Tags?: Record<string, string>;
 }
 
-export namespace TagOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface UngroupResourcesInput {
   /**
    * <p>The name or the ARN of the resource group from which to remove the resources.</p>
@@ -1517,15 +1166,6 @@ export interface UngroupResourcesInput {
    * <p>The ARNs of the resources to be removed from the group.</p>
    */
   ResourceArns: string[] | undefined;
-}
-
-export namespace UngroupResourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UngroupResourcesInput): any => ({
-    ...obj,
-  });
 }
 
 export interface UngroupResourcesOutput {
@@ -1552,15 +1192,6 @@ export interface UngroupResourcesOutput {
   Pending?: PendingResource[];
 }
 
-export namespace UngroupResourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UngroupResourcesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagInput {
   /**
    * <p>The ARN of the resource group from which to remove tags. The command removed both the
@@ -1574,15 +1205,6 @@ export interface UntagInput {
   Keys: string[] | undefined;
 }
 
-export namespace UntagInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagOutput {
   /**
    * <p>The ARN of the resource group from which tags have been removed.</p>
@@ -1593,15 +1215,6 @@ export interface UntagOutput {
    * <p>The keys of the tags that were removed.</p>
    */
   Keys?: string[];
-}
-
-export namespace UntagOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateGroupInput {
@@ -1624,29 +1237,11 @@ export interface UpdateGroupInput {
   Description?: string;
 }
 
-export namespace UpdateGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGroupOutput {
   /**
    * <p>The update description of the resource group.</p>
    */
   Group?: Group;
-}
-
-export namespace UpdateGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateGroupQueryInput {
@@ -1673,15 +1268,6 @@ export interface UpdateGroupQueryInput {
   ResourceQuery: ResourceQuery | undefined;
 }
 
-export namespace UpdateGroupQueryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGroupQueryInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGroupQueryOutput {
   /**
    * <p>The updated resource query associated with the resource group after the update.</p>
@@ -1689,11 +1275,331 @@ export interface UpdateGroupQueryOutput {
   GroupQuery?: GroupQuery;
 }
 
-export namespace UpdateGroupQueryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGroupQueryOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GroupConfigurationParameterFilterSensitiveLog = (obj: GroupConfigurationParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupConfigurationItemFilterSensitiveLog = (obj: GroupConfigurationItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceQueryFilterSensitiveLog = (obj: ResourceQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupInputFilterSensitiveLog = (obj: CreateGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupFilterSensitiveLog = (obj: Group): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupConfigurationFilterSensitiveLog = (obj: GroupConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupOutputFilterSensitiveLog = (obj: CreateGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupInputFilterSensitiveLog = (obj: DeleteGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupOutputFilterSensitiveLog = (obj: DeleteGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupInputFilterSensitiveLog = (obj: GetGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupOutputFilterSensitiveLog = (obj: GetGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupConfigurationInputFilterSensitiveLog = (obj: GetGroupConfigurationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupConfigurationOutputFilterSensitiveLog = (obj: GetGroupConfigurationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupQueryInputFilterSensitiveLog = (obj: GetGroupQueryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupQueryFilterSensitiveLog = (obj: GroupQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupQueryOutputFilterSensitiveLog = (obj: GetGroupQueryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTagsInputFilterSensitiveLog = (obj: GetTagsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTagsOutputFilterSensitiveLog = (obj: GetTagsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupResourcesInputFilterSensitiveLog = (obj: GroupResourcesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedResourceFilterSensitiveLog = (obj: FailedResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingResourceFilterSensitiveLog = (obj: PendingResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupResourcesOutputFilterSensitiveLog = (obj: GroupResourcesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterFilterSensitiveLog = (obj: ResourceFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupResourcesInputFilterSensitiveLog = (obj: ListGroupResourcesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryErrorFilterSensitiveLog = (obj: QueryError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceIdentifierFilterSensitiveLog = (obj: ResourceIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceStatusFilterSensitiveLog = (obj: ResourceStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupResourcesItemFilterSensitiveLog = (obj: ListGroupResourcesItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupResourcesOutputFilterSensitiveLog = (obj: ListGroupResourcesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupFilterFilterSensitiveLog = (obj: GroupFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupsInputFilterSensitiveLog = (obj: ListGroupsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupIdentifierFilterSensitiveLog = (obj: GroupIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupsOutputFilterSensitiveLog = (obj: ListGroupsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutGroupConfigurationInputFilterSensitiveLog = (obj: PutGroupConfigurationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutGroupConfigurationOutputFilterSensitiveLog = (obj: PutGroupConfigurationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchResourcesInputFilterSensitiveLog = (obj: SearchResourcesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchResourcesOutputFilterSensitiveLog = (obj: SearchResourcesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagInputFilterSensitiveLog = (obj: TagInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagOutputFilterSensitiveLog = (obj: TagOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UngroupResourcesInputFilterSensitiveLog = (obj: UngroupResourcesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UngroupResourcesOutputFilterSensitiveLog = (obj: UngroupResourcesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagInputFilterSensitiveLog = (obj: UntagInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagOutputFilterSensitiveLog = (obj: UntagOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGroupInputFilterSensitiveLog = (obj: UpdateGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGroupOutputFilterSensitiveLog = (obj: UpdateGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGroupQueryInputFilterSensitiveLog = (obj: UpdateGroupQueryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGroupQueryOutputFilterSensitiveLog = (obj: UpdateGroupQueryOutput): any => ({
+  ...obj,
+});

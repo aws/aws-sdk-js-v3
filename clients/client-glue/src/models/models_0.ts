@@ -38,15 +38,6 @@ export interface NotificationProperty {
   NotifyDelayAfter?: number;
 }
 
-export namespace NotificationProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationProperty): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines an action to be initiated by a trigger.</p>
  */
@@ -89,15 +80,6 @@ export interface Action {
   CrawlerName?: string;
 }
 
-export namespace Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Action): any => ({
-    ...obj,
-  });
-}
-
 export enum AggFunction {
   avg = "avg",
   count = "count",
@@ -133,15 +115,6 @@ export interface AggregateOperation {
   AggFunc: AggFunction | string | undefined;
 }
 
-export namespace AggregateOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregateOperation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a transform that groups rows by chosen fields and computes the aggregated value by specified function.</p>
  */
@@ -165,15 +138,6 @@ export interface Aggregate {
    * <p>Specifies the aggregate functions to be performed on specified fields. </p>
    */
   Aggs: AggregateOperation[] | undefined;
-}
-
-export namespace Aggregate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Aggregate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -215,15 +179,6 @@ export interface GlueStudioSchemaColumn {
   Type?: string;
 }
 
-export namespace GlueStudioSchemaColumn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlueStudioSchemaColumn): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a user-defined schema when a schema cannot be determined by AWS Glue.</p>
  */
@@ -232,15 +187,6 @@ export interface GlueSchema {
    * <p>Specifies the column definitions that make up a Glue schema.</p>
    */
   Columns?: GlueStudioSchemaColumn[];
-}
-
-export namespace GlueSchema {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlueSchema): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -283,15 +229,6 @@ export interface AthenaConnectorSource {
   OutputSchemas?: GlueSchema[];
 }
 
-export namespace AthenaConnectorSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AthenaConnectorSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure containing information for audit.</p>
  */
@@ -310,15 +247,6 @@ export interface AuditContext {
    * <p>All columns request for audit.</p>
    */
   AllColumnsRequested?: boolean;
-}
-
-export namespace AuditContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuditContext): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -346,15 +274,6 @@ export interface Column {
   Parameters?: Record<string, string>;
 }
 
-export namespace Column {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Column): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The unique ID of the schema in the Glue schema registry.</p>
  */
@@ -375,15 +294,6 @@ export interface SchemaId {
   RegistryName?: string;
 }
 
-export namespace SchemaId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchemaId): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that references a schema stored in the Glue Schema Registry.</p>
  */
@@ -402,15 +312,6 @@ export interface SchemaReference {
    * <p>The version number of the schema.</p>
    */
   SchemaVersionNumber?: number;
-}
-
-export namespace SchemaReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchemaReference): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -435,15 +336,6 @@ export interface SerDeInfo {
   Parameters?: Record<string, string>;
 }
 
-export namespace SerDeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SerDeInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies skewed values in a table. Skewed values are those that occur with very high
  *       frequency.</p>
@@ -466,15 +358,6 @@ export interface SkewedInfo {
   SkewedColumnValueLocationMaps?: Record<string, string>;
 }
 
-export namespace SkewedInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SkewedInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the sort order of a sorted column.</p>
  */
@@ -489,15 +372,6 @@ export interface Order {
    *       (<code>== 1</code>), or in descending order (<code>==0</code>).</p>
    */
   SortOrder: number | undefined;
-}
-
-export namespace Order {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Order): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -586,15 +460,6 @@ export interface StorageDescriptor {
   SchemaReference?: SchemaReference;
 }
 
-export namespace StorageDescriptor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageDescriptor): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure used to create and update a partition.</p>
  */
@@ -628,15 +493,6 @@ export interface PartitionInput {
   LastAnalyzedTime?: Date;
 }
 
-export namespace PartitionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PartitionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchCreatePartitionRequest {
   /**
    * <p>The ID of the catalog in which the partition is to be created. Currently, this should be
@@ -662,15 +518,6 @@ export interface BatchCreatePartitionRequest {
   PartitionInputList: PartitionInput[] | undefined;
 }
 
-export namespace BatchCreatePartitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCreatePartitionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains details about an error.</p>
  */
@@ -684,15 +531,6 @@ export interface ErrorDetail {
    * <p>A message describing the error.</p>
    */
   ErrorMessage?: string;
-}
-
-export namespace ErrorDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -710,29 +548,11 @@ export interface PartitionError {
   ErrorDetail?: ErrorDetail;
 }
 
-export namespace PartitionError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PartitionError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchCreatePartitionResponse {
   /**
    * <p>The errors encountered when trying to create the requested partitions.</p>
    */
   Errors?: PartitionError[];
-}
-
-export namespace BatchCreatePartitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCreatePartitionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -892,15 +712,6 @@ export interface BatchDeleteConnectionRequest {
   ConnectionNameList: string[] | undefined;
 }
 
-export namespace BatchDeleteConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteConnectionResponse {
   /**
    * <p>A list of names of the connection definitions that were
@@ -915,15 +726,6 @@ export interface BatchDeleteConnectionResponse {
   Errors?: Record<string, ErrorDetail>;
 }
 
-export namespace BatchDeleteConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteConnectionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a list of values defining partitions.</p>
  */
@@ -932,15 +734,6 @@ export interface PartitionValueList {
    * <p>The list of values.</p>
    */
   Values: string[] | undefined;
-}
-
-export namespace PartitionValueList {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PartitionValueList): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDeletePartitionRequest {
@@ -968,29 +761,11 @@ export interface BatchDeletePartitionRequest {
   PartitionsToDelete: PartitionValueList[] | undefined;
 }
 
-export namespace BatchDeletePartitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeletePartitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeletePartitionResponse {
   /**
    * <p>The errors encountered when trying to delete the requested partitions.</p>
    */
   Errors?: PartitionError[];
-}
-
-export namespace BatchDeletePartitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeletePartitionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDeleteTableRequest {
@@ -1017,15 +792,6 @@ export interface BatchDeleteTableRequest {
   TransactionId?: string;
 }
 
-export namespace BatchDeleteTableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteTableRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An error record for table operations.</p>
  */
@@ -1041,29 +807,11 @@ export interface TableError {
   ErrorDetail?: ErrorDetail;
 }
 
-export namespace TableError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteTableResponse {
   /**
    * <p>A list of errors encountered in attempting to delete the specified tables.</p>
    */
   Errors?: TableError[];
-}
-
-export namespace BatchDeleteTableResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteTableResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1115,15 +863,6 @@ export interface BatchDeleteTableVersionRequest {
   VersionIds: string[] | undefined;
 }
 
-export namespace BatchDeleteTableVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteTableVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An error record for table-version operations.</p>
  */
@@ -1144,30 +883,12 @@ export interface TableVersionError {
   ErrorDetail?: ErrorDetail;
 }
 
-export namespace TableVersionError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableVersionError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteTableVersionResponse {
   /**
    * <p>A list of errors encountered while trying to delete
    *       the specified table versions.</p>
    */
   Errors?: TableVersionError[];
-}
-
-export namespace BatchDeleteTableVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteTableVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchGetBlueprintsRequest {
@@ -1185,15 +906,6 @@ export interface BatchGetBlueprintsRequest {
    * <p>Specifies whether or not to include the parameters, as a JSON string, for the blueprint in the response.</p>
    */
   IncludeParameterSpec?: boolean;
-}
-
-export namespace BatchGetBlueprintsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetBlueprintsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1224,15 +936,6 @@ export interface LastActiveDefinition {
    * <p>Specifies a path in Amazon S3 where the blueprint is copied when you create or update the blueprint.</p>
    */
   BlueprintServiceLocation?: string;
-}
-
-export namespace LastActiveDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LastActiveDefinition): any => ({
-    ...obj,
-  });
 }
 
 export enum BlueprintStatus {
@@ -1312,15 +1015,6 @@ export interface Blueprint {
   LastActiveDefinition?: LastActiveDefinition;
 }
 
-export namespace Blueprint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Blueprint): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetBlueprintsResponse {
   /**
    * <p>Returns a list of blueprint as a <code>Blueprints</code> object.</p>
@@ -1333,30 +1027,12 @@ export interface BatchGetBlueprintsResponse {
   MissingBlueprints?: string[];
 }
 
-export namespace BatchGetBlueprintsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetBlueprintsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetCrawlersRequest {
   /**
    * <p>A list of crawler names, which might be the names returned from the
    *         <code>ListCrawlers</code> operation.</p>
    */
   CrawlerNames: string[] | undefined;
-}
-
-export namespace BatchGetCrawlersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetCrawlersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1372,15 +1048,6 @@ export interface LakeFormationConfiguration {
    * <p>Required for cross account crawls. For same account crawls as the target data, this can be left as null.</p>
    */
   AccountId?: string;
-}
-
-export namespace LakeFormationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LakeFormationConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum LastCrawlStatus {
@@ -1424,15 +1091,6 @@ export interface LastCrawlInfo {
   StartTime?: Date;
 }
 
-export namespace LastCrawlInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LastCrawlInfo): any => ({
-    ...obj,
-  });
-}
-
 export enum CrawlerLineageSettings {
   DISABLE = "DISABLE",
   ENABLE = "ENABLE",
@@ -1457,15 +1115,6 @@ export interface LineageConfiguration {
   CrawlerLineageSettings?: CrawlerLineageSettings | string;
 }
 
-export namespace LineageConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LineageConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum RecrawlBehavior {
   CRAWL_EVENT_MODE = "CRAWL_EVENT_MODE",
   CRAWL_EVERYTHING = "CRAWL_EVERYTHING",
@@ -1486,15 +1135,6 @@ export interface RecrawlPolicy {
    * 	        <p>A value of <code>CRAWL_EVENT_MODE</code> specifies crawling only the changes identified by Amazon S3 events.</p>
    */
   RecrawlBehavior?: RecrawlBehavior | string;
-}
-
-export namespace RecrawlPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecrawlPolicy): any => ({
-    ...obj,
-  });
 }
 
 export enum ScheduleState {
@@ -1518,15 +1158,6 @@ export interface Schedule {
    * <p>The state of the schedule.</p>
    */
   State?: ScheduleState | string;
-}
-
-export namespace Schedule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Schedule): any => ({
-    ...obj,
-  });
 }
 
 export enum DeleteBehavior {
@@ -1555,15 +1186,6 @@ export interface SchemaChangePolicy {
   DeleteBehavior?: DeleteBehavior | string;
 }
 
-export namespace SchemaChangePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchemaChangePolicy): any => ({
-    ...obj,
-  });
-}
-
 export enum CrawlerState {
   READY = "READY",
   RUNNING = "RUNNING",
@@ -1590,15 +1212,6 @@ export interface CatalogTarget {
   ConnectionName?: string;
 }
 
-export namespace CatalogTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CatalogTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a Delta data store to crawl one or more Delta tables.</p>
  */
@@ -1617,15 +1230,6 @@ export interface DeltaTarget {
    * <p>Specifies whether to write the manifest files to the Delta table path.</p>
    */
   WriteManifest?: boolean;
-}
-
-export namespace DeltaTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeltaTarget): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1652,15 +1256,6 @@ export interface DynamoDBTarget {
   scanRate?: number;
 }
 
-export namespace DynamoDBTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DynamoDBTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a JDBC data store to crawl.</p>
  */
@@ -1680,15 +1275,6 @@ export interface JdbcTarget {
    *       For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html">Catalog Tables with a Crawler</a>.</p>
    */
   Exclusions?: string[];
-}
-
-export namespace JdbcTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JdbcTarget): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1711,15 +1297,6 @@ export interface MongoDBTarget {
    * 	        <p>A value of <code>true</code> means to scan all records, while a value of <code>false</code> means to sample the records. If no value is specified, the value defaults to <code>true</code>.</p>
    */
   ScanAll?: boolean;
-}
-
-export namespace MongoDBTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MongoDBTarget): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1758,15 +1335,6 @@ export interface S3Target {
   DlqEventQueueArn?: string;
 }
 
-export namespace S3Target {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Target): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies data stores to crawl.</p>
  */
@@ -1800,15 +1368,6 @@ export interface CrawlerTargets {
    * <p>Specifies Delta data store targets.</p>
    */
   DeltaTargets?: DeltaTarget[];
-}
-
-export namespace CrawlerTargets {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CrawlerTargets): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1925,15 +1484,6 @@ export interface Crawler {
   LakeFormationConfiguration?: LakeFormationConfiguration;
 }
 
-export namespace Crawler {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Crawler): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetCrawlersResponse {
   /**
    * <p>A list of crawler definitions.</p>
@@ -1946,29 +1496,11 @@ export interface BatchGetCrawlersResponse {
   CrawlersNotFound?: string[];
 }
 
-export namespace BatchGetCrawlersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetCrawlersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetCustomEntityTypesRequest {
   /**
    * <p>A list of names of the custom patterns that you want to retrieve.</p>
    */
   Names: string[] | undefined;
-}
-
-export namespace BatchGetCustomEntityTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetCustomEntityTypesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1993,15 +1525,6 @@ export interface CustomEntityType {
   ContextWords?: string[];
 }
 
-export namespace CustomEntityType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomEntityType): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetCustomEntityTypesResponse {
   /**
    * <p>A list of <code>CustomEntityType</code> objects representing the custom patterns that have been created.</p>
@@ -2014,30 +1537,12 @@ export interface BatchGetCustomEntityTypesResponse {
   CustomEntityTypesNotFound?: string[];
 }
 
-export namespace BatchGetCustomEntityTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetCustomEntityTypesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetDevEndpointsRequest {
   /**
    * <p>The list of <code>DevEndpoint</code> names, which might be the names returned from the
    *         <code>ListDevEndpoint</code> operation.</p>
    */
   DevEndpointNames: string[] | undefined;
-}
-
-export namespace BatchGetDevEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetDevEndpointsRequest): any => ({
-    ...obj,
-  });
 }
 
 export type WorkerType = "G.025X" | "G.1X" | "G.2X" | "Standard";
@@ -2234,15 +1739,6 @@ export interface DevEndpoint {
   Arguments?: Record<string, string>;
 }
 
-export namespace DevEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DevEndpoint): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetDevEndpointsResponse {
   /**
    * <p>A list of <code>DevEndpoint</code> definitions.</p>
@@ -2255,30 +1751,12 @@ export interface BatchGetDevEndpointsResponse {
   DevEndpointsNotFound?: string[];
 }
 
-export namespace BatchGetDevEndpointsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetDevEndpointsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetJobsRequest {
   /**
    * <p>A list of job names, which might be the names returned from the <code>ListJobs</code>
    *       operation.</p>
    */
   JobNames: string[] | undefined;
-}
-
-export namespace BatchGetJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2294,15 +1772,6 @@ export interface StreamingDataPreviewOptions {
    * <p>The limit to the number of records polled.</p>
    */
   RecordPollingLimit?: number;
-}
-
-export namespace StreamingDataPreviewOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingDataPreviewOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2385,15 +1854,6 @@ export interface KafkaStreamingSourceOptions {
   MinPartitions?: number;
 }
 
-export namespace KafkaStreamingSourceOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KafkaStreamingSourceOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies an Apache Kafka data store in the Data Catalog.</p>
  */
@@ -2432,15 +1892,6 @@ export interface CatalogKafkaSource {
    * <p>Specifies options related to data preview for viewing a sample of your data.</p>
    */
   DataPreviewOptions?: StreamingDataPreviewOptions;
-}
-
-export namespace CatalogKafkaSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CatalogKafkaSource): any => ({
-    ...obj,
-  });
 }
 
 export enum StartingPosition {
@@ -2544,15 +1995,6 @@ export interface KinesisStreamingSourceOptions {
   RoleSessionName?: string;
 }
 
-export namespace KinesisStreamingSourceOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisStreamingSourceOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a Kinesis data source in the Glue Data Catalog.</p>
  */
@@ -2593,15 +2035,6 @@ export interface CatalogKinesisSource {
   DataPreviewOptions?: StreamingDataPreviewOptions;
 }
 
-export namespace CatalogKinesisSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CatalogKinesisSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a data store in the Glue Data Catalog.</p>
  */
@@ -2620,15 +2053,6 @@ export interface CatalogSource {
    * <p>The name of the table in the database to read from.</p>
    */
   Table: string | undefined;
-}
-
-export namespace CatalogSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CatalogSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2654,15 +2078,6 @@ export interface BasicCatalogTarget {
    * <p>The table that defines the schema of your output data. This table must already exist in the Data Catalog.</p>
    */
   Table: string | undefined;
-}
-
-export namespace BasicCatalogTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BasicCatalogTarget): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2695,15 +2110,6 @@ export interface CustomCode {
   OutputSchemas?: GlueSchema[];
 }
 
-export namespace CustomCode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomCode): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies an Apache Kafka data store.</p>
  */
@@ -2732,15 +2138,6 @@ export interface DirectKafkaSource {
    * <p>Specifies options related to data preview for viewing a sample of your data.</p>
    */
   DataPreviewOptions?: StreamingDataPreviewOptions;
-}
-
-export namespace DirectKafkaSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectKafkaSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2773,15 +2170,6 @@ export interface DirectKinesisSource {
   DataPreviewOptions?: StreamingDataPreviewOptions;
 }
 
-export namespace DirectKinesisSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectKinesisSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a transform that removes rows of repeating data from a data set. </p>
  */
@@ -2800,15 +2188,6 @@ export interface DropDuplicates {
    * <p>The name of the columns to be merged or removed if repeating.</p>
    */
   Columns?: string[][];
-}
-
-export namespace DropDuplicates {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DropDuplicates): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2831,15 +2210,6 @@ export interface DropFields {
   Paths: string[][] | undefined;
 }
 
-export namespace DropFields {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DropFields): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents whether certain values are recognized as null values for removal.</p>
  */
@@ -2860,15 +2230,6 @@ export interface NullCheckBoxList {
   IsNegOne?: boolean;
 }
 
-export namespace NullCheckBoxList {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NullCheckBoxList): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure representing the datatype of the value.</p>
  */
@@ -2884,15 +2245,6 @@ export interface Datatype {
   Label: string | undefined;
 }
 
-export namespace Datatype {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Datatype): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a custom null value such as a zeros or other value being used as a null placeholder unique to the dataset.</p>
  */
@@ -2906,15 +2258,6 @@ export interface NullValueField {
    * <p>The datatype of the value.</p>
    */
   Datatype: Datatype | undefined;
-}
-
-export namespace NullValueField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NullValueField): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2944,15 +2287,6 @@ export interface DropNullFields {
   NullTextList?: NullValueField[];
 }
 
-export namespace DropNullFields {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DropNullFields): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a DynamoDB data source in the Glue Data Catalog.</p>
  */
@@ -2971,15 +2305,6 @@ export interface DynamoDBCatalogSource {
    * <p>The name of the table in the database to read from.</p>
    */
   Table: string | undefined;
-}
-
-export namespace DynamoDBCatalogSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DynamoDBCatalogSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3005,15 +2330,6 @@ export interface FillMissingValues {
    * <p>A JSON path to a variable in the data structure for the dataset that is filled.</p>
    */
   FilledPath?: string;
-}
-
-export namespace FillMissingValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FillMissingValues): any => ({
-    ...obj,
-  });
 }
 
 export enum FilterOperation {
@@ -3046,15 +2362,6 @@ export interface FilterValue {
   Value: string[] | undefined;
 }
 
-export namespace FilterValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilterValue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a filter expression.</p>
  */
@@ -3073,15 +2380,6 @@ export interface FilterExpression {
    * <p>A list of filter values.</p>
    */
   Values: FilterValue[] | undefined;
-}
-
-export namespace FilterExpression {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilterExpression): any => ({
-    ...obj,
-  });
 }
 
 export enum FilterLogicalOperator {
@@ -3114,15 +2412,6 @@ export interface Filter {
   Filters: FilterExpression[] | undefined;
 }
 
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies additional connection options for the Amazon S3 data store.</p>
  */
@@ -3136,15 +2425,6 @@ export interface S3SourceAdditionalOptions {
    * <p>Sets the upper limit for the target number of files that will be processed.</p>
    */
   BoundedFiles?: number;
-}
-
-export namespace S3SourceAdditionalOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3SourceAdditionalOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3177,15 +2457,6 @@ export interface GovernedCatalogSource {
   AdditionalOptions?: S3SourceAdditionalOptions;
 }
 
-export namespace GovernedCatalogSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GovernedCatalogSource): any => ({
-    ...obj,
-  });
-}
-
 export enum UpdateCatalogBehavior {
   LOG = "LOG",
   UPDATE_IN_DATABASE = "UPDATE_IN_DATABASE",
@@ -3204,15 +2475,6 @@ export interface CatalogSchemaChangePolicy {
    * <p>The update behavior when the crawler finds a changed schema.</p>
    */
   UpdateBehavior?: UpdateCatalogBehavior | string;
-}
-
-export namespace CatalogSchemaChangePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CatalogSchemaChangePolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3248,15 +2510,6 @@ export interface GovernedCatalogTarget {
    * <p>A policy that specifies update behavior for the governed catalog.</p>
    */
   SchemaChangePolicy?: CatalogSchemaChangePolicy;
-}
-
-export namespace GovernedCatalogTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GovernedCatalogTarget): any => ({
-    ...obj,
-  });
 }
 
 export enum JDBCDataType {
@@ -3365,15 +2618,6 @@ export interface JDBCConnectorOptions {
   DataTypeMapping?: Record<string, GlueRecordType | string>;
 }
 
-export namespace JDBCConnectorOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JDBCConnectorOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a connector to a JDBC data source.</p>
  */
@@ -3417,15 +2661,6 @@ export interface JDBCConnectorSource {
    * <p>Specifies the data schema for the custom JDBC source.</p>
    */
   OutputSchemas?: GlueSchema[];
-}
-
-export namespace JDBCConnectorSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JDBCConnectorSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3473,15 +2708,6 @@ export interface JDBCConnectorTarget {
   OutputSchemas?: GlueSchema[];
 }
 
-export namespace JDBCConnectorTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JDBCConnectorTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a column to be joined.</p>
  */
@@ -3495,15 +2721,6 @@ export interface JoinColumn {
    * <p>The key of the column to be joined.</p>
    */
   Keys: string[][] | undefined;
-}
-
-export namespace JoinColumn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JoinColumn): any => ({
-    ...obj,
-  });
 }
 
 export enum JoinType {
@@ -3540,15 +2757,6 @@ export interface Join {
   Columns: JoinColumn[] | undefined;
 }
 
-export namespace Join {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Join): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a transform that merges a <code>DynamicFrame</code> with a staging <code>DynamicFrame</code> based on the specified primary keys to identify records. Duplicate records (records with the same primary keys) are not de-duplicated. </p>
  */
@@ -3574,15 +2782,6 @@ export interface Merge {
   PrimaryKeys: string[][] | undefined;
 }
 
-export namespace Merge {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Merge): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a Microsoft SQL server data source in the Glue Data Catalog.</p>
  */
@@ -3601,15 +2800,6 @@ export interface MicrosoftSQLServerCatalogSource {
    * <p>The name of the table in the database to read from.</p>
    */
   Table: string | undefined;
-}
-
-export namespace MicrosoftSQLServerCatalogSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MicrosoftSQLServerCatalogSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3637,15 +2827,6 @@ export interface MicrosoftSQLServerCatalogTarget {
   Table: string | undefined;
 }
 
-export namespace MicrosoftSQLServerCatalogTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MicrosoftSQLServerCatalogTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a MySQL data source in the Glue Data Catalog.</p>
  */
@@ -3664,15 +2845,6 @@ export interface MySQLCatalogSource {
    * <p>The name of the table in the database to read from.</p>
    */
   Table: string | undefined;
-}
-
-export namespace MySQLCatalogSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MySQLCatalogSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3700,15 +2872,6 @@ export interface MySQLCatalogTarget {
   Table: string | undefined;
 }
 
-export namespace MySQLCatalogTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MySQLCatalogTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies an Oracle data source in the Glue Data Catalog.</p>
  */
@@ -3727,15 +2890,6 @@ export interface OracleSQLCatalogSource {
    * <p>The name of the table in the database to read from.</p>
    */
   Table: string | undefined;
-}
-
-export namespace OracleSQLCatalogSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OracleSQLCatalogSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3761,15 +2915,6 @@ export interface OracleSQLCatalogTarget {
    * <p>The name of the table in the database to write to.</p>
    */
   Table: string | undefined;
-}
-
-export namespace OracleSQLCatalogTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OracleSQLCatalogTarget): any => ({
-    ...obj,
-  });
 }
 
 export enum PiiType {
@@ -3829,15 +2974,6 @@ export interface PIIDetection {
   MaskValue?: string;
 }
 
-export namespace PIIDetection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PIIDetection): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a PostgresSQL data source in the Glue Data Catalog.</p>
  */
@@ -3856,15 +2992,6 @@ export interface PostgreSQLCatalogSource {
    * <p>The name of the table in the database to read from.</p>
    */
   Table: string | undefined;
-}
-
-export namespace PostgreSQLCatalogSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostgreSQLCatalogSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3890,15 +3017,6 @@ export interface PostgreSQLCatalogTarget {
    * <p>The name of the table in the database to write to.</p>
    */
   Table: string | undefined;
-}
-
-export namespace PostgreSQLCatalogTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostgreSQLCatalogTarget): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3931,15 +3049,6 @@ export interface RedshiftSource {
   TmpDirIAMRole?: string;
 }
 
-export namespace RedshiftSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The options to configure an upsert operation when writing to a Redshift target .</p>
  */
@@ -3958,15 +3067,6 @@ export interface UpsertRedshiftTargetOptions {
    * <p>The keys used to determine whether to perform an update or insert.</p>
    */
   UpsertKeys?: string[];
-}
-
-export namespace UpsertRedshiftTargetOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpsertRedshiftTargetOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4009,15 +3109,6 @@ export interface RedshiftTarget {
   UpsertRedshiftOptions?: UpsertRedshiftTargetOptions;
 }
 
-export namespace RedshiftTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a Relational database data source in the Glue Data Catalog.</p>
  */
@@ -4036,15 +3127,6 @@ export interface RelationalCatalogSource {
    * <p>The name of the table in the database to read from.</p>
    */
   Table: string | undefined;
-}
-
-export namespace RelationalCatalogSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelationalCatalogSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4070,15 +3152,6 @@ export interface RenameField {
    * <p>A JSON path to a variable in the data structure for the target data.</p>
    */
   TargetPath: string[] | undefined;
-}
-
-export namespace RenameField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RenameField): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4109,15 +3182,6 @@ export interface S3CatalogSource {
    * <p>Specifies additional connection options.</p>
    */
   AdditionalOptions?: S3SourceAdditionalOptions;
-}
-
-export namespace S3CatalogSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3CatalogSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4155,15 +3219,6 @@ export interface S3CatalogTarget {
   SchemaChangePolicy?: CatalogSchemaChangePolicy;
 }
 
-export namespace S3CatalogTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3CatalogTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies additional connection options for the Amazon S3 data store.</p>
  */
@@ -4187,15 +3242,6 @@ export interface S3DirectSourceAdditionalOptions {
    * <p>If enabled, specifies the sample path.</p>
    */
   SamplePath?: string;
-}
-
-export namespace S3DirectSourceAdditionalOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DirectSourceAdditionalOptions): any => ({
-    ...obj,
-  });
 }
 
 export enum CompressionType {
@@ -4318,15 +3364,6 @@ export interface S3CsvSource {
   OutputSchemas?: GlueSchema[];
 }
 
-export namespace S3CsvSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3CsvSource): any => ({
-    ...obj,
-  });
-}
-
 export enum TargetFormat {
   AVRO = "avro",
   CSV = "csv",
@@ -4358,15 +3395,6 @@ export interface DirectSchemaChangePolicy {
    * <p>Specifies the database that the schema change policy applies to.</p>
    */
   Database?: string;
-}
-
-export namespace DirectSchemaChangePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectSchemaChangePolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4407,15 +3435,6 @@ export interface S3DirectTarget {
    * <p>A policy that specifies update behavior for the crawler.</p>
    */
   SchemaChangePolicy?: DirectSchemaChangePolicy;
-}
-
-export namespace S3DirectTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DirectTarget): any => ({
-    ...obj,
-  });
 }
 
 export enum ParquetCompressionType {
@@ -4459,15 +3478,6 @@ export interface S3GlueParquetTarget {
    * <p>A policy that specifies update behavior for the crawler.</p>
    */
   SchemaChangePolicy?: DirectSchemaChangePolicy;
-}
-
-export namespace S3GlueParquetTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3GlueParquetTarget): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4540,15 +3550,6 @@ export interface S3JsonSource {
   OutputSchemas?: GlueSchema[];
 }
 
-export namespace S3JsonSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3JsonSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies an Apache Parquet data store stored in Amazon S3.</p>
  */
@@ -4609,15 +3610,6 @@ export interface S3ParquetSource {
   OutputSchemas?: GlueSchema[];
 }
 
-export namespace S3ParquetSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ParquetSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a transform that chooses the data property keys that you want to keep.</p>
  */
@@ -4636,15 +3628,6 @@ export interface SelectFields {
    * <p>A JSON path to a variable in the data structure.</p>
    */
   Paths: string[][] | undefined;
-}
-
-export namespace SelectFields {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelectFields): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4666,15 +3649,6 @@ export interface SelectFromCollection {
    * <p>The index for the DynamicFrame to be selected.</p>
    */
   Index: number | undefined;
-}
-
-export namespace SelectFromCollection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelectFromCollection): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4710,15 +3684,6 @@ export interface SparkConnectorSource {
    * <p>Specifies data schema for the custom spark source.</p>
    */
   OutputSchemas?: GlueSchema[];
-}
-
-export namespace SparkConnectorSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SparkConnectorSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4761,15 +3726,6 @@ export interface SparkConnectorTarget {
   OutputSchemas?: GlueSchema[];
 }
 
-export namespace SparkConnectorTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SparkConnectorTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a single entry in the list of values for <code>SqlAliases</code>. </p>
  */
@@ -4783,15 +3739,6 @@ export interface SqlAlias {
    * <p>A temporary name given to a table, or a column in a table.</p>
    */
   Alias: string | undefined;
-}
-
-export namespace SqlAlias {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqlAlias): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4831,15 +3778,6 @@ export interface SparkSQL {
   OutputSchemas?: GlueSchema[];
 }
 
-export namespace SparkSQL {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SparkSQL): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a transform that writes samples of the data to an Amazon S3 bucket.</p>
  */
@@ -4870,15 +3808,6 @@ export interface Spigot {
   Prob?: number;
 }
 
-export namespace Spigot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Spigot): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a transform that splits data property keys into two <code>DynamicFrames</code>. The output is a collection of <code>DynamicFrames</code>: one with selected data property keys, and one with the remaining data property keys.</p>
  */
@@ -4897,15 +3826,6 @@ export interface SplitFields {
    * <p>A JSON path to a variable in the data structure.</p>
    */
   Paths: string[][] | undefined;
-}
-
-export namespace SplitFields {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SplitFields): any => ({
-    ...obj,
-  });
 }
 
 export enum UnionType {
@@ -4937,15 +3857,6 @@ export interface Union {
   UnionType: UnionType | string | undefined;
 }
 
-export namespace Union {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Union): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies code that runs when a job is run.</p>
  */
@@ -4969,15 +3880,6 @@ export interface JobCommand {
   PythonVersion?: string;
 }
 
-export namespace JobCommand {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobCommand): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the connections used by a job.</p>
  */
@@ -4986,15 +3888,6 @@ export interface ConnectionsList {
    * <p>A list of connections used by the job.</p>
    */
   Connections?: string[];
-}
-
-export namespace ConnectionsList {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionsList): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5007,15 +3900,6 @@ export interface ExecutionProperty {
    *       The maximum value you can specify is controlled by a service limit.</p>
    */
   MaxConcurrentRuns?: number;
-}
-
-export namespace ExecutionProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionProperty): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchGetPartitionRequest {
@@ -5039,15 +3923,6 @@ export interface BatchGetPartitionRequest {
    * <p>A list of partition values identifying the partitions to retrieve.</p>
    */
   PartitionsToGet: PartitionValueList[] | undefined;
-}
-
-export namespace BatchGetPartitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetPartitionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5102,15 +3977,6 @@ export interface Partition {
   CatalogId?: string;
 }
 
-export namespace Partition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Partition): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetPartitionResponse {
   /**
    * <p>A list of the requested partitions.</p>
@@ -5122,15 +3988,6 @@ export interface BatchGetPartitionResponse {
    *       returned.</p>
    */
   UnprocessedKeys?: PartitionValueList[];
-}
-
-export namespace BatchGetPartitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetPartitionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5164,15 +4021,6 @@ export interface BatchGetTriggersRequest {
   TriggerNames: string[] | undefined;
 }
 
-export namespace BatchGetTriggersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetTriggersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Batch condition that must be met (specified number of events received or batch time window expired)
  *       before EventBridge event trigger fires.</p>
@@ -5187,15 +4035,6 @@ export interface EventBatchingCondition {
    * <p>Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received.</p>
    */
   BatchWindow?: number;
-}
-
-export namespace EventBatchingCondition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventBatchingCondition): any => ({
-    ...obj,
-  });
 }
 
 export enum CrawlState {
@@ -5251,15 +4090,6 @@ export interface Condition {
   CrawlState?: CrawlState | string;
 }
 
-export namespace Condition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Condition): any => ({
-    ...obj,
-  });
-}
-
 export enum Logical {
   AND = "AND",
   ANY = "ANY",
@@ -5279,15 +4109,6 @@ export interface Predicate {
    * <p>A list of the conditions that determine when the trigger will fire.</p>
    */
   Conditions?: Condition[];
-}
-
-export namespace Predicate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Predicate): any => ({
-    ...obj,
-  });
 }
 
 export enum TriggerState {
@@ -5367,15 +4188,6 @@ export interface Trigger {
   EventBatchingCondition?: EventBatchingCondition;
 }
 
-export namespace Trigger {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Trigger): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetTriggersResponse {
   /**
    * <p>A list of trigger definitions.</p>
@@ -5388,15 +4200,6 @@ export interface BatchGetTriggersResponse {
   TriggersNotFound?: string[];
 }
 
-export namespace BatchGetTriggersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetTriggersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetWorkflowsRequest {
   /**
    * <p>A list of workflow names, which may be the names returned from the <code>ListWorkflows</code> operation.</p>
@@ -5407,15 +4210,6 @@ export interface BatchGetWorkflowsRequest {
    * <p>Specifies whether to include a graph when returning the workflow resource metadata.</p>
    */
   IncludeGraph?: boolean;
-}
-
-export namespace BatchGetWorkflowsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetWorkflowsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5433,15 +4227,6 @@ export interface BlueprintDetails {
   RunId?: string;
 }
 
-export namespace BlueprintDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlueprintDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An edge represents a directed connection between two Glue components that are part of the workflow the
  *       edge belongs to.</p>
@@ -5456,15 +4241,6 @@ export interface Edge {
    * <p>The unique of the node within the workflow where the edge ends.</p>
    */
   DestinationId?: string;
-}
-
-export namespace Edge {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Edge): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5502,15 +4278,6 @@ export interface Crawl {
   LogStream?: string;
 }
 
-export namespace Crawl {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Crawl): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The details of a Crawler node present in the workflow.</p>
  */
@@ -5519,15 +4286,6 @@ export interface CrawlerNodeDetails {
    * <p>A list of crawls represented by the crawl node.</p>
    */
   Crawls?: Crawl[];
-}
-
-export namespace CrawlerNodeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CrawlerNodeDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5544,15 +4302,6 @@ export interface Predecessor {
    * <p>The job-run ID of the predecessor job run.</p>
    */
   RunId?: string;
-}
-
-export namespace Predecessor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Predecessor): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5732,15 +4481,6 @@ export interface JobRun {
   DPUSeconds?: number;
 }
 
-export namespace JobRun {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobRun): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The details of a Job node present in the workflow.</p>
  */
@@ -5751,15 +4491,6 @@ export interface JobNodeDetails {
   JobRuns?: JobRun[];
 }
 
-export namespace JobNodeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobNodeDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The details of a Trigger node present in the workflow.</p>
  */
@@ -5768,15 +4499,6 @@ export interface TriggerNodeDetails {
    * <p>The information of the trigger represented by the trigger node.</p>
    */
   Trigger?: Trigger;
-}
-
-export namespace TriggerNodeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TriggerNodeDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum NodeType {
@@ -5820,15 +4542,6 @@ export interface Node {
   CrawlerDetails?: CrawlerNodeDetails;
 }
 
-export namespace Node {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Node): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A workflow graph represents the complete workflow containing all the Glue components present in the
  *       workflow and all the directed connections between them.</p>
@@ -5843,15 +4556,6 @@ export interface WorkflowGraph {
    * <p>A list of all the directed connections between the nodes belonging to the workflow.</p>
    */
   Edges?: Edge[];
-}
-
-export namespace WorkflowGraph {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowGraph): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5869,15 +4573,6 @@ export interface StartingEventBatchCondition {
    * <p>Duration of the batch window in seconds.</p>
    */
   BatchWindow?: number;
-}
-
-export namespace StartingEventBatchCondition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartingEventBatchCondition): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5913,15 +4608,6 @@ export interface WorkflowRunStatistics {
    * <p>Total number Actions in running state.</p>
    */
   RunningActions?: number;
-}
-
-export namespace WorkflowRunStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowRunStatistics): any => ({
-    ...obj,
-  });
 }
 
 export enum WorkflowRunStatus {
@@ -5993,15 +4679,6 @@ export interface WorkflowRun {
   StartingEventBatchCondition?: StartingEventBatchCondition;
 }
 
-export namespace WorkflowRun {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowRun): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A workflow is a collection of multiple dependent Glue
  *       jobs and crawlers that are run to complete a complex ETL task. A
@@ -6057,15 +4734,6 @@ export interface Workflow {
   BlueprintDetails?: BlueprintDetails;
 }
 
-export namespace Workflow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Workflow): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetWorkflowsResponse {
   /**
    * <p>A list of workflow resource metadata.</p>
@@ -6076,15 +4744,6 @@ export interface BatchGetWorkflowsResponse {
    * <p>A list of names of workflows not found.</p>
    */
   MissingWorkflows?: string[];
-}
-
-export namespace BatchGetWorkflowsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetWorkflowsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchStopJobRunRequest {
@@ -6098,15 +4757,6 @@ export interface BatchStopJobRunRequest {
    *       definition.</p>
    */
   JobRunIds: string[] | undefined;
-}
-
-export namespace BatchStopJobRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchStopJobRunRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6130,15 +4780,6 @@ export interface BatchStopJobRunError {
   ErrorDetail?: ErrorDetail;
 }
 
-export namespace BatchStopJobRunError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchStopJobRunError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Records a successful request to stop a specified <code>JobRun</code>.</p>
  */
@@ -6152,15 +4793,6 @@ export interface BatchStopJobRunSuccessfulSubmission {
    * <p>The <code>JobRunId</code> of the job run that was stopped.</p>
    */
   JobRunId?: string;
-}
-
-export namespace BatchStopJobRunSuccessfulSubmission {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchStopJobRunSuccessfulSubmission): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchStopJobRunResponse {
@@ -6177,15 +4809,6 @@ export interface BatchStopJobRunResponse {
   Errors?: BatchStopJobRunError[];
 }
 
-export namespace BatchStopJobRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchStopJobRunResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that contains the values and structure used to update a partition.</p>
  */
@@ -6199,15 +4822,6 @@ export interface BatchUpdatePartitionRequestEntry {
    * <p>The structure used to update a partition.</p>
    */
   PartitionInput: PartitionInput | undefined;
-}
-
-export namespace BatchUpdatePartitionRequestEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdatePartitionRequestEntry): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchUpdatePartitionRequest {
@@ -6234,15 +4848,6 @@ export interface BatchUpdatePartitionRequest {
   Entries: BatchUpdatePartitionRequestEntry[] | undefined;
 }
 
-export namespace BatchUpdatePartitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdatePartitionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a batch update partition error.</p>
  */
@@ -6258,29 +4863,11 @@ export interface BatchUpdatePartitionFailureEntry {
   ErrorDetail?: ErrorDetail;
 }
 
-export namespace BatchUpdatePartitionFailureEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdatePartitionFailureEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchUpdatePartitionResponse {
   /**
    * <p>The errors encountered when trying to update the requested partitions. A list of <code>BatchUpdatePartitionFailureEntry</code> objects.</p>
    */
   Errors?: BatchUpdatePartitionFailureEntry[];
-}
-
-export namespace BatchUpdatePartitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdatePartitionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CancelMLTaskRunRequest {
@@ -6293,15 +4880,6 @@ export interface CancelMLTaskRunRequest {
    * <p>A unique identifier for the task run.</p>
    */
   TaskRunId: string | undefined;
-}
-
-export namespace CancelMLTaskRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelMLTaskRunRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum TaskStatusType {
@@ -6331,15 +4909,6 @@ export interface CancelMLTaskRunResponse {
   Status?: TaskStatusType | string;
 }
 
-export namespace CancelMLTaskRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelMLTaskRunResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelStatementRequest {
   /**
    * <p>The Session ID of the statement to be cancelled.</p>
@@ -6357,25 +4926,7 @@ export interface CancelStatementRequest {
   RequestOrigin?: string;
 }
 
-export namespace CancelStatementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelStatementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelStatementResponse {}
-
-export namespace CancelStatementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelStatementResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The session is in an invalid state to perform a requested operation.</p>
@@ -6419,15 +4970,6 @@ export interface CheckSchemaVersionValidityInput {
   SchemaDefinition: string | undefined;
 }
 
-export namespace CheckSchemaVersionValidityInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckSchemaVersionValidityInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CheckSchemaVersionValidityResponse {
   /**
    * <p>Return true, if the schema is valid and false otherwise.</p>
@@ -6438,15 +4980,6 @@ export interface CheckSchemaVersionValidityResponse {
    * <p>A validation failure error message.</p>
    */
   Error?: string;
-}
-
-export namespace CheckSchemaVersionValidityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckSchemaVersionValidityResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBlueprintRequest {
@@ -6471,29 +5004,11 @@ export interface CreateBlueprintRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateBlueprintRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBlueprintRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateBlueprintResponse {
   /**
    * <p>Returns the name of the blueprint that was registered.</p>
    */
   Name?: string;
-}
-
-export namespace CreateBlueprintResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBlueprintResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum CsvHeaderOption {
@@ -6542,15 +5057,6 @@ export interface CreateCsvClassifierRequest {
   AllowSingleColumn?: boolean;
 }
 
-export namespace CreateCsvClassifierRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCsvClassifierRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a <code>grok</code> classifier for <code>CreateClassifier</code>
  *       to create.</p>
@@ -6578,15 +5084,6 @@ export interface CreateGrokClassifierRequest {
   CustomPatterns?: string;
 }
 
-export namespace CreateGrokClassifierRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGrokClassifierRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a JSON classifier for <code>CreateClassifier</code> to create.</p>
  */
@@ -6601,15 +5098,6 @@ export interface CreateJsonClassifierRequest {
    *       Glue supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
    */
   JsonPath: string | undefined;
-}
-
-export namespace CreateJsonClassifierRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJsonClassifierRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6634,15 +5122,6 @@ export interface CreateXMLClassifierRequest {
    *         <code><row item_a="A" item_b="B" /></code> is not).</p>
    */
   RowTag?: string;
-}
-
-export namespace CreateXMLClassifierRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateXMLClassifierRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateClassifierRequest {
@@ -6671,25 +5150,7 @@ export interface CreateClassifierRequest {
   CsvClassifier?: CreateCsvClassifierRequest;
 }
 
-export namespace CreateClassifierRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateClassifierRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateClassifierResponse {}
-
-export namespace CreateClassifierResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateClassifierResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum ConnectionPropertyKey {
   CONFIG_FILES = "CONFIG_FILES",
@@ -6756,15 +5217,6 @@ export interface PhysicalConnectionRequirements {
   AvailabilityZone?: string;
 }
 
-export namespace PhysicalConnectionRequirements {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhysicalConnectionRequirements): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that is used to specify a connection to create or update.</p>
  */
@@ -6828,15 +5280,6 @@ export interface ConnectionInput {
   PhysicalConnectionRequirements?: PhysicalConnectionRequirements;
 }
 
-export namespace ConnectionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateConnectionRequest {
   /**
    * <p>The ID of the Data Catalog in which to create the connection. If none is provided, the Amazon Web Services
@@ -6856,25 +5299,7 @@ export interface CreateConnectionRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateConnectionResponse {}
-
-export namespace CreateConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateCrawlerRequest {
   /**
@@ -6964,25 +5389,7 @@ export interface CreateCrawlerRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateCrawlerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCrawlerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCrawlerResponse {}
-
-export namespace CreateCrawlerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCrawlerResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateCustomEntityTypeRequest {
   /**
@@ -7003,29 +5410,11 @@ export interface CreateCustomEntityTypeRequest {
   ContextWords?: string[];
 }
 
-export namespace CreateCustomEntityTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomEntityTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCustomEntityTypeResponse {
   /**
    * <p>The name of the custom pattern you created.</p>
    */
   Name?: string;
-}
-
-export namespace CreateCustomEntityTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomEntityTypeResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7098,15 +5487,6 @@ export interface DataLakePrincipal {
   DataLakePrincipalIdentifier?: string;
 }
 
-export namespace DataLakePrincipal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataLakePrincipal): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Permissions granted to a principal.</p>
  */
@@ -7122,15 +5502,6 @@ export interface PrincipalPermissions {
   Permissions?: (Permission | string)[];
 }
 
-export namespace PrincipalPermissions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrincipalPermissions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that describes a target database for resource linking.</p>
  */
@@ -7144,15 +5515,6 @@ export interface DatabaseIdentifier {
    * <p>The name of the catalog database.</p>
    */
   DatabaseName?: string;
-}
-
-export namespace DatabaseIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatabaseIdentifier): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7193,15 +5555,6 @@ export interface DatabaseInput {
   TargetDatabase?: DatabaseIdentifier;
 }
 
-export namespace DatabaseInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatabaseInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDatabaseRequest {
   /**
    * <p>The ID of the Data Catalog in which to create the database. If none is provided, the Amazon Web Services
@@ -7220,25 +5573,7 @@ export interface CreateDatabaseRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateDatabaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatabaseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDatabaseResponse {}
-
-export namespace CreateDatabaseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatabaseResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateDevEndpointRequest {
   /**
@@ -7360,15 +5695,6 @@ export interface CreateDevEndpointRequest {
   Arguments?: Record<string, string>;
 }
 
-export namespace CreateDevEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDevEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDevEndpointResponse {
   /**
    * <p>The name assigned to the new <code>DevEndpoint</code>.</p>
@@ -7483,15 +5809,6 @@ export interface CreateDevEndpointResponse {
   Arguments?: Record<string, string>;
 }
 
-export namespace CreateDevEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDevEndpointResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A value could not be validated.</p>
  */
@@ -7523,15 +5840,6 @@ export interface CreateJobResponse {
   Name?: string;
 }
 
-export namespace CreateJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The database and table in the Glue Data Catalog that is used for input or output data.</p>
  */
@@ -7555,15 +5863,6 @@ export interface GlueTable {
    * <p>The name of the connection to the Glue Data Catalog.</p>
    */
   ConnectionName?: string;
-}
-
-export namespace GlueTable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlueTable): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7609,15 +5908,6 @@ export interface FindMatchesParameters {
   EnforceProvidedLabels?: boolean;
 }
 
-export namespace FindMatchesParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FindMatchesParameters): any => ({
-    ...obj,
-  });
-}
-
 export enum TransformType {
   FIND_MATCHES = "FIND_MATCHES",
 }
@@ -7637,15 +5927,6 @@ export interface TransformParameters {
    * <p>The parameters for the find matches algorithm.</p>
    */
   FindMatchesParameters?: FindMatchesParameters;
-}
-
-export namespace TransformParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransformParameters): any => ({
-    ...obj,
-  });
 }
 
 export enum MLUserDataEncryptionModeString {
@@ -7677,15 +5958,6 @@ export interface MLUserDataEncryption {
   KmsKeyId?: string;
 }
 
-export namespace MLUserDataEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MLUserDataEncryption): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
  *
@@ -7701,15 +5973,6 @@ export interface TransformEncryption {
    * <p>The name of the security configuration.</p>
    */
   TaskRunSecurityConfigurationName?: string;
-}
-
-export namespace TransformEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransformEncryption): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateMLTransformRequest {
@@ -7847,29 +6110,11 @@ export interface CreateMLTransformRequest {
   TransformEncryption?: TransformEncryption;
 }
 
-export namespace CreateMLTransformRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMLTransformRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateMLTransformResponse {
   /**
    * <p>A unique identifier that is generated for the transform.</p>
    */
   TransformId?: string;
-}
-
-export namespace CreateMLTransformResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMLTransformResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePartitionRequest {
@@ -7896,25 +6141,7 @@ export interface CreatePartitionRequest {
   PartitionInput: PartitionInput | undefined;
 }
 
-export namespace CreatePartitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePartitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePartitionResponse {}
-
-export namespace CreatePartitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePartitionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A structure for a partition index.</p>
@@ -7929,15 +6156,6 @@ export interface PartitionIndex {
    * <p>The name of the partition index.</p>
    */
   IndexName: string | undefined;
-}
-
-export namespace PartitionIndex {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PartitionIndex): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePartitionIndexRequest {
@@ -7962,25 +6180,7 @@ export interface CreatePartitionIndexRequest {
   PartitionIndex: PartitionIndex | undefined;
 }
 
-export namespace CreatePartitionIndexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePartitionIndexRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePartitionIndexResponse {}
-
-export namespace CreatePartitionIndexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePartitionIndexResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateRegistryInput {
   /**
@@ -7997,15 +6197,6 @@ export interface CreateRegistryInput {
    * <p>Amazon Web Services tags that contain a key value pair and may be searched by console, command line, or API.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateRegistryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRegistryInput): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRegistryResponse {
@@ -8028,15 +6219,6 @@ export interface CreateRegistryResponse {
    * <p>The tags for the registry.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateRegistryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRegistryResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum Compatibility {
@@ -8063,15 +6245,6 @@ export interface RegistryId {
    * <p>Arn of the registry to be updated. One of <code>RegistryArn</code> or <code>RegistryName</code> has to be provided.</p>
    */
   RegistryArn?: string;
-}
-
-export namespace RegistryId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegistryId): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSchemaInput {
@@ -8144,15 +6317,6 @@ export interface CreateSchemaInput {
    * <p>The schema definition using the <code>DataFormat</code> setting for <code>SchemaName</code>.</p>
    */
   SchemaDefinition?: string;
-}
-
-export namespace CreateSchemaInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSchemaInput): any => ({
-    ...obj,
-  });
 }
 
 export enum SchemaStatus {
@@ -8240,15 +6404,6 @@ export interface CreateSchemaResponse {
   SchemaVersionStatus?: SchemaVersionStatus | string;
 }
 
-export namespace CreateSchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSchemaResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a directional edge in a directed acyclic graph (DAG).</p>
  */
@@ -8269,15 +6424,6 @@ export interface CodeGenEdge {
   TargetParameter?: string;
 }
 
-export namespace CodeGenEdge {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeGenEdge): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An argument or property of a node.</p>
  */
@@ -8296,15 +6442,6 @@ export interface CodeGenNodeArg {
    * <p>True if the value is used as a parameter.</p>
    */
   Param?: boolean;
-}
-
-export namespace CodeGenNodeArg {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeGenNodeArg): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8332,15 +6469,6 @@ export interface CodeGenNode {
   LineNumber?: number;
 }
 
-export namespace CodeGenNode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeGenNode): any => ({
-    ...obj,
-  });
-}
-
 export enum Language {
   PYTHON = "PYTHON",
   SCALA = "SCALA",
@@ -8363,15 +6491,6 @@ export interface CreateScriptRequest {
   Language?: Language | string;
 }
 
-export namespace CreateScriptRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateScriptRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateScriptResponse {
   /**
    * <p>The Python script generated from the DAG.</p>
@@ -8382,15 +6501,6 @@ export interface CreateScriptResponse {
    * <p>The Scala code generated from the DAG.</p>
    */
   ScalaCode?: string;
-}
-
-export namespace CreateScriptResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateScriptResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum CloudWatchEncryptionMode {
@@ -8413,15 +6523,6 @@ export interface CloudWatchEncryption {
   KmsKeyArn?: string;
 }
 
-export namespace CloudWatchEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchEncryption): any => ({
-    ...obj,
-  });
-}
-
 export enum JobBookmarksEncryptionMode {
   CSEKMS = "CSE-KMS",
   DISABLED = "DISABLED",
@@ -8440,15 +6541,6 @@ export interface JobBookmarksEncryption {
    * <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
    */
   KmsKeyArn?: string;
-}
-
-export namespace JobBookmarksEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobBookmarksEncryption): any => ({
-    ...obj,
-  });
 }
 
 export enum S3EncryptionMode {
@@ -8472,15 +6564,6 @@ export interface S3Encryption {
   KmsKeyArn?: string;
 }
 
-export namespace S3Encryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Encryption): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies an encryption configuration.</p>
  */
@@ -8501,15 +6584,6 @@ export interface EncryptionConfiguration {
   JobBookmarksEncryption?: JobBookmarksEncryption;
 }
 
-export namespace EncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSecurityConfigurationRequest {
   /**
    * <p>The name for the new security configuration.</p>
@@ -8522,15 +6596,6 @@ export interface CreateSecurityConfigurationRequest {
   EncryptionConfiguration: EncryptionConfiguration | undefined;
 }
 
-export namespace CreateSecurityConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSecurityConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSecurityConfigurationResponse {
   /**
    * <p>The name assigned to the new security configuration.</p>
@@ -8541,15 +6606,6 @@ export interface CreateSecurityConfigurationResponse {
    * <p>The time at which the new security configuration was created.</p>
    */
   CreatedTimestamp?: Date;
-}
-
-export namespace CreateSecurityConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSecurityConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8565,15 +6621,6 @@ export interface SessionCommand {
    * <p>Specifies the Python version. The Python version indicates the version supported for jobs of type Spark.</p>
    */
   PythonVersion?: string;
-}
-
-export namespace SessionCommand {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SessionCommand): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8672,15 +6719,6 @@ export interface CreateSessionRequest {
   RequestOrigin?: string;
 }
 
-export namespace CreateSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum SessionStatus {
   FAILED = "FAILED",
   PROVISIONING = "PROVISIONING",
@@ -8762,29 +6800,11 @@ export interface Session {
   GlueVersion?: string;
 }
 
-export namespace Session {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Session): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSessionResponse {
   /**
    * <p>Returns the session object in the response.</p>
    */
   Session?: Session;
-}
-
-export namespace CreateSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSessionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8805,15 +6825,6 @@ export interface TableIdentifier {
    * <p>The name of the target table.</p>
    */
   Name?: string;
-}
-
-export namespace TableIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableIdentifier): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8895,15 +6906,6 @@ export interface TableInput {
   TargetTable?: TableIdentifier;
 }
 
-export namespace TableInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTableRequest {
   /**
    * <p>The ID of the Data Catalog in which to create the <code>Table</code>.
@@ -8934,25 +6936,7 @@ export interface CreateTableRequest {
   TransactionId?: string;
 }
 
-export namespace CreateTableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTableRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTableResponse {}
-
-export namespace CreateTableResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTableResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateTriggerRequest {
   /**
@@ -9014,29 +6998,11 @@ export interface CreateTriggerRequest {
   EventBatchingCondition?: EventBatchingCondition;
 }
 
-export namespace CreateTriggerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTriggerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTriggerResponse {
   /**
    * <p>The name of the trigger.</p>
    */
   Name?: string;
-}
-
-export namespace CreateTriggerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTriggerResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum PrincipalType {
@@ -9064,15 +7030,6 @@ export interface ResourceUri {
    * <p>The URI for accessing the resource.</p>
    */
   Uri?: string;
-}
-
-export namespace ResourceUri {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceUri): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9105,15 +7062,6 @@ export interface UserDefinedFunctionInput {
   ResourceUris?: ResourceUri[];
 }
 
-export namespace UserDefinedFunctionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserDefinedFunctionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUserDefinedFunctionRequest {
   /**
    * <p>The ID of the Data Catalog in which to create the function. If none is provided, the Amazon Web Services
@@ -9133,25 +7081,7 @@ export interface CreateUserDefinedFunctionRequest {
   FunctionInput: UserDefinedFunctionInput | undefined;
 }
 
-export namespace CreateUserDefinedFunctionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserDefinedFunctionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUserDefinedFunctionResponse {}
-
-export namespace CreateUserDefinedFunctionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserDefinedFunctionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateWorkflowRequest {
   /**
@@ -9180,29 +7110,11 @@ export interface CreateWorkflowRequest {
   MaxConcurrentRuns?: number;
 }
 
-export namespace CreateWorkflowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkflowRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWorkflowResponse {
   /**
    * <p>The name of the workflow which was provided as part of the request.</p>
    */
   Name?: string;
-}
-
-export namespace CreateWorkflowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkflowResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBlueprintRequest {
@@ -9212,29 +7124,11 @@ export interface DeleteBlueprintRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteBlueprintRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBlueprintRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBlueprintResponse {
   /**
    * <p>Returns the name of the blueprint that was deleted.</p>
    */
   Name?: string;
-}
-
-export namespace DeleteBlueprintResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBlueprintResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteClassifierRequest {
@@ -9244,11 +7138,1651 @@ export interface DeleteClassifierRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteClassifierRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClassifierRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const NotificationPropertyFilterSensitiveLog = (obj: NotificationProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionFilterSensitiveLog = (obj: Action): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregateOperationFilterSensitiveLog = (obj: AggregateOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregateFilterSensitiveLog = (obj: Aggregate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlueStudioSchemaColumnFilterSensitiveLog = (obj: GlueStudioSchemaColumn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlueSchemaFilterSensitiveLog = (obj: GlueSchema): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AthenaConnectorSourceFilterSensitiveLog = (obj: AthenaConnectorSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuditContextFilterSensitiveLog = (obj: AuditContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnFilterSensitiveLog = (obj: Column): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchemaIdFilterSensitiveLog = (obj: SchemaId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchemaReferenceFilterSensitiveLog = (obj: SchemaReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SerDeInfoFilterSensitiveLog = (obj: SerDeInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SkewedInfoFilterSensitiveLog = (obj: SkewedInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrderFilterSensitiveLog = (obj: Order): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageDescriptorFilterSensitiveLog = (obj: StorageDescriptor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PartitionInputFilterSensitiveLog = (obj: PartitionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchCreatePartitionRequestFilterSensitiveLog = (obj: BatchCreatePartitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorDetailFilterSensitiveLog = (obj: ErrorDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PartitionErrorFilterSensitiveLog = (obj: PartitionError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchCreatePartitionResponseFilterSensitiveLog = (obj: BatchCreatePartitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteConnectionRequestFilterSensitiveLog = (obj: BatchDeleteConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteConnectionResponseFilterSensitiveLog = (obj: BatchDeleteConnectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PartitionValueListFilterSensitiveLog = (obj: PartitionValueList): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeletePartitionRequestFilterSensitiveLog = (obj: BatchDeletePartitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeletePartitionResponseFilterSensitiveLog = (obj: BatchDeletePartitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteTableRequestFilterSensitiveLog = (obj: BatchDeleteTableRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableErrorFilterSensitiveLog = (obj: TableError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteTableResponseFilterSensitiveLog = (obj: BatchDeleteTableResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteTableVersionRequestFilterSensitiveLog = (obj: BatchDeleteTableVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableVersionErrorFilterSensitiveLog = (obj: TableVersionError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteTableVersionResponseFilterSensitiveLog = (obj: BatchDeleteTableVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetBlueprintsRequestFilterSensitiveLog = (obj: BatchGetBlueprintsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LastActiveDefinitionFilterSensitiveLog = (obj: LastActiveDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlueprintFilterSensitiveLog = (obj: Blueprint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetBlueprintsResponseFilterSensitiveLog = (obj: BatchGetBlueprintsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetCrawlersRequestFilterSensitiveLog = (obj: BatchGetCrawlersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LakeFormationConfigurationFilterSensitiveLog = (obj: LakeFormationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LastCrawlInfoFilterSensitiveLog = (obj: LastCrawlInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LineageConfigurationFilterSensitiveLog = (obj: LineageConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecrawlPolicyFilterSensitiveLog = (obj: RecrawlPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleFilterSensitiveLog = (obj: Schedule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchemaChangePolicyFilterSensitiveLog = (obj: SchemaChangePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CatalogTargetFilterSensitiveLog = (obj: CatalogTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeltaTargetFilterSensitiveLog = (obj: DeltaTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DynamoDBTargetFilterSensitiveLog = (obj: DynamoDBTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JdbcTargetFilterSensitiveLog = (obj: JdbcTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MongoDBTargetFilterSensitiveLog = (obj: MongoDBTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3TargetFilterSensitiveLog = (obj: S3Target): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CrawlerTargetsFilterSensitiveLog = (obj: CrawlerTargets): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CrawlerFilterSensitiveLog = (obj: Crawler): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetCrawlersResponseFilterSensitiveLog = (obj: BatchGetCrawlersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetCustomEntityTypesRequestFilterSensitiveLog = (obj: BatchGetCustomEntityTypesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomEntityTypeFilterSensitiveLog = (obj: CustomEntityType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetCustomEntityTypesResponseFilterSensitiveLog = (obj: BatchGetCustomEntityTypesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetDevEndpointsRequestFilterSensitiveLog = (obj: BatchGetDevEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DevEndpointFilterSensitiveLog = (obj: DevEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetDevEndpointsResponseFilterSensitiveLog = (obj: BatchGetDevEndpointsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetJobsRequestFilterSensitiveLog = (obj: BatchGetJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamingDataPreviewOptionsFilterSensitiveLog = (obj: StreamingDataPreviewOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KafkaStreamingSourceOptionsFilterSensitiveLog = (obj: KafkaStreamingSourceOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CatalogKafkaSourceFilterSensitiveLog = (obj: CatalogKafkaSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisStreamingSourceOptionsFilterSensitiveLog = (obj: KinesisStreamingSourceOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CatalogKinesisSourceFilterSensitiveLog = (obj: CatalogKinesisSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CatalogSourceFilterSensitiveLog = (obj: CatalogSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BasicCatalogTargetFilterSensitiveLog = (obj: BasicCatalogTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomCodeFilterSensitiveLog = (obj: CustomCode): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DirectKafkaSourceFilterSensitiveLog = (obj: DirectKafkaSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DirectKinesisSourceFilterSensitiveLog = (obj: DirectKinesisSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DropDuplicatesFilterSensitiveLog = (obj: DropDuplicates): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DropFieldsFilterSensitiveLog = (obj: DropFields): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NullCheckBoxListFilterSensitiveLog = (obj: NullCheckBoxList): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatatypeFilterSensitiveLog = (obj: Datatype): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NullValueFieldFilterSensitiveLog = (obj: NullValueField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DropNullFieldsFilterSensitiveLog = (obj: DropNullFields): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DynamoDBCatalogSourceFilterSensitiveLog = (obj: DynamoDBCatalogSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FillMissingValuesFilterSensitiveLog = (obj: FillMissingValues): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterValueFilterSensitiveLog = (obj: FilterValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterExpressionFilterSensitiveLog = (obj: FilterExpression): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3SourceAdditionalOptionsFilterSensitiveLog = (obj: S3SourceAdditionalOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GovernedCatalogSourceFilterSensitiveLog = (obj: GovernedCatalogSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CatalogSchemaChangePolicyFilterSensitiveLog = (obj: CatalogSchemaChangePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GovernedCatalogTargetFilterSensitiveLog = (obj: GovernedCatalogTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JDBCConnectorOptionsFilterSensitiveLog = (obj: JDBCConnectorOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JDBCConnectorSourceFilterSensitiveLog = (obj: JDBCConnectorSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JDBCConnectorTargetFilterSensitiveLog = (obj: JDBCConnectorTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JoinColumnFilterSensitiveLog = (obj: JoinColumn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JoinFilterSensitiveLog = (obj: Join): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergeFilterSensitiveLog = (obj: Merge): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MicrosoftSQLServerCatalogSourceFilterSensitiveLog = (obj: MicrosoftSQLServerCatalogSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MicrosoftSQLServerCatalogTargetFilterSensitiveLog = (obj: MicrosoftSQLServerCatalogTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MySQLCatalogSourceFilterSensitiveLog = (obj: MySQLCatalogSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MySQLCatalogTargetFilterSensitiveLog = (obj: MySQLCatalogTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OracleSQLCatalogSourceFilterSensitiveLog = (obj: OracleSQLCatalogSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OracleSQLCatalogTargetFilterSensitiveLog = (obj: OracleSQLCatalogTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PIIDetectionFilterSensitiveLog = (obj: PIIDetection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PostgreSQLCatalogSourceFilterSensitiveLog = (obj: PostgreSQLCatalogSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PostgreSQLCatalogTargetFilterSensitiveLog = (obj: PostgreSQLCatalogTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedshiftSourceFilterSensitiveLog = (obj: RedshiftSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpsertRedshiftTargetOptionsFilterSensitiveLog = (obj: UpsertRedshiftTargetOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedshiftTargetFilterSensitiveLog = (obj: RedshiftTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelationalCatalogSourceFilterSensitiveLog = (obj: RelationalCatalogSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RenameFieldFilterSensitiveLog = (obj: RenameField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3CatalogSourceFilterSensitiveLog = (obj: S3CatalogSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3CatalogTargetFilterSensitiveLog = (obj: S3CatalogTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DirectSourceAdditionalOptionsFilterSensitiveLog = (obj: S3DirectSourceAdditionalOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3CsvSourceFilterSensitiveLog = (obj: S3CsvSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DirectSchemaChangePolicyFilterSensitiveLog = (obj: DirectSchemaChangePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DirectTargetFilterSensitiveLog = (obj: S3DirectTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3GlueParquetTargetFilterSensitiveLog = (obj: S3GlueParquetTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3JsonSourceFilterSensitiveLog = (obj: S3JsonSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ParquetSourceFilterSensitiveLog = (obj: S3ParquetSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelectFieldsFilterSensitiveLog = (obj: SelectFields): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelectFromCollectionFilterSensitiveLog = (obj: SelectFromCollection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SparkConnectorSourceFilterSensitiveLog = (obj: SparkConnectorSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SparkConnectorTargetFilterSensitiveLog = (obj: SparkConnectorTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SqlAliasFilterSensitiveLog = (obj: SqlAlias): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SparkSQLFilterSensitiveLog = (obj: SparkSQL): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SpigotFilterSensitiveLog = (obj: Spigot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SplitFieldsFilterSensitiveLog = (obj: SplitFields): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnionFilterSensitiveLog = (obj: Union): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobCommandFilterSensitiveLog = (obj: JobCommand): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionsListFilterSensitiveLog = (obj: ConnectionsList): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutionPropertyFilterSensitiveLog = (obj: ExecutionProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetPartitionRequestFilterSensitiveLog = (obj: BatchGetPartitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PartitionFilterSensitiveLog = (obj: Partition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetPartitionResponseFilterSensitiveLog = (obj: BatchGetPartitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetTriggersRequestFilterSensitiveLog = (obj: BatchGetTriggersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventBatchingConditionFilterSensitiveLog = (obj: EventBatchingCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConditionFilterSensitiveLog = (obj: Condition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredicateFilterSensitiveLog = (obj: Predicate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TriggerFilterSensitiveLog = (obj: Trigger): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetTriggersResponseFilterSensitiveLog = (obj: BatchGetTriggersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetWorkflowsRequestFilterSensitiveLog = (obj: BatchGetWorkflowsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlueprintDetailsFilterSensitiveLog = (obj: BlueprintDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EdgeFilterSensitiveLog = (obj: Edge): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CrawlFilterSensitiveLog = (obj: Crawl): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CrawlerNodeDetailsFilterSensitiveLog = (obj: CrawlerNodeDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredecessorFilterSensitiveLog = (obj: Predecessor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobRunFilterSensitiveLog = (obj: JobRun): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobNodeDetailsFilterSensitiveLog = (obj: JobNodeDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TriggerNodeDetailsFilterSensitiveLog = (obj: TriggerNodeDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeFilterSensitiveLog = (obj: Node): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowGraphFilterSensitiveLog = (obj: WorkflowGraph): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartingEventBatchConditionFilterSensitiveLog = (obj: StartingEventBatchCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowRunStatisticsFilterSensitiveLog = (obj: WorkflowRunStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowRunFilterSensitiveLog = (obj: WorkflowRun): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowFilterSensitiveLog = (obj: Workflow): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetWorkflowsResponseFilterSensitiveLog = (obj: BatchGetWorkflowsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchStopJobRunRequestFilterSensitiveLog = (obj: BatchStopJobRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchStopJobRunErrorFilterSensitiveLog = (obj: BatchStopJobRunError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchStopJobRunSuccessfulSubmissionFilterSensitiveLog = (
+  obj: BatchStopJobRunSuccessfulSubmission
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchStopJobRunResponseFilterSensitiveLog = (obj: BatchStopJobRunResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdatePartitionRequestEntryFilterSensitiveLog = (obj: BatchUpdatePartitionRequestEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdatePartitionRequestFilterSensitiveLog = (obj: BatchUpdatePartitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdatePartitionFailureEntryFilterSensitiveLog = (obj: BatchUpdatePartitionFailureEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdatePartitionResponseFilterSensitiveLog = (obj: BatchUpdatePartitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelMLTaskRunRequestFilterSensitiveLog = (obj: CancelMLTaskRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelMLTaskRunResponseFilterSensitiveLog = (obj: CancelMLTaskRunResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelStatementRequestFilterSensitiveLog = (obj: CancelStatementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelStatementResponseFilterSensitiveLog = (obj: CancelStatementResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckSchemaVersionValidityInputFilterSensitiveLog = (obj: CheckSchemaVersionValidityInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckSchemaVersionValidityResponseFilterSensitiveLog = (obj: CheckSchemaVersionValidityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBlueprintRequestFilterSensitiveLog = (obj: CreateBlueprintRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBlueprintResponseFilterSensitiveLog = (obj: CreateBlueprintResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCsvClassifierRequestFilterSensitiveLog = (obj: CreateCsvClassifierRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGrokClassifierRequestFilterSensitiveLog = (obj: CreateGrokClassifierRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJsonClassifierRequestFilterSensitiveLog = (obj: CreateJsonClassifierRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateXMLClassifierRequestFilterSensitiveLog = (obj: CreateXMLClassifierRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateClassifierRequestFilterSensitiveLog = (obj: CreateClassifierRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateClassifierResponseFilterSensitiveLog = (obj: CreateClassifierResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PhysicalConnectionRequirementsFilterSensitiveLog = (obj: PhysicalConnectionRequirements): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionInputFilterSensitiveLog = (obj: ConnectionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionRequestFilterSensitiveLog = (obj: CreateConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionResponseFilterSensitiveLog = (obj: CreateConnectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCrawlerRequestFilterSensitiveLog = (obj: CreateCrawlerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCrawlerResponseFilterSensitiveLog = (obj: CreateCrawlerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomEntityTypeRequestFilterSensitiveLog = (obj: CreateCustomEntityTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomEntityTypeResponseFilterSensitiveLog = (obj: CreateCustomEntityTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataLakePrincipalFilterSensitiveLog = (obj: DataLakePrincipal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrincipalPermissionsFilterSensitiveLog = (obj: PrincipalPermissions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatabaseIdentifierFilterSensitiveLog = (obj: DatabaseIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatabaseInputFilterSensitiveLog = (obj: DatabaseInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatabaseRequestFilterSensitiveLog = (obj: CreateDatabaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatabaseResponseFilterSensitiveLog = (obj: CreateDatabaseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDevEndpointRequestFilterSensitiveLog = (obj: CreateDevEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDevEndpointResponseFilterSensitiveLog = (obj: CreateDevEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobResponseFilterSensitiveLog = (obj: CreateJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlueTableFilterSensitiveLog = (obj: GlueTable): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FindMatchesParametersFilterSensitiveLog = (obj: FindMatchesParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransformParametersFilterSensitiveLog = (obj: TransformParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MLUserDataEncryptionFilterSensitiveLog = (obj: MLUserDataEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransformEncryptionFilterSensitiveLog = (obj: TransformEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMLTransformRequestFilterSensitiveLog = (obj: CreateMLTransformRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMLTransformResponseFilterSensitiveLog = (obj: CreateMLTransformResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePartitionRequestFilterSensitiveLog = (obj: CreatePartitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePartitionResponseFilterSensitiveLog = (obj: CreatePartitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PartitionIndexFilterSensitiveLog = (obj: PartitionIndex): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePartitionIndexRequestFilterSensitiveLog = (obj: CreatePartitionIndexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePartitionIndexResponseFilterSensitiveLog = (obj: CreatePartitionIndexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRegistryInputFilterSensitiveLog = (obj: CreateRegistryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRegistryResponseFilterSensitiveLog = (obj: CreateRegistryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegistryIdFilterSensitiveLog = (obj: RegistryId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSchemaInputFilterSensitiveLog = (obj: CreateSchemaInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSchemaResponseFilterSensitiveLog = (obj: CreateSchemaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeGenEdgeFilterSensitiveLog = (obj: CodeGenEdge): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeGenNodeArgFilterSensitiveLog = (obj: CodeGenNodeArg): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeGenNodeFilterSensitiveLog = (obj: CodeGenNode): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateScriptRequestFilterSensitiveLog = (obj: CreateScriptRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateScriptResponseFilterSensitiveLog = (obj: CreateScriptResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchEncryptionFilterSensitiveLog = (obj: CloudWatchEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobBookmarksEncryptionFilterSensitiveLog = (obj: JobBookmarksEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3EncryptionFilterSensitiveLog = (obj: S3Encryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionConfigurationFilterSensitiveLog = (obj: EncryptionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSecurityConfigurationRequestFilterSensitiveLog = (obj: CreateSecurityConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSecurityConfigurationResponseFilterSensitiveLog = (
+  obj: CreateSecurityConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionCommandFilterSensitiveLog = (obj: SessionCommand): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSessionRequestFilterSensitiveLog = (obj: CreateSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionFilterSensitiveLog = (obj: Session): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSessionResponseFilterSensitiveLog = (obj: CreateSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableIdentifierFilterSensitiveLog = (obj: TableIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableInputFilterSensitiveLog = (obj: TableInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTableRequestFilterSensitiveLog = (obj: CreateTableRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTableResponseFilterSensitiveLog = (obj: CreateTableResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTriggerRequestFilterSensitiveLog = (obj: CreateTriggerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTriggerResponseFilterSensitiveLog = (obj: CreateTriggerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceUriFilterSensitiveLog = (obj: ResourceUri): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserDefinedFunctionInputFilterSensitiveLog = (obj: UserDefinedFunctionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserDefinedFunctionRequestFilterSensitiveLog = (obj: CreateUserDefinedFunctionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserDefinedFunctionResponseFilterSensitiveLog = (obj: CreateUserDefinedFunctionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkflowRequestFilterSensitiveLog = (obj: CreateWorkflowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkflowResponseFilterSensitiveLog = (obj: CreateWorkflowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBlueprintRequestFilterSensitiveLog = (obj: DeleteBlueprintRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBlueprintResponseFilterSensitiveLog = (obj: DeleteBlueprintResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteClassifierRequestFilterSensitiveLog = (obj: DeleteClassifierRequest): any => ({
+  ...obj,
+});

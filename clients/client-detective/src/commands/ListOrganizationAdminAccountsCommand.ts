@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse } from "../models/models_0";
+import {
+  ListOrganizationAdminAccountsRequest,
+  ListOrganizationAdminAccountsRequestFilterSensitiveLog,
+  ListOrganizationAdminAccountsResponse,
+  ListOrganizationAdminAccountsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListOrganizationAdminAccountsCommand,
   serializeAws_restJson1ListOrganizationAdminAccountsCommand,
@@ -75,8 +80,8 @@ export class ListOrganizationAdminAccountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOrganizationAdminAccountsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListOrganizationAdminAccountsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListOrganizationAdminAccountsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListOrganizationAdminAccountsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

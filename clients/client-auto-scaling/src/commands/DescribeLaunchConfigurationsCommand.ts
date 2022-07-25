@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { LaunchConfigurationNamesType, LaunchConfigurationsType } from "../models/models_0";
+import {
+  LaunchConfigurationNamesType,
+  LaunchConfigurationNamesTypeFilterSensitiveLog,
+  LaunchConfigurationsType,
+  LaunchConfigurationsTypeFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeLaunchConfigurationsCommand,
   serializeAws_queryDescribeLaunchConfigurationsCommand,
@@ -72,8 +77,8 @@ export class DescribeLaunchConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LaunchConfigurationNamesType.filterSensitiveLog,
-      outputFilterSensitiveLog: LaunchConfigurationsType.filterSensitiveLog,
+      inputFilterSensitiveLog: LaunchConfigurationNamesTypeFilterSensitiveLog,
+      outputFilterSensitiveLog: LaunchConfigurationsTypeFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

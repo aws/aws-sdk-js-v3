@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { GetResponseHeadersPolicyRequest, GetResponseHeadersPolicyResult } from "../models/models_1";
+import {
+  GetResponseHeadersPolicyRequest,
+  GetResponseHeadersPolicyRequestFilterSensitiveLog,
+  GetResponseHeadersPolicyResult,
+  GetResponseHeadersPolicyResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlGetResponseHeadersPolicyCommand,
   serializeAws_restXmlGetResponseHeadersPolicyCommand,
@@ -79,8 +84,8 @@ export class GetResponseHeadersPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResponseHeadersPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetResponseHeadersPolicyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetResponseHeadersPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetResponseHeadersPolicyResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

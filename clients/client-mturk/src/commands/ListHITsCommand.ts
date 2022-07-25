@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListHITsRequest, ListHITsResponse } from "../models/models_0";
+import {
+  ListHITsRequest,
+  ListHITsRequestFilterSensitiveLog,
+  ListHITsResponse,
+  ListHITsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { deserializeAws_json1_1ListHITsCommand, serializeAws_json1_1ListHITsCommand } from "../protocols/Aws_json1_1";
 
@@ -71,8 +76,8 @@ export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHITsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListHITsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHITsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListHITsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

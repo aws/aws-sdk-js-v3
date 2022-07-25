@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { CreateDatasetImportJobRequest, CreateDatasetImportJobResponse } from "../models/models_0";
+import {
+  CreateDatasetImportJobRequest,
+  CreateDatasetImportJobRequestFilterSensitiveLog,
+  CreateDatasetImportJobResponse,
+  CreateDatasetImportJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDatasetImportJobCommand,
   serializeAws_json1_1CreateDatasetImportJobCommand,
@@ -88,8 +93,8 @@ export class CreateDatasetImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatasetImportJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatasetImportJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDatasetImportJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDatasetImportJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

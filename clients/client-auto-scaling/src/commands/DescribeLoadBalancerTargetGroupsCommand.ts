@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeLoadBalancerTargetGroupsRequest, DescribeLoadBalancerTargetGroupsResponse } from "../models/models_0";
+import {
+  DescribeLoadBalancerTargetGroupsRequest,
+  DescribeLoadBalancerTargetGroupsRequestFilterSensitiveLog,
+  DescribeLoadBalancerTargetGroupsResponse,
+  DescribeLoadBalancerTargetGroupsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeLoadBalancerTargetGroupsCommand,
   serializeAws_queryDescribeLoadBalancerTargetGroupsCommand,
@@ -93,8 +98,8 @@ export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLoadBalancerTargetGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLoadBalancerTargetGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLoadBalancerTargetGroupsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLoadBalancerTargetGroupsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoMediaClient";
-import { GetMediaInput, GetMediaOutput } from "../models/models_0";
+import {
+  GetMediaInput,
+  GetMediaInputFilterSensitiveLog,
+  GetMediaOutput,
+  GetMediaOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetMediaCommand,
   serializeAws_restJson1GetMediaCommand,
@@ -121,8 +126,8 @@ export class GetMediaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMediaInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMediaOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMediaInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMediaOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

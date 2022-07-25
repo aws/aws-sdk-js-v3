@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreatePublicDnsNamespaceRequest, CreatePublicDnsNamespaceResponse } from "../models/models_0";
+import {
+  CreatePublicDnsNamespaceRequest,
+  CreatePublicDnsNamespaceRequestFilterSensitiveLog,
+  CreatePublicDnsNamespaceResponse,
+  CreatePublicDnsNamespaceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePublicDnsNamespaceCommand,
   serializeAws_json1_1CreatePublicDnsNamespaceCommand,
@@ -77,8 +82,8 @@ export class CreatePublicDnsNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePublicDnsNamespaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreatePublicDnsNamespaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePublicDnsNamespaceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreatePublicDnsNamespaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

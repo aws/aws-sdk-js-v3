@@ -19,15 +19,6 @@ export interface ComponentPropertyBindingProperties {
   field?: string;
 }
 
-export namespace ComponentPropertyBindingProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentPropertyBindingProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes how to bind a component property to form data.</p>
  */
@@ -41,15 +32,6 @@ export interface FormBindingElement {
    * <p>The property to retrieve a value from.</p>
    */
   property: string | undefined;
-}
-
-export namespace FormBindingElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FormBindingElement): any => ({
-    ...obj,
-  });
 }
 
 export type SortDirection = "ASC" | "DESC";
@@ -69,15 +51,6 @@ export interface SortProperty {
   direction: SortDirection | string | undefined;
 }
 
-export namespace SortProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SortProperty): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the style configuration of a unique variation of a main component.</p>
  */
@@ -94,15 +67,6 @@ export interface ComponentVariant {
    *         <code>overrides</code>.</p>
    */
   overrides?: Record<string, Record<string, string>>;
-}
-
-export namespace ComponentVariant {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentVariant): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -201,15 +165,6 @@ export interface DeleteComponentRequest {
   id: string | undefined;
 }
 
-export namespace DeleteComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteComponentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested resource does not exist, or access was denied.</p>
  */
@@ -247,15 +202,6 @@ export interface ExportComponentsRequest {
   nextToken?: string;
 }
 
-export namespace ExportComponentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportComponentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetComponentRequest {
   /**
    * <p>The unique ID of the Amplify app.</p>
@@ -271,15 +217,6 @@ export interface GetComponentRequest {
    * <p>The unique ID of the component.</p>
    */
   id: string | undefined;
-}
-
-export namespace GetComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComponentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListComponentsRequest {
@@ -303,15 +240,6 @@ export interface ListComponentsRequest {
    * <p>The maximum number of components to retrieve.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListComponentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -346,15 +274,6 @@ export interface ComponentSummary {
   componentType: string | undefined;
 }
 
-export namespace ComponentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListComponentsResponse {
   /**
    * <p>The list of components for the Amplify app.</p>
@@ -365,15 +284,6 @@ export interface ListComponentsResponse {
    * <p>The pagination token that's included if more results are available.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListComponentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum TokenProviders {
@@ -398,16 +308,6 @@ export interface ExchangeCodeForTokenRequestBody {
   redirectUri: string | undefined;
 }
 
-export namespace ExchangeCodeForTokenRequestBody {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExchangeCodeForTokenRequestBody): any => ({
-    ...obj,
-    ...(obj.code && { code: SENSITIVE_STRING }),
-  });
-}
-
 export interface ExchangeCodeForTokenRequest {
   /**
    * <p>The third-party provider for the token. The only valid value is <code>figma</code>.</p>
@@ -418,16 +318,6 @@ export interface ExchangeCodeForTokenRequest {
    * <p>Describes the configuration of the request.</p>
    */
   request: ExchangeCodeForTokenRequestBody | undefined;
-}
-
-export namespace ExchangeCodeForTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExchangeCodeForTokenRequest): any => ({
-    ...obj,
-    ...(obj.request && { request: ExchangeCodeForTokenRequestBody.filterSensitiveLog(obj.request) }),
-  });
 }
 
 export interface ExchangeCodeForTokenResponse {
@@ -448,17 +338,6 @@ export interface ExchangeCodeForTokenResponse {
   refreshToken: string | undefined;
 }
 
-export namespace ExchangeCodeForTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExchangeCodeForTokenResponse): any => ({
-    ...obj,
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-    ...(obj.refreshToken && { refreshToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Describes a refresh token.</p>
  */
@@ -468,16 +347,6 @@ export interface RefreshTokenRequestBody {
    *       expired.</p>
    */
   token: string | undefined;
-}
-
-export namespace RefreshTokenRequestBody {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RefreshTokenRequestBody): any => ({
-    ...obj,
-    ...(obj.token && { token: SENSITIVE_STRING }),
-  });
 }
 
 export interface RefreshTokenRequest {
@@ -492,16 +361,6 @@ export interface RefreshTokenRequest {
   refreshTokenBody: RefreshTokenRequestBody | undefined;
 }
 
-export namespace RefreshTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RefreshTokenRequest): any => ({
-    ...obj,
-    ...(obj.refreshTokenBody && { refreshTokenBody: RefreshTokenRequestBody.filterSensitiveLog(obj.refreshTokenBody) }),
-  });
-}
-
 export interface RefreshTokenResponse {
   /**
    * <p>The access token.</p>
@@ -512,16 +371,6 @@ export interface RefreshTokenResponse {
    * <p>The date and time when the new access token expires.</p>
    */
   expiresIn: number | undefined;
-}
-
-export namespace RefreshTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RefreshTokenResponse): any => ({
-    ...obj,
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  });
 }
 
 export interface DeleteThemeRequest {
@@ -543,15 +392,6 @@ export interface DeleteThemeRequest {
   id: string | undefined;
 }
 
-export namespace DeleteThemeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteThemeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ExportThemesRequest {
   /**
    * <p>The unique ID of the Amplify app to export the themes to.</p>
@@ -569,15 +409,6 @@ export interface ExportThemesRequest {
   nextToken?: string;
 }
 
-export namespace ExportThemesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportThemesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetThemeRequest {
   /**
    * <p>The unique ID of the Amplify app.</p>
@@ -593,15 +424,6 @@ export interface GetThemeRequest {
    * <p>The unique ID for the theme.</p>
    */
   id: string | undefined;
-}
-
-export namespace GetThemeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetThemeRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListThemesRequest {
@@ -625,15 +447,6 @@ export interface ListThemesRequest {
    * <p>The maximum number of theme results to return in the response.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListThemesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThemesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -661,15 +474,6 @@ export interface ThemeSummary {
   name: string | undefined;
 }
 
-export namespace ThemeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThemeSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListThemesResponse {
   /**
    * <p>The list of themes for the Amplify app.</p>
@@ -680,15 +484,6 @@ export interface ListThemesResponse {
    * <p>The pagination token that's returned if more results are available.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListThemesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThemesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -706,15 +501,6 @@ export interface ThemeValue {
   children?: ThemeValues[];
 }
 
-export namespace ThemeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThemeValue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A key-value pair that defines a property of a theme.</p>
  */
@@ -728,15 +514,6 @@ export interface ThemeValues {
    * <p>The value of the property.</p>
    */
   value?: ThemeValue;
-}
-
-export namespace ThemeValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThemeValues): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -768,15 +545,6 @@ export interface Predicate {
    * <p>The value to use when performing the evaluation.</p>
    */
   operand?: string;
-}
-
-export namespace Predicate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Predicate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -822,15 +590,6 @@ export interface ComponentBindingPropertiesValueProperties {
   defaultValue?: string;
 }
 
-export namespace ComponentBindingPropertiesValueProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentBindingPropertiesValueProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the configuration for binding a component's properties to data.</p>
  */
@@ -856,15 +615,6 @@ export interface ComponentDataConfiguration {
    *       chosen data, rather than data retrieved from a query.</p>
    */
   identifiers?: string[];
-}
-
-export namespace ComponentDataConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentDataConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -952,15 +702,6 @@ export interface ComponentProperty {
   property?: string;
 }
 
-export namespace ComponentProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentProperty): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the data binding configuration for a component at runtime. You can use
  *         <code>ComponentBindingPropertiesValue</code> to add exposed properties to a component to
@@ -982,15 +723,6 @@ export interface ComponentBindingPropertiesValue {
    * <p>The default value of the property.</p>
    */
   defaultValue?: string;
-}
-
-export namespace ComponentBindingPropertiesValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentBindingPropertiesValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1017,15 +749,6 @@ export interface CreateThemeData {
    * <p>One or more key-value pairs to use when tagging the theme data.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateThemeData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateThemeData): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1080,15 +803,6 @@ export interface Theme {
   tags?: Record<string, string>;
 }
 
-export namespace Theme {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Theme): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Saves the data binding information for a theme.</p>
  */
@@ -1114,15 +828,6 @@ export interface UpdateThemeData {
   overrides?: ThemeValues[];
 }
 
-export namespace UpdateThemeData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateThemeData): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the state configuration when an action modifies a property of another element
  *       within the same component.</p>
@@ -1142,15 +847,6 @@ export interface MutationActionSetStateParameter {
    * <p>The state configuration to assign to the property.</p>
    */
   set: ComponentProperty | undefined;
-}
-
-export namespace MutationActionSetStateParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MutationActionSetStateParameter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1196,15 +892,6 @@ export interface ComponentConditionProperty {
   operandType?: string;
 }
 
-export namespace ComponentConditionProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentConditionProperty): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateThemeRequest {
   /**
    * <p>The unique ID of the Amplify app associated with the theme.</p>
@@ -1228,15 +915,6 @@ export interface CreateThemeRequest {
   themeToCreate: CreateThemeData | undefined;
 }
 
-export namespace CreateThemeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateThemeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateThemeResponse {
   /**
    * <p>Describes the configuration of the new theme.</p>
@@ -1244,29 +922,11 @@ export interface CreateThemeResponse {
   entity?: Theme;
 }
 
-export namespace CreateThemeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateThemeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetThemeResponse {
   /**
    * <p>Represents the configuration settings for the theme.</p>
    */
   theme?: Theme;
-}
-
-export namespace GetThemeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetThemeResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateThemeRequest {
@@ -1296,29 +956,11 @@ export interface UpdateThemeRequest {
   updatedTheme: UpdateThemeData | undefined;
 }
 
-export namespace UpdateThemeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateThemeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateThemeResponse {
   /**
    * <p>Describes the configuration of the updated theme.</p>
    */
   entity?: Theme;
-}
-
-export namespace UpdateThemeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateThemeResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ExportThemesResponse {
@@ -1331,15 +973,6 @@ export interface ExportThemesResponse {
    * <p>The pagination token that's included if more results are available.</p>
    */
   nextToken?: string;
-}
-
-export namespace ExportThemesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportThemesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1400,15 +1033,6 @@ export interface ActionParameters {
   state?: MutationActionSetStateParameter;
 }
 
-export namespace ActionParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the configuration of an event. You can bind an event and a corresponding action
  *       to a <code>Component</code> or a <code>ComponentChild</code>. A button click is an example of
@@ -1429,15 +1053,6 @@ export interface ComponentEvent {
    * <p>Binds an event to an action on a component. When you specify a <code>bindingEvent</code>, the event is called when the action is performed.</p>
    */
   bindingEvent?: string;
-}
-
-export namespace ComponentEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentEvent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1476,15 +1091,6 @@ export interface ComponentChild {
    * <p>The unique ID of the child component in its original source system, such as Figma.</p>
    */
   sourceId?: string;
-}
-
-export namespace ComponentChild {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentChild): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1592,15 +1198,6 @@ export interface Component {
   schemaVersion?: string;
 }
 
-export namespace Component {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Component): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents all of the information that is required to create a component.</p>
  */
@@ -1667,15 +1264,6 @@ export interface CreateComponentData {
    * <p>The schema version of the component when it was imported.</p>
    */
   schemaVersion?: string;
-}
-
-export namespace CreateComponentData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateComponentData): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1745,15 +1333,6 @@ export interface UpdateComponentData {
   schemaVersion?: string;
 }
 
-export namespace UpdateComponentData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateComponentData): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateComponentRequest {
   /**
    * <p>The unique ID of the Amplify app to associate with the component.</p>
@@ -1777,15 +1356,6 @@ export interface CreateComponentRequest {
   componentToCreate: CreateComponentData | undefined;
 }
 
-export namespace CreateComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateComponentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateComponentResponse {
   /**
    * <p>Describes the configuration of the new component.</p>
@@ -1793,29 +1363,11 @@ export interface CreateComponentResponse {
   entity?: Component;
 }
 
-export namespace CreateComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateComponentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetComponentResponse {
   /**
    * <p>Represents the configuration settings for the component.</p>
    */
   component?: Component;
-}
-
-export namespace GetComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComponentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateComponentRequest {
@@ -1845,29 +1397,11 @@ export interface UpdateComponentRequest {
   updatedComponent: UpdateComponentData | undefined;
 }
 
-export namespace UpdateComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateComponentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateComponentResponse {
   /**
    * <p>Describes the configuration of the updated component.</p>
    */
   entity?: Component;
-}
-
-export namespace UpdateComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateComponentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ExportComponentsResponse {
@@ -1882,11 +1416,375 @@ export interface ExportComponentsResponse {
   nextToken?: string;
 }
 
-export namespace ExportComponentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportComponentsResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ComponentPropertyBindingPropertiesFilterSensitiveLog = (obj: ComponentPropertyBindingProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FormBindingElementFilterSensitiveLog = (obj: FormBindingElement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SortPropertyFilterSensitiveLog = (obj: SortProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentVariantFilterSensitiveLog = (obj: ComponentVariant): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteComponentRequestFilterSensitiveLog = (obj: DeleteComponentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportComponentsRequestFilterSensitiveLog = (obj: ExportComponentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComponentRequestFilterSensitiveLog = (obj: GetComponentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComponentsRequestFilterSensitiveLog = (obj: ListComponentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentSummaryFilterSensitiveLog = (obj: ComponentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComponentsResponseFilterSensitiveLog = (obj: ListComponentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExchangeCodeForTokenRequestBodyFilterSensitiveLog = (obj: ExchangeCodeForTokenRequestBody): any => ({
+  ...obj,
+  ...(obj.code && { code: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ExchangeCodeForTokenRequestFilterSensitiveLog = (obj: ExchangeCodeForTokenRequest): any => ({
+  ...obj,
+  ...(obj.request && { request: ExchangeCodeForTokenRequestBodyFilterSensitiveLog(obj.request) }),
+});
+
+/**
+ * @internal
+ */
+export const ExchangeCodeForTokenResponseFilterSensitiveLog = (obj: ExchangeCodeForTokenResponse): any => ({
+  ...obj,
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+  ...(obj.refreshToken && { refreshToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RefreshTokenRequestBodyFilterSensitiveLog = (obj: RefreshTokenRequestBody): any => ({
+  ...obj,
+  ...(obj.token && { token: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RefreshTokenRequestFilterSensitiveLog = (obj: RefreshTokenRequest): any => ({
+  ...obj,
+  ...(obj.refreshTokenBody && { refreshTokenBody: RefreshTokenRequestBodyFilterSensitiveLog(obj.refreshTokenBody) }),
+});
+
+/**
+ * @internal
+ */
+export const RefreshTokenResponseFilterSensitiveLog = (obj: RefreshTokenResponse): any => ({
+  ...obj,
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteThemeRequestFilterSensitiveLog = (obj: DeleteThemeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportThemesRequestFilterSensitiveLog = (obj: ExportThemesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetThemeRequestFilterSensitiveLog = (obj: GetThemeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListThemesRequestFilterSensitiveLog = (obj: ListThemesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThemeSummaryFilterSensitiveLog = (obj: ThemeSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListThemesResponseFilterSensitiveLog = (obj: ListThemesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThemeValueFilterSensitiveLog = (obj: ThemeValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThemeValuesFilterSensitiveLog = (obj: ThemeValues): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredicateFilterSensitiveLog = (obj: Predicate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentBindingPropertiesValuePropertiesFilterSensitiveLog = (
+  obj: ComponentBindingPropertiesValueProperties
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentDataConfigurationFilterSensitiveLog = (obj: ComponentDataConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentPropertyFilterSensitiveLog = (obj: ComponentProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentBindingPropertiesValueFilterSensitiveLog = (obj: ComponentBindingPropertiesValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateThemeDataFilterSensitiveLog = (obj: CreateThemeData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThemeFilterSensitiveLog = (obj: Theme): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateThemeDataFilterSensitiveLog = (obj: UpdateThemeData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MutationActionSetStateParameterFilterSensitiveLog = (obj: MutationActionSetStateParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentConditionPropertyFilterSensitiveLog = (obj: ComponentConditionProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateThemeRequestFilterSensitiveLog = (obj: CreateThemeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateThemeResponseFilterSensitiveLog = (obj: CreateThemeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetThemeResponseFilterSensitiveLog = (obj: GetThemeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateThemeRequestFilterSensitiveLog = (obj: UpdateThemeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateThemeResponseFilterSensitiveLog = (obj: UpdateThemeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportThemesResponseFilterSensitiveLog = (obj: ExportThemesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionParametersFilterSensitiveLog = (obj: ActionParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentEventFilterSensitiveLog = (obj: ComponentEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentChildFilterSensitiveLog = (obj: ComponentChild): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentFilterSensitiveLog = (obj: Component): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateComponentDataFilterSensitiveLog = (obj: CreateComponentData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateComponentDataFilterSensitiveLog = (obj: UpdateComponentData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateComponentRequestFilterSensitiveLog = (obj: CreateComponentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateComponentResponseFilterSensitiveLog = (obj: CreateComponentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComponentResponseFilterSensitiveLog = (obj: GetComponentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateComponentRequestFilterSensitiveLog = (obj: UpdateComponentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateComponentResponseFilterSensitiveLog = (obj: UpdateComponentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportComponentsResponseFilterSensitiveLog = (obj: ExportComponentsResponse): any => ({
+  ...obj,
+});

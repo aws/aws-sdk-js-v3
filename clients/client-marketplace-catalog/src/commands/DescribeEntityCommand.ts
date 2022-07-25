@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
-import { DescribeEntityRequest, DescribeEntityResponse } from "../models/models_0";
+import {
+  DescribeEntityRequest,
+  DescribeEntityRequestFilterSensitiveLog,
+  DescribeEntityResponse,
+  DescribeEntityResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeEntityCommand,
   serializeAws_restJson1DescribeEntityCommand,
@@ -76,8 +81,8 @@ export class DescribeEntityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEntityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEntityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEntityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEntityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

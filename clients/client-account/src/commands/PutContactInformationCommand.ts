@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
-import { PutContactInformationRequest } from "../models/models_0";
+import { PutContactInformationRequest, PutContactInformationRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1PutContactInformationCommand,
   serializeAws_restJson1PutContactInformationCommand,
@@ -74,7 +74,7 @@ export class PutContactInformationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutContactInformationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutContactInformationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

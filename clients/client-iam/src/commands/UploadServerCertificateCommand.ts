@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UploadServerCertificateRequest, UploadServerCertificateResponse } from "../models/models_1";
+import {
+  UploadServerCertificateRequest,
+  UploadServerCertificateRequestFilterSensitiveLog,
+  UploadServerCertificateResponse,
+  UploadServerCertificateResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryUploadServerCertificateCommand,
   serializeAws_queryUploadServerCertificateCommand,
@@ -95,8 +100,8 @@ export class UploadServerCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UploadServerCertificateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UploadServerCertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UploadServerCertificateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UploadServerCertificateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateInstanceRequest, CreateInstanceResult } from "../models/models_0";
+import {
+  CreateInstanceRequest,
+  CreateInstanceRequestFilterSensitiveLog,
+  CreateInstanceResult,
+  CreateInstanceResultFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1CreateInstanceCommand,
@@ -78,8 +83,8 @@ export class CreateInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInstanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateInstanceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateInstanceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

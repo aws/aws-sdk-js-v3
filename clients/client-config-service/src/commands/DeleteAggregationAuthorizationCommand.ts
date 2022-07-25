@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeleteAggregationAuthorizationRequest } from "../models/models_0";
+import {
+  DeleteAggregationAuthorizationRequest,
+  DeleteAggregationAuthorizationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAggregationAuthorizationCommand,
   serializeAws_json1_1DeleteAggregationAuthorizationCommand,
@@ -73,7 +76,7 @@ export class DeleteAggregationAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAggregationAuthorizationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAggregationAuthorizationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

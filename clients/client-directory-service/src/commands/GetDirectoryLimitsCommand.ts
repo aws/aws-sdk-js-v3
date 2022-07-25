@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { GetDirectoryLimitsRequest, GetDirectoryLimitsResult } from "../models/models_0";
+import {
+  GetDirectoryLimitsRequest,
+  GetDirectoryLimitsRequestFilterSensitiveLog,
+  GetDirectoryLimitsResult,
+  GetDirectoryLimitsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetDirectoryLimitsCommand,
   serializeAws_json1_1GetDirectoryLimitsCommand,
@@ -72,8 +77,8 @@ export class GetDirectoryLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDirectoryLimitsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDirectoryLimitsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDirectoryLimitsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDirectoryLimitsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

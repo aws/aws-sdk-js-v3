@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListTaskTemplatesRequest, ListTaskTemplatesResponse } from "../models/models_1";
+import {
+  ListTaskTemplatesRequest,
+  ListTaskTemplatesRequestFilterSensitiveLog,
+  ListTaskTemplatesResponse,
+  ListTaskTemplatesResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListTaskTemplatesCommand,
   serializeAws_restJson1ListTaskTemplatesCommand,
@@ -72,8 +77,8 @@ export class ListTaskTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTaskTemplatesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTaskTemplatesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTaskTemplatesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTaskTemplatesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

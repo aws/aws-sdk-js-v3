@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { DeleteTrackerRequest, DeleteTrackerResponse } from "../models/models_0";
+import {
+  DeleteTrackerRequest,
+  DeleteTrackerRequestFilterSensitiveLog,
+  DeleteTrackerResponse,
+  DeleteTrackerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteTrackerCommand,
   serializeAws_restJson1DeleteTrackerCommand,
@@ -77,8 +82,8 @@ export class DeleteTrackerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrackerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrackerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTrackerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTrackerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { RemoveFlowVpcInterfaceRequest, RemoveFlowVpcInterfaceResponse } from "../models/models_0";
+import {
+  RemoveFlowVpcInterfaceRequest,
+  RemoveFlowVpcInterfaceRequestFilterSensitiveLog,
+  RemoveFlowVpcInterfaceResponse,
+  RemoveFlowVpcInterfaceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveFlowVpcInterfaceCommand,
   serializeAws_restJson1RemoveFlowVpcInterfaceCommand,
@@ -72,8 +77,8 @@ export class RemoveFlowVpcInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveFlowVpcInterfaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RemoveFlowVpcInterfaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveFlowVpcInterfaceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RemoveFlowVpcInterfaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

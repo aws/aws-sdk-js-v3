@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { DeleteFacetRequest, DeleteFacetResponse } from "../models/models_0";
+import {
+  DeleteFacetRequest,
+  DeleteFacetRequestFilterSensitiveLog,
+  DeleteFacetResponse,
+  DeleteFacetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFacetCommand,
   serializeAws_restJson1DeleteFacetCommand,
@@ -74,8 +79,8 @@ export class DeleteFacetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFacetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFacetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFacetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFacetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

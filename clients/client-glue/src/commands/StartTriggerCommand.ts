@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StartTriggerRequest, StartTriggerResponse } from "../models/models_2";
+import {
+  StartTriggerRequest,
+  StartTriggerRequestFilterSensitiveLog,
+  StartTriggerResponse,
+  StartTriggerResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1StartTriggerCommand,
   serializeAws_json1_1StartTriggerCommand,
@@ -74,8 +79,8 @@ export class StartTriggerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartTriggerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartTriggerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartTriggerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartTriggerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

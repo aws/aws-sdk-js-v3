@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { AddTagsToCertificateRequest } from "../models/models_0";
+import { AddTagsToCertificateRequest, AddTagsToCertificateRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1AddTagsToCertificateCommand,
   serializeAws_json1_1AddTagsToCertificateCommand,
@@ -87,7 +87,7 @@ export class AddTagsToCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsToCertificateRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AddTagsToCertificateRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

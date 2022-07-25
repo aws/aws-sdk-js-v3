@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeEndpointAuthorizationMessage, EndpointAuthorizationList } from "../models/models_0";
+import {
+  DescribeEndpointAuthorizationMessage,
+  DescribeEndpointAuthorizationMessageFilterSensitiveLog,
+  EndpointAuthorizationList,
+  EndpointAuthorizationListFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeEndpointAuthorizationCommand,
   serializeAws_queryDescribeEndpointAuthorizationCommand,
@@ -72,8 +77,8 @@ export class DescribeEndpointAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEndpointAuthorizationMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: EndpointAuthorizationList.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEndpointAuthorizationMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: EndpointAuthorizationListFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

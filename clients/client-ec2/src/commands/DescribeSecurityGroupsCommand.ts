@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeSecurityGroupsRequest, DescribeSecurityGroupsResult } from "../models/models_4";
+import {
+  DescribeSecurityGroupsRequest,
+  DescribeSecurityGroupsRequestFilterSensitiveLog,
+  DescribeSecurityGroupsResult,
+  DescribeSecurityGroupsResultFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeSecurityGroupsCommand,
   serializeAws_ec2DescribeSecurityGroupsCommand,
@@ -78,8 +83,8 @@ export class DescribeSecurityGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSecurityGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSecurityGroupsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSecurityGroupsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSecurityGroupsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,9 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import {
   ExportLambdaFunctionRecommendationsRequest,
+  ExportLambdaFunctionRecommendationsRequestFilterSensitiveLog,
   ExportLambdaFunctionRecommendationsResponse,
+  ExportLambdaFunctionRecommendationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0ExportLambdaFunctionRecommendationsCommand,
@@ -82,8 +84,8 @@ export class ExportLambdaFunctionRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportLambdaFunctionRecommendationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ExportLambdaFunctionRecommendationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ExportLambdaFunctionRecommendationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ExportLambdaFunctionRecommendationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

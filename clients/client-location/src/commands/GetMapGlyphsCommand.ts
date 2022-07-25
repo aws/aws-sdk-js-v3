@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { GetMapGlyphsRequest, GetMapGlyphsResponse } from "../models/models_0";
+import {
+  GetMapGlyphsRequest,
+  GetMapGlyphsRequestFilterSensitiveLog,
+  GetMapGlyphsResponse,
+  GetMapGlyphsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetMapGlyphsCommand,
   serializeAws_restJson1GetMapGlyphsCommand,
@@ -72,8 +77,8 @@ export class GetMapGlyphsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMapGlyphsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMapGlyphsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMapGlyphsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMapGlyphsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

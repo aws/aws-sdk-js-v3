@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HttpResponseCodeOutput } from "../models/models_0";
+import { HttpResponseCodeOutput, HttpResponseCodeOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlHttpResponseCodeCommand,
   serializeAws_restXmlHttpResponseCodeCommand,
@@ -56,7 +56,7 @@ export class HttpResponseCodeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: HttpResponseCodeOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: HttpResponseCodeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

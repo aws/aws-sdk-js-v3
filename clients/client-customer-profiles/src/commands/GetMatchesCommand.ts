@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { GetMatchesRequest, GetMatchesResponse } from "../models/models_0";
+import {
+  GetMatchesRequest,
+  GetMatchesRequestFilterSensitiveLog,
+  GetMatchesResponse,
+  GetMatchesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetMatchesCommand,
   serializeAws_restJson1GetMatchesCommand,
@@ -117,8 +122,8 @@ export class GetMatchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMatchesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMatchesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMatchesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMatchesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeletePortfolioShareInput, DeletePortfolioShareOutput } from "../models/models_0";
+import {
+  DeletePortfolioShareInput,
+  DeletePortfolioShareInputFilterSensitiveLog,
+  DeletePortfolioShareOutput,
+  DeletePortfolioShareOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePortfolioShareCommand,
   serializeAws_json1_1DeletePortfolioShareCommand,
@@ -75,8 +80,8 @@ export class DeletePortfolioShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePortfolioShareInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePortfolioShareOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePortfolioShareInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePortfolioShareOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

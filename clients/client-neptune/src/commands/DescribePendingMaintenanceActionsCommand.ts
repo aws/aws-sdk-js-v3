@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribePendingMaintenanceActionsMessage, PendingMaintenanceActionsMessage } from "../models/models_0";
+import {
+  DescribePendingMaintenanceActionsMessage,
+  DescribePendingMaintenanceActionsMessageFilterSensitiveLog,
+  PendingMaintenanceActionsMessage,
+  PendingMaintenanceActionsMessageFilterSensitiveLog,
+} from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryDescribePendingMaintenanceActionsCommand,
@@ -75,8 +80,8 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePendingMaintenanceActionsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: PendingMaintenanceActionsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePendingMaintenanceActionsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: PendingMaintenanceActionsMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

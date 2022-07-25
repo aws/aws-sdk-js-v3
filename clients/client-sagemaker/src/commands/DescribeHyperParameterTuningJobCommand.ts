@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeHyperParameterTuningJobRequest, DescribeHyperParameterTuningJobResponse } from "../models/models_2";
+import {
+  DescribeHyperParameterTuningJobRequest,
+  DescribeHyperParameterTuningJobRequestFilterSensitiveLog,
+  DescribeHyperParameterTuningJobResponse,
+  DescribeHyperParameterTuningJobResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeHyperParameterTuningJobCommand,
   serializeAws_json1_1DescribeHyperParameterTuningJobCommand,
@@ -75,8 +80,8 @@ export class DescribeHyperParameterTuningJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHyperParameterTuningJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeHyperParameterTuningJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeHyperParameterTuningJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeHyperParameterTuningJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

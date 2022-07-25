@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeReceiptRuleRequest, DescribeReceiptRuleResponse } from "../models/models_0";
+import {
+  DescribeReceiptRuleRequest,
+  DescribeReceiptRuleRequestFilterSensitiveLog,
+  DescribeReceiptRuleResponse,
+  DescribeReceiptRuleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeReceiptRuleCommand,
   serializeAws_queryDescribeReceiptRuleCommand,
@@ -75,8 +80,8 @@ export class DescribeReceiptRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReceiptRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReceiptRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeReceiptRuleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReceiptRuleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

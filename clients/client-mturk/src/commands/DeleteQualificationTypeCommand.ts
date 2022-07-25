@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteQualificationTypeRequest, DeleteQualificationTypeResponse } from "../models/models_0";
+import {
+  DeleteQualificationTypeRequest,
+  DeleteQualificationTypeRequestFilterSensitiveLog,
+  DeleteQualificationTypeResponse,
+  DeleteQualificationTypeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1DeleteQualificationTypeCommand,
@@ -90,8 +95,8 @@ export class DeleteQualificationTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQualificationTypeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteQualificationTypeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteQualificationTypeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteQualificationTypeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

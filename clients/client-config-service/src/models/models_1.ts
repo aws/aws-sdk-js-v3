@@ -47,29 +47,11 @@ export interface PutOrganizationConfigRuleRequest {
   OrganizationCustomPolicyRuleMetadata?: OrganizationCustomPolicyRuleMetadata;
 }
 
-export namespace PutOrganizationConfigRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutOrganizationConfigRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutOrganizationConfigRuleResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of an organization Config rule.</p>
    */
   OrganizationConfigRuleArn?: string;
-}
-
-export namespace PutOrganizationConfigRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutOrganizationConfigRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutOrganizationConformancePackRequest {
@@ -120,29 +102,11 @@ export interface PutOrganizationConformancePackRequest {
   ExcludedAccounts?: string[];
 }
 
-export namespace PutOrganizationConformancePackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutOrganizationConformancePackRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutOrganizationConformancePackResponse {
   /**
    * <p>ARN of the organization conformance pack.</p>
    */
   OrganizationConformancePackArn?: string;
-}
-
-export namespace PutOrganizationConformancePackResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutOrganizationConformancePackResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutRemediationConfigurationsRequest {
@@ -152,29 +116,11 @@ export interface PutRemediationConfigurationsRequest {
   RemediationConfigurations: RemediationConfiguration[] | undefined;
 }
 
-export namespace PutRemediationConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRemediationConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutRemediationConfigurationsResponse {
   /**
    * <p>Returns a list of failed remediation batch objects.</p>
    */
   FailedBatches?: FailedRemediationBatch[];
-}
-
-export namespace PutRemediationConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRemediationConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutRemediationExceptionsRequest {
@@ -199,29 +145,11 @@ export interface PutRemediationExceptionsRequest {
   ExpirationTime?: Date;
 }
 
-export namespace PutRemediationExceptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRemediationExceptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutRemediationExceptionsResponse {
   /**
    * <p>Returns a list of failed remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
    */
   FailedBatches?: FailedRemediationExceptionBatch[];
-}
-
-export namespace PutRemediationExceptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRemediationExceptionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutResourceConfigRequest {
@@ -266,15 +194,6 @@ export interface PutResourceConfigRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace PutResourceConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourceConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutRetentionConfigurationRequest {
   /**
    * <p>Number of days Config stores your historical
@@ -287,29 +206,11 @@ export interface PutRetentionConfigurationRequest {
   RetentionPeriodInDays: number | undefined;
 }
 
-export namespace PutRetentionConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRetentionConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutRetentionConfigurationResponse {
   /**
    * <p>Returns a retention configuration object.</p>
    */
   RetentionConfiguration?: RetentionConfiguration;
-}
-
-export namespace PutRetentionConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRetentionConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutStoredQueryRequest {
@@ -329,30 +230,12 @@ export interface PutStoredQueryRequest {
   Tags?: Tag[];
 }
 
-export namespace PutStoredQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutStoredQueryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutStoredQueryResponse {
   /**
    * <p>Amazon Resource Name (ARN) of the query.
    * 			For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.</p>
    */
   QueryArn?: string;
-}
-
-export namespace PutStoredQueryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutStoredQueryResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -403,15 +286,6 @@ export interface QueryInfo {
   SelectFields?: FieldInfo[];
 }
 
-export namespace QueryInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface SelectAggregateResourceConfigRequest {
   /**
    * <p>The SQL query SELECT command. </p>
@@ -439,15 +313,6 @@ export interface SelectAggregateResourceConfigRequest {
   NextToken?: string;
 }
 
-export namespace SelectAggregateResourceConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelectAggregateResourceConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SelectAggregateResourceConfigResponse {
   /**
    * <p>Returns the results for the SQL query.</p>
@@ -463,15 +328,6 @@ export interface SelectAggregateResourceConfigResponse {
    * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-}
-
-export namespace SelectAggregateResourceConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelectAggregateResourceConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SelectResourceConfigRequest {
@@ -491,15 +347,6 @@ export interface SelectResourceConfigRequest {
   NextToken?: string;
 }
 
-export namespace SelectResourceConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelectResourceConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SelectResourceConfigResponse {
   /**
    * <p>Returns the results for the SQL query.</p>
@@ -517,15 +364,6 @@ export interface SelectResourceConfigResponse {
   NextToken?: string;
 }
 
-export namespace SelectResourceConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelectResourceConfigResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -537,28 +375,10 @@ export interface StartConfigRulesEvaluationRequest {
   ConfigRuleNames?: string[];
 }
 
-export namespace StartConfigRulesEvaluationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartConfigRulesEvaluationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output when you start the evaluation for the specified Config rule.</p>
  */
 export interface StartConfigRulesEvaluationResponse {}
-
-export namespace StartConfigRulesEvaluationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartConfigRulesEvaluationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The input for the <a>StartConfigurationRecorder</a>
@@ -570,15 +390,6 @@ export interface StartConfigurationRecorderRequest {
    * 			change made to the resources.</p>
    */
   ConfigurationRecorderName: string | undefined;
-}
-
-export namespace StartConfigurationRecorderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartConfigurationRecorderRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StartRemediationExecutionRequest {
@@ -593,15 +404,6 @@ export interface StartRemediationExecutionRequest {
   ResourceKeys: ResourceKey[] | undefined;
 }
 
-export namespace StartRemediationExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartRemediationExecutionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartRemediationExecutionResponse {
   /**
    * <p>Returns a failure message. For example, the resource is already compliant.</p>
@@ -614,15 +416,6 @@ export interface StartRemediationExecutionResponse {
   FailedItems?: ResourceKey[];
 }
 
-export namespace StartRemediationExecutionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartRemediationExecutionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the <a>StopConfigurationRecorder</a> action.</p>
  */
@@ -631,15 +424,6 @@ export interface StopConfigurationRecorderRequest {
    * <p>The name of the recorder object that records each configuration change made to the resources.</p>
    */
   ConfigurationRecorderName: string | undefined;
-}
-
-export namespace StopConfigurationRecorderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopConfigurationRecorderRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -654,15 +438,6 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are <code>ConfigRule</code>, <code>ConfigurationAggregator</code> and <code>AggregatorAuthorization</code>.</p>
@@ -675,11 +450,196 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const PutOrganizationConfigRuleRequestFilterSensitiveLog = (obj: PutOrganizationConfigRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutOrganizationConfigRuleResponseFilterSensitiveLog = (obj: PutOrganizationConfigRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutOrganizationConformancePackRequestFilterSensitiveLog = (
+  obj: PutOrganizationConformancePackRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutOrganizationConformancePackResponseFilterSensitiveLog = (
+  obj: PutOrganizationConformancePackResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRemediationConfigurationsRequestFilterSensitiveLog = (
+  obj: PutRemediationConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRemediationConfigurationsResponseFilterSensitiveLog = (
+  obj: PutRemediationConfigurationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRemediationExceptionsRequestFilterSensitiveLog = (obj: PutRemediationExceptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRemediationExceptionsResponseFilterSensitiveLog = (obj: PutRemediationExceptionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourceConfigRequestFilterSensitiveLog = (obj: PutResourceConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRetentionConfigurationRequestFilterSensitiveLog = (obj: PutRetentionConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRetentionConfigurationResponseFilterSensitiveLog = (obj: PutRetentionConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutStoredQueryRequestFilterSensitiveLog = (obj: PutStoredQueryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutStoredQueryResponseFilterSensitiveLog = (obj: PutStoredQueryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryInfoFilterSensitiveLog = (obj: QueryInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelectAggregateResourceConfigRequestFilterSensitiveLog = (
+  obj: SelectAggregateResourceConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelectAggregateResourceConfigResponseFilterSensitiveLog = (
+  obj: SelectAggregateResourceConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelectResourceConfigRequestFilterSensitiveLog = (obj: SelectResourceConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelectResourceConfigResponseFilterSensitiveLog = (obj: SelectResourceConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartConfigRulesEvaluationRequestFilterSensitiveLog = (obj: StartConfigRulesEvaluationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartConfigRulesEvaluationResponseFilterSensitiveLog = (obj: StartConfigRulesEvaluationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartConfigurationRecorderRequestFilterSensitiveLog = (obj: StartConfigurationRecorderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartRemediationExecutionRequestFilterSensitiveLog = (obj: StartRemediationExecutionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartRemediationExecutionResponseFilterSensitiveLog = (obj: StartRemediationExecutionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopConfigurationRecorderRequestFilterSensitiveLog = (obj: StopConfigurationRecorderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});

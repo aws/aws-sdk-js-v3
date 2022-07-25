@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeInstanceEventNotificationAttributesRequest,
+  DescribeInstanceEventNotificationAttributesRequestFilterSensitiveLog,
   DescribeInstanceEventNotificationAttributesResult,
+  DescribeInstanceEventNotificationAttributesResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeInstanceEventNotificationAttributesCommand,
@@ -82,8 +84,8 @@ export class DescribeInstanceEventNotificationAttributesCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceEventNotificationAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceEventNotificationAttributesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInstanceEventNotificationAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInstanceEventNotificationAttributesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

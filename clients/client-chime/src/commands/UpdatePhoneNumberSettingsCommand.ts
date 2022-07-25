@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { UpdatePhoneNumberSettingsRequest } from "../models/models_1";
+import {
+  UpdatePhoneNumberSettingsRequest,
+  UpdatePhoneNumberSettingsRequestFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdatePhoneNumberSettingsCommand,
   serializeAws_restJson1UpdatePhoneNumberSettingsCommand,
@@ -74,7 +77,7 @@ export class UpdatePhoneNumberSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePhoneNumberSettingsRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePhoneNumberSettingsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

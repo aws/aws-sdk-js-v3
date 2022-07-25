@@ -51,15 +51,6 @@ export interface AppIntegrationsConfiguration {
   objectFields: string[] | undefined;
 }
 
-export namespace AppIntegrationsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppIntegrationsConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request could not be processed because of conflict in the current state of the
  *       resource. For example, if you're using a <code>Create</code> API (such as
@@ -112,14 +103,6 @@ export namespace AssistantAssociationInputData {
     if (value.knowledgeBaseId !== undefined) return visitor.knowledgeBaseId(value.knowledgeBaseId);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssistantAssociationInputData): any => {
-    if (obj.knowledgeBaseId !== undefined) return { knowledgeBaseId: obj.knowledgeBaseId };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export enum AssociationType {
@@ -154,16 +137,6 @@ export interface CreateAssistantAssociationRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateAssistantAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssistantAssociationRequest): any => ({
-    ...obj,
-    ...(obj.association && { association: AssistantAssociationInputData.filterSensitiveLog(obj.association) }),
-  });
-}
-
 /**
  * <p>Association information about the knowledge base.</p>
  */
@@ -177,15 +150,6 @@ export interface KnowledgeBaseAssociationData {
    * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
    */
   knowledgeBaseArn?: string;
-}
-
-export namespace KnowledgeBaseAssociationData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KnowledgeBaseAssociationData): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -218,17 +182,6 @@ export namespace AssistantAssociationOutputData {
     if (value.knowledgeBaseAssociation !== undefined)
       return visitor.knowledgeBaseAssociation(value.knowledgeBaseAssociation);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssistantAssociationOutputData): any => {
-    if (obj.knowledgeBaseAssociation !== undefined)
-      return {
-        knowledgeBaseAssociation: KnowledgeBaseAssociationData.filterSensitiveLog(obj.knowledgeBaseAssociation),
-      };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -272,35 +225,11 @@ export interface AssistantAssociationData {
   tags?: Record<string, string>;
 }
 
-export namespace AssistantAssociationData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssistantAssociationData): any => ({
-    ...obj,
-    ...(obj.associationData && {
-      associationData: AssistantAssociationOutputData.filterSensitiveLog(obj.associationData),
-    }),
-  });
-}
-
 export interface CreateAssistantAssociationResponse {
   /**
    * <p>The assistant association.</p>
    */
   assistantAssociation?: AssistantAssociationData;
-}
-
-export namespace CreateAssistantAssociationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssistantAssociationResponse): any => ({
-    ...obj,
-    ...(obj.assistantAssociation && {
-      assistantAssociation: AssistantAssociationData.filterSensitiveLog(obj.assistantAssociation),
-    }),
-  });
 }
 
 /**
@@ -379,25 +308,7 @@ export interface DeleteAssistantAssociationRequest {
   assistantId: string | undefined;
 }
 
-export namespace DeleteAssistantAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssistantAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAssistantAssociationResponse {}
-
-export namespace DeleteAssistantAssociationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssistantAssociationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetAssistantAssociationRequest {
   /**
@@ -411,32 +322,11 @@ export interface GetAssistantAssociationRequest {
   assistantId: string | undefined;
 }
 
-export namespace GetAssistantAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssistantAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAssistantAssociationResponse {
   /**
    * <p>The assistant association.</p>
    */
   assistantAssociation?: AssistantAssociationData;
-}
-
-export namespace GetAssistantAssociationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssistantAssociationResponse): any => ({
-    ...obj,
-    ...(obj.assistantAssociation && {
-      assistantAssociation: AssistantAssociationData.filterSensitiveLog(obj.assistantAssociation),
-    }),
-  });
 }
 
 export interface ListAssistantAssociationsRequest {
@@ -455,15 +345,6 @@ export interface ListAssistantAssociationsRequest {
    * <p>The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    */
   assistantId: string | undefined;
-}
-
-export namespace ListAssistantAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssistantAssociationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -506,18 +387,6 @@ export interface AssistantAssociationSummary {
   tags?: Record<string, string>;
 }
 
-export namespace AssistantAssociationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssistantAssociationSummary): any => ({
-    ...obj,
-    ...(obj.associationData && {
-      associationData: AssistantAssociationOutputData.filterSensitiveLog(obj.associationData),
-    }),
-  });
-}
-
 export interface ListAssistantAssociationsResponse {
   /**
    * <p>Summary information about assistant associations.</p>
@@ -530,20 +399,6 @@ export interface ListAssistantAssociationsResponse {
   nextToken?: string;
 }
 
-export namespace ListAssistantAssociationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssistantAssociationsResponse): any => ({
-    ...obj,
-    ...(obj.assistantAssociationSummaries && {
-      assistantAssociationSummaries: obj.assistantAssociationSummaries.map((item) =>
-        AssistantAssociationSummary.filterSensitiveLog(item)
-      ),
-    }),
-  });
-}
-
 /**
  * <p>The KMS key used for encryption.</p>
  */
@@ -552,15 +407,6 @@ export interface ServerSideEncryptionConfiguration {
    * <p>The KMS key. For information about valid ID values, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key identifiers (KeyId)</a>.</p>
    */
   kmsKeyId?: string;
-}
-
-export namespace ServerSideEncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerSideEncryptionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum AssistantType {
@@ -598,15 +444,6 @@ export interface CreateAssistantRequest {
    * <p>The KMS key used for encryption.</p>
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
-}
-
-export namespace CreateAssistantRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssistantRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum AssistantStatus {
@@ -663,29 +500,11 @@ export interface AssistantData {
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 }
 
-export namespace AssistantData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssistantData): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAssistantResponse {
   /**
    * <p>Information about the assistant.</p>
    */
   assistant?: AssistantData;
-}
-
-export namespace CreateAssistantResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssistantResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAssistantRequest {
@@ -695,25 +514,7 @@ export interface DeleteAssistantRequest {
   assistantId: string | undefined;
 }
 
-export namespace DeleteAssistantRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssistantRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAssistantResponse {}
-
-export namespace DeleteAssistantResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssistantResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetAssistantRequest {
   /**
@@ -722,29 +523,11 @@ export interface GetAssistantRequest {
   assistantId: string | undefined;
 }
 
-export namespace GetAssistantRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssistantRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAssistantResponse {
   /**
    * <p>Information about the assistant.</p>
    */
   assistant?: AssistantData;
-}
-
-export namespace GetAssistantResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssistantResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRecommendationsRequest {
@@ -772,15 +555,6 @@ export interface GetRecommendationsRequest {
   waitTimeSeconds?: number;
 }
 
-export namespace GetRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommendationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Reference information about the content.</p>
  */
@@ -806,15 +580,6 @@ export interface ContentReference {
   contentId?: string;
 }
 
-export namespace ContentReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContentReference): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Offset specification to describe highlighting of document excerpts for rendering search
  *       results and recommendations.</p>
@@ -831,15 +596,6 @@ export interface Highlight {
   endOffsetExclusive?: number;
 }
 
-export namespace Highlight {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Highlight): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The text of the document.</p>
  */
@@ -853,16 +609,6 @@ export interface DocumentText {
    * <p>Highlights in the document text.</p>
    */
   highlights?: Highlight[];
-}
-
-export namespace DocumentText {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentText): any => ({
-    ...obj,
-    ...(obj.text && { text: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -883,17 +629,6 @@ export interface Document {
    * <p>The excerpt from the document.</p>
    */
   excerpt?: DocumentText;
-}
-
-export namespace Document {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Document): any => ({
-    ...obj,
-    ...(obj.title && { title: DocumentText.filterSensitiveLog(obj.title) }),
-    ...(obj.excerpt && { excerpt: DocumentText.filterSensitiveLog(obj.excerpt) }),
-  });
 }
 
 export enum RelevanceLevel {
@@ -936,16 +671,6 @@ export interface RecommendationData {
   type?: RecommendationType | string;
 }
 
-export namespace RecommendationData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationData): any => ({
-    ...obj,
-    ...(obj.document && { document: Document.filterSensitiveLog(obj.document) }),
-  });
-}
-
 /**
  * <p>Data associated with the QUERY RecommendationTriggerType.</p>
  */
@@ -954,16 +679,6 @@ export interface QueryRecommendationTriggerData {
    * <p>The text associated with the recommendation trigger.</p>
    */
   text?: string;
-}
-
-export namespace QueryRecommendationTriggerData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryRecommendationTriggerData): any => ({
-    ...obj,
-    ...(obj.text && { text: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -995,14 +710,6 @@ export namespace RecommendationTriggerData {
   export const visit = <T>(value: RecommendationTriggerData, visitor: Visitor<T>): T => {
     if (value.query !== undefined) return visitor.query(value.query);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationTriggerData): any => {
-    if (obj.query !== undefined) return { query: QueryRecommendationTriggerData.filterSensitiveLog(obj.query) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -1057,16 +764,6 @@ export interface RecommendationTrigger {
   recommendationIds: string[] | undefined;
 }
 
-export namespace RecommendationTrigger {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationTrigger): any => ({
-    ...obj,
-    ...(obj.data && { data: RecommendationTriggerData.filterSensitiveLog(obj.data) }),
-  });
-}
-
 export interface GetRecommendationsResponse {
   /**
    * <p>The recommendations.</p>
@@ -1077,19 +774,6 @@ export interface GetRecommendationsResponse {
    * <p>The triggers corresponding to recommendations.</p>
    */
   triggers?: RecommendationTrigger[];
-}
-
-export namespace GetRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
-    ...obj,
-    ...(obj.recommendations && {
-      recommendations: obj.recommendations.map((item) => RecommendationData.filterSensitiveLog(item)),
-    }),
-    ...(obj.triggers && { triggers: obj.triggers.map((item) => RecommendationTrigger.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface ListAssistantsRequest {
@@ -1103,15 +787,6 @@ export interface ListAssistantsRequest {
    * <p>The maximum number of results to return per page.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListAssistantsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssistantsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1159,15 +834,6 @@ export interface AssistantSummary {
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 }
 
-export namespace AssistantSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssistantSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssistantsResponse {
   /**
    * <p>Information about the assistants.</p>
@@ -1178,15 +844,6 @@ export interface ListAssistantsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAssistantsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssistantsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface NotifyRecommendationsReceivedRequest {
@@ -1206,15 +863,6 @@ export interface NotifyRecommendationsReceivedRequest {
   recommendationIds: string[] | undefined;
 }
 
-export namespace NotifyRecommendationsReceivedRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyRecommendationsReceivedRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An error occurred when creating a recommendation.</p>
  */
@@ -1230,15 +878,6 @@ export interface NotifyRecommendationsReceivedError {
   message?: string;
 }
 
-export namespace NotifyRecommendationsReceivedError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyRecommendationsReceivedError): any => ({
-    ...obj,
-  });
-}
-
 export interface NotifyRecommendationsReceivedResponse {
   /**
    * <p>The identifiers of the recommendations.</p>
@@ -1249,15 +888,6 @@ export interface NotifyRecommendationsReceivedResponse {
    * <p>The identifiers of recommendations that are causing errors.</p>
    */
   errors?: NotifyRecommendationsReceivedError[];
-}
-
-export namespace NotifyRecommendationsReceivedResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyRecommendationsReceivedResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface QueryAssistantRequest {
@@ -1283,16 +913,6 @@ export interface QueryAssistantRequest {
   maxResults?: number;
 }
 
-export namespace QueryAssistantRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryAssistantRequest): any => ({
-    ...obj,
-    ...(obj.queryText && { queryText: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Information about the result.</p>
  */
@@ -1313,16 +933,6 @@ export interface ResultData {
   relevanceScore?: number;
 }
 
-export namespace ResultData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResultData): any => ({
-    ...obj,
-    ...(obj.document && { document: Document.filterSensitiveLog(obj.document) }),
-  });
-}
-
 export interface QueryAssistantResponse {
   /**
    * <p>The results of the query.</p>
@@ -1333,16 +943,6 @@ export interface QueryAssistantResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace QueryAssistantResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryAssistantResponse): any => ({
-    ...obj,
-    ...(obj.results && { results: obj.results.map((item) => ResultData.filterSensitiveLog(item)) }),
-  });
 }
 
 export enum FilterField {
@@ -1373,15 +973,6 @@ export interface Filter {
   value: string | undefined;
 }
 
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The search expression.</p>
  */
@@ -1390,15 +981,6 @@ export interface SearchExpression {
    * <p>The search expression filters.</p>
    */
   filters: Filter[] | undefined;
-}
-
-export namespace SearchExpression {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchExpression): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchSessionsRequest {
@@ -1422,15 +1004,6 @@ export interface SearchSessionsRequest {
    * <p>The search expression to filter results.</p>
    */
   searchExpression: SearchExpression | undefined;
-}
-
-export namespace SearchSessionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchSessionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1458,15 +1031,6 @@ export interface SessionSummary {
   assistantArn: string | undefined;
 }
 
-export namespace SessionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SessionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchSessionsResponse {
   /**
    * <p>Summary information about the sessions.</p>
@@ -1477,15 +1041,6 @@ export interface SearchSessionsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace SearchSessionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchSessionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSessionRequest {
@@ -1514,15 +1069,6 @@ export interface CreateSessionRequest {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSessionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1555,29 +1101,11 @@ export interface SessionData {
   tags?: Record<string, string>;
 }
 
-export namespace SessionData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SessionData): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSessionResponse {
   /**
    * <p>The session.</p>
    */
   session?: SessionData;
-}
-
-export namespace CreateSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSessionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSessionRequest {
@@ -1592,29 +1120,11 @@ export interface GetSessionRequest {
   sessionId: string | undefined;
 }
 
-export namespace GetSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSessionResponse {
   /**
    * <p>The session.</p>
    */
   session?: SessionData;
-}
-
-export namespace GetSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSessionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateContentRequest {
@@ -1662,15 +1172,6 @@ export interface CreateContentRequest {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateContentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContentRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ContentStatus {
@@ -1759,31 +1260,11 @@ export interface ContentData {
   urlExpiry: Date | undefined;
 }
 
-export namespace ContentData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContentData): any => ({
-    ...obj,
-    ...(obj.url && { url: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateContentResponse {
   /**
    * <p>The content.</p>
    */
   content?: ContentData;
-}
-
-export namespace CreateContentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContentResponse): any => ({
-    ...obj,
-    ...(obj.content && { content: ContentData.filterSensitiveLog(obj.content) }),
-  });
 }
 
 export interface DeleteContentRequest {
@@ -1798,25 +1279,7 @@ export interface DeleteContentRequest {
   contentId: string | undefined;
 }
 
-export namespace DeleteContentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteContentResponse {}
-
-export namespace DeleteContentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContentResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetContentRequest {
   /**
@@ -1830,30 +1293,11 @@ export interface GetContentRequest {
   knowledgeBaseId: string | undefined;
 }
 
-export namespace GetContentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContentResponse {
   /**
    * <p>The content.</p>
    */
   content?: ContentData;
-}
-
-export namespace GetContentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContentResponse): any => ({
-    ...obj,
-    ...(obj.content && { content: ContentData.filterSensitiveLog(obj.content) }),
-  });
 }
 
 export interface GetContentSummaryRequest {
@@ -1866,15 +1310,6 @@ export interface GetContentSummaryRequest {
    * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    */
   knowledgeBaseId: string | undefined;
-}
-
-export namespace GetContentSummaryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContentSummaryRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1938,29 +1373,11 @@ export interface ContentSummary {
   tags?: Record<string, string>;
 }
 
-export namespace ContentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContentSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContentSummaryResponse {
   /**
    * <p>The content summary.</p>
    */
   contentSummary?: ContentSummary;
-}
-
-export namespace GetContentSummaryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContentSummaryResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListContentsRequest {
@@ -1981,15 +1398,6 @@ export interface ListContentsRequest {
   knowledgeBaseId: string | undefined;
 }
 
-export namespace ListContentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListContentsResponse {
   /**
    * <p>Information about the content.</p>
@@ -2000,15 +1408,6 @@ export interface ListContentsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListContentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContentsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2082,30 +1481,11 @@ export interface UpdateContentRequest {
   uploadId?: string;
 }
 
-export namespace UpdateContentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateContentResponse {
   /**
    * <p>The content.</p>
    */
   content?: ContentData;
-}
-
-export namespace UpdateContentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContentResponse): any => ({
-    ...obj,
-    ...(obj.content && { content: ContentData.filterSensitiveLog(obj.content) }),
-  });
 }
 
 export enum KnowledgeBaseType {
@@ -2139,15 +1519,6 @@ export interface RenderingConfiguration {
   templateUri?: string;
 }
 
-export namespace RenderingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RenderingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration information about the external data source.</p>
  */
@@ -2175,15 +1546,6 @@ export namespace SourceConfiguration {
   export const visit = <T>(value: SourceConfiguration, visitor: Visitor<T>): T => {
     if (value.appIntegrations !== undefined) return visitor.appIntegrations(value.appIntegrations);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceConfiguration): any => {
-    if (obj.appIntegrations !== undefined)
-      return { appIntegrations: AppIntegrationsConfiguration.filterSensitiveLog(obj.appIntegrations) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -2231,18 +1593,6 @@ export interface CreateKnowledgeBaseRequest {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateKnowledgeBaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateKnowledgeBaseRequest): any => ({
-    ...obj,
-    ...(obj.sourceConfiguration && {
-      sourceConfiguration: SourceConfiguration.filterSensitiveLog(obj.sourceConfiguration),
-    }),
-  });
 }
 
 export enum KnowledgeBaseStatus {
@@ -2315,33 +1665,11 @@ export interface KnowledgeBaseData {
   tags?: Record<string, string>;
 }
 
-export namespace KnowledgeBaseData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KnowledgeBaseData): any => ({
-    ...obj,
-    ...(obj.sourceConfiguration && {
-      sourceConfiguration: SourceConfiguration.filterSensitiveLog(obj.sourceConfiguration),
-    }),
-  });
-}
-
 export interface CreateKnowledgeBaseResponse {
   /**
    * <p>The knowledge base.</p>
    */
   knowledgeBase?: KnowledgeBaseData;
-}
-
-export namespace CreateKnowledgeBaseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateKnowledgeBaseResponse): any => ({
-    ...obj,
-    ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseData.filterSensitiveLog(obj.knowledgeBase) }),
-  });
 }
 
 export interface DeleteKnowledgeBaseRequest {
@@ -2351,25 +1679,7 @@ export interface DeleteKnowledgeBaseRequest {
   knowledgeBaseId: string | undefined;
 }
 
-export namespace DeleteKnowledgeBaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteKnowledgeBaseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteKnowledgeBaseResponse {}
-
-export namespace DeleteKnowledgeBaseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteKnowledgeBaseResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetKnowledgeBaseRequest {
   /**
@@ -2378,30 +1688,11 @@ export interface GetKnowledgeBaseRequest {
   knowledgeBaseId: string | undefined;
 }
 
-export namespace GetKnowledgeBaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetKnowledgeBaseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetKnowledgeBaseResponse {
   /**
    * <p>The knowledge base.</p>
    */
   knowledgeBase?: KnowledgeBaseData;
-}
-
-export namespace GetKnowledgeBaseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetKnowledgeBaseResponse): any => ({
-    ...obj,
-    ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseData.filterSensitiveLog(obj.knowledgeBase) }),
-  });
 }
 
 export interface ListKnowledgeBasesRequest {
@@ -2415,15 +1706,6 @@ export interface ListKnowledgeBasesRequest {
    * <p>The maximum number of results to return per page.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListKnowledgeBasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListKnowledgeBasesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2481,18 +1763,6 @@ export interface KnowledgeBaseSummary {
   tags?: Record<string, string>;
 }
 
-export namespace KnowledgeBaseSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KnowledgeBaseSummary): any => ({
-    ...obj,
-    ...(obj.sourceConfiguration && {
-      sourceConfiguration: SourceConfiguration.filterSensitiveLog(obj.sourceConfiguration),
-    }),
-  });
-}
-
 export interface ListKnowledgeBasesResponse {
   /**
    * <p>Information about the knowledge bases.</p>
@@ -2505,18 +1775,6 @@ export interface ListKnowledgeBasesResponse {
   nextToken?: string;
 }
 
-export namespace ListKnowledgeBasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListKnowledgeBasesResponse): any => ({
-    ...obj,
-    ...(obj.knowledgeBaseSummaries && {
-      knowledgeBaseSummaries: obj.knowledgeBaseSummaries.map((item) => KnowledgeBaseSummary.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface RemoveKnowledgeBaseTemplateUriRequest {
   /**
    * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -2524,25 +1782,7 @@ export interface RemoveKnowledgeBaseTemplateUriRequest {
   knowledgeBaseId: string | undefined;
 }
 
-export namespace RemoveKnowledgeBaseTemplateUriRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveKnowledgeBaseTemplateUriRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveKnowledgeBaseTemplateUriResponse {}
-
-export namespace RemoveKnowledgeBaseTemplateUriResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveKnowledgeBaseTemplateUriResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface SearchContentRequest {
   /**
@@ -2567,15 +1807,6 @@ export interface SearchContentRequest {
   searchExpression: SearchExpression | undefined;
 }
 
-export namespace SearchContentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchContentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchContentResponse {
   /**
    * <p>Summary information about the content.</p>
@@ -2588,15 +1819,6 @@ export interface SearchContentResponse {
   nextToken?: string;
 }
 
-export namespace SearchContentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchContentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StartContentUploadRequest {
   /**
    * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -2607,15 +1829,6 @@ export interface StartContentUploadRequest {
    * <p>The type of content to upload.</p>
    */
   contentType: string | undefined;
-}
-
-export namespace StartContentUploadRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartContentUploadRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StartContentUploadResponse {
@@ -2640,16 +1853,6 @@ export interface StartContentUploadResponse {
   headersToInclude: Record<string, string> | undefined;
 }
 
-export namespace StartContentUploadResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartContentUploadResponse): any => ({
-    ...obj,
-    ...(obj.url && { url: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateKnowledgeBaseTemplateUriRequest {
   /**
    * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
@@ -2662,30 +1865,11 @@ export interface UpdateKnowledgeBaseTemplateUriRequest {
   templateUri: string | undefined;
 }
 
-export namespace UpdateKnowledgeBaseTemplateUriRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateKnowledgeBaseTemplateUriRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateKnowledgeBaseTemplateUriResponse {
   /**
    * <p>The knowledge base to update.</p>
    */
   knowledgeBase?: KnowledgeBaseData;
-}
-
-export namespace UpdateKnowledgeBaseTemplateUriResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateKnowledgeBaseTemplateUriResponse): any => ({
-    ...obj,
-    ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseData.filterSensitiveLog(obj.knowledgeBase) }),
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -2695,29 +1879,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -2732,25 +1898,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Amazon Connect Wisdom throws this exception if you have too many tags in your tag set.</p>
@@ -2789,22 +1937,710 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AppIntegrationsConfigurationFilterSensitiveLog = (obj: AppIntegrationsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssistantAssociationInputDataFilterSensitiveLog = (obj: AssistantAssociationInputData): any => {
+  if (obj.knowledgeBaseId !== undefined) return { knowledgeBaseId: obj.knowledgeBaseId };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateAssistantAssociationRequestFilterSensitiveLog = (obj: CreateAssistantAssociationRequest): any => ({
+  ...obj,
+  ...(obj.association && { association: AssistantAssociationInputDataFilterSensitiveLog(obj.association) }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseAssociationDataFilterSensitiveLog = (obj: KnowledgeBaseAssociationData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssistantAssociationOutputDataFilterSensitiveLog = (obj: AssistantAssociationOutputData): any => {
+  if (obj.knowledgeBaseAssociation !== undefined)
+    return { knowledgeBaseAssociation: KnowledgeBaseAssociationDataFilterSensitiveLog(obj.knowledgeBaseAssociation) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const AssistantAssociationDataFilterSensitiveLog = (obj: AssistantAssociationData): any => ({
+  ...obj,
+  ...(obj.associationData && {
+    associationData: AssistantAssociationOutputDataFilterSensitiveLog(obj.associationData),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAssistantAssociationResponseFilterSensitiveLog = (obj: CreateAssistantAssociationResponse): any => ({
+  ...obj,
+  ...(obj.assistantAssociation && {
+    assistantAssociation: AssistantAssociationDataFilterSensitiveLog(obj.assistantAssociation),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssistantAssociationRequestFilterSensitiveLog = (obj: DeleteAssistantAssociationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssistantAssociationResponseFilterSensitiveLog = (obj: DeleteAssistantAssociationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssistantAssociationRequestFilterSensitiveLog = (obj: GetAssistantAssociationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssistantAssociationResponseFilterSensitiveLog = (obj: GetAssistantAssociationResponse): any => ({
+  ...obj,
+  ...(obj.assistantAssociation && {
+    assistantAssociation: AssistantAssociationDataFilterSensitiveLog(obj.assistantAssociation),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListAssistantAssociationsRequestFilterSensitiveLog = (obj: ListAssistantAssociationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssistantAssociationSummaryFilterSensitiveLog = (obj: AssistantAssociationSummary): any => ({
+  ...obj,
+  ...(obj.associationData && {
+    associationData: AssistantAssociationOutputDataFilterSensitiveLog(obj.associationData),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListAssistantAssociationsResponseFilterSensitiveLog = (obj: ListAssistantAssociationsResponse): any => ({
+  ...obj,
+  ...(obj.assistantAssociationSummaries && {
+    assistantAssociationSummaries: obj.assistantAssociationSummaries.map((item) =>
+      AssistantAssociationSummaryFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ServerSideEncryptionConfigurationFilterSensitiveLog = (obj: ServerSideEncryptionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAssistantRequestFilterSensitiveLog = (obj: CreateAssistantRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssistantDataFilterSensitiveLog = (obj: AssistantData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAssistantResponseFilterSensitiveLog = (obj: CreateAssistantResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssistantRequestFilterSensitiveLog = (obj: DeleteAssistantRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssistantResponseFilterSensitiveLog = (obj: DeleteAssistantResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssistantRequestFilterSensitiveLog = (obj: GetAssistantRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssistantResponseFilterSensitiveLog = (obj: GetAssistantResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecommendationsRequestFilterSensitiveLog = (obj: GetRecommendationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContentReferenceFilterSensitiveLog = (obj: ContentReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HighlightFilterSensitiveLog = (obj: Highlight): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentTextFilterSensitiveLog = (obj: DocumentText): any => ({
+  ...obj,
+  ...(obj.text && { text: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DocumentFilterSensitiveLog = (obj: Document): any => ({
+  ...obj,
+  ...(obj.title && { title: DocumentTextFilterSensitiveLog(obj.title) }),
+  ...(obj.excerpt && { excerpt: DocumentTextFilterSensitiveLog(obj.excerpt) }),
+});
+
+/**
+ * @internal
+ */
+export const RecommendationDataFilterSensitiveLog = (obj: RecommendationData): any => ({
+  ...obj,
+  ...(obj.document && { document: DocumentFilterSensitiveLog(obj.document) }),
+});
+
+/**
+ * @internal
+ */
+export const QueryRecommendationTriggerDataFilterSensitiveLog = (obj: QueryRecommendationTriggerData): any => ({
+  ...obj,
+  ...(obj.text && { text: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RecommendationTriggerDataFilterSensitiveLog = (obj: RecommendationTriggerData): any => {
+  if (obj.query !== undefined) return { query: QueryRecommendationTriggerDataFilterSensitiveLog(obj.query) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const RecommendationTriggerFilterSensitiveLog = (obj: RecommendationTrigger): any => ({
+  ...obj,
+  ...(obj.data && { data: RecommendationTriggerDataFilterSensitiveLog(obj.data) }),
+});
+
+/**
+ * @internal
+ */
+export const GetRecommendationsResponseFilterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
+  ...obj,
+  ...(obj.recommendations && {
+    recommendations: obj.recommendations.map((item) => RecommendationDataFilterSensitiveLog(item)),
+  }),
+  ...(obj.triggers && { triggers: obj.triggers.map((item) => RecommendationTriggerFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListAssistantsRequestFilterSensitiveLog = (obj: ListAssistantsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssistantSummaryFilterSensitiveLog = (obj: AssistantSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssistantsResponseFilterSensitiveLog = (obj: ListAssistantsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyRecommendationsReceivedRequestFilterSensitiveLog = (
+  obj: NotifyRecommendationsReceivedRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyRecommendationsReceivedErrorFilterSensitiveLog = (obj: NotifyRecommendationsReceivedError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyRecommendationsReceivedResponseFilterSensitiveLog = (
+  obj: NotifyRecommendationsReceivedResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryAssistantRequestFilterSensitiveLog = (obj: QueryAssistantRequest): any => ({
+  ...obj,
+  ...(obj.queryText && { queryText: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ResultDataFilterSensitiveLog = (obj: ResultData): any => ({
+  ...obj,
+  ...(obj.document && { document: DocumentFilterSensitiveLog(obj.document) }),
+});
+
+/**
+ * @internal
+ */
+export const QueryAssistantResponseFilterSensitiveLog = (obj: QueryAssistantResponse): any => ({
+  ...obj,
+  ...(obj.results && { results: obj.results.map((item) => ResultDataFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchExpressionFilterSensitiveLog = (obj: SearchExpression): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchSessionsRequestFilterSensitiveLog = (obj: SearchSessionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionSummaryFilterSensitiveLog = (obj: SessionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchSessionsResponseFilterSensitiveLog = (obj: SearchSessionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSessionRequestFilterSensitiveLog = (obj: CreateSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionDataFilterSensitiveLog = (obj: SessionData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSessionResponseFilterSensitiveLog = (obj: CreateSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSessionRequestFilterSensitiveLog = (obj: GetSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSessionResponseFilterSensitiveLog = (obj: GetSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContentRequestFilterSensitiveLog = (obj: CreateContentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContentDataFilterSensitiveLog = (obj: ContentData): any => ({
+  ...obj,
+  ...(obj.url && { url: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateContentResponseFilterSensitiveLog = (obj: CreateContentResponse): any => ({
+  ...obj,
+  ...(obj.content && { content: ContentDataFilterSensitiveLog(obj.content) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteContentRequestFilterSensitiveLog = (obj: DeleteContentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContentResponseFilterSensitiveLog = (obj: DeleteContentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContentRequestFilterSensitiveLog = (obj: GetContentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContentResponseFilterSensitiveLog = (obj: GetContentResponse): any => ({
+  ...obj,
+  ...(obj.content && { content: ContentDataFilterSensitiveLog(obj.content) }),
+});
+
+/**
+ * @internal
+ */
+export const GetContentSummaryRequestFilterSensitiveLog = (obj: GetContentSummaryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContentSummaryFilterSensitiveLog = (obj: ContentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContentSummaryResponseFilterSensitiveLog = (obj: GetContentSummaryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContentsRequestFilterSensitiveLog = (obj: ListContentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContentsResponseFilterSensitiveLog = (obj: ListContentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContentRequestFilterSensitiveLog = (obj: UpdateContentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContentResponseFilterSensitiveLog = (obj: UpdateContentResponse): any => ({
+  ...obj,
+  ...(obj.content && { content: ContentDataFilterSensitiveLog(obj.content) }),
+});
+
+/**
+ * @internal
+ */
+export const RenderingConfigurationFilterSensitiveLog = (obj: RenderingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceConfigurationFilterSensitiveLog = (obj: SourceConfiguration): any => {
+  if (obj.appIntegrations !== undefined)
+    return { appIntegrations: AppIntegrationsConfigurationFilterSensitiveLog(obj.appIntegrations) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateKnowledgeBaseRequestFilterSensitiveLog = (obj: CreateKnowledgeBaseRequest): any => ({
+  ...obj,
+  ...(obj.sourceConfiguration && {
+    sourceConfiguration: SourceConfigurationFilterSensitiveLog(obj.sourceConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseDataFilterSensitiveLog = (obj: KnowledgeBaseData): any => ({
+  ...obj,
+  ...(obj.sourceConfiguration && {
+    sourceConfiguration: SourceConfigurationFilterSensitiveLog(obj.sourceConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateKnowledgeBaseResponseFilterSensitiveLog = (obj: CreateKnowledgeBaseResponse): any => ({
+  ...obj,
+  ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseDataFilterSensitiveLog(obj.knowledgeBase) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteKnowledgeBaseRequestFilterSensitiveLog = (obj: DeleteKnowledgeBaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteKnowledgeBaseResponseFilterSensitiveLog = (obj: DeleteKnowledgeBaseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetKnowledgeBaseRequestFilterSensitiveLog = (obj: GetKnowledgeBaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetKnowledgeBaseResponseFilterSensitiveLog = (obj: GetKnowledgeBaseResponse): any => ({
+  ...obj,
+  ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseDataFilterSensitiveLog(obj.knowledgeBase) }),
+});
+
+/**
+ * @internal
+ */
+export const ListKnowledgeBasesRequestFilterSensitiveLog = (obj: ListKnowledgeBasesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseSummaryFilterSensitiveLog = (obj: KnowledgeBaseSummary): any => ({
+  ...obj,
+  ...(obj.sourceConfiguration && {
+    sourceConfiguration: SourceConfigurationFilterSensitiveLog(obj.sourceConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListKnowledgeBasesResponseFilterSensitiveLog = (obj: ListKnowledgeBasesResponse): any => ({
+  ...obj,
+  ...(obj.knowledgeBaseSummaries && {
+    knowledgeBaseSummaries: obj.knowledgeBaseSummaries.map((item) => KnowledgeBaseSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const RemoveKnowledgeBaseTemplateUriRequestFilterSensitiveLog = (
+  obj: RemoveKnowledgeBaseTemplateUriRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveKnowledgeBaseTemplateUriResponseFilterSensitiveLog = (
+  obj: RemoveKnowledgeBaseTemplateUriResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchContentRequestFilterSensitiveLog = (obj: SearchContentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchContentResponseFilterSensitiveLog = (obj: SearchContentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartContentUploadRequestFilterSensitiveLog = (obj: StartContentUploadRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartContentUploadResponseFilterSensitiveLog = (obj: StartContentUploadResponse): any => ({
+  ...obj,
+  ...(obj.url && { url: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateKnowledgeBaseTemplateUriRequestFilterSensitiveLog = (
+  obj: UpdateKnowledgeBaseTemplateUriRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateKnowledgeBaseTemplateUriResponseFilterSensitiveLog = (
+  obj: UpdateKnowledgeBaseTemplateUriResponse
+): any => ({
+  ...obj,
+  ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseDataFilterSensitiveLog(obj.knowledgeBase) }),
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

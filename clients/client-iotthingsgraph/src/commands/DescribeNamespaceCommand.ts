@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { DescribeNamespaceRequest, DescribeNamespaceResponse } from "../models/models_0";
+import {
+  DescribeNamespaceRequest,
+  DescribeNamespaceRequestFilterSensitiveLog,
+  DescribeNamespaceResponse,
+  DescribeNamespaceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeNamespaceCommand,
   serializeAws_json1_1DescribeNamespaceCommand,
@@ -72,8 +77,8 @@ export class DescribeNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNamespaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNamespaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeNamespaceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNamespaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

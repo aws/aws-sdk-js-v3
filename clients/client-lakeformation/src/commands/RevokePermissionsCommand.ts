@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { RevokePermissionsRequest, RevokePermissionsResponse } from "../models/models_0";
+import {
+  RevokePermissionsRequest,
+  RevokePermissionsRequestFilterSensitiveLog,
+  RevokePermissionsResponse,
+  RevokePermissionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RevokePermissionsCommand,
   serializeAws_restJson1RevokePermissionsCommand,
@@ -72,8 +77,8 @@ export class RevokePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokePermissionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RevokePermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokePermissionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RevokePermissionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

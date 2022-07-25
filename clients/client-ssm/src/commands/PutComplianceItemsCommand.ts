@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutComplianceItemsRequest, PutComplianceItemsResult } from "../models/models_1";
+import {
+  PutComplianceItemsRequest,
+  PutComplianceItemsRequestFilterSensitiveLog,
+  PutComplianceItemsResult,
+  PutComplianceItemsResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1PutComplianceItemsCommand,
   serializeAws_json1_1PutComplianceItemsCommand,
@@ -127,8 +132,8 @@ export class PutComplianceItemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutComplianceItemsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutComplianceItemsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutComplianceItemsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutComplianceItemsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

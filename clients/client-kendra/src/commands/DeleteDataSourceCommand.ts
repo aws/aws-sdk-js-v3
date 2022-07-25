@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DeleteDataSourceRequest } from "../models/models_0";
+import { DeleteDataSourceRequest, DeleteDataSourceRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDataSourceCommand,
   serializeAws_json1_1DeleteDataSourceCommand,
@@ -76,7 +76,7 @@ export class DeleteDataSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataSourceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDataSourceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

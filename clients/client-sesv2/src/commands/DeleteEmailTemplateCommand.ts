@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteEmailTemplateRequest, DeleteEmailTemplateResponse } from "../models/models_0";
+import {
+  DeleteEmailTemplateRequest,
+  DeleteEmailTemplateRequestFilterSensitiveLog,
+  DeleteEmailTemplateResponse,
+  DeleteEmailTemplateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteEmailTemplateCommand,
   serializeAws_restJson1DeleteEmailTemplateCommand,
@@ -74,8 +79,8 @@ export class DeleteEmailTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEmailTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEmailTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEmailTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEmailTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

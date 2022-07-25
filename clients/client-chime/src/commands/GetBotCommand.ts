@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetBotRequest, GetBotResponse } from "../models/models_0";
+import {
+  GetBotRequest,
+  GetBotRequestFilterSensitiveLog,
+  GetBotResponse,
+  GetBotResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_restJson1GetBotCommand, serializeAws_restJson1GetBotCommand } from "../protocols/Aws_restJson1";
 
 export interface GetBotCommandInput extends GetBotRequest {}
@@ -65,8 +70,8 @@ export class GetBotCommand extends $Command<GetBotCommandInput, GetBotCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBotResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBotResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateSMSSandboxPhoneNumberInput, CreateSMSSandboxPhoneNumberResult } from "../models/models_0";
+import {
+  CreateSMSSandboxPhoneNumberInput,
+  CreateSMSSandboxPhoneNumberInputFilterSensitiveLog,
+  CreateSMSSandboxPhoneNumberResult,
+  CreateSMSSandboxPhoneNumberResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCreateSMSSandboxPhoneNumberCommand,
   serializeAws_queryCreateSMSSandboxPhoneNumberCommand,
@@ -81,8 +86,8 @@ export class CreateSMSSandboxPhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSMSSandboxPhoneNumberInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSMSSandboxPhoneNumberResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSMSSandboxPhoneNumberInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSMSSandboxPhoneNumberResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

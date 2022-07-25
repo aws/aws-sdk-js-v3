@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { WriteGetObjectResponseRequest } from "../models/models_1";
+import { WriteGetObjectResponseRequest, WriteGetObjectResponseRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restXmlWriteGetObjectResponseCommand,
   serializeAws_restXmlWriteGetObjectResponseCommand,
@@ -105,7 +105,7 @@ export class WriteGetObjectResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: WriteGetObjectResponseRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: WriteGetObjectResponseRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateDeploymentJobRequest, CreateDeploymentJobResponse } from "../models/models_0";
+import {
+  CreateDeploymentJobRequest,
+  CreateDeploymentJobRequestFilterSensitiveLog,
+  CreateDeploymentJobResponse,
+  CreateDeploymentJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDeploymentJobCommand,
   serializeAws_restJson1CreateDeploymentJobCommand,
@@ -84,8 +89,8 @@ export class CreateDeploymentJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeploymentJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDeploymentJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDeploymentJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDeploymentJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

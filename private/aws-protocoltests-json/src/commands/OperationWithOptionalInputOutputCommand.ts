@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { OperationWithOptionalInputOutputInput, OperationWithOptionalInputOutputOutput } from "../models/models_0";
+import {
+  OperationWithOptionalInputOutputInput,
+  OperationWithOptionalInputOutputInputFilterSensitiveLog,
+  OperationWithOptionalInputOutputOutput,
+  OperationWithOptionalInputOutputOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1OperationWithOptionalInputOutputCommand,
   serializeAws_json1_1OperationWithOptionalInputOutputCommand,
@@ -57,8 +62,8 @@ export class OperationWithOptionalInputOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: OperationWithOptionalInputOutputInput.filterSensitiveLog,
-      outputFilterSensitiveLog: OperationWithOptionalInputOutputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: OperationWithOptionalInputOutputInputFilterSensitiveLog,
+      outputFilterSensitiveLog: OperationWithOptionalInputOutputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

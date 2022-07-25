@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssociateSubnetsRequest, AssociateSubnetsResponse } from "../models/models_0";
+import {
+  AssociateSubnetsRequest,
+  AssociateSubnetsRequestFilterSensitiveLog,
+  AssociateSubnetsResponse,
+  AssociateSubnetsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
   deserializeAws_json1_0AssociateSubnetsCommand,
@@ -77,8 +82,8 @@ export class AssociateSubnetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateSubnetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateSubnetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateSubnetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateSubnetsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

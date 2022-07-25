@@ -43,15 +43,6 @@ export interface DiscovererSummary {
   Tags?: Record<string, string>;
 }
 
-export namespace DiscovererSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiscovererSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface RegistrySummary {
   /**
    * <p>The ARN of the registry.</p>
@@ -67,15 +58,6 @@ export interface RegistrySummary {
    * <p>Tags associated with the registry.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace RegistrySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegistrySummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -108,15 +90,6 @@ export interface SchemaSummary {
   VersionCount?: number;
 }
 
-export namespace SchemaSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchemaSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum Type {
   JSONSchemaDraft4 = "JSONSchemaDraft4",
   OpenApi3 = "OpenApi3",
@@ -144,15 +117,6 @@ export interface SchemaVersionSummary {
   Type?: Type | string;
 }
 
-export namespace SchemaVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchemaVersionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchSchemaVersionSummary {
   /**
    * <p>The date the schema version was created.</p>
@@ -168,15 +132,6 @@ export interface SearchSchemaVersionSummary {
    * <p>The type of schema.</p>
    */
   Type?: Type | string;
-}
-
-export namespace SearchSchemaVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchSchemaVersionSummary): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchSchemaSummary {
@@ -199,15 +154,6 @@ export interface SearchSchemaSummary {
    * <p>An array of schema version summaries.</p>
    */
   SchemaVersions?: SearchSchemaVersionSummary[];
-}
-
-export namespace SearchSchemaSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchSchemaSummary): any => ({
-    ...obj,
-  });
 }
 
 export class BadRequestException extends __BaseException {
@@ -292,15 +238,6 @@ export interface CreateDiscovererRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateDiscovererRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDiscovererRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDiscovererResponse {
   /**
    * <p>The description of the discoverer.</p>
@@ -336,15 +273,6 @@ export interface CreateDiscovererResponse {
    * <p>Tags associated with the resource.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateDiscovererResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDiscovererResponse): any => ({
-    ...obj,
-  });
 }
 
 export class ForbiddenException extends __BaseException {
@@ -472,15 +400,6 @@ export interface CreateRegistryRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateRegistryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRegistryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRegistryResponse {
   /**
    * <p>The description of the registry.</p>
@@ -501,15 +420,6 @@ export interface CreateRegistryResponse {
    * <p>Tags associated with the registry.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateRegistryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRegistryResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSchemaRequest {
@@ -542,15 +452,6 @@ export interface CreateSchemaRequest {
    * <p>The type of schema.</p>
    */
   Type: Type | string | undefined;
-}
-
-export namespace CreateSchemaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSchemaRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSchemaResponse {
@@ -595,29 +496,11 @@ export interface CreateSchemaResponse {
   VersionCreatedDate?: Date;
 }
 
-export namespace CreateSchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSchemaResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDiscovererRequest {
   /**
    * <p>The ID of the discoverer.</p>
    */
   DiscovererId: string | undefined;
-}
-
-export namespace DeleteDiscovererRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDiscovererRequest): any => ({
-    ...obj,
-  });
 }
 
 export class NotFoundException extends __BaseException {
@@ -654,29 +537,11 @@ export interface DeleteRegistryRequest {
   RegistryName: string | undefined;
 }
 
-export namespace DeleteRegistryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRegistryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>The name of the registry.</p>
    */
   RegistryName?: string;
-}
-
-export namespace DeleteResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteSchemaRequest {
@@ -689,15 +554,6 @@ export interface DeleteSchemaRequest {
    * <p>The name of the schema.</p>
    */
   SchemaName: string | undefined;
-}
-
-export namespace DeleteSchemaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSchemaRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteSchemaVersionRequest {
@@ -715,15 +571,6 @@ export interface DeleteSchemaVersionRequest {
    * The version number of the schema
    */
   SchemaVersion: string | undefined;
-}
-
-export namespace DeleteSchemaVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSchemaVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCodeBindingRequest {
@@ -748,15 +595,6 @@ export interface DescribeCodeBindingRequest {
   SchemaVersion?: string;
 }
 
-export namespace DescribeCodeBindingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCodeBindingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCodeBindingResponse {
   /**
    * <p>The time and date that the code binding was created.</p>
@@ -777,15 +615,6 @@ export interface DescribeCodeBindingResponse {
    * <p>The current status of code binding generation.</p>
    */
   Status?: CodeGenerationStatus | string;
-}
-
-export namespace DescribeCodeBindingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCodeBindingResponse): any => ({
-    ...obj,
-  });
 }
 
 export class TooManyRequestsException extends __BaseException {
@@ -820,15 +649,6 @@ export interface DescribeDiscovererRequest {
    * <p>The ID of the discoverer.</p>
    */
   DiscovererId: string | undefined;
-}
-
-export namespace DescribeDiscovererRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDiscovererRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDiscovererResponse {
@@ -868,29 +688,11 @@ export interface DescribeDiscovererResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace DescribeDiscovererResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDiscovererResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRegistryRequest {
   /**
    * <p>The name of the registry.</p>
    */
   RegistryName: string | undefined;
-}
-
-export namespace DescribeRegistryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRegistryRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRegistryResponse {
@@ -915,15 +717,6 @@ export interface DescribeRegistryResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace DescribeRegistryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRegistryResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSchemaRequest {
   /**
    * <p>The name of the registry.</p>
@@ -939,15 +732,6 @@ export interface DescribeSchemaRequest {
    * <p>Specifying this limits the results to only this schema version.</p>
    */
   SchemaVersion?: string;
-}
-
-export namespace DescribeSchemaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSchemaRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSchemaResponse {
@@ -997,15 +781,6 @@ export interface DescribeSchemaResponse {
   VersionCreatedDate?: Date;
 }
 
-export namespace DescribeSchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSchemaResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ExportSchemaRequest {
   /**
    * <p>The name of the registry.</p>
@@ -1025,30 +800,12 @@ export interface ExportSchemaRequest {
   Type: string | undefined;
 }
 
-export namespace ExportSchemaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportSchemaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ExportSchemaResponse {
   Content?: string;
   SchemaArn?: string;
   SchemaName?: string;
   SchemaVersion?: string;
   Type?: string;
-}
-
-export namespace ExportSchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportSchemaResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCodeBindingSourceRequest {
@@ -1073,26 +830,8 @@ export interface GetCodeBindingSourceRequest {
   SchemaVersion?: string;
 }
 
-export namespace GetCodeBindingSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCodeBindingSourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCodeBindingSourceResponse {
   Body?: Uint8Array;
-}
-
-export namespace GetCodeBindingSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCodeBindingSourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDiscoveredSchemaRequest {
@@ -1107,15 +846,6 @@ export interface GetDiscoveredSchemaRequest {
   Type: Type | string | undefined;
 }
 
-export namespace GetDiscoveredSchemaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDiscoveredSchemaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDiscoveredSchemaResponse {
   /**
    * <p>The source of the schema definition.</p>
@@ -1123,29 +853,11 @@ export interface GetDiscoveredSchemaResponse {
   Content?: string;
 }
 
-export namespace GetDiscoveredSchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDiscoveredSchemaResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourcePolicyRequest {
   /**
    * <p>The name of the registry.</p>
    */
   RegistryName?: string;
-}
-
-export namespace GetResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourcePolicyResponse {
@@ -1158,15 +870,6 @@ export interface GetResourcePolicyResponse {
    * <p>The revision ID.</p>
    */
   RevisionId?: string;
-}
-
-export namespace GetResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export class GoneException extends __BaseException {
@@ -1214,15 +917,6 @@ export interface ListDiscoverersRequest {
   SourceArnPrefix?: string;
 }
 
-export namespace ListDiscoverersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDiscoverersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDiscoverersResponse {
   /**
    * <p>An array of DiscovererSummary information.</p>
@@ -1233,15 +927,6 @@ export interface ListDiscoverersResponse {
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDiscoverersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDiscoverersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRegistriesRequest {
@@ -1262,15 +947,6 @@ export interface ListRegistriesRequest {
   Scope?: string;
 }
 
-export namespace ListRegistriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRegistriesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRegistriesResponse {
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
@@ -1281,15 +957,6 @@ export interface ListRegistriesResponse {
    * <p>An array of registry summaries.</p>
    */
   Registries?: RegistrySummary[];
-}
-
-export namespace ListRegistriesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRegistriesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSchemasRequest {
@@ -1310,15 +977,6 @@ export interface ListSchemasRequest {
   SchemaNamePrefix?: string;
 }
 
-export namespace ListSchemasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSchemasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSchemasResponse {
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
@@ -1329,15 +987,6 @@ export interface ListSchemasResponse {
    * <p>An array of schema summaries.</p>
    */
   Schemas?: SchemaSummary[];
-}
-
-export namespace ListSchemasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSchemasResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSchemaVersionsRequest {
@@ -1358,15 +1007,6 @@ export interface ListSchemaVersionsRequest {
   SchemaName: string | undefined;
 }
 
-export namespace ListSchemaVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSchemaVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSchemaVersionsResponse {
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
@@ -1379,15 +1019,6 @@ export interface ListSchemaVersionsResponse {
   SchemaVersions?: SchemaVersionSummary[];
 }
 
-export namespace ListSchemaVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSchemaVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1395,29 +1026,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>Key-value pairs associated with a resource.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export class PreconditionFailedException extends __BaseException {
@@ -1469,15 +1082,6 @@ export interface PutCodeBindingRequest {
   SchemaVersion?: string;
 }
 
-export namespace PutCodeBindingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutCodeBindingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutCodeBindingResponse {
   /**
    * <p>The time and date that the code binding was created.</p>
@@ -1500,15 +1104,6 @@ export interface PutCodeBindingResponse {
   Status?: CodeGenerationStatus | string;
 }
 
-export namespace PutCodeBindingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutCodeBindingResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The name of the policy.</p>
  */
@@ -1529,15 +1124,6 @@ export interface PutResourcePolicyRequest {
   RevisionId?: string;
 }
 
-export namespace PutResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutResourcePolicyResponse {
   /**
    * <p>The resource-based policy.</p>
@@ -1548,15 +1134,6 @@ export interface PutResourcePolicyResponse {
    * <p>The revision ID of the policy.</p>
    */
   RevisionId?: string;
-}
-
-export namespace PutResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchSchemasRequest {
@@ -1577,15 +1154,6 @@ export interface SearchSchemasRequest {
   RegistryName: string | undefined;
 }
 
-export namespace SearchSchemasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchSchemasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchSchemasResponse {
   /**
    * <p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>
@@ -1598,29 +1166,11 @@ export interface SearchSchemasResponse {
   Schemas?: SearchSchemaSummary[];
 }
 
-export namespace SearchSchemasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchSchemasResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StartDiscovererRequest {
   /**
    * <p>The ID of the discoverer.</p>
    */
   DiscovererId: string | undefined;
-}
-
-export namespace StartDiscovererRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDiscovererRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StartDiscovererResponse {
@@ -1635,29 +1185,11 @@ export interface StartDiscovererResponse {
   State?: DiscovererState | string;
 }
 
-export namespace StartDiscovererResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDiscovererResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StopDiscovererRequest {
   /**
    * <p>The ID of the discoverer.</p>
    */
   DiscovererId: string | undefined;
-}
-
-export namespace StopDiscovererRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopDiscovererRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StopDiscovererResponse {
@@ -1670,15 +1202,6 @@ export interface StopDiscovererResponse {
    * <p>The state of the discoverer.</p>
    */
   State?: DiscovererState | string;
-}
-
-export namespace StopDiscovererResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopDiscovererResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1696,15 +1219,6 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1715,15 +1229,6 @@ export interface UntagResourceRequest {
    * <p>Keys of key-value pairs.</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDiscovererRequest {
@@ -1741,15 +1246,6 @@ export interface UpdateDiscovererRequest {
    * <p>Support discovery of schemas in events sent to the bus from another account. (default: true)</p>
    */
   CrossAccount?: boolean;
-}
-
-export namespace UpdateDiscovererRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDiscovererRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDiscovererResponse {
@@ -1789,15 +1285,6 @@ export interface UpdateDiscovererResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace UpdateDiscovererResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDiscovererResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updates the registry.</p>
  */
@@ -1811,15 +1298,6 @@ export interface UpdateRegistryRequest {
    * <p>The name of the registry.</p>
    */
   RegistryName: string | undefined;
-}
-
-export namespace UpdateRegistryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRegistryRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRegistryResponse {
@@ -1842,15 +1320,6 @@ export interface UpdateRegistryResponse {
    * <p>Tags associated with the registry.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace UpdateRegistryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRegistryResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSchemaRequest {
@@ -1883,15 +1352,6 @@ export interface UpdateSchemaRequest {
    * <p>The schema type for the events schema.</p>
    */
   Type?: Type | string;
-}
-
-export namespace UpdateSchemaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSchemaRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSchemaResponse {
@@ -1936,11 +1396,429 @@ export interface UpdateSchemaResponse {
   VersionCreatedDate?: Date;
 }
 
-export namespace UpdateSchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSchemaResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DiscovererSummaryFilterSensitiveLog = (obj: DiscovererSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegistrySummaryFilterSensitiveLog = (obj: RegistrySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchemaSummaryFilterSensitiveLog = (obj: SchemaSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchemaVersionSummaryFilterSensitiveLog = (obj: SchemaVersionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchSchemaVersionSummaryFilterSensitiveLog = (obj: SearchSchemaVersionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchSchemaSummaryFilterSensitiveLog = (obj: SearchSchemaSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDiscovererRequestFilterSensitiveLog = (obj: CreateDiscovererRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDiscovererResponseFilterSensitiveLog = (obj: CreateDiscovererResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRegistryRequestFilterSensitiveLog = (obj: CreateRegistryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRegistryResponseFilterSensitiveLog = (obj: CreateRegistryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSchemaRequestFilterSensitiveLog = (obj: CreateSchemaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSchemaResponseFilterSensitiveLog = (obj: CreateSchemaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDiscovererRequestFilterSensitiveLog = (obj: DeleteDiscovererRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRegistryRequestFilterSensitiveLog = (obj: DeleteRegistryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyRequestFilterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSchemaRequestFilterSensitiveLog = (obj: DeleteSchemaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSchemaVersionRequestFilterSensitiveLog = (obj: DeleteSchemaVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCodeBindingRequestFilterSensitiveLog = (obj: DescribeCodeBindingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCodeBindingResponseFilterSensitiveLog = (obj: DescribeCodeBindingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDiscovererRequestFilterSensitiveLog = (obj: DescribeDiscovererRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDiscovererResponseFilterSensitiveLog = (obj: DescribeDiscovererResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRegistryRequestFilterSensitiveLog = (obj: DescribeRegistryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRegistryResponseFilterSensitiveLog = (obj: DescribeRegistryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSchemaRequestFilterSensitiveLog = (obj: DescribeSchemaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSchemaResponseFilterSensitiveLog = (obj: DescribeSchemaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportSchemaRequestFilterSensitiveLog = (obj: ExportSchemaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportSchemaResponseFilterSensitiveLog = (obj: ExportSchemaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCodeBindingSourceRequestFilterSensitiveLog = (obj: GetCodeBindingSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCodeBindingSourceResponseFilterSensitiveLog = (obj: GetCodeBindingSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiscoveredSchemaRequestFilterSensitiveLog = (obj: GetDiscoveredSchemaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiscoveredSchemaResponseFilterSensitiveLog = (obj: GetDiscoveredSchemaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePolicyRequestFilterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePolicyResponseFilterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDiscoverersRequestFilterSensitiveLog = (obj: ListDiscoverersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDiscoverersResponseFilterSensitiveLog = (obj: ListDiscoverersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRegistriesRequestFilterSensitiveLog = (obj: ListRegistriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRegistriesResponseFilterSensitiveLog = (obj: ListRegistriesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSchemasRequestFilterSensitiveLog = (obj: ListSchemasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSchemasResponseFilterSensitiveLog = (obj: ListSchemasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSchemaVersionsRequestFilterSensitiveLog = (obj: ListSchemaVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSchemaVersionsResponseFilterSensitiveLog = (obj: ListSchemaVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutCodeBindingRequestFilterSensitiveLog = (obj: PutCodeBindingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutCodeBindingResponseFilterSensitiveLog = (obj: PutCodeBindingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyRequestFilterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyResponseFilterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchSchemasRequestFilterSensitiveLog = (obj: SearchSchemasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchSchemasResponseFilterSensitiveLog = (obj: SearchSchemasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDiscovererRequestFilterSensitiveLog = (obj: StartDiscovererRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDiscovererResponseFilterSensitiveLog = (obj: StartDiscovererResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopDiscovererRequestFilterSensitiveLog = (obj: StopDiscovererRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopDiscovererResponseFilterSensitiveLog = (obj: StopDiscovererResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDiscovererRequestFilterSensitiveLog = (obj: UpdateDiscovererRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDiscovererResponseFilterSensitiveLog = (obj: UpdateDiscovererResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRegistryRequestFilterSensitiveLog = (obj: UpdateRegistryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRegistryResponseFilterSensitiveLog = (obj: UpdateRegistryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSchemaRequestFilterSensitiveLog = (obj: UpdateSchemaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSchemaResponseFilterSensitiveLog = (obj: UpdateSchemaResponse): any => ({
+  ...obj,
+});

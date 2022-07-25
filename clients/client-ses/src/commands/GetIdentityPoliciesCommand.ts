@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetIdentityPoliciesRequest, GetIdentityPoliciesResponse } from "../models/models_0";
+import {
+  GetIdentityPoliciesRequest,
+  GetIdentityPoliciesRequestFilterSensitiveLog,
+  GetIdentityPoliciesResponse,
+  GetIdentityPoliciesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetIdentityPoliciesCommand,
   serializeAws_queryGetIdentityPoliciesCommand,
@@ -83,8 +88,8 @@ export class GetIdentityPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityPoliciesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetIdentityPoliciesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIdentityPoliciesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetIdentityPoliciesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,9 @@ import {
 
 import {
   AssociateResolverEndpointIpAddressRequest,
+  AssociateResolverEndpointIpAddressRequestFilterSensitiveLog,
   AssociateResolverEndpointIpAddressResponse,
+  AssociateResolverEndpointIpAddressResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateResolverEndpointIpAddressCommand,
@@ -81,8 +83,8 @@ export class AssociateResolverEndpointIpAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateResolverEndpointIpAddressRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateResolverEndpointIpAddressResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateResolverEndpointIpAddressRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateResolverEndpointIpAddressResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

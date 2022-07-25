@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { CreateEnvironmentRequest, CreateEnvironmentResponse } from "../models/models_0";
+import {
+  CreateEnvironmentRequest,
+  CreateEnvironmentRequestFilterSensitiveLog,
+  CreateEnvironmentResponse,
+  CreateEnvironmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateEnvironmentCommand,
   serializeAws_restJson1CreateEnvironmentCommand,
@@ -72,8 +77,8 @@ export class CreateEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEnvironmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateEnvironmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateEnvironmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateEnvironmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

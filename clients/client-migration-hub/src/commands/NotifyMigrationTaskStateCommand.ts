@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import { NotifyMigrationTaskStateRequest, NotifyMigrationTaskStateResult } from "../models/models_0";
+import {
+  NotifyMigrationTaskStateRequest,
+  NotifyMigrationTaskStateRequestFilterSensitiveLog,
+  NotifyMigrationTaskStateResult,
+  NotifyMigrationTaskStateResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1NotifyMigrationTaskStateCommand,
   serializeAws_json1_1NotifyMigrationTaskStateCommand,
@@ -89,8 +94,8 @@ export class NotifyMigrationTaskStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NotifyMigrationTaskStateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: NotifyMigrationTaskStateResult.filterSensitiveLog,
+      inputFilterSensitiveLog: NotifyMigrationTaskStateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: NotifyMigrationTaskStateResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

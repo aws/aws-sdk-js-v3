@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { UpdateFileSystemRequest, UpdateFileSystemResponse } from "../models/models_0";
+import {
+  UpdateFileSystemRequest,
+  UpdateFileSystemRequestFilterSensitiveLog,
+  UpdateFileSystemResponse,
+  UpdateFileSystemResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateFileSystemCommand,
   serializeAws_json1_1UpdateFileSystemCommand,
@@ -224,8 +229,8 @@ export class UpdateFileSystemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFileSystemRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFileSystemResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFileSystemRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFileSystemResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

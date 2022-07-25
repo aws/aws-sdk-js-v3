@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { SearchProfilesRequest, SearchProfilesResponse } from "../models/models_0";
+import {
+  SearchProfilesRequest,
+  SearchProfilesRequestFilterSensitiveLog,
+  SearchProfilesResponse,
+  SearchProfilesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1SearchProfilesCommand,
   serializeAws_restJson1SearchProfilesCommand,
@@ -73,8 +78,8 @@ export class SearchProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchProfilesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SearchProfilesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchProfilesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SearchProfilesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

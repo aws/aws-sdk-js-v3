@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { ListEventActionsRequest, ListEventActionsResponse } from "../models/models_0";
+import {
+  ListEventActionsRequest,
+  ListEventActionsRequestFilterSensitiveLog,
+  ListEventActionsResponse,
+  ListEventActionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListEventActionsCommand,
   serializeAws_restJson1ListEventActionsCommand,
@@ -72,8 +77,8 @@ export class ListEventActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventActionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListEventActionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEventActionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListEventActionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

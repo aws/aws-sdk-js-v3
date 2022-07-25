@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeFastLaunchImagesRequest, DescribeFastLaunchImagesResult } from "../models/models_3";
+import {
+  DescribeFastLaunchImagesRequest,
+  DescribeFastLaunchImagesRequestFilterSensitiveLog,
+  DescribeFastLaunchImagesResult,
+  DescribeFastLaunchImagesResultFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeFastLaunchImagesCommand,
   serializeAws_ec2DescribeFastLaunchImagesCommand,
@@ -72,8 +77,8 @@ export class DescribeFastLaunchImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFastLaunchImagesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFastLaunchImagesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFastLaunchImagesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFastLaunchImagesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

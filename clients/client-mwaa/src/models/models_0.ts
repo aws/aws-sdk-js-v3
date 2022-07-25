@@ -31,15 +31,6 @@ export interface CreateCliTokenRequest {
   Name: string | undefined;
 }
 
-export namespace CreateCliTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCliTokenRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCliTokenResponse {
   /**
    * <p>An Airflow CLI login token.</p>
@@ -50,16 +41,6 @@ export interface CreateCliTokenResponse {
    * <p>The Airflow web server hostname for the environment.</p>
    */
   WebServerHostname?: string;
-}
-
-export namespace CreateCliTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCliTokenResponse): any => ({
-    ...obj,
-    ...(obj.CliToken && { CliToken: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -104,15 +85,6 @@ export interface ModuleLoggingConfigurationInput {
   LogLevel: LoggingLevel | string | undefined;
 }
 
-export namespace ModuleLoggingConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModuleLoggingConfigurationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines the Apache Airflow log types to send to CloudWatch Logs.</p>
  */
@@ -143,15 +115,6 @@ export interface LoggingConfigurationInput {
   TaskLogs?: ModuleLoggingConfigurationInput;
 }
 
-export namespace LoggingConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingConfigurationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the VPC networking components used to secure and enable network traffic between the Amazon Web Services resources for your environment. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html">About networking on Amazon MWAA</a>.</p>
  */
@@ -165,15 +128,6 @@ export interface NetworkConfiguration {
    * <p>A list of security group IDs. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html">Security in your VPC on Amazon MWAA</a>.</p>
    */
   SecurityGroupIds?: string[];
-}
-
-export namespace NetworkConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum WebserverAccessMode {
@@ -296,30 +250,11 @@ export interface CreateEnvironmentInput {
   Schedulers?: number;
 }
 
-export namespace CreateEnvironmentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentInput): any => ({
-    ...obj,
-    ...(obj.AirflowConfigurationOptions && { AirflowConfigurationOptions: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateEnvironmentOutput {
   /**
    * <p>The Amazon Resource Name (ARN) returned in the response for the environment.</p>
    */
   Arn?: string;
-}
-
-export namespace CreateEnvironmentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -367,15 +302,6 @@ export interface CreateWebLoginTokenRequest {
   Name: string | undefined;
 }
 
-export namespace CreateWebLoginTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWebLoginTokenRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWebLoginTokenResponse {
   /**
    * <p>An Airflow web server login token.</p>
@@ -388,16 +314,6 @@ export interface CreateWebLoginTokenResponse {
   WebServerHostname?: string;
 }
 
-export namespace CreateWebLoginTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWebLoginTokenResponse): any => ({
-    ...obj,
-    ...(obj.WebToken && { WebToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface DeleteEnvironmentInput {
   /**
    * <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
@@ -405,40 +321,13 @@ export interface DeleteEnvironmentInput {
   Name: string | undefined;
 }
 
-export namespace DeleteEnvironmentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEnvironmentOutput {}
-
-export namespace DeleteEnvironmentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface GetEnvironmentInput {
   /**
    * <p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>
    */
   Name: string | undefined;
-}
-
-export namespace GetEnvironmentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -454,15 +343,6 @@ export interface UpdateError {
    * <p>The error message that corresponds to the error code.</p>
    */
   ErrorMessage?: string;
-}
-
-export namespace UpdateError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateError): any => ({
-    ...obj,
-  });
 }
 
 export enum UpdateStatus {
@@ -496,15 +376,6 @@ export interface LastUpdate {
   Source?: string;
 }
 
-export namespace LastUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LastUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the Apache Airflow log details for the log type (e.g. <code>DagProcessingLogs</code>).</p>
  */
@@ -523,15 +394,6 @@ export interface ModuleLoggingConfiguration {
    * <p>The Amazon Resource Name (ARN) for the CloudWatch Logs group where the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>) is published. For example, <code>arn:aws:logs:us-east-1:123456789012:log-group:airflow-MyMWAAEnvironment-MwaaEnvironment-DAGProcessing:*</code>.</p>
    */
   CloudWatchLogGroupArn?: string;
-}
-
-export namespace ModuleLoggingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModuleLoggingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -562,15 +424,6 @@ export interface LoggingConfiguration {
    * <p>The Airflow task logs published to CloudWatch Logs and the log level.</p>
    */
   TaskLogs?: ModuleLoggingConfiguration;
-}
-
-export namespace LoggingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum EnvironmentStatus {
@@ -754,31 +607,11 @@ export interface Environment {
   Schedulers?: number;
 }
 
-export namespace Environment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Environment): any => ({
-    ...obj,
-    ...(obj.AirflowConfigurationOptions && { AirflowConfigurationOptions: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetEnvironmentOutput {
   /**
    * <p>An object containing all available details about the environment.</p>
    */
   Environment?: Environment;
-}
-
-export namespace GetEnvironmentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentOutput): any => ({
-    ...obj,
-    ...(obj.Environment && { Environment: Environment.filterSensitiveLog(obj.Environment) }),
-  });
 }
 
 export interface ListEnvironmentsInput {
@@ -793,15 +626,6 @@ export interface ListEnvironmentsInput {
   MaxResults?: number;
 }
 
-export namespace ListEnvironmentsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEnvironmentsOutput {
   /**
    * <p>Returns a list of Amazon MWAA environments.</p>
@@ -814,15 +638,6 @@ export interface ListEnvironmentsOutput {
   NextToken?: string;
 }
 
-export namespace ListEnvironmentsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</p>
@@ -830,29 +645,11 @@ export interface ListTagsForResourceInput {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceOutput {
   /**
    * <p>The key-value tag pairs associated to your environment. To learn more, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -871,15 +668,6 @@ export interface Dimension {
    *             <b>Internal only</b>. The value of the dimension.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Dimension {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Dimension): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -910,15 +698,6 @@ export interface StatisticSet {
    *             <b>Internal only</b>. The maximum value of the sample set.</p>
    */
   Maximum?: number;
-}
-
-export namespace StatisticSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatisticSet): any => ({
-    ...obj,
-  });
 }
 
 export enum Unit {
@@ -993,15 +772,6 @@ export interface MetricDatum {
   StatisticValues?: StatisticSet;
 }
 
-export namespace MetricDatum {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricDatum): any => ({
-    ...obj,
-  });
-}
-
 export interface PublishMetricsInput {
   /**
    * <p>
@@ -1016,25 +786,7 @@ export interface PublishMetricsInput {
   MetricData: MetricDatum[] | undefined;
 }
 
-export namespace PublishMetricsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishMetricsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PublishMetricsOutput {}
-
-export namespace PublishMetricsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishMetricsOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceInput {
   /**
@@ -1048,25 +800,7 @@ export interface TagResourceInput {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceOutput {}
-
-export namespace TagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceInput {
   /**
@@ -1080,25 +814,7 @@ export interface UntagResourceInput {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceOutput {}
-
-export namespace UntagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Defines the VPC networking components used to secure and enable network traffic between the Amazon Web Services resources for your environment. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html">About networking on Amazon MWAA</a>.</p>
@@ -1108,15 +824,6 @@ export interface UpdateNetworkConfigurationInput {
    * <p>A list of security group IDs. A security group must be attached to the same VPC as the subnets. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html">Security in your VPC on Amazon MWAA</a>.</p>
    */
   SecurityGroupIds: string[] | undefined;
-}
-
-export namespace UpdateNetworkConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNetworkConfigurationInput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateEnvironmentInput {
@@ -1212,16 +919,6 @@ export interface UpdateEnvironmentInput {
   Schedulers?: number;
 }
 
-export namespace UpdateEnvironmentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentInput): any => ({
-    ...obj,
-    ...(obj.AirflowConfigurationOptions && { AirflowConfigurationOptions: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateEnvironmentOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon MWAA environment. For example, <code>arn:aws:airflow:us-east-1:123456789012:environment/MyMWAAEnvironment</code>.</p>
@@ -1229,11 +926,246 @@ export interface UpdateEnvironmentOutput {
   Arn?: string;
 }
 
-export namespace UpdateEnvironmentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CreateCliTokenRequestFilterSensitiveLog = (obj: CreateCliTokenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCliTokenResponseFilterSensitiveLog = (obj: CreateCliTokenResponse): any => ({
+  ...obj,
+  ...(obj.CliToken && { CliToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ModuleLoggingConfigurationInputFilterSensitiveLog = (obj: ModuleLoggingConfigurationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingConfigurationInputFilterSensitiveLog = (obj: LoggingConfigurationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkConfigurationFilterSensitiveLog = (obj: NetworkConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentInputFilterSensitiveLog = (obj: CreateEnvironmentInput): any => ({
+  ...obj,
+  ...(obj.AirflowConfigurationOptions && { AirflowConfigurationOptions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentOutputFilterSensitiveLog = (obj: CreateEnvironmentOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWebLoginTokenRequestFilterSensitiveLog = (obj: CreateWebLoginTokenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWebLoginTokenResponseFilterSensitiveLog = (obj: CreateWebLoginTokenResponse): any => ({
+  ...obj,
+  ...(obj.WebToken && { WebToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentInputFilterSensitiveLog = (obj: DeleteEnvironmentInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentOutputFilterSensitiveLog = (obj: DeleteEnvironmentOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentInputFilterSensitiveLog = (obj: GetEnvironmentInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateErrorFilterSensitiveLog = (obj: UpdateError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LastUpdateFilterSensitiveLog = (obj: LastUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModuleLoggingConfigurationFilterSensitiveLog = (obj: ModuleLoggingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingConfigurationFilterSensitiveLog = (obj: LoggingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
+  ...obj,
+  ...(obj.AirflowConfigurationOptions && { AirflowConfigurationOptions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentOutputFilterSensitiveLog = (obj: GetEnvironmentOutput): any => ({
+  ...obj,
+  ...(obj.Environment && { Environment: EnvironmentFilterSensitiveLog(obj.Environment) }),
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentsInputFilterSensitiveLog = (obj: ListEnvironmentsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentsOutputFilterSensitiveLog = (obj: ListEnvironmentsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionFilterSensitiveLog = (obj: Dimension): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatisticSetFilterSensitiveLog = (obj: StatisticSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricDatumFilterSensitiveLog = (obj: MetricDatum): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishMetricsInputFilterSensitiveLog = (obj: PublishMetricsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishMetricsOutputFilterSensitiveLog = (obj: PublishMetricsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNetworkConfigurationInputFilterSensitiveLog = (obj: UpdateNetworkConfigurationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentInputFilterSensitiveLog = (obj: UpdateEnvironmentInput): any => ({
+  ...obj,
+  ...(obj.AirflowConfigurationOptions && { AirflowConfigurationOptions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentOutputFilterSensitiveLog = (obj: UpdateEnvironmentOutput): any => ({
+  ...obj,
+});

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { CreateRuleGroupsNamespaceRequest, CreateRuleGroupsNamespaceResponse } from "../models/models_0";
+import {
+  CreateRuleGroupsNamespaceRequest,
+  CreateRuleGroupsNamespaceRequestFilterSensitiveLog,
+  CreateRuleGroupsNamespaceResponse,
+  CreateRuleGroupsNamespaceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateRuleGroupsNamespaceCommand,
   serializeAws_restJson1CreateRuleGroupsNamespaceCommand,
@@ -72,8 +77,8 @@ export class CreateRuleGroupsNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRuleGroupsNamespaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateRuleGroupsNamespaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRuleGroupsNamespaceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateRuleGroupsNamespaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

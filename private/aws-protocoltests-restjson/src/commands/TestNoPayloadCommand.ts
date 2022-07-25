@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TestNoPayloadInputOutput } from "../models/models_0";
+import { TestNoPayloadInputOutput, TestNoPayloadInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1TestNoPayloadCommand,
   serializeAws_restJson1TestNoPayloadCommand,
@@ -77,8 +77,8 @@ export class TestNoPayloadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestNoPayloadInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: TestNoPayloadInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: TestNoPayloadInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: TestNoPayloadInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

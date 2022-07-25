@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UnionInputOutput } from "../models/models_0";
+import { UnionInputOutput, UnionInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1JsonUnionsCommand,
   serializeAws_restJson1JsonUnionsCommand,
@@ -72,8 +72,8 @@ export class JsonUnionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnionInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: UnionInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UnionInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: UnionInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,7 +16,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutObjectOutput, PutObjectRequest } from "../models/models_0";
+import {
+  PutObjectOutput,
+  PutObjectOutputFilterSensitiveLog,
+  PutObjectRequest,
+  PutObjectRequestFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_restXmlPutObjectCommand, serializeAws_restXmlPutObjectCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -194,8 +199,8 @@ export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutObjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutObjectOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutObjectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutObjectOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

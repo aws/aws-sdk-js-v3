@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import { StopPHIDetectionJobRequest, StopPHIDetectionJobResponse } from "../models/models_0";
+import {
+  StopPHIDetectionJobRequest,
+  StopPHIDetectionJobRequestFilterSensitiveLog,
+  StopPHIDetectionJobResponse,
+  StopPHIDetectionJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StopPHIDetectionJobCommand,
   serializeAws_json1_1StopPHIDetectionJobCommand,
@@ -76,8 +81,8 @@ export class StopPHIDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopPHIDetectionJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopPHIDetectionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopPHIDetectionJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopPHIDetectionJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

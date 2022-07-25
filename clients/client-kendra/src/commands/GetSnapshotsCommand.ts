@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { GetSnapshotsRequest, GetSnapshotsResponse } from "../models/models_0";
+import {
+  GetSnapshotsRequest,
+  GetSnapshotsRequestFilterSensitiveLog,
+  GetSnapshotsResponse,
+  GetSnapshotsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetSnapshotsCommand,
   serializeAws_json1_1GetSnapshotsCommand,
@@ -74,8 +79,8 @@ export class GetSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSnapshotsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSnapshotsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSnapshotsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSnapshotsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

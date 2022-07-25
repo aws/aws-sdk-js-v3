@@ -89,15 +89,6 @@ export interface ListRealtimeContactAnalysisSegmentsRequest {
   NextToken?: string;
 }
 
-export namespace ListRealtimeContactAnalysisSegmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRealtimeContactAnalysisSegmentsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The section of the contact audio where that category rule was detected.</p>
  */
@@ -113,15 +104,6 @@ export interface PointOfInterest {
   EndOffsetMillis: number | undefined;
 }
 
-export namespace PointOfInterest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PointOfInterest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the category rule that was matched.</p>
  */
@@ -130,15 +112,6 @@ export interface CategoryDetails {
    * <p>The section of audio where the category rule was detected.</p>
    */
   PointsOfInterest: PointOfInterest[] | undefined;
-}
-
-export namespace CategoryDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CategoryDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -157,15 +130,6 @@ export interface Categories {
   MatchedDetails: Record<string, CategoryDetails> | undefined;
 }
 
-export namespace Categories {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Categories): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>For characters that were detected as issues, where they occur in the transcript.</p>
  */
@@ -181,15 +145,6 @@ export interface CharacterOffsets {
   EndOffsetChar: number | undefined;
 }
 
-export namespace CharacterOffsets {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CharacterOffsets): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Potential issues that are detected based on an artificial intelligence analysis of each
  *       turn in the conversation.</p>
@@ -199,15 +154,6 @@ export interface IssueDetected {
    * <p>The offset for when the issue was detected in the segment.</p>
    */
   CharacterOffsets: CharacterOffsets | undefined;
-}
-
-export namespace IssueDetected {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IssueDetected): any => ({
-    ...obj,
-  });
 }
 
 export enum SentimentValue {
@@ -261,15 +207,6 @@ export interface Transcript {
   IssuesDetected?: IssueDetected[];
 }
 
-export namespace Transcript {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Transcript): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An analyzed segment for a real-time analysis session.</p>
  */
@@ -283,15 +220,6 @@ export interface RealtimeContactAnalysisSegment {
    * <p>The matched category rules.</p>
    */
   Categories?: Categories;
-}
-
-export namespace RealtimeContactAnalysisSegment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RealtimeContactAnalysisSegment): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRealtimeContactAnalysisSegmentsResponse {
@@ -315,15 +243,6 @@ export interface ListRealtimeContactAnalysisSegmentsResponse {
    *          <p>If response does not include <code>nextToken</code>, the analysis is completed (successfully or failed) and there are no more segments to retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListRealtimeContactAnalysisSegmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRealtimeContactAnalysisSegmentsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -367,3 +286,70 @@ export class ThrottlingException extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * @internal
+ */
+export const ListRealtimeContactAnalysisSegmentsRequestFilterSensitiveLog = (
+  obj: ListRealtimeContactAnalysisSegmentsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PointOfInterestFilterSensitiveLog = (obj: PointOfInterest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CategoryDetailsFilterSensitiveLog = (obj: CategoryDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CategoriesFilterSensitiveLog = (obj: Categories): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CharacterOffsetsFilterSensitiveLog = (obj: CharacterOffsets): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IssueDetectedFilterSensitiveLog = (obj: IssueDetected): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TranscriptFilterSensitiveLog = (obj: Transcript): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RealtimeContactAnalysisSegmentFilterSensitiveLog = (obj: RealtimeContactAnalysisSegment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRealtimeContactAnalysisSegmentsResponseFilterSensitiveLog = (
+  obj: ListRealtimeContactAnalysisSegmentsResponse
+): any => ({
+  ...obj,
+});

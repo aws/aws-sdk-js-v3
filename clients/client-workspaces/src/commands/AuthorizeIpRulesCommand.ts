@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AuthorizeIpRulesRequest, AuthorizeIpRulesResult } from "../models/models_0";
+import {
+  AuthorizeIpRulesRequest,
+  AuthorizeIpRulesRequestFilterSensitiveLog,
+  AuthorizeIpRulesResult,
+  AuthorizeIpRulesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AuthorizeIpRulesCommand,
   serializeAws_json1_1AuthorizeIpRulesCommand,
@@ -74,8 +79,8 @@ export class AuthorizeIpRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeIpRulesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizeIpRulesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AuthorizeIpRulesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AuthorizeIpRulesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

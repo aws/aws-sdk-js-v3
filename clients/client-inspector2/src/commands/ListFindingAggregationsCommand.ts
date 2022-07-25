@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { ListFindingAggregationsRequest, ListFindingAggregationsResponse } from "../models/models_0";
+import {
+  ListFindingAggregationsRequest,
+  ListFindingAggregationsRequestFilterSensitiveLog,
+  ListFindingAggregationsResponse,
+  ListFindingAggregationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListFindingAggregationsCommand,
   serializeAws_restJson1ListFindingAggregationsCommand,
@@ -72,8 +77,8 @@ export class ListFindingAggregationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFindingAggregationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListFindingAggregationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFindingAggregationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListFindingAggregationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

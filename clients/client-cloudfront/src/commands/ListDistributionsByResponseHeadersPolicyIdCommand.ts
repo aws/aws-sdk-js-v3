@@ -15,7 +15,9 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   ListDistributionsByResponseHeadersPolicyIdRequest,
+  ListDistributionsByResponseHeadersPolicyIdRequestFilterSensitiveLog,
   ListDistributionsByResponseHeadersPolicyIdResult,
+  ListDistributionsByResponseHeadersPolicyIdResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommand,
@@ -87,8 +89,8 @@ export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDistributionsByResponseHeadersPolicyIdRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDistributionsByResponseHeadersPolicyIdResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDistributionsByResponseHeadersPolicyIdRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDistributionsByResponseHeadersPolicyIdResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateIndexingConfigurationRequest, UpdateIndexingConfigurationResponse } from "../models/models_2";
+import {
+  UpdateIndexingConfigurationRequest,
+  UpdateIndexingConfigurationRequestFilterSensitiveLog,
+  UpdateIndexingConfigurationResponse,
+  UpdateIndexingConfigurationResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateIndexingConfigurationCommand,
   serializeAws_restJson1UpdateIndexingConfigurationCommand,
@@ -75,8 +80,8 @@ export class UpdateIndexingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIndexingConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateIndexingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateIndexingConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateIndexingConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { UploadEntityDefinitionsRequest, UploadEntityDefinitionsResponse } from "../models/models_0";
+import {
+  UploadEntityDefinitionsRequest,
+  UploadEntityDefinitionsRequestFilterSensitiveLog,
+  UploadEntityDefinitionsResponse,
+  UploadEntityDefinitionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UploadEntityDefinitionsCommand,
   serializeAws_json1_1UploadEntityDefinitionsCommand,
@@ -82,8 +87,8 @@ export class UploadEntityDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UploadEntityDefinitionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UploadEntityDefinitionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UploadEntityDefinitionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UploadEntityDefinitionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

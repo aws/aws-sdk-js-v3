@@ -14,7 +14,9 @@ import {
 
 import {
   UpdateNotebookInstanceLifecycleConfigInput,
+  UpdateNotebookInstanceLifecycleConfigInputFilterSensitiveLog,
   UpdateNotebookInstanceLifecycleConfigOutput,
+  UpdateNotebookInstanceLifecycleConfigOutputFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommand,
@@ -77,8 +79,8 @@ export class UpdateNotebookInstanceLifecycleConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNotebookInstanceLifecycleConfigInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNotebookInstanceLifecycleConfigOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateNotebookInstanceLifecycleConfigInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNotebookInstanceLifecycleConfigOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

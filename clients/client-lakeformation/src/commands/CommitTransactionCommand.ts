@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { CommitTransactionRequest, CommitTransactionResponse } from "../models/models_0";
+import {
+  CommitTransactionRequest,
+  CommitTransactionRequestFilterSensitiveLog,
+  CommitTransactionResponse,
+  CommitTransactionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CommitTransactionCommand,
   serializeAws_restJson1CommitTransactionCommand,
@@ -72,8 +77,8 @@ export class CommitTransactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CommitTransactionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CommitTransactionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CommitTransactionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CommitTransactionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

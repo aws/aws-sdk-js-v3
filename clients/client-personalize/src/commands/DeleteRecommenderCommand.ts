@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteRecommenderRequest } from "../models/models_0";
+import { DeleteRecommenderRequest, DeleteRecommenderRequestFilterSensitiveLog } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1DeleteRecommenderCommand,
@@ -73,7 +73,7 @@ export class DeleteRecommenderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRecommenderRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRecommenderRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

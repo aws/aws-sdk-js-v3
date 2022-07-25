@@ -13,8 +13,8 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetRetentionSettingsRequest } from "../models/models_0";
-import { GetRetentionSettingsResponse } from "../models/models_1";
+import { GetRetentionSettingsRequest, GetRetentionSettingsRequestFilterSensitiveLog } from "../models/models_0";
+import { GetRetentionSettingsResponse, GetRetentionSettingsResponseFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1GetRetentionSettingsCommand,
   serializeAws_restJson1GetRetentionSettingsCommand,
@@ -76,8 +76,8 @@ export class GetRetentionSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRetentionSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRetentionSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRetentionSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRetentionSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

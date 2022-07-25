@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetServiceQuotaRequest, GetServiceQuotaResponse } from "../models/models_0";
+import {
+  GetServiceQuotaRequest,
+  GetServiceQuotaRequestFilterSensitiveLog,
+  GetServiceQuotaResponse,
+  GetServiceQuotaResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetServiceQuotaCommand,
   serializeAws_json1_1GetServiceQuotaCommand,
@@ -74,8 +79,8 @@ export class GetServiceQuotaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceQuotaRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceQuotaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetServiceQuotaRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetServiceQuotaResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

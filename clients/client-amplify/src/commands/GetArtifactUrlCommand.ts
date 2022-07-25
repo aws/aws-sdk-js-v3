@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { GetArtifactUrlRequest, GetArtifactUrlResult } from "../models/models_0";
+import {
+  GetArtifactUrlRequest,
+  GetArtifactUrlRequestFilterSensitiveLog,
+  GetArtifactUrlResult,
+  GetArtifactUrlResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetArtifactUrlCommand,
   serializeAws_restJson1GetArtifactUrlCommand,
@@ -72,8 +77,8 @@ export class GetArtifactUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetArtifactUrlRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetArtifactUrlResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetArtifactUrlRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetArtifactUrlResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

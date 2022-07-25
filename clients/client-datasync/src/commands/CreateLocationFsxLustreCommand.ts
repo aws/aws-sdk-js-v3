@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { CreateLocationFsxLustreRequest, CreateLocationFsxLustreResponse } from "../models/models_0";
+import {
+  CreateLocationFsxLustreRequest,
+  CreateLocationFsxLustreRequestFilterSensitiveLog,
+  CreateLocationFsxLustreResponse,
+  CreateLocationFsxLustreResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLocationFsxLustreCommand,
   serializeAws_json1_1CreateLocationFsxLustreCommand,
@@ -72,8 +77,8 @@ export class CreateLocationFsxLustreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLocationFsxLustreRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationFsxLustreResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLocationFsxLustreRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateLocationFsxLustreResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

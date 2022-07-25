@@ -15,7 +15,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
-import { StartConversationRequest, StartConversationResponse } from "../models/models_0";
+import {
+  StartConversationRequest,
+  StartConversationRequestFilterSensitiveLog,
+  StartConversationResponse,
+  StartConversationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartConversationCommand,
   serializeAws_restJson1StartConversationCommand,
@@ -134,8 +139,8 @@ export class StartConversationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartConversationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartConversationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartConversationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartConversationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DeleteVocabularyRequest, DeleteVocabularyResponse } from "../models/models_0";
+import {
+  DeleteVocabularyRequest,
+  DeleteVocabularyRequestFilterSensitiveLog,
+  DeleteVocabularyResponse,
+  DeleteVocabularyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVocabularyCommand,
   serializeAws_restJson1DeleteVocabularyCommand,
@@ -72,8 +77,8 @@ export class DeleteVocabularyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVocabularyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVocabularyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVocabularyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVocabularyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

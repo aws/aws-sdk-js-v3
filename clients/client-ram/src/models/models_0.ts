@@ -22,15 +22,6 @@ export interface AcceptResourceShareInvitationRequest {
   clientToken?: string;
 }
 
-export namespace AcceptResourceShareInvitationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptResourceShareInvitationRequest): any => ({
-    ...obj,
-  });
-}
-
 export type ResourceShareAssociationType = "PRINCIPAL" | "RESOURCE";
 
 export type ResourceShareAssociationStatus =
@@ -116,15 +107,6 @@ export interface ResourceShareAssociation {
   external?: boolean;
 }
 
-export namespace ResourceShareAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceShareAssociation): any => ({
-    ...obj,
-  });
-}
-
 export type ResourceShareInvitationStatus = "ACCEPTED" | "EXPIRED" | "PENDING" | "REJECTED";
 
 /**
@@ -179,15 +161,6 @@ export interface ResourceShareInvitation {
   receiverArn?: string;
 }
 
-export namespace ResourceShareInvitation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceShareInvitation): any => ({
-    ...obj,
-  });
-}
-
 export interface AcceptResourceShareInvitationResponse {
   /**
    * <p>An object that contains information about the specified invitation.</p>
@@ -201,15 +174,6 @@ export interface AcceptResourceShareInvitationResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    */
   clientToken?: string;
-}
-
-export namespace AcceptResourceShareInvitationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptResourceShareInvitationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -470,15 +434,6 @@ export interface AssociateResourceShareRequest {
   clientToken?: string;
 }
 
-export namespace AssociateResourceShareRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResourceShareRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateResourceShareResponse {
   /**
    * <p>An array of objects that contain information about the associations.</p>
@@ -492,15 +447,6 @@ export interface AssociateResourceShareResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    */
   clientToken?: string;
-}
-
-export namespace AssociateResourceShareResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResourceShareResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -648,15 +594,6 @@ export interface AssociateResourceSharePermissionRequest {
   permissionVersion?: number;
 }
 
-export namespace AssociateResourceSharePermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResourceSharePermissionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateResourceSharePermissionResponse {
   /**
    * <p>A return value of <code>true</code> indicates that the request succeeded.
@@ -671,15 +608,6 @@ export interface AssociateResourceSharePermissionResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    */
   clientToken?: string;
-}
-
-export namespace AssociateResourceSharePermissionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResourceSharePermissionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -702,15 +630,6 @@ export interface Tag {
    *             case sensitive.</p>
    */
   value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateResourceShareRequest {
@@ -798,15 +717,6 @@ export interface CreateResourceShareRequest {
   permissionArns?: string[];
 }
 
-export namespace CreateResourceShareRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceShareRequest): any => ({
-    ...obj,
-  });
-}
-
 export type ResourceShareFeatureSet = "CREATED_FROM_POLICY" | "PROMOTING_TO_STANDARD" | "STANDARD";
 
 export type ResourceShareStatus = "ACTIVE" | "DELETED" | "DELETING" | "FAILED" | "PENDING";
@@ -887,15 +797,6 @@ export interface ResourceShare {
   featureSet?: ResourceShareFeatureSet | string;
 }
 
-export namespace ResourceShare {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceShare): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateResourceShareResponse {
   /**
    * <p>An object with information about the new resource share.</p>
@@ -909,15 +810,6 @@ export interface CreateResourceShareResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    */
   clientToken?: string;
-}
-
-export namespace CreateResourceShareResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceShareResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -958,15 +850,6 @@ export interface DeleteResourceShareRequest {
   clientToken?: string;
 }
 
-export namespace DeleteResourceShareRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourceShareRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourceShareResponse {
   /**
    * <p>A return value of <code>true</code> indicates that the request succeeded.
@@ -981,15 +864,6 @@ export interface DeleteResourceShareResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    */
   clientToken?: string;
-}
-
-export namespace DeleteResourceShareResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourceShareResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateResourceShareRequest {
@@ -1056,15 +930,6 @@ export interface DisassociateResourceShareRequest {
   clientToken?: string;
 }
 
-export namespace DisassociateResourceShareRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResourceShareRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateResourceShareResponse {
   /**
    * <p>An array of objects that contain information about the updated associations for this
@@ -1079,15 +944,6 @@ export interface DisassociateResourceShareResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    */
   clientToken?: string;
-}
-
-export namespace DisassociateResourceShareResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResourceShareResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateResourceSharePermissionRequest {
@@ -1115,15 +971,6 @@ export interface DisassociateResourceSharePermissionRequest {
   clientToken?: string;
 }
 
-export namespace DisassociateResourceSharePermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResourceSharePermissionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateResourceSharePermissionResponse {
   /**
    * <p>A return value of <code>true</code> indicates that the request succeeded.
@@ -1140,25 +987,7 @@ export interface DisassociateResourceSharePermissionResponse {
   clientToken?: string;
 }
 
-export namespace DisassociateResourceSharePermissionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResourceSharePermissionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableSharingWithAwsOrganizationRequest {}
-
-export namespace EnableSharingWithAwsOrganizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableSharingWithAwsOrganizationRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface EnableSharingWithAwsOrganizationResponse {
   /**
@@ -1166,15 +995,6 @@ export interface EnableSharingWithAwsOrganizationResponse {
    *              A value of <code>false</code> indicates that the request failed.</p>
    */
   returnValue?: boolean;
-}
-
-export namespace EnableSharingWithAwsOrganizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableSharingWithAwsOrganizationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPermissionRequest {
@@ -1190,15 +1010,6 @@ export interface GetPermissionRequest {
    *             specify this parameter, the operation retrieves the default version.</p>
    */
   permissionVersion?: number;
-}
-
-export namespace GetPermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPermissionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1255,29 +1066,11 @@ export interface ResourceSharePermissionDetail {
   isResourceTypeDefault?: boolean;
 }
 
-export namespace ResourceSharePermissionDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceSharePermissionDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPermissionResponse {
   /**
    * <p>An object that contains information about the permission.</p>
    */
   permission?: ResourceSharePermissionDetail;
-}
-
-export namespace GetPermissionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPermissionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourcePoliciesRequest {
@@ -1314,15 +1107,6 @@ export interface GetResourcePoliciesRequest {
   maxResults?: number;
 }
 
-export namespace GetResourcePoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcePoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourcePoliciesResponse {
   /**
    * <p>An array of resource policy documents in JSON format.</p>
@@ -1337,15 +1121,6 @@ export interface GetResourcePoliciesResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace GetResourcePoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcePoliciesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1455,15 +1230,6 @@ export interface GetResourceShareAssociationsRequest {
   maxResults?: number;
 }
 
-export namespace GetResourceShareAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceShareAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourceShareAssociationsResponse {
   /**
    * <p>An array of objects that contain the details about the associations.</p>
@@ -1478,15 +1244,6 @@ export interface GetResourceShareAssociationsResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace GetResourceShareAssociationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceShareAssociationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourceShareInvitationsRequest {
@@ -1525,15 +1282,6 @@ export interface GetResourceShareInvitationsRequest {
   maxResults?: number;
 }
 
-export namespace GetResourceShareInvitationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceShareInvitationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourceShareInvitationsResponse {
   /**
    * <p>An array of objects that contain the details about the invitations.</p>
@@ -1548,15 +1296,6 @@ export interface GetResourceShareInvitationsResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace GetResourceShareInvitationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceShareInvitationsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1598,15 +1337,6 @@ export interface TagFilter {
    *             any tag with the specified key, regardless of its value.</p>
    */
   tagValues?: string[];
-}
-
-export namespace TagFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourceSharesRequest {
@@ -1684,15 +1414,6 @@ export interface GetResourceSharesRequest {
   permissionArn?: string;
 }
 
-export namespace GetResourceSharesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceSharesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourceSharesResponse {
   /**
    * <p>An array of objects that contain the information about the resource shares.</p>
@@ -1707,15 +1428,6 @@ export interface GetResourceSharesResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace GetResourceSharesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceSharesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceRegionScopeFilter {
@@ -1775,15 +1487,6 @@ export interface ListPendingInvitationResourcesRequest {
    *             <p>The default value is <code>ALL</code>.</p>
    */
   resourceRegionScope?: ResourceRegionScopeFilter | string;
-}
-
-export namespace ListPendingInvitationResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPendingInvitationResourcesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceRegionScope {
@@ -1859,15 +1562,6 @@ export interface Resource {
   resourceRegionScope?: ResourceRegionScope | string;
 }
 
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPendingInvitationResourcesResponse {
   /**
    * <p>An array of objects that contain the information about the resources included the
@@ -1883,15 +1577,6 @@ export interface ListPendingInvitationResourcesResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListPendingInvitationResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPendingInvitationResourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1943,15 +1628,6 @@ export interface ListPermissionsRequest {
    *              of the results.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2007,15 +1683,6 @@ export interface ResourceSharePermissionSummary {
   isResourceTypeDefault?: boolean;
 }
 
-export namespace ResourceSharePermissionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceSharePermissionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPermissionsResponse {
   /**
    * <p>An array of objects with information about the permissions.</p>
@@ -2030,15 +1697,6 @@ export interface ListPermissionsResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPermissionVersionsRequest {
@@ -2072,15 +1730,6 @@ export interface ListPermissionVersionsRequest {
   maxResults?: number;
 }
 
-export namespace ListPermissionVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPermissionVersionsResponse {
   /**
    * <p>An array of objects that contain details for each of the available versions.</p>
@@ -2095,15 +1744,6 @@ export interface ListPermissionVersionsResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListPermissionVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPrincipalsRequest {
@@ -2209,15 +1849,6 @@ export interface ListPrincipalsRequest {
   maxResults?: number;
 }
 
-export namespace ListPrincipalsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPrincipalsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a principal for use with Resource Access Manager.</p>
  */
@@ -2249,15 +1880,6 @@ export interface Principal {
   external?: boolean;
 }
 
-export namespace Principal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Principal): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPrincipalsResponse {
   /**
    * <p>An array of objects that contain the details about the principals.</p>
@@ -2272,15 +1894,6 @@ export interface ListPrincipalsResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListPrincipalsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPrincipalsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2396,15 +2009,6 @@ export interface ListResourcesRequest {
   resourceRegionScope?: ResourceRegionScopeFilter | string;
 }
 
-export namespace ListResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourcesResponse {
   /**
    * <p>An array of objects that contain information about the resources.</p>
@@ -2419,15 +2023,6 @@ export interface ListResourcesResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourceSharePermissionsRequest {
@@ -2460,15 +2055,6 @@ export interface ListResourceSharePermissionsRequest {
   maxResults?: number;
 }
 
-export namespace ListResourceSharePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceSharePermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourceSharePermissionsResponse {
   /**
    * <p>An array of objects that describe the permissions associated with the resource share.</p>
@@ -2483,15 +2069,6 @@ export interface ListResourceSharePermissionsResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListResourceSharePermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceSharePermissionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourceTypesRequest {
@@ -2542,15 +2119,6 @@ export interface ListResourceTypesRequest {
   resourceRegionScope?: ResourceRegionScopeFilter | string;
 }
 
-export namespace ListResourceTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceTypesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a shareable resource type and the Amazon Web Services service to which resources
  *             of that type belong.</p>
@@ -2585,15 +2153,6 @@ export interface ServiceNameAndResourceType {
   resourceRegionScope?: ResourceRegionScope | string;
 }
 
-export namespace ServiceNameAndResourceType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceNameAndResourceType): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourceTypesResponse {
   /**
    * <p>An array of objects that contain information about the resource types that can be
@@ -2611,29 +2170,11 @@ export interface ListResourceTypesResponse {
   nextToken?: string;
 }
 
-export namespace ListResourceTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceTypesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PromoteResourceShareCreatedFromPolicyRequest {
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the resource share to promote.</p>
    */
   resourceShareArn: string | undefined;
-}
-
-export namespace PromoteResourceShareCreatedFromPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PromoteResourceShareCreatedFromPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PromoteResourceShareCreatedFromPolicyResponse {
@@ -2642,15 +2183,6 @@ export interface PromoteResourceShareCreatedFromPolicyResponse {
    *              A value of <code>false</code> indicates that the request failed.</p>
    */
   returnValue?: boolean;
-}
-
-export namespace PromoteResourceShareCreatedFromPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PromoteResourceShareCreatedFromPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RejectResourceShareInvitationRequest {
@@ -2672,15 +2204,6 @@ export interface RejectResourceShareInvitationRequest {
   clientToken?: string;
 }
 
-export namespace RejectResourceShareInvitationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectResourceShareInvitationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectResourceShareInvitationResponse {
   /**
    * <p>An object that contains the details about the rejected invitation.</p>
@@ -2694,15 +2217,6 @@ export interface RejectResourceShareInvitationResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    */
   clientToken?: string;
-}
-
-export namespace RejectResourceShareInvitationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectResourceShareInvitationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2737,25 +2251,7 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2770,25 +2266,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateResourceShareRequest {
   /**
@@ -2820,15 +2298,6 @@ export interface UpdateResourceShareRequest {
   clientToken?: string;
 }
 
-export namespace UpdateResourceShareRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceShareRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateResourceShareResponse {
   /**
    * <p>Information about the resource share.</p>
@@ -2844,11 +2313,460 @@ export interface UpdateResourceShareResponse {
   clientToken?: string;
 }
 
-export namespace UpdateResourceShareResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceShareResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcceptResourceShareInvitationRequestFilterSensitiveLog = (
+  obj: AcceptResourceShareInvitationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceShareAssociationFilterSensitiveLog = (obj: ResourceShareAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceShareInvitationFilterSensitiveLog = (obj: ResourceShareInvitation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptResourceShareInvitationResponseFilterSensitiveLog = (
+  obj: AcceptResourceShareInvitationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateResourceShareRequestFilterSensitiveLog = (obj: AssociateResourceShareRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateResourceShareResponseFilterSensitiveLog = (obj: AssociateResourceShareResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateResourceSharePermissionRequestFilterSensitiveLog = (
+  obj: AssociateResourceSharePermissionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateResourceSharePermissionResponseFilterSensitiveLog = (
+  obj: AssociateResourceSharePermissionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceShareRequestFilterSensitiveLog = (obj: CreateResourceShareRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceShareFilterSensitiveLog = (obj: ResourceShare): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceShareResponseFilterSensitiveLog = (obj: CreateResourceShareResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourceShareRequestFilterSensitiveLog = (obj: DeleteResourceShareRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourceShareResponseFilterSensitiveLog = (obj: DeleteResourceShareResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateResourceShareRequestFilterSensitiveLog = (obj: DisassociateResourceShareRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateResourceShareResponseFilterSensitiveLog = (obj: DisassociateResourceShareResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateResourceSharePermissionRequestFilterSensitiveLog = (
+  obj: DisassociateResourceSharePermissionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateResourceSharePermissionResponseFilterSensitiveLog = (
+  obj: DisassociateResourceSharePermissionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableSharingWithAwsOrganizationRequestFilterSensitiveLog = (
+  obj: EnableSharingWithAwsOrganizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableSharingWithAwsOrganizationResponseFilterSensitiveLog = (
+  obj: EnableSharingWithAwsOrganizationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPermissionRequestFilterSensitiveLog = (obj: GetPermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceSharePermissionDetailFilterSensitiveLog = (obj: ResourceSharePermissionDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPermissionResponseFilterSensitiveLog = (obj: GetPermissionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePoliciesRequestFilterSensitiveLog = (obj: GetResourcePoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePoliciesResponseFilterSensitiveLog = (obj: GetResourcePoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceShareAssociationsRequestFilterSensitiveLog = (
+  obj: GetResourceShareAssociationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceShareAssociationsResponseFilterSensitiveLog = (
+  obj: GetResourceShareAssociationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceShareInvitationsRequestFilterSensitiveLog = (obj: GetResourceShareInvitationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceShareInvitationsResponseFilterSensitiveLog = (
+  obj: GetResourceShareInvitationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterFilterSensitiveLog = (obj: TagFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceSharesRequestFilterSensitiveLog = (obj: GetResourceSharesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceSharesResponseFilterSensitiveLog = (obj: GetResourceSharesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPendingInvitationResourcesRequestFilterSensitiveLog = (
+  obj: ListPendingInvitationResourcesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPendingInvitationResourcesResponseFilterSensitiveLog = (
+  obj: ListPendingInvitationResourcesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPermissionsRequestFilterSensitiveLog = (obj: ListPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceSharePermissionSummaryFilterSensitiveLog = (obj: ResourceSharePermissionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPermissionsResponseFilterSensitiveLog = (obj: ListPermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPermissionVersionsRequestFilterSensitiveLog = (obj: ListPermissionVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPermissionVersionsResponseFilterSensitiveLog = (obj: ListPermissionVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPrincipalsRequestFilterSensitiveLog = (obj: ListPrincipalsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrincipalFilterSensitiveLog = (obj: Principal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPrincipalsResponseFilterSensitiveLog = (obj: ListPrincipalsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesRequestFilterSensitiveLog = (obj: ListResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesResponseFilterSensitiveLog = (obj: ListResourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceSharePermissionsRequestFilterSensitiveLog = (
+  obj: ListResourceSharePermissionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceSharePermissionsResponseFilterSensitiveLog = (
+  obj: ListResourceSharePermissionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceTypesRequestFilterSensitiveLog = (obj: ListResourceTypesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceNameAndResourceTypeFilterSensitiveLog = (obj: ServiceNameAndResourceType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceTypesResponseFilterSensitiveLog = (obj: ListResourceTypesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PromoteResourceShareCreatedFromPolicyRequestFilterSensitiveLog = (
+  obj: PromoteResourceShareCreatedFromPolicyRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PromoteResourceShareCreatedFromPolicyResponseFilterSensitiveLog = (
+  obj: PromoteResourceShareCreatedFromPolicyResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectResourceShareInvitationRequestFilterSensitiveLog = (
+  obj: RejectResourceShareInvitationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectResourceShareInvitationResponseFilterSensitiveLog = (
+  obj: RejectResourceShareInvitationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceShareRequestFilterSensitiveLog = (obj: UpdateResourceShareRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceShareResponseFilterSensitiveLog = (obj: UpdateResourceShareResponse): any => ({
+  ...obj,
+});

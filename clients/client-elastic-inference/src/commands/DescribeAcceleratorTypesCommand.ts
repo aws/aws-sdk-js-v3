@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticInferenceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticInferenceClient";
-import { DescribeAcceleratorTypesRequest, DescribeAcceleratorTypesResponse } from "../models/models_0";
+import {
+  DescribeAcceleratorTypesRequest,
+  DescribeAcceleratorTypesRequestFilterSensitiveLog,
+  DescribeAcceleratorTypesResponse,
+  DescribeAcceleratorTypesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAcceleratorTypesCommand,
   serializeAws_restJson1DescribeAcceleratorTypesCommand,
@@ -74,8 +79,8 @@ export class DescribeAcceleratorTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAcceleratorTypesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAcceleratorTypesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAcceleratorTypesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAcceleratorTypesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

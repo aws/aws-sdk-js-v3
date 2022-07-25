@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { StartGameSessionPlacementInput, StartGameSessionPlacementOutput } from "../models/models_0";
+import {
+  StartGameSessionPlacementInput,
+  StartGameSessionPlacementInputFilterSensitiveLog,
+  StartGameSessionPlacementOutput,
+  StartGameSessionPlacementOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartGameSessionPlacementCommand,
   serializeAws_json1_1StartGameSessionPlacementCommand,
@@ -126,8 +131,8 @@ export class StartGameSessionPlacementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartGameSessionPlacementInput.filterSensitiveLog,
-      outputFilterSensitiveLog: StartGameSessionPlacementOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StartGameSessionPlacementInputFilterSensitiveLog,
+      outputFilterSensitiveLog: StartGameSessionPlacementOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

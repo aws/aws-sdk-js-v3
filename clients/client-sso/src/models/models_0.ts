@@ -23,15 +23,6 @@ export interface AccountInfo {
   emailAddress?: string;
 }
 
-export namespace AccountInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRoleCredentialsRequest {
   /**
    * <p>The friendly name of the role that is assigned to the user.</p>
@@ -48,16 +39,6 @@ export interface GetRoleCredentialsRequest {
    *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
    */
   accessToken: string | undefined;
-}
-
-export namespace GetRoleCredentialsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRoleCredentialsRequest): any => ({
-    ...obj,
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -89,32 +70,11 @@ export interface RoleCredentials {
   expiration?: number;
 }
 
-export namespace RoleCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoleCredentials): any => ({
-    ...obj,
-    ...(obj.secretAccessKey && { secretAccessKey: SENSITIVE_STRING }),
-    ...(obj.sessionToken && { sessionToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetRoleCredentialsResponse {
   /**
    * <p>The credentials for the role that is assigned to the user.</p>
    */
   roleCredentials?: RoleCredentials;
-}
-
-export namespace GetRoleCredentialsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRoleCredentialsResponse): any => ({
-    ...obj,
-    ...(obj.roleCredentials && { roleCredentials: RoleCredentials.filterSensitiveLog(obj.roleCredentials) }),
-  });
 }
 
 /**
@@ -217,16 +177,6 @@ export interface ListAccountRolesRequest {
   accountId: string | undefined;
 }
 
-export namespace ListAccountRolesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountRolesRequest): any => ({
-    ...obj,
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Provides information about the role that is assigned to the user.</p>
  */
@@ -242,15 +192,6 @@ export interface RoleInfo {
   accountId?: string;
 }
 
-export namespace RoleInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoleInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccountRolesResponse {
   /**
    * <p>The page token client that is used to retrieve the list of accounts.</p>
@@ -261,15 +202,6 @@ export interface ListAccountRolesResponse {
    * <p>A paginated response with the list of roles and the next token if more results are available.</p>
    */
   roleList?: RoleInfo[];
-}
-
-export namespace ListAccountRolesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountRolesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAccountsRequest {
@@ -290,16 +222,6 @@ export interface ListAccountsRequest {
   accessToken: string | undefined;
 }
 
-export namespace ListAccountsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountsRequest): any => ({
-    ...obj,
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListAccountsResponse {
   /**
    * <p>The page token client that is used to retrieve the list of accounts.</p>
@@ -312,15 +234,6 @@ export interface ListAccountsResponse {
   accountList?: AccountInfo[];
 }
 
-export namespace ListAccountsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface LogoutRequest {
   /**
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
@@ -329,12 +242,79 @@ export interface LogoutRequest {
   accessToken: string | undefined;
 }
 
-export namespace LogoutRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogoutRequest): any => ({
-    ...obj,
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  });
-}
+/**
+ * @internal
+ */
+export const AccountInfoFilterSensitiveLog = (obj: AccountInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRoleCredentialsRequestFilterSensitiveLog = (obj: GetRoleCredentialsRequest): any => ({
+  ...obj,
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RoleCredentialsFilterSensitiveLog = (obj: RoleCredentials): any => ({
+  ...obj,
+  ...(obj.secretAccessKey && { secretAccessKey: SENSITIVE_STRING }),
+  ...(obj.sessionToken && { sessionToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetRoleCredentialsResponseFilterSensitiveLog = (obj: GetRoleCredentialsResponse): any => ({
+  ...obj,
+  ...(obj.roleCredentials && { roleCredentials: RoleCredentialsFilterSensitiveLog(obj.roleCredentials) }),
+});
+
+/**
+ * @internal
+ */
+export const ListAccountRolesRequestFilterSensitiveLog = (obj: ListAccountRolesRequest): any => ({
+  ...obj,
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RoleInfoFilterSensitiveLog = (obj: RoleInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountRolesResponseFilterSensitiveLog = (obj: ListAccountRolesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountsRequestFilterSensitiveLog = (obj: ListAccountsRequest): any => ({
+  ...obj,
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAccountsResponseFilterSensitiveLog = (obj: ListAccountsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogoutRequestFilterSensitiveLog = (obj: LogoutRequest): any => ({
+  ...obj,
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+});

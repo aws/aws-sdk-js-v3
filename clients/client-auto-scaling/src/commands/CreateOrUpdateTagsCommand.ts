@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { CreateOrUpdateTagsType } from "../models/models_0";
+import { CreateOrUpdateTagsType, CreateOrUpdateTagsTypeFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryCreateOrUpdateTagsCommand,
   serializeAws_queryCreateOrUpdateTagsCommand,
@@ -76,7 +76,7 @@ export class CreateOrUpdateTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOrUpdateTagsType.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateOrUpdateTagsTypeFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

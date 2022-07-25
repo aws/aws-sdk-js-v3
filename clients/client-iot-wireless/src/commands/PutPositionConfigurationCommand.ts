@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { PutPositionConfigurationRequest, PutPositionConfigurationResponse } from "../models/models_0";
+import {
+  PutPositionConfigurationRequest,
+  PutPositionConfigurationRequestFilterSensitiveLog,
+  PutPositionConfigurationResponse,
+  PutPositionConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutPositionConfigurationCommand,
   serializeAws_restJson1PutPositionConfigurationCommand,
@@ -72,8 +77,8 @@ export class PutPositionConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPositionConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutPositionConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutPositionConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutPositionConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

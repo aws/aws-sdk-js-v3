@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AllocateAddressRequest, AllocateAddressResult } from "../models/models_0";
+import {
+  AllocateAddressRequest,
+  AllocateAddressRequestFilterSensitiveLog,
+  AllocateAddressResult,
+  AllocateAddressResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_ec2AllocateAddressCommand, serializeAws_ec2AllocateAddressCommand } from "../protocols/Aws_ec2";
 
 export interface AllocateAddressCommandInput extends AllocateAddressRequest {}
@@ -81,8 +86,8 @@ export class AllocateAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AllocateAddressRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AllocateAddressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AllocateAddressRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AllocateAddressResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

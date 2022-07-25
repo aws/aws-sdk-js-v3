@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { ResetAllResourceLogLevelsRequest, ResetAllResourceLogLevelsResponse } from "../models/models_0";
+import {
+  ResetAllResourceLogLevelsRequest,
+  ResetAllResourceLogLevelsRequestFilterSensitiveLog,
+  ResetAllResourceLogLevelsResponse,
+  ResetAllResourceLogLevelsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ResetAllResourceLogLevelsCommand,
   serializeAws_restJson1ResetAllResourceLogLevelsCommand,
@@ -72,8 +77,8 @@ export class ResetAllResourceLogLevelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetAllResourceLogLevelsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResetAllResourceLogLevelsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetAllResourceLogLevelsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResetAllResourceLogLevelsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

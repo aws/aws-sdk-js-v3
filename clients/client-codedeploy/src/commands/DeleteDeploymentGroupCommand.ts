@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { DeleteDeploymentGroupInput, DeleteDeploymentGroupOutput } from "../models/models_0";
+import {
+  DeleteDeploymentGroupInput,
+  DeleteDeploymentGroupInputFilterSensitiveLog,
+  DeleteDeploymentGroupOutput,
+  DeleteDeploymentGroupOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDeploymentGroupCommand,
   serializeAws_json1_1DeleteDeploymentGroupCommand,
@@ -72,8 +77,8 @@ export class DeleteDeploymentGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeploymentGroupInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDeploymentGroupOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDeploymentGroupInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDeploymentGroupOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

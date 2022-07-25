@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import { ListChannelMessagesRequest, ListChannelMessagesResponse } from "../models/models_0";
+import {
+  ListChannelMessagesRequest,
+  ListChannelMessagesRequestFilterSensitiveLog,
+  ListChannelMessagesResponse,
+  ListChannelMessagesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListChannelMessagesCommand,
   serializeAws_restJson1ListChannelMessagesCommand,
@@ -86,8 +91,8 @@ export class ListChannelMessagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListChannelMessagesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListChannelMessagesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListChannelMessagesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListChannelMessagesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

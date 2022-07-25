@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { PutDataLakeSettingsRequest, PutDataLakeSettingsResponse } from "../models/models_0";
+import {
+  PutDataLakeSettingsRequest,
+  PutDataLakeSettingsRequestFilterSensitiveLog,
+  PutDataLakeSettingsResponse,
+  PutDataLakeSettingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutDataLakeSettingsCommand,
   serializeAws_restJson1PutDataLakeSettingsCommand,
@@ -74,8 +79,8 @@ export class PutDataLakeSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDataLakeSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutDataLakeSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutDataLakeSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutDataLakeSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

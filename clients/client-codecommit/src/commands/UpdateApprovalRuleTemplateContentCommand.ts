@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { UpdateApprovalRuleTemplateContentInput, UpdateApprovalRuleTemplateContentOutput } from "../models/models_1";
+import {
+  UpdateApprovalRuleTemplateContentInput,
+  UpdateApprovalRuleTemplateContentInputFilterSensitiveLog,
+  UpdateApprovalRuleTemplateContentOutput,
+  UpdateApprovalRuleTemplateContentOutputFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommand,
   serializeAws_json1_1UpdateApprovalRuleTemplateContentCommand,
@@ -76,8 +81,8 @@ export class UpdateApprovalRuleTemplateContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApprovalRuleTemplateContentInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApprovalRuleTemplateContentOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateApprovalRuleTemplateContentInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateApprovalRuleTemplateContentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

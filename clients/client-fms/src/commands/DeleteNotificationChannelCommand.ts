@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { DeleteNotificationChannelRequest } from "../models/models_0";
+import {
+  DeleteNotificationChannelRequest,
+  DeleteNotificationChannelRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteNotificationChannelCommand,
   serializeAws_json1_1DeleteNotificationChannelCommand,
@@ -73,7 +76,7 @@ export class DeleteNotificationChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNotificationChannelRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteNotificationChannelRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

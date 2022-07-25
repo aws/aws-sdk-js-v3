@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { DeleteTestGridProjectRequest, DeleteTestGridProjectResult } from "../models/models_0";
+import {
+  DeleteTestGridProjectRequest,
+  DeleteTestGridProjectRequestFilterSensitiveLog,
+  DeleteTestGridProjectResult,
+  DeleteTestGridProjectResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTestGridProjectCommand,
   serializeAws_json1_1DeleteTestGridProjectCommand,
@@ -78,8 +83,8 @@ export class DeleteTestGridProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTestGridProjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTestGridProjectResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTestGridProjectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTestGridProjectResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

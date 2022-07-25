@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetContainerServiceDeploymentsRequest, GetContainerServiceDeploymentsResult } from "../models/models_0";
+import {
+  GetContainerServiceDeploymentsRequest,
+  GetContainerServiceDeploymentsRequestFilterSensitiveLog,
+  GetContainerServiceDeploymentsResult,
+  GetContainerServiceDeploymentsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetContainerServiceDeploymentsCommand,
   serializeAws_json1_1GetContainerServiceDeploymentsCommand,
@@ -86,8 +91,8 @@ export class GetContainerServiceDeploymentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContainerServiceDeploymentsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetContainerServiceDeploymentsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetContainerServiceDeploymentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetContainerServiceDeploymentsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

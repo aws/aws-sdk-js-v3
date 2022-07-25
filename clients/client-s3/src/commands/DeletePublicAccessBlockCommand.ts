@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeletePublicAccessBlockRequest } from "../models/models_0";
+import { DeletePublicAccessBlockRequest, DeletePublicAccessBlockRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlDeletePublicAccessBlockCommand,
   serializeAws_restXmlDeletePublicAccessBlockCommand,
@@ -102,7 +102,7 @@ export class DeletePublicAccessBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePublicAccessBlockRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePublicAccessBlockRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

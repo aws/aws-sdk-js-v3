@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetTimelineEventInput, GetTimelineEventOutput } from "../models/models_0";
+import {
+  GetTimelineEventInput,
+  GetTimelineEventInputFilterSensitiveLog,
+  GetTimelineEventOutput,
+  GetTimelineEventOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetTimelineEventCommand,
   serializeAws_restJson1GetTimelineEventCommand,
@@ -72,8 +77,8 @@ export class GetTimelineEventCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTimelineEventInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTimelineEventOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTimelineEventInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTimelineEventOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

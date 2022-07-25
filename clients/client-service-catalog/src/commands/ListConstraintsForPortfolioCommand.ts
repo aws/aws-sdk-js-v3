@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListConstraintsForPortfolioInput, ListConstraintsForPortfolioOutput } from "../models/models_0";
+import {
+  ListConstraintsForPortfolioInput,
+  ListConstraintsForPortfolioInputFilterSensitiveLog,
+  ListConstraintsForPortfolioOutput,
+  ListConstraintsForPortfolioOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListConstraintsForPortfolioCommand,
   serializeAws_json1_1ListConstraintsForPortfolioCommand,
@@ -72,8 +77,8 @@ export class ListConstraintsForPortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConstraintsForPortfolioInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListConstraintsForPortfolioOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListConstraintsForPortfolioInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListConstraintsForPortfolioOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

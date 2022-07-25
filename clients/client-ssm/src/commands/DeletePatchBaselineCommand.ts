@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeletePatchBaselineRequest, DeletePatchBaselineResult } from "../models/models_0";
+import {
+  DeletePatchBaselineRequest,
+  DeletePatchBaselineRequestFilterSensitiveLog,
+  DeletePatchBaselineResult,
+  DeletePatchBaselineResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePatchBaselineCommand,
   serializeAws_json1_1DeletePatchBaselineCommand,
@@ -72,8 +77,8 @@ export class DeletePatchBaselineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePatchBaselineRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePatchBaselineResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePatchBaselineRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePatchBaselineResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

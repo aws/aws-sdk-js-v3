@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListSecurityKeysRequest, ListSecurityKeysResponse } from "../models/models_1";
+import {
+  ListSecurityKeysRequest,
+  ListSecurityKeysRequestFilterSensitiveLog,
+  ListSecurityKeysResponse,
+  ListSecurityKeysResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListSecurityKeysCommand,
   serializeAws_restJson1ListSecurityKeysCommand,
@@ -73,8 +78,8 @@ export class ListSecurityKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSecurityKeysRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSecurityKeysResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSecurityKeysRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSecurityKeysResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import { ChannelFlowCallbackRequest, ChannelFlowCallbackResponse } from "../models/models_0";
+import {
+  ChannelFlowCallbackRequest,
+  ChannelFlowCallbackRequestFilterSensitiveLog,
+  ChannelFlowCallbackResponse,
+  ChannelFlowCallbackResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ChannelFlowCallbackCommand,
   serializeAws_restJson1ChannelFlowCallbackCommand,
@@ -88,8 +93,8 @@ export class ChannelFlowCallbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ChannelFlowCallbackRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ChannelFlowCallbackResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ChannelFlowCallbackRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ChannelFlowCallbackResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

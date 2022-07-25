@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDatasetGroupRequest } from "../models/models_0";
+import { DeleteDatasetGroupRequest, DeleteDatasetGroupRequestFilterSensitiveLog } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1DeleteDatasetGroupCommand,
@@ -84,7 +84,7 @@ export class DeleteDatasetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatasetGroupRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDatasetGroupRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import { DescribeEventsRequest, DescribeEventsResponse } from "../models/models_0";
+import {
+  DescribeEventsRequest,
+  DescribeEventsRequestFilterSensitiveLog,
+  DescribeEventsResponse,
+  DescribeEventsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEventsCommand,
   serializeAws_json1_1DescribeEventsCommand,
@@ -76,8 +81,8 @@ export class DescribeEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEventsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEventsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

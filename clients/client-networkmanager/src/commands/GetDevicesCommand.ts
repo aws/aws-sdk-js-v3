@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetDevicesRequest, GetDevicesResponse } from "../models/models_0";
+import {
+  GetDevicesRequest,
+  GetDevicesRequestFilterSensitiveLog,
+  GetDevicesResponse,
+  GetDevicesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1GetDevicesCommand,
@@ -72,8 +77,8 @@ export class GetDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDevicesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDevicesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDevicesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDevicesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

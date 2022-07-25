@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { CreateCustomActionTypeInput, CreateCustomActionTypeOutput } from "../models/models_0";
+import {
+  CreateCustomActionTypeInput,
+  CreateCustomActionTypeInputFilterSensitiveLog,
+  CreateCustomActionTypeOutput,
+  CreateCustomActionTypeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCustomActionTypeCommand,
   serializeAws_json1_1CreateCustomActionTypeCommand,
@@ -73,8 +78,8 @@ export class CreateCustomActionTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomActionTypeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomActionTypeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCustomActionTypeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateCustomActionTypeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { ListEntityPersonasRequest, ListEntityPersonasResponse } from "../models/models_0";
+import {
+  ListEntityPersonasRequest,
+  ListEntityPersonasRequestFilterSensitiveLog,
+  ListEntityPersonasResponse,
+  ListEntityPersonasResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListEntityPersonasCommand,
   serializeAws_json1_1ListEntityPersonasCommand,
@@ -73,8 +78,8 @@ export class ListEntityPersonasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEntityPersonasRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListEntityPersonasResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEntityPersonasRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListEntityPersonasResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

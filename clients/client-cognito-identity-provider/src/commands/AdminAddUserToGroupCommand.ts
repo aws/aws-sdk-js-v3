@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminAddUserToGroupRequest } from "../models/models_0";
+import { AdminAddUserToGroupRequest, AdminAddUserToGroupRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminAddUserToGroupCommand,
   serializeAws_json1_1AdminAddUserToGroupCommand,
@@ -79,7 +79,7 @@ export class AdminAddUserToGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AdminAddUserToGroupRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminAddUserToGroupRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

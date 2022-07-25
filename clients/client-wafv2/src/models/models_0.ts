@@ -22,15 +22,6 @@ export interface ActionCondition {
   Action: ActionValue | string | undefined;
 }
 
-export namespace ActionCondition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionCondition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Inspect all of the elements that WAF has parsed and extracted from the web request
  *          component that you've identified in your <a>FieldToMatch</a> specifications. </p>
@@ -39,15 +30,6 @@ export namespace ActionCondition {
  *          </p>
  */
 export interface All {}
-
-export namespace All {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: All): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A custom header for custom request and response handling. This is used in <a>CustomResponse</a> and <a>CustomRequestHandling</a>.</p>
@@ -68,15 +50,6 @@ export interface CustomHTTPHeader {
   Value: string | undefined;
 }
 
-export namespace CustomHTTPHeader {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomHTTPHeader): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Custom request handling behavior that inserts custom headers into a web request. You can
  *          add custom request handling for the rule actions allow and count. </p>
@@ -90,15 +63,6 @@ export interface CustomRequestHandling {
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   InsertHeaders: CustomHTTPHeader[] | undefined;
-}
-
-export namespace CustomRequestHandling {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRequestHandling): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -115,15 +79,6 @@ export interface AllowAction {
   CustomRequestHandling?: CustomRequestHandling;
 }
 
-export namespace AllowAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllowAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Inspect all query arguments of the web request. </p>
  *          <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
@@ -131,15 +86,6 @@ export namespace AllowAction {
  *          </p>
  */
 export interface AllQueryArguments {}
-
-export namespace AllQueryArguments {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllQueryArguments): any => ({
-    ...obj,
-  });
-}
 
 export enum OversizeHandling {
   CONTINUE = "CONTINUE",
@@ -183,15 +129,6 @@ export interface Body {
   OversizeHandling?: OversizeHandling | string;
 }
 
-export namespace Body {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Body): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The filter to use to identify the subset of cookies to inspect in a web request. </p>
  *          <p>You must specify exactly one setting: either <code>All</code>, <code>IncludedCookies</code>, or <code>ExcludedCookies</code>.</p>
@@ -215,15 +152,6 @@ export interface CookieMatchPattern {
    *       </p>
    */
   ExcludedCookies?: string[];
-}
-
-export namespace CookieMatchPattern {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CookieMatchPattern): any => ({
-    ...obj,
-  });
 }
 
 export enum MapMatchScope {
@@ -282,15 +210,6 @@ export interface Cookies {
   OversizeHandling: OversizeHandling | string | undefined;
 }
 
-export namespace Cookies {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Cookies): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The filter to use to identify the subset of headers to inspect in a web request. </p>
  *          <p>You must specify exactly one setting: either <code>All</code>, <code>IncludedHeaders</code>, or <code>ExcludedHeaders</code>.</p>
@@ -314,15 +233,6 @@ export interface HeaderMatchPattern {
    *       </p>
    */
   ExcludedHeaders?: string[];
-}
-
-export namespace HeaderMatchPattern {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HeaderMatchPattern): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -378,15 +288,6 @@ export interface Headers {
   OversizeHandling: OversizeHandling | string | undefined;
 }
 
-export namespace Headers {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Headers): any => ({
-    ...obj,
-  });
-}
-
 export enum BodyParsingFallbackBehavior {
   EVALUATE_AS_STRING = "EVALUATE_AS_STRING",
   MATCH = "MATCH",
@@ -423,15 +324,6 @@ export interface JsonMatchPattern {
    *          </note>
    */
   IncludedPaths?: string[];
-}
-
-export namespace JsonMatchPattern {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JsonMatchPattern): any => ({
-    ...obj,
-  });
 }
 
 export enum JsonMatchScope {
@@ -539,15 +431,6 @@ export interface JsonBody {
   OversizeHandling?: OversizeHandling | string;
 }
 
-export namespace JsonBody {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JsonBody): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Inspect the HTTP method of the web request. The method indicates the type of operation
  *          that the request is asking the origin to perform. </p>
@@ -557,15 +440,6 @@ export namespace JsonBody {
  */
 export interface Method {}
 
-export namespace Method {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Method): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Inspect the query string of the web request. This is the part of a URL that appears
  *          after a <code>?</code> character, if any.</p>
@@ -574,15 +448,6 @@ export namespace Method {
  *          </p>
  */
 export interface QueryString {}
-
-export namespace QueryString {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryString): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Inspect one of the headers in the web request, identified by name, for example,
@@ -600,15 +465,6 @@ export interface SingleHeader {
   Name: string | undefined;
 }
 
-export namespace SingleHeader {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SingleHeader): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Inspect one query argument in the web request, identified by name, for example
  *             <i>UserName</i> or <i>SalesRegion</i>. The name isn't case
@@ -624,15 +480,6 @@ export interface SingleQueryArgument {
   Name: string | undefined;
 }
 
-export namespace SingleQueryArgument {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SingleQueryArgument): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Inspect the path component of the URI of the web request. This is the part of the web
  *          request that identifies a resource. For example, <code>/images/daily-ad.jpg</code>.</p>
@@ -641,15 +488,6 @@ export namespace SingleQueryArgument {
  *          </p>
  */
 export interface UriPath {}
-
-export namespace UriPath {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UriPath): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The part of the web request that you want WAF to inspect. Include the single
@@ -754,15 +592,6 @@ export interface FieldToMatch {
    *          underlying host service. </p>
    */
   Cookies?: Cookies;
-}
-
-export namespace FieldToMatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldToMatch): any => ({
-    ...obj,
-  });
 }
 
 export enum PositionalConstraint {
@@ -973,15 +802,6 @@ export interface TextTransformation {
   Type: TextTransformationType | string | undefined;
 }
 
-export namespace TextTransformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextTransformation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A rule statement that defines a string match search for WAF to apply to web requests. The byte match statement provides the bytes to search for, the location in requests that you want WAF to search, and other settings. The bytes to search for are typically a string that corresponds with ASCII characters. In the WAF console and the developer guide, this is called a string match statement.</p>
  */
@@ -1083,15 +903,6 @@ export interface ByteMatchStatement {
    *          the web request.</p>
    */
   PositionalConstraint: PositionalConstraint | string | undefined;
-}
-
-export namespace ByteMatchStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ByteMatchStatement): any => ({
-    ...obj,
-  });
 }
 
 export enum CountryCode {
@@ -1396,15 +1207,6 @@ export interface ForwardedIPConfig {
   FallbackBehavior: FallbackBehavior | string | undefined;
 }
 
-export namespace ForwardedIPConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForwardedIPConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A rule statement used to identify web requests based on country of origin.  </p>
  */
@@ -1423,15 +1225,6 @@ export interface GeoMatchStatement {
    *          </note>
    */
   ForwardedIPConfig?: ForwardedIPConfig;
-}
-
-export namespace GeoMatchStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GeoMatchStatement): any => ({
-    ...obj,
-  });
 }
 
 export enum ForwardedIPPosition {
@@ -1505,15 +1298,6 @@ export interface IPSetForwardedIPConfig {
   Position: ForwardedIPPosition | string | undefined;
 }
 
-export namespace IPSetForwardedIPConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IPSetForwardedIPConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A rule statement used to detect web requests coming from particular IP addresses or address ranges. To use this, create an <a>IPSet</a> that specifies the addresses you want to detect, then use the ARN of that set in this statement. To create an IP set, see <a>CreateIPSet</a>.</p>
  *          <p>Each IP set rule statement references an IP set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, WAF automatically updates all rules that reference it.</p>
@@ -1533,15 +1317,6 @@ export interface IPSetReferenceStatement {
    *          </note>
    */
   IPSetForwardedIPConfig?: IPSetForwardedIPConfig;
-}
-
-export namespace IPSetReferenceStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IPSetReferenceStatement): any => ({
-    ...obj,
-  });
 }
 
 export enum LabelMatchScope {
@@ -1581,15 +1356,6 @@ export interface LabelMatchStatement {
   Key: string | undefined;
 }
 
-export namespace LabelMatchStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelMatchStatement): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a single rule in a rule group whose action you want to override to
  *             <code>Count</code>. When you exclude a rule, WAF evaluates it exactly as it would if
@@ -1603,15 +1369,6 @@ export interface ExcludedRule {
   Name: string | undefined;
 }
 
-export namespace ExcludedRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExcludedRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about your login page password field, used in a
  *             <code>ManagedRuleGroupConfig</code>. </p>
@@ -1621,15 +1378,6 @@ export interface PasswordField {
    * <p>The name of the password field. For example <code>/form/password</code>.</p>
    */
   Identifier: string | undefined;
-}
-
-export namespace PasswordField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PasswordField): any => ({
-    ...obj,
-  });
 }
 
 export enum PayloadType {
@@ -1646,15 +1394,6 @@ export interface UsernameField {
    * <p>The name of the username field. For example <code>/form/username</code>.</p>
    */
   Identifier: string | undefined;
-}
-
-export namespace UsernameField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsernameField): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1687,15 +1426,6 @@ export interface ManagedRuleGroupConfig {
   PasswordField?: PasswordField;
 }
 
-export namespace ManagedRuleGroupConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagedRuleGroupConfig): any => ({
-    ...obj,
-  });
-}
-
 export enum RateBasedStatementAggregateKeyType {
   FORWARDED_IP = "FORWARDED_IP",
   IP = "IP",
@@ -1723,15 +1453,6 @@ export interface RegexMatchStatement {
   TextTransformations: TextTransformation[] | undefined;
 }
 
-export namespace RegexMatchStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegexMatchStatement): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A rule statement used to search web request components for matches with regular expressions. To use this, create a <a>RegexPatternSet</a> that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set. To create a regex pattern set, see <a>CreateRegexPatternSet</a>.</p>
  *          <p>Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, WAF automatically updates all rules that reference it.</p>
@@ -1756,15 +1477,6 @@ export interface RegexPatternSetReferenceStatement {
   TextTransformations: TextTransformation[] | undefined;
 }
 
-export namespace RegexPatternSetReferenceStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegexPatternSetReferenceStatement): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A rule statement used to run the rules that are defined in a <a>RuleGroup</a>. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.</p>
  *          <p>You cannot nest a <code>RuleGroupReferenceStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. You
@@ -1783,15 +1495,6 @@ export interface RuleGroupReferenceStatement {
    *          without modifying how they handle your web traffic.</p>
    */
   ExcludedRules?: ExcludedRule[];
-}
-
-export namespace RuleGroupReferenceStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupReferenceStatement): any => ({
-    ...obj,
-  });
 }
 
 export enum ComparisonOperator {
@@ -1832,15 +1535,6 @@ export interface SizeConstraintStatement {
   TextTransformations: TextTransformation[] | undefined;
 }
 
-export namespace SizeConstraintStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SizeConstraintStatement): any => ({
-    ...obj,
-  });
-}
-
 export enum SensitivityLevel {
   HIGH = "HIGH",
   LOW = "LOW",
@@ -1879,15 +1573,6 @@ export interface SqliMatchStatement {
   SensitivityLevel?: SensitivityLevel | string;
 }
 
-export namespace SqliMatchStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqliMatchStatement): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A rule statement that inspects for cross-site scripting (XSS) attacks. In XSS attacks, the attacker
  * uses vulnerabilities in a benign website as a vehicle to inject malicious client-site scripts into other legitimate web browsers. </p>
@@ -1904,15 +1589,6 @@ export interface XssMatchStatement {
    *          content of the request component identified by <code>FieldToMatch</code>, starting from the lowest priority setting, before inspecting the content for a match.</p>
    */
   TextTransformations: TextTransformation[] | undefined;
-}
-
-export namespace XssMatchStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: XssMatchStatement): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateWebACLRequest {
@@ -1947,25 +1623,7 @@ export interface AssociateWebACLRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace AssociateWebACLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWebACLRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateWebACLResponse {}
-
-export namespace AssociateWebACLResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWebACLResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Your request is valid, but WAF couldn’t perform the operation because of a system
@@ -2207,15 +1865,6 @@ export interface CustomResponse {
   ResponseHeaders?: CustomHTTPHeader[];
 }
 
-export namespace CustomResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies that WAF should block the request and optionally defines additional
  *          custom handling for the response to the web request.</p>
@@ -2228,15 +1877,6 @@ export interface BlockAction {
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomResponse?: CustomResponse;
-}
-
-export namespace BlockAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlockAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2278,15 +1918,6 @@ export interface CaptchaAction {
   CustomRequestHandling?: CustomRequestHandling;
 }
 
-export namespace CaptchaAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptchaAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies that WAF should count the request. Optionally defines additional custom
  *          handling for the request.</p>
@@ -2299,15 +1930,6 @@ export interface CountAction {
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomRequestHandling?: CustomRequestHandling;
-}
-
-export namespace CountAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CountAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2336,15 +1958,6 @@ export interface RuleAction {
   Captcha?: CaptchaAction;
 }
 
-export namespace RuleAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Determines how long a <code>CAPTCHA</code> token remains valid after the client
  *          successfully solves a <code>CAPTCHA</code> puzzle. </p>
@@ -2355,15 +1968,6 @@ export interface ImmunityTimeProperty {
    *          setting is 300.</p>
    */
   ImmunityTime: number | undefined;
-}
-
-export namespace ImmunityTimeProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImmunityTimeProperty): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2378,15 +1982,6 @@ export interface CaptchaConfig {
   ImmunityTimeProperty?: ImmunityTimeProperty;
 }
 
-export namespace CaptchaConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptchaConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies that WAF should do nothing. This is used for the
  *             <code>OverrideAction</code> setting on a <a>Rule</a> when the rule uses a
@@ -2396,15 +1991,6 @@ export namespace CaptchaConfig {
  *          </p>
  */
 export interface NoneAction {}
-
-export namespace NoneAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoneAction): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only. </p>
@@ -2430,15 +2016,6 @@ export interface OverrideAction {
   None?: NoneAction;
 }
 
-export namespace OverrideAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OverrideAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A single label container. This is used as an element of a label array in multiple
  *          contexts, for example, in <code>RuleLabels</code> inside a <a>Rule</a> and in
@@ -2449,15 +2026,6 @@ export interface Label {
    * <p>The label string. </p>
    */
   Name: string | undefined;
-}
-
-export namespace Label {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Label): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2486,15 +2054,6 @@ export interface VisibilityConfig {
   MetricName: string | undefined;
 }
 
-export namespace VisibilityConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VisibilityConfig): any => ({
-    ...obj,
-  });
-}
-
 export enum Scope {
   CLOUDFRONT = "CLOUDFRONT",
   REGIONAL = "REGIONAL",
@@ -2505,15 +2064,6 @@ export interface CheckCapacityResponse {
    * <p>The capacity required by the rules and scope.</p>
    */
   Capacity?: number;
-}
-
-export namespace CheckCapacityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckCapacityResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2639,15 +2189,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateIPSetRequest {
   /**
    * <p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
@@ -2724,15 +2265,6 @@ export interface CreateIPSetRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateIPSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIPSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>High-level information about an <a>IPSet</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage an <code>IPSet</code>, and the ARN, that you provide to the <a>IPSetReferenceStatement</a> to use the address set in a <a>Rule</a>.</p>
  */
@@ -2763,29 +2295,11 @@ export interface IPSetSummary {
   ARN?: string;
 }
 
-export namespace IPSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IPSetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateIPSetResponse {
   /**
    * <p>High-level information about an <a>IPSet</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage an <code>IPSet</code>, and the ARN, that you provide to the <a>IPSetReferenceStatement</a> to use the address set in a <a>Rule</a>.</p>
    */
   Summary?: IPSetSummary;
-}
-
-export namespace CreateIPSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIPSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2886,15 +2400,6 @@ export interface Regex {
   RegexString?: string;
 }
 
-export namespace Regex {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Regex): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRegexPatternSetRequest {
   /**
    * <p>The name of the set. You cannot change the name after you create the set.</p>
@@ -2931,15 +2436,6 @@ export interface CreateRegexPatternSetRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateRegexPatternSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRegexPatternSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>High-level information about a <a>RegexPatternSet</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>RegexPatternSet</code>, and the ARN, that you provide to the <a>RegexPatternSetReferenceStatement</a> to use the pattern set in a <a>Rule</a>.</p>
  */
@@ -2970,29 +2466,11 @@ export interface RegexPatternSetSummary {
   ARN?: string;
 }
 
-export namespace RegexPatternSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegexPatternSetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRegexPatternSetResponse {
   /**
    * <p>High-level information about a <a>RegexPatternSet</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>RegexPatternSet</code>, and the ARN, that you provide to the <a>RegexPatternSetReferenceStatement</a> to use the pattern set in a <a>Rule</a>.</p>
    */
   Summary?: RegexPatternSetSummary;
-}
-
-export namespace CreateRegexPatternSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRegexPatternSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ResponseContentType {
@@ -3021,15 +2499,6 @@ export interface CustomResponseBody {
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   Content: string | undefined;
-}
-
-export namespace CustomResponseBody {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomResponseBody): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3062,29 +2531,11 @@ export interface RuleGroupSummary {
   ARN?: string;
 }
 
-export namespace RuleGroupSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRuleGroupResponse {
   /**
    * <p>High-level information about a <a>RuleGroup</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>RuleGroup</code>, and the ARN, that you provide to the <a>RuleGroupReferenceStatement</a> to use the rule group in a <a>Rule</a>.</p>
    */
   Summary?: RuleGroupSummary;
-}
-
-export namespace CreateRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3102,15 +2553,6 @@ export interface DefaultAction {
    * <p>Specifies that WAF should allow requests by default.</p>
    */
   Allow?: AllowAction;
-}
-
-export namespace DefaultAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefaultAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3143,29 +2585,11 @@ export interface WebACLSummary {
   ARN?: string;
 }
 
-export namespace WebACLSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebACLSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWebACLResponse {
   /**
    * <p>High-level information about a <a>WebACL</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>WebACL</code>, and the ARN, that you provide to operations like <a>AssociateWebACL</a>.</p>
    */
   Summary?: WebACLSummary;
-}
-
-export namespace CreateWebACLResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWebACLResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3211,29 +2635,11 @@ export interface DeleteFirewallManagerRuleGroupsRequest {
   WebACLLockToken: string | undefined;
 }
 
-export namespace DeleteFirewallManagerRuleGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFirewallManagerRuleGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFirewallManagerRuleGroupsResponse {
   /**
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    */
   NextWebACLLockToken?: string;
-}
-
-export namespace DeleteFirewallManagerRuleGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFirewallManagerRuleGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteIPSetRequest {
@@ -3267,25 +2673,7 @@ export interface DeleteIPSetRequest {
   LockToken: string | undefined;
 }
 
-export namespace DeleteIPSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIPSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteIPSetResponse {}
-
-export namespace DeleteIPSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIPSetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>WAF couldn’t perform the operation because your resource is being used by another
@@ -3319,25 +2707,7 @@ export interface DeleteLoggingConfigurationRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace DeleteLoggingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLoggingConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLoggingConfigurationResponse {}
-
-export namespace DeleteLoggingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLoggingConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeletePermissionPolicyRequest {
   /**
@@ -3348,25 +2718,7 @@ export interface DeletePermissionPolicyRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace DeletePermissionPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePermissionPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePermissionPolicyResponse {}
-
-export namespace DeletePermissionPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePermissionPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteRegexPatternSetRequest {
   /**
@@ -3399,25 +2751,7 @@ export interface DeleteRegexPatternSetRequest {
   LockToken: string | undefined;
 }
 
-export namespace DeleteRegexPatternSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRegexPatternSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRegexPatternSetResponse {}
-
-export namespace DeleteRegexPatternSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRegexPatternSetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteRuleGroupRequest {
   /**
@@ -3450,25 +2784,7 @@ export interface DeleteRuleGroupRequest {
   LockToken: string | undefined;
 }
 
-export namespace DeleteRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRuleGroupResponse {}
-
-export namespace DeleteRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteWebACLRequest {
   /**
@@ -3501,25 +2817,7 @@ export interface DeleteWebACLRequest {
   LockToken: string | undefined;
 }
 
-export namespace DeleteWebACLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWebACLRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWebACLResponse {}
-
-export namespace DeleteWebACLResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWebACLResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeManagedRuleGroupRequest {
   /**
@@ -3553,15 +2851,6 @@ export interface DescribeManagedRuleGroupRequest {
   VersionName?: string;
 }
 
-export namespace DescribeManagedRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeManagedRuleGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>List of labels used by one or more of the rules of a <a>RuleGroup</a>. This
  *          summary object is used for the following rule group lists: </p>
@@ -3585,15 +2874,6 @@ export interface LabelSummary {
   Name?: string;
 }
 
-export namespace LabelSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>High-level information about a <a>Rule</a>, returned by operations like <a>DescribeManagedRuleGroup</a>. This provides information like the ID, that you can use to retrieve and manage a <code>RuleGroup</code>, and the ARN, that you provide to the <a>RuleGroupReferenceStatement</a> to use the rule group in a <a>Rule</a>.</p>
  */
@@ -3608,15 +2888,6 @@ export interface RuleSummary {
    *          statement. Settings at the web ACL level can override the rule action setting. </p>
    */
   Action?: RuleAction;
-}
-
-export namespace RuleSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleSummary): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeManagedRuleGroupResponse {
@@ -3678,15 +2949,6 @@ export interface DescribeManagedRuleGroupResponse {
   ConsumedLabels?: LabelSummary[];
 }
 
-export namespace DescribeManagedRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeManagedRuleGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateWebACLRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to disassociate from the web ACL. </p>
@@ -3713,25 +2975,7 @@ export interface DisassociateWebACLRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace DisassociateWebACLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWebACLRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateWebACLResponse {}
-
-export namespace DisassociateWebACLResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWebACLResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum Platform {
   ANDROID = "ANDROID",
@@ -3751,29 +2995,11 @@ export interface GenerateMobileSdkReleaseUrlRequest {
   ReleaseVersion: string | undefined;
 }
 
-export namespace GenerateMobileSdkReleaseUrlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateMobileSdkReleaseUrlRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GenerateMobileSdkReleaseUrlResponse {
   /**
    * <p>The presigned download URL for the specified SDK release.</p>
    */
   Url?: string;
-}
-
-export namespace GenerateMobileSdkReleaseUrlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateMobileSdkReleaseUrlResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetIPSetRequest {
@@ -3800,15 +3026,6 @@ export interface GetIPSetRequest {
    * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
    */
   Id: string | undefined;
-}
-
-export namespace GetIPSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIPSetRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3886,15 +3103,6 @@ export interface IPSet {
   Addresses: string[] | undefined;
 }
 
-export namespace IPSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IPSet): any => ({
-    ...obj,
-  });
-}
-
 export interface GetIPSetResponse {
   /**
    * <p></p>
@@ -3907,29 +3115,11 @@ export interface GetIPSetResponse {
   LockToken?: string;
 }
 
-export namespace GetIPSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIPSetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLoggingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the web ACL for which you want to get the <a>LoggingConfiguration</a>.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace GetLoggingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoggingConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum FilterBehavior {
@@ -3949,15 +3139,6 @@ export interface LabelNameCondition {
   LabelName: string | undefined;
 }
 
-export namespace LabelNameCondition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelNameCondition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A single match condition for a <a>Filter</a>.</p>
  */
@@ -3972,15 +3153,6 @@ export interface Condition {
    *        Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.  </p>
    */
   LabelNameCondition?: LabelNameCondition;
-}
-
-export namespace Condition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Condition): any => ({
-    ...obj,
-  });
 }
 
 export enum FilterRequirement {
@@ -4009,15 +3181,6 @@ export interface Filter {
   Conditions: Condition[] | undefined;
 }
 
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Filtering that specifies which web requests are kept in the logs and which are dropped,
  *          defined for a web ACL's <a>LoggingConfiguration</a>. </p>
@@ -4035,15 +3198,6 @@ export interface LoggingFilter {
    *       </p>
    */
   DefaultBehavior: FilterBehavior | string | undefined;
-}
-
-export namespace LoggingFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4119,29 +3273,11 @@ export interface LoggingConfiguration {
   LoggingFilter?: LoggingFilter;
 }
 
-export namespace LoggingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLoggingConfigurationResponse {
   /**
    * <p>The <a>LoggingConfiguration</a> for the specified web ACL.</p>
    */
   LoggingConfiguration?: LoggingConfiguration;
-}
-
-export namespace GetLoggingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoggingConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetManagedRuleSetRequest {
@@ -4169,15 +3305,6 @@ export interface GetManagedRuleSetRequest {
    * <p>A unique identifier for the managed rule set. The ID is returned in the responses to commands like <code>list</code>. You provide it to operations like <code>get</code> and <code>update</code>.</p>
    */
   Id: string | undefined;
-}
-
-export namespace GetManagedRuleSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetManagedRuleSetRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4230,15 +3357,6 @@ export interface ManagedRuleSetVersion {
    *          <p>Times are in Coordinated Universal Time (UTC) format. UTC format includes the special designator, Z. For example, "2016-09-27T14:50Z". </p>
    */
   ExpiryTimestamp?: Date;
-}
-
-export namespace ManagedRuleSetVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagedRuleSetVersion): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4301,15 +3419,6 @@ export interface ManagedRuleSet {
   LabelNamespace?: string;
 }
 
-export namespace ManagedRuleSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagedRuleSet): any => ({
-    ...obj,
-  });
-}
-
 export interface GetManagedRuleSetResponse {
   /**
    * <p>The managed rule set that you requested. </p>
@@ -4320,15 +3429,6 @@ export interface GetManagedRuleSetResponse {
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    */
   LockToken?: string;
-}
-
-export namespace GetManagedRuleSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetManagedRuleSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMobileSdkReleaseRequest {
@@ -4342,15 +3442,6 @@ export interface GetMobileSdkReleaseRequest {
    *          <code>LATEST</code>.</p>
    */
   ReleaseVersion: string | undefined;
-}
-
-export namespace GetMobileSdkReleaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMobileSdkReleaseRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4380,29 +3471,11 @@ export interface MobileSdkRelease {
   Tags?: Tag[];
 }
 
-export namespace MobileSdkRelease {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MobileSdkRelease): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMobileSdkReleaseResponse {
   /**
    * <p>Information for a specified SDK release, including release notes and tags.</p>
    */
   MobileSdkRelease?: MobileSdkRelease;
-}
-
-export namespace GetMobileSdkReleaseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMobileSdkReleaseResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPermissionPolicyRequest {
@@ -4413,29 +3486,11 @@ export interface GetPermissionPolicyRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace GetPermissionPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPermissionPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPermissionPolicyResponse {
   /**
    * <p>The IAM policy that is attached to the specified rule group.</p>
    */
   Policy?: string;
-}
-
-export namespace GetPermissionPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPermissionPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRateBasedStatementManagedKeysRequest {
@@ -4477,15 +3532,6 @@ export interface GetRateBasedStatementManagedKeysRequest {
   RuleName: string | undefined;
 }
 
-export namespace GetRateBasedStatementManagedKeysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRateBasedStatementManagedKeysRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The set of IP addresses that are currently blocked for a <a>RateBasedStatement</a>.</p>
  */
@@ -4501,15 +3547,6 @@ export interface RateBasedStatementManagedKeysIPSet {
   Addresses?: string[];
 }
 
-export namespace RateBasedStatementManagedKeysIPSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RateBasedStatementManagedKeysIPSet): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRateBasedStatementManagedKeysResponse {
   /**
    * <p>The keys that are of Internet Protocol version 4 (IPv4). </p>
@@ -4520,15 +3557,6 @@ export interface GetRateBasedStatementManagedKeysResponse {
    * <p>The keys that are of Internet Protocol version 6 (IPv6). </p>
    */
   ManagedKeysIPV6?: RateBasedStatementManagedKeysIPSet;
-}
-
-export namespace GetRateBasedStatementManagedKeysResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRateBasedStatementManagedKeysResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRegexPatternSetRequest {
@@ -4555,15 +3583,6 @@ export interface GetRegexPatternSetRequest {
    * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
    */
   Id: string | undefined;
-}
-
-export namespace GetRegexPatternSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRegexPatternSetRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4598,15 +3617,6 @@ export interface RegexPatternSet {
   RegularExpressionList?: Regex[];
 }
 
-export namespace RegexPatternSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegexPatternSet): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRegexPatternSetResponse {
   /**
    * <p></p>
@@ -4617,15 +3627,6 @@ export interface GetRegexPatternSetResponse {
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    */
   LockToken?: string;
-}
-
-export namespace GetRegexPatternSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRegexPatternSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRuleGroupRequest {
@@ -4657,15 +3658,6 @@ export interface GetRuleGroupRequest {
    * <p>The Amazon Resource Name (ARN) of the entity.</p>
    */
   ARN?: string;
-}
-
-export namespace GetRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRuleGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4702,15 +3694,6 @@ export interface TimeWindow {
    *          range in the previous three hours.</p>
    */
   EndTime: Date | undefined;
-}
-
-export namespace TimeWindow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeWindow): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSampledRequestsRequest {
@@ -4759,15 +3742,6 @@ export interface GetSampledRequestsRequest {
   MaxItems: number | undefined;
 }
 
-export namespace GetSampledRequestsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSampledRequestsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum FailureReason {
   TOKEN_EXPIRED = "TOKEN_EXPIRED",
   TOKEN_MISSING = "TOKEN_MISSING",
@@ -4796,15 +3770,6 @@ export interface CaptchaResponse {
   FailureReason?: FailureReason | string;
 }
 
-export namespace CaptchaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptchaResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Part of the response from <a>GetSampledRequests</a>. This is a complex type
  *          that appears as <code>Headers</code> in the response syntax. <code>HTTPHeader</code>
@@ -4821,15 +3786,6 @@ export interface HTTPHeader {
    * <p>The value of the HTTP header.</p>
    */
   Value?: string;
-}
-
-export namespace HTTPHeader {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HTTPHeader): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4886,15 +3842,6 @@ export interface HTTPRequest {
    *          request.</p>
    */
   Headers?: HTTPHeader[];
-}
-
-export namespace HTTPRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HTTPRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4965,15 +3912,6 @@ export interface SampledHTTPRequest {
   CaptchaResponse?: CaptchaResponse;
 }
 
-export namespace SampledHTTPRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SampledHTTPRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSampledRequestsResponse {
   /**
    * <p>A complex type that contains detailed information about each of the requests in the
@@ -4997,15 +3935,6 @@ export interface GetSampledRequestsResponse {
    *          Times are in Coordinated Universal Time (UTC) format.</p>
    */
   TimeWindow?: TimeWindow;
-}
-
-export namespace GetSampledRequestsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSampledRequestsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetWebACLRequest {
@@ -5034,29 +3963,11 @@ export interface GetWebACLRequest {
   Id: string | undefined;
 }
 
-export namespace GetWebACLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWebACLRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWebACLForResourceRequest {
   /**
    * <p>The ARN (Amazon Resource Name) of the resource.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace GetWebACLForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWebACLForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAvailableManagedRuleGroupsRequest {
@@ -5089,15 +4000,6 @@ export interface ListAvailableManagedRuleGroupsRequest {
   Limit?: number;
 }
 
-export namespace ListAvailableManagedRuleGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAvailableManagedRuleGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>High-level information about a managed rule group, returned by <a>ListAvailableManagedRuleGroups</a>. This provides information like the name and vendor name, that you provide when you add a <a>ManagedRuleGroupStatement</a> to a web ACL. Managed rule groups include Amazon Web Services Managed Rules rule groups, which are free of charge to WAF customers, and Amazon Web Services Marketplace managed rule groups, which you can subscribe to through Amazon Web Services Marketplace. </p>
  */
@@ -5124,15 +4026,6 @@ export interface ManagedRuleGroupSummary {
   Description?: string;
 }
 
-export namespace ManagedRuleGroupSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagedRuleGroupSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAvailableManagedRuleGroupsResponse {
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -5145,15 +4038,6 @@ export interface ListAvailableManagedRuleGroupsResponse {
    * <p></p>
    */
   ManagedRuleGroups?: ManagedRuleGroupSummary[];
-}
-
-export namespace ListAvailableManagedRuleGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAvailableManagedRuleGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAvailableManagedRuleGroupVersionsRequest {
@@ -5196,15 +4080,6 @@ export interface ListAvailableManagedRuleGroupVersionsRequest {
   Limit?: number;
 }
 
-export namespace ListAvailableManagedRuleGroupVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAvailableManagedRuleGroupVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a single version of a managed rule group. </p>
  */
@@ -5219,15 +4094,6 @@ export interface ManagedRuleGroupVersion {
    *          information. </p>
    */
   LastUpdateTimestamp?: Date;
-}
-
-export namespace ManagedRuleGroupVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagedRuleGroupVersion): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAvailableManagedRuleGroupVersionsResponse {
@@ -5247,15 +4113,6 @@ export interface ListAvailableManagedRuleGroupVersionsResponse {
    * <p>The name of the version that's currently set as the default. </p>
    */
   CurrentDefaultVersion?: string;
-}
-
-export namespace ListAvailableManagedRuleGroupVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAvailableManagedRuleGroupVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListIPSetsRequest {
@@ -5288,15 +4145,6 @@ export interface ListIPSetsRequest {
   Limit?: number;
 }
 
-export namespace ListIPSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIPSetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListIPSetsResponse {
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -5310,15 +4158,6 @@ export interface ListIPSetsResponse {
    *             <code>Limit</code> specification for this request.</p>
    */
   IPSets?: IPSetSummary[];
-}
-
-export namespace ListIPSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIPSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLoggingConfigurationsRequest {
@@ -5351,15 +4190,6 @@ export interface ListLoggingConfigurationsRequest {
   Limit?: number;
 }
 
-export namespace ListLoggingConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLoggingConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLoggingConfigurationsResponse {
   /**
    * <p></p>
@@ -5372,15 +4202,6 @@ export interface ListLoggingConfigurationsResponse {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    */
   NextMarker?: string;
-}
-
-export namespace ListLoggingConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLoggingConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListManagedRuleSetsRequest {
@@ -5411,15 +4232,6 @@ export interface ListManagedRuleSetsRequest {
    *          <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
    */
   Limit?: number;
-}
-
-export namespace ListManagedRuleSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListManagedRuleSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5476,15 +4288,6 @@ export interface ManagedRuleSetSummary {
   LabelNamespace?: string;
 }
 
-export namespace ManagedRuleSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagedRuleSetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListManagedRuleSetsResponse {
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -5497,15 +4300,6 @@ export interface ListManagedRuleSetsResponse {
    * <p>Your managed rule sets. </p>
    */
   ManagedRuleSets?: ManagedRuleSetSummary[];
-}
-
-export namespace ListManagedRuleSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListManagedRuleSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMobileSdkReleasesRequest {
@@ -5529,15 +4323,6 @@ export interface ListMobileSdkReleasesRequest {
   Limit?: number;
 }
 
-export namespace ListMobileSdkReleasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMobileSdkReleasesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>High level information for an SDK release. </p>
  */
@@ -5553,15 +4338,6 @@ export interface ReleaseSummary {
   Timestamp?: Date;
 }
 
-export namespace ReleaseSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleaseSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMobileSdkReleasesResponse {
   /**
    * <p>High level information for the available SDK releases. </p>
@@ -5574,15 +4350,6 @@ export interface ListMobileSdkReleasesResponse {
    *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
    */
   NextMarker?: string;
-}
-
-export namespace ListMobileSdkReleasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMobileSdkReleasesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRegexPatternSetsRequest {
@@ -5615,15 +4382,6 @@ export interface ListRegexPatternSetsRequest {
   Limit?: number;
 }
 
-export namespace ListRegexPatternSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRegexPatternSetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRegexPatternSetsResponse {
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -5636,15 +4394,6 @@ export interface ListRegexPatternSetsResponse {
    * <p></p>
    */
   RegexPatternSets?: RegexPatternSetSummary[];
-}
-
-export namespace ListRegexPatternSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRegexPatternSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceType {
@@ -5666,29 +4415,11 @@ export interface ListResourcesForWebACLRequest {
   ResourceType?: ResourceType | string;
 }
 
-export namespace ListResourcesForWebACLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesForWebACLRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourcesForWebACLResponse {
   /**
    * <p>The array of Amazon Resource Names (ARNs) of the associated resources.</p>
    */
   ResourceArns?: string[];
-}
-
-export namespace ListResourcesForWebACLResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesForWebACLResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRuleGroupsRequest {
@@ -5721,15 +4452,6 @@ export interface ListRuleGroupsRequest {
   Limit?: number;
 }
 
-export namespace ListRuleGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRuleGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRuleGroupsResponse {
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -5742,15 +4464,6 @@ export interface ListRuleGroupsResponse {
    * <p></p>
    */
   RuleGroups?: RuleGroupSummary[];
-}
-
-export namespace ListRuleGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRuleGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -5772,15 +4485,6 @@ export interface ListTagsForResourceRequest {
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceARN: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5807,15 +4511,6 @@ export interface TagInfoForResource {
   TagList?: Tag[];
 }
 
-export namespace TagInfoForResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagInfoForResource): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -5828,15 +4523,6 @@ export interface ListTagsForResourceResponse {
    * <p>The collection of tagging definitions for the resource. </p>
    */
   TagInfoForResource?: TagInfoForResource;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListWebACLsRequest {
@@ -5869,15 +4555,6 @@ export interface ListWebACLsRequest {
   Limit?: number;
 }
 
-export namespace ListWebACLsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebACLsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWebACLsResponse {
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -5892,15 +4569,6 @@ export interface ListWebACLsResponse {
   WebACLs?: WebACLSummary[];
 }
 
-export namespace ListWebACLsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebACLsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PutLoggingConfigurationRequest {
   /**
    * <p></p>
@@ -5908,29 +4576,11 @@ export interface PutLoggingConfigurationRequest {
   LoggingConfiguration: LoggingConfiguration | undefined;
 }
 
-export namespace PutLoggingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLoggingConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutLoggingConfigurationResponse {
   /**
    * <p></p>
    */
   LoggingConfiguration?: LoggingConfiguration;
-}
-
-export namespace PutLoggingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLoggingConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6004,15 +4654,6 @@ export interface VersionToPublish {
   ForecastedLifetime?: number;
 }
 
-export namespace VersionToPublish {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VersionToPublish): any => ({
-    ...obj,
-  });
-}
-
 export interface PutManagedRuleSetVersionsRequest {
   /**
    * <p>The name of the managed rule set. You use this, along with the rule set ID, to identify the rule set.</p>
@@ -6057,29 +4698,11 @@ export interface PutManagedRuleSetVersionsRequest {
   VersionsToPublish?: Record<string, VersionToPublish>;
 }
 
-export namespace PutManagedRuleSetVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutManagedRuleSetVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutManagedRuleSetVersionsResponse {
   /**
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    */
   NextLockToken?: string;
-}
-
-export namespace PutManagedRuleSetVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutManagedRuleSetVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutPermissionPolicyRequest {
@@ -6119,25 +4742,7 @@ export interface PutPermissionPolicyRequest {
   Policy: string | undefined;
 }
 
-export namespace PutPermissionPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPermissionPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutPermissionPolicyResponse {}
-
-export namespace PutPermissionPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPermissionPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The operation failed because the specified policy isn't in the proper format. </p>
@@ -6196,25 +4801,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -6228,25 +4815,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateIPSetRequest {
   /**
@@ -6324,29 +4893,11 @@ export interface UpdateIPSetRequest {
   LockToken: string | undefined;
 }
 
-export namespace UpdateIPSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIPSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateIPSetResponse {
   /**
    * <p>A token used for optimistic locking. WAF returns this token to your <code>update</code> requests. You use <code>NextLockToken</code> in the same manner as you use <code>LockToken</code>. </p>
    */
   NextLockToken?: string;
-}
-
-export namespace UpdateIPSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIPSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateManagedRuleSetVersionExpiryDateRequest {
@@ -6393,15 +4944,6 @@ export interface UpdateManagedRuleSetVersionExpiryDateRequest {
   ExpiryTimestamp: Date | undefined;
 }
 
-export namespace UpdateManagedRuleSetVersionExpiryDateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateManagedRuleSetVersionExpiryDateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateManagedRuleSetVersionExpiryDateResponse {
   /**
    * <p>The version that is set to expire. </p>
@@ -6418,15 +4960,6 @@ export interface UpdateManagedRuleSetVersionExpiryDateResponse {
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    */
   NextLockToken?: string;
-}
-
-export namespace UpdateManagedRuleSetVersionExpiryDateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateManagedRuleSetVersionExpiryDateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRegexPatternSetRequest {
@@ -6470,29 +5003,11 @@ export interface UpdateRegexPatternSetRequest {
   LockToken: string | undefined;
 }
 
-export namespace UpdateRegexPatternSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRegexPatternSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRegexPatternSetResponse {
   /**
    * <p>A token used for optimistic locking. WAF returns this token to your <code>update</code> requests. You use <code>NextLockToken</code> in the same manner as you use <code>LockToken</code>. </p>
    */
   NextLockToken?: string;
-}
-
-export namespace UpdateRegexPatternSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRegexPatternSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRuleGroupResponse {
@@ -6502,29 +5017,11 @@ export interface UpdateRuleGroupResponse {
   NextLockToken?: string;
 }
 
-export namespace UpdateRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRuleGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateWebACLResponse {
   /**
    * <p>A token used for optimistic locking. WAF returns this token to your <code>update</code> requests. You use <code>NextLockToken</code> in the same manner as you use <code>LockToken</code>. </p>
    */
   NextLockToken?: string;
-}
-
-export namespace UpdateWebACLResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWebACLResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6630,15 +5127,6 @@ export interface Statement {
   RegexMatchStatement?: RegexMatchStatement;
 }
 
-export namespace Statement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Statement): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names by calling <a>ListAvailableManagedRuleGroups</a>.</p>
  *          <p>You cannot nest a <code>ManagedRuleGroupStatement</code>, for example for use inside a <code>NotStatement</code> or <code>OrStatement</code>. It can only be referenced as a top-level statement within a rule.</p>
@@ -6688,15 +5176,6 @@ export interface ManagedRuleGroupStatement {
   ManagedRuleGroupConfigs?: ManagedRuleGroupConfig[];
 }
 
-export namespace ManagedRuleGroupStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagedRuleGroupStatement): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A logical rule statement used to negate the results of another rule statement. You provide one <a>Statement</a> within the <code>NotStatement</code>.</p>
  */
@@ -6705,15 +5184,6 @@ export interface NotStatement {
    * <p>The statement to negate. You can use any statement that can be nested.</p>
    */
   Statement: Statement | undefined;
-}
-
-export namespace NotStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotStatement): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6777,15 +5247,6 @@ export interface RateBasedStatement {
    *          <code>FORWARDED_IP</code>.</p>
    */
   ForwardedIPConfig?: ForwardedIPConfig;
-}
-
-export namespace RateBasedStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RateBasedStatement): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6879,15 +5340,6 @@ export interface Rule {
   CaptchaConfig?: CaptchaConfig;
 }
 
-export namespace Rule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Rule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A logical rule statement used to combine other rule statements with AND logic. You provide more than one <a>Statement</a> within the <code>AndStatement</code>. </p>
  */
@@ -6899,15 +5351,6 @@ export interface AndStatement {
   Statements: Statement[] | undefined;
 }
 
-export namespace AndStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AndStatement): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A logical rule statement used to combine other rule statements with OR logic. You provide more than one <a>Statement</a> within the <code>OrStatement</code>. </p>
  */
@@ -6917,15 +5360,6 @@ export interface OrStatement {
    *          nested.</p>
    */
   Statements: Statement[] | undefined;
-}
-
-export namespace OrStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrStatement): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6944,15 +5378,6 @@ export interface FirewallManagerStatement {
    *       can only use a rule group reference statement at the top level inside a web ACL. </p>
    */
   RuleGroupReferenceStatement?: RuleGroupReferenceStatement;
-}
-
-export namespace FirewallManagerStatement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallManagerStatement): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6993,15 +5418,6 @@ export interface FirewallManagerRuleGroup {
   VisibilityConfig: VisibilityConfig | undefined;
 }
 
-export namespace FirewallManagerRuleGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallManagerRuleGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CheckCapacityRequest {
   /**
    * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AppSync GraphQL API.  </p>
@@ -7022,15 +5438,6 @@ export interface CheckCapacityRequest {
    *          ACL. </p>
    */
   Rules: Rule[] | undefined;
-}
-
-export namespace CheckCapacityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckCapacityRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRuleGroupRequest {
@@ -7102,15 +5509,6 @@ export interface CreateRuleGroupRequest {
   CustomResponseBodies?: Record<string, CustomResponseBody>;
 }
 
-export namespace CreateRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWebACLRequest {
   /**
    * <p>The name of the web ACL. You cannot change the name of a web ACL after you create it.</p>
@@ -7172,15 +5570,6 @@ export interface CreateWebACLRequest {
    * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>
    */
   CaptchaConfig?: CaptchaConfig;
-}
-
-export namespace CreateWebACLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWebACLRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7276,15 +5665,6 @@ export interface RuleGroup {
   ConsumedLabels?: LabelSummary[];
 }
 
-export namespace RuleGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRuleGroupRequest {
   /**
    * <p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>
@@ -7341,15 +5721,6 @@ export interface UpdateRuleGroupRequest {
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomResponseBodies?: Record<string, CustomResponseBody>;
-}
-
-export namespace UpdateRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRuleGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateWebACLRequest {
@@ -7420,15 +5791,6 @@ export interface UpdateWebACLRequest {
   CaptchaConfig?: CaptchaConfig;
 }
 
-export namespace UpdateWebACLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWebACLRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRuleGroupResponse {
   /**
    * <p></p>
@@ -7439,15 +5801,6 @@ export interface GetRuleGroupResponse {
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    */
   LockToken?: string;
-}
-
-export namespace GetRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRuleGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7571,30 +5924,12 @@ export interface WebACL {
   CaptchaConfig?: CaptchaConfig;
 }
 
-export namespace WebACL {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebACL): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWebACLForResourceResponse {
   /**
    * <p>The web ACL that is associated with the resource. If there is no associated resource,
    *          WAF returns a null web ACL.</p>
    */
   WebACL?: WebACL;
-}
-
-export namespace GetWebACLForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWebACLForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetWebACLResponse {
@@ -7615,11 +5950,1326 @@ export interface GetWebACLResponse {
   ApplicationIntegrationURL?: string;
 }
 
-export namespace GetWebACLResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWebACLResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ActionConditionFilterSensitiveLog = (obj: ActionCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllFilterSensitiveLog = (obj: All): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomHTTPHeaderFilterSensitiveLog = (obj: CustomHTTPHeader): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomRequestHandlingFilterSensitiveLog = (obj: CustomRequestHandling): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllowActionFilterSensitiveLog = (obj: AllowAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllQueryArgumentsFilterSensitiveLog = (obj: AllQueryArguments): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BodyFilterSensitiveLog = (obj: Body): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CookieMatchPatternFilterSensitiveLog = (obj: CookieMatchPattern): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CookiesFilterSensitiveLog = (obj: Cookies): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HeaderMatchPatternFilterSensitiveLog = (obj: HeaderMatchPattern): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HeadersFilterSensitiveLog = (obj: Headers): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JsonMatchPatternFilterSensitiveLog = (obj: JsonMatchPattern): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JsonBodyFilterSensitiveLog = (obj: JsonBody): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MethodFilterSensitiveLog = (obj: Method): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryStringFilterSensitiveLog = (obj: QueryString): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SingleHeaderFilterSensitiveLog = (obj: SingleHeader): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SingleQueryArgumentFilterSensitiveLog = (obj: SingleQueryArgument): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UriPathFilterSensitiveLog = (obj: UriPath): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FieldToMatchFilterSensitiveLog = (obj: FieldToMatch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextTransformationFilterSensitiveLog = (obj: TextTransformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ByteMatchStatementFilterSensitiveLog = (obj: ByteMatchStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ForwardedIPConfigFilterSensitiveLog = (obj: ForwardedIPConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeoMatchStatementFilterSensitiveLog = (obj: GeoMatchStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IPSetForwardedIPConfigFilterSensitiveLog = (obj: IPSetForwardedIPConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IPSetReferenceStatementFilterSensitiveLog = (obj: IPSetReferenceStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LabelMatchStatementFilterSensitiveLog = (obj: LabelMatchStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExcludedRuleFilterSensitiveLog = (obj: ExcludedRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PasswordFieldFilterSensitiveLog = (obj: PasswordField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsernameFieldFilterSensitiveLog = (obj: UsernameField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagedRuleGroupConfigFilterSensitiveLog = (obj: ManagedRuleGroupConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegexMatchStatementFilterSensitiveLog = (obj: RegexMatchStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegexPatternSetReferenceStatementFilterSensitiveLog = (obj: RegexPatternSetReferenceStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupReferenceStatementFilterSensitiveLog = (obj: RuleGroupReferenceStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SizeConstraintStatementFilterSensitiveLog = (obj: SizeConstraintStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SqliMatchStatementFilterSensitiveLog = (obj: SqliMatchStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const XssMatchStatementFilterSensitiveLog = (obj: XssMatchStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWebACLRequestFilterSensitiveLog = (obj: AssociateWebACLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWebACLResponseFilterSensitiveLog = (obj: AssociateWebACLResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomResponseFilterSensitiveLog = (obj: CustomResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlockActionFilterSensitiveLog = (obj: BlockAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptchaActionFilterSensitiveLog = (obj: CaptchaAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CountActionFilterSensitiveLog = (obj: CountAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleActionFilterSensitiveLog = (obj: RuleAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImmunityTimePropertyFilterSensitiveLog = (obj: ImmunityTimeProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptchaConfigFilterSensitiveLog = (obj: CaptchaConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NoneActionFilterSensitiveLog = (obj: NoneAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OverrideActionFilterSensitiveLog = (obj: OverrideAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LabelFilterSensitiveLog = (obj: Label): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VisibilityConfigFilterSensitiveLog = (obj: VisibilityConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckCapacityResponseFilterSensitiveLog = (obj: CheckCapacityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIPSetRequestFilterSensitiveLog = (obj: CreateIPSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IPSetSummaryFilterSensitiveLog = (obj: IPSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIPSetResponseFilterSensitiveLog = (obj: CreateIPSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegexFilterSensitiveLog = (obj: Regex): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRegexPatternSetRequestFilterSensitiveLog = (obj: CreateRegexPatternSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegexPatternSetSummaryFilterSensitiveLog = (obj: RegexPatternSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRegexPatternSetResponseFilterSensitiveLog = (obj: CreateRegexPatternSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomResponseBodyFilterSensitiveLog = (obj: CustomResponseBody): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSummaryFilterSensitiveLog = (obj: RuleGroupSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRuleGroupResponseFilterSensitiveLog = (obj: CreateRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefaultActionFilterSensitiveLog = (obj: DefaultAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebACLSummaryFilterSensitiveLog = (obj: WebACLSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWebACLResponseFilterSensitiveLog = (obj: CreateWebACLResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFirewallManagerRuleGroupsRequestFilterSensitiveLog = (
+  obj: DeleteFirewallManagerRuleGroupsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFirewallManagerRuleGroupsResponseFilterSensitiveLog = (
+  obj: DeleteFirewallManagerRuleGroupsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIPSetRequestFilterSensitiveLog = (obj: DeleteIPSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIPSetResponseFilterSensitiveLog = (obj: DeleteIPSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLoggingConfigurationRequestFilterSensitiveLog = (obj: DeleteLoggingConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLoggingConfigurationResponseFilterSensitiveLog = (obj: DeleteLoggingConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePermissionPolicyRequestFilterSensitiveLog = (obj: DeletePermissionPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePermissionPolicyResponseFilterSensitiveLog = (obj: DeletePermissionPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRegexPatternSetRequestFilterSensitiveLog = (obj: DeleteRegexPatternSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRegexPatternSetResponseFilterSensitiveLog = (obj: DeleteRegexPatternSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRuleGroupRequestFilterSensitiveLog = (obj: DeleteRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRuleGroupResponseFilterSensitiveLog = (obj: DeleteRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWebACLRequestFilterSensitiveLog = (obj: DeleteWebACLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWebACLResponseFilterSensitiveLog = (obj: DeleteWebACLResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeManagedRuleGroupRequestFilterSensitiveLog = (obj: DescribeManagedRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LabelSummaryFilterSensitiveLog = (obj: LabelSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleSummaryFilterSensitiveLog = (obj: RuleSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeManagedRuleGroupResponseFilterSensitiveLog = (obj: DescribeManagedRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWebACLRequestFilterSensitiveLog = (obj: DisassociateWebACLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWebACLResponseFilterSensitiveLog = (obj: DisassociateWebACLResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateMobileSdkReleaseUrlRequestFilterSensitiveLog = (obj: GenerateMobileSdkReleaseUrlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateMobileSdkReleaseUrlResponseFilterSensitiveLog = (
+  obj: GenerateMobileSdkReleaseUrlResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIPSetRequestFilterSensitiveLog = (obj: GetIPSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IPSetFilterSensitiveLog = (obj: IPSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIPSetResponseFilterSensitiveLog = (obj: GetIPSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoggingConfigurationRequestFilterSensitiveLog = (obj: GetLoggingConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LabelNameConditionFilterSensitiveLog = (obj: LabelNameCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConditionFilterSensitiveLog = (obj: Condition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingFilterFilterSensitiveLog = (obj: LoggingFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingConfigurationFilterSensitiveLog = (obj: LoggingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoggingConfigurationResponseFilterSensitiveLog = (obj: GetLoggingConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetManagedRuleSetRequestFilterSensitiveLog = (obj: GetManagedRuleSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagedRuleSetVersionFilterSensitiveLog = (obj: ManagedRuleSetVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagedRuleSetFilterSensitiveLog = (obj: ManagedRuleSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetManagedRuleSetResponseFilterSensitiveLog = (obj: GetManagedRuleSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMobileSdkReleaseRequestFilterSensitiveLog = (obj: GetMobileSdkReleaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MobileSdkReleaseFilterSensitiveLog = (obj: MobileSdkRelease): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMobileSdkReleaseResponseFilterSensitiveLog = (obj: GetMobileSdkReleaseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPermissionPolicyRequestFilterSensitiveLog = (obj: GetPermissionPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPermissionPolicyResponseFilterSensitiveLog = (obj: GetPermissionPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRateBasedStatementManagedKeysRequestFilterSensitiveLog = (
+  obj: GetRateBasedStatementManagedKeysRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RateBasedStatementManagedKeysIPSetFilterSensitiveLog = (obj: RateBasedStatementManagedKeysIPSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRateBasedStatementManagedKeysResponseFilterSensitiveLog = (
+  obj: GetRateBasedStatementManagedKeysResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRegexPatternSetRequestFilterSensitiveLog = (obj: GetRegexPatternSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegexPatternSetFilterSensitiveLog = (obj: RegexPatternSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRegexPatternSetResponseFilterSensitiveLog = (obj: GetRegexPatternSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRuleGroupRequestFilterSensitiveLog = (obj: GetRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeWindowFilterSensitiveLog = (obj: TimeWindow): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSampledRequestsRequestFilterSensitiveLog = (obj: GetSampledRequestsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptchaResponseFilterSensitiveLog = (obj: CaptchaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HTTPHeaderFilterSensitiveLog = (obj: HTTPHeader): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HTTPRequestFilterSensitiveLog = (obj: HTTPRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SampledHTTPRequestFilterSensitiveLog = (obj: SampledHTTPRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSampledRequestsResponseFilterSensitiveLog = (obj: GetSampledRequestsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWebACLRequestFilterSensitiveLog = (obj: GetWebACLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWebACLForResourceRequestFilterSensitiveLog = (obj: GetWebACLForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAvailableManagedRuleGroupsRequestFilterSensitiveLog = (
+  obj: ListAvailableManagedRuleGroupsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagedRuleGroupSummaryFilterSensitiveLog = (obj: ManagedRuleGroupSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAvailableManagedRuleGroupsResponseFilterSensitiveLog = (
+  obj: ListAvailableManagedRuleGroupsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAvailableManagedRuleGroupVersionsRequestFilterSensitiveLog = (
+  obj: ListAvailableManagedRuleGroupVersionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagedRuleGroupVersionFilterSensitiveLog = (obj: ManagedRuleGroupVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAvailableManagedRuleGroupVersionsResponseFilterSensitiveLog = (
+  obj: ListAvailableManagedRuleGroupVersionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIPSetsRequestFilterSensitiveLog = (obj: ListIPSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIPSetsResponseFilterSensitiveLog = (obj: ListIPSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLoggingConfigurationsRequestFilterSensitiveLog = (obj: ListLoggingConfigurationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLoggingConfigurationsResponseFilterSensitiveLog = (obj: ListLoggingConfigurationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListManagedRuleSetsRequestFilterSensitiveLog = (obj: ListManagedRuleSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagedRuleSetSummaryFilterSensitiveLog = (obj: ManagedRuleSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListManagedRuleSetsResponseFilterSensitiveLog = (obj: ListManagedRuleSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMobileSdkReleasesRequestFilterSensitiveLog = (obj: ListMobileSdkReleasesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReleaseSummaryFilterSensitiveLog = (obj: ReleaseSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMobileSdkReleasesResponseFilterSensitiveLog = (obj: ListMobileSdkReleasesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRegexPatternSetsRequestFilterSensitiveLog = (obj: ListRegexPatternSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRegexPatternSetsResponseFilterSensitiveLog = (obj: ListRegexPatternSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesForWebACLRequestFilterSensitiveLog = (obj: ListResourcesForWebACLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesForWebACLResponseFilterSensitiveLog = (obj: ListResourcesForWebACLResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRuleGroupsRequestFilterSensitiveLog = (obj: ListRuleGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRuleGroupsResponseFilterSensitiveLog = (obj: ListRuleGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagInfoForResourceFilterSensitiveLog = (obj: TagInfoForResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWebACLsRequestFilterSensitiveLog = (obj: ListWebACLsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWebACLsResponseFilterSensitiveLog = (obj: ListWebACLsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutLoggingConfigurationRequestFilterSensitiveLog = (obj: PutLoggingConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutLoggingConfigurationResponseFilterSensitiveLog = (obj: PutLoggingConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VersionToPublishFilterSensitiveLog = (obj: VersionToPublish): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutManagedRuleSetVersionsRequestFilterSensitiveLog = (obj: PutManagedRuleSetVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutManagedRuleSetVersionsResponseFilterSensitiveLog = (obj: PutManagedRuleSetVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPermissionPolicyRequestFilterSensitiveLog = (obj: PutPermissionPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPermissionPolicyResponseFilterSensitiveLog = (obj: PutPermissionPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIPSetRequestFilterSensitiveLog = (obj: UpdateIPSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIPSetResponseFilterSensitiveLog = (obj: UpdateIPSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateManagedRuleSetVersionExpiryDateRequestFilterSensitiveLog = (
+  obj: UpdateManagedRuleSetVersionExpiryDateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateManagedRuleSetVersionExpiryDateResponseFilterSensitiveLog = (
+  obj: UpdateManagedRuleSetVersionExpiryDateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRegexPatternSetRequestFilterSensitiveLog = (obj: UpdateRegexPatternSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRegexPatternSetResponseFilterSensitiveLog = (obj: UpdateRegexPatternSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRuleGroupResponseFilterSensitiveLog = (obj: UpdateRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWebACLResponseFilterSensitiveLog = (obj: UpdateWebACLResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatementFilterSensitiveLog = (obj: Statement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagedRuleGroupStatementFilterSensitiveLog = (obj: ManagedRuleGroupStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotStatementFilterSensitiveLog = (obj: NotStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RateBasedStatementFilterSensitiveLog = (obj: RateBasedStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleFilterSensitiveLog = (obj: Rule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AndStatementFilterSensitiveLog = (obj: AndStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrStatementFilterSensitiveLog = (obj: OrStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallManagerStatementFilterSensitiveLog = (obj: FirewallManagerStatement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallManagerRuleGroupFilterSensitiveLog = (obj: FirewallManagerRuleGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckCapacityRequestFilterSensitiveLog = (obj: CheckCapacityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRuleGroupRequestFilterSensitiveLog = (obj: CreateRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWebACLRequestFilterSensitiveLog = (obj: CreateWebACLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupFilterSensitiveLog = (obj: RuleGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRuleGroupRequestFilterSensitiveLog = (obj: UpdateRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWebACLRequestFilterSensitiveLog = (obj: UpdateWebACLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRuleGroupResponseFilterSensitiveLog = (obj: GetRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebACLFilterSensitiveLog = (obj: WebACL): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWebACLForResourceResponseFilterSensitiveLog = (obj: GetWebACLForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWebACLResponseFilterSensitiveLog = (obj: GetWebACLResponse): any => ({
+  ...obj,
+});

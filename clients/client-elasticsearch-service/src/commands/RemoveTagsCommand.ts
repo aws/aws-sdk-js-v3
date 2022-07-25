@@ -17,7 +17,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { RemoveTagsRequest } from "../models/models_0";
+import { RemoveTagsRequest, RemoveTagsRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveTagsCommand,
   serializeAws_restJson1RemoveTagsCommand,
@@ -76,7 +76,7 @@ export class RemoveTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveTagsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

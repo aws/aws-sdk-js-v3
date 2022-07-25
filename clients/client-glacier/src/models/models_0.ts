@@ -32,15 +32,6 @@ export interface AbortMultipartUploadInput {
   uploadId: string | undefined;
 }
 
-export namespace AbortMultipartUploadInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbortMultipartUploadInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if a parameter of the request is incorrectly specified.</p>
  */
@@ -185,15 +176,6 @@ export interface AbortVaultLockInput {
   vaultName: string | undefined;
 }
 
-export namespace AbortVaultLockInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbortVaultLockInput): any => ({
-    ...obj,
-  });
-}
-
 export enum Type {
   AmazonCustomerByEmail = "AmazonCustomerByEmail",
   CanonicalUser = "CanonicalUser",
@@ -230,15 +212,6 @@ export interface Grantee {
   EmailAddress?: string;
 }
 
-export namespace Grantee {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Grantee): any => ({
-    ...obj,
-  });
-}
-
 export enum Permission {
   FULL_CONTROL = "FULL_CONTROL",
   READ = "READ",
@@ -260,15 +233,6 @@ export interface Grant {
    * <p>Specifies the permission given to the grantee. </p>
    */
   Permission?: Permission | string;
-}
-
-export namespace Grant {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Grant): any => ({
-    ...obj,
-  });
 }
 
 export enum ActionCode {
@@ -300,15 +264,6 @@ export interface AddTagsToVaultInput {
    *          can be an empty string.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace AddTagsToVaultInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsToVaultInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -365,15 +320,6 @@ export interface ArchiveCreationOutput {
   archiveId?: string;
 }
 
-export namespace ArchiveCreationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArchiveCreationOutput): any => ({
-    ...obj,
-  });
-}
-
 export enum CannedACL {
   AuthenticatedRead = "authenticated-read",
   AwsExecRead = "aws-exec-read",
@@ -425,15 +371,6 @@ export interface CompleteMultipartUploadInput {
   checksum?: string;
 }
 
-export namespace CompleteMultipartUploadInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompleteMultipartUploadInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input values for <code>CompleteVaultLock</code>.</p>
  */
@@ -458,15 +395,6 @@ export interface CompleteVaultLockInput {
   lockId: string | undefined;
 }
 
-export namespace CompleteVaultLockInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompleteVaultLockInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides options to create a vault.</p>
  */
@@ -486,15 +414,6 @@ export interface CreateVaultInput {
   vaultName: string | undefined;
 }
 
-export namespace CreateVaultInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVaultInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
@@ -503,15 +422,6 @@ export interface CreateVaultOutput {
    * <p>The URI of the vault that was created.</p>
    */
   location?: string;
-}
-
-export namespace CreateVaultOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVaultOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum FileHeaderInfo {
@@ -559,15 +469,6 @@ export interface CSVInput {
   QuoteCharacter?: string;
 }
 
-export namespace CSVInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CSVInput): any => ({
-    ...obj,
-  });
-}
-
 export enum QuoteFields {
   Always = "ALWAYS",
   AsNeeded = "ASNEEDED",
@@ -607,15 +508,6 @@ export interface CSVOutput {
   QuoteCharacter?: string;
 }
 
-export namespace CSVOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CSVOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Data retrieval policy rule.</p>
  */
@@ -635,15 +527,6 @@ export interface DataRetrievalRule {
   BytesPerHour?: number;
 }
 
-export namespace DataRetrievalRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataRetrievalRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Data retrieval policy.</p>
  */
@@ -653,15 +536,6 @@ export interface DataRetrievalPolicy {
    *          which contains a Strategy field and optionally a BytesPerHour field.</p>
    */
   Rules?: DataRetrievalRule[];
-}
-
-export namespace DataRetrievalPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataRetrievalPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -688,15 +562,6 @@ export interface DeleteArchiveInput {
   archiveId: string | undefined;
 }
 
-export namespace DeleteArchiveInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteArchiveInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides options for deleting a vault from Amazon S3 Glacier.</p>
  */
@@ -714,15 +579,6 @@ export interface DeleteVaultInput {
    * <p>The name of the vault.</p>
    */
   vaultName: string | undefined;
-}
-
-export namespace DeleteVaultInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVaultInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -744,15 +600,6 @@ export interface DeleteVaultAccessPolicyInput {
   vaultName: string | undefined;
 }
 
-export namespace DeleteVaultAccessPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVaultAccessPolicyInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides options for deleting a vault notification configuration from an Amazon
  *          Glacier vault.</p>
@@ -771,15 +618,6 @@ export interface DeleteVaultNotificationsInput {
    * <p>The name of the vault.</p>
    */
   vaultName: string | undefined;
-}
-
-export namespace DeleteVaultNotificationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVaultNotificationsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -804,15 +642,6 @@ export interface DescribeJobInput {
    * <p>The ID of the job to describe.</p>
    */
   jobId: string | undefined;
-}
-
-export namespace DescribeJobInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -855,15 +684,6 @@ export interface InventoryRetrievalJobDescription {
   Marker?: string;
 }
 
-export namespace InventoryRetrievalJobDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventoryRetrievalJobDescription): any => ({
-    ...obj,
-  });
-}
-
 export enum EncryptionType {
   KMS = "aws:kms",
   S3 = "AES256",
@@ -891,15 +711,6 @@ export interface Encryption {
    *             specify the encryption context for the job results.</p>
    */
   KMSContext?: string;
-}
-
-export namespace Encryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Encryption): any => ({
-    ...obj,
-  });
 }
 
 export enum StorageClass {
@@ -953,15 +764,6 @@ export interface S3Location {
   StorageClass?: StorageClass | string;
 }
 
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the location where the select job results are stored.</p>
  */
@@ -970,15 +772,6 @@ export interface OutputLocation {
    * <p>Describes an S3 location that will receive the results of the job request.</p>
    */
   S3?: S3Location;
-}
-
-export namespace OutputLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputLocation): any => ({
-    ...obj,
-  });
 }
 
 export enum ExpressionType {
@@ -995,15 +788,6 @@ export interface InputSerialization {
   csv?: CSVInput;
 }
 
-export namespace InputSerialization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputSerialization): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes how the select output is serialized.</p>
  */
@@ -1012,15 +796,6 @@ export interface OutputSerialization {
    * <p>Describes the serialization of CSV-encoded query results.</p>
    */
   csv?: CSVOutput;
-}
-
-export namespace OutputSerialization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputSerialization): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1046,15 +821,6 @@ export interface SelectParameters {
    * <p>Describes how the results of the select job are serialized.</p>
    */
   OutputSerialization?: OutputSerialization;
-}
-
-export namespace SelectParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelectParameters): any => ({
-    ...obj,
-  });
 }
 
 export enum StatusCode {
@@ -1220,15 +986,6 @@ export interface GlacierJobDescription {
   OutputLocation?: OutputLocation;
 }
 
-export namespace GlacierJobDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlacierJobDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides options for retrieving metadata for a specific vault in Amazon
  *          Glacier.</p>
@@ -1247,15 +1004,6 @@ export interface DescribeVaultInput {
    * <p>The name of the vault.</p>
    */
   vaultName: string | undefined;
-}
-
-export namespace DescribeVaultInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVaultInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1301,15 +1049,6 @@ export interface DescribeVaultOutput {
   SizeInBytes?: number;
 }
 
-export namespace DescribeVaultOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVaultOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for GetDataRetrievalPolicy.</p>
  */
@@ -1324,15 +1063,6 @@ export interface GetDataRetrievalPolicyInput {
   accountId: string | undefined;
 }
 
-export namespace GetDataRetrievalPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataRetrievalPolicyInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the Amazon S3 Glacier response to the <code>GetDataRetrievalPolicy</code>
  *          request.</p>
@@ -1342,15 +1072,6 @@ export interface GetDataRetrievalPolicyOutput {
    * <p>Contains the returned data retrieval policy in JSON format.</p>
    */
   Policy?: DataRetrievalPolicy;
-}
-
-export namespace GetDataRetrievalPolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataRetrievalPolicyOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1415,15 +1136,6 @@ export interface GetJobOutputInput {
    *          </ol>
    */
   range?: string;
-}
-
-export namespace GetJobOutputInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobOutputInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1492,15 +1204,6 @@ export interface GetJobOutputOutput {
   archiveDescription?: string;
 }
 
-export namespace GetJobOutputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobOutputOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for GetVaultAccessPolicy.</p>
  */
@@ -1520,15 +1223,6 @@ export interface GetVaultAccessPolicyInput {
   vaultName: string | undefined;
 }
 
-export namespace GetVaultAccessPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVaultAccessPolicyInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the vault access policy.</p>
  */
@@ -1539,15 +1233,6 @@ export interface VaultAccessPolicy {
   Policy?: string;
 }
 
-export namespace VaultAccessPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VaultAccessPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output for GetVaultAccessPolicy.</p>
  */
@@ -1556,15 +1241,6 @@ export interface GetVaultAccessPolicyOutput {
    * <p>Contains the returned vault access policy as a JSON string.</p>
    */
   policy?: VaultAccessPolicy;
-}
-
-export namespace GetVaultAccessPolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVaultAccessPolicyOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1584,15 +1260,6 @@ export interface GetVaultLockInput {
    * <p>The name of the vault.</p>
    */
   vaultName: string | undefined;
-}
-
-export namespace GetVaultLockInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVaultLockInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1624,15 +1291,6 @@ export interface GetVaultLockOutput {
   CreationDate?: string;
 }
 
-export namespace GetVaultLockOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVaultLockOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides options for retrieving the notification configuration set on an Amazon
  *          Glacier vault.</p>
@@ -1653,15 +1311,6 @@ export interface GetVaultNotificationsInput {
   vaultName: string | undefined;
 }
 
-export namespace GetVaultNotificationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVaultNotificationsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a vault's notification configuration.</p>
  */
@@ -1679,15 +1328,6 @@ export interface VaultNotificationConfig {
   Events?: string[];
 }
 
-export namespace VaultNotificationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VaultNotificationConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
@@ -1696,15 +1336,6 @@ export interface GetVaultNotificationsOutput {
    * <p>Returns the notification configuration set on the vault.</p>
    */
   vaultNotificationConfig?: VaultNotificationConfig;
-}
-
-export namespace GetVaultNotificationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVaultNotificationsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1738,15 +1369,6 @@ export interface InventoryRetrievalJobInput {
    *          value is <code>null</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace InventoryRetrievalJobInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventoryRetrievalJobInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1826,15 +1448,6 @@ export interface JobParameters {
   OutputLocation?: OutputLocation;
 }
 
-export namespace JobParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides options for initiating an Amazon S3 Glacier job.</p>
  */
@@ -1859,15 +1472,6 @@ export interface InitiateJobInput {
   jobParameters?: JobParameters;
 }
 
-export namespace InitiateJobInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitiateJobInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
@@ -1886,15 +1490,6 @@ export interface InitiateJobOutput {
    * <p>The path to the location of where the select results are stored.</p>
    */
   jobOutputPath?: string;
-}
-
-export namespace InitiateJobOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitiateJobOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1988,15 +1583,6 @@ export interface InitiateMultipartUploadInput {
   partSize?: string;
 }
 
-export namespace InitiateMultipartUploadInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitiateMultipartUploadInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon S3 Glacier response to your request.</p>
  */
@@ -2013,15 +1599,6 @@ export interface InitiateMultipartUploadOutput {
   uploadId?: string;
 }
 
-export namespace InitiateMultipartUploadOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitiateMultipartUploadOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the vault lock policy.</p>
  */
@@ -2030,15 +1607,6 @@ export interface VaultLockPolicy {
    * <p>The vault lock policy.</p>
    */
   Policy?: string;
-}
-
-export namespace VaultLockPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VaultLockPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2066,15 +1634,6 @@ export interface InitiateVaultLockInput {
   policy?: VaultLockPolicy;
 }
 
-export namespace InitiateVaultLockInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitiateVaultLockInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
@@ -2083,15 +1642,6 @@ export interface InitiateVaultLockOutput {
    * <p>The lock ID, which is used to complete the vault locking process.</p>
    */
   lockId?: string;
-}
-
-export namespace InitiateVaultLockOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitiateVaultLockOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2140,15 +1690,6 @@ export interface ListJobsInput {
   completed?: string;
 }
 
-export namespace ListJobsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
@@ -2167,15 +1708,6 @@ export interface ListJobsOutput {
    *          previous List Jobs request. </p>
    */
   Marker?: string;
-}
-
-export namespace ListJobsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2212,15 +1744,6 @@ export interface ListMultipartUploadsInput {
   marker?: string;
 }
 
-export namespace ListMultipartUploadsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMultipartUploadsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of in-progress multipart uploads for a vault.</p>
  */
@@ -2254,15 +1777,6 @@ export interface UploadListElement {
   CreationDate?: string;
 }
 
-export namespace UploadListElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadListElement): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
@@ -2278,15 +1792,6 @@ export interface ListMultipartUploadsOutput {
    *          there are no more uploads, this value is <code>null</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace ListMultipartUploadsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMultipartUploadsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2329,15 +1834,6 @@ export interface ListPartsInput {
   limit?: number;
 }
 
-export namespace ListPartsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPartsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of the part sizes of the multipart upload.</p>
  */
@@ -2352,15 +1848,6 @@ export interface PartListElement {
    *          never <code>null</code>.</p>
    */
   SHA256TreeHash?: string;
-}
-
-export namespace PartListElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PartListElement): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2410,15 +1897,6 @@ export interface ListPartsOutput {
   Marker?: string;
 }
 
-export namespace ListPartsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPartsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProvisionedCapacityInput {
   /**
    * <p>The AWS account ID of the account that owns the vault. You can either specify an AWS
@@ -2427,15 +1905,6 @@ export interface ListProvisionedCapacityInput {
    *          ID, don't include any hyphens ('-') in the ID. </p>
    */
   accountId: string | undefined;
-}
-
-export namespace ListProvisionedCapacityInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProvisionedCapacityInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2458,29 +1927,11 @@ export interface ProvisionedCapacityDescription {
   ExpirationDate?: string;
 }
 
-export namespace ProvisionedCapacityDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedCapacityDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProvisionedCapacityOutput {
   /**
    * <p>The response body contains the following JSON fields.</p>
    */
   ProvisionedCapacityList?: ProvisionedCapacityDescription[];
-}
-
-export namespace ListProvisionedCapacityOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProvisionedCapacityOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2502,15 +1953,6 @@ export interface ListTagsForVaultInput {
   vaultName: string | undefined;
 }
 
-export namespace ListTagsForVaultInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForVaultInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
@@ -2519,15 +1961,6 @@ export interface ListTagsForVaultOutput {
    * <p>The tags attached to the vault. Each tag is composed of a key and a value.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForVaultOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForVaultOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2558,15 +1991,6 @@ export interface ListVaultsInput {
   limit?: number;
 }
 
-export namespace ListVaultsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVaultsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
@@ -2583,15 +2007,6 @@ export interface ListVaultsOutput {
   Marker?: string;
 }
 
-export namespace ListVaultsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVaultsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface PurchaseProvisionedCapacityInput {
   /**
    * <p>The AWS account ID of the account that owns the vault. You can either specify an AWS
@@ -2602,29 +2017,11 @@ export interface PurchaseProvisionedCapacityInput {
   accountId: string | undefined;
 }
 
-export namespace PurchaseProvisionedCapacityInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PurchaseProvisionedCapacityInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PurchaseProvisionedCapacityOutput {
   /**
    * <p>The ID that identifies the provisioned capacity unit.</p>
    */
   capacityId?: string;
-}
-
-export namespace PurchaseProvisionedCapacityOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PurchaseProvisionedCapacityOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2651,15 +2048,6 @@ export interface RemoveTagsFromVaultInput {
   TagKeys?: string[];
 }
 
-export namespace RemoveTagsFromVaultInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsFromVaultInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>SetDataRetrievalPolicy input.</p>
  */
@@ -2677,15 +2065,6 @@ export interface SetDataRetrievalPolicyInput {
    * <p>The data retrieval policy in JSON format.</p>
    */
   Policy?: DataRetrievalPolicy;
-}
-
-export namespace SetDataRetrievalPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetDataRetrievalPolicyInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2712,15 +2091,6 @@ export interface SetVaultAccessPolicyInput {
   policy?: VaultAccessPolicy;
 }
 
-export namespace SetVaultAccessPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetVaultAccessPolicyInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides options to configure notifications that will be sent when specific events
  *          happen to a vault.</p>
@@ -2744,15 +2114,6 @@ export interface SetVaultNotificationsInput {
    * <p>Provides options for specifying notification configuration.</p>
    */
   vaultNotificationConfig?: VaultNotificationConfig;
-}
-
-export namespace SetVaultNotificationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetVaultNotificationsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2821,15 +2182,6 @@ export interface UploadArchiveInput {
   body?: Readable | ReadableStream | Blob;
 }
 
-export namespace UploadArchiveInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadArchiveInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides options to upload a part of an archive in a multipart upload
  *          operation.</p>
@@ -2873,15 +2225,6 @@ export interface UploadMultipartPartInput {
   body?: Readable | ReadableStream | Blob;
 }
 
-export namespace UploadMultipartPartInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadMultipartPartInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
@@ -2892,11 +2235,520 @@ export interface UploadMultipartPartOutput {
   checksum?: string;
 }
 
-export namespace UploadMultipartPartOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadMultipartPartOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AbortMultipartUploadInputFilterSensitiveLog = (obj: AbortMultipartUploadInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AbortVaultLockInputFilterSensitiveLog = (obj: AbortVaultLockInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GranteeFilterSensitiveLog = (obj: Grantee): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GrantFilterSensitiveLog = (obj: Grant): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsToVaultInputFilterSensitiveLog = (obj: AddTagsToVaultInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArchiveCreationOutputFilterSensitiveLog = (obj: ArchiveCreationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompleteMultipartUploadInputFilterSensitiveLog = (obj: CompleteMultipartUploadInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompleteVaultLockInputFilterSensitiveLog = (obj: CompleteVaultLockInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVaultInputFilterSensitiveLog = (obj: CreateVaultInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVaultOutputFilterSensitiveLog = (obj: CreateVaultOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CSVInputFilterSensitiveLog = (obj: CSVInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CSVOutputFilterSensitiveLog = (obj: CSVOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataRetrievalRuleFilterSensitiveLog = (obj: DataRetrievalRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataRetrievalPolicyFilterSensitiveLog = (obj: DataRetrievalPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteArchiveInputFilterSensitiveLog = (obj: DeleteArchiveInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVaultInputFilterSensitiveLog = (obj: DeleteVaultInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVaultAccessPolicyInputFilterSensitiveLog = (obj: DeleteVaultAccessPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVaultNotificationsInputFilterSensitiveLog = (obj: DeleteVaultNotificationsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobInputFilterSensitiveLog = (obj: DescribeJobInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InventoryRetrievalJobDescriptionFilterSensitiveLog = (obj: InventoryRetrievalJobDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionFilterSensitiveLog = (obj: Encryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputLocationFilterSensitiveLog = (obj: OutputLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputSerializationFilterSensitiveLog = (obj: InputSerialization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputSerializationFilterSensitiveLog = (obj: OutputSerialization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelectParametersFilterSensitiveLog = (obj: SelectParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlacierJobDescriptionFilterSensitiveLog = (obj: GlacierJobDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVaultInputFilterSensitiveLog = (obj: DescribeVaultInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVaultOutputFilterSensitiveLog = (obj: DescribeVaultOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataRetrievalPolicyInputFilterSensitiveLog = (obj: GetDataRetrievalPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataRetrievalPolicyOutputFilterSensitiveLog = (obj: GetDataRetrievalPolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobOutputInputFilterSensitiveLog = (obj: GetJobOutputInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobOutputOutputFilterSensitiveLog = (obj: GetJobOutputOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVaultAccessPolicyInputFilterSensitiveLog = (obj: GetVaultAccessPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VaultAccessPolicyFilterSensitiveLog = (obj: VaultAccessPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVaultAccessPolicyOutputFilterSensitiveLog = (obj: GetVaultAccessPolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVaultLockInputFilterSensitiveLog = (obj: GetVaultLockInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVaultLockOutputFilterSensitiveLog = (obj: GetVaultLockOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVaultNotificationsInputFilterSensitiveLog = (obj: GetVaultNotificationsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VaultNotificationConfigFilterSensitiveLog = (obj: VaultNotificationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVaultNotificationsOutputFilterSensitiveLog = (obj: GetVaultNotificationsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InventoryRetrievalJobInputFilterSensitiveLog = (obj: InventoryRetrievalJobInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobParametersFilterSensitiveLog = (obj: JobParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitiateJobInputFilterSensitiveLog = (obj: InitiateJobInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitiateJobOutputFilterSensitiveLog = (obj: InitiateJobOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitiateMultipartUploadInputFilterSensitiveLog = (obj: InitiateMultipartUploadInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitiateMultipartUploadOutputFilterSensitiveLog = (obj: InitiateMultipartUploadOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VaultLockPolicyFilterSensitiveLog = (obj: VaultLockPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitiateVaultLockInputFilterSensitiveLog = (obj: InitiateVaultLockInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitiateVaultLockOutputFilterSensitiveLog = (obj: InitiateVaultLockOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsInputFilterSensitiveLog = (obj: ListJobsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsOutputFilterSensitiveLog = (obj: ListJobsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMultipartUploadsInputFilterSensitiveLog = (obj: ListMultipartUploadsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadListElementFilterSensitiveLog = (obj: UploadListElement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMultipartUploadsOutputFilterSensitiveLog = (obj: ListMultipartUploadsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPartsInputFilterSensitiveLog = (obj: ListPartsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PartListElementFilterSensitiveLog = (obj: PartListElement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPartsOutputFilterSensitiveLog = (obj: ListPartsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProvisionedCapacityInputFilterSensitiveLog = (obj: ListProvisionedCapacityInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionedCapacityDescriptionFilterSensitiveLog = (obj: ProvisionedCapacityDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProvisionedCapacityOutputFilterSensitiveLog = (obj: ListProvisionedCapacityOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForVaultInputFilterSensitiveLog = (obj: ListTagsForVaultInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForVaultOutputFilterSensitiveLog = (obj: ListTagsForVaultOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVaultsInputFilterSensitiveLog = (obj: ListVaultsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVaultsOutputFilterSensitiveLog = (obj: ListVaultsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseProvisionedCapacityInputFilterSensitiveLog = (obj: PurchaseProvisionedCapacityInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseProvisionedCapacityOutputFilterSensitiveLog = (obj: PurchaseProvisionedCapacityOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsFromVaultInputFilterSensitiveLog = (obj: RemoveTagsFromVaultInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetDataRetrievalPolicyInputFilterSensitiveLog = (obj: SetDataRetrievalPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetVaultAccessPolicyInputFilterSensitiveLog = (obj: SetVaultAccessPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetVaultNotificationsInputFilterSensitiveLog = (obj: SetVaultNotificationsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadArchiveInputFilterSensitiveLog = (obj: UploadArchiveInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadMultipartPartInputFilterSensitiveLog = (obj: UploadMultipartPartInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadMultipartPartOutputFilterSensitiveLog = (obj: UploadMultipartPartOutput): any => ({
+  ...obj,
+});

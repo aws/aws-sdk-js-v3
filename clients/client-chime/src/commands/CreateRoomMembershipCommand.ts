@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { CreateRoomMembershipRequest, CreateRoomMembershipResponse } from "../models/models_0";
+import {
+  CreateRoomMembershipRequest,
+  CreateRoomMembershipRequestFilterSensitiveLog,
+  CreateRoomMembershipResponse,
+  CreateRoomMembershipResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateRoomMembershipCommand,
   serializeAws_restJson1CreateRoomMembershipCommand,
@@ -72,8 +77,8 @@ export class CreateRoomMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRoomMembershipRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateRoomMembershipResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRoomMembershipRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateRoomMembershipResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

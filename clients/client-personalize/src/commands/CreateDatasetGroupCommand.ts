@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateDatasetGroupRequest, CreateDatasetGroupResponse } from "../models/models_0";
+import {
+  CreateDatasetGroupRequest,
+  CreateDatasetGroupRequestFilterSensitiveLog,
+  CreateDatasetGroupResponse,
+  CreateDatasetGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1CreateDatasetGroupCommand,
@@ -150,8 +155,8 @@ export class CreateDatasetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatasetGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatasetGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDatasetGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDatasetGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

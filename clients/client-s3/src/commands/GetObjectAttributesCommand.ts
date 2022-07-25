@@ -14,7 +14,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetObjectAttributesOutput, GetObjectAttributesRequest } from "../models/models_0";
+import {
+  GetObjectAttributesOutput,
+  GetObjectAttributesOutputFilterSensitiveLog,
+  GetObjectAttributesRequest,
+  GetObjectAttributesRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlGetObjectAttributesCommand,
   serializeAws_restXmlGetObjectAttributesCommand,
@@ -231,8 +236,8 @@ export class GetObjectAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetObjectAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetObjectAttributesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetObjectAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetObjectAttributesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

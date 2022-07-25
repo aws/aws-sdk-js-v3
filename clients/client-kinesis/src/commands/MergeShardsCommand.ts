@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { MergeShardsInput } from "../models/models_0";
+import { MergeShardsInput, MergeShardsInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1MergeShardsCommand,
   serializeAws_json1_1MergeShardsCommand,
@@ -107,7 +107,7 @@ export class MergeShardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MergeShardsInput.filterSensitiveLog,
+      inputFilterSensitiveLog: MergeShardsInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

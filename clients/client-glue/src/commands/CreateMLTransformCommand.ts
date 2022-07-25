@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateMLTransformRequest, CreateMLTransformResponse } from "../models/models_0";
+import {
+  CreateMLTransformRequest,
+  CreateMLTransformRequestFilterSensitiveLog,
+  CreateMLTransformResponse,
+  CreateMLTransformResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateMLTransformCommand,
   serializeAws_json1_1CreateMLTransformCommand,
@@ -84,8 +89,8 @@ export class CreateMLTransformCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMLTransformRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateMLTransformResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateMLTransformRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateMLTransformResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

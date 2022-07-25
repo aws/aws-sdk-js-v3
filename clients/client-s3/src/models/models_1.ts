@@ -27,15 +27,6 @@ export interface PutObjectRetentionOutput {
   RequestCharged?: RequestCharged | string;
 }
 
-export namespace PutObjectRetentionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutObjectRetentionOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface PutObjectRetentionRequest {
   /**
    * <p>The bucket name that contains the object you want to apply this Object Retention
@@ -99,29 +90,11 @@ export interface PutObjectRetentionRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutObjectRetentionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutObjectRetentionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutObjectTaggingOutput {
   /**
    * <p>The versionId of the object the tag-set was added to.</p>
    */
   VersionId?: string;
-}
-
-export namespace PutObjectTaggingOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutObjectTaggingOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface PutObjectTaggingRequest {
@@ -181,15 +154,6 @@ export interface PutObjectTaggingRequest {
   RequestPayer?: RequestPayer | string;
 }
 
-export namespace PutObjectTaggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutObjectTaggingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutPublicAccessBlockRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want
@@ -229,15 +193,6 @@ export interface PutPublicAccessBlockRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutPublicAccessBlockRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPublicAccessBlockRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This action is not allowed against this storage tier.</p>
  */
@@ -271,15 +226,6 @@ export interface RestoreObjectOutput {
   RestoreOutputPath?: string;
 }
 
-export namespace RestoreObjectOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreObjectOutput): any => ({
-    ...obj,
-  });
-}
-
 export type Tier = "Bulk" | "Expedited" | "Standard";
 
 /**
@@ -290,15 +236,6 @@ export interface GlacierJobParameters {
    * <p>Retrieval tier at which the restore will be processed.</p>
    */
   Tier: Tier | string | undefined;
-}
-
-export namespace GlacierJobParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlacierJobParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -327,16 +264,6 @@ export interface Encryption {
   KMSContext?: string;
 }
 
-export namespace Encryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Encryption): any => ({
-    ...obj,
-    ...(obj.KMSKeyId && { KMSKeyId: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>A metadata key-value pair to store with an object.</p>
  */
@@ -350,15 +277,6 @@ export interface MetadataEntry {
    * <p>Value of the Object.</p>
    */
   Value?: string;
-}
-
-export namespace MetadataEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetadataEntry): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -406,16 +324,6 @@ export interface S3Location {
   StorageClass?: StorageClass | string;
 }
 
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-    ...(obj.Encryption && { Encryption: Encryption.filterSensitiveLog(obj.Encryption) }),
-  });
-}
-
 /**
  * <p>Describes the location where the restore job's output is stored.</p>
  */
@@ -424,16 +332,6 @@ export interface OutputLocation {
    * <p>Describes an S3 location that will receive the results of the restore request.</p>
    */
   S3?: S3Location;
-}
-
-export namespace OutputLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputLocation): any => ({
-    ...obj,
-    ...(obj.S3 && { S3: S3Location.filterSensitiveLog(obj.S3) }),
-  });
 }
 
 export type ExpressionType = "SQL";
@@ -519,15 +417,6 @@ export interface CSVInput {
   AllowQuotedRecordDelimiter?: boolean;
 }
 
-export namespace CSVInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CSVInput): any => ({
-    ...obj,
-  });
-}
-
 export enum JSONType {
   DOCUMENT = "DOCUMENT",
   LINES = "LINES",
@@ -543,28 +432,10 @@ export interface JSONInput {
   Type?: JSONType | string;
 }
 
-export namespace JSONInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JSONInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for Parquet.</p>
  */
 export interface ParquetInput {}
-
-export namespace ParquetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParquetInput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Describes the serialization format of the object.</p>
@@ -590,15 +461,6 @@ export interface InputSerialization {
    * <p>Specifies Parquet as object's input serialization format.</p>
    */
   Parquet?: ParquetInput;
-}
-
-export namespace InputSerialization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputSerialization): any => ({
-    ...obj,
-  });
 }
 
 export enum QuoteFields {
@@ -652,15 +514,6 @@ export interface CSVOutput {
   QuoteCharacter?: string;
 }
 
-export namespace CSVOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CSVOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies JSON as request's output serialization format.</p>
  */
@@ -670,15 +523,6 @@ export interface JSONOutput {
    *          Amazon S3 uses a newline character ('\n').</p>
    */
   RecordDelimiter?: string;
-}
-
-export namespace JSONOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JSONOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -694,15 +538,6 @@ export interface OutputSerialization {
    * <p>Specifies JSON as request's output serialization format.</p>
    */
   JSON?: JSONOutput;
-}
-
-export namespace OutputSerialization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputSerialization): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -728,15 +563,6 @@ export interface SelectParameters {
    * <p>Describes how the results of the Select job are serialized.</p>
    */
   OutputSerialization: OutputSerialization | undefined;
-}
-
-export namespace SelectParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelectParameters): any => ({
-    ...obj,
-  });
 }
 
 export enum RestoreRequestType {
@@ -785,16 +611,6 @@ export interface RestoreRequest {
    * <p>Describes the location where the restore job's output is stored.</p>
    */
   OutputLocation?: OutputLocation;
-}
-
-export namespace RestoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreRequest): any => ({
-    ...obj,
-    ...(obj.OutputLocation && { OutputLocation: OutputLocation.filterSensitiveLog(obj.OutputLocation) }),
-  });
 }
 
 export interface RestoreObjectRequest {
@@ -848,29 +664,10 @@ export interface RestoreObjectRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace RestoreObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreObjectRequest): any => ({
-    ...obj,
-    ...(obj.RestoreRequest && { RestoreRequest: RestoreRequest.filterSensitiveLog(obj.RestoreRequest) }),
-  });
-}
-
 /**
  * <p></p>
  */
 export interface ContinuationEvent {}
-
-export namespace ContinuationEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContinuationEvent): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A message that indicates the request is complete and no more messages will be sent. You
@@ -878,15 +675,6 @@ export namespace ContinuationEvent {
  *             <code>EndEvent</code>.</p>
  */
 export interface EndEvent {}
-
-export namespace EndEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndEvent): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>This data type contains information about progress of an operation.</p>
@@ -908,15 +696,6 @@ export interface Progress {
   BytesReturned?: number;
 }
 
-export namespace Progress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Progress): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This data type contains information about the progress event of an operation.</p>
  */
@@ -927,15 +706,6 @@ export interface ProgressEvent {
   Details?: Progress;
 }
 
-export namespace ProgressEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProgressEvent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container for the records event.</p>
  */
@@ -944,15 +714,6 @@ export interface RecordsEvent {
    * <p>The byte array of partial, one or more result records.</p>
    */
   Payload?: Uint8Array;
-}
-
-export namespace RecordsEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordsEvent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -975,15 +736,6 @@ export interface Stats {
   BytesReturned?: number;
 }
 
-export namespace Stats {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Stats): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the Stats Event.</p>
  */
@@ -992,15 +744,6 @@ export interface StatsEvent {
    * <p>The Stats event details.</p>
    */
   Details?: Stats;
-}
-
-export namespace StatsEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatsEvent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1101,18 +844,6 @@ export namespace SelectObjectContentEventStream {
     if (value.End !== undefined) return visitor.End(value.End);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelectObjectContentEventStream): any => {
-    if (obj.Records !== undefined) return { Records: RecordsEvent.filterSensitiveLog(obj.Records) };
-    if (obj.Stats !== undefined) return { Stats: StatsEvent.filterSensitiveLog(obj.Stats) };
-    if (obj.Progress !== undefined) return { Progress: ProgressEvent.filterSensitiveLog(obj.Progress) };
-    if (obj.Cont !== undefined) return { Cont: ContinuationEvent.filterSensitiveLog(obj.Cont) };
-    if (obj.End !== undefined) return { End: EndEvent.filterSensitiveLog(obj.End) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export interface SelectObjectContentOutput {
@@ -1120,16 +851,6 @@ export interface SelectObjectContentOutput {
    * <p>The array of results.</p>
    */
   Payload?: AsyncIterable<SelectObjectContentEventStream>;
-}
-
-export namespace SelectObjectContentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelectObjectContentOutput): any => ({
-    ...obj,
-    ...(obj.Payload && { Payload: "STREAMING_CONTENT" }),
-  });
 }
 
 /**
@@ -1142,15 +863,6 @@ export interface RequestProgress {
    *          FALSE. Default value: FALSE.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace RequestProgress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestProgress): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1178,15 +890,6 @@ export interface ScanRange {
    *          last 50 bytes.</p>
    */
   End?: number;
-}
-
-export namespace ScanRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScanRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1293,16 +996,6 @@ export interface SelectObjectContentRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace SelectObjectContentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelectObjectContentRequest): any => ({
-    ...obj,
-    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-  });
-}
-
 export interface UploadPartOutput {
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
@@ -1376,16 +1069,6 @@ export interface UploadPartOutput {
    *          request.</p>
    */
   RequestCharged?: RequestCharged | string;
-}
-
-export namespace UploadPartOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadPartOutput): any => ({
-    ...obj,
-    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
-  });
 }
 
 export interface UploadPartRequest {
@@ -1514,16 +1197,6 @@ export interface UploadPartRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace UploadPartRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadPartRequest): any => ({
-    ...obj,
-    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Container for all response elements.</p>
  */
@@ -1569,15 +1242,6 @@ export interface CopyPartResult {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   ChecksumSHA256?: string;
-}
-
-export namespace CopyPartResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyPartResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UploadPartCopyOutput {
@@ -1627,16 +1291,6 @@ export interface UploadPartCopyOutput {
    *          request.</p>
    */
   RequestCharged?: RequestCharged | string;
-}
-
-export namespace UploadPartCopyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadPartCopyOutput): any => ({
-    ...obj,
-    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
-  });
 }
 
 export interface UploadPartCopyRequest {
@@ -1780,17 +1434,6 @@ export interface UploadPartCopyRequest {
    * <p>The account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedSourceBucketOwner?: string;
-}
-
-export namespace UploadPartCopyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadPartCopyRequest): any => ({
-    ...obj,
-    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-    ...(obj.CopySourceSSECustomerKey && { CopySourceSSECustomerKey: SENSITIVE_STRING }),
-  });
 }
 
 export interface WriteGetObjectResponseRequest {
@@ -2134,12 +1777,293 @@ export interface WriteGetObjectResponseRequest {
   BucketKeyEnabled?: boolean;
 }
 
-export namespace WriteGetObjectResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WriteGetObjectResponseRequest): any => ({
-    ...obj,
-    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
-  });
-}
+/**
+ * @internal
+ */
+export const PutObjectRetentionOutputFilterSensitiveLog = (obj: PutObjectRetentionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutObjectRetentionRequestFilterSensitiveLog = (obj: PutObjectRetentionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutObjectTaggingOutputFilterSensitiveLog = (obj: PutObjectTaggingOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutObjectTaggingRequestFilterSensitiveLog = (obj: PutObjectTaggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPublicAccessBlockRequestFilterSensitiveLog = (obj: PutPublicAccessBlockRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreObjectOutputFilterSensitiveLog = (obj: RestoreObjectOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlacierJobParametersFilterSensitiveLog = (obj: GlacierJobParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionFilterSensitiveLog = (obj: Encryption): any => ({
+  ...obj,
+  ...(obj.KMSKeyId && { KMSKeyId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MetadataEntryFilterSensitiveLog = (obj: MetadataEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+  ...(obj.Encryption && { Encryption: EncryptionFilterSensitiveLog(obj.Encryption) }),
+});
+
+/**
+ * @internal
+ */
+export const OutputLocationFilterSensitiveLog = (obj: OutputLocation): any => ({
+  ...obj,
+  ...(obj.S3 && { S3: S3LocationFilterSensitiveLog(obj.S3) }),
+});
+
+/**
+ * @internal
+ */
+export const CSVInputFilterSensitiveLog = (obj: CSVInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JSONInputFilterSensitiveLog = (obj: JSONInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParquetInputFilterSensitiveLog = (obj: ParquetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputSerializationFilterSensitiveLog = (obj: InputSerialization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CSVOutputFilterSensitiveLog = (obj: CSVOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JSONOutputFilterSensitiveLog = (obj: JSONOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputSerializationFilterSensitiveLog = (obj: OutputSerialization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelectParametersFilterSensitiveLog = (obj: SelectParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreRequestFilterSensitiveLog = (obj: RestoreRequest): any => ({
+  ...obj,
+  ...(obj.OutputLocation && { OutputLocation: OutputLocationFilterSensitiveLog(obj.OutputLocation) }),
+});
+
+/**
+ * @internal
+ */
+export const RestoreObjectRequestFilterSensitiveLog = (obj: RestoreObjectRequest): any => ({
+  ...obj,
+  ...(obj.RestoreRequest && { RestoreRequest: RestoreRequestFilterSensitiveLog(obj.RestoreRequest) }),
+});
+
+/**
+ * @internal
+ */
+export const ContinuationEventFilterSensitiveLog = (obj: ContinuationEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndEventFilterSensitiveLog = (obj: EndEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProgressFilterSensitiveLog = (obj: Progress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProgressEventFilterSensitiveLog = (obj: ProgressEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordsEventFilterSensitiveLog = (obj: RecordsEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatsFilterSensitiveLog = (obj: Stats): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatsEventFilterSensitiveLog = (obj: StatsEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelectObjectContentEventStreamFilterSensitiveLog = (obj: SelectObjectContentEventStream): any => {
+  if (obj.Records !== undefined) return { Records: RecordsEventFilterSensitiveLog(obj.Records) };
+  if (obj.Stats !== undefined) return { Stats: StatsEventFilterSensitiveLog(obj.Stats) };
+  if (obj.Progress !== undefined) return { Progress: ProgressEventFilterSensitiveLog(obj.Progress) };
+  if (obj.Cont !== undefined) return { Cont: ContinuationEventFilterSensitiveLog(obj.Cont) };
+  if (obj.End !== undefined) return { End: EndEventFilterSensitiveLog(obj.End) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const SelectObjectContentOutputFilterSensitiveLog = (obj: SelectObjectContentOutput): any => ({
+  ...obj,
+  ...(obj.Payload && { Payload: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @internal
+ */
+export const RequestProgressFilterSensitiveLog = (obj: RequestProgress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScanRangeFilterSensitiveLog = (obj: ScanRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelectObjectContentRequestFilterSensitiveLog = (obj: SelectObjectContentRequest): any => ({
+  ...obj,
+  ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UploadPartOutputFilterSensitiveLog = (obj: UploadPartOutput): any => ({
+  ...obj,
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UploadPartRequestFilterSensitiveLog = (obj: UploadPartRequest): any => ({
+  ...obj,
+  ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CopyPartResultFilterSensitiveLog = (obj: CopyPartResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadPartCopyOutputFilterSensitiveLog = (obj: UploadPartCopyOutput): any => ({
+  ...obj,
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UploadPartCopyRequestFilterSensitiveLog = (obj: UploadPartCopyRequest): any => ({
+  ...obj,
+  ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+  ...(obj.CopySourceSSECustomerKey && { CopySourceSSECustomerKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const WriteGetObjectResponseRequestFilterSensitiveLog = (obj: WriteGetObjectResponseRequest): any => ({
+  ...obj,
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+});

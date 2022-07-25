@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { StopInstancesRequest, StopInstancesResult } from "../models/models_6";
+import {
+  StopInstancesRequest,
+  StopInstancesRequestFilterSensitiveLog,
+  StopInstancesResult,
+  StopInstancesResultFilterSensitiveLog,
+} from "../models/models_6";
 import { deserializeAws_ec2StopInstancesCommand, serializeAws_ec2StopInstancesCommand } from "../protocols/Aws_ec2";
 
 export interface StopInstancesCommandInput extends StopInstancesRequest {}
@@ -99,8 +104,8 @@ export class StopInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopInstancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopInstancesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StopInstancesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopInstancesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

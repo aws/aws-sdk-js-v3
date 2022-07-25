@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { StartOutboundVoiceContactRequest, StartOutboundVoiceContactResponse } from "../models/models_1";
+import {
+  StartOutboundVoiceContactRequest,
+  StartOutboundVoiceContactRequestFilterSensitiveLog,
+  StartOutboundVoiceContactResponse,
+  StartOutboundVoiceContactResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1StartOutboundVoiceContactCommand,
   serializeAws_restJson1StartOutboundVoiceContactCommand,
@@ -91,8 +96,8 @@ export class StartOutboundVoiceContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartOutboundVoiceContactRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartOutboundVoiceContactResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartOutboundVoiceContactRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartOutboundVoiceContactResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { UpdateIntegrationRequest, UpdateIntegrationResult } from "../models/models_0";
+import {
+  UpdateIntegrationRequest,
+  UpdateIntegrationRequestFilterSensitiveLog,
+  UpdateIntegrationResult,
+  UpdateIntegrationResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateIntegrationCommand,
   serializeAws_restJson1UpdateIntegrationCommand,
@@ -72,8 +77,8 @@ export class UpdateIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIntegrationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateIntegrationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateIntegrationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateIntegrationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -61,15 +61,6 @@ export interface DatasetSchema {
   InlineDataSchema?: __LazyJsonString | string;
 }
 
-export namespace DatasetSchema {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetSchema): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A tag is a key-value pair that can be added to a resource as metadata. </p>
  */
@@ -83,15 +74,6 @@ export interface Tag {
    * <p>The value for the specified tag. </p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDatasetRequest {
@@ -124,15 +106,6 @@ export interface CreateDatasetRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatasetRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum DatasetStatus {
   ACTIVE = "ACTIVE",
   CREATED = "CREATED",
@@ -154,15 +127,6 @@ export interface CreateDatasetResponse {
    * <p>Indicates the status of the <code>CreateDataset</code> operation. </p>
    */
   Status?: DatasetStatus | string;
-}
-
-export namespace CreateDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatasetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -268,15 +232,6 @@ export interface InferenceInputNameConfiguration {
   ComponentTimestampDelimiter?: string;
 }
 
-export namespace InferenceInputNameConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferenceInputNameConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Specifies configuration information for the input data for the inference, including
  *          input data S3 location. </p>
@@ -291,15 +246,6 @@ export interface InferenceS3InputConfiguration {
    * <p>The prefix for the S3 bucket used for the input data for the inference. </p>
    */
   Prefix?: string;
-}
-
-export namespace InferenceS3InputConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferenceS3InputConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -326,15 +272,6 @@ export interface InferenceInputConfiguration {
   InferenceInputNameConfiguration?: InferenceInputNameConfiguration;
 }
 
-export namespace InferenceInputConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferenceInputConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Specifies configuration information for the output results from the inference,
  *          including output S3 location. </p>
@@ -349,15 +286,6 @@ export interface InferenceS3OutputConfiguration {
    * <p> The prefix for the S3 bucket used for the output results from the inference. </p>
    */
   Prefix?: string;
-}
-
-export namespace InferenceS3OutputConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferenceS3OutputConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -375,15 +303,6 @@ export interface InferenceOutputConfiguration {
    * <p>The ID number for the AWS KMS key used to encrypt the inference output. </p>
    */
   KmsKeyId?: string;
-}
-
-export namespace InferenceOutputConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferenceOutputConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum DataUploadFrequency {
@@ -462,15 +381,6 @@ export interface CreateInferenceSchedulerRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateInferenceSchedulerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInferenceSchedulerRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum InferenceSchedulerStatus {
   PENDING = "PENDING",
   RUNNING = "RUNNING",
@@ -493,15 +403,6 @@ export interface CreateInferenceSchedulerResponse {
    * <p>Indicates the status of the <code>CreateInferenceScheduler</code> operation. </p>
    */
   Status?: InferenceSchedulerStatus | string;
-}
-
-export namespace CreateInferenceSchedulerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInferenceSchedulerResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -567,15 +468,6 @@ export interface DataPreProcessingConfiguration {
   TargetSamplingRate?: TargetSamplingRate | string;
 }
 
-export namespace DataPreProcessingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataPreProcessingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The location information (prefix and bucket name) for the s3 location being used for
  *          label data. </p>
@@ -592,15 +484,6 @@ export interface LabelsS3InputConfiguration {
   Prefix?: string;
 }
 
-export namespace LabelsS3InputConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelsS3InputConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the configuration information for the S3 location being used to hold label
  *          data. </p>
@@ -610,15 +493,6 @@ export interface LabelsInputConfiguration {
    * <p>Contains location information for the S3 location being used for label data. </p>
    */
   S3InputConfiguration: LabelsS3InputConfiguration | undefined;
-}
-
-export namespace LabelsInputConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelsInputConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateModelRequest {
@@ -712,15 +586,6 @@ export interface CreateModelRequest {
   OffCondition?: string;
 }
 
-export namespace CreateModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ModelStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -739,29 +604,11 @@ export interface CreateModelResponse {
   Status?: ModelStatus | string;
 }
 
-export namespace CreateModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDatasetRequest {
   /**
    * <p>The name of the dataset to be deleted. </p>
    */
   DatasetName: string | undefined;
-}
-
-export namespace DeleteDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteInferenceSchedulerRequest {
@@ -771,15 +618,6 @@ export interface DeleteInferenceSchedulerRequest {
   InferenceSchedulerName: string | undefined;
 }
 
-export namespace DeleteInferenceSchedulerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInferenceSchedulerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteModelRequest {
   /**
    * <p>The name of the ML model to be deleted. </p>
@@ -787,29 +625,11 @@ export interface DeleteModelRequest {
   ModelName: string | undefined;
 }
 
-export namespace DeleteModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteModelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDataIngestionJobRequest {
   /**
    * <p>The job ID of the data ingestion job. </p>
    */
   JobId: string | undefined;
-}
-
-export namespace DescribeDataIngestionJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataIngestionJobRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -820,15 +640,6 @@ export interface DuplicateTimestamps {
    * <p> Indicates the total number of duplicate timestamps. </p>
    */
   TotalNumberOfDuplicateTimestamps: number | undefined;
-}
-
-export namespace DuplicateTimestamps {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateTimestamps): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -842,15 +653,6 @@ export interface MissingCompleteSensorData {
   AffectedSensorCount: number | undefined;
 }
 
-export namespace MissingCompleteSensorData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MissingCompleteSensorData): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Entity that comprises information on sensors that have shorter date range. </p>
  */
@@ -859,15 +661,6 @@ export interface SensorsWithShortDateRange {
    * <p> Indicates the number of sensors that have less than 90 days of data. </p>
    */
   AffectedSensorCount: number | undefined;
-}
-
-export namespace SensorsWithShortDateRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SensorsWithShortDateRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -888,15 +681,6 @@ export interface InsufficientSensorData {
   SensorsWithShortDateRange: SensorsWithShortDateRange | undefined;
 }
 
-export namespace InsufficientSensorData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientSensorData): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Entity that comprises aggregated information on sensors having insufficient data.
  *       </p>
@@ -911,15 +695,6 @@ export interface InvalidSensorData {
    * <p> Indicates the total number of invalid values across all the sensors. </p>
    */
   TotalNumberOfInvalidValues: number | undefined;
-}
-
-export namespace InvalidSensorData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSensorData): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -937,15 +712,6 @@ export interface MissingSensorData {
   TotalNumberOfMissingValues: number | undefined;
 }
 
-export namespace MissingSensorData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MissingSensorData): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Entity that comprises information abount unsupported timestamps in the dataset. </p>
  */
@@ -954,15 +720,6 @@ export interface UnsupportedTimestamps {
    * <p> Indicates the total number of unsupported timestamps across the ingested data. </p>
    */
   TotalNumberOfUnsupportedTimestamps: number | undefined;
-}
-
-export namespace UnsupportedTimestamps {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedTimestamps): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1003,15 +760,6 @@ export interface DataQualitySummary {
   DuplicateTimestamps: DuplicateTimestamps | undefined;
 }
 
-export namespace DataQualitySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataQualitySummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about an S3 bucket. </p>
  */
@@ -1026,15 +774,6 @@ export interface S3Object {
    *          Without this key, data in the bucket is not accessible. </p>
    */
   Key: string | undefined;
-}
-
-export namespace S3Object {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Object): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1057,15 +796,6 @@ export interface IngestedFilesSummary {
    *          format is invalid (for example, a jpg or pdf) or not readable.</p>
    */
   DiscardedFiles?: S3Object[];
-}
-
-export namespace IngestedFilesSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IngestedFilesSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1092,15 +822,6 @@ export interface IngestionS3InputConfiguration {
   KeyPattern?: string;
 }
 
-export namespace IngestionS3InputConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IngestionS3InputConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Specifies configuration information for the input data for the data ingestion job,
  *          including input data S3 location. </p>
@@ -1111,15 +832,6 @@ export interface IngestionInputConfiguration {
    *       </p>
    */
   S3InputConfiguration: IngestionS3InputConfiguration | undefined;
-}
-
-export namespace IngestionInputConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IngestionInputConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum IngestionJobStatus {
@@ -1209,29 +921,11 @@ export interface DescribeDataIngestionJobResponse {
   DataEndTime?: Date;
 }
 
-export namespace DescribeDataIngestionJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataIngestionJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDatasetRequest {
   /**
    * <p>The name of the dataset to be described. </p>
    */
   DatasetName: string | undefined;
-}
-
-export namespace DescribeDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDatasetResponse {
@@ -1314,29 +1008,11 @@ export interface DescribeDatasetResponse {
   DataEndTime?: Date;
 }
 
-export namespace DescribeDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeInferenceSchedulerRequest {
   /**
    * <p>The name of the inference scheduler being described. </p>
    */
   InferenceSchedulerName: string | undefined;
-}
-
-export namespace DescribeInferenceSchedulerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInferenceSchedulerRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeInferenceSchedulerResponse {
@@ -1421,29 +1097,11 @@ export interface DescribeInferenceSchedulerResponse {
   ServerSideKmsKeyId?: string;
 }
 
-export namespace DescribeInferenceSchedulerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInferenceSchedulerResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeModelRequest {
   /**
    * <p>The name of the ML model to be described. </p>
    */
   ModelName: string | undefined;
-}
-
-export namespace DescribeModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeModelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeModelResponse {
@@ -1578,15 +1236,6 @@ export interface DescribeModelResponse {
   OffCondition?: string;
 }
 
-export namespace DescribeModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeModelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDataIngestionJobsRequest {
   /**
    * <p>The name of the dataset being used for the data ingestion job. </p>
@@ -1608,15 +1257,6 @@ export interface ListDataIngestionJobsRequest {
    * <p>Indicates the status of the data ingestion job. </p>
    */
   Status?: IngestionJobStatus | string;
-}
-
-export namespace ListDataIngestionJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataIngestionJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1651,15 +1291,6 @@ export interface DataIngestionJobSummary {
   Status?: IngestionJobStatus | string;
 }
 
-export namespace DataIngestionJobSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataIngestionJobSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDataIngestionJobsResponse {
   /**
    * <p> An opaque pagination token indicating where to continue the listing of data ingestion
@@ -1672,15 +1303,6 @@ export interface ListDataIngestionJobsResponse {
    *          status. </p>
    */
   DataIngestionJobSummaries?: DataIngestionJobSummary[];
-}
-
-export namespace ListDataIngestionJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataIngestionJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDatasetsRequest {
@@ -1699,15 +1321,6 @@ export interface ListDatasetsRequest {
    * <p>The beginning of the name of the datasets to be listed. </p>
    */
   DatasetNameBeginsWith?: string;
-}
-
-export namespace ListDatasetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1736,15 +1349,6 @@ export interface DatasetSummary {
   CreatedAt?: Date;
 }
 
-export namespace DatasetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDatasetsResponse {
   /**
    * <p> An opaque pagination token indicating where to continue the listing of datasets.
@@ -1757,15 +1361,6 @@ export interface ListDatasetsResponse {
    *          and status. </p>
    */
   DatasetSummaries?: DatasetSummary[];
-}
-
-export namespace ListDatasetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListInferenceEventsRequest {
@@ -1794,15 +1389,6 @@ export interface ListInferenceEventsRequest {
    * <p>Lookout for Equipment will return all the inference events with end time equal to or less than the end time given.</p>
    */
   IntervalEndTime: Date | undefined;
-}
-
-export namespace ListInferenceEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInferenceEventsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1845,15 +1431,6 @@ export interface InferenceEventSummary {
   EventDurationInSeconds?: number;
 }
 
-export namespace InferenceEventSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferenceEventSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInferenceEventsResponse {
   /**
    * <p>An opaque pagination token indicating where to continue the listing of inference
@@ -1867,15 +1444,6 @@ export interface ListInferenceEventsResponse {
    *          event end time, diagnostics, and so on. </p>
    */
   InferenceEventSummaries?: InferenceEventSummary[];
-}
-
-export namespace ListInferenceEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInferenceEventsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum InferenceExecutionStatus {
@@ -1917,15 +1485,6 @@ export interface ListInferenceExecutionsRequest {
    * <p>The status of the inference execution. </p>
    */
   Status?: InferenceExecutionStatus | string;
-}
-
-export namespace ListInferenceExecutionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInferenceExecutionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2002,15 +1561,6 @@ export interface InferenceExecutionSummary {
   FailedReason?: string;
 }
 
-export namespace InferenceExecutionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferenceExecutionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInferenceExecutionsResponse {
   /**
    * <p> An opaque pagination token indicating where to continue the listing of inference
@@ -2024,15 +1574,6 @@ export interface ListInferenceExecutionsResponse {
    *          scheduler, data configuration, and so on. </p>
    */
   InferenceExecutionSummaries?: InferenceExecutionSummary[];
-}
-
-export namespace ListInferenceExecutionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInferenceExecutionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListInferenceSchedulersRequest {
@@ -2056,15 +1597,6 @@ export interface ListInferenceSchedulersRequest {
    * <p>The name of the ML model used by the inference scheduler to be listed. </p>
    */
   ModelName?: string;
-}
-
-export namespace ListInferenceSchedulersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInferenceSchedulersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2118,15 +1650,6 @@ export interface InferenceSchedulerSummary {
   DataUploadFrequency?: DataUploadFrequency | string;
 }
 
-export namespace InferenceSchedulerSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferenceSchedulerSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInferenceSchedulersResponse {
   /**
    * <p> An opaque pagination token indicating where to continue the listing of inference
@@ -2139,15 +1662,6 @@ export interface ListInferenceSchedulersResponse {
    *          frequency, model name and ARN, and status. </p>
    */
   InferenceSchedulerSummaries?: InferenceSchedulerSummary[];
-}
-
-export namespace ListInferenceSchedulersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInferenceSchedulersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListModelsRequest {
@@ -2176,15 +1690,6 @@ export interface ListModelsRequest {
    * <p>The beginning of the name of the dataset of the ML models to be listed. </p>
    */
   DatasetNameBeginsWith?: string;
-}
-
-export namespace ListModelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListModelsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2223,15 +1728,6 @@ export interface ModelSummary {
   CreatedAt?: Date;
 }
 
-export namespace ModelSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListModelsResponse {
   /**
    * <p> An opaque pagination token indicating where to continue the listing of ML models.
@@ -2244,15 +1740,6 @@ export interface ListModelsResponse {
    *          ARNs, and status. </p>
    */
   ModelSummaries?: ModelSummary[];
-}
-
-export namespace ListModelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListModelsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSensorStatisticsRequest {
@@ -2280,15 +1767,6 @@ export interface ListSensorStatisticsRequest {
   NextToken?: string;
 }
 
-export namespace ListSensorStatisticsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSensorStatisticsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum StatisticalIssueStatus {
   NO_ISSUE_DETECTED = "NO_ISSUE_DETECTED",
   POTENTIAL_ISSUE_DETECTED = "POTENTIAL_ISSUE_DETECTED",
@@ -2310,15 +1788,6 @@ export interface CategoricalValues {
   NumberOfCategory?: number;
 }
 
-export namespace CategoricalValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CategoricalValues): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Entity that comprises information of count and percentage. </p>
  */
@@ -2332,15 +1801,6 @@ export interface CountPercent {
    * <p> Indicates the percentage of occurances of the given statistic. </p>
    */
   Percentage: number | undefined;
-}
-
-export namespace CountPercent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CountPercent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2365,15 +1825,6 @@ export interface LargeTimestampGaps {
   MaxTimestampGapInDays?: number;
 }
 
-export namespace LargeTimestampGaps {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LargeTimestampGaps): any => ({
-    ...obj,
-  });
-}
-
 export enum Monotonicity {
   DECREASING = "DECREASING",
   INCREASING = "INCREASING",
@@ -2396,15 +1847,6 @@ export interface MonotonicValues {
   Monotonicity?: Monotonicity | string;
 }
 
-export namespace MonotonicValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonotonicValues): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Entity that comprises information on operating modes in data. </p>
  */
@@ -2414,15 +1856,6 @@ export interface MultipleOperatingModes {
    *          modes. </p>
    */
   Status: StatisticalIssueStatus | string | undefined;
-}
-
-export namespace MultipleOperatingModes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultipleOperatingModes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2508,15 +1941,6 @@ export interface SensorStatisticsSummary {
   DataEndTime?: Date;
 }
 
-export namespace SensorStatisticsSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SensorStatisticsSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSensorStatisticsResponse {
   /**
    * <p> Provides ingestion-based statistics regarding the specified sensor with respect to
@@ -2532,15 +1956,6 @@ export interface ListSensorStatisticsResponse {
   NextToken?: string;
 }
 
-export namespace ListSensorStatisticsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSensorStatisticsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource (such as the dataset or model) that is
@@ -2549,29 +1964,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p> Any tags associated with the resource. </p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartDataIngestionJobRequest {
@@ -2599,15 +1996,6 @@ export interface StartDataIngestionJobRequest {
   ClientToken?: string;
 }
 
-export namespace StartDataIngestionJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDataIngestionJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartDataIngestionJobResponse {
   /**
    * <p>Indicates the job ID of the data ingestion job. </p>
@@ -2620,29 +2008,11 @@ export interface StartDataIngestionJobResponse {
   Status?: IngestionJobStatus | string;
 }
 
-export namespace StartDataIngestionJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDataIngestionJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StartInferenceSchedulerRequest {
   /**
    * <p>The name of the inference scheduler to be started. </p>
    */
   InferenceSchedulerName: string | undefined;
-}
-
-export namespace StartInferenceSchedulerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartInferenceSchedulerRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StartInferenceSchedulerResponse {
@@ -2673,29 +2043,11 @@ export interface StartInferenceSchedulerResponse {
   Status?: InferenceSchedulerStatus | string;
 }
 
-export namespace StartInferenceSchedulerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartInferenceSchedulerResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StopInferenceSchedulerRequest {
   /**
    * <p>The name of the inference scheduler to be stopped. </p>
    */
   InferenceSchedulerName: string | undefined;
-}
-
-export namespace StopInferenceSchedulerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopInferenceSchedulerRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StopInferenceSchedulerResponse {
@@ -2726,15 +2078,6 @@ export interface StopInferenceSchedulerResponse {
   Status?: InferenceSchedulerStatus | string;
 }
 
-export namespace StopInferenceSchedulerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopInferenceSchedulerResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the specific resource to which the tag should be
@@ -2749,25 +2092,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2782,25 +2107,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateInferenceSchedulerRequest {
   /**
@@ -2847,11 +2154,548 @@ export interface UpdateInferenceSchedulerRequest {
   RoleArn?: string;
 }
 
-export namespace UpdateInferenceSchedulerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInferenceSchedulerRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DatasetSchemaFilterSensitiveLog = (obj: DatasetSchema): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetRequestFilterSensitiveLog = (obj: CreateDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetResponseFilterSensitiveLog = (obj: CreateDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferenceInputNameConfigurationFilterSensitiveLog = (obj: InferenceInputNameConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferenceS3InputConfigurationFilterSensitiveLog = (obj: InferenceS3InputConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferenceInputConfigurationFilterSensitiveLog = (obj: InferenceInputConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferenceS3OutputConfigurationFilterSensitiveLog = (obj: InferenceS3OutputConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferenceOutputConfigurationFilterSensitiveLog = (obj: InferenceOutputConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInferenceSchedulerRequestFilterSensitiveLog = (obj: CreateInferenceSchedulerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInferenceSchedulerResponseFilterSensitiveLog = (obj: CreateInferenceSchedulerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataPreProcessingConfigurationFilterSensitiveLog = (obj: DataPreProcessingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LabelsS3InputConfigurationFilterSensitiveLog = (obj: LabelsS3InputConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LabelsInputConfigurationFilterSensitiveLog = (obj: LabelsInputConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateModelRequestFilterSensitiveLog = (obj: CreateModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateModelResponseFilterSensitiveLog = (obj: CreateModelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDatasetRequestFilterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInferenceSchedulerRequestFilterSensitiveLog = (obj: DeleteInferenceSchedulerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteModelRequestFilterSensitiveLog = (obj: DeleteModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataIngestionJobRequestFilterSensitiveLog = (obj: DescribeDataIngestionJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DuplicateTimestampsFilterSensitiveLog = (obj: DuplicateTimestamps): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MissingCompleteSensorDataFilterSensitiveLog = (obj: MissingCompleteSensorData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SensorsWithShortDateRangeFilterSensitiveLog = (obj: SensorsWithShortDateRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InsufficientSensorDataFilterSensitiveLog = (obj: InsufficientSensorData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InvalidSensorDataFilterSensitiveLog = (obj: InvalidSensorData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MissingSensorDataFilterSensitiveLog = (obj: MissingSensorData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnsupportedTimestampsFilterSensitiveLog = (obj: UnsupportedTimestamps): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataQualitySummaryFilterSensitiveLog = (obj: DataQualitySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ObjectFilterSensitiveLog = (obj: S3Object): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IngestedFilesSummaryFilterSensitiveLog = (obj: IngestedFilesSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IngestionS3InputConfigurationFilterSensitiveLog = (obj: IngestionS3InputConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IngestionInputConfigurationFilterSensitiveLog = (obj: IngestionInputConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataIngestionJobResponseFilterSensitiveLog = (obj: DescribeDataIngestionJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatasetRequestFilterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatasetResponseFilterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInferenceSchedulerRequestFilterSensitiveLog = (obj: DescribeInferenceSchedulerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInferenceSchedulerResponseFilterSensitiveLog = (obj: DescribeInferenceSchedulerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeModelRequestFilterSensitiveLog = (obj: DescribeModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeModelResponseFilterSensitiveLog = (obj: DescribeModelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataIngestionJobsRequestFilterSensitiveLog = (obj: ListDataIngestionJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataIngestionJobSummaryFilterSensitiveLog = (obj: DataIngestionJobSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataIngestionJobsResponseFilterSensitiveLog = (obj: ListDataIngestionJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetsRequestFilterSensitiveLog = (obj: ListDatasetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetSummaryFilterSensitiveLog = (obj: DatasetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetsResponseFilterSensitiveLog = (obj: ListDatasetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInferenceEventsRequestFilterSensitiveLog = (obj: ListInferenceEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferenceEventSummaryFilterSensitiveLog = (obj: InferenceEventSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInferenceEventsResponseFilterSensitiveLog = (obj: ListInferenceEventsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInferenceExecutionsRequestFilterSensitiveLog = (obj: ListInferenceExecutionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferenceExecutionSummaryFilterSensitiveLog = (obj: InferenceExecutionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInferenceExecutionsResponseFilterSensitiveLog = (obj: ListInferenceExecutionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInferenceSchedulersRequestFilterSensitiveLog = (obj: ListInferenceSchedulersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferenceSchedulerSummaryFilterSensitiveLog = (obj: InferenceSchedulerSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInferenceSchedulersResponseFilterSensitiveLog = (obj: ListInferenceSchedulersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListModelsRequestFilterSensitiveLog = (obj: ListModelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModelSummaryFilterSensitiveLog = (obj: ModelSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListModelsResponseFilterSensitiveLog = (obj: ListModelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSensorStatisticsRequestFilterSensitiveLog = (obj: ListSensorStatisticsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CategoricalValuesFilterSensitiveLog = (obj: CategoricalValues): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CountPercentFilterSensitiveLog = (obj: CountPercent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LargeTimestampGapsFilterSensitiveLog = (obj: LargeTimestampGaps): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonotonicValuesFilterSensitiveLog = (obj: MonotonicValues): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultipleOperatingModesFilterSensitiveLog = (obj: MultipleOperatingModes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SensorStatisticsSummaryFilterSensitiveLog = (obj: SensorStatisticsSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSensorStatisticsResponseFilterSensitiveLog = (obj: ListSensorStatisticsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDataIngestionJobRequestFilterSensitiveLog = (obj: StartDataIngestionJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDataIngestionJobResponseFilterSensitiveLog = (obj: StartDataIngestionJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartInferenceSchedulerRequestFilterSensitiveLog = (obj: StartInferenceSchedulerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartInferenceSchedulerResponseFilterSensitiveLog = (obj: StartInferenceSchedulerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopInferenceSchedulerRequestFilterSensitiveLog = (obj: StopInferenceSchedulerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopInferenceSchedulerResponseFilterSensitiveLog = (obj: StopInferenceSchedulerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInferenceSchedulerRequestFilterSensitiveLog = (obj: UpdateInferenceSchedulerRequest): any => ({
+  ...obj,
+});

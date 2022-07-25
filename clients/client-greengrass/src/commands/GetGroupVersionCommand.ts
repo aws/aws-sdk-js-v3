@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { GetGroupVersionRequest, GetGroupVersionResponse } from "../models/models_0";
+import {
+  GetGroupVersionRequest,
+  GetGroupVersionRequestFilterSensitiveLog,
+  GetGroupVersionResponse,
+  GetGroupVersionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetGroupVersionCommand,
   serializeAws_restJson1GetGroupVersionCommand,
@@ -72,8 +77,8 @@ export class GetGroupVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGroupVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetGroupVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetGroupVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

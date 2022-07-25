@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { GetDeviceProfileRequest, GetDeviceProfileResponse } from "../models/models_0";
+import {
+  GetDeviceProfileRequest,
+  GetDeviceProfileRequestFilterSensitiveLog,
+  GetDeviceProfileResponse,
+  GetDeviceProfileResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetDeviceProfileCommand,
   serializeAws_restJson1GetDeviceProfileCommand,
@@ -72,8 +77,8 @@ export class GetDeviceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeviceProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDeviceProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDeviceProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDeviceProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

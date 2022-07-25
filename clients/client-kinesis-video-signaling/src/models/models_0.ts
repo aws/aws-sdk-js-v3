@@ -53,15 +53,6 @@ export interface GetIceServerConfigRequest {
   Username?: string;
 }
 
-export namespace GetIceServerConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIceServerConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure for the ICE server connection data.</p>
  */
@@ -89,29 +80,11 @@ export interface IceServer {
   Ttl?: number;
 }
 
-export namespace IceServer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IceServer): any => ({
-    ...obj,
-  });
-}
-
 export interface GetIceServerConfigResponse {
   /**
    * <p>The list of ICE server information objects.</p>
    */
   IceServerList?: IceServer[];
-}
-
-export namespace GetIceServerConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIceServerConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -235,15 +208,6 @@ export interface SendAlexaOfferToMasterRequest {
   MessagePayload: string | undefined;
 }
 
-export namespace SendAlexaOfferToMasterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendAlexaOfferToMasterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendAlexaOfferToMasterResponse {
   /**
    * <p>The base64-encoded SDP answer content.</p>
@@ -251,11 +215,37 @@ export interface SendAlexaOfferToMasterResponse {
   Answer?: string;
 }
 
-export namespace SendAlexaOfferToMasterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendAlexaOfferToMasterResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GetIceServerConfigRequestFilterSensitiveLog = (obj: GetIceServerConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IceServerFilterSensitiveLog = (obj: IceServer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIceServerConfigResponseFilterSensitiveLog = (obj: GetIceServerConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendAlexaOfferToMasterRequestFilterSensitiveLog = (obj: SendAlexaOfferToMasterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendAlexaOfferToMasterResponseFilterSensitiveLog = (obj: SendAlexaOfferToMasterResponse): any => ({
+  ...obj,
+});

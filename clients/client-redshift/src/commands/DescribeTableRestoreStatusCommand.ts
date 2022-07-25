@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeTableRestoreStatusMessage, TableRestoreStatusMessage } from "../models/models_1";
+import {
+  DescribeTableRestoreStatusMessage,
+  DescribeTableRestoreStatusMessageFilterSensitiveLog,
+  TableRestoreStatusMessage,
+  TableRestoreStatusMessageFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryDescribeTableRestoreStatusCommand,
   serializeAws_queryDescribeTableRestoreStatusCommand,
@@ -77,8 +82,8 @@ export class DescribeTableRestoreStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTableRestoreStatusMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: TableRestoreStatusMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTableRestoreStatusMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: TableRestoreStatusMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

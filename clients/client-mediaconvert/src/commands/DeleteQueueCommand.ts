@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeleteQueueRequest, DeleteQueueResponse } from "../models/models_1";
+import {
+  DeleteQueueRequest,
+  DeleteQueueRequestFilterSensitiveLog,
+  DeleteQueueResponse,
+  DeleteQueueResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteQueueCommand,
   serializeAws_restJson1DeleteQueueCommand,
@@ -72,8 +77,8 @@ export class DeleteQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQueueRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteQueueResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteQueueRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteQueueResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

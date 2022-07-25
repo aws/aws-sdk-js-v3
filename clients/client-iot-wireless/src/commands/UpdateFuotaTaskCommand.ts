@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { UpdateFuotaTaskRequest, UpdateFuotaTaskResponse } from "../models/models_0";
+import {
+  UpdateFuotaTaskRequest,
+  UpdateFuotaTaskRequestFilterSensitiveLog,
+  UpdateFuotaTaskResponse,
+  UpdateFuotaTaskResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFuotaTaskCommand,
   serializeAws_restJson1UpdateFuotaTaskCommand,
@@ -72,8 +77,8 @@ export class UpdateFuotaTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFuotaTaskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFuotaTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFuotaTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFuotaTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

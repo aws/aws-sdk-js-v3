@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { CreateDistributionRequest, CreateDistributionResult } from "../models/models_0";
+import {
+  CreateDistributionRequest,
+  CreateDistributionRequestFilterSensitiveLog,
+  CreateDistributionResult,
+  CreateDistributionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDistributionCommand,
   serializeAws_json1_1CreateDistributionCommand,
@@ -75,8 +80,8 @@ export class CreateDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDistributionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDistributionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDistributionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDistributionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

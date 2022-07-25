@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import { StopICD10CMInferenceJobRequest, StopICD10CMInferenceJobResponse } from "../models/models_0";
+import {
+  StopICD10CMInferenceJobRequest,
+  StopICD10CMInferenceJobRequestFilterSensitiveLog,
+  StopICD10CMInferenceJobResponse,
+  StopICD10CMInferenceJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StopICD10CMInferenceJobCommand,
   serializeAws_json1_1StopICD10CMInferenceJobCommand,
@@ -76,8 +81,8 @@ export class StopICD10CMInferenceJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopICD10CMInferenceJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopICD10CMInferenceJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopICD10CMInferenceJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopICD10CMInferenceJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

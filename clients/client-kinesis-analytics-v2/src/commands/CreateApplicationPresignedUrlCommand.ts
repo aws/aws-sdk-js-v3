@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import { CreateApplicationPresignedUrlRequest, CreateApplicationPresignedUrlResponse } from "../models/models_0";
+import {
+  CreateApplicationPresignedUrlRequest,
+  CreateApplicationPresignedUrlRequestFilterSensitiveLog,
+  CreateApplicationPresignedUrlResponse,
+  CreateApplicationPresignedUrlResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateApplicationPresignedUrlCommand,
   serializeAws_json1_1CreateApplicationPresignedUrlCommand,
@@ -91,8 +96,8 @@ export class CreateApplicationPresignedUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationPresignedUrlRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateApplicationPresignedUrlResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateApplicationPresignedUrlRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateApplicationPresignedUrlResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

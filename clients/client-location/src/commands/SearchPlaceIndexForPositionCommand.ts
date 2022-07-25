@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { SearchPlaceIndexForPositionRequest, SearchPlaceIndexForPositionResponse } from "../models/models_0";
+import {
+  SearchPlaceIndexForPositionRequest,
+  SearchPlaceIndexForPositionRequestFilterSensitiveLog,
+  SearchPlaceIndexForPositionResponse,
+  SearchPlaceIndexForPositionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1SearchPlaceIndexForPositionCommand,
   serializeAws_restJson1SearchPlaceIndexForPositionCommand,
@@ -75,8 +80,8 @@ export class SearchPlaceIndexForPositionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchPlaceIndexForPositionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SearchPlaceIndexForPositionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchPlaceIndexForPositionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SearchPlaceIndexForPositionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

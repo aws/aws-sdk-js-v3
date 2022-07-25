@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { ListThesauriRequest, ListThesauriResponse } from "../models/models_0";
+import {
+  ListThesauriRequest,
+  ListThesauriRequestFilterSensitiveLog,
+  ListThesauriResponse,
+  ListThesauriResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListThesauriCommand,
   serializeAws_json1_1ListThesauriCommand,
@@ -72,8 +77,8 @@ export class ListThesauriCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListThesauriRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListThesauriResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListThesauriRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListThesauriResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

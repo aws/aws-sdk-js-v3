@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteLanguageModelRequest } from "../models/models_0";
+import { DeleteLanguageModelRequest, DeleteLanguageModelRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLanguageModelCommand,
   serializeAws_json1_1DeleteLanguageModelCommand,
@@ -74,7 +74,7 @@ export class DeleteLanguageModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLanguageModelRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLanguageModelRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

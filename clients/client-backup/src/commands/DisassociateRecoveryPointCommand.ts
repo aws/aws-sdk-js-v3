@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DisassociateRecoveryPointInput } from "../models/models_0";
+import { DisassociateRecoveryPointInput, DisassociateRecoveryPointInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateRecoveryPointCommand,
   serializeAws_restJson1DisassociateRecoveryPointCommand,
@@ -75,7 +75,7 @@ export class DisassociateRecoveryPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateRecoveryPointInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateRecoveryPointInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

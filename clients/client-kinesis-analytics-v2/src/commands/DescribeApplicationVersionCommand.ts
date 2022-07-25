@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import { DescribeApplicationVersionRequest, DescribeApplicationVersionResponse } from "../models/models_0";
+import {
+  DescribeApplicationVersionRequest,
+  DescribeApplicationVersionRequestFilterSensitiveLog,
+  DescribeApplicationVersionResponse,
+  DescribeApplicationVersionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeApplicationVersionCommand,
   serializeAws_json1_1DescribeApplicationVersionCommand,
@@ -79,8 +84,8 @@ export class DescribeApplicationVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicationVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeApplicationVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeApplicationVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeApplicationVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetVoiceConnectorProxyRequest, GetVoiceConnectorProxyResponse } from "../models/models_1";
+import {
+  GetVoiceConnectorProxyRequest,
+  GetVoiceConnectorProxyRequestFilterSensitiveLog,
+  GetVoiceConnectorProxyResponse,
+  GetVoiceConnectorProxyResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1GetVoiceConnectorProxyCommand,
   serializeAws_restJson1GetVoiceConnectorProxyCommand,
@@ -72,8 +77,8 @@ export class GetVoiceConnectorProxyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVoiceConnectorProxyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetVoiceConnectorProxyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetVoiceConnectorProxyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetVoiceConnectorProxyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

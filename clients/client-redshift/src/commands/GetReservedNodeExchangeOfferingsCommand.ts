@@ -14,7 +14,9 @@ import {
 
 import {
   GetReservedNodeExchangeOfferingsInputMessage,
+  GetReservedNodeExchangeOfferingsInputMessageFilterSensitiveLog,
   GetReservedNodeExchangeOfferingsOutputMessage,
+  GetReservedNodeExchangeOfferingsOutputMessageFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_queryGetReservedNodeExchangeOfferingsCommand,
@@ -78,8 +80,8 @@ export class GetReservedNodeExchangeOfferingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReservedNodeExchangeOfferingsInputMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: GetReservedNodeExchangeOfferingsOutputMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: GetReservedNodeExchangeOfferingsInputMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: GetReservedNodeExchangeOfferingsOutputMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -26,15 +26,6 @@ export interface ActionTarget {
   Description?: string;
 }
 
-export namespace ActionTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An individual Firewall Manager application.</p>
  */
@@ -53,15 +44,6 @@ export interface App {
    * <p>The application's port number, for example <code>80</code>.</p>
    */
   Port: number | undefined;
-}
-
-export namespace App {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: App): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -106,15 +88,6 @@ export interface AppsListData {
   PreviousAppsList?: Record<string, App[]>;
 }
 
-export namespace AppsListData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppsListData): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details of the Firewall Manager applications list.</p>
  */
@@ -140,15 +113,6 @@ export interface AppsListDataSummary {
   AppsList?: App[];
 }
 
-export namespace AppsListDataSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppsListDataSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateAdminAccountRequest {
   /**
    * <p>The Amazon Web Services account ID to associate with Firewall Manager as the Firewall Manager
@@ -157,15 +121,6 @@ export interface AssociateAdminAccountRequest {
    *         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html">Managing the Amazon Web Services Accounts in Your Organization</a>.  </p>
    */
   AdminAccount: string | undefined;
-}
-
-export namespace AssociateAdminAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateAdminAccountRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -292,15 +247,6 @@ export interface AssociateThirdPartyFirewallRequest {
   ThirdPartyFirewall: ThirdPartyFirewall | string | undefined;
 }
 
-export namespace AssociateThirdPartyFirewallRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateThirdPartyFirewallRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ThirdPartyFirewallAssociationStatus {
   NOT_EXIST = "NOT_EXIST",
   OFFBOARDING = "OFFBOARDING",
@@ -338,15 +284,6 @@ export interface AssociateThirdPartyFirewallResponse {
   ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus | string;
 }
 
-export namespace AssociateThirdPartyFirewallResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateThirdPartyFirewallResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Violation detail for network interfaces associated with an EC2 instance.</p>
  */
@@ -360,15 +297,6 @@ export interface AwsEc2NetworkInterfaceViolation {
    * <p>List of security groups that violate the rules specified in the primary security group of the Firewall Manager policy.</p>
    */
   ViolatingSecurityGroups?: string[];
-}
-
-export namespace AwsEc2NetworkInterfaceViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2NetworkInterfaceViolation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -386,15 +314,6 @@ export interface AwsEc2InstanceViolation {
   AwsEc2NetworkInterfaceViolations?: AwsEc2NetworkInterfaceViolation[];
 }
 
-export namespace AwsEc2InstanceViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2InstanceViolation): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAppsListRequest {
   /**
    * <p>The ID of the applications list that you want to delete. You can retrieve this ID from
@@ -403,25 +322,7 @@ export interface DeleteAppsListRequest {
   ListId: string | undefined;
 }
 
-export namespace DeleteAppsListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppsListRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteNotificationChannelRequest {}
-
-export namespace DeleteNotificationChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNotificationChannelRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface DeletePolicyRequest {
   /**
@@ -465,15 +366,6 @@ export interface DeletePolicyRequest {
   DeleteAllPolicyResources?: boolean;
 }
 
-export namespace DeletePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProtocolsListRequest {
   /**
    * <p>The ID of the protocols list that you want to delete. You can retrieve this ID from
@@ -482,40 +374,13 @@ export interface DeleteProtocolsListRequest {
   ListId: string | undefined;
 }
 
-export namespace DeleteProtocolsListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProtocolsListRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateAdminAccountRequest {}
-
-export namespace DisassociateAdminAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateAdminAccountRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateThirdPartyFirewallRequest {
   /**
    * <p>The name of the third-party firewall vendor.</p>
    */
   ThirdPartyFirewall: ThirdPartyFirewall | string | undefined;
-}
-
-export namespace DisassociateThirdPartyFirewallRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateThirdPartyFirewallRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateThirdPartyFirewallResponse {
@@ -525,25 +390,7 @@ export interface DisassociateThirdPartyFirewallResponse {
   ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus | string;
 }
 
-export namespace DisassociateThirdPartyFirewallResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateThirdPartyFirewallResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAdminAccountRequest {}
-
-export namespace GetAdminAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAdminAccountRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetAdminAccountResponse {
   /**
@@ -558,15 +405,6 @@ export interface GetAdminAccountResponse {
   RoleStatus?: AccountRoleStatus | string;
 }
 
-export namespace GetAdminAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAdminAccountResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAppsListRequest {
   /**
    * <p>The ID of the Firewall Manager applications list that you want the details for.</p>
@@ -577,15 +415,6 @@ export interface GetAppsListRequest {
    * <p>Specifies whether the list to retrieve is a default list owned by Firewall Manager.</p>
    */
   DefaultList?: boolean;
-}
-
-export namespace GetAppsListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppsListRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAppsListResponse {
@@ -600,15 +429,6 @@ export interface GetAppsListResponse {
   AppsListArn?: string;
 }
 
-export namespace GetAppsListResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppsListResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetComplianceDetailRequest {
   /**
    * <p>The ID of the policy that you want to get the details for. <code>PolicyId</code> is
@@ -620,15 +440,6 @@ export interface GetComplianceDetailRequest {
    * <p>The Amazon Web Services account that owns the resources that you want to get the details for.</p>
    */
   MemberAccount: string | undefined;
-}
-
-export namespace GetComplianceDetailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComplianceDetailRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DependentServiceName {
@@ -697,15 +508,6 @@ export interface ComplianceViolator {
   Metadata?: Record<string, string>;
 }
 
-export namespace ComplianceViolator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplianceViolator): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes
  *       the noncompliant resources in a member account for a specific Firewall Manager policy. A maximum of 100 entries are displayed. If more than 100 resources are
@@ -752,15 +554,6 @@ export interface PolicyComplianceDetail {
   IssueInfoMap?: Record<string, string>;
 }
 
-export namespace PolicyComplianceDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyComplianceDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface GetComplianceDetailResponse {
   /**
    * <p>Information about the resources and the policy that you specified in the
@@ -769,25 +562,7 @@ export interface GetComplianceDetailResponse {
   PolicyComplianceDetail?: PolicyComplianceDetail;
 }
 
-export namespace GetComplianceDetailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComplianceDetailResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetNotificationChannelRequest {}
-
-export namespace GetNotificationChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNotificationChannelRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetNotificationChannelResponse {
   /**
@@ -801,29 +576,11 @@ export interface GetNotificationChannelResponse {
   SnsRoleName?: string;
 }
 
-export namespace GetNotificationChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNotificationChannelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPolicyRequest {
   /**
    * <p>The ID of the Firewall Manager policy that you want the details for.</p>
    */
   PolicyId: string | undefined;
-}
-
-export namespace GetPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum CustomerPolicyScopeIdType {
@@ -852,15 +609,6 @@ export interface ResourceTag {
   Value?: string;
 }
 
-export namespace ResourceTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTag): any => ({
-    ...obj,
-  });
-}
-
 export enum FirewallDeploymentModel {
   CENTRALIZED = "CENTRALIZED",
   DISTRIBUTED = "DISTRIBUTED",
@@ -880,15 +628,6 @@ export interface NetworkFirewallPolicy {
   FirewallDeploymentModel?: FirewallDeploymentModel | string;
 }
 
-export namespace NetworkFirewallPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFirewallPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configures the deployment model for the third-party firewall.</p>
  */
@@ -897,15 +636,6 @@ export interface ThirdPartyFirewallPolicy {
    * <p>Defines the deployment model to use for the third-party firewall policy.</p>
    */
   FirewallDeploymentModel?: FirewallDeploymentModel | string;
-}
-
-export namespace ThirdPartyFirewallPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThirdPartyFirewallPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -921,15 +651,6 @@ export interface PolicyOption {
    * <p>Defines the policy options for a third-party firewall policy.</p>
    */
   ThirdPartyFirewallPolicy?: ThirdPartyFirewallPolicy;
-}
-
-export namespace PolicyOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyOption): any => ({
-    ...obj,
-  });
 }
 
 export enum SecurityServiceType {
@@ -1170,15 +891,6 @@ export interface SecurityServicePolicyData {
   PolicyOption?: PolicyOption;
 }
 
-export namespace SecurityServicePolicyData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecurityServicePolicyData): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An Firewall Manager policy.</p>
  */
@@ -1305,15 +1017,6 @@ export interface Policy {
   ExcludeMap?: Record<string, string[]>;
 }
 
-export namespace Policy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Policy): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPolicyResponse {
   /**
    * <p>Information about the specified Firewall Manager policy.</p>
@@ -1324,15 +1027,6 @@ export interface GetPolicyResponse {
    * <p>The Amazon Resource Name (ARN) of the specified policy.</p>
    */
   PolicyArn?: string;
-}
-
-export namespace GetPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1398,15 +1092,6 @@ export interface GetProtectionStatusRequest {
   MaxResults?: number;
 }
 
-export namespace GetProtectionStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProtectionStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetProtectionStatusResponse {
   /**
    * <p>The ID of the Firewall Manager administrator account for this policy.</p>
@@ -1455,15 +1140,6 @@ export interface GetProtectionStatusResponse {
   NextToken?: string;
 }
 
-export namespace GetProtectionStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProtectionStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetProtocolsListRequest {
   /**
    * <p>The ID of the Firewall Manager protocols list that you want the details for.</p>
@@ -1474,15 +1150,6 @@ export interface GetProtocolsListRequest {
    * <p>Specifies whether the list to retrieve is a default list owned by Firewall Manager.</p>
    */
   DefaultList?: boolean;
-}
-
-export namespace GetProtocolsListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProtocolsListRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1527,15 +1194,6 @@ export interface ProtocolsListData {
   PreviousProtocolsList?: Record<string, string[]>;
 }
 
-export namespace ProtocolsListData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProtocolsListData): any => ({
-    ...obj,
-  });
-}
-
 export interface GetProtocolsListResponse {
   /**
    * <p>Information about the specified Firewall Manager protocols list.</p>
@@ -1548,29 +1206,11 @@ export interface GetProtocolsListResponse {
   ProtocolsListArn?: string;
 }
 
-export namespace GetProtocolsListResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProtocolsListResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetThirdPartyFirewallAssociationStatusRequest {
   /**
    * <p>The name of the third-party firewall vendor.</p>
    */
   ThirdPartyFirewall: ThirdPartyFirewall | string | undefined;
-}
-
-export namespace GetThirdPartyFirewallAssociationStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetThirdPartyFirewallAssociationStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum MarketplaceSubscriptionOnboardingStatus {
@@ -1627,15 +1267,6 @@ export interface GetThirdPartyFirewallAssociationStatusResponse {
   MarketplaceOnboardingStatus?: MarketplaceSubscriptionOnboardingStatus | string;
 }
 
-export namespace GetThirdPartyFirewallAssociationStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetThirdPartyFirewallAssociationStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetViolationDetailsRequest {
   /**
    * <p>The ID of the Firewall Manager policy that you want the details for. This currently only supports security group content audit policies.</p>
@@ -1665,15 +1296,6 @@ export interface GetViolationDetailsRequest {
   ResourceType: string | undefined;
 }
 
-export namespace GetViolationDetailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetViolationDetailsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A collection of key:value pairs associated with an Amazon Web Services resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each Amazon Web Services resource.  </p>
  */
@@ -1689,15 +1311,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The reference rule that partially matches the <code>ViolationTarget</code> rule and violation reason.</p>
  */
@@ -1711,15 +1324,6 @@ export interface PartialMatch {
    * <p>The violation reason.</p>
    */
   TargetViolationReasons?: string[];
-}
-
-export namespace PartialMatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PartialMatch): any => ({
-    ...obj,
-  });
 }
 
 export enum RemediationActionType {
@@ -1762,15 +1366,6 @@ export interface SecurityGroupRuleDescription {
   ToPort?: number;
 }
 
-export namespace SecurityGroupRuleDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecurityGroupRuleDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Remediation option for the rule specified in the <code>ViolationTarget</code>.</p>
  */
@@ -1794,15 +1389,6 @@ export interface SecurityGroupRemediationAction {
    * <p>Indicates if the current action is the default action.</p>
    */
   IsDefaultAction?: boolean;
-}
-
-export namespace SecurityGroupRemediationAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecurityGroupRemediationAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1830,15 +1416,6 @@ export interface AwsVPCSecurityGroupViolation {
   PossibleSecurityGroupRemediationActions?: SecurityGroupRemediationAction[];
 }
 
-export namespace AwsVPCSecurityGroupViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsVPCSecurityGroupViolation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A DNS Firewall rule group that Firewall Manager
  *        tried to associate with a VPC is already associated with the VPC and can't be associated again. </p>
@@ -1853,15 +1430,6 @@ export interface DnsDuplicateRuleGroupViolation {
    * <p>A description of the violation that specifies the rule group and VPC.</p>
    */
   ViolationTargetDescription?: string;
-}
-
-export namespace DnsDuplicateRuleGroupViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DnsDuplicateRuleGroupViolation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1882,15 +1450,6 @@ export interface DnsRuleGroupLimitExceededViolation {
    * <p>The number of rule groups currently associated with the VPC.  </p>
    */
   NumberOfRuleGroupsAlreadyAssociated?: number;
-}
-
-export namespace DnsRuleGroupLimitExceededViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DnsRuleGroupLimitExceededViolation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1926,15 +1485,6 @@ export interface DnsRuleGroupPriorityConflictViolation {
   UnavailablePriorities?: number[];
 }
 
-export namespace DnsRuleGroupPriorityConflictViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DnsRuleGroupPriorityConflictViolation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains details about the firewall subnet that violates the policy scope.</p>
  */
@@ -1965,15 +1515,6 @@ export interface FirewallSubnetIsOutOfScopeViolation {
   VpcEndpointId?: string;
 }
 
-export namespace FirewallSubnetIsOutOfScopeViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallSubnetIsOutOfScopeViolation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The violation details for a firewall subnet's VPC endpoint that's deleted or missing.</p>
  */
@@ -1997,15 +1538,6 @@ export interface FirewallSubnetMissingVPCEndpointViolation {
    * <p>The ID of the Availability Zone of the deleted VPC subnet.</p>
    */
   SubnetAvailabilityZoneId?: string;
-}
-
-export namespace FirewallSubnetMissingVPCEndpointViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallSubnetMissingVPCEndpointViolation): any => ({
-    ...obj,
-  });
 }
 
 export enum DestinationType {
@@ -2052,15 +1584,6 @@ export interface Route {
   Target?: string;
 }
 
-export namespace Route {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Route): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Violation detail for an internet gateway route with an inactive state in the customer subnet route table or Network Firewall subnet route table.</p>
  */
@@ -2084,15 +1607,6 @@ export interface NetworkFirewallBlackHoleRouteDetectedViolation {
    * <p>Information about the route or routes that are in violation.</p>
    */
   ViolatingRoutes?: Route[];
-}
-
-export namespace NetworkFirewallBlackHoleRouteDetectedViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFirewallBlackHoleRouteDetectedViolation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2128,15 +1642,6 @@ export interface ExpectedRoute {
    * <p>Information about the route table ID.</p>
    */
   RouteTableId?: string;
-}
-
-export namespace ExpectedRoute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpectedRoute): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2217,15 +1722,6 @@ export interface NetworkFirewallInternetTrafficNotInspectedViolation {
    * <p>Information about the VPC ID.</p>
    */
   VpcId?: string;
-}
-
-export namespace NetworkFirewallInternetTrafficNotInspectedViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFirewallInternetTrafficNotInspectedViolation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2314,15 +1810,6 @@ export interface NetworkFirewallInvalidRouteConfigurationViolation {
   VpcId?: string;
 }
 
-export namespace NetworkFirewallInvalidRouteConfigurationViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFirewallInvalidRouteConfigurationViolation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Violation detail for an expected route missing in Network Firewall.</p>
  */
@@ -2341,15 +1828,6 @@ export interface NetworkFirewallMissingExpectedRoutesViolation {
    * <p>Information about the VPC ID.</p>
    */
   VpcId?: string;
-}
-
-export namespace NetworkFirewallMissingExpectedRoutesViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFirewallMissingExpectedRoutesViolation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2383,15 +1861,6 @@ export interface NetworkFirewallMissingExpectedRTViolation {
   ExpectedRouteTable?: string;
 }
 
-export namespace NetworkFirewallMissingExpectedRTViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFirewallMissingExpectedRTViolation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Violation detail for Network Firewall for a subnet that doesn't have a
  *        Firewall Manager managed firewall in its VPC. </p>
@@ -2416,15 +1885,6 @@ export interface NetworkFirewallMissingFirewallViolation {
    * <p>The reason the resource has this violation, if one is available. </p>
    */
   TargetViolationReason?: string;
-}
-
-export namespace NetworkFirewallMissingFirewallViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFirewallMissingFirewallViolation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2453,15 +1913,6 @@ export interface NetworkFirewallMissingSubnetViolation {
   TargetViolationReason?: string;
 }
 
-export namespace NetworkFirewallMissingSubnetViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFirewallMissingSubnetViolation): any => ({
-    ...obj,
-  });
-}
-
 export enum RuleOrder {
   DEFAULT_ACTION_ORDER = "DEFAULT_ACTION_ORDER",
   STRICT_ORDER = "STRICT_ORDER",
@@ -2478,15 +1929,6 @@ export interface StatefulEngineOptions {
    * information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>.</p>
    */
   RuleOrder?: RuleOrder | string;
-}
-
-export namespace StatefulEngineOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatefulEngineOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2519,15 +1961,6 @@ export interface StatefulRuleGroup {
   Priority?: number;
 }
 
-export namespace StatefulRuleGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatefulRuleGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Network Firewall stateless rule group, used in a <a>NetworkFirewallPolicyDescription</a>. </p>
  */
@@ -2546,15 +1979,6 @@ export interface StatelessRuleGroup {
    * <p>The priority of the rule group. Network Firewall evaluates the stateless rule groups in a firewall policy starting from the lowest priority setting. </p>
    */
   Priority?: number;
-}
-
-export namespace StatelessRuleGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatelessRuleGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2617,15 +2041,6 @@ export interface NetworkFirewallPolicyDescription {
   StatefulEngineOptions?: StatefulEngineOptions;
 }
 
-export namespace NetworkFirewallPolicyDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFirewallPolicyDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Violation detail for Network Firewall for a firewall policy that has a different
  *        <a>NetworkFirewallPolicyDescription</a> than is required by the Firewall Manager policy. </p>
@@ -2645,15 +2060,6 @@ export interface NetworkFirewallPolicyModifiedViolation {
    * <p>The policy that should be in use in the individual account in order to be compliant. </p>
    */
   ExpectedPolicyDescription?: NetworkFirewallPolicyDescription;
-}
-
-export namespace NetworkFirewallPolicyModifiedViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFirewallPolicyModifiedViolation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2686,15 +2092,6 @@ export interface NetworkFirewallUnexpectedFirewallRoutesViolation {
   VpcId?: string;
 }
 
-export namespace NetworkFirewallUnexpectedFirewallRoutesViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFirewallUnexpectedFirewallRoutesViolation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Violation detail for an unexpected gateway route that’s present in a route table.</p>
  */
@@ -2718,15 +2115,6 @@ export interface NetworkFirewallUnexpectedGatewayRoutesViolation {
    * <p>Information about the VPC ID.</p>
    */
   VpcId?: string;
-}
-
-export namespace NetworkFirewallUnexpectedGatewayRoutesViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFirewallUnexpectedGatewayRoutesViolation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2754,15 +2142,6 @@ export interface EC2AssociateRouteTableAction {
   GatewayId?: ActionTarget;
 }
 
-export namespace EC2AssociateRouteTableAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2AssociateRouteTableAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An action that copies the EC2 route table for use in remediation.</p>
  */
@@ -2781,15 +2160,6 @@ export interface EC2CopyRouteTableAction {
    * <p>The ID of the copied EC2 route table that is associated with the remediation action.</p>
    */
   RouteTableId: ActionTarget | undefined;
-}
-
-export namespace EC2CopyRouteTableAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2CopyRouteTableAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2832,15 +2202,6 @@ export interface EC2CreateRouteAction {
   RouteTableId: ActionTarget | undefined;
 }
 
-export namespace EC2CreateRouteAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2CreateRouteAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the CreateRouteTable action in Amazon EC2.</p>
  */
@@ -2854,15 +2215,6 @@ export interface EC2CreateRouteTableAction {
    * <p>Information about the ID of a VPC.</p>
    */
   VpcId: ActionTarget | undefined;
-}
-
-export namespace EC2CreateRouteTableAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2CreateRouteTableAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2893,15 +2245,6 @@ export interface EC2DeleteRouteAction {
    * <p>Information about the ID of the route table.</p>
    */
   RouteTableId: ActionTarget | undefined;
-}
-
-export namespace EC2DeleteRouteAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2DeleteRouteAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2939,15 +2282,6 @@ export interface EC2ReplaceRouteAction {
   RouteTableId: ActionTarget | undefined;
 }
 
-export namespace EC2ReplaceRouteAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2ReplaceRouteAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the ReplaceRouteTableAssociation action in Amazon EC2.</p>
  */
@@ -2968,15 +2302,6 @@ export interface EC2ReplaceRouteTableAssociationAction {
   RouteTableId: ActionTarget | undefined;
 }
 
-export namespace EC2ReplaceRouteTableAssociationAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2ReplaceRouteTableAssociationAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the actions that you can take to remediate scope violations
  *          caused by your policy's <code>FirewallCreationConfig</code>.
@@ -2994,15 +2319,6 @@ export interface FMSPolicyUpdateFirewallCreationConfigAction {
    *             <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html">SecurityServiceData</a> in order to remedy scope violations.</p>
    */
   FirewallCreationConfig?: string;
-}
-
-export namespace FMSPolicyUpdateFirewallCreationConfigAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FMSPolicyUpdateFirewallCreationConfigAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3055,15 +2371,6 @@ export interface RemediationAction {
   FMSPolicyUpdateFirewallCreationConfigAction?: FMSPolicyUpdateFirewallCreationConfigAction;
 }
 
-export namespace RemediationAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemediationAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An ordered list of actions you can take to remediate a violation.</p>
  */
@@ -3077,15 +2384,6 @@ export interface RemediationActionWithOrder {
    * <p>The order of the remediation actions in the list.</p>
    */
   Order?: number;
-}
-
-export namespace RemediationActionWithOrder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemediationActionWithOrder): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3108,15 +2406,6 @@ export interface PossibleRemediationAction {
   IsDefaultAction?: boolean;
 }
 
-export namespace PossibleRemediationAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PossibleRemediationAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of possible remediation action lists. Each individual possible remediation action is a list of individual remediation actions.</p>
  */
@@ -3130,15 +2419,6 @@ export interface PossibleRemediationActions {
    * <p>Information about the actions.</p>
    */
   Actions?: PossibleRemediationAction[];
-}
-
-export namespace PossibleRemediationActions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PossibleRemediationActions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3206,15 +2486,6 @@ export interface RouteHasOutOfScopeEndpointViolation {
   InternetGatewayRoutes?: Route[];
 }
 
-export namespace RouteHasOutOfScopeEndpointViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RouteHasOutOfScopeEndpointViolation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The violation details for a third-party firewall that's not associated with an Firewall Manager managed route table.</p>
  */
@@ -3245,15 +2516,6 @@ export interface ThirdPartyFirewallMissingExpectedRouteTableViolation {
   ExpectedRouteTable?: string;
 }
 
-export namespace ThirdPartyFirewallMissingExpectedRouteTableViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThirdPartyFirewallMissingExpectedRouteTableViolation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The violation details about a third-party firewall's subnet that doesn't have a Firewall Manager managed firewall in its VPC.</p>
  */
@@ -3279,15 +2541,6 @@ export interface ThirdPartyFirewallMissingFirewallViolation {
   TargetViolationReason?: string;
 }
 
-export namespace ThirdPartyFirewallMissingFirewallViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThirdPartyFirewallMissingFirewallViolation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The violation details for a third-party firewall for an Availability Zone that's missing the Firewall Manager managed subnet.</p>
  */
@@ -3311,15 +2564,6 @@ export interface ThirdPartyFirewallMissingSubnetViolation {
    * <p>The reason the resource is causing the violation, if a reason is available.</p>
    */
   TargetViolationReason?: string;
-}
-
-export namespace ThirdPartyFirewallMissingSubnetViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThirdPartyFirewallMissingSubnetViolation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3450,15 +2694,6 @@ export interface ResourceViolation {
   FirewallSubnetMissingVPCEndpointViolation?: FirewallSubnetMissingVPCEndpointViolation;
 }
 
-export namespace ResourceViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceViolation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Violations for a resource based on the specified Firewall Manager policy and Amazon Web Services account.</p>
  */
@@ -3499,29 +2734,11 @@ export interface ViolationDetail {
   ResourceDescription?: string;
 }
 
-export namespace ViolationDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ViolationDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface GetViolationDetailsResponse {
   /**
    * <p>Violation detail for a resource.</p>
    */
   ViolationDetail?: ViolationDetail;
-}
-
-export namespace GetViolationDetailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetViolationDetailsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAppsListsRequest {
@@ -3546,15 +2763,6 @@ export interface ListAppsListsRequest {
   MaxResults: number | undefined;
 }
 
-export namespace ListAppsListsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppsListsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAppsListsResponse {
   /**
    * <p>An array of <code>AppsListDataSummary</code> objects.</p>
@@ -3566,15 +2774,6 @@ export interface ListAppsListsResponse {
    *         Firewall Manager returns this token in the response. You can use this token in subsequent requests to retrieve the next batch of objects.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAppsListsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppsListsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListComplianceStatusRequest {
@@ -3602,15 +2801,6 @@ export interface ListComplianceStatusRequest {
    *       use to get another batch of <code>PolicyComplianceStatus</code> objects.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListComplianceStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComplianceStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum PolicyComplianceStatusType {
@@ -3642,15 +2832,6 @@ export interface EvaluationResult {
    *       policy.</p>
    */
   EvaluationLimitExceeded?: boolean;
-}
-
-export namespace EvaluationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluationResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3697,15 +2878,6 @@ export interface PolicyComplianceStatus {
   IssueInfoMap?: Record<string, string>;
 }
 
-export namespace PolicyComplianceStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyComplianceStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface ListComplianceStatusResponse {
   /**
    * <p>An array of <code>PolicyComplianceStatus</code> objects.</p>
@@ -3721,15 +2893,6 @@ export interface ListComplianceStatusResponse {
    *       next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListComplianceStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComplianceStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMemberAccountsRequest {
@@ -3752,15 +2915,6 @@ export interface ListMemberAccountsRequest {
   MaxResults?: number;
 }
 
-export namespace ListMemberAccountsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMemberAccountsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMemberAccountsResponse {
   /**
    * <p>An array of account IDs.</p>
@@ -3775,15 +2929,6 @@ export interface ListMemberAccountsResponse {
    *       next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListMemberAccountsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMemberAccountsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPoliciesRequest {
@@ -3805,15 +2950,6 @@ export interface ListPoliciesRequest {
    *         <code>PolicySummary</code> objects.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPoliciesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3871,15 +3007,6 @@ export interface PolicySummary {
   DeleteUnusedFMManagedResources?: boolean;
 }
 
-export namespace PolicySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicySummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPoliciesResponse {
   /**
    * <p>An array of <code>PolicySummary</code> objects.</p>
@@ -3894,15 +3021,6 @@ export interface ListPoliciesResponse {
    *       response in the <code>NextToken</code> value in the next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPoliciesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListProtocolsListsRequest {
@@ -3925,15 +3043,6 @@ export interface ListProtocolsListsRequest {
    *          <p>If you don't specify this, Firewall Manager returns all available objects.</p>
    */
   MaxResults: number | undefined;
-}
-
-export namespace ListProtocolsListsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProtocolsListsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3961,15 +3070,6 @@ export interface ProtocolsListDataSummary {
   ProtocolsList?: string[];
 }
 
-export namespace ProtocolsListDataSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProtocolsListDataSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProtocolsListsResponse {
   /**
    * <p>An array of <code>ProtocolsListDataSummary</code> objects.</p>
@@ -3983,15 +3083,6 @@ export interface ListProtocolsListsResponse {
   NextToken?: string;
 }
 
-export namespace ListProtocolsListsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProtocolsListsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to return tags for. The Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
@@ -3999,29 +3090,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with the resource.</p>
    */
   TagList?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListThirdPartyFirewallFirewallPoliciesRequest {
@@ -4050,15 +3123,6 @@ export interface ListThirdPartyFirewallFirewallPoliciesRequest {
   MaxResults: number | undefined;
 }
 
-export namespace ListThirdPartyFirewallFirewallPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThirdPartyFirewallFirewallPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configures the third-party firewall's firewall policy.</p>
  */
@@ -4074,15 +3138,6 @@ export interface ThirdPartyFirewallFirewallPolicy {
   FirewallPolicyName?: string;
 }
 
-export namespace ThirdPartyFirewallFirewallPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThirdPartyFirewallFirewallPolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface ListThirdPartyFirewallFirewallPoliciesResponse {
   /**
    * <p>A list that contains one <code>ThirdPartyFirewallFirewallPolicies</code> element for each third-party firewall policies that the specified
@@ -4094,15 +3149,6 @@ export interface ListThirdPartyFirewallFirewallPoliciesResponse {
    * <p>The value that you will use for <code>NextToken</code> in the next <code>ListThirdPartyFirewallFirewallPolicies</code> request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListThirdPartyFirewallFirewallPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThirdPartyFirewallFirewallPoliciesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutAppsListRequest {
@@ -4117,15 +3163,6 @@ export interface PutAppsListRequest {
   TagList?: Tag[];
 }
 
-export namespace PutAppsListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAppsListRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAppsListResponse {
   /**
    * <p>The details of the Firewall Manager applications list.</p>
@@ -4136,15 +3173,6 @@ export interface PutAppsListResponse {
    * <p>The Amazon Resource Name (ARN) of the applications list.</p>
    */
   AppsListArn?: string;
-}
-
-export namespace PutAppsListResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAppsListResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutNotificationChannelRequest {
@@ -4161,15 +3189,6 @@ export interface PutNotificationChannelRequest {
   SnsRoleName: string | undefined;
 }
 
-export namespace PutNotificationChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutNotificationChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutPolicyRequest {
   /**
    * <p>The details of the Firewall Manager policy to be created.</p>
@@ -4180,15 +3199,6 @@ export interface PutPolicyRequest {
    * <p>The tags to add to the Amazon Web Services resource.</p>
    */
   TagList?: Tag[];
-}
-
-export namespace PutPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutPolicyResponse {
@@ -4203,15 +3213,6 @@ export interface PutPolicyResponse {
   PolicyArn?: string;
 }
 
-export namespace PutPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPolicyResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PutProtocolsListRequest {
   /**
    * <p>The details of the Firewall Manager protocols list to be created.</p>
@@ -4222,15 +3223,6 @@ export interface PutProtocolsListRequest {
    * <p>The tags associated with the resource.</p>
    */
   TagList?: Tag[];
-}
-
-export namespace PutProtocolsListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutProtocolsListRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutProtocolsListResponse {
@@ -4245,15 +3237,6 @@ export interface PutProtocolsListResponse {
   ProtocolsListArn?: string;
 }
 
-export namespace PutProtocolsListResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutProtocolsListResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to return tags for. The Firewall Manager resources that support tagging are policies, applications lists, and protocols lists. </p>
@@ -4266,25 +3249,7 @@ export interface TagResourceRequest {
   TagList: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -4298,22 +3263,875 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ActionTargetFilterSensitiveLog = (obj: ActionTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppFilterSensitiveLog = (obj: App): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppsListDataFilterSensitiveLog = (obj: AppsListData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppsListDataSummaryFilterSensitiveLog = (obj: AppsListDataSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateAdminAccountRequestFilterSensitiveLog = (obj: AssociateAdminAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateThirdPartyFirewallRequestFilterSensitiveLog = (obj: AssociateThirdPartyFirewallRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateThirdPartyFirewallResponseFilterSensitiveLog = (
+  obj: AssociateThirdPartyFirewallResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2NetworkInterfaceViolationFilterSensitiveLog = (obj: AwsEc2NetworkInterfaceViolation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2InstanceViolationFilterSensitiveLog = (obj: AwsEc2InstanceViolation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppsListRequestFilterSensitiveLog = (obj: DeleteAppsListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNotificationChannelRequestFilterSensitiveLog = (obj: DeleteNotificationChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePolicyRequestFilterSensitiveLog = (obj: DeletePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProtocolsListRequestFilterSensitiveLog = (obj: DeleteProtocolsListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateAdminAccountRequestFilterSensitiveLog = (obj: DisassociateAdminAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateThirdPartyFirewallRequestFilterSensitiveLog = (
+  obj: DisassociateThirdPartyFirewallRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateThirdPartyFirewallResponseFilterSensitiveLog = (
+  obj: DisassociateThirdPartyFirewallResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAdminAccountRequestFilterSensitiveLog = (obj: GetAdminAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAdminAccountResponseFilterSensitiveLog = (obj: GetAdminAccountResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppsListRequestFilterSensitiveLog = (obj: GetAppsListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppsListResponseFilterSensitiveLog = (obj: GetAppsListResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComplianceDetailRequestFilterSensitiveLog = (obj: GetComplianceDetailRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComplianceViolatorFilterSensitiveLog = (obj: ComplianceViolator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyComplianceDetailFilterSensitiveLog = (obj: PolicyComplianceDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComplianceDetailResponseFilterSensitiveLog = (obj: GetComplianceDetailResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNotificationChannelRequestFilterSensitiveLog = (obj: GetNotificationChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNotificationChannelResponseFilterSensitiveLog = (obj: GetNotificationChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPolicyRequestFilterSensitiveLog = (obj: GetPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceTagFilterSensitiveLog = (obj: ResourceTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFirewallPolicyFilterSensitiveLog = (obj: NetworkFirewallPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThirdPartyFirewallPolicyFilterSensitiveLog = (obj: ThirdPartyFirewallPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyOptionFilterSensitiveLog = (obj: PolicyOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecurityServicePolicyDataFilterSensitiveLog = (obj: SecurityServicePolicyData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyFilterSensitiveLog = (obj: Policy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPolicyResponseFilterSensitiveLog = (obj: GetPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProtectionStatusRequestFilterSensitiveLog = (obj: GetProtectionStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProtectionStatusResponseFilterSensitiveLog = (obj: GetProtectionStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProtocolsListRequestFilterSensitiveLog = (obj: GetProtocolsListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProtocolsListDataFilterSensitiveLog = (obj: ProtocolsListData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProtocolsListResponseFilterSensitiveLog = (obj: GetProtocolsListResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetThirdPartyFirewallAssociationStatusRequestFilterSensitiveLog = (
+  obj: GetThirdPartyFirewallAssociationStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetThirdPartyFirewallAssociationStatusResponseFilterSensitiveLog = (
+  obj: GetThirdPartyFirewallAssociationStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetViolationDetailsRequestFilterSensitiveLog = (obj: GetViolationDetailsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PartialMatchFilterSensitiveLog = (obj: PartialMatch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecurityGroupRuleDescriptionFilterSensitiveLog = (obj: SecurityGroupRuleDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecurityGroupRemediationActionFilterSensitiveLog = (obj: SecurityGroupRemediationAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsVPCSecurityGroupViolationFilterSensitiveLog = (obj: AwsVPCSecurityGroupViolation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DnsDuplicateRuleGroupViolationFilterSensitiveLog = (obj: DnsDuplicateRuleGroupViolation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DnsRuleGroupLimitExceededViolationFilterSensitiveLog = (obj: DnsRuleGroupLimitExceededViolation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DnsRuleGroupPriorityConflictViolationFilterSensitiveLog = (
+  obj: DnsRuleGroupPriorityConflictViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallSubnetIsOutOfScopeViolationFilterSensitiveLog = (
+  obj: FirewallSubnetIsOutOfScopeViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallSubnetMissingVPCEndpointViolationFilterSensitiveLog = (
+  obj: FirewallSubnetMissingVPCEndpointViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RouteFilterSensitiveLog = (obj: Route): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFirewallBlackHoleRouteDetectedViolationFilterSensitiveLog = (
+  obj: NetworkFirewallBlackHoleRouteDetectedViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExpectedRouteFilterSensitiveLog = (obj: ExpectedRoute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFirewallInternetTrafficNotInspectedViolationFilterSensitiveLog = (
+  obj: NetworkFirewallInternetTrafficNotInspectedViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFirewallInvalidRouteConfigurationViolationFilterSensitiveLog = (
+  obj: NetworkFirewallInvalidRouteConfigurationViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFirewallMissingExpectedRoutesViolationFilterSensitiveLog = (
+  obj: NetworkFirewallMissingExpectedRoutesViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFirewallMissingExpectedRTViolationFilterSensitiveLog = (
+  obj: NetworkFirewallMissingExpectedRTViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFirewallMissingFirewallViolationFilterSensitiveLog = (
+  obj: NetworkFirewallMissingFirewallViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFirewallMissingSubnetViolationFilterSensitiveLog = (
+  obj: NetworkFirewallMissingSubnetViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatefulEngineOptionsFilterSensitiveLog = (obj: StatefulEngineOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatefulRuleGroupFilterSensitiveLog = (obj: StatefulRuleGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatelessRuleGroupFilterSensitiveLog = (obj: StatelessRuleGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFirewallPolicyDescriptionFilterSensitiveLog = (obj: NetworkFirewallPolicyDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFirewallPolicyModifiedViolationFilterSensitiveLog = (
+  obj: NetworkFirewallPolicyModifiedViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFirewallUnexpectedFirewallRoutesViolationFilterSensitiveLog = (
+  obj: NetworkFirewallUnexpectedFirewallRoutesViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFirewallUnexpectedGatewayRoutesViolationFilterSensitiveLog = (
+  obj: NetworkFirewallUnexpectedGatewayRoutesViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2AssociateRouteTableActionFilterSensitiveLog = (obj: EC2AssociateRouteTableAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2CopyRouteTableActionFilterSensitiveLog = (obj: EC2CopyRouteTableAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2CreateRouteActionFilterSensitiveLog = (obj: EC2CreateRouteAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2CreateRouteTableActionFilterSensitiveLog = (obj: EC2CreateRouteTableAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2DeleteRouteActionFilterSensitiveLog = (obj: EC2DeleteRouteAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2ReplaceRouteActionFilterSensitiveLog = (obj: EC2ReplaceRouteAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2ReplaceRouteTableAssociationActionFilterSensitiveLog = (
+  obj: EC2ReplaceRouteTableAssociationAction
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FMSPolicyUpdateFirewallCreationConfigActionFilterSensitiveLog = (
+  obj: FMSPolicyUpdateFirewallCreationConfigAction
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemediationActionFilterSensitiveLog = (obj: RemediationAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemediationActionWithOrderFilterSensitiveLog = (obj: RemediationActionWithOrder): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PossibleRemediationActionFilterSensitiveLog = (obj: PossibleRemediationAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PossibleRemediationActionsFilterSensitiveLog = (obj: PossibleRemediationActions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RouteHasOutOfScopeEndpointViolationFilterSensitiveLog = (
+  obj: RouteHasOutOfScopeEndpointViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThirdPartyFirewallMissingExpectedRouteTableViolationFilterSensitiveLog = (
+  obj: ThirdPartyFirewallMissingExpectedRouteTableViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThirdPartyFirewallMissingFirewallViolationFilterSensitiveLog = (
+  obj: ThirdPartyFirewallMissingFirewallViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThirdPartyFirewallMissingSubnetViolationFilterSensitiveLog = (
+  obj: ThirdPartyFirewallMissingSubnetViolation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceViolationFilterSensitiveLog = (obj: ResourceViolation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ViolationDetailFilterSensitiveLog = (obj: ViolationDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetViolationDetailsResponseFilterSensitiveLog = (obj: GetViolationDetailsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppsListsRequestFilterSensitiveLog = (obj: ListAppsListsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppsListsResponseFilterSensitiveLog = (obj: ListAppsListsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComplianceStatusRequestFilterSensitiveLog = (obj: ListComplianceStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluationResultFilterSensitiveLog = (obj: EvaluationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyComplianceStatusFilterSensitiveLog = (obj: PolicyComplianceStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComplianceStatusResponseFilterSensitiveLog = (obj: ListComplianceStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMemberAccountsRequestFilterSensitiveLog = (obj: ListMemberAccountsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMemberAccountsResponseFilterSensitiveLog = (obj: ListMemberAccountsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPoliciesRequestFilterSensitiveLog = (obj: ListPoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicySummaryFilterSensitiveLog = (obj: PolicySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPoliciesResponseFilterSensitiveLog = (obj: ListPoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProtocolsListsRequestFilterSensitiveLog = (obj: ListProtocolsListsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProtocolsListDataSummaryFilterSensitiveLog = (obj: ProtocolsListDataSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProtocolsListsResponseFilterSensitiveLog = (obj: ListProtocolsListsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListThirdPartyFirewallFirewallPoliciesRequestFilterSensitiveLog = (
+  obj: ListThirdPartyFirewallFirewallPoliciesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThirdPartyFirewallFirewallPolicyFilterSensitiveLog = (obj: ThirdPartyFirewallFirewallPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListThirdPartyFirewallFirewallPoliciesResponseFilterSensitiveLog = (
+  obj: ListThirdPartyFirewallFirewallPoliciesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAppsListRequestFilterSensitiveLog = (obj: PutAppsListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAppsListResponseFilterSensitiveLog = (obj: PutAppsListResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutNotificationChannelRequestFilterSensitiveLog = (obj: PutNotificationChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPolicyRequestFilterSensitiveLog = (obj: PutPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPolicyResponseFilterSensitiveLog = (obj: PutPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutProtocolsListRequestFilterSensitiveLog = (obj: PutProtocolsListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutProtocolsListResponseFilterSensitiveLog = (obj: PutProtocolsListResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

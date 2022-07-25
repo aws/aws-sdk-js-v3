@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeTrafficMirrorFiltersRequest, DescribeTrafficMirrorFiltersResult } from "../models/models_4";
+import {
+  DescribeTrafficMirrorFiltersRequest,
+  DescribeTrafficMirrorFiltersRequestFilterSensitiveLog,
+  DescribeTrafficMirrorFiltersResult,
+  DescribeTrafficMirrorFiltersResultFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeTrafficMirrorFiltersCommand,
   serializeAws_ec2DescribeTrafficMirrorFiltersCommand,
@@ -74,8 +79,8 @@ export class DescribeTrafficMirrorFiltersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrafficMirrorFiltersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrafficMirrorFiltersResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTrafficMirrorFiltersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTrafficMirrorFiltersResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateWebLoginTokenRequest, CreateWebLoginTokenResponse } from "../models/models_0";
+import {
+  CreateWebLoginTokenRequest,
+  CreateWebLoginTokenRequestFilterSensitiveLog,
+  CreateWebLoginTokenResponse,
+  CreateWebLoginTokenResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
 import {
   deserializeAws_restJson1CreateWebLoginTokenCommand,
@@ -72,8 +77,8 @@ export class CreateWebLoginTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWebLoginTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateWebLoginTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateWebLoginTokenRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateWebLoginTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

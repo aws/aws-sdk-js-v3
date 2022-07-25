@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CountOpenWorkflowExecutionsInput, WorkflowExecutionCount } from "../models/models_0";
+import {
+  CountOpenWorkflowExecutionsInput,
+  CountOpenWorkflowExecutionsInputFilterSensitiveLog,
+  WorkflowExecutionCount,
+  WorkflowExecutionCountFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0CountOpenWorkflowExecutionsCommand,
   serializeAws_json1_0CountOpenWorkflowExecutionsCommand,
@@ -118,8 +123,8 @@ export class CountOpenWorkflowExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CountOpenWorkflowExecutionsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: WorkflowExecutionCount.filterSensitiveLog,
+      inputFilterSensitiveLog: CountOpenWorkflowExecutionsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: WorkflowExecutionCountFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

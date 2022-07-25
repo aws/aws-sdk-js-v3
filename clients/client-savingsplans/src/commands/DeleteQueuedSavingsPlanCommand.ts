@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteQueuedSavingsPlanRequest, DeleteQueuedSavingsPlanResponse } from "../models/models_0";
+import {
+  DeleteQueuedSavingsPlanRequest,
+  DeleteQueuedSavingsPlanRequestFilterSensitiveLog,
+  DeleteQueuedSavingsPlanResponse,
+  DeleteQueuedSavingsPlanResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteQueuedSavingsPlanCommand,
   serializeAws_restJson1DeleteQueuedSavingsPlanCommand,
@@ -72,8 +77,8 @@ export class DeleteQueuedSavingsPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQueuedSavingsPlanRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteQueuedSavingsPlanResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteQueuedSavingsPlanRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteQueuedSavingsPlanResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

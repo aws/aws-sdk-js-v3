@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { ActivitiesType, DescribeScalingActivitiesType } from "../models/models_0";
+import {
+  ActivitiesType,
+  ActivitiesTypeFilterSensitiveLog,
+  DescribeScalingActivitiesType,
+  DescribeScalingActivitiesTypeFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeScalingActivitiesCommand,
   serializeAws_queryDescribeScalingActivitiesCommand,
@@ -80,8 +85,8 @@ export class DescribeScalingActivitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScalingActivitiesType.filterSensitiveLog,
-      outputFilterSensitiveLog: ActivitiesType.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeScalingActivitiesTypeFilterSensitiveLog,
+      outputFilterSensitiveLog: ActivitiesTypeFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

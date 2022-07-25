@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { AttachInstancesQuery } from "../models/models_0";
+import { AttachInstancesQuery, AttachInstancesQueryFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryAttachInstancesCommand,
   serializeAws_queryAttachInstancesCommand,
@@ -81,7 +81,7 @@ export class AttachInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachInstancesQuery.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachInstancesQueryFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

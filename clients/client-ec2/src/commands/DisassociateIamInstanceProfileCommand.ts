@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisassociateIamInstanceProfileRequest, DisassociateIamInstanceProfileResult } from "../models/models_4";
+import {
+  DisassociateIamInstanceProfileRequest,
+  DisassociateIamInstanceProfileRequestFilterSensitiveLog,
+  DisassociateIamInstanceProfileResult,
+  DisassociateIamInstanceProfileResultFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2DisassociateIamInstanceProfileCommand,
   serializeAws_ec2DisassociateIamInstanceProfileCommand,
@@ -76,8 +81,8 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateIamInstanceProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateIamInstanceProfileResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateIamInstanceProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateIamInstanceProfileResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

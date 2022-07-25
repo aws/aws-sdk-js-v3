@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { DeleteProjectInput, DeleteProjectOutput } from "../models/models_0";
+import {
+  DeleteProjectInput,
+  DeleteProjectInputFilterSensitiveLog,
+  DeleteProjectOutput,
+  DeleteProjectOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteProjectCommand,
   serializeAws_json1_1DeleteProjectCommand,
@@ -73,8 +78,8 @@ export class DeleteProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProjectInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProjectOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteProjectInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteProjectOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

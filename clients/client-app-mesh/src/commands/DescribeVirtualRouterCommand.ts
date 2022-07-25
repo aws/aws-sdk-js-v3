@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { DescribeVirtualRouterInput, DescribeVirtualRouterOutput } from "../models/models_0";
+import {
+  DescribeVirtualRouterInput,
+  DescribeVirtualRouterInputFilterSensitiveLog,
+  DescribeVirtualRouterOutput,
+  DescribeVirtualRouterOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeVirtualRouterCommand,
   serializeAws_restJson1DescribeVirtualRouterCommand,
@@ -72,8 +77,8 @@ export class DescribeVirtualRouterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVirtualRouterInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVirtualRouterOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVirtualRouterInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVirtualRouterOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

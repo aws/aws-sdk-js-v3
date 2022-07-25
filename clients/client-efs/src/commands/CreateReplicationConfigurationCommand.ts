@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { CreateReplicationConfigurationRequest, ReplicationConfigurationDescription } from "../models/models_0";
+import {
+  CreateReplicationConfigurationRequest,
+  CreateReplicationConfigurationRequestFilterSensitiveLog,
+  ReplicationConfigurationDescription,
+  ReplicationConfigurationDescriptionFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateReplicationConfigurationCommand,
   serializeAws_restJson1CreateReplicationConfigurationCommand,
@@ -158,8 +163,8 @@ export class CreateReplicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReplicationConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ReplicationConfigurationDescription.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateReplicationConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ReplicationConfigurationDescriptionFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

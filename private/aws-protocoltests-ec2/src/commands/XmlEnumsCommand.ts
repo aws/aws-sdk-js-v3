@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { XmlEnumsOutput } from "../models/models_0";
+import { XmlEnumsOutput, XmlEnumsOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_ec2XmlEnumsCommand, serializeAws_ec2XmlEnumsCommand } from "../protocols/Aws_ec2";
 
 export interface XmlEnumsCommandInput {}
@@ -70,7 +70,7 @@ export class XmlEnumsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: XmlEnumsOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: XmlEnumsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

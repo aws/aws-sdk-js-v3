@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { ListTasksRequest, ListTasksResponse } from "../models/models_0";
+import {
+  ListTasksRequest,
+  ListTasksRequestFilterSensitiveLog,
+  ListTasksResponse,
+  ListTasksResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1ListTasksCommand, serializeAws_json1_1ListTasksCommand } from "../protocols/Aws_json1_1";
 
 export interface ListTasksCommandInput extends ListTasksRequest {}
@@ -69,8 +74,8 @@ export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTasksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTasksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTasksRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTasksResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

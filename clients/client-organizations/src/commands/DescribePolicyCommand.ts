@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribePolicyRequest, DescribePolicyResponse } from "../models/models_0";
+import {
+  DescribePolicyRequest,
+  DescribePolicyRequestFilterSensitiveLog,
+  DescribePolicyResponse,
+  DescribePolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1DescribePolicyCommand,
@@ -74,8 +79,8 @@ export class DescribePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribePolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

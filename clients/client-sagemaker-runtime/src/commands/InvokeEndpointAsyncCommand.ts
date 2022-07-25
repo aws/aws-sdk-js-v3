@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { InvokeEndpointAsyncInput, InvokeEndpointAsyncOutput } from "../models/models_0";
+import {
+  InvokeEndpointAsyncInput,
+  InvokeEndpointAsyncInputFilterSensitiveLog,
+  InvokeEndpointAsyncOutput,
+  InvokeEndpointAsyncOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1InvokeEndpointAsyncCommand,
   serializeAws_restJson1InvokeEndpointAsyncCommand,
@@ -88,8 +93,8 @@ export class InvokeEndpointAsyncCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InvokeEndpointAsyncInput.filterSensitiveLog,
-      outputFilterSensitiveLog: InvokeEndpointAsyncOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: InvokeEndpointAsyncInputFilterSensitiveLog,
+      outputFilterSensitiveLog: InvokeEndpointAsyncOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

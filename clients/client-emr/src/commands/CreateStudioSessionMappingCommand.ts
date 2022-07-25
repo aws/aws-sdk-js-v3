@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { CreateStudioSessionMappingInput } from "../models/models_0";
+import { CreateStudioSessionMappingInput, CreateStudioSessionMappingInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateStudioSessionMappingCommand,
   serializeAws_json1_1CreateStudioSessionMappingCommand,
@@ -76,7 +76,7 @@ export class CreateStudioSessionMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStudioSessionMappingInput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateStudioSessionMappingInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

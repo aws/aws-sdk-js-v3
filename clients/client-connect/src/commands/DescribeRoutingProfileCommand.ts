@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeRoutingProfileRequest, DescribeRoutingProfileResponse } from "../models/models_0";
+import {
+  DescribeRoutingProfileRequest,
+  DescribeRoutingProfileRequestFilterSensitiveLog,
+  DescribeRoutingProfileResponse,
+  DescribeRoutingProfileResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeRoutingProfileCommand,
   serializeAws_restJson1DescribeRoutingProfileCommand,
@@ -72,8 +77,8 @@ export class DescribeRoutingProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRoutingProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRoutingProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRoutingProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRoutingProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

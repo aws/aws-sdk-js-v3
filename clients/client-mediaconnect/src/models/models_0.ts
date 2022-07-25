@@ -77,15 +77,6 @@ export interface FmtpRequest {
   Tcs?: Tcs | string;
 }
 
-export namespace FmtpRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FmtpRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Attributes that are related to the media stream.
  */
@@ -99,15 +90,6 @@ export interface MediaStreamAttributesRequest {
    * The audio language, in a format that is recognized by the receiver.
    */
   Lang?: string;
-}
-
-export namespace MediaStreamAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaStreamAttributesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum MediaStreamType {
@@ -154,15 +136,6 @@ export interface AddMediaStreamRequest {
    * The resolution of the video.
    */
   VideoFormat?: string;
-}
-
-export namespace AddMediaStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddMediaStreamRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum Algorithm {
@@ -227,15 +200,6 @@ export interface Encryption {
   Url?: string;
 }
 
-export namespace Encryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Encryption): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The VPC interface that you want to designate where the media stream is coming from or going to.
  */
@@ -244,15 +208,6 @@ export interface InterfaceRequest {
    * The name of the VPC interface.
    */
   Name: string | undefined;
-}
-
-export namespace InterfaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InterfaceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -273,15 +228,6 @@ export interface DestinationConfigurationRequest {
    * The VPC interface that you want to use for the media stream associated with the output.
    */
   Interface: InterfaceRequest | undefined;
-}
-
-export namespace DestinationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum EncodingName {
@@ -311,15 +257,6 @@ export interface EncodingParametersRequest {
   EncoderProfile: EncoderProfile | string | undefined;
 }
 
-export namespace EncodingParametersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncodingParametersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The media stream that you want to associate with the output, and the parameters for that association.
  */
@@ -345,15 +282,6 @@ export interface MediaStreamOutputConfigurationRequest {
   MediaStreamName: string | undefined;
 }
 
-export namespace MediaStreamOutputConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaStreamOutputConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum Protocol {
   cdi = "cdi",
   fujitsu_qos = "fujitsu-qos",
@@ -374,15 +302,6 @@ export interface VpcInterfaceAttachment {
    * The name of the VPC interface to use for this output.
    */
   VpcInterfaceName?: string;
-}
-
-export namespace VpcInterfaceAttachment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcInterfaceAttachment): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -465,15 +384,6 @@ export interface AddOutputRequest {
   VpcInterfaceAttachment?: VpcInterfaceAttachment;
 }
 
-export namespace AddOutputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddOutputRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The VPC interface that is used for the media stream associated with the source or output.
  */
@@ -482,15 +392,6 @@ export interface Interface {
    * The name of the VPC interface.
    */
   Name: string | undefined;
-}
-
-export namespace Interface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Interface): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -516,15 +417,6 @@ export interface DestinationConfiguration {
    * The IP address that the receiver requires in order to establish a connection with the flow. This value is represented by the elastic network interface IP address of the VPC. This field applies only to outputs that use the CDI or ST 2110 JPEG XS protocol.
    */
   OutboundIp: string | undefined;
-}
-
-export namespace DestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum EntitlementStatus {
@@ -572,15 +464,6 @@ export interface Entitlement {
   Subscribers: string[] | undefined;
 }
 
-export namespace Entitlement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Entitlement): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The entitlements that you want to grant on a flow.
  */
@@ -616,15 +499,6 @@ export interface GrantEntitlementRequest {
   Subscribers: string[] | undefined;
 }
 
-export namespace GrantEntitlementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GrantEntitlementRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The transport parameters that are associated with an incoming media stream.
  */
@@ -645,15 +519,6 @@ export interface InputConfiguration {
   Interface: Interface | undefined;
 }
 
-export namespace InputConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The transport parameters that you want to associate with an incoming media stream.
  */
@@ -667,15 +532,6 @@ export interface InputConfigurationRequest {
    * The VPC interface that you want to use for the incoming media stream.
    */
   Interface: InterfaceRequest | undefined;
-}
-
-export namespace InputConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -696,15 +552,6 @@ export interface ListedEntitlement {
    * The name of the entitlement.
    */
   EntitlementName: string | undefined;
-}
-
-export namespace ListedEntitlement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListedEntitlement): any => ({
-    ...obj,
-  });
 }
 
 export enum MaintenanceDay {
@@ -740,15 +587,6 @@ export interface Maintenance {
    * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
    */
   MaintenanceStartHour?: string;
-}
-
-export namespace Maintenance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Maintenance): any => ({
-    ...obj,
-  });
 }
 
 export enum SourceType {
@@ -806,15 +644,6 @@ export interface ListedFlow {
   Maintenance?: Maintenance;
 }
 
-export namespace ListedFlow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListedFlow): any => ({
-    ...obj,
-  });
-}
-
 /**
  * FMTP
  */
@@ -855,15 +684,6 @@ export interface Fmtp {
   Tcs?: Tcs | string;
 }
 
-export namespace Fmtp {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Fmtp): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Attributes that are related to the media stream.
  */
@@ -877,15 +697,6 @@ export interface MediaStreamAttributes {
    * The audio language, in a format that is recognized by the receiver.
    */
   Lang?: string;
-}
-
-export namespace MediaStreamAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaStreamAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -933,15 +744,6 @@ export interface MediaStream {
   VideoFormat?: string;
 }
 
-export namespace MediaStream {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaStream): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
  */
@@ -955,15 +757,6 @@ export interface EncodingParameters {
    * A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
    */
   EncoderProfile: EncoderProfile | string | undefined;
-}
-
-export namespace EncodingParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncodingParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -991,15 +784,6 @@ export interface MediaStreamOutputConfiguration {
   MediaStreamName: string | undefined;
 }
 
-export namespace MediaStreamOutputConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaStreamOutputConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The media stream that is associated with the source, and the parameters for that association.
  */
@@ -1020,15 +804,6 @@ export interface MediaStreamSourceConfiguration {
   MediaStreamName: string | undefined;
 }
 
-export namespace MediaStreamSourceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaStreamSourceConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The definition of a media stream that you want to associate with the source.
  */
@@ -1047,15 +822,6 @@ export interface MediaStreamSourceConfigurationRequest {
    * The name of the media stream.
    */
   MediaStreamName: string | undefined;
-}
-
-export namespace MediaStreamSourceConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaStreamSourceConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DurationUnits {
@@ -1083,15 +849,6 @@ export interface ResourceSpecification {
    * The type of resource and the unit that is being billed for.
    */
   ResourceType: ResourceType | string | undefined;
-}
-
-export namespace ResourceSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceSpecification): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1137,15 +894,6 @@ export interface Offering {
    * A definition of the amount of outbound bandwidth that you would be reserving if you purchase the offering.
    */
   ResourceSpecification: ResourceSpecification | undefined;
-}
-
-export namespace Offering {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Offering): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1206,15 +954,6 @@ export interface Transport {
    * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
    */
   StreamId?: string;
-}
-
-export namespace Transport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Transport): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1285,15 +1024,6 @@ export interface Output {
    * The name of the VPC interface attachment to use for this output.
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment;
-}
-
-export namespace Output {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Output): any => ({
-    ...obj,
-  });
 }
 
 export enum ReservationState {
@@ -1371,15 +1101,6 @@ export interface Reservation {
    * The day and time that the reservation becomes active. You set this value when you purchase the offering.
    */
   Start: string | undefined;
-}
-
-export namespace Reservation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Reservation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1467,15 +1188,6 @@ export interface SetSourceRequest {
   WhitelistCidr?: string;
 }
 
-export namespace SetSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetSourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The settings for the source of the flow.
  */
@@ -1551,15 +1263,6 @@ export interface Source {
   WhitelistCidr?: string;
 }
 
-export namespace Source {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Source): any => ({
-    ...obj,
-  });
-}
-
 export enum NetworkInterfaceType {
   efa = "efa",
   ena = "ena",
@@ -1600,15 +1303,6 @@ export interface VpcInterface {
   SubnetId: string | undefined;
 }
 
-export namespace VpcInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcInterface): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Desired VPC Interface for a Flow
  */
@@ -1639,15 +1333,6 @@ export interface VpcInterfaceRequest {
   SubnetId: string | undefined;
 }
 
-export namespace VpcInterfaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcInterfaceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A request to add media streams to the flow.
  */
@@ -1663,15 +1348,6 @@ export interface AddFlowMediaStreamsRequest {
   MediaStreams: AddMediaStreamRequest[] | undefined;
 }
 
-export namespace AddFlowMediaStreamsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddFlowMediaStreamsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AddFlowMediaStreamsResponse {
   /**
    * The ARN of the flow that you added media streams to.
@@ -1682,15 +1358,6 @@ export interface AddFlowMediaStreamsResponse {
    * The media streams that you added to the flow.
    */
   MediaStreams?: MediaStream[];
-}
-
-export namespace AddFlowMediaStreamsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddFlowMediaStreamsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1876,15 +1543,6 @@ export interface AddFlowOutputsRequest {
   Outputs: AddOutputRequest[] | undefined;
 }
 
-export namespace AddFlowOutputsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddFlowOutputsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AddFlowOutputsResponse {
   /**
    * The ARN of the flow that these outputs were added to.
@@ -1895,15 +1553,6 @@ export interface AddFlowOutputsResponse {
    * The details of the newly added outputs.
    */
   Outputs?: Output[];
-}
-
-export namespace AddFlowOutputsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddFlowOutputsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1921,15 +1570,6 @@ export interface AddFlowSourcesRequest {
   Sources: SetSourceRequest[] | undefined;
 }
 
-export namespace AddFlowSourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddFlowSourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AddFlowSourcesResponse {
   /**
    * The ARN of the flow that these sources were added to.
@@ -1940,15 +1580,6 @@ export interface AddFlowSourcesResponse {
    * The details of the newly added sources.
    */
   Sources?: Source[];
-}
-
-export namespace AddFlowSourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddFlowSourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1966,15 +1597,6 @@ export interface AddFlowVpcInterfacesRequest {
   VpcInterfaces: VpcInterfaceRequest[] | undefined;
 }
 
-export namespace AddFlowVpcInterfacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddFlowVpcInterfacesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AddFlowVpcInterfacesResponse {
   /**
    * The ARN of the flow that these VPC interfaces were added to.
@@ -1985,15 +1607,6 @@ export interface AddFlowVpcInterfacesResponse {
    * The details of the newly added VPC interfaces.
    */
   VpcInterfaces?: VpcInterface[];
-}
-
-export namespace AddFlowVpcInterfacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddFlowVpcInterfacesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2009,15 +1622,6 @@ export interface AddMaintenance {
    * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
    */
   MaintenanceStartHour: string | undefined;
-}
-
-export namespace AddMaintenance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddMaintenance): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2059,15 +1663,6 @@ export interface SourcePriority {
   PrimarySource?: string;
 }
 
-export namespace SourcePriority {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourcePriority): any => ({
-    ...obj,
-  });
-}
-
 export enum State {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -2093,15 +1688,6 @@ export interface FailoverConfig {
   SourcePriority?: SourcePriority;
 
   State?: State | string;
-}
-
-export namespace FailoverConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailoverConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2153,15 +1739,6 @@ export interface CreateFlowRequest {
    * Create maintenance setting for a flow
    */
   Maintenance?: AddMaintenance;
-}
-
-export namespace CreateFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFlowRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2235,15 +1812,6 @@ export interface Flow {
   Maintenance?: Maintenance;
 }
 
-export namespace Flow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Flow): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFlowResponse {
   /**
    * The settings for a flow, including its source, outputs, and entitlements.
@@ -2251,29 +1819,11 @@ export interface CreateFlowResponse {
   Flow?: Flow;
 }
 
-export namespace CreateFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFlowResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFlowRequest {
   /**
    * The ARN of the flow that you want to delete.
    */
   FlowArn: string | undefined;
-}
-
-export namespace DeleteFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFlowRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFlowResponse {
@@ -2288,29 +1838,11 @@ export interface DeleteFlowResponse {
   Status?: Status | string;
 }
 
-export namespace DeleteFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFlowResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFlowRequest {
   /**
    * The ARN of the flow that you want to describe.
    */
   FlowArn: string | undefined;
-}
-
-export namespace DescribeFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFlowRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2321,15 +1853,6 @@ export interface Messages {
    * A list of errors that might have been generated from processes on this flow.
    */
   Errors: string[] | undefined;
-}
-
-export namespace Messages {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Messages): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeFlowResponse {
@@ -2344,29 +1867,11 @@ export interface DescribeFlowResponse {
   Messages?: Messages;
 }
 
-export namespace DescribeFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFlowResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOfferingRequest {
   /**
    * The Amazon Resource Name (ARN) of the offering.
    */
   OfferingArn: string | undefined;
-}
-
-export namespace DescribeOfferingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOfferingRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeOfferingResponse {
@@ -2376,15 +1881,6 @@ export interface DescribeOfferingResponse {
   Offering?: Offering;
 }
 
-export namespace DescribeOfferingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOfferingResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeReservationRequest {
   /**
    * The Amazon Resource Name (ARN) of the reservation.
@@ -2392,29 +1888,11 @@ export interface DescribeReservationRequest {
   ReservationArn: string | undefined;
 }
 
-export namespace DescribeReservationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeReservationResponse {
   /**
    * A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate.
    */
   Reservation?: Reservation;
-}
-
-export namespace DescribeReservationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2456,15 +1934,6 @@ export interface GrantFlowEntitlementsRequest {
   FlowArn: string | undefined;
 }
 
-export namespace GrantFlowEntitlementsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GrantFlowEntitlementsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GrantFlowEntitlementsResponse {
   /**
    * The entitlements that were just granted.
@@ -2475,15 +1944,6 @@ export interface GrantFlowEntitlementsResponse {
    * The ARN of the flow that these entitlements were granted to.
    */
   FlowArn?: string;
-}
-
-export namespace GrantFlowEntitlementsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GrantFlowEntitlementsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEntitlementsRequest {
@@ -2498,15 +1958,6 @@ export interface ListEntitlementsRequest {
   NextToken?: string;
 }
 
-export namespace ListEntitlementsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEntitlementsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEntitlementsResponse {
   /**
    * A list of entitlements that have been granted to you from other AWS accounts.
@@ -2517,15 +1968,6 @@ export interface ListEntitlementsResponse {
    * The token that identifies which batch of results that you want to see. For example, you submit a ListEntitlements request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListEntitlements request a second time and specify the NextToken value.
    */
   NextToken?: string;
-}
-
-export namespace ListEntitlementsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEntitlementsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFlowsRequest {
@@ -2540,15 +1982,6 @@ export interface ListFlowsRequest {
   NextToken?: string;
 }
 
-export namespace ListFlowsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFlowsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFlowsResponse {
   /**
    * A list of flow summaries.
@@ -2559,15 +1992,6 @@ export interface ListFlowsResponse {
    * The token that identifies which batch of results that you want to see. For example, you submit a ListFlows request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListFlows request a second time and specify the NextToken value.
    */
   NextToken?: string;
-}
-
-export namespace ListFlowsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFlowsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListOfferingsRequest {
@@ -2582,15 +2006,6 @@ export interface ListOfferingsRequest {
   NextToken?: string;
 }
 
-export namespace ListOfferingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOfferingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOfferingsResponse {
   /**
    * The token that identifies which batch of results that you want to see. For example, you submit a ListOfferings request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListOfferings request a second time and specify the NextToken value.
@@ -2601,15 +2016,6 @@ export interface ListOfferingsResponse {
    * A list of offerings that are available to this account in the current AWS Region.
    */
   Offerings?: Offering[];
-}
-
-export namespace ListOfferingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOfferingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListReservationsRequest {
@@ -2624,15 +2030,6 @@ export interface ListReservationsRequest {
   NextToken?: string;
 }
 
-export namespace ListReservationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReservationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListReservationsResponse {
   /**
    * The token that identifies which batch of results that you want to see. For example, you submit a ListReservations request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListReservations request a second time and specify the NextToken value.
@@ -2645,15 +2042,6 @@ export interface ListReservationsResponse {
   Reservations?: Reservation[];
 }
 
-export namespace ListReservationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReservationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource for which to list the tags.
@@ -2661,29 +2049,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2706,29 +2076,11 @@ export interface PurchaseOfferingRequest {
   Start: string | undefined;
 }
 
-export namespace PurchaseOfferingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PurchaseOfferingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PurchaseOfferingResponse {
   /**
    * A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate.
    */
   Reservation?: Reservation;
-}
-
-export namespace PurchaseOfferingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PurchaseOfferingResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveFlowMediaStreamRequest {
@@ -2743,15 +2095,6 @@ export interface RemoveFlowMediaStreamRequest {
   MediaStreamName: string | undefined;
 }
 
-export namespace RemoveFlowMediaStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveFlowMediaStreamRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveFlowMediaStreamResponse {
   /**
    * The Amazon Resource Name (ARN) of the flow.
@@ -2762,15 +2105,6 @@ export interface RemoveFlowMediaStreamResponse {
    * The name of the media stream that was removed.
    */
   MediaStreamName?: string;
-}
-
-export namespace RemoveFlowMediaStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveFlowMediaStreamResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveFlowOutputRequest {
@@ -2785,15 +2119,6 @@ export interface RemoveFlowOutputRequest {
   OutputArn: string | undefined;
 }
 
-export namespace RemoveFlowOutputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveFlowOutputRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveFlowOutputResponse {
   /**
    * The ARN of the flow that is associated with the output you removed.
@@ -2804,15 +2129,6 @@ export interface RemoveFlowOutputResponse {
    * The ARN of the output that was removed.
    */
   OutputArn?: string;
-}
-
-export namespace RemoveFlowOutputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveFlowOutputResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveFlowSourceRequest {
@@ -2827,15 +2143,6 @@ export interface RemoveFlowSourceRequest {
   SourceArn: string | undefined;
 }
 
-export namespace RemoveFlowSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveFlowSourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveFlowSourceResponse {
   /**
    * The ARN of the flow that is associated with the source you removed.
@@ -2848,15 +2155,6 @@ export interface RemoveFlowSourceResponse {
   SourceArn?: string;
 }
 
-export namespace RemoveFlowSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveFlowSourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveFlowVpcInterfaceRequest {
   /**
    * The flow that you want to remove a VPC interface from.
@@ -2867,15 +2165,6 @@ export interface RemoveFlowVpcInterfaceRequest {
    * The name of the VPC interface that you want to remove.
    */
   VpcInterfaceName: string | undefined;
-}
-
-export namespace RemoveFlowVpcInterfaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveFlowVpcInterfaceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveFlowVpcInterfaceResponse {
@@ -2895,15 +2184,6 @@ export interface RemoveFlowVpcInterfaceResponse {
   VpcInterfaceName?: string;
 }
 
-export namespace RemoveFlowVpcInterfaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveFlowVpcInterfaceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface RevokeFlowEntitlementRequest {
   /**
    * The ARN of the entitlement that you want to revoke.
@@ -2914,15 +2194,6 @@ export interface RevokeFlowEntitlementRequest {
    * The flow that you want to revoke an entitlement from.
    */
   FlowArn: string | undefined;
-}
-
-export namespace RevokeFlowEntitlementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeFlowEntitlementRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RevokeFlowEntitlementResponse {
@@ -2937,29 +2208,11 @@ export interface RevokeFlowEntitlementResponse {
   FlowArn?: string;
 }
 
-export namespace RevokeFlowEntitlementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeFlowEntitlementResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StartFlowRequest {
   /**
    * The ARN of the flow that you want to start.
    */
   FlowArn: string | undefined;
-}
-
-export namespace StartFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFlowRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StartFlowResponse {
@@ -2974,29 +2227,11 @@ export interface StartFlowResponse {
   Status?: Status | string;
 }
 
-export namespace StartFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFlowResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StopFlowRequest {
   /**
    * The ARN of the flow that you want to stop.
    */
   FlowArn: string | undefined;
-}
-
-export namespace StopFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopFlowRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StopFlowResponse {
@@ -3009,15 +2244,6 @@ export interface StopFlowResponse {
    * The status of the flow when the StopFlow process begins.
    */
   Status?: Status | string;
-}
-
-export namespace StopFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopFlowResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3035,15 +2261,6 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource from which to delete tags.
@@ -3054,15 +2271,6 @@ export interface UntagResourceRequest {
    * The keys of the tags to be removed.
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3083,15 +2291,6 @@ export interface UpdateMaintenance {
    * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
    */
   MaintenanceStartHour?: string;
-}
-
-export namespace UpdateMaintenance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMaintenance): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3116,15 +2315,6 @@ export interface UpdateFailoverConfig {
   State?: State | string;
 }
 
-export namespace UpdateFailoverConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFailoverConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A request to update flow.
  */
@@ -3145,29 +2335,11 @@ export interface UpdateFlowRequest {
   Maintenance?: UpdateMaintenance;
 }
 
-export namespace UpdateFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFlowRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFlowResponse {
   /**
    * The settings for a flow, including its source, outputs, and entitlements.
    */
   Flow?: Flow;
-}
-
-export namespace UpdateFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFlowResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3220,15 +2392,6 @@ export interface UpdateEncryption {
   Url?: string;
 }
 
-export namespace UpdateEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEncryption): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The entitlement fields that you want to update.
  */
@@ -3264,15 +2427,6 @@ export interface UpdateFlowEntitlementRequest {
   Subscribers?: string[];
 }
 
-export namespace UpdateFlowEntitlementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFlowEntitlementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFlowEntitlementResponse {
   /**
    * The new configuration of the entitlement that you updated.
@@ -3283,15 +2437,6 @@ export interface UpdateFlowEntitlementResponse {
    * The ARN of the flow that this entitlement was granted on.
    */
   FlowArn?: string;
-}
-
-export namespace UpdateFlowEntitlementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFlowEntitlementResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3334,15 +2479,6 @@ export interface UpdateFlowMediaStreamRequest {
   VideoFormat?: string;
 }
 
-export namespace UpdateFlowMediaStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFlowMediaStreamRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFlowMediaStreamResponse {
   /**
    * The ARN of the flow that is associated with the media stream that you updated.
@@ -3353,15 +2489,6 @@ export interface UpdateFlowMediaStreamResponse {
    * The media stream that you updated.
    */
   MediaStream?: MediaStream;
-}
-
-export namespace UpdateFlowMediaStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFlowMediaStreamResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3454,15 +2581,6 @@ export interface UpdateFlowOutputRequest {
   VpcInterfaceAttachment?: VpcInterfaceAttachment;
 }
 
-export namespace UpdateFlowOutputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFlowOutputRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFlowOutputResponse {
   /**
    * The ARN of the flow that is associated with the updated output.
@@ -3473,15 +2591,6 @@ export interface UpdateFlowOutputResponse {
    * The new settings of the output that you updated.
    */
   Output?: Output;
-}
-
-export namespace UpdateFlowOutputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFlowOutputResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3574,15 +2683,6 @@ export interface UpdateFlowSourceRequest {
   WhitelistCidr?: string;
 }
 
-export namespace UpdateFlowSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFlowSourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFlowSourceResponse {
   /**
    * The ARN of the flow that you want to update.
@@ -3595,11 +2695,713 @@ export interface UpdateFlowSourceResponse {
   Source?: Source;
 }
 
-export namespace UpdateFlowSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFlowSourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const FmtpRequestFilterSensitiveLog = (obj: FmtpRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaStreamAttributesRequestFilterSensitiveLog = (obj: MediaStreamAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddMediaStreamRequestFilterSensitiveLog = (obj: AddMediaStreamRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionFilterSensitiveLog = (obj: Encryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InterfaceRequestFilterSensitiveLog = (obj: InterfaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationConfigurationRequestFilterSensitiveLog = (obj: DestinationConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncodingParametersRequestFilterSensitiveLog = (obj: EncodingParametersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaStreamOutputConfigurationRequestFilterSensitiveLog = (
+  obj: MediaStreamOutputConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcInterfaceAttachmentFilterSensitiveLog = (obj: VpcInterfaceAttachment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddOutputRequestFilterSensitiveLog = (obj: AddOutputRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InterfaceFilterSensitiveLog = (obj: Interface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationConfigurationFilterSensitiveLog = (obj: DestinationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EntitlementFilterSensitiveLog = (obj: Entitlement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GrantEntitlementRequestFilterSensitiveLog = (obj: GrantEntitlementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputConfigurationFilterSensitiveLog = (obj: InputConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputConfigurationRequestFilterSensitiveLog = (obj: InputConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListedEntitlementFilterSensitiveLog = (obj: ListedEntitlement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MaintenanceFilterSensitiveLog = (obj: Maintenance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListedFlowFilterSensitiveLog = (obj: ListedFlow): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FmtpFilterSensitiveLog = (obj: Fmtp): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaStreamAttributesFilterSensitiveLog = (obj: MediaStreamAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaStreamFilterSensitiveLog = (obj: MediaStream): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncodingParametersFilterSensitiveLog = (obj: EncodingParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaStreamOutputConfigurationFilterSensitiveLog = (obj: MediaStreamOutputConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaStreamSourceConfigurationFilterSensitiveLog = (obj: MediaStreamSourceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaStreamSourceConfigurationRequestFilterSensitiveLog = (
+  obj: MediaStreamSourceConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceSpecificationFilterSensitiveLog = (obj: ResourceSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OfferingFilterSensitiveLog = (obj: Offering): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransportFilterSensitiveLog = (obj: Transport): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputFilterSensitiveLog = (obj: Output): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservationFilterSensitiveLog = (obj: Reservation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetSourceRequestFilterSensitiveLog = (obj: SetSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceFilterSensitiveLog = (obj: Source): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcInterfaceFilterSensitiveLog = (obj: VpcInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcInterfaceRequestFilterSensitiveLog = (obj: VpcInterfaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddFlowMediaStreamsRequestFilterSensitiveLog = (obj: AddFlowMediaStreamsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddFlowMediaStreamsResponseFilterSensitiveLog = (obj: AddFlowMediaStreamsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddFlowOutputsRequestFilterSensitiveLog = (obj: AddFlowOutputsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddFlowOutputsResponseFilterSensitiveLog = (obj: AddFlowOutputsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddFlowSourcesRequestFilterSensitiveLog = (obj: AddFlowSourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddFlowSourcesResponseFilterSensitiveLog = (obj: AddFlowSourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddFlowVpcInterfacesRequestFilterSensitiveLog = (obj: AddFlowVpcInterfacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddFlowVpcInterfacesResponseFilterSensitiveLog = (obj: AddFlowVpcInterfacesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddMaintenanceFilterSensitiveLog = (obj: AddMaintenance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourcePriorityFilterSensitiveLog = (obj: SourcePriority): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailoverConfigFilterSensitiveLog = (obj: FailoverConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFlowRequestFilterSensitiveLog = (obj: CreateFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FlowFilterSensitiveLog = (obj: Flow): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFlowResponseFilterSensitiveLog = (obj: CreateFlowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFlowRequestFilterSensitiveLog = (obj: DeleteFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFlowResponseFilterSensitiveLog = (obj: DeleteFlowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFlowRequestFilterSensitiveLog = (obj: DescribeFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessagesFilterSensitiveLog = (obj: Messages): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFlowResponseFilterSensitiveLog = (obj: DescribeFlowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOfferingRequestFilterSensitiveLog = (obj: DescribeOfferingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOfferingResponseFilterSensitiveLog = (obj: DescribeOfferingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservationRequestFilterSensitiveLog = (obj: DescribeReservationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservationResponseFilterSensitiveLog = (obj: DescribeReservationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GrantFlowEntitlementsRequestFilterSensitiveLog = (obj: GrantFlowEntitlementsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GrantFlowEntitlementsResponseFilterSensitiveLog = (obj: GrantFlowEntitlementsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEntitlementsRequestFilterSensitiveLog = (obj: ListEntitlementsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEntitlementsResponseFilterSensitiveLog = (obj: ListEntitlementsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFlowsRequestFilterSensitiveLog = (obj: ListFlowsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFlowsResponseFilterSensitiveLog = (obj: ListFlowsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOfferingsRequestFilterSensitiveLog = (obj: ListOfferingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOfferingsResponseFilterSensitiveLog = (obj: ListOfferingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReservationsRequestFilterSensitiveLog = (obj: ListReservationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReservationsResponseFilterSensitiveLog = (obj: ListReservationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseOfferingRequestFilterSensitiveLog = (obj: PurchaseOfferingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseOfferingResponseFilterSensitiveLog = (obj: PurchaseOfferingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveFlowMediaStreamRequestFilterSensitiveLog = (obj: RemoveFlowMediaStreamRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveFlowMediaStreamResponseFilterSensitiveLog = (obj: RemoveFlowMediaStreamResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveFlowOutputRequestFilterSensitiveLog = (obj: RemoveFlowOutputRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveFlowOutputResponseFilterSensitiveLog = (obj: RemoveFlowOutputResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveFlowSourceRequestFilterSensitiveLog = (obj: RemoveFlowSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveFlowSourceResponseFilterSensitiveLog = (obj: RemoveFlowSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveFlowVpcInterfaceRequestFilterSensitiveLog = (obj: RemoveFlowVpcInterfaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveFlowVpcInterfaceResponseFilterSensitiveLog = (obj: RemoveFlowVpcInterfaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeFlowEntitlementRequestFilterSensitiveLog = (obj: RevokeFlowEntitlementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeFlowEntitlementResponseFilterSensitiveLog = (obj: RevokeFlowEntitlementResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFlowRequestFilterSensitiveLog = (obj: StartFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFlowResponseFilterSensitiveLog = (obj: StartFlowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopFlowRequestFilterSensitiveLog = (obj: StopFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopFlowResponseFilterSensitiveLog = (obj: StopFlowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMaintenanceFilterSensitiveLog = (obj: UpdateMaintenance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFailoverConfigFilterSensitiveLog = (obj: UpdateFailoverConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFlowRequestFilterSensitiveLog = (obj: UpdateFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFlowResponseFilterSensitiveLog = (obj: UpdateFlowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEncryptionFilterSensitiveLog = (obj: UpdateEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFlowEntitlementRequestFilterSensitiveLog = (obj: UpdateFlowEntitlementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFlowEntitlementResponseFilterSensitiveLog = (obj: UpdateFlowEntitlementResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFlowMediaStreamRequestFilterSensitiveLog = (obj: UpdateFlowMediaStreamRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFlowMediaStreamResponseFilterSensitiveLog = (obj: UpdateFlowMediaStreamResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFlowOutputRequestFilterSensitiveLog = (obj: UpdateFlowOutputRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFlowOutputResponseFilterSensitiveLog = (obj: UpdateFlowOutputResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFlowSourceRequestFilterSensitiveLog = (obj: UpdateFlowSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFlowSourceResponseFilterSensitiveLog = (obj: UpdateFlowSourceResponse): any => ({
+  ...obj,
+});

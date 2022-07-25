@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ListInstanceProfileTagsRequest, ListInstanceProfileTagsResponse } from "../models/models_0";
+import {
+  ListInstanceProfileTagsRequest,
+  ListInstanceProfileTagsRequestFilterSensitiveLog,
+  ListInstanceProfileTagsResponse,
+  ListInstanceProfileTagsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryListInstanceProfileTagsCommand,
   serializeAws_queryListInstanceProfileTagsCommand,
@@ -74,8 +79,8 @@ export class ListInstanceProfileTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInstanceProfileTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListInstanceProfileTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListInstanceProfileTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListInstanceProfileTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

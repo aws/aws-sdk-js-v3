@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import { StartSNOMEDCTInferenceJobRequest, StartSNOMEDCTInferenceJobResponse } from "../models/models_0";
+import {
+  StartSNOMEDCTInferenceJobRequest,
+  StartSNOMEDCTInferenceJobRequestFilterSensitiveLog,
+  StartSNOMEDCTInferenceJobResponse,
+  StartSNOMEDCTInferenceJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartSNOMEDCTInferenceJobCommand,
   serializeAws_json1_1StartSNOMEDCTInferenceJobCommand,
@@ -78,8 +83,8 @@ export class StartSNOMEDCTInferenceJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSNOMEDCTInferenceJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartSNOMEDCTInferenceJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartSNOMEDCTInferenceJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartSNOMEDCTInferenceJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

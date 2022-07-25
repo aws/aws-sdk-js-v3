@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { ListInvitationsRequest, ListInvitationsResponse } from "../models/models_0";
+import {
+  ListInvitationsRequest,
+  ListInvitationsRequestFilterSensitiveLog,
+  ListInvitationsResponse,
+  ListInvitationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListInvitationsCommand,
   serializeAws_restJson1ListInvitationsCommand,
@@ -77,8 +82,8 @@ export class ListInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInvitationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListInvitationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListInvitationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListInvitationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

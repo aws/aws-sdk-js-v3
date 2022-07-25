@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DeleteMatchmakingRuleSetInput, DeleteMatchmakingRuleSetOutput } from "../models/models_0";
+import {
+  DeleteMatchmakingRuleSetInput,
+  DeleteMatchmakingRuleSetInputFilterSensitiveLog,
+  DeleteMatchmakingRuleSetOutput,
+  DeleteMatchmakingRuleSetOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteMatchmakingRuleSetCommand,
   serializeAws_json1_1DeleteMatchmakingRuleSetCommand,
@@ -99,8 +104,8 @@ export class DeleteMatchmakingRuleSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMatchmakingRuleSetInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMatchmakingRuleSetOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMatchmakingRuleSetInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMatchmakingRuleSetOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

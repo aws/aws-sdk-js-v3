@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { UpdatePlaceIndexRequest, UpdatePlaceIndexResponse } from "../models/models_0";
+import {
+  UpdatePlaceIndexRequest,
+  UpdatePlaceIndexRequestFilterSensitiveLog,
+  UpdatePlaceIndexResponse,
+  UpdatePlaceIndexResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdatePlaceIndexCommand,
   serializeAws_restJson1UpdatePlaceIndexCommand,
@@ -72,8 +77,8 @@ export class UpdatePlaceIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePlaceIndexRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePlaceIndexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePlaceIndexRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePlaceIndexResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

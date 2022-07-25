@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListEulasRequest, ListEulasResponse } from "../models/models_0";
+import {
+  ListEulasRequest,
+  ListEulasRequestFilterSensitiveLog,
+  ListEulasResponse,
+  ListEulasResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1ListEulasCommand,
@@ -72,8 +77,8 @@ export class ListEulasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEulasRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListEulasResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEulasRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListEulasResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

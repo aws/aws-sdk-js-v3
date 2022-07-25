@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import { UpdateCampaignNameRequest } from "../models/models_0";
+import { UpdateCampaignNameRequest, UpdateCampaignNameRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateCampaignNameCommand,
   serializeAws_restJson1UpdateCampaignNameCommand,
@@ -72,7 +72,7 @@ export class UpdateCampaignNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCampaignNameRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateCampaignNameRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

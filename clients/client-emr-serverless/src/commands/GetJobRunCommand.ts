@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
-import { GetJobRunRequest, GetJobRunResponse } from "../models/models_0";
+import {
+  GetJobRunRequest,
+  GetJobRunRequestFilterSensitiveLog,
+  GetJobRunResponse,
+  GetJobRunResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetJobRunCommand,
   serializeAws_restJson1GetJobRunCommand,
@@ -72,8 +77,8 @@ export class GetJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetJobRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetJobRunRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetJobRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

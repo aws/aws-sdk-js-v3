@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CreateDataRepositoryAssociationRequest, CreateDataRepositoryAssociationResponse } from "../models/models_0";
+import {
+  CreateDataRepositoryAssociationRequest,
+  CreateDataRepositoryAssociationRequestFilterSensitiveLog,
+  CreateDataRepositoryAssociationResponse,
+  CreateDataRepositoryAssociationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDataRepositoryAssociationCommand,
   serializeAws_json1_1CreateDataRepositoryAssociationCommand,
@@ -84,8 +89,8 @@ export class CreateDataRepositoryAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataRepositoryAssociationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataRepositoryAssociationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDataRepositoryAssociationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDataRepositoryAssociationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

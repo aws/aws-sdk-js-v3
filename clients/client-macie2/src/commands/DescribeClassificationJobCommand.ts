@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { DescribeClassificationJobRequest, DescribeClassificationJobResponse } from "../models/models_0";
+import {
+  DescribeClassificationJobRequest,
+  DescribeClassificationJobRequestFilterSensitiveLog,
+  DescribeClassificationJobResponse,
+  DescribeClassificationJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeClassificationJobCommand,
   serializeAws_restJson1DescribeClassificationJobCommand,
@@ -72,8 +77,8 @@ export class DescribeClassificationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClassificationJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClassificationJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeClassificationJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeClassificationJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

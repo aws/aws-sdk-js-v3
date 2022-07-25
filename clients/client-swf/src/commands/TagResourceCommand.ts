@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TagResourceInput } from "../models/models_0";
+import { TagResourceInput, TagResourceInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_0TagResourceCommand,
   serializeAws_json1_0TagResourceCommand,
@@ -75,7 +75,7 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceInput.filterSensitiveLog,
+      inputFilterSensitiveLog: TagResourceInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

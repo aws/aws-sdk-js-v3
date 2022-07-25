@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeInstanceCreditSpecificationsRequest,
+  DescribeInstanceCreditSpecificationsRequestFilterSensitiveLog,
   DescribeInstanceCreditSpecificationsResult,
+  DescribeInstanceCreditSpecificationsResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeInstanceCreditSpecificationsCommand,
@@ -96,8 +98,8 @@ export class DescribeInstanceCreditSpecificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceCreditSpecificationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceCreditSpecificationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInstanceCreditSpecificationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInstanceCreditSpecificationsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

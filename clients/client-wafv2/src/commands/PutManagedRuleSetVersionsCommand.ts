@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutManagedRuleSetVersionsRequest, PutManagedRuleSetVersionsResponse } from "../models/models_0";
+import {
+  PutManagedRuleSetVersionsRequest,
+  PutManagedRuleSetVersionsRequestFilterSensitiveLog,
+  PutManagedRuleSetVersionsResponse,
+  PutManagedRuleSetVersionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutManagedRuleSetVersionsCommand,
   serializeAws_json1_1PutManagedRuleSetVersionsCommand,
@@ -83,8 +88,8 @@ export class PutManagedRuleSetVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutManagedRuleSetVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutManagedRuleSetVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutManagedRuleSetVersionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutManagedRuleSetVersionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

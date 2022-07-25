@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { AttachGroupPolicyRequest } from "../models/models_0";
+import { AttachGroupPolicyRequest, AttachGroupPolicyRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryAttachGroupPolicyCommand,
   serializeAws_queryAttachGroupPolicyCommand,
@@ -79,7 +79,7 @@ export class AttachGroupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachGroupPolicyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachGroupPolicyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

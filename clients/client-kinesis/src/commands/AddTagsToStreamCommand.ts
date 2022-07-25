@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { AddTagsToStreamInput } from "../models/models_0";
+import { AddTagsToStreamInput, AddTagsToStreamInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1AddTagsToStreamCommand,
   serializeAws_json1_1AddTagsToStreamCommand,
@@ -78,7 +78,7 @@ export class AddTagsToStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsToStreamInput.filterSensitiveLog,
+      inputFilterSensitiveLog: AddTagsToStreamInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

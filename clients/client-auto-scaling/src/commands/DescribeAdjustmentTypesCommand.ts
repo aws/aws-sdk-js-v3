@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeAdjustmentTypesAnswer } from "../models/models_0";
+import { DescribeAdjustmentTypesAnswer, DescribeAdjustmentTypesAnswerFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDescribeAdjustmentTypesCommand,
   serializeAws_queryDescribeAdjustmentTypesCommand,
@@ -92,7 +92,7 @@ export class DescribeAdjustmentTypesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeAdjustmentTypesAnswer.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAdjustmentTypesAnswerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

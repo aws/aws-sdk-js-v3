@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { DeleteStackInput } from "../models/models_0";
+import { DeleteStackInput, DeleteStackInputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryDeleteStackCommand, serializeAws_queryDeleteStackCommand } from "../protocols/Aws_query";
 
 export interface DeleteStackCommandInput extends DeleteStackInput {}
@@ -71,7 +71,7 @@ export class DeleteStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStackInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteStackInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

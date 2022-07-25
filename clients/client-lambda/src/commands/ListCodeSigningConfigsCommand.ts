@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { ListCodeSigningConfigsRequest, ListCodeSigningConfigsResponse } from "../models/models_0";
+import {
+  ListCodeSigningConfigsRequest,
+  ListCodeSigningConfigsRequestFilterSensitiveLog,
+  ListCodeSigningConfigsResponse,
+  ListCodeSigningConfigsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListCodeSigningConfigsCommand,
   serializeAws_restJson1ListCodeSigningConfigsCommand,
@@ -74,8 +79,8 @@ export class ListCodeSigningConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCodeSigningConfigsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListCodeSigningConfigsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCodeSigningConfigsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListCodeSigningConfigsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

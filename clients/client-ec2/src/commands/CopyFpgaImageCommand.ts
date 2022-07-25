@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CopyFpgaImageRequest, CopyFpgaImageResult } from "../models/models_0";
+import {
+  CopyFpgaImageRequest,
+  CopyFpgaImageRequestFilterSensitiveLog,
+  CopyFpgaImageResult,
+  CopyFpgaImageResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_ec2CopyFpgaImageCommand, serializeAws_ec2CopyFpgaImageCommand } from "../protocols/Aws_ec2";
 
 export interface CopyFpgaImageCommandInput extends CopyFpgaImageRequest {}
@@ -69,8 +74,8 @@ export class CopyFpgaImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyFpgaImageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CopyFpgaImageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CopyFpgaImageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CopyFpgaImageResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DisassociateLexBotRequest } from "../models/models_0";
+import { DisassociateLexBotRequest, DisassociateLexBotRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateLexBotCommand,
   serializeAws_restJson1DisassociateLexBotCommand,
@@ -73,7 +73,7 @@ export class DisassociateLexBotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateLexBotRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateLexBotRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

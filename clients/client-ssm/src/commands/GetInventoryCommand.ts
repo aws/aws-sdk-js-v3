@@ -12,8 +12,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetInventoryResult } from "../models/models_1";
-import { GetInventoryRequest } from "../models/models_2";
+import { GetInventoryResult, GetInventoryResultFilterSensitiveLog } from "../models/models_1";
+import { GetInventoryRequest, GetInventoryRequestFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_json1_1GetInventoryCommand,
   serializeAws_json1_1GetInventoryCommand,
@@ -74,8 +74,8 @@ export class GetInventoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInventoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetInventoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInventoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetInventoryResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

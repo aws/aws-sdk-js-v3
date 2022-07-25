@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListSecurityProfilePermissionsRequest, ListSecurityProfilePermissionsResponse } from "../models/models_1";
+import {
+  ListSecurityProfilePermissionsRequest,
+  ListSecurityProfilePermissionsRequestFilterSensitiveLog,
+  ListSecurityProfilePermissionsResponse,
+  ListSecurityProfilePermissionsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListSecurityProfilePermissionsCommand,
   serializeAws_restJson1ListSecurityProfilePermissionsCommand,
@@ -75,8 +80,8 @@ export class ListSecurityProfilePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSecurityProfilePermissionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSecurityProfilePermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSecurityProfilePermissionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSecurityProfilePermissionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

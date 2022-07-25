@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { MergePullRequestByFastForwardInput, MergePullRequestByFastForwardOutput } from "../models/models_1";
+import {
+  MergePullRequestByFastForwardInput,
+  MergePullRequestByFastForwardInputFilterSensitiveLog,
+  MergePullRequestByFastForwardOutput,
+  MergePullRequestByFastForwardOutputFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1MergePullRequestByFastForwardCommand,
   serializeAws_json1_1MergePullRequestByFastForwardCommand,
@@ -75,8 +80,8 @@ export class MergePullRequestByFastForwardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MergePullRequestByFastForwardInput.filterSensitiveLog,
-      outputFilterSensitiveLog: MergePullRequestByFastForwardOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: MergePullRequestByFastForwardInputFilterSensitiveLog,
+      outputFilterSensitiveLog: MergePullRequestByFastForwardOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

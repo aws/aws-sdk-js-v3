@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutUsersRequest } from "../models/models_0";
+import { PutUsersRequest, PutUsersRequestFilterSensitiveLog } from "../models/models_0";
 import {
   PersonalizeEventsClientResolvedConfig,
   ServiceInputTypes,
@@ -77,7 +77,7 @@ export class PutUsersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutUsersRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutUsersRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

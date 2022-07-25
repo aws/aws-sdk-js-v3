@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import { DeleteNodeInput, DeleteNodeOutput } from "../models/models_0";
+import {
+  DeleteNodeInput,
+  DeleteNodeInputFilterSensitiveLog,
+  DeleteNodeOutput,
+  DeleteNodeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteNodeCommand,
   serializeAws_restJson1DeleteNodeCommand,
@@ -77,8 +82,8 @@ export class DeleteNodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNodeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNodeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteNodeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteNodeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

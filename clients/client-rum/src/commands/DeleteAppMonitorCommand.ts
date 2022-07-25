@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAppMonitorRequest, DeleteAppMonitorResponse } from "../models/models_0";
+import {
+  DeleteAppMonitorRequest,
+  DeleteAppMonitorRequestFilterSensitiveLog,
+  DeleteAppMonitorResponse,
+  DeleteAppMonitorResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAppMonitorCommand,
   serializeAws_restJson1DeleteAppMonitorCommand,
@@ -72,8 +77,8 @@ export class DeleteAppMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppMonitorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppMonitorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAppMonitorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAppMonitorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

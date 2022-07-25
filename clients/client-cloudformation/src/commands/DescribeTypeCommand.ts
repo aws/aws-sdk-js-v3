@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { DescribeTypeInput, DescribeTypeOutput } from "../models/models_0";
+import {
+  DescribeTypeInput,
+  DescribeTypeInputFilterSensitiveLog,
+  DescribeTypeOutput,
+  DescribeTypeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryDescribeTypeCommand, serializeAws_queryDescribeTypeCommand } from "../protocols/Aws_query";
 
 export interface DescribeTypeCommandInput extends DescribeTypeInput {}
@@ -72,8 +77,8 @@ export class DescribeTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTypeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTypeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTypeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTypeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

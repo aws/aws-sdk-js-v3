@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { ListNotificationChannelsRequest, ListNotificationChannelsResponse } from "../models/models_0";
+import {
+  ListNotificationChannelsRequest,
+  ListNotificationChannelsRequestFilterSensitiveLog,
+  ListNotificationChannelsResponse,
+  ListNotificationChannelsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListNotificationChannelsCommand,
   serializeAws_restJson1ListNotificationChannelsCommand,
@@ -75,8 +80,8 @@ export class ListNotificationChannelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNotificationChannelsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListNotificationChannelsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListNotificationChannelsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListNotificationChannelsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

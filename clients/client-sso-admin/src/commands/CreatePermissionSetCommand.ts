@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreatePermissionSetRequest, CreatePermissionSetResponse } from "../models/models_0";
+import {
+  CreatePermissionSetRequest,
+  CreatePermissionSetRequestFilterSensitiveLog,
+  CreatePermissionSetResponse,
+  CreatePermissionSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePermissionSetCommand,
   serializeAws_json1_1CreatePermissionSetCommand,
@@ -77,8 +82,8 @@ export class CreatePermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePermissionSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreatePermissionSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePermissionSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreatePermissionSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

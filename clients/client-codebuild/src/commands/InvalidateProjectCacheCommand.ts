@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { InvalidateProjectCacheInput, InvalidateProjectCacheOutput } from "../models/models_0";
+import {
+  InvalidateProjectCacheInput,
+  InvalidateProjectCacheInputFilterSensitiveLog,
+  InvalidateProjectCacheOutput,
+  InvalidateProjectCacheOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1InvalidateProjectCacheCommand,
   serializeAws_json1_1InvalidateProjectCacheCommand,
@@ -72,8 +77,8 @@ export class InvalidateProjectCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InvalidateProjectCacheInput.filterSensitiveLog,
-      outputFilterSensitiveLog: InvalidateProjectCacheOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: InvalidateProjectCacheInputFilterSensitiveLog,
+      outputFilterSensitiveLog: InvalidateProjectCacheOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

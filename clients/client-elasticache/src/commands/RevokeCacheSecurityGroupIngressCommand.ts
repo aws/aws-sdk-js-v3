@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { RevokeCacheSecurityGroupIngressMessage, RevokeCacheSecurityGroupIngressResult } from "../models/models_0";
+import {
+  RevokeCacheSecurityGroupIngressMessage,
+  RevokeCacheSecurityGroupIngressMessageFilterSensitiveLog,
+  RevokeCacheSecurityGroupIngressResult,
+  RevokeCacheSecurityGroupIngressResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryRevokeCacheSecurityGroupIngressCommand,
   serializeAws_queryRevokeCacheSecurityGroupIngressCommand,
@@ -76,8 +81,8 @@ export class RevokeCacheSecurityGroupIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeCacheSecurityGroupIngressMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: RevokeCacheSecurityGroupIngressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokeCacheSecurityGroupIngressMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: RevokeCacheSecurityGroupIngressResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

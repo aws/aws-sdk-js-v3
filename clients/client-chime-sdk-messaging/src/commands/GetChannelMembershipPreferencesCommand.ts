@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import { GetChannelMembershipPreferencesRequest, GetChannelMembershipPreferencesResponse } from "../models/models_0";
+import {
+  GetChannelMembershipPreferencesRequest,
+  GetChannelMembershipPreferencesRequestFilterSensitiveLog,
+  GetChannelMembershipPreferencesResponse,
+  GetChannelMembershipPreferencesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetChannelMembershipPreferencesCommand,
   serializeAws_restJson1GetChannelMembershipPreferencesCommand,
@@ -80,8 +85,8 @@ export class GetChannelMembershipPreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChannelMembershipPreferencesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetChannelMembershipPreferencesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetChannelMembershipPreferencesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetChannelMembershipPreferencesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

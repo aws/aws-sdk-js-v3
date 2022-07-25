@@ -73,15 +73,6 @@ export interface AuthenticateCognitoActionConfig {
   OnUnauthenticatedRequest?: AuthenticateCognitoActionConditionalBehaviorEnum | string;
 }
 
-export namespace AuthenticateCognitoActionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthenticateCognitoActionConfig): any => ({
-    ...obj,
-  });
-}
-
 export enum AuthenticateOidcActionConditionalBehaviorEnum {
   ALLOW = "allow",
   AUTHENTICATE = "authenticate",
@@ -179,15 +170,6 @@ export interface AuthenticateOidcActionConfig {
   UseExistingClientSecret?: boolean;
 }
 
-export namespace AuthenticateOidcActionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthenticateOidcActionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an action that returns a custom HTTP response.</p>
  */
@@ -210,15 +192,6 @@ export interface FixedResponseActionConfig {
   ContentType?: string;
 }
 
-export namespace FixedResponseActionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FixedResponseActionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about how traffic will be distributed between multiple target groups in a
  *       forward rule.</p>
@@ -233,15 +206,6 @@ export interface TargetGroupTuple {
    * <p>The weight. The range is 0 to 999.</p>
    */
   Weight?: number;
-}
-
-export namespace TargetGroupTuple {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetGroupTuple): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -260,15 +224,6 @@ export interface TargetGroupStickinessConfig {
   DurationSeconds?: number;
 }
 
-export namespace TargetGroupStickinessConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetGroupStickinessConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a forward action.</p>
  */
@@ -283,15 +238,6 @@ export interface ForwardActionConfig {
    * <p>The target group stickiness for the rule.</p>
    */
   TargetGroupStickinessConfig?: TargetGroupStickinessConfig;
-}
-
-export namespace ForwardActionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForwardActionConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum RedirectActionStatusCodeEnum {
@@ -363,15 +309,6 @@ export interface RedirectActionConfig {
   StatusCode: RedirectActionStatusCodeEnum | string | undefined;
 }
 
-export namespace RedirectActionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedirectActionConfig): any => ({
-    ...obj,
-  });
-}
-
 export enum ActionTypeEnum {
   AUTHENTICATE_COGNITO = "authenticate-cognito",
   AUTHENTICATE_OIDC = "authenticate-oidc",
@@ -440,15 +377,6 @@ export interface Action {
   ForwardConfig?: ForwardActionConfig;
 }
 
-export namespace Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Action): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an SSL server certificate.</p>
  */
@@ -466,15 +394,6 @@ export interface Certificate {
   IsDefault?: boolean;
 }
 
-export namespace Certificate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Certificate): any => ({
-    ...obj,
-  });
-}
-
 export interface AddListenerCertificatesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
@@ -489,29 +408,11 @@ export interface AddListenerCertificatesInput {
   Certificates: Certificate[] | undefined;
 }
 
-export namespace AddListenerCertificatesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddListenerCertificatesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface AddListenerCertificatesOutput {
   /**
    * <p>Information about the certificates in the certificate list.</p>
    */
   Certificates?: Certificate[];
-}
-
-export namespace AddListenerCertificatesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddListenerCertificatesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -592,15 +493,6 @@ export interface Tag {
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface AddTagsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -613,25 +505,7 @@ export interface AddTagsInput {
   Tags: Tag[] | undefined;
 }
 
-export namespace AddTagsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface AddTagsOutput {}
-
-export namespace AddTagsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A tag key was specified more than once.</p>
@@ -806,15 +680,6 @@ export interface LoadBalancerAddress {
   IPv6Address?: string;
 }
 
-export namespace LoadBalancerAddress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerAddress): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an Availability Zone.</p>
  */
@@ -841,15 +706,6 @@ export interface AvailabilityZone {
    *       range of the subnet.</p>
    */
   LoadBalancerAddresses?: LoadBalancerAddress[];
-}
-
-export namespace AvailabilityZone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -886,15 +742,6 @@ export interface Cipher {
    * <p>The priority of the cipher.</p>
    */
   Priority?: number;
-}
-
-export namespace Cipher {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Cipher): any => ({
-    ...obj,
-  });
 }
 
 export type ProtocolEnum = "GENEVE" | "HTTP" | "HTTPS" | "TCP" | "TCP_UDP" | "TLS" | "UDP";
@@ -981,15 +828,6 @@ export interface CreateListenerInput {
   Tags?: Tag[];
 }
 
-export namespace CreateListenerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateListenerInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a listener.</p>
  */
@@ -1037,29 +875,11 @@ export interface Listener {
   AlpnPolicy?: string[];
 }
 
-export namespace Listener {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Listener): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateListenerOutput {
   /**
    * <p>Information about the listener.</p>
    */
   Listeners?: Listener[];
-}
-
-export namespace CreateListenerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateListenerOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1354,15 +1174,6 @@ export interface SubnetMapping {
   IPv6Address?: string;
 }
 
-export namespace SubnetMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetMapping): any => ({
-    ...obj,
-  });
-}
-
 export enum LoadBalancerTypeEnum {
   APPLICATION = "application",
   GATEWAY = "gateway",
@@ -1455,15 +1266,6 @@ export interface CreateLoadBalancerInput {
   CustomerOwnedIpv4Pool?: string;
 }
 
-export namespace CreateLoadBalancerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLoadBalancerInput): any => ({
-    ...obj,
-  });
-}
-
 export enum LoadBalancerStateEnum {
   ACTIVE = "active",
   ACTIVE_IMPAIRED = "active_impaired",
@@ -1488,15 +1290,6 @@ export interface LoadBalancerState {
    * <p>A description of the state.</p>
    */
   Reason?: string;
-}
-
-export namespace LoadBalancerState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerState): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1578,29 +1371,11 @@ export interface LoadBalancer {
   CustomerOwnedIpv4Pool?: string;
 }
 
-export namespace LoadBalancer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancer): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLoadBalancerOutput {
   /**
    * <p>Information about the load balancer.</p>
    */
   LoadBalancers?: LoadBalancer[];
-}
-
-export namespace CreateLoadBalancerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLoadBalancerOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1786,15 +1561,6 @@ export interface HostHeaderConditionConfig {
   Values?: string[];
 }
 
-export namespace HostHeaderConditionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostHeaderConditionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an HTTP header condition.</p>
  *          <p>There is a set of standard HTTP header fields. You can also define custom HTTP header
@@ -1823,15 +1589,6 @@ export interface HttpHeaderConditionConfig {
   Values?: string[];
 }
 
-export namespace HttpHeaderConditionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpHeaderConditionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an HTTP method condition.</p>
  *          <p>HTTP defines a set of request methods, also referred to as HTTP verbs. For more
@@ -1850,15 +1607,6 @@ export interface HttpRequestMethodConditionConfig {
   Values?: string[];
 }
 
-export namespace HttpRequestMethodConditionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpRequestMethodConditionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a path pattern condition.</p>
  */
@@ -1874,15 +1622,6 @@ export interface PathPatternConditionConfig {
   Values?: string[];
 }
 
-export namespace PathPatternConditionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PathPatternConditionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a key/value pair.</p>
  */
@@ -1896,15 +1635,6 @@ export interface QueryStringKeyValuePair {
    * <p>The value.</p>
    */
   Value?: string;
-}
-
-export namespace QueryStringKeyValuePair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryStringKeyValuePair): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1927,15 +1657,6 @@ export interface QueryStringConditionConfig {
   Values?: QueryStringKeyValuePair[];
 }
 
-export namespace QueryStringConditionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryStringConditionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a source IP condition.</p>
  *          <p>You can use this condition to route based on the IP address of the source that connects to
@@ -1952,15 +1673,6 @@ export interface SourceIpConditionConfig {
    *         <a>HttpHeaderConditionConfig</a>.</p>
    */
   Values?: string[];
-}
-
-export namespace SourceIpConditionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceIpConditionConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2092,15 +1804,6 @@ export interface RuleCondition {
   SourceIpConfig?: SourceIpConditionConfig;
 }
 
-export namespace RuleCondition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleCondition): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRuleInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
@@ -2126,15 +1829,6 @@ export interface CreateRuleInput {
    * <p>The tags to assign to the rule.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateRuleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2172,29 +1866,11 @@ export interface Rule {
   IsDefault?: boolean;
 }
 
-export namespace Rule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Rule): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRuleOutput {
   /**
    * <p>Information about the rule.</p>
    */
   Rules?: Rule[];
-}
-
-export namespace CreateRuleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2286,15 +1962,6 @@ export interface Matcher {
    *       "0,1") or a range of values (for example, "0-5"). The default value is 12.</p>
    */
   GrpcCode?: string;
-}
-
-export namespace Matcher {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Matcher): any => ({
-    ...obj,
-  });
 }
 
 export enum TargetTypeEnum {
@@ -2458,15 +2125,6 @@ export interface CreateTargetGroupInput {
   IpAddressType?: TargetGroupIpAddressTypeEnum | string;
 }
 
-export namespace CreateTargetGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTargetGroupInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a target group.</p>
  */
@@ -2577,29 +2235,11 @@ export interface TargetGroup {
   IpAddressType?: TargetGroupIpAddressTypeEnum | string;
 }
 
-export namespace TargetGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTargetGroupOutput {
   /**
    * <p>Information about the target group.</p>
    */
   TargetGroups?: TargetGroup[];
-}
-
-export namespace CreateTargetGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTargetGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2630,25 +2270,7 @@ export interface DeleteListenerInput {
   ListenerArn: string | undefined;
 }
 
-export namespace DeleteListenerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteListenerInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteListenerOutput {}
-
-export namespace DeleteListenerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteListenerOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteLoadBalancerInput {
   /**
@@ -2657,25 +2279,7 @@ export interface DeleteLoadBalancerInput {
   LoadBalancerArn: string | undefined;
 }
 
-export namespace DeleteLoadBalancerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLoadBalancerInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLoadBalancerOutput {}
-
-export namespace DeleteLoadBalancerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLoadBalancerOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteRuleInput {
   /**
@@ -2684,25 +2288,7 @@ export interface DeleteRuleInput {
   RuleArn: string | undefined;
 }
 
-export namespace DeleteRuleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRuleOutput {}
-
-export namespace DeleteRuleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteTargetGroupInput {
   /**
@@ -2711,25 +2297,7 @@ export interface DeleteTargetGroupInput {
   TargetGroupArn: string | undefined;
 }
 
-export namespace DeleteTargetGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTargetGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTargetGroupOutput {}
-
-export namespace DeleteTargetGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTargetGroupOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Information about a target.</p>
@@ -2769,15 +2337,6 @@ export interface TargetDescription {
   AvailabilityZone?: string;
 }
 
-export namespace TargetDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterTargetsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
@@ -2791,25 +2350,7 @@ export interface DeregisterTargetsInput {
   Targets: TargetDescription[] | undefined;
 }
 
-export namespace DeregisterTargetsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterTargetsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterTargetsOutput {}
-
-export namespace DeregisterTargetsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterTargetsOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The specified target does not exist, is not in the same VPC as the target group, or has an
@@ -2844,15 +2385,6 @@ export interface DescribeAccountLimitsInput {
    * <p>The maximum number of results to return with this call.</p>
    */
   PageSize?: number;
-}
-
-export namespace DescribeAccountLimitsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountLimitsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2927,15 +2459,6 @@ export interface Limit {
   Max?: string;
 }
 
-export namespace Limit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Limit): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccountLimitsOutput {
   /**
    * <p>Information about the limits.</p>
@@ -2947,15 +2470,6 @@ export interface DescribeAccountLimitsOutput {
    *       Otherwise, this is null.</p>
    */
   NextMarker?: string;
-}
-
-export namespace DescribeAccountLimitsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountLimitsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeListenerCertificatesInput {
@@ -2976,15 +2490,6 @@ export interface DescribeListenerCertificatesInput {
   PageSize?: number;
 }
 
-export namespace DescribeListenerCertificatesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeListenerCertificatesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeListenerCertificatesOutput {
   /**
    * <p>Information about the certificates.</p>
@@ -2996,15 +2501,6 @@ export interface DescribeListenerCertificatesOutput {
    *       Otherwise, this is null.</p>
    */
   NextMarker?: string;
-}
-
-export namespace DescribeListenerCertificatesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeListenerCertificatesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeListenersInput {
@@ -3030,15 +2526,6 @@ export interface DescribeListenersInput {
   PageSize?: number;
 }
 
-export namespace DescribeListenersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeListenersInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeListenersOutput {
   /**
    * <p>Information about the listeners.</p>
@@ -3052,29 +2539,11 @@ export interface DescribeListenersOutput {
   NextMarker?: string;
 }
 
-export namespace DescribeListenersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeListenersOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLoadBalancerAttributesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
    */
   LoadBalancerArn: string | undefined;
-}
-
-export namespace DescribeLoadBalancerAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoadBalancerAttributesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3229,29 +2698,11 @@ export interface LoadBalancerAttribute {
   Value?: string;
 }
 
-export namespace LoadBalancerAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerAttribute): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLoadBalancerAttributesOutput {
   /**
    * <p>Information about the load balancer attributes.</p>
    */
   Attributes?: LoadBalancerAttribute[];
-}
-
-export namespace DescribeLoadBalancerAttributesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoadBalancerAttributesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeLoadBalancersInput {
@@ -3278,15 +2729,6 @@ export interface DescribeLoadBalancersInput {
   PageSize?: number;
 }
 
-export namespace DescribeLoadBalancersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoadBalancersInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLoadBalancersOutput {
   /**
    * <p>Information about the load balancers.</p>
@@ -3298,15 +2740,6 @@ export interface DescribeLoadBalancersOutput {
    *       Otherwise, this is null.</p>
    */
   NextMarker?: string;
-}
-
-export namespace DescribeLoadBalancersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoadBalancersOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRulesInput {
@@ -3332,15 +2765,6 @@ export interface DescribeRulesInput {
   PageSize?: number;
 }
 
-export namespace DescribeRulesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRulesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRulesOutput {
   /**
    * <p>Information about the rules.</p>
@@ -3352,15 +2776,6 @@ export interface DescribeRulesOutput {
    *       Otherwise, this is null.</p>
    */
   NextMarker?: string;
-}
-
-export namespace DescribeRulesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRulesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSSLPoliciesInput {
@@ -3385,15 +2800,6 @@ export interface DescribeSSLPoliciesInput {
    *       balancers.</p>
    */
   LoadBalancerType?: LoadBalancerTypeEnum | string;
-}
-
-export namespace DescribeSSLPoliciesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSSLPoliciesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3421,15 +2827,6 @@ export interface SslPolicy {
   SupportedLoadBalancerTypes?: string[];
 }
 
-export namespace SslPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SslPolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSSLPoliciesOutput {
   /**
    * <p>Information about the security policies.</p>
@@ -3443,30 +2840,12 @@ export interface DescribeSSLPoliciesOutput {
   NextMarker?: string;
 }
 
-export namespace DescribeSSLPoliciesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSSLPoliciesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTagsInput {
   /**
    * <p>The Amazon Resource Names (ARN) of the resources. You can specify up to 20 resources in a
    *       single call.</p>
    */
   ResourceArns: string[] | undefined;
-}
-
-export namespace DescribeTagsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3484,15 +2863,6 @@ export interface TagDescription {
   Tags?: Tag[];
 }
 
-export namespace TagDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTagsOutput {
   /**
    * <p>Information about the tags.</p>
@@ -3500,29 +2870,11 @@ export interface DescribeTagsOutput {
   TagDescriptions?: TagDescription[];
 }
 
-export namespace DescribeTagsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTargetGroupAttributesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
    */
   TargetGroupArn: string | undefined;
-}
-
-export namespace DescribeTargetGroupAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTargetGroupAttributesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3648,29 +3000,11 @@ export interface TargetGroupAttribute {
   Value?: string;
 }
 
-export namespace TargetGroupAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetGroupAttribute): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTargetGroupAttributesOutput {
   /**
    * <p>Information about the target group attributes</p>
    */
   Attributes?: TargetGroupAttribute[];
-}
-
-export namespace DescribeTargetGroupAttributesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTargetGroupAttributesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeTargetGroupsInput {
@@ -3701,15 +3035,6 @@ export interface DescribeTargetGroupsInput {
   PageSize?: number;
 }
 
-export namespace DescribeTargetGroupsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTargetGroupsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTargetGroupsOutput {
   /**
    * <p>Information about the target groups.</p>
@@ -3723,15 +3048,6 @@ export interface DescribeTargetGroupsOutput {
   NextMarker?: string;
 }
 
-export namespace DescribeTargetGroupsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTargetGroupsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTargetHealthInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
@@ -3742,15 +3058,6 @@ export interface DescribeTargetHealthInput {
    * <p>The targets.</p>
    */
   Targets?: TargetDescription[];
-}
-
-export namespace DescribeTargetHealthInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTargetHealthInput): any => ({
-    ...obj,
-  });
 }
 
 export enum TargetHealthReasonEnum {
@@ -3891,15 +3198,6 @@ export interface TargetHealth {
   Description?: string;
 }
 
-export namespace TargetHealth {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetHealth): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the health of a target.</p>
  */
@@ -3920,29 +3218,11 @@ export interface TargetHealthDescription {
   TargetHealth?: TargetHealth;
 }
 
-export namespace TargetHealthDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetHealthDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTargetHealthOutput {
   /**
    * <p>Information about the health of the targets.</p>
    */
   TargetHealthDescriptions?: TargetHealthDescription[];
-}
-
-export namespace DescribeTargetHealthOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTargetHealthOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4043,29 +3323,11 @@ export interface ModifyListenerInput {
   AlpnPolicy?: string[];
 }
 
-export namespace ModifyListenerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyListenerInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyListenerOutput {
   /**
    * <p>Information about the modified listener.</p>
    */
   Listeners?: Listener[];
-}
-
-export namespace ModifyListenerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyListenerOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyLoadBalancerAttributesInput {
@@ -4080,29 +3342,11 @@ export interface ModifyLoadBalancerAttributesInput {
   Attributes: LoadBalancerAttribute[] | undefined;
 }
 
-export namespace ModifyLoadBalancerAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyLoadBalancerAttributesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyLoadBalancerAttributesOutput {
   /**
    * <p>Information about the load balancer attributes.</p>
    */
   Attributes?: LoadBalancerAttribute[];
-}
-
-export namespace ModifyLoadBalancerAttributesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyLoadBalancerAttributesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyRuleInput {
@@ -4122,29 +3366,11 @@ export interface ModifyRuleInput {
   Actions?: Action[];
 }
 
-export namespace ModifyRuleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyRuleInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyRuleOutput {
   /**
    * <p>Information about the modified rule.</p>
    */
   Rules?: Rule[];
-}
-
-export namespace ModifyRuleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyRuleOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyTargetGroupInput {
@@ -4213,29 +3439,11 @@ export interface ModifyTargetGroupInput {
   Matcher?: Matcher;
 }
 
-export namespace ModifyTargetGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyTargetGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyTargetGroupOutput {
   /**
    * <p>Information about the modified target group.</p>
    */
   TargetGroups?: TargetGroup[];
-}
-
-export namespace ModifyTargetGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyTargetGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyTargetGroupAttributesInput {
@@ -4250,29 +3458,11 @@ export interface ModifyTargetGroupAttributesInput {
   Attributes: TargetGroupAttribute[] | undefined;
 }
 
-export namespace ModifyTargetGroupAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyTargetGroupAttributesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyTargetGroupAttributesOutput {
   /**
    * <p>Information about the attributes.</p>
    */
   Attributes?: TargetGroupAttribute[];
-}
-
-export namespace ModifyTargetGroupAttributesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyTargetGroupAttributesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterTargetsInput {
@@ -4287,25 +3477,7 @@ export interface RegisterTargetsInput {
   Targets: TargetDescription[] | undefined;
 }
 
-export namespace RegisterTargetsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTargetsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterTargetsOutput {}
-
-export namespace RegisterTargetsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTargetsOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface RemoveListenerCertificatesInput {
   /**
@@ -4321,25 +3493,7 @@ export interface RemoveListenerCertificatesInput {
   Certificates: Certificate[] | undefined;
 }
 
-export namespace RemoveListenerCertificatesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveListenerCertificatesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveListenerCertificatesOutput {}
-
-export namespace RemoveListenerCertificatesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveListenerCertificatesOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface RemoveTagsInput {
   /**
@@ -4353,25 +3507,7 @@ export interface RemoveTagsInput {
   TagKeys: string[] | undefined;
 }
 
-export namespace RemoveTagsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveTagsOutput {}
-
-export namespace RemoveTagsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface SetIpAddressTypeInput {
   /**
@@ -4388,29 +3524,11 @@ export interface SetIpAddressTypeInput {
   IpAddressType: IpAddressType | string | undefined;
 }
 
-export namespace SetIpAddressTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIpAddressTypeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface SetIpAddressTypeOutput {
   /**
    * <p>The IP address type.</p>
    */
   IpAddressType?: IpAddressType | string;
-}
-
-export namespace SetIpAddressTypeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIpAddressTypeOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4428,15 +3546,6 @@ export interface RulePriorityPair {
   Priority?: number;
 }
 
-export namespace RulePriorityPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RulePriorityPair): any => ({
-    ...obj,
-  });
-}
-
 export interface SetRulePrioritiesInput {
   /**
    * <p>The rule priorities.</p>
@@ -4444,29 +3553,11 @@ export interface SetRulePrioritiesInput {
   RulePriorities: RulePriorityPair[] | undefined;
 }
 
-export namespace SetRulePrioritiesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetRulePrioritiesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface SetRulePrioritiesOutput {
   /**
    * <p>Information about the rules.</p>
    */
   Rules?: Rule[];
-}
-
-export namespace SetRulePrioritiesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetRulePrioritiesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface SetSecurityGroupsInput {
@@ -4481,29 +3572,11 @@ export interface SetSecurityGroupsInput {
   SecurityGroups: string[] | undefined;
 }
 
-export namespace SetSecurityGroupsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetSecurityGroupsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface SetSecurityGroupsOutput {
   /**
    * <p>The IDs of the security groups associated with the load balancer.</p>
    */
   SecurityGroupIds?: string[];
-}
-
-export namespace SetSecurityGroupsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetSecurityGroupsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface SetSubnetsInput {
@@ -4551,15 +3624,6 @@ export interface SetSubnetsInput {
   IpAddressType?: IpAddressType | string;
 }
 
-export namespace SetSubnetsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetSubnetsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface SetSubnetsOutput {
   /**
    * <p>Information about the subnets.</p>
@@ -4572,11 +3636,743 @@ export interface SetSubnetsOutput {
   IpAddressType?: IpAddressType | string;
 }
 
-export namespace SetSubnetsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetSubnetsOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AuthenticateCognitoActionConfigFilterSensitiveLog = (obj: AuthenticateCognitoActionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthenticateOidcActionConfigFilterSensitiveLog = (obj: AuthenticateOidcActionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FixedResponseActionConfigFilterSensitiveLog = (obj: FixedResponseActionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetGroupTupleFilterSensitiveLog = (obj: TargetGroupTuple): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetGroupStickinessConfigFilterSensitiveLog = (obj: TargetGroupStickinessConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ForwardActionConfigFilterSensitiveLog = (obj: ForwardActionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedirectActionConfigFilterSensitiveLog = (obj: RedirectActionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionFilterSensitiveLog = (obj: Action): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateFilterSensitiveLog = (obj: Certificate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddListenerCertificatesInputFilterSensitiveLog = (obj: AddListenerCertificatesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddListenerCertificatesOutputFilterSensitiveLog = (obj: AddListenerCertificatesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsInputFilterSensitiveLog = (obj: AddTagsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsOutputFilterSensitiveLog = (obj: AddTagsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerAddressFilterSensitiveLog = (obj: LoadBalancerAddress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvailabilityZoneFilterSensitiveLog = (obj: AvailabilityZone): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CipherFilterSensitiveLog = (obj: Cipher): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateListenerInputFilterSensitiveLog = (obj: CreateListenerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListenerFilterSensitiveLog = (obj: Listener): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateListenerOutputFilterSensitiveLog = (obj: CreateListenerOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubnetMappingFilterSensitiveLog = (obj: SubnetMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLoadBalancerInputFilterSensitiveLog = (obj: CreateLoadBalancerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerStateFilterSensitiveLog = (obj: LoadBalancerState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerFilterSensitiveLog = (obj: LoadBalancer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLoadBalancerOutputFilterSensitiveLog = (obj: CreateLoadBalancerOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HostHeaderConditionConfigFilterSensitiveLog = (obj: HostHeaderConditionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpHeaderConditionConfigFilterSensitiveLog = (obj: HttpHeaderConditionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpRequestMethodConditionConfigFilterSensitiveLog = (obj: HttpRequestMethodConditionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PathPatternConditionConfigFilterSensitiveLog = (obj: PathPatternConditionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryStringKeyValuePairFilterSensitiveLog = (obj: QueryStringKeyValuePair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryStringConditionConfigFilterSensitiveLog = (obj: QueryStringConditionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceIpConditionConfigFilterSensitiveLog = (obj: SourceIpConditionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleConditionFilterSensitiveLog = (obj: RuleCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRuleInputFilterSensitiveLog = (obj: CreateRuleInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleFilterSensitiveLog = (obj: Rule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRuleOutputFilterSensitiveLog = (obj: CreateRuleOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MatcherFilterSensitiveLog = (obj: Matcher): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTargetGroupInputFilterSensitiveLog = (obj: CreateTargetGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetGroupFilterSensitiveLog = (obj: TargetGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTargetGroupOutputFilterSensitiveLog = (obj: CreateTargetGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteListenerInputFilterSensitiveLog = (obj: DeleteListenerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteListenerOutputFilterSensitiveLog = (obj: DeleteListenerOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLoadBalancerInputFilterSensitiveLog = (obj: DeleteLoadBalancerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLoadBalancerOutputFilterSensitiveLog = (obj: DeleteLoadBalancerOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRuleInputFilterSensitiveLog = (obj: DeleteRuleInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRuleOutputFilterSensitiveLog = (obj: DeleteRuleOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTargetGroupInputFilterSensitiveLog = (obj: DeleteTargetGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTargetGroupOutputFilterSensitiveLog = (obj: DeleteTargetGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetDescriptionFilterSensitiveLog = (obj: TargetDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterTargetsInputFilterSensitiveLog = (obj: DeregisterTargetsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterTargetsOutputFilterSensitiveLog = (obj: DeregisterTargetsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountLimitsInputFilterSensitiveLog = (obj: DescribeAccountLimitsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LimitFilterSensitiveLog = (obj: Limit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountLimitsOutputFilterSensitiveLog = (obj: DescribeAccountLimitsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeListenerCertificatesInputFilterSensitiveLog = (obj: DescribeListenerCertificatesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeListenerCertificatesOutputFilterSensitiveLog = (obj: DescribeListenerCertificatesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeListenersInputFilterSensitiveLog = (obj: DescribeListenersInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeListenersOutputFilterSensitiveLog = (obj: DescribeListenersOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoadBalancerAttributesInputFilterSensitiveLog = (
+  obj: DescribeLoadBalancerAttributesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerAttributeFilterSensitiveLog = (obj: LoadBalancerAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoadBalancerAttributesOutputFilterSensitiveLog = (
+  obj: DescribeLoadBalancerAttributesOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoadBalancersInputFilterSensitiveLog = (obj: DescribeLoadBalancersInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoadBalancersOutputFilterSensitiveLog = (obj: DescribeLoadBalancersOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRulesInputFilterSensitiveLog = (obj: DescribeRulesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRulesOutputFilterSensitiveLog = (obj: DescribeRulesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSSLPoliciesInputFilterSensitiveLog = (obj: DescribeSSLPoliciesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SslPolicyFilterSensitiveLog = (obj: SslPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSSLPoliciesOutputFilterSensitiveLog = (obj: DescribeSSLPoliciesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTagsInputFilterSensitiveLog = (obj: DescribeTagsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagDescriptionFilterSensitiveLog = (obj: TagDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTagsOutputFilterSensitiveLog = (obj: DescribeTagsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTargetGroupAttributesInputFilterSensitiveLog = (obj: DescribeTargetGroupAttributesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetGroupAttributeFilterSensitiveLog = (obj: TargetGroupAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTargetGroupAttributesOutputFilterSensitiveLog = (
+  obj: DescribeTargetGroupAttributesOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTargetGroupsInputFilterSensitiveLog = (obj: DescribeTargetGroupsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTargetGroupsOutputFilterSensitiveLog = (obj: DescribeTargetGroupsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTargetHealthInputFilterSensitiveLog = (obj: DescribeTargetHealthInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetHealthFilterSensitiveLog = (obj: TargetHealth): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetHealthDescriptionFilterSensitiveLog = (obj: TargetHealthDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTargetHealthOutputFilterSensitiveLog = (obj: DescribeTargetHealthOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyListenerInputFilterSensitiveLog = (obj: ModifyListenerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyListenerOutputFilterSensitiveLog = (obj: ModifyListenerOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyLoadBalancerAttributesInputFilterSensitiveLog = (obj: ModifyLoadBalancerAttributesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyLoadBalancerAttributesOutputFilterSensitiveLog = (obj: ModifyLoadBalancerAttributesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyRuleInputFilterSensitiveLog = (obj: ModifyRuleInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyRuleOutputFilterSensitiveLog = (obj: ModifyRuleOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyTargetGroupInputFilterSensitiveLog = (obj: ModifyTargetGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyTargetGroupOutputFilterSensitiveLog = (obj: ModifyTargetGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyTargetGroupAttributesInputFilterSensitiveLog = (obj: ModifyTargetGroupAttributesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyTargetGroupAttributesOutputFilterSensitiveLog = (obj: ModifyTargetGroupAttributesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterTargetsInputFilterSensitiveLog = (obj: RegisterTargetsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterTargetsOutputFilterSensitiveLog = (obj: RegisterTargetsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveListenerCertificatesInputFilterSensitiveLog = (obj: RemoveListenerCertificatesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveListenerCertificatesOutputFilterSensitiveLog = (obj: RemoveListenerCertificatesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsInputFilterSensitiveLog = (obj: RemoveTagsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsOutputFilterSensitiveLog = (obj: RemoveTagsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIpAddressTypeInputFilterSensitiveLog = (obj: SetIpAddressTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIpAddressTypeOutputFilterSensitiveLog = (obj: SetIpAddressTypeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RulePriorityPairFilterSensitiveLog = (obj: RulePriorityPair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetRulePrioritiesInputFilterSensitiveLog = (obj: SetRulePrioritiesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetRulePrioritiesOutputFilterSensitiveLog = (obj: SetRulePrioritiesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetSecurityGroupsInputFilterSensitiveLog = (obj: SetSecurityGroupsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetSecurityGroupsOutputFilterSensitiveLog = (obj: SetSecurityGroupsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetSubnetsInputFilterSensitiveLog = (obj: SetSubnetsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetSubnetsOutputFilterSensitiveLog = (obj: SetSubnetsOutput): any => ({
+  ...obj,
+});

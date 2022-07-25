@@ -15,7 +15,9 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import {
   DeleteLicenseManagerReportGeneratorRequest,
+  DeleteLicenseManagerReportGeneratorRequestFilterSensitiveLog,
   DeleteLicenseManagerReportGeneratorResponse,
+  DeleteLicenseManagerReportGeneratorResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand,
@@ -79,8 +81,8 @@ export class DeleteLicenseManagerReportGeneratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLicenseManagerReportGeneratorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLicenseManagerReportGeneratorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLicenseManagerReportGeneratorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLicenseManagerReportGeneratorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

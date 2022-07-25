@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSolutionRequest } from "../models/models_0";
+import { DeleteSolutionRequest, DeleteSolutionRequestFilterSensitiveLog } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1DeleteSolutionCommand,
@@ -78,7 +78,7 @@ export class DeleteSolutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSolutionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSolutionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

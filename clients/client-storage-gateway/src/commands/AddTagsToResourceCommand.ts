@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AddTagsToResourceInput, AddTagsToResourceOutput } from "../models/models_0";
+import {
+  AddTagsToResourceInput,
+  AddTagsToResourceInputFilterSensitiveLog,
+  AddTagsToResourceOutput,
+  AddTagsToResourceOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AddTagsToResourceCommand,
   serializeAws_json1_1AddTagsToResourceCommand,
@@ -96,8 +101,8 @@ export class AddTagsToResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsToResourceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: AddTagsToResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AddTagsToResourceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: AddTagsToResourceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

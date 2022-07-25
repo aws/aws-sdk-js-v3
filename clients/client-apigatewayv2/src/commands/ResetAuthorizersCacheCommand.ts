@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { ResetAuthorizersCacheRequest } from "../models/models_0";
+import { ResetAuthorizersCacheRequest, ResetAuthorizersCacheRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1ResetAuthorizersCacheCommand,
   serializeAws_restJson1ResetAuthorizersCacheCommand,
@@ -72,7 +72,7 @@ export class ResetAuthorizersCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetAuthorizersCacheRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetAuthorizersCacheRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

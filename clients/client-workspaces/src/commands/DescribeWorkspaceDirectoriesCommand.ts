@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeWorkspaceDirectoriesRequest, DescribeWorkspaceDirectoriesResult } from "../models/models_0";
+import {
+  DescribeWorkspaceDirectoriesRequest,
+  DescribeWorkspaceDirectoriesRequestFilterSensitiveLog,
+  DescribeWorkspaceDirectoriesResult,
+  DescribeWorkspaceDirectoriesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand,
   serializeAws_json1_1DescribeWorkspaceDirectoriesCommand,
@@ -74,8 +79,8 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkspaceDirectoriesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkspaceDirectoriesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeWorkspaceDirectoriesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeWorkspaceDirectoriesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

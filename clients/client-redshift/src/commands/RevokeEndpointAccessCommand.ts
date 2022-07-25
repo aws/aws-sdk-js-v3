@@ -12,8 +12,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { EndpointAuthorization } from "../models/models_0";
-import { RevokeEndpointAccessMessage } from "../models/models_1";
+import { EndpointAuthorization, EndpointAuthorizationFilterSensitiveLog } from "../models/models_0";
+import { RevokeEndpointAccessMessage, RevokeEndpointAccessMessageFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_queryRevokeEndpointAccessCommand,
   serializeAws_queryRevokeEndpointAccessCommand,
@@ -73,8 +73,8 @@ export class RevokeEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeEndpointAccessMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: EndpointAuthorization.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokeEndpointAccessMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: EndpointAuthorizationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

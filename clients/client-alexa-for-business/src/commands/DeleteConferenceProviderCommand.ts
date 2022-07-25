@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { DeleteConferenceProviderRequest, DeleteConferenceProviderResponse } from "../models/models_0";
+import {
+  DeleteConferenceProviderRequest,
+  DeleteConferenceProviderRequestFilterSensitiveLog,
+  DeleteConferenceProviderResponse,
+  DeleteConferenceProviderResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteConferenceProviderCommand,
   serializeAws_json1_1DeleteConferenceProviderCommand,
@@ -72,8 +77,8 @@ export class DeleteConferenceProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConferenceProviderRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConferenceProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteConferenceProviderRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteConferenceProviderResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

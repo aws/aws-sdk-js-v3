@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { DeleteResourceServerRequest } from "../models/models_0";
+import { DeleteResourceServerRequest, DeleteResourceServerRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteResourceServerCommand,
   serializeAws_json1_1DeleteResourceServerCommand,
@@ -78,7 +78,7 @@ export class DeleteResourceServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourceServerRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteResourceServerRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateConnectPeerRequest, DisassociateConnectPeerResponse } from "../models/models_0";
+import {
+  DisassociateConnectPeerRequest,
+  DisassociateConnectPeerRequestFilterSensitiveLog,
+  DisassociateConnectPeerResponse,
+  DisassociateConnectPeerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1DisassociateConnectPeerCommand,
@@ -72,8 +77,8 @@ export class DisassociateConnectPeerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateConnectPeerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateConnectPeerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateConnectPeerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateConnectPeerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

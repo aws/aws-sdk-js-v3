@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetResourcePoliciesRequest, GetResourcePoliciesResponse } from "../models/models_0";
+import {
+  GetResourcePoliciesRequest,
+  GetResourcePoliciesRequestFilterSensitiveLog,
+  GetResourcePoliciesResponse,
+  GetResourcePoliciesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetResourcePoliciesCommand,
   serializeAws_restJson1GetResourcePoliciesCommand,
@@ -73,8 +78,8 @@ export class GetResourcePoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourcePoliciesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetResourcePoliciesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetResourcePoliciesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetResourcePoliciesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DeleteLifecycleHookAnswer, DeleteLifecycleHookType } from "../models/models_0";
+import {
+  DeleteLifecycleHookAnswer,
+  DeleteLifecycleHookAnswerFilterSensitiveLog,
+  DeleteLifecycleHookType,
+  DeleteLifecycleHookTypeFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteLifecycleHookCommand,
   serializeAws_queryDeleteLifecycleHookCommand,
@@ -75,8 +80,8 @@ export class DeleteLifecycleHookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLifecycleHookType.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLifecycleHookAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLifecycleHookTypeFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLifecycleHookAnswerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DescribeFunctionRequest, DescribeFunctionResult } from "../models/models_1";
+import {
+  DescribeFunctionRequest,
+  DescribeFunctionRequestFilterSensitiveLog,
+  DescribeFunctionResult,
+  DescribeFunctionResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlDescribeFunctionCommand,
   serializeAws_restXmlDescribeFunctionCommand,
@@ -76,8 +81,8 @@ export class DescribeFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFunctionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFunctionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFunctionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFunctionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

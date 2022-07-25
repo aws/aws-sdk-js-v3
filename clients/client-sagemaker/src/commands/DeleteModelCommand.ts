@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteModelInput } from "../models/models_1";
+import { DeleteModelInput, DeleteModelInputFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteModelCommand,
   serializeAws_json1_1DeleteModelCommand,
@@ -75,7 +75,7 @@ export class DeleteModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteModelInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteModelInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

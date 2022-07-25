@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { DeleteEventDataStoreRequest, DeleteEventDataStoreResponse } from "../models/models_0";
+import {
+  DeleteEventDataStoreRequest,
+  DeleteEventDataStoreRequestFilterSensitiveLog,
+  DeleteEventDataStoreResponse,
+  DeleteEventDataStoreResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEventDataStoreCommand,
   serializeAws_json1_1DeleteEventDataStoreCommand,
@@ -78,8 +83,8 @@ export class DeleteEventDataStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventDataStoreRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEventDataStoreResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEventDataStoreRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEventDataStoreResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

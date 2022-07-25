@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { DescribeStackResourceInput, DescribeStackResourceOutput } from "../models/models_0";
+import {
+  DescribeStackResourceInput,
+  DescribeStackResourceInputFilterSensitiveLog,
+  DescribeStackResourceOutput,
+  DescribeStackResourceOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeStackResourceCommand,
   serializeAws_queryDescribeStackResourceCommand,
@@ -74,8 +79,8 @@ export class DescribeStackResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStackResourceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStackResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeStackResourceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeStackResourceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

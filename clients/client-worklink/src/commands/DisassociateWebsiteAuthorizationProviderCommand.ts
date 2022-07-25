@@ -14,7 +14,9 @@ import {
 
 import {
   DisassociateWebsiteAuthorizationProviderRequest,
+  DisassociateWebsiteAuthorizationProviderRequestFilterSensitiveLog,
   DisassociateWebsiteAuthorizationProviderResponse,
+  DisassociateWebsiteAuthorizationProviderResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateWebsiteAuthorizationProviderCommand,
@@ -85,8 +87,8 @@ export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateWebsiteAuthorizationProviderRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateWebsiteAuthorizationProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateWebsiteAuthorizationProviderRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateWebsiteAuthorizationProviderResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import { PutDialRequestBatchRequest, PutDialRequestBatchResponse } from "../models/models_0";
+import {
+  PutDialRequestBatchRequest,
+  PutDialRequestBatchRequestFilterSensitiveLog,
+  PutDialRequestBatchResponse,
+  PutDialRequestBatchResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutDialRequestBatchCommand,
   serializeAws_restJson1PutDialRequestBatchCommand,
@@ -72,8 +77,8 @@ export class PutDialRequestBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDialRequestBatchRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutDialRequestBatchResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutDialRequestBatchRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutDialRequestBatchResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

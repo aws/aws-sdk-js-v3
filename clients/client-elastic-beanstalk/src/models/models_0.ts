@@ -20,15 +20,6 @@ export interface AbortEnvironmentUpdateMessage {
   EnvironmentName?: string;
 }
 
-export namespace AbortEnvironmentUpdateMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbortEnvironmentUpdateMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
@@ -78,15 +69,6 @@ export interface MaxAgeRule {
   DeleteSourceFromS3?: boolean;
 }
 
-export namespace MaxAgeRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaxAgeRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A lifecycle rule that deletes the oldest application version when the maximum count is
  *       exceeded.</p>
@@ -110,15 +92,6 @@ export interface MaxCountRule {
   DeleteSourceFromS3?: boolean;
 }
 
-export namespace MaxCountRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaxCountRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The application version lifecycle settings for an application. Defines the rules that
  *       Elastic Beanstalk applies to an application's versions in order to avoid hitting the
@@ -139,15 +112,6 @@ export interface ApplicationVersionLifecycleConfig {
    *       retained for an application.</p>
    */
   MaxAgeRule?: MaxAgeRule;
-}
-
-export namespace ApplicationVersionLifecycleConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationVersionLifecycleConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -174,15 +138,6 @@ export interface ApplicationResourceLifecycleConfig {
    * <p>Defines lifecycle settings for application versions.</p>
    */
   VersionLifecycleConfig?: ApplicationVersionLifecycleConfig;
-}
-
-export namespace ApplicationResourceLifecycleConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationResourceLifecycleConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -230,15 +185,6 @@ export interface ApplicationDescription {
   ResourceLifecycleConfig?: ApplicationResourceLifecycleConfig;
 }
 
-export namespace ApplicationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Result message containing a single description of an application.</p>
  */
@@ -249,15 +195,6 @@ export interface ApplicationDescriptionMessage {
   Application?: ApplicationDescription;
 }
 
-export namespace ApplicationDescriptionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationDescriptionMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Result message containing a list of application descriptions.</p>
  */
@@ -266,15 +203,6 @@ export interface ApplicationDescriptionsMessage {
    * <p>This parameter contains a list of <a>ApplicationDescription</a>.</p>
    */
   Applications?: ApplicationDescription[];
-}
-
-export namespace ApplicationDescriptionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationDescriptionsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -331,15 +259,6 @@ export interface Latency {
   P10?: number;
 }
 
-export namespace Latency {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Latency): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the percentage of requests over the last 10 seconds that resulted in each
  *       type of status code response. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">Status Code
@@ -369,15 +288,6 @@ export interface StatusCodes {
    *       etc.) status code.</p>
    */
   Status5xx?: number;
-}
-
-export namespace StatusCodes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatusCodes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -410,15 +320,6 @@ export interface ApplicationMetrics {
   Latency?: Latency;
 }
 
-export namespace ApplicationMetrics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationMetrics): any => ({
-    ...obj,
-  });
-}
-
 export interface ApplicationResourceLifecycleDescriptionMessage {
   /**
    * <p>The name of the application.</p>
@@ -429,15 +330,6 @@ export interface ApplicationResourceLifecycleDescriptionMessage {
    * <p>The lifecycle configuration.</p>
    */
   ResourceLifecycleConfig?: ApplicationResourceLifecycleConfig;
-}
-
-export namespace ApplicationResourceLifecycleDescriptionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationResourceLifecycleDescriptionMessage): any => ({
-    ...obj,
-  });
 }
 
 export type SourceRepository = "CodeCommit" | "S3";
@@ -503,15 +395,6 @@ export interface SourceBuildInformation {
   SourceLocation: string | undefined;
 }
 
-export namespace SourceBuildInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceBuildInformation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The bucket and key of an item stored in Amazon S3.</p>
  */
@@ -525,15 +408,6 @@ export interface S3Location {
    * <p>The Amazon S3 key where the data is located.</p>
    */
   S3Key?: string;
-}
-
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-  });
 }
 
 export type ApplicationVersionStatus = "Building" | "Failed" | "Processed" | "Processing" | "Unprocessed";
@@ -623,15 +497,6 @@ export interface ApplicationVersionDescription {
   Status?: ApplicationVersionStatus | string;
 }
 
-export namespace ApplicationVersionDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationVersionDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Result message wrapping a single description of an application version.</p>
  */
@@ -641,15 +506,6 @@ export interface ApplicationVersionDescriptionMessage {
    *     </p>
    */
   ApplicationVersion?: ApplicationVersionDescription;
-}
-
-export namespace ApplicationVersionDescriptionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationVersionDescriptionMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -667,15 +523,6 @@ export interface ApplicationVersionDescriptionsMessage {
    *       next response page.</p>
    */
   NextToken?: string;
-}
-
-export namespace ApplicationVersionDescriptionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationVersionDescriptionsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -696,15 +543,6 @@ export interface ApplyEnvironmentManagedActionRequest {
    * <p>The action ID of the scheduled managed action to execute.</p>
    */
   ActionId: string | undefined;
-}
-
-export namespace ApplyEnvironmentManagedActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplyEnvironmentManagedActionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -730,15 +568,6 @@ export interface ApplyEnvironmentManagedActionResult {
    * <p>The status of the managed action.</p>
    */
   Status?: string;
-}
-
-export namespace ApplyEnvironmentManagedActionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplyEnvironmentManagedActionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -795,15 +624,6 @@ export interface AssociateEnvironmentOperationsRoleMessage {
   OperationsRole: string | undefined;
 }
 
-export namespace AssociateEnvironmentOperationsRoleMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateEnvironmentOperationsRoleMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an Auto Scaling launch configuration.</p>
  */
@@ -812,15 +632,6 @@ export interface AutoScalingGroup {
    * <p>The name of the <code>AutoScalingGroup</code> . </p>
    */
   Name?: string;
-}
-
-export namespace AutoScalingGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScalingGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -838,15 +649,6 @@ export interface SolutionStackDescription {
   PermittedFileTypes?: string[];
 }
 
-export namespace SolutionStackDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SolutionStackDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Results message indicating whether a CNAME is available.</p>
  */
@@ -855,15 +657,6 @@ export interface CheckDNSAvailabilityMessage {
    * <p>The prefix used when this CNAME is reserved.</p>
    */
   CNAMEPrefix: string | undefined;
-}
-
-export namespace CheckDNSAvailabilityMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckDNSAvailabilityMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -892,15 +685,6 @@ export interface CheckDNSAvailabilityResultMessage {
   FullyQualifiedCNAME?: string;
 }
 
-export namespace CheckDNSAvailabilityResultMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckDNSAvailabilityResultMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to create or update a group of environments.</p>
  */
@@ -927,15 +711,6 @@ export interface ComposeEnvironmentsMessage {
   VersionLabels?: string[];
 }
 
-export namespace ComposeEnvironmentsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComposeEnvironmentsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A link to another environment, defined in the environment's manifest. Links provide
  *       connection information in system properties that can be used to connect to another environment
@@ -952,15 +727,6 @@ export interface EnvironmentLink {
    * <p>The name of the linked environment (the dependency).</p>
    */
   EnvironmentName?: string;
-}
-
-export namespace EnvironmentLink {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentLink): any => ({
-    ...obj,
-  });
 }
 
 export type EnvironmentHealth = "Green" | "Grey" | "Red" | "Yellow";
@@ -991,15 +757,6 @@ export interface Listener {
   Port?: number;
 }
 
-export namespace Listener {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Listener): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the details of a LoadBalancer.</p>
  */
@@ -1020,15 +777,6 @@ export interface LoadBalancerDescription {
   Listeners?: Listener[];
 }
 
-export namespace LoadBalancerDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the AWS resources in use by this environment. This data is not live
  *       data.</p>
@@ -1038,15 +786,6 @@ export interface EnvironmentResourcesDescription {
    * <p>Describes the LoadBalancer.</p>
    */
   LoadBalancer?: LoadBalancerDescription;
-}
-
-export namespace EnvironmentResourcesDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentResourcesDescription): any => ({
-    ...obj,
-  });
 }
 
 export type EnvironmentStatus =
@@ -1104,15 +843,6 @@ export interface EnvironmentTier {
    *          </note>
    */
   Version?: string;
-}
-
-export namespace EnvironmentTier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentTier): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1285,15 +1015,6 @@ export interface EnvironmentDescription {
   OperationsRole?: string;
 }
 
-export namespace EnvironmentDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Result message containing a list of environment descriptions.</p>
  */
@@ -1308,15 +1029,6 @@ export interface EnvironmentDescriptionsMessage {
    *       next response page.</p>
    */
   NextToken?: string;
-}
-
-export namespace EnvironmentDescriptionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentDescriptionsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1353,15 +1065,6 @@ export interface Tag {
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to create an application.</p>
  */
@@ -1388,15 +1091,6 @@ export interface CreateApplicationMessage {
    *       application don't inherit the tags.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateApplicationMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1495,15 +1189,6 @@ export interface BuildConfiguration {
   TimeoutInMinutes?: number;
 }
 
-export namespace BuildConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuildConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1583,15 +1268,6 @@ export interface CreateApplicationVersionMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateApplicationVersionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationVersionMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified S3 bucket does not belong to the S3 region in which the service is
  *       running. The following regions are supported:</p>
@@ -1669,15 +1345,6 @@ export interface ConfigurationOptionSetting {
    * <p>The current value for the configuration option.</p>
    */
   Value?: string;
-}
-
-export namespace ConfigurationOptionSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationOptionSetting): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1762,15 +1429,6 @@ export interface ConfigurationSettingsDescription {
   OptionSettings?: ConfigurationOptionSetting[];
 }
 
-export namespace ConfigurationSettingsDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationSettingsDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A specification for an environment configuration.</p>
  */
@@ -1784,15 +1442,6 @@ export interface SourceConfiguration {
    * <p>The name of the configuration template.</p>
    */
   TemplateName?: string;
-}
-
-export namespace SourceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1880,15 +1529,6 @@ export interface CreateConfigurationTemplateMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateConfigurationTemplateMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationTemplateMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified account has reached its limit of Amazon S3 buckets.</p>
  */
@@ -1945,15 +1585,6 @@ export interface OptionSpecification {
    * <p>The name of the configuration option.</p>
    */
   OptionName?: string;
-}
-
-export namespace OptionSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptionSpecification): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2071,15 +1702,6 @@ export interface CreateEnvironmentMessage {
   OperationsRole?: string;
 }
 
-export namespace CreateEnvironmentMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to create a new platform version.</p>
  */
@@ -2117,15 +1739,6 @@ export interface CreatePlatformVersionRequest {
   Tags?: Tag[];
 }
 
-export namespace CreatePlatformVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePlatformVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The builder used to build the custom platform.</p>
  */
@@ -2134,15 +1747,6 @@ export interface Builder {
    * <p>The ARN of the builder.</p>
    */
   ARN?: string;
-}
-
-export namespace Builder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Builder): any => ({
-    ...obj,
-  });
 }
 
 export type PlatformStatus = "Creating" | "Deleted" | "Deleting" | "Failed" | "Ready";
@@ -2219,15 +1823,6 @@ export interface PlatformSummary {
   PlatformBranchLifecycleState?: string;
 }
 
-export namespace PlatformSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlatformSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePlatformVersionResult {
   /**
    * <p>Detailed information about the new version of the custom platform.</p>
@@ -2238,15 +1833,6 @@ export interface CreatePlatformVersionResult {
    * <p>The builder used to create the custom platform.</p>
    */
   Builder?: Builder;
-}
-
-export namespace CreatePlatformVersionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePlatformVersionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2276,15 +1862,6 @@ export interface CreateStorageLocationResultMessage {
    * <p>The name of the Amazon S3 bucket created.</p>
    */
   S3Bucket?: string;
-}
-
-export namespace CreateStorageLocationResultMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStorageLocationResultMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2320,15 +1897,6 @@ export interface DeleteApplicationMessage {
    *       application.</p>
    */
   TerminateEnvByForce?: boolean;
-}
-
-export namespace DeleteApplicationMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2373,15 +1941,6 @@ export interface DeleteApplicationVersionMessage {
   DeleteSourceBundle?: boolean;
 }
 
-export namespace DeleteApplicationVersionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationVersionMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Unable to delete the Amazon S3 source bundle associated with the application version.
  *       The application version was deleted successfully.</p>
@@ -2417,15 +1976,6 @@ export interface DeleteConfigurationTemplateMessage {
   TemplateName: string | undefined;
 }
 
-export namespace DeleteConfigurationTemplateMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationTemplateMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to delete a draft environment configuration.</p>
  */
@@ -2441,15 +1991,6 @@ export interface DeleteEnvironmentConfigurationMessage {
   EnvironmentName: string | undefined;
 }
 
-export namespace DeleteEnvironmentConfigurationMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentConfigurationMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePlatformVersionRequest {
   /**
    * <p>The ARN of the version of the custom platform.</p>
@@ -2457,29 +1998,11 @@ export interface DeletePlatformVersionRequest {
   PlatformArn?: string;
 }
 
-export namespace DeletePlatformVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePlatformVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePlatformVersionResult {
   /**
    * <p>Detailed information about the version of the custom platform.</p>
    */
   PlatformSummary?: PlatformSummary;
-}
-
-export namespace DeletePlatformVersionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePlatformVersionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2513,15 +2036,6 @@ export interface ResourceQuota {
   Maximum?: number;
 }
 
-export namespace ResourceQuota {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceQuota): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A set of per-resource AWS Elastic Beanstalk quotas associated with an AWS account. They reflect
  *       Elastic Beanstalk resource limits for this account.</p>
@@ -2553,29 +2067,11 @@ export interface ResourceQuotas {
   CustomPlatformQuota?: ResourceQuota;
 }
 
-export namespace ResourceQuotas {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceQuotas): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccountAttributesResult {
   /**
    * <p>The Elastic Beanstalk resource quotas associated with the calling AWS account.</p>
    */
   ResourceQuotas?: ResourceQuotas;
-}
-
-export namespace DescribeAccountAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountAttributesResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2587,15 +2083,6 @@ export interface DescribeApplicationsMessage {
    *       those with the specified names.</p>
    */
   ApplicationNames?: string[];
-}
-
-export namespace DescribeApplicationsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApplicationsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2629,15 +2116,6 @@ export interface DescribeApplicationVersionsMessage {
   NextToken?: string;
 }
 
-export namespace DescribeApplicationVersionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApplicationVersionsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A regular expression representing a restriction on a string configuration option
  *       value.</p>
@@ -2653,15 +2131,6 @@ export interface OptionRestrictionRegex {
    * <p>A unique name representing this regular expression.</p>
    */
   Label?: string;
-}
-
-export namespace OptionRestrictionRegex {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptionRestrictionRegex): any => ({
-    ...obj,
-  });
 }
 
 export type ConfigurationOptionValueType = "List" | "Scalar";
@@ -2790,15 +2259,6 @@ export interface ConfigurationOptionDescription {
   Regex?: OptionRestrictionRegex;
 }
 
-export namespace ConfigurationOptionDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationOptionDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the settings for a specified configuration set.</p>
  */
@@ -2817,15 +2277,6 @@ export interface ConfigurationOptionsDescription {
    * <p> A list of <a>ConfigurationOptionDescription</a>. </p>
    */
   Options?: ConfigurationOptionDescription[];
-}
-
-export namespace ConfigurationOptionsDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationOptionsDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2867,15 +2318,6 @@ export interface DescribeConfigurationOptionsMessage {
   Options?: OptionSpecification[];
 }
 
-export namespace DescribeConfigurationOptionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationOptionsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The results from a request to change the configuration settings of an
  *       environment.</p>
@@ -2885,15 +2327,6 @@ export interface ConfigurationSettingsDescriptions {
    * <p> A list of <a>ConfigurationSettingsDescription</a>. </p>
    */
   ConfigurationSettings?: ConfigurationSettingsDescription[];
-}
-
-export namespace ConfigurationSettingsDescriptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationSettingsDescriptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2923,15 +2356,6 @@ export interface DescribeConfigurationSettingsMessage {
    *         <code>MissingRequiredParameter</code> error. </p>
    */
   EnvironmentName?: string;
-}
-
-export namespace DescribeConfigurationSettingsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationSettingsMessage): any => ({
-    ...obj,
-  });
 }
 
 export enum EnvironmentHealthAttribute {
@@ -2967,15 +2391,6 @@ export interface DescribeEnvironmentHealthRequest {
    *       environment.</p>
    */
   AttributeNames?: (EnvironmentHealthAttribute | string)[];
-}
-
-export namespace DescribeEnvironmentHealthRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentHealthRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3039,15 +2454,6 @@ export interface InstanceHealthSummary {
   Severe?: number;
 }
 
-export namespace InstanceHealthSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceHealthSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Health details for an AWS Elastic Beanstalk environment.</p>
  */
@@ -3097,15 +2503,6 @@ export interface DescribeEnvironmentHealthResult {
   RefreshedAt?: Date;
 }
 
-export namespace DescribeEnvironmentHealthResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentHealthResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more input parameters is not valid. Please correct the input parameters and try
  *       the operation again.</p>
@@ -3149,15 +2546,6 @@ export interface DescribeEnvironmentManagedActionHistoryRequest {
    * <p>The maximum number of items to return for a single request.</p>
    */
   MaxItems?: number;
-}
-
-export namespace DescribeEnvironmentManagedActionHistoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentManagedActionHistoryRequest): any => ({
-    ...obj,
-  });
 }
 
 export type FailureType =
@@ -3214,15 +2602,6 @@ export interface ManagedActionHistoryItem {
   FinishedTime?: Date;
 }
 
-export namespace ManagedActionHistoryItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagedActionHistoryItem): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A result message containing a list of completed and failed managed actions.</p>
  */
@@ -3237,15 +2616,6 @@ export interface DescribeEnvironmentManagedActionHistoryResult {
    *       results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeEnvironmentManagedActionHistoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentManagedActionHistoryResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3266,15 +2636,6 @@ export interface DescribeEnvironmentManagedActionsRequest {
    * <p>To show only actions with a particular status, specify a status.</p>
    */
   Status?: ActionStatus | string;
-}
-
-export namespace DescribeEnvironmentManagedActionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentManagedActionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3309,15 +2670,6 @@ export interface ManagedAction {
   WindowStartTime?: Date;
 }
 
-export namespace ManagedAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagedAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result message containing a list of managed actions.</p>
  */
@@ -3326,15 +2678,6 @@ export interface DescribeEnvironmentManagedActionsResult {
    * <p>A list of upcoming and in-progress managed actions.</p>
    */
   ManagedActions?: ManagedAction[];
-}
-
-export namespace DescribeEnvironmentManagedActionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentManagedActionsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3358,15 +2701,6 @@ export interface DescribeEnvironmentResourcesMessage {
   EnvironmentName?: string;
 }
 
-export namespace DescribeEnvironmentResourcesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentResourcesMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The description of an Amazon EC2 instance.</p>
  */
@@ -3375,15 +2709,6 @@ export interface Instance {
    * <p>The ID of the Amazon EC2 instance.</p>
    */
   Id?: string;
-}
-
-export namespace Instance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Instance): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3396,15 +2721,6 @@ export interface LaunchConfiguration {
   Name?: string;
 }
 
-export namespace LaunchConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an Amazon EC2 launch template.</p>
  */
@@ -3415,15 +2731,6 @@ export interface LaunchTemplate {
   Id?: string;
 }
 
-export namespace LaunchTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a LoadBalancer.</p>
  */
@@ -3432,15 +2739,6 @@ export interface LoadBalancer {
    * <p>The name of the LoadBalancer.</p>
    */
   Name?: string;
-}
-
-export namespace LoadBalancer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancer): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3458,15 +2756,6 @@ export interface Queue {
   URL?: string;
 }
 
-export namespace Queue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Queue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a trigger.</p>
  */
@@ -3475,15 +2764,6 @@ export interface Trigger {
    * <p>The name of the trigger.</p>
    */
   Name?: string;
-}
-
-export namespace Trigger {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Trigger): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3531,15 +2811,6 @@ export interface EnvironmentResourceDescription {
   Queues?: Queue[];
 }
 
-export namespace EnvironmentResourceDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentResourceDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Result message containing a list of environment resource descriptions.</p>
  */
@@ -3548,15 +2819,6 @@ export interface EnvironmentResourceDescriptionsMessage {
    * <p> A list of <a>EnvironmentResourceDescription</a>. </p>
    */
   EnvironmentResources?: EnvironmentResourceDescription;
-}
-
-export namespace EnvironmentResourceDescriptionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentResourceDescriptionsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3617,15 +2879,6 @@ export interface DescribeEnvironmentsMessage {
    *          <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeEnvironmentsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentsMessage): any => ({
-    ...obj,
-  });
 }
 
 export type EventSeverity = "DEBUG" | "ERROR" | "FATAL" | "INFO" | "TRACE" | "WARN";
@@ -3706,15 +2959,6 @@ export interface DescribeEventsMessage {
   NextToken?: string;
 }
 
-export namespace DescribeEventsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an event.</p>
  */
@@ -3765,15 +3009,6 @@ export interface EventDescription {
   Severity?: EventSeverity | string;
 }
 
-export namespace EventDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Result message wrapping a list of event descriptions.</p>
  */
@@ -3788,15 +3023,6 @@ export interface EventDescriptionsMessage {
    *       the next <a>DescribeEvents</a> call to get the next batch of events. </p>
    */
   NextToken?: string;
-}
-
-export namespace EventDescriptionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDescriptionsMessage): any => ({
-    ...obj,
-  });
 }
 
 export enum InstancesHealthAttribute {
@@ -3840,15 +3066,6 @@ export interface DescribeInstancesHealthRequest {
   NextToken?: string;
 }
 
-export namespace DescribeInstancesHealthRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstancesHealthRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an application version deployment.</p>
  */
@@ -3888,15 +3105,6 @@ export interface Deployment {
    *          <p>For completed deployments, the time that the deployment ended.</p>
    */
   DeploymentTime?: Date;
-}
-
-export namespace Deployment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Deployment): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3958,15 +3166,6 @@ export interface CPUUtilization {
   Privileged?: number;
 }
 
-export namespace CPUUtilization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CPUUtilization): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>CPU utilization and load average metrics for an Amazon EC2 instance.</p>
  */
@@ -3982,15 +3181,6 @@ export interface SystemStatus {
    *         <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os">Operating System Metrics</a>.</p>
    */
   LoadAverage?: number[];
-}
-
-export namespace SystemStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SystemStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4053,15 +3243,6 @@ export interface SingleInstanceHealth {
   InstanceType?: string;
 }
 
-export namespace SingleInstanceHealth {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SingleInstanceHealth): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Detailed health information about the Amazon EC2 instances in an AWS Elastic Beanstalk
  *       environment.</p>
@@ -4085,29 +3266,11 @@ export interface DescribeInstancesHealthResult {
   NextToken?: string;
 }
 
-export namespace DescribeInstancesHealthResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstancesHealthResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePlatformVersionRequest {
   /**
    * <p>The ARN of the platform version.</p>
    */
   PlatformArn?: string;
-}
-
-export namespace DescribePlatformVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePlatformVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4125,15 +3288,6 @@ export interface CustomAmi {
   ImageId?: string;
 }
 
-export namespace CustomAmi {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomAmi): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A framework supported by the platform.</p>
  */
@@ -4149,15 +3303,6 @@ export interface PlatformFramework {
   Version?: string;
 }
 
-export namespace PlatformFramework {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlatformFramework): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A programming language supported by the platform.</p>
  */
@@ -4171,15 +3316,6 @@ export interface PlatformProgrammingLanguage {
    * <p>The version of the programming language.</p>
    */
   Version?: string;
-}
-
-export namespace PlatformProgrammingLanguage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlatformProgrammingLanguage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4300,29 +3436,11 @@ export interface PlatformDescription {
   PlatformBranchLifecycleState?: string;
 }
 
-export namespace PlatformDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlatformDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePlatformVersionResult {
   /**
    * <p>Detailed information about the platform version.</p>
    */
   PlatformDescription?: PlatformDescription;
-}
-
-export namespace DescribePlatformVersionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePlatformVersionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4333,15 +3451,6 @@ export interface DisassociateEnvironmentOperationsRoleMessage {
    * <p>The name of the environment from which to disassociate the operations role.</p>
    */
   EnvironmentName: string | undefined;
-}
-
-export namespace DisassociateEnvironmentOperationsRoleMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateEnvironmentOperationsRoleMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4357,15 +3466,6 @@ export interface ListAvailableSolutionStacksResultMessage {
    * <p> A list of available solution stacks and their <a>SolutionStackDescription</a>. </p>
    */
   SolutionStackDetails?: SolutionStackDescription[];
-}
-
-export namespace ListAvailableSolutionStacksResultMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAvailableSolutionStacksResultMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4400,15 +3500,6 @@ export interface SearchFilter {
    *       attributes. Number of values and valid values vary by <code>Attribute</code>.</p>
    */
   Values?: string[];
-}
-
-export namespace SearchFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPlatformBranchesRequest {
@@ -4500,15 +3591,6 @@ export interface ListPlatformBranchesRequest {
   NextToken?: string;
 }
 
-export namespace ListPlatformBranchesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPlatformBranchesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary information about a platform branch.</p>
  */
@@ -4549,15 +3631,6 @@ export interface PlatformBranchSummary {
   SupportedTierList?: string[];
 }
 
-export namespace PlatformBranchSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlatformBranchSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPlatformBranchesResult {
   /**
    * <p>Summary information about the platform branches.</p>
@@ -4569,15 +3642,6 @@ export interface ListPlatformBranchesResult {
    *       pass in a subsequent request to get the next response page.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPlatformBranchesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPlatformBranchesResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4641,15 +3705,6 @@ export interface PlatformFilter {
   Values?: string[];
 }
 
-export namespace PlatformFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlatformFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPlatformVersionsRequest {
   /**
    * <p>Criteria for restricting the resulting list of platform versions. The filter is
@@ -4672,15 +3727,6 @@ export interface ListPlatformVersionsRequest {
   NextToken?: string;
 }
 
-export namespace ListPlatformVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPlatformVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPlatformVersionsResult {
   /**
    * <p>Summary information about the platform versions.</p>
@@ -4694,30 +3740,12 @@ export interface ListPlatformVersionsResult {
   NextToken?: string;
 }
 
-export namespace ListPlatformVersionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPlatformVersionsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the resouce for which a tag list is requested.</p>
    *          <p>Must be the ARN of an Elastic Beanstalk resource.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4749,15 +3777,6 @@ export interface ResourceTagsDescriptionMessage {
    * <p>A list of tag key-value pairs.</p>
    */
   ResourceTags?: Tag[];
-}
-
-export namespace ResourceTagsDescriptionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTagsDescriptionMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4800,15 +3819,6 @@ export interface RebuildEnvironmentMessage {
   EnvironmentName?: string;
 }
 
-export namespace RebuildEnvironmentMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebuildEnvironmentMessage): any => ({
-    ...obj,
-  });
-}
-
 export type EnvironmentInfoType = "bundle" | "tail";
 
 /**
@@ -4842,15 +3852,6 @@ export interface RequestEnvironmentInfoMessage {
   InfoType: EnvironmentInfoType | string | undefined;
 }
 
-export namespace RequestEnvironmentInfoMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestEnvironmentInfoMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -4870,15 +3871,6 @@ export interface RestartAppServerMessage {
    *     </p>
    */
   EnvironmentName?: string;
-}
-
-export namespace RestartAppServerMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestartAppServerMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4910,15 +3902,6 @@ export interface RetrieveEnvironmentInfoMessage {
   InfoType: EnvironmentInfoType | string | undefined;
 }
 
-export namespace RetrieveEnvironmentInfoMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetrieveEnvironmentInfoMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The information retrieved from the Amazon EC2 instances.</p>
  */
@@ -4947,15 +3930,6 @@ export interface EnvironmentInfoDescription {
   Message?: string;
 }
 
-export namespace EnvironmentInfoDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentInfoDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Result message containing a description of the requested environment info.</p>
  */
@@ -4964,15 +3938,6 @@ export interface RetrieveEnvironmentInfoResultMessage {
    * <p> The <a>EnvironmentInfoDescription</a> of the environment. </p>
    */
   EnvironmentInfo?: EnvironmentInfoDescription[];
-}
-
-export namespace RetrieveEnvironmentInfoResultMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetrieveEnvironmentInfoResultMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5013,15 +3978,6 @@ export interface SwapEnvironmentCNAMEsMessage {
    *     </p>
    */
   DestinationEnvironmentName?: string;
-}
-
-export namespace SwapEnvironmentCNAMEsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SwapEnvironmentCNAMEsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5075,15 +4031,6 @@ export interface TerminateEnvironmentMessage {
   ForceTerminate?: boolean;
 }
 
-export namespace TerminateEnvironmentMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateEnvironmentMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to update an application.</p>
  */
@@ -5103,15 +4050,6 @@ export interface UpdateApplicationMessage {
   Description?: string;
 }
 
-export namespace UpdateApplicationMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApplicationResourceLifecycleMessage {
   /**
    * <p>The name of the application.</p>
@@ -5122,15 +4060,6 @@ export interface UpdateApplicationResourceLifecycleMessage {
    * <p>The lifecycle configuration.</p>
    */
   ResourceLifecycleConfig: ApplicationResourceLifecycleConfig | undefined;
-}
-
-export namespace UpdateApplicationResourceLifecycleMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationResourceLifecycleMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5155,15 +4084,6 @@ export interface UpdateApplicationVersionMessage {
    * <p>A new description for this version.</p>
    */
   Description?: string;
-}
-
-export namespace UpdateApplicationVersionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationVersionMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5203,15 +4123,6 @@ export interface UpdateConfigurationTemplateMessage {
    *     </p>
    */
   OptionsToRemove?: OptionSpecification[];
-}
-
-export namespace UpdateConfigurationTemplateMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationTemplateMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5302,15 +4213,6 @@ export interface UpdateEnvironmentMessage {
   OptionsToRemove?: OptionSpecification[];
 }
 
-export namespace UpdateEnvironmentMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of tags in the resource would exceed the number of tags that each resource
  *       can have.</p>
@@ -5356,15 +4258,6 @@ export interface UpdateTagsForResourceMessage {
   TagsToRemove?: string[];
 }
 
-export namespace UpdateTagsForResourceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTagsForResourceMessage): any => ({
-    ...obj,
-  });
-}
-
 export type ValidationSeverity = "error" | "warning";
 
 /**
@@ -5404,15 +4297,6 @@ export interface ValidationMessage {
   OptionName?: string;
 }
 
-export namespace ValidationMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides a list of validation messages.</p>
  */
@@ -5421,15 +4305,6 @@ export interface ConfigurationSettingsValidationMessages {
    * <p> A list of <a>ValidationMessage</a>. </p>
    */
   Messages?: ValidationMessage[];
-}
-
-export namespace ConfigurationSettingsValidationMessages {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationSettingsValidationMessages): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5460,11 +4335,926 @@ export interface ValidateConfigurationSettingsMessage {
   OptionSettings: ConfigurationOptionSetting[] | undefined;
 }
 
-export namespace ValidateConfigurationSettingsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidateConfigurationSettingsMessage): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AbortEnvironmentUpdateMessageFilterSensitiveLog = (obj: AbortEnvironmentUpdateMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MaxAgeRuleFilterSensitiveLog = (obj: MaxAgeRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MaxCountRuleFilterSensitiveLog = (obj: MaxCountRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationVersionLifecycleConfigFilterSensitiveLog = (obj: ApplicationVersionLifecycleConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationResourceLifecycleConfigFilterSensitiveLog = (obj: ApplicationResourceLifecycleConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationDescriptionFilterSensitiveLog = (obj: ApplicationDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationDescriptionMessageFilterSensitiveLog = (obj: ApplicationDescriptionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationDescriptionsMessageFilterSensitiveLog = (obj: ApplicationDescriptionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LatencyFilterSensitiveLog = (obj: Latency): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatusCodesFilterSensitiveLog = (obj: StatusCodes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationMetricsFilterSensitiveLog = (obj: ApplicationMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationResourceLifecycleDescriptionMessageFilterSensitiveLog = (
+  obj: ApplicationResourceLifecycleDescriptionMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceBuildInformationFilterSensitiveLog = (obj: SourceBuildInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationVersionDescriptionFilterSensitiveLog = (obj: ApplicationVersionDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationVersionDescriptionMessageFilterSensitiveLog = (
+  obj: ApplicationVersionDescriptionMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationVersionDescriptionsMessageFilterSensitiveLog = (
+  obj: ApplicationVersionDescriptionsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplyEnvironmentManagedActionRequestFilterSensitiveLog = (
+  obj: ApplyEnvironmentManagedActionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplyEnvironmentManagedActionResultFilterSensitiveLog = (
+  obj: ApplyEnvironmentManagedActionResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateEnvironmentOperationsRoleMessageFilterSensitiveLog = (
+  obj: AssociateEnvironmentOperationsRoleMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingGroupFilterSensitiveLog = (obj: AutoScalingGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SolutionStackDescriptionFilterSensitiveLog = (obj: SolutionStackDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckDNSAvailabilityMessageFilterSensitiveLog = (obj: CheckDNSAvailabilityMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckDNSAvailabilityResultMessageFilterSensitiveLog = (obj: CheckDNSAvailabilityResultMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComposeEnvironmentsMessageFilterSensitiveLog = (obj: ComposeEnvironmentsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentLinkFilterSensitiveLog = (obj: EnvironmentLink): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListenerFilterSensitiveLog = (obj: Listener): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerDescriptionFilterSensitiveLog = (obj: LoadBalancerDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentResourcesDescriptionFilterSensitiveLog = (obj: EnvironmentResourcesDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentTierFilterSensitiveLog = (obj: EnvironmentTier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentDescriptionFilterSensitiveLog = (obj: EnvironmentDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentDescriptionsMessageFilterSensitiveLog = (obj: EnvironmentDescriptionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationMessageFilterSensitiveLog = (obj: CreateApplicationMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuildConfigurationFilterSensitiveLog = (obj: BuildConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationVersionMessageFilterSensitiveLog = (obj: CreateApplicationVersionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationOptionSettingFilterSensitiveLog = (obj: ConfigurationOptionSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationSettingsDescriptionFilterSensitiveLog = (obj: ConfigurationSettingsDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceConfigurationFilterSensitiveLog = (obj: SourceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationTemplateMessageFilterSensitiveLog = (obj: CreateConfigurationTemplateMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OptionSpecificationFilterSensitiveLog = (obj: OptionSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentMessageFilterSensitiveLog = (obj: CreateEnvironmentMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePlatformVersionRequestFilterSensitiveLog = (obj: CreatePlatformVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuilderFilterSensitiveLog = (obj: Builder): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlatformSummaryFilterSensitiveLog = (obj: PlatformSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePlatformVersionResultFilterSensitiveLog = (obj: CreatePlatformVersionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStorageLocationResultMessageFilterSensitiveLog = (obj: CreateStorageLocationResultMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationMessageFilterSensitiveLog = (obj: DeleteApplicationMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationVersionMessageFilterSensitiveLog = (obj: DeleteApplicationVersionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationTemplateMessageFilterSensitiveLog = (obj: DeleteConfigurationTemplateMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentConfigurationMessageFilterSensitiveLog = (
+  obj: DeleteEnvironmentConfigurationMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePlatformVersionRequestFilterSensitiveLog = (obj: DeletePlatformVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePlatformVersionResultFilterSensitiveLog = (obj: DeletePlatformVersionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceQuotaFilterSensitiveLog = (obj: ResourceQuota): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceQuotasFilterSensitiveLog = (obj: ResourceQuotas): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountAttributesResultFilterSensitiveLog = (obj: DescribeAccountAttributesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeApplicationsMessageFilterSensitiveLog = (obj: DescribeApplicationsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeApplicationVersionsMessageFilterSensitiveLog = (obj: DescribeApplicationVersionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OptionRestrictionRegexFilterSensitiveLog = (obj: OptionRestrictionRegex): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationOptionDescriptionFilterSensitiveLog = (obj: ConfigurationOptionDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationOptionsDescriptionFilterSensitiveLog = (obj: ConfigurationOptionsDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationOptionsMessageFilterSensitiveLog = (
+  obj: DescribeConfigurationOptionsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationSettingsDescriptionsFilterSensitiveLog = (obj: ConfigurationSettingsDescriptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationSettingsMessageFilterSensitiveLog = (
+  obj: DescribeConfigurationSettingsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEnvironmentHealthRequestFilterSensitiveLog = (obj: DescribeEnvironmentHealthRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceHealthSummaryFilterSensitiveLog = (obj: InstanceHealthSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEnvironmentHealthResultFilterSensitiveLog = (obj: DescribeEnvironmentHealthResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEnvironmentManagedActionHistoryRequestFilterSensitiveLog = (
+  obj: DescribeEnvironmentManagedActionHistoryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagedActionHistoryItemFilterSensitiveLog = (obj: ManagedActionHistoryItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEnvironmentManagedActionHistoryResultFilterSensitiveLog = (
+  obj: DescribeEnvironmentManagedActionHistoryResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEnvironmentManagedActionsRequestFilterSensitiveLog = (
+  obj: DescribeEnvironmentManagedActionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagedActionFilterSensitiveLog = (obj: ManagedAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEnvironmentManagedActionsResultFilterSensitiveLog = (
+  obj: DescribeEnvironmentManagedActionsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEnvironmentResourcesMessageFilterSensitiveLog = (
+  obj: DescribeEnvironmentResourcesMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchConfigurationFilterSensitiveLog = (obj: LaunchConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchTemplateFilterSensitiveLog = (obj: LaunchTemplate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerFilterSensitiveLog = (obj: LoadBalancer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueueFilterSensitiveLog = (obj: Queue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TriggerFilterSensitiveLog = (obj: Trigger): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentResourceDescriptionFilterSensitiveLog = (obj: EnvironmentResourceDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentResourceDescriptionsMessageFilterSensitiveLog = (
+  obj: EnvironmentResourceDescriptionsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEnvironmentsMessageFilterSensitiveLog = (obj: DescribeEnvironmentsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventsMessageFilterSensitiveLog = (obj: DescribeEventsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventDescriptionFilterSensitiveLog = (obj: EventDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventDescriptionsMessageFilterSensitiveLog = (obj: EventDescriptionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstancesHealthRequestFilterSensitiveLog = (obj: DescribeInstancesHealthRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentFilterSensitiveLog = (obj: Deployment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CPUUtilizationFilterSensitiveLog = (obj: CPUUtilization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SystemStatusFilterSensitiveLog = (obj: SystemStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SingleInstanceHealthFilterSensitiveLog = (obj: SingleInstanceHealth): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstancesHealthResultFilterSensitiveLog = (obj: DescribeInstancesHealthResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePlatformVersionRequestFilterSensitiveLog = (obj: DescribePlatformVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomAmiFilterSensitiveLog = (obj: CustomAmi): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlatformFrameworkFilterSensitiveLog = (obj: PlatformFramework): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlatformProgrammingLanguageFilterSensitiveLog = (obj: PlatformProgrammingLanguage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlatformDescriptionFilterSensitiveLog = (obj: PlatformDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePlatformVersionResultFilterSensitiveLog = (obj: DescribePlatformVersionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateEnvironmentOperationsRoleMessageFilterSensitiveLog = (
+  obj: DisassociateEnvironmentOperationsRoleMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAvailableSolutionStacksResultMessageFilterSensitiveLog = (
+  obj: ListAvailableSolutionStacksResultMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchFilterFilterSensitiveLog = (obj: SearchFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPlatformBranchesRequestFilterSensitiveLog = (obj: ListPlatformBranchesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlatformBranchSummaryFilterSensitiveLog = (obj: PlatformBranchSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPlatformBranchesResultFilterSensitiveLog = (obj: ListPlatformBranchesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlatformFilterFilterSensitiveLog = (obj: PlatformFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPlatformVersionsRequestFilterSensitiveLog = (obj: ListPlatformVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPlatformVersionsResultFilterSensitiveLog = (obj: ListPlatformVersionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceMessageFilterSensitiveLog = (obj: ListTagsForResourceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceTagsDescriptionMessageFilterSensitiveLog = (obj: ResourceTagsDescriptionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebuildEnvironmentMessageFilterSensitiveLog = (obj: RebuildEnvironmentMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestEnvironmentInfoMessageFilterSensitiveLog = (obj: RequestEnvironmentInfoMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestartAppServerMessageFilterSensitiveLog = (obj: RestartAppServerMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetrieveEnvironmentInfoMessageFilterSensitiveLog = (obj: RetrieveEnvironmentInfoMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentInfoDescriptionFilterSensitiveLog = (obj: EnvironmentInfoDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetrieveEnvironmentInfoResultMessageFilterSensitiveLog = (
+  obj: RetrieveEnvironmentInfoResultMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SwapEnvironmentCNAMEsMessageFilterSensitiveLog = (obj: SwapEnvironmentCNAMEsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateEnvironmentMessageFilterSensitiveLog = (obj: TerminateEnvironmentMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationMessageFilterSensitiveLog = (obj: UpdateApplicationMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationResourceLifecycleMessageFilterSensitiveLog = (
+  obj: UpdateApplicationResourceLifecycleMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationVersionMessageFilterSensitiveLog = (obj: UpdateApplicationVersionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationTemplateMessageFilterSensitiveLog = (obj: UpdateConfigurationTemplateMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentMessageFilterSensitiveLog = (obj: UpdateEnvironmentMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTagsForResourceMessageFilterSensitiveLog = (obj: UpdateTagsForResourceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationMessageFilterSensitiveLog = (obj: ValidationMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationSettingsValidationMessagesFilterSensitiveLog = (
+  obj: ConfigurationSettingsValidationMessages
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidateConfigurationSettingsMessageFilterSensitiveLog = (
+  obj: ValidateConfigurationSettingsMessage
+): any => ({
+  ...obj,
+});

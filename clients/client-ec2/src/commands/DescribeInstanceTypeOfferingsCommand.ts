@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeInstanceTypeOfferingsRequest, DescribeInstanceTypeOfferingsResult } from "../models/models_3";
+import {
+  DescribeInstanceTypeOfferingsRequest,
+  DescribeInstanceTypeOfferingsRequestFilterSensitiveLog,
+  DescribeInstanceTypeOfferingsResult,
+  DescribeInstanceTypeOfferingsResultFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeInstanceTypeOfferingsCommand,
   serializeAws_ec2DescribeInstanceTypeOfferingsCommand,
@@ -75,8 +80,8 @@ export class DescribeInstanceTypeOfferingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceTypeOfferingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceTypeOfferingsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInstanceTypeOfferingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInstanceTypeOfferingsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

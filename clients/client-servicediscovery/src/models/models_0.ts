@@ -19,15 +19,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateHttpNamespaceRequest {
   /**
    * <p>The name that you want to assign to this namespace.</p>
@@ -54,30 +45,12 @@ export interface CreateHttpNamespaceRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateHttpNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHttpNamespaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateHttpNamespaceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
    *                                 To get the status of the operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
    */
   OperationId?: string;
-}
-
-export namespace CreateHttpNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHttpNamespaceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -220,15 +193,6 @@ export interface SOA {
   TTL: number | undefined;
 }
 
-export namespace SOA {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SOA): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>DNS properties for the private DNS
  *    namespace.</p>
@@ -241,15 +205,6 @@ export interface PrivateDnsPropertiesMutable {
   SOA: SOA | undefined;
 }
 
-export namespace PrivateDnsPropertiesMutable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrivateDnsPropertiesMutable): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>DNS properties for the private DNS
  *    namespace.</p>
@@ -260,15 +215,6 @@ export interface PrivateDnsNamespaceProperties {
    *    namespace.</p>
    */
   DnsProperties: PrivateDnsPropertiesMutable | undefined;
-}
-
-export namespace PrivateDnsNamespaceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrivateDnsNamespaceProperties): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePrivateDnsNamespaceRequest {
@@ -309,30 +255,12 @@ export interface CreatePrivateDnsNamespaceRequest {
   Properties?: PrivateDnsNamespaceProperties;
 }
 
-export namespace CreatePrivateDnsNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePrivateDnsNamespaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePrivateDnsNamespaceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
    *                                 To get the status of the operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
    */
   OperationId?: string;
-}
-
-export namespace CreatePrivateDnsNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePrivateDnsNamespaceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -347,15 +275,6 @@ export interface PublicDnsPropertiesMutable {
   SOA: SOA | undefined;
 }
 
-export namespace PublicDnsPropertiesMutable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicDnsPropertiesMutable): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>DNS properties for the public DNS
  *    namespace.</p>
@@ -366,15 +285,6 @@ export interface PublicDnsNamespaceProperties {
    *    namespace.</p>
    */
   DnsProperties: PublicDnsPropertiesMutable | undefined;
-}
-
-export namespace PublicDnsNamespaceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicDnsNamespaceProperties): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePublicDnsNamespaceRequest {
@@ -409,30 +319,12 @@ export interface CreatePublicDnsNamespaceRequest {
   Properties?: PublicDnsNamespaceProperties;
 }
 
-export namespace CreatePublicDnsNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePublicDnsNamespaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePublicDnsNamespaceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully. To get the status of the
    *    operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
    */
   OperationId?: string;
-}
-
-export namespace CreatePublicDnsNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePublicDnsNamespaceResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum RecordType {
@@ -590,15 +482,6 @@ export interface DnsRecord {
   TTL: number | undefined;
 }
 
-export namespace DnsRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DnsRecord): any => ({
-    ...obj,
-  });
-}
-
 export enum RoutingPolicy {
   MULTIVALUE = "MULTIVALUE",
   WEIGHTED = "WEIGHTED",
@@ -661,15 +544,6 @@ export interface DnsConfig {
    *    create when you register an instance.</p>
    */
   DnsRecords: DnsRecord[] | undefined;
-}
-
-export namespace DnsConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DnsConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum HealthCheckType {
@@ -791,15 +665,6 @@ export interface HealthCheckConfig {
   FailureThreshold?: number;
 }
 
-export namespace HealthCheckConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HealthCheckConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains information about an optional custom health check. A custom health check, which
  *    requires that you use a third-party health checker to evaluate the health of your resources, is useful in the
@@ -867,15 +732,6 @@ export interface HealthCheckCustomConfig {
    *    request to make the change.</p>
    */
   FailureThreshold?: number;
-}
-
-export namespace HealthCheckCustomConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HealthCheckCustomConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum ServiceTypeOption {
@@ -969,15 +825,6 @@ export interface CreateServiceRequest {
    *    <code>HTTP</code>.</p>
    */
   Type?: ServiceTypeOption | string;
-}
-
-export namespace CreateServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ServiceType {
@@ -1081,29 +928,11 @@ export interface Service {
   CreatorRequestId?: string;
 }
 
-export namespace Service {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Service): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateServiceResponse {
   /**
    * <p>A complex type that contains information about the new service.</p>
    */
   Service?: Service;
-}
-
-export namespace CreateServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1193,30 +1022,12 @@ export interface DeleteNamespaceRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNamespaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteNamespaceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
    *                                 To get the status of the operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
    */
   OperationId?: string;
-}
-
-export namespace DeleteNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNamespaceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1248,25 +1059,7 @@ export interface DeleteServiceRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteServiceResponse {}
-
-export namespace DeleteServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>No service exists with the specified ID.</p>
@@ -1301,30 +1094,12 @@ export interface DeregisterInstanceRequest {
   InstanceId: string | undefined;
 }
 
-export namespace DeregisterInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterInstanceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterInstanceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
    *                                 To get the status of the operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
    */
   OperationId?: string;
-}
-
-export namespace DeregisterInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterInstanceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1417,15 +1192,6 @@ export interface DiscoverInstancesRequest {
   HealthStatus?: HealthStatusFilter | string;
 }
 
-export namespace DiscoverInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiscoverInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum HealthStatus {
   HEALTHY = "HEALTHY",
   UNHEALTHY = "UNHEALTHY",
@@ -1469,29 +1235,11 @@ export interface HttpInstanceSummary {
   Attributes?: Record<string, string>;
 }
 
-export namespace HttpInstanceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpInstanceSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface DiscoverInstancesResponse {
   /**
    * <p>A complex type that contains one <code>HttpInstanceSummary</code> for each registered instance.</p>
    */
   Instances?: HttpInstanceSummary[];
-}
-
-export namespace DiscoverInstancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiscoverInstancesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1529,15 +1277,6 @@ export interface DnsConfigChange {
   DnsRecords: DnsRecord[] | undefined;
 }
 
-export namespace DnsConfigChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DnsConfigChange): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the ID for the Route 53 hosted zone that Cloud Map creates when you create a
  *    namespace.</p>
@@ -1552,15 +1291,6 @@ export interface DnsProperties {
    * <p>Start of Authority (SOA) record for the hosted zone.</p>
    */
   SOA?: SOA;
-}
-
-export namespace DnsProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DnsProperties): any => ({
-    ...obj,
-  });
 }
 
 export enum FilterCondition {
@@ -1579,15 +1309,6 @@ export interface GetInstanceRequest {
    * <p>The ID of the instance that you want to get information about.</p>
    */
   InstanceId: string | undefined;
-}
-
-export namespace GetInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1723,29 +1444,11 @@ export interface Instance {
   Attributes?: Record<string, string>;
 }
 
-export namespace Instance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Instance): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInstanceResponse {
   /**
    * <p>A complex type that contains information about a specified instance.</p>
    */
   Instance?: Instance;
-}
-
-export namespace GetInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetInstancesHealthStatusRequest {
@@ -1780,15 +1483,6 @@ export interface GetInstancesHealthStatusRequest {
   NextToken?: string;
 }
 
-export namespace GetInstancesHealthStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstancesHealthStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInstancesHealthStatusResponse {
   /**
    * <p>A complex type that contains the IDs and the health status of the instances that you specified in the
@@ -1804,29 +1498,11 @@ export interface GetInstancesHealthStatusResponse {
   NextToken?: string;
 }
 
-export namespace GetInstancesHealthStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstancesHealthStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetNamespaceRequest {
   /**
    * <p>The ID of the namespace that you want to get information about.</p>
    */
   Id: string | undefined;
-}
-
-export namespace GetNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNamespaceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1837,15 +1513,6 @@ export interface HttpProperties {
    * <p>The name of an HTTP namespace.</p>
    */
   HttpName?: string;
-}
-
-export namespace HttpProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1862,15 +1529,6 @@ export interface NamespaceProperties {
    * <p>A complex type that contains the name of an HTTP namespace.</p>
    */
   HttpProperties?: HttpProperties;
-}
-
-export namespace NamespaceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NamespaceProperties): any => ({
-    ...obj,
-  });
 }
 
 export enum NamespaceType {
@@ -1948,15 +1606,6 @@ export interface Namespace {
   CreatorRequestId?: string;
 }
 
-export namespace Namespace {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Namespace): any => ({
-    ...obj,
-  });
-}
-
 export interface GetNamespaceResponse {
   /**
    * <p>A complex type that contains information about the specified namespace.</p>
@@ -1964,29 +1613,11 @@ export interface GetNamespaceResponse {
   Namespace?: Namespace;
 }
 
-export namespace GetNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNamespaceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOperationRequest {
   /**
    * <p>The ID of the operation that you want to get more information about.</p>
    */
   OperationId: string | undefined;
-}
-
-export namespace GetOperationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOperationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum OperationStatus {
@@ -2130,29 +1761,11 @@ export interface Operation {
   Targets?: Record<string, string>;
 }
 
-export namespace Operation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Operation): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOperationResponse {
   /**
    * <p>A complex type that contains information about the operation.</p>
    */
   Operation?: Operation;
-}
-
-export namespace GetOperationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOperationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2183,29 +1796,11 @@ export interface GetServiceRequest {
   Id: string | undefined;
 }
 
-export namespace GetServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServiceResponse {
   /**
    * <p>A complex type that contains information about the service.</p>
    */
   Service?: Service;
-}
-
-export namespace GetServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2218,15 +1813,6 @@ export interface HttpNamespaceChange {
    *    namespace.</p>
    */
   Description: string | undefined;
-}
-
-export namespace HttpNamespaceChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpNamespaceChange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2293,15 +1879,6 @@ export interface InstanceSummary {
   Attributes?: Record<string, string>;
 }
 
-export namespace InstanceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInstancesRequest {
   /**
    * <p>The ID of the service that you want to list instances for.</p>
@@ -2324,15 +1901,6 @@ export interface ListInstancesRequest {
   MaxResults?: number;
 }
 
-export namespace ListInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInstancesResponse {
   /**
    * <p>Summary information about the instances that are associated with the specified service.</p>
@@ -2345,15 +1913,6 @@ export interface ListInstancesResponse {
    *    from the previous response in the next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListInstancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInstancesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum NamespaceFilterName {
@@ -2401,15 +1960,6 @@ export interface NamespaceFilter {
   Condition?: FilterCondition | string;
 }
 
-export namespace NamespaceFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NamespaceFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNamespacesRequest {
   /**
    * <p>For the first <code>ListNamespaces</code> request, omit this value.</p>
@@ -2437,15 +1987,6 @@ export interface ListNamespacesRequest {
    *     <code>ListNamespaces</code>.</p>
    */
   Filters?: NamespaceFilter[];
-}
-
-export namespace ListNamespacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNamespacesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2494,15 +2035,6 @@ export interface NamespaceSummary {
   CreateDate?: Date;
 }
 
-export namespace NamespaceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NamespaceSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNamespacesResponse {
   /**
    * <p>An array that contains one <code>NamespaceSummary</code> object for each namespace that matches the specified
@@ -2521,15 +2053,6 @@ export interface ListNamespacesResponse {
    *          </note>
    */
   NextToken?: string;
-}
-
-export namespace ListNamespacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNamespacesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum OperationFilterName {
@@ -2631,15 +2154,6 @@ export interface OperationFilter {
   Condition?: FilterCondition | string;
 }
 
-export namespace OperationFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOperationsRequest {
   /**
    * <p>For the first <code>ListOperations</code> request, omit this value.</p>
@@ -2667,15 +2181,6 @@ export interface ListOperationsRequest {
    *     <code>ListOperations</code>.</p>
    */
   Filters?: OperationFilter[];
-}
-
-export namespace ListOperationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOperationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2715,15 +2220,6 @@ export interface OperationSummary {
   Status?: OperationStatus | string;
 }
 
-export namespace OperationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOperationsResponse {
   /**
    * <p>Summary information about the operations that match the specified criteria.</p>
@@ -2741,15 +2237,6 @@ export interface ListOperationsResponse {
    *          </note>
    */
   NextToken?: string;
-}
-
-export namespace ListOperationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOperationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ServiceFilterName {
@@ -2794,15 +2281,6 @@ export interface ServiceFilter {
   Condition?: FilterCondition | string;
 }
 
-export namespace ServiceFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServicesRequest {
   /**
    * <p>For the first <code>ListServices</code> request, omit this value.</p>
@@ -2829,15 +2307,6 @@ export interface ListServicesRequest {
    *     <code>ListServices</code>.</p>
    */
   Filters?: ServiceFilter[];
-}
-
-export namespace ListServicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServicesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2930,15 +2399,6 @@ export interface ServiceSummary {
   CreateDate?: Date;
 }
 
-export namespace ServiceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServicesResponse {
   /**
    * <p>An array that contains one <code>ServiceSummary</code> object for each service that matches the specified filter
@@ -2959,15 +2419,6 @@ export interface ListServicesResponse {
   NextToken?: string;
 }
 
-export namespace ListServicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServicesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tags for.</p>
@@ -2975,29 +2426,11 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are assigned to the resource.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3033,15 +2466,6 @@ export interface SOAChange {
   TTL: number | undefined;
 }
 
-export namespace SOAChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SOAChange): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updated DNS properties for the private
  *    DNS namespace.</p>
@@ -3054,15 +2478,6 @@ export interface PrivateDnsPropertiesMutableChange {
   SOA: SOAChange | undefined;
 }
 
-export namespace PrivateDnsPropertiesMutableChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrivateDnsPropertiesMutableChange): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updated properties for the private DNS
  *    namespace.</p>
@@ -3073,15 +2488,6 @@ export interface PrivateDnsNamespacePropertiesChange {
    *    DNS namespace.</p>
    */
   DnsProperties: PrivateDnsPropertiesMutableChange | undefined;
-}
-
-export namespace PrivateDnsNamespacePropertiesChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrivateDnsNamespacePropertiesChange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3102,15 +2508,6 @@ export interface PrivateDnsNamespaceChange {
   Properties?: PrivateDnsNamespacePropertiesChange;
 }
 
-export namespace PrivateDnsNamespaceChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrivateDnsNamespaceChange): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updated DNS properties for the public DNS
  *    namespace.</p>
@@ -3123,15 +2520,6 @@ export interface PublicDnsPropertiesMutableChange {
   SOA: SOAChange | undefined;
 }
 
-export namespace PublicDnsPropertiesMutableChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicDnsPropertiesMutableChange): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updated properties for the public DNS
  *    namespace.</p>
@@ -3142,15 +2530,6 @@ export interface PublicDnsNamespacePropertiesChange {
    *    zone for the public DNS namespace.</p>
    */
   DnsProperties: PublicDnsPropertiesMutableChange | undefined;
-}
-
-export namespace PublicDnsNamespacePropertiesChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicDnsNamespacePropertiesChange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3169,15 +2548,6 @@ export interface PublicDnsNamespaceChange {
    *    DNS namespace.</p>
    */
   Properties?: PublicDnsNamespacePropertiesChange;
-}
-
-export namespace PublicDnsNamespaceChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicDnsNamespaceChange): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterInstanceRequest {
@@ -3324,30 +2694,12 @@ export interface RegisterInstanceRequest {
   Attributes: Record<string, string> | undefined;
 }
 
-export namespace RegisterInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterInstanceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterInstanceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
    *                                 To get the status of the operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
    */
   OperationId?: string;
-}
-
-export namespace RegisterInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterInstanceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -3363,25 +2715,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -3395,25 +2729,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateHttpNamespaceRequest {
   /**
@@ -3437,30 +2753,12 @@ export interface UpdateHttpNamespaceRequest {
   Namespace: HttpNamespaceChange | undefined;
 }
 
-export namespace UpdateHttpNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateHttpNamespaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateHttpNamespaceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
    *                                 To get the status of the operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
    */
   OperationId?: string;
-}
-
-export namespace UpdateHttpNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateHttpNamespaceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateInstanceCustomHealthStatusRequest {
@@ -3479,15 +2777,6 @@ export interface UpdateInstanceCustomHealthStatusRequest {
    * <p>The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.</p>
    */
   Status: CustomHealthStatus | string | undefined;
-}
-
-export namespace UpdateInstanceCustomHealthStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInstanceCustomHealthStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePrivateDnsNamespaceRequest {
@@ -3512,30 +2801,12 @@ export interface UpdatePrivateDnsNamespaceRequest {
   Namespace: PrivateDnsNamespaceChange | undefined;
 }
 
-export namespace UpdatePrivateDnsNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePrivateDnsNamespaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePrivateDnsNamespaceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
    *                                 To get the status of the operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
    */
   OperationId?: string;
-}
-
-export namespace UpdatePrivateDnsNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePrivateDnsNamespaceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePublicDnsNamespaceRequest {
@@ -3560,30 +2831,12 @@ export interface UpdatePublicDnsNamespaceRequest {
   Namespace: PublicDnsNamespaceChange | undefined;
 }
 
-export namespace UpdatePublicDnsNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePublicDnsNamespaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePublicDnsNamespaceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
    *                                 To get the status of the operation, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html">GetOperation</a>.</p>
    */
   OperationId?: string;
-}
-
-export namespace UpdatePublicDnsNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePublicDnsNamespaceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3609,15 +2862,6 @@ export interface ServiceChange {
   HealthCheckConfig?: HealthCheckConfig;
 }
 
-export namespace ServiceChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceChange): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateServiceRequest {
   /**
    * <p>The ID of the service that you want to update.</p>
@@ -3630,15 +2874,6 @@ export interface UpdateServiceRequest {
   Service: ServiceChange | undefined;
 }
 
-export namespace UpdateServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateServiceResponse {
   /**
    * <p>A value that you can use to determine whether the request completed successfully.
@@ -3647,11 +2882,608 @@ export interface UpdateServiceResponse {
   OperationId?: string;
 }
 
-export namespace UpdateServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHttpNamespaceRequestFilterSensitiveLog = (obj: CreateHttpNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHttpNamespaceResponseFilterSensitiveLog = (obj: CreateHttpNamespaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SOAFilterSensitiveLog = (obj: SOA): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrivateDnsPropertiesMutableFilterSensitiveLog = (obj: PrivateDnsPropertiesMutable): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrivateDnsNamespacePropertiesFilterSensitiveLog = (obj: PrivateDnsNamespaceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePrivateDnsNamespaceRequestFilterSensitiveLog = (obj: CreatePrivateDnsNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePrivateDnsNamespaceResponseFilterSensitiveLog = (obj: CreatePrivateDnsNamespaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublicDnsPropertiesMutableFilterSensitiveLog = (obj: PublicDnsPropertiesMutable): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublicDnsNamespacePropertiesFilterSensitiveLog = (obj: PublicDnsNamespaceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePublicDnsNamespaceRequestFilterSensitiveLog = (obj: CreatePublicDnsNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePublicDnsNamespaceResponseFilterSensitiveLog = (obj: CreatePublicDnsNamespaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DnsRecordFilterSensitiveLog = (obj: DnsRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DnsConfigFilterSensitiveLog = (obj: DnsConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HealthCheckConfigFilterSensitiveLog = (obj: HealthCheckConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HealthCheckCustomConfigFilterSensitiveLog = (obj: HealthCheckCustomConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceRequestFilterSensitiveLog = (obj: CreateServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceFilterSensitiveLog = (obj: Service): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceResponseFilterSensitiveLog = (obj: CreateServiceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNamespaceRequestFilterSensitiveLog = (obj: DeleteNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNamespaceResponseFilterSensitiveLog = (obj: DeleteNamespaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceRequestFilterSensitiveLog = (obj: DeleteServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceResponseFilterSensitiveLog = (obj: DeleteServiceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterInstanceRequestFilterSensitiveLog = (obj: DeregisterInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterInstanceResponseFilterSensitiveLog = (obj: DeregisterInstanceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiscoverInstancesRequestFilterSensitiveLog = (obj: DiscoverInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpInstanceSummaryFilterSensitiveLog = (obj: HttpInstanceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiscoverInstancesResponseFilterSensitiveLog = (obj: DiscoverInstancesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DnsConfigChangeFilterSensitiveLog = (obj: DnsConfigChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DnsPropertiesFilterSensitiveLog = (obj: DnsProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceRequestFilterSensitiveLog = (obj: GetInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceResponseFilterSensitiveLog = (obj: GetInstanceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstancesHealthStatusRequestFilterSensitiveLog = (obj: GetInstancesHealthStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstancesHealthStatusResponseFilterSensitiveLog = (obj: GetInstancesHealthStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNamespaceRequestFilterSensitiveLog = (obj: GetNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpPropertiesFilterSensitiveLog = (obj: HttpProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NamespacePropertiesFilterSensitiveLog = (obj: NamespaceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NamespaceFilterSensitiveLog = (obj: Namespace): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNamespaceResponseFilterSensitiveLog = (obj: GetNamespaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOperationRequestFilterSensitiveLog = (obj: GetOperationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OperationFilterSensitiveLog = (obj: Operation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOperationResponseFilterSensitiveLog = (obj: GetOperationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceRequestFilterSensitiveLog = (obj: GetServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceResponseFilterSensitiveLog = (obj: GetServiceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpNamespaceChangeFilterSensitiveLog = (obj: HttpNamespaceChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceSummaryFilterSensitiveLog = (obj: InstanceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInstancesRequestFilterSensitiveLog = (obj: ListInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInstancesResponseFilterSensitiveLog = (obj: ListInstancesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NamespaceFilterFilterSensitiveLog = (obj: NamespaceFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNamespacesRequestFilterSensitiveLog = (obj: ListNamespacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NamespaceSummaryFilterSensitiveLog = (obj: NamespaceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNamespacesResponseFilterSensitiveLog = (obj: ListNamespacesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OperationFilterFilterSensitiveLog = (obj: OperationFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOperationsRequestFilterSensitiveLog = (obj: ListOperationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OperationSummaryFilterSensitiveLog = (obj: OperationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOperationsResponseFilterSensitiveLog = (obj: ListOperationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceFilterFilterSensitiveLog = (obj: ServiceFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServicesRequestFilterSensitiveLog = (obj: ListServicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceSummaryFilterSensitiveLog = (obj: ServiceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServicesResponseFilterSensitiveLog = (obj: ListServicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SOAChangeFilterSensitiveLog = (obj: SOAChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrivateDnsPropertiesMutableChangeFilterSensitiveLog = (obj: PrivateDnsPropertiesMutableChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrivateDnsNamespacePropertiesChangeFilterSensitiveLog = (
+  obj: PrivateDnsNamespacePropertiesChange
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrivateDnsNamespaceChangeFilterSensitiveLog = (obj: PrivateDnsNamespaceChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublicDnsPropertiesMutableChangeFilterSensitiveLog = (obj: PublicDnsPropertiesMutableChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublicDnsNamespacePropertiesChangeFilterSensitiveLog = (obj: PublicDnsNamespacePropertiesChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublicDnsNamespaceChangeFilterSensitiveLog = (obj: PublicDnsNamespaceChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterInstanceRequestFilterSensitiveLog = (obj: RegisterInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterInstanceResponseFilterSensitiveLog = (obj: RegisterInstanceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHttpNamespaceRequestFilterSensitiveLog = (obj: UpdateHttpNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHttpNamespaceResponseFilterSensitiveLog = (obj: UpdateHttpNamespaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInstanceCustomHealthStatusRequestFilterSensitiveLog = (
+  obj: UpdateInstanceCustomHealthStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePrivateDnsNamespaceRequestFilterSensitiveLog = (obj: UpdatePrivateDnsNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePrivateDnsNamespaceResponseFilterSensitiveLog = (obj: UpdatePrivateDnsNamespaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePublicDnsNamespaceRequestFilterSensitiveLog = (obj: UpdatePublicDnsNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePublicDnsNamespaceResponseFilterSensitiveLog = (obj: UpdatePublicDnsNamespaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceChangeFilterSensitiveLog = (obj: ServiceChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceRequestFilterSensitiveLog = (obj: UpdateServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceResponseFilterSensitiveLog = (obj: UpdateServiceResponse): any => ({
+  ...obj,
+});

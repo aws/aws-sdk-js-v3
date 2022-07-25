@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import { GetNetworkInput, GetNetworkOutput } from "../models/models_0";
+import {
+  GetNetworkInput,
+  GetNetworkInputFilterSensitiveLog,
+  GetNetworkOutput,
+  GetNetworkOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetNetworkCommand,
   serializeAws_restJson1GetNetworkCommand,
@@ -77,8 +82,8 @@ export class GetNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetNetworkOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetNetworkInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetNetworkOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

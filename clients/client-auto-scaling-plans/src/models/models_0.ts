@@ -40,15 +40,6 @@ export interface TagFilter {
   Values?: string[];
 }
 
-export namespace TagFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents an application source.</p>
  */
@@ -64,15 +55,6 @@ export interface ApplicationSource {
   TagFilters?: TagFilter[];
 }
 
-export namespace ApplicationSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a dimension for a customized metric.</p>
  */
@@ -86,15 +68,6 @@ export interface MetricDimension {
    * <p>The value of the dimension.</p>
    */
   Value: string | undefined;
-}
-
-export namespace MetricDimension {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricDimension): any => ({
-    ...obj,
-  });
 }
 
 export enum MetricStatistic {
@@ -160,15 +133,6 @@ export interface CustomizedLoadMetricSpecification {
   Unit?: string;
 }
 
-export namespace CustomizedLoadMetricSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomizedLoadMetricSpecification): any => ({
-    ...obj,
-  });
-}
-
 export enum LoadMetricType {
   ALBTargetGroupRequestCount = "ALBTargetGroupRequestCount",
   ASGTotalCPUUtilization = "ASGTotalCPUUtilization",
@@ -214,15 +178,6 @@ export interface PredefinedLoadMetricSpecification {
    *          the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
    */
   ResourceLabel?: string;
-}
-
-export namespace PredefinedLoadMetricSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredefinedLoadMetricSpecification): any => ({
-    ...obj,
-  });
 }
 
 export enum PredictiveScalingMaxCapacityBehavior {
@@ -310,15 +265,6 @@ export interface CustomizedScalingMetricSpecification {
   Unit?: string;
 }
 
-export namespace CustomizedScalingMetricSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomizedScalingMetricSpecification): any => ({
-    ...obj,
-  });
-}
-
 export enum ScalingMetricType {
   ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
   ASGAverageCPUUtilization = "ASGAverageCPUUtilization",
@@ -372,15 +318,6 @@ export interface PredefinedScalingMetricSpecification {
    *          the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
    */
   ResourceLabel?: string;
-}
-
-export namespace PredefinedScalingMetricSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredefinedScalingMetricSpecification): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -444,15 +381,6 @@ export interface TargetTrackingConfiguration {
    *          CloudWatch metrics. This value is used only if the resource is an Auto Scaling group.</p>
    */
   EstimatedInstanceWarmup?: number;
-}
-
-export namespace TargetTrackingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetTrackingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -665,15 +593,6 @@ export interface ScalingInstruction {
   DisableDynamicScaling?: boolean;
 }
 
-export namespace ScalingInstruction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalingInstruction): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateScalingPlanRequest {
   /**
    * <p>The name of the scaling plan. Names cannot contain vertical bars, colons, or forward
@@ -695,30 +614,12 @@ export interface CreateScalingPlanRequest {
   ScalingInstructions: ScalingInstruction[] | undefined;
 }
 
-export namespace CreateScalingPlanRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateScalingPlanRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateScalingPlanResponse {
   /**
    * <p>The version number of the scaling plan. This value is always <code>1</code>. Currently,
    *          you cannot have multiple scaling plan versions.</p>
    */
   ScalingPlanVersion: number | undefined;
-}
-
-export namespace CreateScalingPlanResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateScalingPlanResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -798,25 +699,7 @@ export interface DeleteScalingPlanRequest {
   ScalingPlanVersion: number | undefined;
 }
 
-export namespace DeleteScalingPlanRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScalingPlanRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteScalingPlanResponse {}
-
-export namespace DeleteScalingPlanResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScalingPlanResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The specified object could not be found.</p>
@@ -863,15 +746,6 @@ export interface DescribeScalingPlanResourcesRequest {
   NextToken?: string;
 }
 
-export namespace DescribeScalingPlanResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScalingPlanResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum PolicyType {
   TargetTrackingScaling = "TargetTrackingScaling",
 }
@@ -895,15 +769,6 @@ export interface ScalingPolicy {
    *          metrics.</p>
    */
   TargetTrackingConfiguration?: TargetTrackingConfiguration;
-}
-
-export namespace ScalingPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalingPolicy): any => ({
-    ...obj,
-  });
 }
 
 export enum ScalingStatusCode {
@@ -1036,15 +901,6 @@ export interface ScalingPlanResource {
   ScalingStatusMessage?: string;
 }
 
-export namespace ScalingPlanResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalingPlanResource): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeScalingPlanResourcesResponse {
   /**
    * <p>Information about the scalable resources.</p>
@@ -1056,15 +912,6 @@ export interface DescribeScalingPlanResourcesResponse {
    *          there are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeScalingPlanResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScalingPlanResourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1121,15 +968,6 @@ export interface DescribeScalingPlansRequest {
    * <p>The token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeScalingPlansRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScalingPlansRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ScalingPlanStatusCode {
@@ -1224,15 +1062,6 @@ export interface ScalingPlan {
   CreationTime?: Date;
 }
 
-export namespace ScalingPlan {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalingPlan): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeScalingPlansResponse {
   /**
    * <p>Information about the scaling plans.</p>
@@ -1244,15 +1073,6 @@ export interface DescribeScalingPlansResponse {
    *          there are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeScalingPlansResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScalingPlansResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ForecastDataType {
@@ -1336,15 +1156,6 @@ export interface GetScalingPlanResourceForecastDataRequest {
   EndTime: Date | undefined;
 }
 
-export namespace GetScalingPlanResourceForecastDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetScalingPlanResourceForecastDataRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a single value in the forecast data used for predictive scaling.</p>
  */
@@ -1360,29 +1171,11 @@ export interface Datapoint {
   Value?: number;
 }
 
-export namespace Datapoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Datapoint): any => ({
-    ...obj,
-  });
-}
-
 export interface GetScalingPlanResourceForecastDataResponse {
   /**
    * <p>The data points to return.</p>
    */
   Datapoints: Datapoint[] | undefined;
-}
-
-export namespace GetScalingPlanResourceForecastDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetScalingPlanResourceForecastDataResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateScalingPlanRequest {
@@ -1410,22 +1203,191 @@ export interface UpdateScalingPlanRequest {
   ScalingInstructions?: ScalingInstruction[];
 }
 
-export namespace UpdateScalingPlanRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateScalingPlanRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateScalingPlanResponse {}
 
-export namespace UpdateScalingPlanResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateScalingPlanResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterFilterSensitiveLog = (obj: TagFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationSourceFilterSensitiveLog = (obj: ApplicationSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricDimensionFilterSensitiveLog = (obj: MetricDimension): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomizedLoadMetricSpecificationFilterSensitiveLog = (obj: CustomizedLoadMetricSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredefinedLoadMetricSpecificationFilterSensitiveLog = (obj: PredefinedLoadMetricSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomizedScalingMetricSpecificationFilterSensitiveLog = (
+  obj: CustomizedScalingMetricSpecification
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredefinedScalingMetricSpecificationFilterSensitiveLog = (
+  obj: PredefinedScalingMetricSpecification
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetTrackingConfigurationFilterSensitiveLog = (obj: TargetTrackingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalingInstructionFilterSensitiveLog = (obj: ScalingInstruction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateScalingPlanRequestFilterSensitiveLog = (obj: CreateScalingPlanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateScalingPlanResponseFilterSensitiveLog = (obj: CreateScalingPlanResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteScalingPlanRequestFilterSensitiveLog = (obj: DeleteScalingPlanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteScalingPlanResponseFilterSensitiveLog = (obj: DeleteScalingPlanResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScalingPlanResourcesRequestFilterSensitiveLog = (
+  obj: DescribeScalingPlanResourcesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalingPolicyFilterSensitiveLog = (obj: ScalingPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalingPlanResourceFilterSensitiveLog = (obj: ScalingPlanResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScalingPlanResourcesResponseFilterSensitiveLog = (
+  obj: DescribeScalingPlanResourcesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScalingPlansRequestFilterSensitiveLog = (obj: DescribeScalingPlansRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalingPlanFilterSensitiveLog = (obj: ScalingPlan): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScalingPlansResponseFilterSensitiveLog = (obj: DescribeScalingPlansResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetScalingPlanResourceForecastDataRequestFilterSensitiveLog = (
+  obj: GetScalingPlanResourceForecastDataRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatapointFilterSensitiveLog = (obj: Datapoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetScalingPlanResourceForecastDataResponseFilterSensitiveLog = (
+  obj: GetScalingPlanResourceForecastDataResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateScalingPlanRequestFilterSensitiveLog = (obj: UpdateScalingPlanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateScalingPlanResponseFilterSensitiveLog = (obj: UpdateScalingPlanResponse): any => ({
+  ...obj,
+});

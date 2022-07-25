@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { UpdateBatchPredictionInput, UpdateBatchPredictionOutput } from "../models/models_0";
+import {
+  UpdateBatchPredictionInput,
+  UpdateBatchPredictionInputFilterSensitiveLog,
+  UpdateBatchPredictionOutput,
+  UpdateBatchPredictionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateBatchPredictionCommand,
   serializeAws_json1_1UpdateBatchPredictionCommand,
@@ -73,8 +78,8 @@ export class UpdateBatchPredictionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBatchPredictionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBatchPredictionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateBatchPredictionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBatchPredictionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

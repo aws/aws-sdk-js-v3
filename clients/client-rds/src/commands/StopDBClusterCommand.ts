@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopDBClusterMessage, StopDBClusterResult } from "../models/models_1";
+import {
+  StopDBClusterMessage,
+  StopDBClusterMessageFilterSensitiveLog,
+  StopDBClusterResult,
+  StopDBClusterResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryStopDBClusterCommand,
   serializeAws_queryStopDBClusterCommand,
@@ -80,8 +85,8 @@ export class StopDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopDBClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: StopDBClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StopDBClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: StopDBClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

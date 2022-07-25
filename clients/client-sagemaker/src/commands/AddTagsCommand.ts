@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AddTagsInput, AddTagsOutput } from "../models/models_0";
+import {
+  AddTagsInput,
+  AddTagsInputFilterSensitiveLog,
+  AddTagsOutput,
+  AddTagsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1AddTagsCommand, serializeAws_json1_1AddTagsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -90,8 +95,8 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: AddTagsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AddTagsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: AddTagsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

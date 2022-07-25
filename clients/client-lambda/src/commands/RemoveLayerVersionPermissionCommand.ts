@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { RemoveLayerVersionPermissionRequest } from "../models/models_0";
+import {
+  RemoveLayerVersionPermissionRequest,
+  RemoveLayerVersionPermissionRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveLayerVersionPermissionCommand,
   serializeAws_restJson1RemoveLayerVersionPermissionCommand,
@@ -74,7 +77,7 @@ export class RemoveLayerVersionPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveLayerVersionPermissionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveLayerVersionPermissionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -24,15 +24,6 @@ export interface ActivityType {
   version: string | undefined;
 }
 
-export namespace ActivityType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a workflow execution.</p>
  */
@@ -46,15 +37,6 @@ export interface WorkflowExecution {
    * <p>A system-generated unique identifier for the workflow execution.</p>
    */
   runId: string | undefined;
-}
-
-export namespace WorkflowExecution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecution): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -92,15 +74,6 @@ export interface ActivityTask {
   input?: string;
 }
 
-export namespace ActivityTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityTask): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>ActivityTaskCanceled</code> event.</p>
  */
@@ -128,15 +101,6 @@ export interface ActivityTaskCanceledEventAttributes {
   latestCancelRequestedEventId?: number;
 }
 
-export namespace ActivityTaskCanceledEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityTaskCanceledEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>ActivityTaskCancelRequested</code> event.</p>
  */
@@ -151,15 +115,6 @@ export interface ActivityTaskCancelRequestedEventAttributes {
    * <p>The unique ID of the task.</p>
    */
   activityId: string | undefined;
-}
-
-export namespace ActivityTaskCancelRequestedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityTaskCancelRequestedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -182,15 +137,6 @@ export interface ActivityTaskCompletedEventAttributes {
    *       event.</p>
    */
   startedEventId: number | undefined;
-}
-
-export namespace ActivityTaskCompletedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityTaskCompletedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -220,15 +166,6 @@ export interface ActivityTaskFailedEventAttributes {
   startedEventId: number | undefined;
 }
 
-export namespace ActivityTaskFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityTaskFailedEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a task list.</p>
  */
@@ -237,15 +174,6 @@ export interface TaskList {
    * <p>The name of the task list.</p>
    */
   name: string | undefined;
-}
-
-export namespace TaskList {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskList): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -315,15 +243,6 @@ export interface ActivityTaskScheduledEventAttributes {
   heartbeatTimeout?: string;
 }
 
-export namespace ActivityTaskScheduledEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityTaskScheduledEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>ActivityTaskStarted</code> event.</p>
  */
@@ -339,15 +258,6 @@ export interface ActivityTaskStartedEventAttributes {
   scheduledEventId: number | undefined;
 }
 
-export namespace ActivityTaskStartedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityTaskStartedEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Status information about an activity task.</p>
  */
@@ -356,15 +266,6 @@ export interface ActivityTaskStatus {
    * <p>Set to <code>true</code> if cancellation of the task is requested.</p>
    */
   cancelRequested: boolean | undefined;
-}
-
-export namespace ActivityTaskStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityTaskStatus): any => ({
-    ...obj,
-  });
 }
 
 export type ActivityTaskTimeoutType = "HEARTBEAT" | "SCHEDULE_TO_CLOSE" | "SCHEDULE_TO_START" | "START_TO_CLOSE";
@@ -395,15 +296,6 @@ export interface ActivityTaskTimedOutEventAttributes {
    *       <code>RecordActivityTaskHeartbeat</code>.</p>
    */
   details?: string;
-}
-
-export namespace ActivityTaskTimedOutEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityTaskTimedOutEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -474,15 +366,6 @@ export interface ActivityTypeConfiguration {
   defaultTaskScheduleToCloseTimeout?: string;
 }
 
-export namespace ActivityTypeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityTypeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export type RegistrationStatus = "DEPRECATED" | "REGISTERED";
 
 /**
@@ -513,15 +396,6 @@ export interface ActivityTypeInfo {
    * <p>If DEPRECATED, the date and time <a>DeprecateActivityType</a> was called.</p>
    */
   deprecationDate?: Date;
-}
-
-export namespace ActivityTypeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityTypeInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -555,15 +429,6 @@ export interface ActivityTypeDetail {
   configuration: ActivityTypeConfiguration | undefined;
 }
 
-export namespace ActivityTypeDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityTypeDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a paginated list of activity type information structures.</p>
  */
@@ -580,15 +445,6 @@ export interface ActivityTypeInfos {
    *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned in a single call.</p>
    */
   nextPageToken?: string;
-}
-
-export namespace ActivityTypeInfos {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityTypeInfos): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -622,15 +478,6 @@ export interface CancelTimerDecisionAttributes {
   timerId: string | undefined;
 }
 
-export namespace CancelTimerDecisionAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelTimerDecisionAttributes): any => ({
-    ...obj,
-  });
-}
-
 export type CancelTimerFailedCause = "OPERATION_NOT_PERMITTED" | "TIMER_ID_UNKNOWN";
 
 /**
@@ -656,15 +503,6 @@ export interface CancelTimerFailedEventAttributes {
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the <code>CancelTimer</code> decision to cancel this timer. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
    */
   decisionTaskCompletedEventId: number | undefined;
-}
-
-export namespace CancelTimerFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelTimerFailedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -698,15 +536,6 @@ export interface CancelWorkflowExecutionDecisionAttributes {
   details?: string;
 }
 
-export namespace CancelWorkflowExecutionDecisionAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelWorkflowExecutionDecisionAttributes): any => ({
-    ...obj,
-  });
-}
-
 export type CancelWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHANDLED_DECISION";
 
 /**
@@ -727,15 +556,6 @@ export interface CancelWorkflowExecutionFailedEventAttributes {
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the <code>CancelWorkflowExecution</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
    */
   decisionTaskCompletedEventId: number | undefined;
-}
-
-export namespace CancelWorkflowExecutionFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelWorkflowExecutionFailedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 export type ChildPolicy = "ABANDON" | "REQUEST_CANCEL" | "TERMINATE";
@@ -761,15 +581,6 @@ export interface WorkflowType {
    *          </note>
    */
   version: string | undefined;
-}
-
-export namespace WorkflowType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -808,15 +619,6 @@ export interface ChildWorkflowExecutionCanceledEventAttributes {
   startedEventId: number | undefined;
 }
 
-export namespace ChildWorkflowExecutionCanceledEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChildWorkflowExecutionCanceledEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>ChildWorkflowExecutionCompleted</code> event.</p>
  */
@@ -848,15 +650,6 @@ export interface ChildWorkflowExecutionCompletedEventAttributes {
    *   events leading up to this event.</p>
    */
   startedEventId: number | undefined;
-}
-
-export namespace ChildWorkflowExecutionCompletedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChildWorkflowExecutionCompletedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -900,15 +693,6 @@ export interface ChildWorkflowExecutionFailedEventAttributes {
   startedEventId: number | undefined;
 }
 
-export namespace ChildWorkflowExecutionFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChildWorkflowExecutionFailedEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>ChildWorkflowExecutionStarted</code> event.</p>
  */
@@ -931,15 +715,6 @@ export interface ChildWorkflowExecutionStartedEventAttributes {
    *   events leading up to this event.</p>
    */
   initiatedEventId: number | undefined;
-}
-
-export namespace ChildWorkflowExecutionStartedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChildWorkflowExecutionStartedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -971,15 +746,6 @@ export interface ChildWorkflowExecutionTerminatedEventAttributes {
    *   events leading up to this event.</p>
    */
   startedEventId: number | undefined;
-}
-
-export namespace ChildWorkflowExecutionTerminatedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChildWorkflowExecutionTerminatedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 export type WorkflowExecutionTimeoutType = "START_TO_CLOSE";
@@ -1019,15 +785,6 @@ export interface ChildWorkflowExecutionTimedOutEventAttributes {
   startedEventId: number | undefined;
 }
 
-export namespace ChildWorkflowExecutionTimedOutEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChildWorkflowExecutionTimedOutEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 export type CloseStatus = "CANCELED" | "COMPLETED" | "CONTINUED_AS_NEW" | "FAILED" | "TERMINATED" | "TIMED_OUT";
 
 /**
@@ -1040,15 +797,6 @@ export interface CloseStatusFilter {
    *       this filter.</p>
    */
   status: CloseStatus | string | undefined;
-}
-
-export namespace CloseStatusFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloseStatusFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1081,15 +829,6 @@ export interface CompleteWorkflowExecutionDecisionAttributes {
   result?: string;
 }
 
-export namespace CompleteWorkflowExecutionDecisionAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompleteWorkflowExecutionDecisionAttributes): any => ({
-    ...obj,
-  });
-}
-
 export type CompleteWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHANDLED_DECISION";
 
 /**
@@ -1112,15 +851,6 @@ export interface CompleteWorkflowExecutionFailedEventAttributes {
    *   events leading up to this event.</p>
    */
   decisionTaskCompletedEventId: number | undefined;
-}
-
-export namespace CompleteWorkflowExecutionFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompleteWorkflowExecutionFailedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1250,15 +980,6 @@ export interface ContinueAsNewWorkflowExecutionDecisionAttributes {
   lambdaRole?: string;
 }
 
-export namespace ContinueAsNewWorkflowExecutionDecisionAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContinueAsNewWorkflowExecutionDecisionAttributes): any => ({
-    ...obj,
-  });
-}
-
 export type ContinueAsNewWorkflowExecutionFailedCause =
   | "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"
   | "DEFAULT_CHILD_POLICY_UNDEFINED"
@@ -1292,15 +1013,6 @@ export interface ContinueAsNewWorkflowExecutionFailedEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 }
 
-export namespace ContinueAsNewWorkflowExecutionFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContinueAsNewWorkflowExecutionFailedEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Used to filter the workflow executions in visibility APIs by various time-based rules. Each parameter, if
  *       specified, defines a rule that must be satisfied by each returned query result. The parameter values are in the <a href="https://en.wikipedia.org/wiki/Unix_time">Unix Time format</a>. For example:
@@ -1319,15 +1031,6 @@ export interface ExecutionTimeFilter {
   latestDate?: Date;
 }
 
-export namespace ExecutionTimeFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionTimeFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Used to filter the workflow executions in visibility APIs by their <code>workflowId</code>.</p>
  */
@@ -1336,15 +1039,6 @@ export interface WorkflowExecutionFilter {
    * <p>The workflowId to pass of match the criteria of this filter.</p>
    */
   workflowId: string | undefined;
-}
-
-export namespace WorkflowExecutionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1358,15 +1052,6 @@ export interface TagFilter {
    *          <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>
    */
   tag: string | undefined;
-}
-
-export namespace TagFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1383,15 +1068,6 @@ export interface WorkflowTypeFilter {
    * <p>Version of the workflow type.</p>
    */
   version?: string;
-}
-
-export namespace WorkflowTypeFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowTypeFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface CountClosedWorkflowExecutionsInput {
@@ -1471,15 +1147,6 @@ export interface CountClosedWorkflowExecutionsInput {
   closeStatusFilter?: CloseStatusFilter;
 }
 
-export namespace CountClosedWorkflowExecutionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CountClosedWorkflowExecutionsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
  */
@@ -1535,15 +1202,6 @@ export interface WorkflowExecutionCount {
   truncated?: boolean;
 }
 
-export namespace WorkflowExecutionCount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionCount): any => ({
-    ...obj,
-  });
-}
-
 export interface CountOpenWorkflowExecutionsInput {
   /**
    * <p>The name of the domain containing the workflow executions to count.</p>
@@ -1589,15 +1247,6 @@ export interface CountOpenWorkflowExecutionsInput {
   executionFilter?: WorkflowExecutionFilter;
 }
 
-export namespace CountOpenWorkflowExecutionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CountOpenWorkflowExecutionsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CountPendingActivityTasksInput {
   /**
    * <p>The name of the domain that contains the task list.</p>
@@ -1608,15 +1257,6 @@ export interface CountPendingActivityTasksInput {
    * <p>The name of the task list.</p>
    */
   taskList: TaskList | undefined;
-}
-
-export namespace CountPendingActivityTasksInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CountPendingActivityTasksInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1634,15 +1274,6 @@ export interface PendingTaskCount {
   truncated?: boolean;
 }
 
-export namespace PendingTaskCount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingTaskCount): any => ({
-    ...obj,
-  });
-}
-
 export interface CountPendingDecisionTasksInput {
   /**
    * <p>The name of the domain that contains the task list.</p>
@@ -1653,15 +1284,6 @@ export interface CountPendingDecisionTasksInput {
    * <p>The name of the task list.</p>
    */
   taskList: TaskList | undefined;
-}
-
-export namespace CountPendingDecisionTasksInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CountPendingDecisionTasksInput): any => ({
-    ...obj,
-  });
 }
 
 export type DecisionType =
@@ -1716,15 +1338,6 @@ export interface FailWorkflowExecutionDecisionAttributes {
   details?: string;
 }
 
-export namespace FailWorkflowExecutionDecisionAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailWorkflowExecutionDecisionAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>RecordMarker</code> decision.</p>
  *          <p>
@@ -1762,15 +1375,6 @@ export interface RecordMarkerDecisionAttributes {
   details?: string;
 }
 
-export namespace RecordMarkerDecisionAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordMarkerDecisionAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>RequestCancelActivityTask</code> decision.</p>
  *          <p>
@@ -1800,15 +1404,6 @@ export interface RequestCancelActivityTaskDecisionAttributes {
    * <p>The <code>activityId</code> of the activity task to be canceled.</p>
    */
   activityId: string | undefined;
-}
-
-export namespace RequestCancelActivityTaskDecisionAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestCancelActivityTaskDecisionAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1850,15 +1445,6 @@ export interface RequestCancelExternalWorkflowExecutionDecisionAttributes {
    * <p>The data attached to the event that can be used by the decider in subsequent workflow tasks.</p>
    */
   control?: string;
-}
-
-export namespace RequestCancelExternalWorkflowExecutionDecisionAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestCancelExternalWorkflowExecutionDecisionAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1988,15 +1574,6 @@ export interface ScheduleActivityTaskDecisionAttributes {
   heartbeatTimeout?: string;
 }
 
-export namespace ScheduleActivityTaskDecisionAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleActivityTaskDecisionAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Decision attributes specified in <code>scheduleLambdaFunctionDecisionAttributes</code> within the list of
  *       decisions <code>decisions</code> passed to <a>RespondDecisionTaskCompleted</a>.</p>
@@ -2027,15 +1604,6 @@ export interface ScheduleLambdaFunctionDecisionAttributes {
    * <p>The timeout value, in seconds, after which the Lambda function is considered to be failed once it has started. This can be any integer from 1-300 (1s-5m). If no value is supplied, than a default value of 300s is assumed.</p>
    */
   startToCloseTimeout?: string;
-}
-
-export namespace ScheduleLambdaFunctionDecisionAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleLambdaFunctionDecisionAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2091,15 +1659,6 @@ export interface SignalExternalWorkflowExecutionDecisionAttributes {
    * <p>The data attached to the event that can be used by the decider in subsequent decision tasks.</p>
    */
   control?: string;
-}
-
-export namespace SignalExternalWorkflowExecutionDecisionAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SignalExternalWorkflowExecutionDecisionAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2252,15 +1811,6 @@ export interface StartChildWorkflowExecutionDecisionAttributes {
   lambdaRole?: string;
 }
 
-export namespace StartChildWorkflowExecutionDecisionAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartChildWorkflowExecutionDecisionAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>StartTimer</code> decision.</p>
  *          <p>
@@ -2304,15 +1854,6 @@ export interface StartTimerDecisionAttributes {
    *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>.</p>
    */
   startToFireTimeout: string | undefined;
-}
-
-export namespace StartTimerDecisionAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTimerDecisionAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2665,15 +2206,6 @@ export interface Decision {
   scheduleLambdaFunctionDecisionAttributes?: ScheduleLambdaFunctionDecisionAttributes;
 }
 
-export namespace Decision {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Decision): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>DecisionTaskCompleted</code> event.</p>
  */
@@ -2696,15 +2228,6 @@ export interface DecisionTaskCompletedEventAttributes {
    *   events leading up to this event.</p>
    */
   startedEventId: number | undefined;
-}
-
-export namespace DecisionTaskCompletedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecisionTaskCompletedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2732,15 +2255,6 @@ export interface DecisionTaskScheduledEventAttributes {
   startToCloseTimeout?: string;
 }
 
-export namespace DecisionTaskScheduledEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecisionTaskScheduledEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>DecisionTaskStarted</code> event.</p>
  */
@@ -2756,15 +2270,6 @@ export interface DecisionTaskStartedEventAttributes {
    *   events leading up to this event.</p>
    */
   scheduledEventId: number | undefined;
-}
-
-export namespace DecisionTaskStartedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecisionTaskStartedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 export type DecisionTaskTimeoutType = "START_TO_CLOSE";
@@ -2791,15 +2296,6 @@ export interface DecisionTaskTimedOutEventAttributes {
    *       event.</p>
    */
   startedEventId: number | undefined;
-}
-
-export namespace DecisionTaskTimedOutEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecisionTaskTimedOutEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 export type EventType =
@@ -2876,15 +2372,6 @@ export interface ExternalWorkflowExecutionCancelRequestedEventAttributes {
   initiatedEventId: number | undefined;
 }
 
-export namespace ExternalWorkflowExecutionCancelRequestedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExternalWorkflowExecutionCancelRequestedEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>ExternalWorkflowExecutionSignaled</code> event.</p>
  */
@@ -2900,15 +2387,6 @@ export interface ExternalWorkflowExecutionSignaledEventAttributes {
    *   events leading up to this event.</p>
    */
   initiatedEventId: number | undefined;
-}
-
-export namespace ExternalWorkflowExecutionSignaledEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExternalWorkflowExecutionSignaledEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 export type FailWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHANDLED_DECISION";
@@ -2935,15 +2413,6 @@ export interface FailWorkflowExecutionFailedEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 }
 
-export namespace FailWorkflowExecutionFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailWorkflowExecutionFailedEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>LambdaFunctionCompleted</code> event. It isn't set
  *       for other event types.</p>
@@ -2965,15 +2434,6 @@ export interface LambdaFunctionCompletedEventAttributes {
    * <p>The results of the Lambda task.</p>
    */
   result?: string;
-}
-
-export namespace LambdaFunctionCompletedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaFunctionCompletedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3002,15 +2462,6 @@ export interface LambdaFunctionFailedEventAttributes {
    * <p>The details of the failure.</p>
    */
   details?: string;
-}
-
-export namespace LambdaFunctionFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaFunctionFailedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3051,15 +2502,6 @@ export interface LambdaFunctionScheduledEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 }
 
-export namespace LambdaFunctionScheduledEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaFunctionScheduledEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>LambdaFunctionStarted</code> event. It isn't set for
  *       other event types.</p>
@@ -3070,15 +2512,6 @@ export interface LambdaFunctionStartedEventAttributes {
    *       activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>
    */
   scheduledEventId: number | undefined;
-}
-
-export namespace LambdaFunctionStartedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaFunctionStartedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 export type LambdaFunctionTimeoutType = "START_TO_CLOSE";
@@ -3105,15 +2538,6 @@ export interface LambdaFunctionTimedOutEventAttributes {
   timeoutType?: LambdaFunctionTimeoutType | string;
 }
 
-export namespace LambdaFunctionTimedOutEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaFunctionTimedOutEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>MarkerRecorded</code> event.</p>
  */
@@ -3134,15 +2558,6 @@ export interface MarkerRecordedEventAttributes {
    *   events leading up to this event.</p>
    */
   decisionTaskCompletedEventId: number | undefined;
-}
-
-export namespace MarkerRecordedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MarkerRecordedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 export type RecordMarkerFailedCause = "OPERATION_NOT_PERMITTED";
@@ -3174,15 +2589,6 @@ export interface RecordMarkerFailedEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 }
 
-export namespace RecordMarkerFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordMarkerFailedEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 export type RequestCancelActivityTaskFailedCause = "ACTIVITY_ID_UNKNOWN" | "OPERATION_NOT_PERMITTED";
 
 /**
@@ -3210,15 +2616,6 @@ export interface RequestCancelActivityTaskFailedEventAttributes {
    *   events leading up to this event.</p>
    */
   decisionTaskCompletedEventId: number | undefined;
-}
-
-export namespace RequestCancelActivityTaskFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestCancelActivityTaskFailedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 export type RequestCancelExternalWorkflowExecutionFailedCause =
@@ -3272,15 +2669,6 @@ export interface RequestCancelExternalWorkflowExecutionFailedEventAttributes {
   control?: string;
 }
 
-export namespace RequestCancelExternalWorkflowExecutionFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestCancelExternalWorkflowExecutionFailedEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>RequestCancelExternalWorkflowExecutionInitiated</code> event.</p>
  */
@@ -3307,15 +2695,6 @@ export interface RequestCancelExternalWorkflowExecutionInitiatedEventAttributes 
    * <p>Data attached to the event that can be used by the decider in subsequent workflow tasks.</p>
    */
   control?: string;
-}
-
-export namespace RequestCancelExternalWorkflowExecutionInitiatedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 export type ScheduleActivityTaskFailedCause =
@@ -3363,15 +2742,6 @@ export interface ScheduleActivityTaskFailedEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 }
 
-export namespace ScheduleActivityTaskFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleActivityTaskFailedEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 export type ScheduleLambdaFunctionFailedCause =
   | "ID_ALREADY_IN_USE"
   | "LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED"
@@ -3411,15 +2781,6 @@ export interface ScheduleLambdaFunctionFailedEventAttributes {
    *       that resulted in scheduling this Lambda task. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>
    */
   decisionTaskCompletedEventId: number | undefined;
-}
-
-export namespace ScheduleLambdaFunctionFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleLambdaFunctionFailedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 export type SignalExternalWorkflowExecutionFailedCause =
@@ -3472,15 +2833,6 @@ export interface SignalExternalWorkflowExecutionFailedEventAttributes {
   control?: string;
 }
 
-export namespace SignalExternalWorkflowExecutionFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SignalExternalWorkflowExecutionFailedEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>SignalExternalWorkflowExecutionInitiated</code> event.</p>
  */
@@ -3516,15 +2868,6 @@ export interface SignalExternalWorkflowExecutionInitiatedEventAttributes {
    * <p>Data attached to the event that can be used by the decider in subsequent decision tasks.</p>
    */
   control?: string;
-}
-
-export namespace SignalExternalWorkflowExecutionInitiatedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SignalExternalWorkflowExecutionInitiatedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 export type StartChildWorkflowExecutionFailedCause =
@@ -3586,15 +2929,6 @@ export interface StartChildWorkflowExecutionFailedEventAttributes {
    *       This data isn't sent to the child workflow execution.</p>
    */
   control?: string;
-}
-
-export namespace StartChildWorkflowExecutionFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartChildWorkflowExecutionFailedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3689,15 +3023,6 @@ export interface StartChildWorkflowExecutionInitiatedEventAttributes {
   lambdaRole?: string;
 }
 
-export namespace StartChildWorkflowExecutionInitiatedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartChildWorkflowExecutionInitiatedEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 export type StartLambdaFunctionFailedCause = "ASSUME_ROLE_FAILED";
 
 /**
@@ -3726,15 +3051,6 @@ export interface StartLambdaFunctionFailedEventAttributes {
    * <p>A description that can help diagnose the cause of the fault.</p>
    */
   message?: string;
-}
-
-export namespace StartLambdaFunctionFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartLambdaFunctionFailedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 export type StartTimerFailedCause =
@@ -3770,15 +3086,6 @@ export interface StartTimerFailedEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 }
 
-export namespace StartTimerFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTimerFailedEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Provides the details of the <code>TimerCanceled</code> event.
@@ -3805,15 +3112,6 @@ export interface TimerCanceledEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 }
 
-export namespace TimerCanceledEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimerCanceledEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>TimerFired</code> event.</p>
  */
@@ -3829,15 +3127,6 @@ export interface TimerFiredEventAttributes {
    *   events leading up to this event.</p>
    */
   startedEventId: number | undefined;
-}
-
-export namespace TimerFiredEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimerFiredEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3868,15 +3157,6 @@ export interface TimerStartedEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 }
 
-export namespace TimerStartedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimerStartedEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>WorkflowExecutionCanceled</code> event.</p>
  */
@@ -3892,15 +3172,6 @@ export interface WorkflowExecutionCanceledEventAttributes {
    *   events leading up to this event.</p>
    */
   decisionTaskCompletedEventId: number | undefined;
-}
-
-export namespace WorkflowExecutionCanceledEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionCanceledEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 export type WorkflowExecutionCancelRequestedCause = "CHILD_POLICY_APPLIED";
@@ -3928,15 +3199,6 @@ export interface WorkflowExecutionCancelRequestedEventAttributes {
   cause?: WorkflowExecutionCancelRequestedCause | string;
 }
 
-export namespace WorkflowExecutionCancelRequestedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionCancelRequestedEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>WorkflowExecutionCompleted</code> event.</p>
  */
@@ -3952,15 +3214,6 @@ export interface WorkflowExecutionCompletedEventAttributes {
    *   events leading up to this event.</p>
    */
   decisionTaskCompletedEventId: number | undefined;
-}
-
-export namespace WorkflowExecutionCompletedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionCompletedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4047,15 +3300,6 @@ export interface WorkflowExecutionContinuedAsNewEventAttributes {
   lambdaRole?: string;
 }
 
-export namespace WorkflowExecutionContinuedAsNewEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionContinuedAsNewEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>WorkflowExecutionFailed</code> event.</p>
  */
@@ -4076,15 +3320,6 @@ export interface WorkflowExecutionFailedEventAttributes {
    *   events leading up to this event.</p>
    */
   decisionTaskCompletedEventId: number | undefined;
-}
-
-export namespace WorkflowExecutionFailedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionFailedEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4114,15 +3349,6 @@ export interface WorkflowExecutionSignaledEventAttributes {
    *       the signal was initiated by another workflow execution.</p>
    */
   externalInitiatedEventId?: number;
-}
-
-export namespace WorkflowExecutionSignaledEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionSignaledEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4216,15 +3442,6 @@ export interface WorkflowExecutionStartedEventAttributes {
   lambdaRole?: string;
 }
 
-export namespace WorkflowExecutionStartedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionStartedEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 export type WorkflowExecutionTerminatedCause = "CHILD_POLICY_APPLIED" | "EVENT_LIMIT_EXCEEDED" | "OPERATOR_INITIATED";
 
 /**
@@ -4269,15 +3486,6 @@ export interface WorkflowExecutionTerminatedEventAttributes {
   cause?: WorkflowExecutionTerminatedCause | string;
 }
 
-export namespace WorkflowExecutionTerminatedEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionTerminatedEventAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the details of the <code>WorkflowExecutionTimedOut</code> event.</p>
  */
@@ -4308,15 +3516,6 @@ export interface WorkflowExecutionTimedOutEventAttributes {
    *          </ul>
    */
   childPolicy: ChildPolicy | string | undefined;
-}
-
-export namespace WorkflowExecutionTimedOutEventAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionTimedOutEventAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4880,15 +4079,6 @@ export interface HistoryEvent {
   startLambdaFunctionFailedEventAttributes?: StartLambdaFunctionFailedEventAttributes;
 }
 
-export namespace HistoryEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HistoryEvent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that represents a decision task. Decision tasks are sent to deciders in order for them to make decisions.</p>
  */
@@ -4932,15 +4122,6 @@ export interface DecisionTask {
   previousStartedEventId?: number;
 }
 
-export namespace DecisionTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecisionTask): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>StartWorkflowExecution</code> API action was called without the required
  *       parameters set.</p>
@@ -4982,15 +4163,6 @@ export interface DeprecateActivityTypeInput {
   activityType: ActivityType | undefined;
 }
 
-export namespace DeprecateActivityTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeprecateActivityTypeInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned when the specified activity or workflow type was already deprecated.</p>
  */
@@ -5015,15 +4187,6 @@ export interface DeprecateDomainInput {
    * <p>The name of the domain to deprecate.</p>
    */
   name: string | undefined;
-}
-
-export namespace DeprecateDomainInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeprecateDomainInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5057,15 +4220,6 @@ export interface DeprecateWorkflowTypeInput {
   workflowType: WorkflowType | undefined;
 }
 
-export namespace DeprecateWorkflowTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeprecateWorkflowTypeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeActivityTypeInput {
   /**
    * <p>The name of the domain in which the activity type is registered.</p>
@@ -5080,29 +4234,11 @@ export interface DescribeActivityTypeInput {
   activityType: ActivityType | undefined;
 }
 
-export namespace DescribeActivityTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeActivityTypeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDomainInput {
   /**
    * <p>The name of the domain to describe.</p>
    */
   name: string | undefined;
-}
-
-export namespace DescribeDomainInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5113,15 +4249,6 @@ export interface DomainConfiguration {
    * <p>The retention period for workflow executions in this domain.</p>
    */
   workflowExecutionRetentionPeriodInDays: string | undefined;
-}
-
-export namespace DomainConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5163,15 +4290,6 @@ export interface DomainInfo {
   arn?: string;
 }
 
-export namespace DomainInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains details of a domain.</p>
  */
@@ -5189,15 +4307,6 @@ export interface DomainDetail {
   configuration: DomainConfiguration | undefined;
 }
 
-export namespace DomainDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeWorkflowExecutionInput {
   /**
    * <p>The name of the domain containing the workflow execution.</p>
@@ -5208,15 +4317,6 @@ export interface DescribeWorkflowExecutionInput {
    * <p>The workflow execution to describe.</p>
    */
   execution: WorkflowExecution | undefined;
-}
-
-export namespace DescribeWorkflowExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkflowExecutionInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5274,15 +4374,6 @@ export interface WorkflowExecutionConfiguration {
    * <p>The IAM role attached to the child workflow execution.</p>
    */
   lambdaRole?: string;
-}
-
-export namespace WorkflowExecutionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export type ExecutionStatus = "CLOSED" | "OPEN";
@@ -5366,15 +4457,6 @@ export interface WorkflowExecutionInfo {
   cancelRequested?: boolean;
 }
 
-export namespace WorkflowExecutionInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the counts of open tasks, child workflow executions and timers for a workflow execution.</p>
  */
@@ -5403,15 +4485,6 @@ export interface WorkflowExecutionOpenCounts {
    * <p>The count of Lambda tasks whose status is <code>OPEN</code>.</p>
    */
   openLambdaFunctions?: number;
-}
-
-export namespace WorkflowExecutionOpenCounts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionOpenCounts): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5445,15 +4518,6 @@ export interface WorkflowExecutionDetail {
   latestExecutionContext?: string;
 }
 
-export namespace WorkflowExecutionDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeWorkflowTypeInput {
   /**
    * <p>The name of the domain in which this workflow type is registered.</p>
@@ -5464,15 +4528,6 @@ export interface DescribeWorkflowTypeInput {
    * <p>The workflow type to describe.</p>
    */
   workflowType: WorkflowType | undefined;
-}
-
-export namespace DescribeWorkflowTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkflowTypeInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5560,15 +4615,6 @@ export interface WorkflowTypeConfiguration {
   defaultLambdaRole?: string;
 }
 
-export namespace WorkflowTypeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowTypeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a workflow type.</p>
  */
@@ -5599,15 +4645,6 @@ export interface WorkflowTypeInfo {
   deprecationDate?: Date;
 }
 
-export namespace WorkflowTypeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowTypeInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains details about a workflow type.</p>
  */
@@ -5634,15 +4671,6 @@ export interface WorkflowTypeDetail {
    *          </p>
    */
   configuration: WorkflowTypeConfiguration | undefined;
-}
-
-export namespace WorkflowTypeDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowTypeDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5682,15 +4710,6 @@ export interface DomainInfos {
   nextPageToken?: string;
 }
 
-export namespace DomainInfos {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainInfos): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWorkflowExecutionHistoryInput {
   /**
    * <p>The name of the domain containing the workflow execution.</p>
@@ -5728,15 +4747,6 @@ export interface GetWorkflowExecutionHistoryInput {
   reverseOrder?: boolean;
 }
 
-export namespace GetWorkflowExecutionHistoryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkflowExecutionHistoryInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Paginated representation of a workflow history for a workflow execution. This is the up to date, complete and authoritative record of the events related to all tasks and events in the life of the workflow execution.</p>
  */
@@ -5753,15 +4763,6 @@ export interface History {
    *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned in a single call.</p>
    */
   nextPageToken?: string;
-}
-
-export namespace History {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: History): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5823,15 +4824,6 @@ export interface ListActivityTypesInput {
    *       types.</p>
    */
   reverseOrder?: boolean;
-}
-
-export namespace ListActivityTypesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListActivityTypesInput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListClosedWorkflowExecutionsInput {
@@ -5938,15 +4930,6 @@ export interface ListClosedWorkflowExecutionsInput {
   reverseOrder?: boolean;
 }
 
-export namespace ListClosedWorkflowExecutionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClosedWorkflowExecutionsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a paginated list of information about workflow executions.</p>
  */
@@ -5963,15 +4946,6 @@ export interface WorkflowExecutionInfos {
    *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned in a single call.</p>
    */
   nextPageToken?: string;
-}
-
-export namespace WorkflowExecutionInfos {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowExecutionInfos): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDomainsInput {
@@ -6004,15 +4978,6 @@ export interface ListDomainsInput {
    *       domains.</p>
    */
   reverseOrder?: boolean;
-}
-
-export namespace ListDomainsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainsInput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListOpenWorkflowExecutionsInput {
@@ -6084,29 +5049,11 @@ export interface ListOpenWorkflowExecutionsInput {
   executionFilter?: WorkflowExecutionFilter;
 }
 
-export namespace ListOpenWorkflowExecutionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOpenWorkflowExecutionsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
    */
   resourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6126,29 +5073,11 @@ export interface ResourceTag {
   value?: string;
 }
 
-export namespace ResourceTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTag): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceOutput {
   /**
    * <p>An array of tags associated with the domain.</p>
    */
   tags?: ResourceTag[];
-}
-
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListWorkflowTypesInput {
@@ -6193,15 +5122,6 @@ export interface ListWorkflowTypesInput {
   reverseOrder?: boolean;
 }
 
-export namespace ListWorkflowTypesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkflowTypesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a paginated list of information structures about workflow types.</p>
  */
@@ -6218,15 +5138,6 @@ export interface WorkflowTypeInfos {
    *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned in a single call.</p>
    */
   nextPageToken?: string;
-}
-
-export namespace WorkflowTypeInfos {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowTypeInfos): any => ({
-    ...obj,
-  });
 }
 
 export interface PollForActivityTaskInput {
@@ -6251,15 +5162,6 @@ export interface PollForActivityTaskInput {
    *       tracing when problems arise. The form of this identity is user defined.</p>
    */
   identity?: string;
-}
-
-export namespace PollForActivityTaskInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PollForActivityTaskInput): any => ({
-    ...obj,
-  });
 }
 
 export interface PollForDecisionTaskInput {
@@ -6319,15 +5221,6 @@ export interface PollForDecisionTaskInput {
   reverseOrder?: boolean;
 }
 
-export namespace PollForDecisionTaskInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PollForDecisionTaskInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RecordActivityTaskHeartbeatInput {
   /**
    * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
@@ -6344,15 +5237,6 @@ export interface RecordActivityTaskHeartbeatInput {
    * <p>If specified, contains details about the progress of the task.</p>
    */
   details?: string;
-}
-
-export namespace RecordActivityTaskHeartbeatInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordActivityTaskHeartbeatInput): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterActivityTypeInput {
@@ -6454,15 +5338,6 @@ export interface RegisterActivityTypeInput {
   defaultTaskScheduleToCloseTimeout?: string;
 }
 
-export namespace RegisterActivityTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterActivityTypeInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned if the type already exists in the specified domain. You may get this fault if you are registering a type that is either already registered or deprecated, or if you undeprecate a type that is currently registered.</p>
  */
@@ -6517,15 +5392,6 @@ export interface RegisterDomainInput {
    *          <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>
    */
   tags?: ResourceTag[];
-}
-
-export namespace RegisterDomainInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterDomainInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6663,15 +5529,6 @@ export interface RegisterWorkflowTypeInput {
   defaultLambdaRole?: string;
 }
 
-export namespace RegisterWorkflowTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterWorkflowTypeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RequestCancelWorkflowExecutionInput {
   /**
    * <p>The name of the domain containing the workflow execution to cancel.</p>
@@ -6687,15 +5544,6 @@ export interface RequestCancelWorkflowExecutionInput {
    * <p>The runId of the workflow execution to cancel.</p>
    */
   runId?: string;
-}
-
-export namespace RequestCancelWorkflowExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestCancelWorkflowExecutionInput): any => ({
-    ...obj,
-  });
 }
 
 export interface RespondActivityTaskCanceledInput {
@@ -6716,15 +5564,6 @@ export interface RespondActivityTaskCanceledInput {
   details?: string;
 }
 
-export namespace RespondActivityTaskCanceledInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RespondActivityTaskCanceledInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RespondActivityTaskCompletedInput {
   /**
    * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
@@ -6742,15 +5581,6 @@ export interface RespondActivityTaskCompletedInput {
    *       specific.</p>
    */
   result?: string;
-}
-
-export namespace RespondActivityTaskCompletedInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RespondActivityTaskCompletedInput): any => ({
-    ...obj,
-  });
 }
 
 export interface RespondActivityTaskFailedInput {
@@ -6775,15 +5605,6 @@ export interface RespondActivityTaskFailedInput {
    * <p> Detailed information about the failure.</p>
    */
   details?: string;
-}
-
-export namespace RespondActivityTaskFailedInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RespondActivityTaskFailedInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6814,15 +5635,6 @@ export interface RespondDecisionTaskCompletedInput {
   executionContext?: string;
 }
 
-export namespace RespondDecisionTaskCompletedInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RespondDecisionTaskCompletedInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the <code>runId</code> of a workflow execution.</p>
  */
@@ -6832,15 +5644,6 @@ export interface Run {
    *       can be used to uniquely identify the workflow execution within a domain.</p>
    */
   runId?: string;
-}
-
-export namespace Run {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Run): any => ({
-    ...obj,
-  });
 }
 
 export interface SignalWorkflowExecutionInput {
@@ -6869,15 +5672,6 @@ export interface SignalWorkflowExecutionInput {
    *       workflow execution's history.</p>
    */
   input?: string;
-}
-
-export namespace SignalWorkflowExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SignalWorkflowExecutionInput): any => ({
-    ...obj,
-  });
 }
 
 export interface StartWorkflowExecutionInput {
@@ -7024,15 +5818,6 @@ export interface StartWorkflowExecutionInput {
   lambdaRole?: string;
 }
 
-export namespace StartWorkflowExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartWorkflowExecutionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned by <a>StartWorkflowExecution</a> when an open execution with the same workflowId is already running in
  *       the specified domain.</p>
@@ -7064,15 +5849,6 @@ export interface TagResourceInput {
    *          <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>
    */
   tags: ResourceTag[] | undefined;
-}
-
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
 }
 
 export interface TerminateWorkflowExecutionInput {
@@ -7133,15 +5909,6 @@ export interface TerminateWorkflowExecutionInput {
   childPolicy?: ChildPolicy | string;
 }
 
-export namespace TerminateWorkflowExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateWorkflowExecutionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UndeprecateActivityTypeInput {
   /**
    * <p>The name of the domain of the deprecated activity type.</p>
@@ -7154,29 +5921,11 @@ export interface UndeprecateActivityTypeInput {
   activityType: ActivityType | undefined;
 }
 
-export namespace UndeprecateActivityTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UndeprecateActivityTypeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UndeprecateDomainInput {
   /**
    * <p>The name of the domain of the deprecated workflow type.</p>
    */
   name: string | undefined;
-}
-
-export namespace UndeprecateDomainInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UndeprecateDomainInput): any => ({
-    ...obj,
-  });
 }
 
 export interface UndeprecateWorkflowTypeInput {
@@ -7191,15 +5940,6 @@ export interface UndeprecateWorkflowTypeInput {
   workflowType: WorkflowType | undefined;
 }
 
-export namespace UndeprecateWorkflowTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UndeprecateWorkflowTypeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
@@ -7212,11 +5952,1099 @@ export interface UntagResourceInput {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ActivityTypeFilterSensitiveLog = (obj: ActivityType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionFilterSensitiveLog = (obj: WorkflowExecution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityTaskFilterSensitiveLog = (obj: ActivityTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityTaskCanceledEventAttributesFilterSensitiveLog = (
+  obj: ActivityTaskCanceledEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityTaskCancelRequestedEventAttributesFilterSensitiveLog = (
+  obj: ActivityTaskCancelRequestedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityTaskCompletedEventAttributesFilterSensitiveLog = (
+  obj: ActivityTaskCompletedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityTaskFailedEventAttributesFilterSensitiveLog = (obj: ActivityTaskFailedEventAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskListFilterSensitiveLog = (obj: TaskList): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityTaskScheduledEventAttributesFilterSensitiveLog = (
+  obj: ActivityTaskScheduledEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityTaskStartedEventAttributesFilterSensitiveLog = (obj: ActivityTaskStartedEventAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityTaskStatusFilterSensitiveLog = (obj: ActivityTaskStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityTaskTimedOutEventAttributesFilterSensitiveLog = (
+  obj: ActivityTaskTimedOutEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityTypeConfigurationFilterSensitiveLog = (obj: ActivityTypeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityTypeInfoFilterSensitiveLog = (obj: ActivityTypeInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityTypeDetailFilterSensitiveLog = (obj: ActivityTypeDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityTypeInfosFilterSensitiveLog = (obj: ActivityTypeInfos): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelTimerDecisionAttributesFilterSensitiveLog = (obj: CancelTimerDecisionAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelTimerFailedEventAttributesFilterSensitiveLog = (obj: CancelTimerFailedEventAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelWorkflowExecutionDecisionAttributesFilterSensitiveLog = (
+  obj: CancelWorkflowExecutionDecisionAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelWorkflowExecutionFailedEventAttributesFilterSensitiveLog = (
+  obj: CancelWorkflowExecutionFailedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowTypeFilterSensitiveLog = (obj: WorkflowType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChildWorkflowExecutionCanceledEventAttributesFilterSensitiveLog = (
+  obj: ChildWorkflowExecutionCanceledEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChildWorkflowExecutionCompletedEventAttributesFilterSensitiveLog = (
+  obj: ChildWorkflowExecutionCompletedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChildWorkflowExecutionFailedEventAttributesFilterSensitiveLog = (
+  obj: ChildWorkflowExecutionFailedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChildWorkflowExecutionStartedEventAttributesFilterSensitiveLog = (
+  obj: ChildWorkflowExecutionStartedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChildWorkflowExecutionTerminatedEventAttributesFilterSensitiveLog = (
+  obj: ChildWorkflowExecutionTerminatedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChildWorkflowExecutionTimedOutEventAttributesFilterSensitiveLog = (
+  obj: ChildWorkflowExecutionTimedOutEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloseStatusFilterFilterSensitiveLog = (obj: CloseStatusFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompleteWorkflowExecutionDecisionAttributesFilterSensitiveLog = (
+  obj: CompleteWorkflowExecutionDecisionAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompleteWorkflowExecutionFailedEventAttributesFilterSensitiveLog = (
+  obj: CompleteWorkflowExecutionFailedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContinueAsNewWorkflowExecutionDecisionAttributesFilterSensitiveLog = (
+  obj: ContinueAsNewWorkflowExecutionDecisionAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContinueAsNewWorkflowExecutionFailedEventAttributesFilterSensitiveLog = (
+  obj: ContinueAsNewWorkflowExecutionFailedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutionTimeFilterFilterSensitiveLog = (obj: ExecutionTimeFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionFilterFilterSensitiveLog = (obj: WorkflowExecutionFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterFilterSensitiveLog = (obj: TagFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowTypeFilterFilterSensitiveLog = (obj: WorkflowTypeFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CountClosedWorkflowExecutionsInputFilterSensitiveLog = (obj: CountClosedWorkflowExecutionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionCountFilterSensitiveLog = (obj: WorkflowExecutionCount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CountOpenWorkflowExecutionsInputFilterSensitiveLog = (obj: CountOpenWorkflowExecutionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CountPendingActivityTasksInputFilterSensitiveLog = (obj: CountPendingActivityTasksInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingTaskCountFilterSensitiveLog = (obj: PendingTaskCount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CountPendingDecisionTasksInputFilterSensitiveLog = (obj: CountPendingDecisionTasksInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailWorkflowExecutionDecisionAttributesFilterSensitiveLog = (
+  obj: FailWorkflowExecutionDecisionAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordMarkerDecisionAttributesFilterSensitiveLog = (obj: RecordMarkerDecisionAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestCancelActivityTaskDecisionAttributesFilterSensitiveLog = (
+  obj: RequestCancelActivityTaskDecisionAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestCancelExternalWorkflowExecutionDecisionAttributesFilterSensitiveLog = (
+  obj: RequestCancelExternalWorkflowExecutionDecisionAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleActivityTaskDecisionAttributesFilterSensitiveLog = (
+  obj: ScheduleActivityTaskDecisionAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleLambdaFunctionDecisionAttributesFilterSensitiveLog = (
+  obj: ScheduleLambdaFunctionDecisionAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SignalExternalWorkflowExecutionDecisionAttributesFilterSensitiveLog = (
+  obj: SignalExternalWorkflowExecutionDecisionAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartChildWorkflowExecutionDecisionAttributesFilterSensitiveLog = (
+  obj: StartChildWorkflowExecutionDecisionAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTimerDecisionAttributesFilterSensitiveLog = (obj: StartTimerDecisionAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecisionFilterSensitiveLog = (obj: Decision): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecisionTaskCompletedEventAttributesFilterSensitiveLog = (
+  obj: DecisionTaskCompletedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecisionTaskScheduledEventAttributesFilterSensitiveLog = (
+  obj: DecisionTaskScheduledEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecisionTaskStartedEventAttributesFilterSensitiveLog = (obj: DecisionTaskStartedEventAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecisionTaskTimedOutEventAttributesFilterSensitiveLog = (
+  obj: DecisionTaskTimedOutEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExternalWorkflowExecutionCancelRequestedEventAttributesFilterSensitiveLog = (
+  obj: ExternalWorkflowExecutionCancelRequestedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExternalWorkflowExecutionSignaledEventAttributesFilterSensitiveLog = (
+  obj: ExternalWorkflowExecutionSignaledEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailWorkflowExecutionFailedEventAttributesFilterSensitiveLog = (
+  obj: FailWorkflowExecutionFailedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionCompletedEventAttributesFilterSensitiveLog = (
+  obj: LambdaFunctionCompletedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionFailedEventAttributesFilterSensitiveLog = (
+  obj: LambdaFunctionFailedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionScheduledEventAttributesFilterSensitiveLog = (
+  obj: LambdaFunctionScheduledEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionStartedEventAttributesFilterSensitiveLog = (
+  obj: LambdaFunctionStartedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionTimedOutEventAttributesFilterSensitiveLog = (
+  obj: LambdaFunctionTimedOutEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MarkerRecordedEventAttributesFilterSensitiveLog = (obj: MarkerRecordedEventAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordMarkerFailedEventAttributesFilterSensitiveLog = (obj: RecordMarkerFailedEventAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestCancelActivityTaskFailedEventAttributesFilterSensitiveLog = (
+  obj: RequestCancelActivityTaskFailedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestCancelExternalWorkflowExecutionFailedEventAttributesFilterSensitiveLog = (
+  obj: RequestCancelExternalWorkflowExecutionFailedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestCancelExternalWorkflowExecutionInitiatedEventAttributesFilterSensitiveLog = (
+  obj: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleActivityTaskFailedEventAttributesFilterSensitiveLog = (
+  obj: ScheduleActivityTaskFailedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleLambdaFunctionFailedEventAttributesFilterSensitiveLog = (
+  obj: ScheduleLambdaFunctionFailedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SignalExternalWorkflowExecutionFailedEventAttributesFilterSensitiveLog = (
+  obj: SignalExternalWorkflowExecutionFailedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SignalExternalWorkflowExecutionInitiatedEventAttributesFilterSensitiveLog = (
+  obj: SignalExternalWorkflowExecutionInitiatedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartChildWorkflowExecutionFailedEventAttributesFilterSensitiveLog = (
+  obj: StartChildWorkflowExecutionFailedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartChildWorkflowExecutionInitiatedEventAttributesFilterSensitiveLog = (
+  obj: StartChildWorkflowExecutionInitiatedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartLambdaFunctionFailedEventAttributesFilterSensitiveLog = (
+  obj: StartLambdaFunctionFailedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTimerFailedEventAttributesFilterSensitiveLog = (obj: StartTimerFailedEventAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimerCanceledEventAttributesFilterSensitiveLog = (obj: TimerCanceledEventAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimerFiredEventAttributesFilterSensitiveLog = (obj: TimerFiredEventAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimerStartedEventAttributesFilterSensitiveLog = (obj: TimerStartedEventAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionCanceledEventAttributesFilterSensitiveLog = (
+  obj: WorkflowExecutionCanceledEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionCancelRequestedEventAttributesFilterSensitiveLog = (
+  obj: WorkflowExecutionCancelRequestedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionCompletedEventAttributesFilterSensitiveLog = (
+  obj: WorkflowExecutionCompletedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionContinuedAsNewEventAttributesFilterSensitiveLog = (
+  obj: WorkflowExecutionContinuedAsNewEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionFailedEventAttributesFilterSensitiveLog = (
+  obj: WorkflowExecutionFailedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionSignaledEventAttributesFilterSensitiveLog = (
+  obj: WorkflowExecutionSignaledEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionStartedEventAttributesFilterSensitiveLog = (
+  obj: WorkflowExecutionStartedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionTerminatedEventAttributesFilterSensitiveLog = (
+  obj: WorkflowExecutionTerminatedEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionTimedOutEventAttributesFilterSensitiveLog = (
+  obj: WorkflowExecutionTimedOutEventAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HistoryEventFilterSensitiveLog = (obj: HistoryEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecisionTaskFilterSensitiveLog = (obj: DecisionTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeprecateActivityTypeInputFilterSensitiveLog = (obj: DeprecateActivityTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeprecateDomainInputFilterSensitiveLog = (obj: DeprecateDomainInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeprecateWorkflowTypeInputFilterSensitiveLog = (obj: DeprecateWorkflowTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeActivityTypeInputFilterSensitiveLog = (obj: DescribeActivityTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainInputFilterSensitiveLog = (obj: DescribeDomainInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainConfigurationFilterSensitiveLog = (obj: DomainConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainInfoFilterSensitiveLog = (obj: DomainInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainDetailFilterSensitiveLog = (obj: DomainDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkflowExecutionInputFilterSensitiveLog = (obj: DescribeWorkflowExecutionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionConfigurationFilterSensitiveLog = (obj: WorkflowExecutionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionInfoFilterSensitiveLog = (obj: WorkflowExecutionInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionOpenCountsFilterSensitiveLog = (obj: WorkflowExecutionOpenCounts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionDetailFilterSensitiveLog = (obj: WorkflowExecutionDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkflowTypeInputFilterSensitiveLog = (obj: DescribeWorkflowTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowTypeConfigurationFilterSensitiveLog = (obj: WorkflowTypeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowTypeInfoFilterSensitiveLog = (obj: WorkflowTypeInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowTypeDetailFilterSensitiveLog = (obj: WorkflowTypeDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainInfosFilterSensitiveLog = (obj: DomainInfos): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWorkflowExecutionHistoryInputFilterSensitiveLog = (obj: GetWorkflowExecutionHistoryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HistoryFilterSensitiveLog = (obj: History): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListActivityTypesInputFilterSensitiveLog = (obj: ListActivityTypesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClosedWorkflowExecutionsInputFilterSensitiveLog = (obj: ListClosedWorkflowExecutionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowExecutionInfosFilterSensitiveLog = (obj: WorkflowExecutionInfos): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainsInputFilterSensitiveLog = (obj: ListDomainsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOpenWorkflowExecutionsInputFilterSensitiveLog = (obj: ListOpenWorkflowExecutionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceTagFilterSensitiveLog = (obj: ResourceTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkflowTypesInputFilterSensitiveLog = (obj: ListWorkflowTypesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowTypeInfosFilterSensitiveLog = (obj: WorkflowTypeInfos): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PollForActivityTaskInputFilterSensitiveLog = (obj: PollForActivityTaskInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PollForDecisionTaskInputFilterSensitiveLog = (obj: PollForDecisionTaskInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordActivityTaskHeartbeatInputFilterSensitiveLog = (obj: RecordActivityTaskHeartbeatInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterActivityTypeInputFilterSensitiveLog = (obj: RegisterActivityTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterDomainInputFilterSensitiveLog = (obj: RegisterDomainInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterWorkflowTypeInputFilterSensitiveLog = (obj: RegisterWorkflowTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestCancelWorkflowExecutionInputFilterSensitiveLog = (
+  obj: RequestCancelWorkflowExecutionInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RespondActivityTaskCanceledInputFilterSensitiveLog = (obj: RespondActivityTaskCanceledInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RespondActivityTaskCompletedInputFilterSensitiveLog = (obj: RespondActivityTaskCompletedInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RespondActivityTaskFailedInputFilterSensitiveLog = (obj: RespondActivityTaskFailedInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RespondDecisionTaskCompletedInputFilterSensitiveLog = (obj: RespondDecisionTaskCompletedInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RunFilterSensitiveLog = (obj: Run): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SignalWorkflowExecutionInputFilterSensitiveLog = (obj: SignalWorkflowExecutionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartWorkflowExecutionInputFilterSensitiveLog = (obj: StartWorkflowExecutionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateWorkflowExecutionInputFilterSensitiveLog = (obj: TerminateWorkflowExecutionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UndeprecateActivityTypeInputFilterSensitiveLog = (obj: UndeprecateActivityTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UndeprecateDomainInputFilterSensitiveLog = (obj: UndeprecateDomainInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UndeprecateWorkflowTypeInputFilterSensitiveLog = (obj: UndeprecateWorkflowTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
+  ...obj,
+});

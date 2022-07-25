@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
-import { CreateAttendeeRequest, CreateAttendeeResponse } from "../models/models_0";
+import {
+  CreateAttendeeRequest,
+  CreateAttendeeRequestFilterSensitiveLog,
+  CreateAttendeeResponse,
+  CreateAttendeeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateAttendeeCommand,
   serializeAws_restJson1CreateAttendeeCommand,
@@ -77,8 +82,8 @@ export class CreateAttendeeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAttendeeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateAttendeeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAttendeeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateAttendeeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

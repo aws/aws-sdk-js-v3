@@ -16,7 +16,9 @@ import {
 
 import {
   DescribeMultiRegionAccessPointOperationRequest,
+  DescribeMultiRegionAccessPointOperationRequestFilterSensitiveLog,
   DescribeMultiRegionAccessPointOperationResult,
+  DescribeMultiRegionAccessPointOperationResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlDescribeMultiRegionAccessPointOperationCommand,
@@ -110,8 +112,8 @@ export class DescribeMultiRegionAccessPointOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMultiRegionAccessPointOperationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMultiRegionAccessPointOperationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeMultiRegionAccessPointOperationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeMultiRegionAccessPointOperationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

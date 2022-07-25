@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { CreateForecastRequest, CreateForecastResponse } from "../models/models_0";
+import {
+  CreateForecastRequest,
+  CreateForecastRequestFilterSensitiveLog,
+  CreateForecastResponse,
+  CreateForecastResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateForecastCommand,
   serializeAws_json1_1CreateForecastCommand,
@@ -92,8 +97,8 @@ export class CreateForecastCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateForecastRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateForecastResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateForecastRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateForecastResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

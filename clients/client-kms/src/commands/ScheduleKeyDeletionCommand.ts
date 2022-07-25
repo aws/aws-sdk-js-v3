@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { ScheduleKeyDeletionRequest, ScheduleKeyDeletionResponse } from "../models/models_0";
+import {
+  ScheduleKeyDeletionRequest,
+  ScheduleKeyDeletionRequestFilterSensitiveLog,
+  ScheduleKeyDeletionResponse,
+  ScheduleKeyDeletionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ScheduleKeyDeletionCommand,
   serializeAws_json1_1ScheduleKeyDeletionCommand,
@@ -126,8 +131,8 @@ export class ScheduleKeyDeletionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScheduleKeyDeletionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ScheduleKeyDeletionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ScheduleKeyDeletionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ScheduleKeyDeletionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

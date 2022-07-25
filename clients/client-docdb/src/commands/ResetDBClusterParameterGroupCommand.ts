@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { DBClusterParameterGroupNameMessage, ResetDBClusterParameterGroupMessage } from "../models/models_0";
+import {
+  DBClusterParameterGroupNameMessage,
+  DBClusterParameterGroupNameMessageFilterSensitiveLog,
+  ResetDBClusterParameterGroupMessage,
+  ResetDBClusterParameterGroupMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryResetDBClusterParameterGroupCommand,
   serializeAws_queryResetDBClusterParameterGroupCommand,
@@ -81,8 +86,8 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetDBClusterParameterGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterParameterGroupNameMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetDBClusterParameterGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterParameterGroupNameMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

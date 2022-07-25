@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { DeleteAlertManagerDefinitionRequest } from "../models/models_0";
+import {
+  DeleteAlertManagerDefinitionRequest,
+  DeleteAlertManagerDefinitionRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAlertManagerDefinitionCommand,
   serializeAws_restJson1DeleteAlertManagerDefinitionCommand,
@@ -72,7 +75,7 @@ export class DeleteAlertManagerDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAlertManagerDefinitionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAlertManagerDefinitionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

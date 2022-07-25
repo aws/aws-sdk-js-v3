@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { UpdateConnectionRequest, UpdateConnectionResponse } from "../models/models_0";
+import {
+  UpdateConnectionRequest,
+  UpdateConnectionRequestFilterSensitiveLog,
+  UpdateConnectionResponse,
+  UpdateConnectionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateConnectionCommand,
   serializeAws_json1_1UpdateConnectionCommand,
@@ -72,8 +77,8 @@ export class UpdateConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConnectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConnectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateConnectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateConnectionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

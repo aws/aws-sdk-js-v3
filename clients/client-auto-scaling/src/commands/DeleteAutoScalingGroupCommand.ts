@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DeleteAutoScalingGroupType } from "../models/models_0";
+import { DeleteAutoScalingGroupType, DeleteAutoScalingGroupTypeFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDeleteAutoScalingGroupCommand,
   serializeAws_queryDeleteAutoScalingGroupCommand,
@@ -81,7 +81,7 @@ export class DeleteAutoScalingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAutoScalingGroupType.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAutoScalingGroupTypeFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

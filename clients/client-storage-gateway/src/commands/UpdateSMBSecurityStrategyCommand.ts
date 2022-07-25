@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateSMBSecurityStrategyInput, UpdateSMBSecurityStrategyOutput } from "../models/models_0";
+import {
+  UpdateSMBSecurityStrategyInput,
+  UpdateSMBSecurityStrategyInputFilterSensitiveLog,
+  UpdateSMBSecurityStrategyOutput,
+  UpdateSMBSecurityStrategyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSMBSecurityStrategyCommand,
   serializeAws_json1_1UpdateSMBSecurityStrategyCommand,
@@ -79,8 +84,8 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSMBSecurityStrategyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSMBSecurityStrategyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSMBSecurityStrategyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSMBSecurityStrategyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

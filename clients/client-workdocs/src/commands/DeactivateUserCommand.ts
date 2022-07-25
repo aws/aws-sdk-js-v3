@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeactivateUserRequest } from "../models/models_0";
+import { DeactivateUserRequest, DeactivateUserRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeactivateUserCommand,
   serializeAws_restJson1DeactivateUserCommand,
@@ -73,7 +73,7 @@ export class DeactivateUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeactivateUserRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeactivateUserRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

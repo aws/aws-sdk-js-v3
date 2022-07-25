@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetReceiptRulePositionRequest, SetReceiptRulePositionResponse } from "../models/models_0";
+import {
+  SetReceiptRulePositionRequest,
+  SetReceiptRulePositionRequestFilterSensitiveLog,
+  SetReceiptRulePositionResponse,
+  SetReceiptRulePositionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_querySetReceiptRulePositionCommand,
   serializeAws_querySetReceiptRulePositionCommand,
@@ -75,8 +80,8 @@ export class SetReceiptRulePositionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetReceiptRulePositionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SetReceiptRulePositionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SetReceiptRulePositionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SetReceiptRulePositionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

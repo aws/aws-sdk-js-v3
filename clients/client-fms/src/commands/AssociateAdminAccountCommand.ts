@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { AssociateAdminAccountRequest } from "../models/models_0";
+import { AssociateAdminAccountRequest, AssociateAdminAccountRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateAdminAccountCommand,
   serializeAws_json1_1AssociateAdminAccountCommand,
@@ -75,7 +75,7 @@ export class AssociateAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateAdminAccountRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateAdminAccountRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

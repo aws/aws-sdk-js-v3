@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ConstantAndVariableQueryStringInput } from "../models/models_0";
+import {
+  ConstantAndVariableQueryStringInput,
+  ConstantAndVariableQueryStringInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlConstantAndVariableQueryStringCommand,
   serializeAws_restXmlConstantAndVariableQueryStringCommand,
@@ -74,7 +77,7 @@ export class ConstantAndVariableQueryStringCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConstantAndVariableQueryStringInput.filterSensitiveLog,
+      inputFilterSensitiveLog: ConstantAndVariableQueryStringInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { DeleteTrustRequest, DeleteTrustResult } from "../models/models_0";
+import {
+  DeleteTrustRequest,
+  DeleteTrustRequestFilterSensitiveLog,
+  DeleteTrustResult,
+  DeleteTrustResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTrustCommand,
   serializeAws_json1_1DeleteTrustCommand,
@@ -73,8 +78,8 @@ export class DeleteTrustCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrustRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrustResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTrustRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTrustResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

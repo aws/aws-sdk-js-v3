@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { ListBuiltInSlotTypesRequest, ListBuiltInSlotTypesResponse } from "../models/models_0";
+import {
+  ListBuiltInSlotTypesRequest,
+  ListBuiltInSlotTypesRequestFilterSensitiveLog,
+  ListBuiltInSlotTypesResponse,
+  ListBuiltInSlotTypesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListBuiltInSlotTypesCommand,
   serializeAws_restJson1ListBuiltInSlotTypesCommand,
@@ -73,8 +78,8 @@ export class ListBuiltInSlotTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBuiltInSlotTypesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListBuiltInSlotTypesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBuiltInSlotTypesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListBuiltInSlotTypesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

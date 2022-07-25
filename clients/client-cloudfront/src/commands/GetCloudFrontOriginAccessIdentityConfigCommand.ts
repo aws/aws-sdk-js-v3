@@ -15,7 +15,9 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   GetCloudFrontOriginAccessIdentityConfigRequest,
+  GetCloudFrontOriginAccessIdentityConfigRequestFilterSensitiveLog,
   GetCloudFrontOriginAccessIdentityConfigResult,
+  GetCloudFrontOriginAccessIdentityConfigResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand,
@@ -81,8 +83,8 @@ export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCloudFrontOriginAccessIdentityConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCloudFrontOriginAccessIdentityConfigResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCloudFrontOriginAccessIdentityConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCloudFrontOriginAccessIdentityConfigResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

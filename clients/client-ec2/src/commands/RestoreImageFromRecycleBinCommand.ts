@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RestoreImageFromRecycleBinRequest, RestoreImageFromRecycleBinResult } from "../models/models_6";
+import {
+  RestoreImageFromRecycleBinRequest,
+  RestoreImageFromRecycleBinRequestFilterSensitiveLog,
+  RestoreImageFromRecycleBinResult,
+  RestoreImageFromRecycleBinResultFilterSensitiveLog,
+} from "../models/models_6";
 import {
   deserializeAws_ec2RestoreImageFromRecycleBinCommand,
   serializeAws_ec2RestoreImageFromRecycleBinCommand,
@@ -72,8 +77,8 @@ export class RestoreImageFromRecycleBinCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreImageFromRecycleBinRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RestoreImageFromRecycleBinResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RestoreImageFromRecycleBinRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RestoreImageFromRecycleBinResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

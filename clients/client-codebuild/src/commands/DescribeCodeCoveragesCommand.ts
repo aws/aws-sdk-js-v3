@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { DescribeCodeCoveragesInput, DescribeCodeCoveragesOutput } from "../models/models_0";
+import {
+  DescribeCodeCoveragesInput,
+  DescribeCodeCoveragesInputFilterSensitiveLog,
+  DescribeCodeCoveragesOutput,
+  DescribeCodeCoveragesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCodeCoveragesCommand,
   serializeAws_json1_1DescribeCodeCoveragesCommand,
@@ -72,8 +77,8 @@ export class DescribeCodeCoveragesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCodeCoveragesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCodeCoveragesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCodeCoveragesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCodeCoveragesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

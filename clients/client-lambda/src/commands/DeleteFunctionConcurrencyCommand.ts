@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { DeleteFunctionConcurrencyRequest } from "../models/models_0";
+import {
+  DeleteFunctionConcurrencyRequest,
+  DeleteFunctionConcurrencyRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFunctionConcurrencyCommand,
   serializeAws_restJson1DeleteFunctionConcurrencyCommand,
@@ -72,7 +75,7 @@ export class DeleteFunctionConcurrencyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFunctionConcurrencyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFunctionConcurrencyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

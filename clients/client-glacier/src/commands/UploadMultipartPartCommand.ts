@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { UploadMultipartPartInput, UploadMultipartPartOutput } from "../models/models_0";
+import {
+  UploadMultipartPartInput,
+  UploadMultipartPartInputFilterSensitiveLog,
+  UploadMultipartPartOutput,
+  UploadMultipartPartOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UploadMultipartPartCommand,
   serializeAws_restJson1UploadMultipartPartCommand,
@@ -131,8 +136,8 @@ export class UploadMultipartPartCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UploadMultipartPartInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UploadMultipartPartOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UploadMultipartPartInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UploadMultipartPartOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { DeleteApiCacheRequest, DeleteApiCacheResponse } from "../models/models_0";
+import {
+  DeleteApiCacheRequest,
+  DeleteApiCacheRequestFilterSensitiveLog,
+  DeleteApiCacheResponse,
+  DeleteApiCacheResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteApiCacheCommand,
   serializeAws_restJson1DeleteApiCacheCommand,
@@ -72,8 +77,8 @@ export class DeleteApiCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApiCacheRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApiCacheResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApiCacheRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApiCacheResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

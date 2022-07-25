@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import { CreateLicenseRequest, CreateLicenseResponse } from "../models/models_0";
+import {
+  CreateLicenseRequest,
+  CreateLicenseRequestFilterSensitiveLog,
+  CreateLicenseResponse,
+  CreateLicenseResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLicenseCommand,
   serializeAws_json1_1CreateLicenseCommand,
@@ -72,8 +77,8 @@ export class CreateLicenseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLicenseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLicenseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLicenseRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateLicenseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

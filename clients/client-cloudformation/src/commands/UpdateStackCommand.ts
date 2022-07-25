@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { UpdateStackInput, UpdateStackOutput } from "../models/models_0";
+import {
+  UpdateStackInput,
+  UpdateStackInputFilterSensitiveLog,
+  UpdateStackOutput,
+  UpdateStackOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryUpdateStackCommand, serializeAws_queryUpdateStackCommand } from "../protocols/Aws_query";
 
 export interface UpdateStackCommandInput extends UpdateStackInput {}
@@ -74,8 +79,8 @@ export class UpdateStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStackInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStackOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateStackInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateStackOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
-import { StartChangeSetRequest, StartChangeSetResponse } from "../models/models_0";
+import {
+  StartChangeSetRequest,
+  StartChangeSetRequestFilterSensitiveLog,
+  StartChangeSetResponse,
+  StartChangeSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartChangeSetCommand,
   serializeAws_restJson1StartChangeSetCommand,
@@ -88,8 +93,8 @@ export class StartChangeSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartChangeSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartChangeSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartChangeSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartChangeSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateDomainContactPrivacyRequest, UpdateDomainContactPrivacyResponse } from "../models/models_0";
+import {
+  UpdateDomainContactPrivacyRequest,
+  UpdateDomainContactPrivacyRequestFilterSensitiveLog,
+  UpdateDomainContactPrivacyResponse,
+  UpdateDomainContactPrivacyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDomainContactPrivacyCommand,
   serializeAws_json1_1UpdateDomainContactPrivacyCommand,
@@ -89,8 +94,8 @@ export class UpdateDomainContactPrivacyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDomainContactPrivacyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainContactPrivacyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDomainContactPrivacyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDomainContactPrivacyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

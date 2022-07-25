@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListAppVersionResourceMappingsRequest, ListAppVersionResourceMappingsResponse } from "../models/models_0";
+import {
+  ListAppVersionResourceMappingsRequest,
+  ListAppVersionResourceMappingsRequestFilterSensitiveLog,
+  ListAppVersionResourceMappingsResponse,
+  ListAppVersionResourceMappingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListAppVersionResourceMappingsCommand,
   serializeAws_restJson1ListAppVersionResourceMappingsCommand,
@@ -76,8 +81,8 @@ export class ListAppVersionResourceMappingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppVersionResourceMappingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAppVersionResourceMappingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAppVersionResourceMappingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAppVersionResourceMappingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

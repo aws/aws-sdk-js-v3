@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteTemplateSyncConfigInput, DeleteTemplateSyncConfigOutput } from "../models/models_0";
+import {
+  DeleteTemplateSyncConfigInput,
+  DeleteTemplateSyncConfigInputFilterSensitiveLog,
+  DeleteTemplateSyncConfigOutput,
+  DeleteTemplateSyncConfigOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteTemplateSyncConfigCommand,
   serializeAws_json1_0DeleteTemplateSyncConfigCommand,
@@ -72,8 +77,8 @@ export class DeleteTemplateSyncConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTemplateSyncConfigInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTemplateSyncConfigOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTemplateSyncConfigInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTemplateSyncConfigOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

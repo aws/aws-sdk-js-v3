@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReplaceRouteRequest } from "../models/models_6";
+import { ReplaceRouteRequest, ReplaceRouteRequestFilterSensitiveLog } from "../models/models_6";
 import { deserializeAws_ec2ReplaceRouteCommand, serializeAws_ec2ReplaceRouteCommand } from "../protocols/Aws_ec2";
 
 export interface ReplaceRouteCommandInput extends ReplaceRouteRequest {}
@@ -74,7 +74,7 @@ export class ReplaceRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplaceRouteRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ReplaceRouteRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

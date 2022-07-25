@@ -14,7 +14,9 @@ import {
 
 import {
   ListCustomVerificationEmailTemplatesRequest,
+  ListCustomVerificationEmailTemplatesRequestFilterSensitiveLog,
   ListCustomVerificationEmailTemplatesResponse,
+  ListCustomVerificationEmailTemplatesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryListCustomVerificationEmailTemplatesCommand,
@@ -81,8 +83,8 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCustomVerificationEmailTemplatesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListCustomVerificationEmailTemplatesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCustomVerificationEmailTemplatesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListCustomVerificationEmailTemplatesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateJobPriorityRequest, UpdateJobPriorityResult } from "../models/models_0";
+import {
+  UpdateJobPriorityRequest,
+  UpdateJobPriorityRequestFilterSensitiveLog,
+  UpdateJobPriorityResult,
+  UpdateJobPriorityResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlUpdateJobPriorityCommand,
   serializeAws_restXmlUpdateJobPriorityCommand,
@@ -98,8 +103,8 @@ export class UpdateJobPriorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateJobPriorityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJobPriorityResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateJobPriorityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateJobPriorityResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

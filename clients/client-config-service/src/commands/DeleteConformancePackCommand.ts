@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeleteConformancePackRequest } from "../models/models_0";
+import { DeleteConformancePackRequest, DeleteConformancePackRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteConformancePackCommand,
   serializeAws_json1_1DeleteConformancePackCommand,
@@ -75,7 +75,7 @@ export class DeleteConformancePackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConformancePackRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteConformancePackRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

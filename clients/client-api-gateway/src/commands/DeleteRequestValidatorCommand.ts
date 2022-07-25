@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteRequestValidatorRequest } from "../models/models_0";
+import { DeleteRequestValidatorRequest, DeleteRequestValidatorRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRequestValidatorCommand,
   serializeAws_restJson1DeleteRequestValidatorCommand,
@@ -72,7 +72,7 @@ export class DeleteRequestValidatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRequestValidatorRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRequestValidatorRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

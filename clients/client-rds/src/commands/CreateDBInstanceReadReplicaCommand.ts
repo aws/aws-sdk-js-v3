@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateDBInstanceReadReplicaMessage, CreateDBInstanceReadReplicaResult } from "../models/models_0";
+import {
+  CreateDBInstanceReadReplicaMessage,
+  CreateDBInstanceReadReplicaMessageFilterSensitiveLog,
+  CreateDBInstanceReadReplicaResult,
+  CreateDBInstanceReadReplicaResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCreateDBInstanceReadReplicaCommand,
   serializeAws_queryCreateDBInstanceReadReplicaCommand,
@@ -85,8 +90,8 @@ export class CreateDBInstanceReadReplicaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBInstanceReadReplicaMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBInstanceReadReplicaResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDBInstanceReadReplicaMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDBInstanceReadReplicaResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

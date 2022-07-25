@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RevokeClientVpnIngressRequest, RevokeClientVpnIngressResult } from "../models/models_6";
+import {
+  RevokeClientVpnIngressRequest,
+  RevokeClientVpnIngressRequestFilterSensitiveLog,
+  RevokeClientVpnIngressResult,
+  RevokeClientVpnIngressResultFilterSensitiveLog,
+} from "../models/models_6";
 import {
   deserializeAws_ec2RevokeClientVpnIngressCommand,
   serializeAws_ec2RevokeClientVpnIngressCommand,
@@ -72,8 +77,8 @@ export class RevokeClientVpnIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeClientVpnIngressRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RevokeClientVpnIngressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokeClientVpnIngressRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RevokeClientVpnIngressResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

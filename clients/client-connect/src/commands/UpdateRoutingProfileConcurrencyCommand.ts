@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateRoutingProfileConcurrencyRequest } from "../models/models_1";
+import {
+  UpdateRoutingProfileConcurrencyRequest,
+  UpdateRoutingProfileConcurrencyRequestFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateRoutingProfileConcurrencyCommand,
   serializeAws_restJson1UpdateRoutingProfileConcurrencyCommand,
@@ -73,7 +76,7 @@ export class UpdateRoutingProfileConcurrencyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoutingProfileConcurrencyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRoutingProfileConcurrencyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

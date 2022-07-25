@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { AddTagsToResourceMessage, AddTagsToResourceResponse } from "../models/models_0";
+import {
+  AddTagsToResourceMessage,
+  AddTagsToResourceMessageFilterSensitiveLog,
+  AddTagsToResourceResponse,
+  AddTagsToResourceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AddTagsToResourceCommand,
   serializeAws_json1_1AddTagsToResourceCommand,
@@ -81,8 +86,8 @@ export class AddTagsToResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsToResourceMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: AddTagsToResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddTagsToResourceMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: AddTagsToResourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

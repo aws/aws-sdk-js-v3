@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { ExtendTransactionRequest, ExtendTransactionResponse } from "../models/models_0";
+import {
+  ExtendTransactionRequest,
+  ExtendTransactionRequestFilterSensitiveLog,
+  ExtendTransactionResponse,
+  ExtendTransactionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ExtendTransactionCommand,
   serializeAws_restJson1ExtendTransactionCommand,
@@ -74,8 +79,8 @@ export class ExtendTransactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExtendTransactionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ExtendTransactionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ExtendTransactionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ExtendTransactionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

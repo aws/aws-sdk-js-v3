@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteVerifiedEmailAddressRequest } from "../models/models_0";
+import {
+  DeleteVerifiedEmailAddressRequest,
+  DeleteVerifiedEmailAddressRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteVerifiedEmailAddressCommand,
   serializeAws_queryDeleteVerifiedEmailAddressCommand,
@@ -73,7 +76,7 @@ export class DeleteVerifiedEmailAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVerifiedEmailAddressRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVerifiedEmailAddressRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

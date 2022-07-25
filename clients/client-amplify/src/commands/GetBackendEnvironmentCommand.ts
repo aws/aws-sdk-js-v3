@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { GetBackendEnvironmentRequest, GetBackendEnvironmentResult } from "../models/models_0";
+import {
+  GetBackendEnvironmentRequest,
+  GetBackendEnvironmentRequestFilterSensitiveLog,
+  GetBackendEnvironmentResult,
+  GetBackendEnvironmentResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetBackendEnvironmentCommand,
   serializeAws_restJson1GetBackendEnvironmentCommand,
@@ -72,8 +77,8 @@ export class GetBackendEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBackendEnvironmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBackendEnvironmentResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBackendEnvironmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBackendEnvironmentResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { UpdateElasticsearchDomainConfigRequest, UpdateElasticsearchDomainConfigResponse } from "../models/models_0";
+import {
+  UpdateElasticsearchDomainConfigRequest,
+  UpdateElasticsearchDomainConfigRequestFilterSensitiveLog,
+  UpdateElasticsearchDomainConfigResponse,
+  UpdateElasticsearchDomainConfigResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateElasticsearchDomainConfigCommand,
   serializeAws_restJson1UpdateElasticsearchDomainConfigCommand,
@@ -78,8 +83,8 @@ export class UpdateElasticsearchDomainConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateElasticsearchDomainConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateElasticsearchDomainConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateElasticsearchDomainConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateElasticsearchDomainConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

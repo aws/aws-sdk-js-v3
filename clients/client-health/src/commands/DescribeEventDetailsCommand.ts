@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
-import { DescribeEventDetailsRequest, DescribeEventDetailsResponse } from "../models/models_0";
+import {
+  DescribeEventDetailsRequest,
+  DescribeEventDetailsRequestFilterSensitiveLog,
+  DescribeEventDetailsResponse,
+  DescribeEventDetailsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEventDetailsCommand,
   serializeAws_json1_1DescribeEventDetailsCommand,
@@ -81,8 +86,8 @@ export class DescribeEventDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventDetailsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventDetailsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEventDetailsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEventDetailsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

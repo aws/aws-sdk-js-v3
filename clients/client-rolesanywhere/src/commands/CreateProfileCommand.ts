@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateProfileRequest, ProfileDetailResponse } from "../models/models_0";
+import {
+  CreateProfileRequest,
+  CreateProfileRequestFilterSensitiveLog,
+  ProfileDetailResponse,
+  ProfileDetailResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateProfileCommand,
   serializeAws_restJson1CreateProfileCommand,
@@ -76,8 +81,8 @@ export class CreateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ProfileDetailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ProfileDetailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

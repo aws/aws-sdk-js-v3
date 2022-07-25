@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { StartInstanceRequest, StartInstanceResult } from "../models/models_1";
+import {
+  StartInstanceRequest,
+  StartInstanceRequestFilterSensitiveLog,
+  StartInstanceResult,
+  StartInstanceResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1StartInstanceCommand,
   serializeAws_json1_1StartInstanceCommand,
@@ -81,8 +86,8 @@ export class StartInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartInstanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartInstanceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartInstanceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

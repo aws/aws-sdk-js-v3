@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import { DeleteSegmentRequest, DeleteSegmentResponse } from "../models/models_0";
+import {
+  DeleteSegmentRequest,
+  DeleteSegmentRequestFilterSensitiveLog,
+  DeleteSegmentResponse,
+  DeleteSegmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSegmentCommand,
   serializeAws_restJson1DeleteSegmentCommand,
@@ -73,8 +78,8 @@ export class DeleteSegmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSegmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSegmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSegmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSegmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

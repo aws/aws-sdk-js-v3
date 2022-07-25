@@ -48,15 +48,6 @@ export interface AbsoluteTimeRange {
   Last?: number;
 }
 
-export namespace AbsoluteTimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbsoluteTimeRange): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your request didn't pass one or more validation tests. This can occur when the entity you're
  *             trying to delete doesn't exist or if it's in a non-terminal state (such as
@@ -114,15 +105,6 @@ export interface ChannelDefinition {
    *             both participants.</p>
    */
   ParticipantRole?: ParticipantRole | string;
-}
-
-export namespace ChannelDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelDefinition): any => ({
-    ...obj,
-  });
 }
 
 export enum LanguageCode {
@@ -218,15 +200,6 @@ export interface Media {
   RedactedMediaFileUri?: string;
 }
 
-export namespace Media {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Media): any => ({
-    ...obj,
-  });
-}
-
 export enum MediaFormat {
   AMR = "amr",
   FLAC = "flac",
@@ -293,15 +266,6 @@ export interface ContentRedaction {
   PiiEntityTypes?: (PiiEntityType | string)[];
 }
 
-export namespace ContentRedaction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContentRedaction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>If using automatic language identification (<code>IdentifyLanguage</code>) in your request
  *             and you want to apply a custom language model, a custom vocabulary, or a custom vocabulary
@@ -357,15 +321,6 @@ export interface LanguageIdSettings {
    *             There are no errors or warnings associated with a language mismatch.</p>
    */
   LanguageModelName?: string;
-}
-
-export namespace LanguageIdSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LanguageIdSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum VocabularyFilterMethod {
@@ -457,15 +412,6 @@ export interface CallAnalyticsJobSettings {
   LanguageIdSettings?: Record<string, LanguageIdSettings>;
 }
 
-export namespace CallAnalyticsJobSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CallAnalyticsJobSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides you with the Amazon S3 URI you can use to access your transcript.</p>
  */
@@ -506,15 +452,6 @@ export interface Transcript {
    *         </note>
    */
   RedactedTranscriptFileUri?: string;
-}
-
-export namespace Transcript {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Transcript): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -692,15 +629,6 @@ export interface CallAnalyticsJob {
   ChannelDefinitions?: ChannelDefinition[];
 }
 
-export namespace CallAnalyticsJob {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CallAnalyticsJob): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides detailed information about a specific Call Analytics job.</p>
  */
@@ -758,15 +686,6 @@ export interface CallAnalyticsJobSummary {
   FailureReason?: string;
 }
 
-export namespace CallAnalyticsJobSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CallAnalyticsJobSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A time range, in percentage, between two points in your media file.</p>
  *         <p>You can use <code>StartPercentage</code> and <code>EndPercentage</code> to
@@ -806,15 +725,6 @@ export interface RelativeTimeRange {
    *             which Amazon Transcribe searches for your specified criteria.</p>
    */
   Last?: number;
-}
-
-export namespace RelativeTimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelativeTimeRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -871,15 +781,6 @@ export interface InterruptionFilter {
   Negate?: boolean;
 }
 
-export namespace InterruptionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InterruptionFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Flag the presence or absence of periods of silence in your Call Analytics transcription
  *             output.</p>
@@ -921,15 +822,6 @@ export interface NonTalkTimeFilter {
    *             periods of silence</p>
    */
   Negate?: boolean;
-}
-
-export namespace NonTalkTimeFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NonTalkTimeFilter): any => ({
-    ...obj,
-  });
 }
 
 export enum SentimentValue {
@@ -997,15 +889,6 @@ export interface SentimentFilter {
   Negate?: boolean;
 }
 
-export namespace SentimentFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SentimentFilter): any => ({
-    ...obj,
-  });
-}
-
 export enum TranscriptFilterType {
   EXACT = "EXACT",
 }
@@ -1070,15 +953,6 @@ export interface TranscriptFilter {
    * <p>Specify the phrases you want to flag.</p>
    */
   Targets: string[] | undefined;
-}
-
-export namespace TranscriptFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TranscriptFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1172,21 +1046,6 @@ export namespace Rule {
     if (value.SentimentFilter !== undefined) return visitor.SentimentFilter(value.SentimentFilter);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Rule): any => {
-    if (obj.NonTalkTimeFilter !== undefined)
-      return { NonTalkTimeFilter: NonTalkTimeFilter.filterSensitiveLog(obj.NonTalkTimeFilter) };
-    if (obj.InterruptionFilter !== undefined)
-      return { InterruptionFilter: InterruptionFilter.filterSensitiveLog(obj.InterruptionFilter) };
-    if (obj.TranscriptFilter !== undefined)
-      return { TranscriptFilter: TranscriptFilter.filterSensitiveLog(obj.TranscriptFilter) };
-    if (obj.SentimentFilter !== undefined)
-      return { SentimentFilter: SentimentFilter.filterSensitiveLog(obj.SentimentFilter) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -1221,16 +1080,6 @@ export interface CategoryProperties {
    *             on May 5, 2022.</p>
    */
   LastUpdateTime?: Date;
-}
-
-export namespace CategoryProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CategoryProperties): any => ({
-    ...obj,
-    ...(obj.Rules && { Rules: obj.Rules.map((item) => Rule.filterSensitiveLog(item)) }),
-  });
 }
 
 export enum CLMLanguageCode {
@@ -1282,33 +1131,11 @@ export interface CreateCallAnalyticsCategoryRequest {
   Rules: Rule[] | undefined;
 }
 
-export namespace CreateCallAnalyticsCategoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCallAnalyticsCategoryRequest): any => ({
-    ...obj,
-    ...(obj.Rules && { Rules: obj.Rules.map((item) => Rule.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateCallAnalyticsCategoryResponse {
   /**
    * <p>Provides you with the properties of your new category, including its associated rules.</p>
    */
   CategoryProperties?: CategoryProperties;
-}
-
-export namespace CreateCallAnalyticsCategoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCallAnalyticsCategoryResponse): any => ({
-    ...obj,
-    ...(obj.CategoryProperties && {
-      CategoryProperties: CategoryProperties.filterSensitiveLog(obj.CategoryProperties),
-    }),
-  });
 }
 
 /**
@@ -1394,15 +1221,6 @@ export interface InputDataConfig {
   DataAccessRoleArn: string | undefined;
 }
 
-export namespace InputDataConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDataConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Adds metadata, in the form of a key:value pair, to the specified resource.</p>
  *         <p>For example, you could add the tag <code>Department:Sales</code> to a
@@ -1424,15 +1242,6 @@ export interface Tag {
    *             tag to null. Omitting the tag value is the same as using an empty string.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLanguageModelRequest {
@@ -1489,15 +1298,6 @@ export interface CreateLanguageModelRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateLanguageModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLanguageModelRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ModelStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -1535,15 +1335,6 @@ export interface CreateLanguageModelResponse {
   ModelStatus?: ModelStatus | string;
 }
 
-export namespace CreateLanguageModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLanguageModelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateMedicalVocabularyRequest {
   /**
    * <p>A unique name, chosen by you, for your new custom medical vocabulary.</p>
@@ -1576,15 +1367,6 @@ export interface CreateMedicalVocabularyRequest {
    *         <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging resources</a>.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateMedicalVocabularyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMedicalVocabularyRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum VocabularyState {
@@ -1626,15 +1408,6 @@ export interface CreateMedicalVocabularyResponse {
    *             request failed. See also: <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
    */
   FailureReason?: string;
-}
-
-export namespace CreateMedicalVocabularyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMedicalVocabularyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateVocabularyRequest {
@@ -1692,15 +1465,6 @@ export interface CreateVocabularyRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateVocabularyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVocabularyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateVocabularyResponse {
   /**
    * <p>The name you chose for your custom vocabulary.</p>
@@ -1732,15 +1496,6 @@ export interface CreateVocabularyResponse {
    *             failed. See also: <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
    */
   FailureReason?: string;
-}
-
-export namespace CreateVocabularyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVocabularyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateVocabularyFilterRequest {
@@ -1799,15 +1554,6 @@ export interface CreateVocabularyFilterRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateVocabularyFilterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVocabularyFilterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateVocabularyFilterResponse {
   /**
    * <p>The name you chose for your custom vocabulary filter.</p>
@@ -1828,15 +1574,6 @@ export interface CreateVocabularyFilterResponse {
   LastModifiedTime?: Date;
 }
 
-export namespace CreateVocabularyFilterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVocabularyFilterResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCallAnalyticsCategoryRequest {
   /**
    * <p>The name of the Call Analytics category you want to delete. Category names are
@@ -1845,25 +1582,7 @@ export interface DeleteCallAnalyticsCategoryRequest {
   CategoryName: string | undefined;
 }
 
-export namespace DeleteCallAnalyticsCategoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCallAnalyticsCategoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCallAnalyticsCategoryResponse {}
-
-export namespace DeleteCallAnalyticsCategoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCallAnalyticsCategoryResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>We can't find the requested resource. Check that the specified name is correct and try your
@@ -1894,25 +1613,7 @@ export interface DeleteCallAnalyticsJobRequest {
   CallAnalyticsJobName: string | undefined;
 }
 
-export namespace DeleteCallAnalyticsJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCallAnalyticsJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCallAnalyticsJobResponse {}
-
-export namespace DeleteCallAnalyticsJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCallAnalyticsJobResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteLanguageModelRequest {
   /**
@@ -1920,15 +1621,6 @@ export interface DeleteLanguageModelRequest {
    *             case sensitive.</p>
    */
   ModelName: string | undefined;
-}
-
-export namespace DeleteLanguageModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLanguageModelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteMedicalTranscriptionJobRequest {
@@ -1939,15 +1631,6 @@ export interface DeleteMedicalTranscriptionJobRequest {
   MedicalTranscriptionJobName: string | undefined;
 }
 
-export namespace DeleteMedicalTranscriptionJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMedicalTranscriptionJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteMedicalVocabularyRequest {
   /**
    * <p>The name of the custom medical vocabulary you want to delete. Vocabulary names are
@@ -1956,29 +1639,11 @@ export interface DeleteMedicalVocabularyRequest {
   VocabularyName: string | undefined;
 }
 
-export namespace DeleteMedicalVocabularyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMedicalVocabularyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTranscriptionJobRequest {
   /**
    * <p>The name of the transcription job you want to delete. Job names are case sensitive.</p>
    */
   TranscriptionJobName: string | undefined;
-}
-
-export namespace DeleteTranscriptionJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTranscriptionJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteVocabularyRequest {
@@ -1989,15 +1654,6 @@ export interface DeleteVocabularyRequest {
   VocabularyName: string | undefined;
 }
 
-export namespace DeleteVocabularyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVocabularyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteVocabularyFilterRequest {
   /**
    * <p>The name of the custom vocabulary filter you want to delete. Vocabulary filter names
@@ -2006,30 +1662,12 @@ export interface DeleteVocabularyFilterRequest {
   VocabularyFilterName: string | undefined;
 }
 
-export namespace DeleteVocabularyFilterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVocabularyFilterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLanguageModelRequest {
   /**
    * <p>The name of the custom language model you want information about. Model names are
    *             case sensitive.</p>
    */
   ModelName: string | undefined;
-}
-
-export namespace DescribeLanguageModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLanguageModelRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2112,15 +1750,6 @@ export interface LanguageModel {
   InputDataConfig?: InputDataConfig;
 }
 
-export namespace LanguageModel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LanguageModel): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLanguageModelResponse {
   /**
    * <p>Provides information about the specified custom language model.</p>
@@ -2134,30 +1763,12 @@ export interface DescribeLanguageModelResponse {
   LanguageModel?: LanguageModel;
 }
 
-export namespace DescribeLanguageModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLanguageModelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCallAnalyticsCategoryRequest {
   /**
    * <p>The name of the Call Analytics category you want information about. Category names are
    *             case sensitive.</p>
    */
   CategoryName: string | undefined;
-}
-
-export namespace GetCallAnalyticsCategoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCallAnalyticsCategoryRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCallAnalyticsCategoryResponse {
@@ -2168,33 +1779,12 @@ export interface GetCallAnalyticsCategoryResponse {
   CategoryProperties?: CategoryProperties;
 }
 
-export namespace GetCallAnalyticsCategoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCallAnalyticsCategoryResponse): any => ({
-    ...obj,
-    ...(obj.CategoryProperties && {
-      CategoryProperties: CategoryProperties.filterSensitiveLog(obj.CategoryProperties),
-    }),
-  });
-}
-
 export interface GetCallAnalyticsJobRequest {
   /**
    * <p>The name of the Call Analytics job you want information about. Job names are case
    *             sensitive.</p>
    */
   CallAnalyticsJobName: string | undefined;
-}
-
-export namespace GetCallAnalyticsJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCallAnalyticsJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCallAnalyticsJobResponse {
@@ -2205,30 +1795,12 @@ export interface GetCallAnalyticsJobResponse {
   CallAnalyticsJob?: CallAnalyticsJob;
 }
 
-export namespace GetCallAnalyticsJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCallAnalyticsJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMedicalTranscriptionJobRequest {
   /**
    * <p>The name of the medical transcription job you want information about. Job names are case
    *             sensitive.</p>
    */
   MedicalTranscriptionJobName: string | undefined;
-}
-
-export namespace GetMedicalTranscriptionJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMedicalTranscriptionJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum MedicalContentIdentificationType {
@@ -2308,15 +1880,6 @@ export interface MedicalTranscriptionSetting {
   VocabularyName?: string;
 }
 
-export namespace MedicalTranscriptionSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MedicalTranscriptionSetting): any => ({
-    ...obj,
-  });
-}
-
 export enum Specialty {
   PRIMARYCARE = "PRIMARYCARE",
 }
@@ -2342,15 +1905,6 @@ export interface MedicalTranscript {
    *         </note>
    */
   TranscriptFileUri?: string;
-}
-
-export namespace MedicalTranscript {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MedicalTranscript): any => ({
-    ...obj,
-  });
 }
 
 export enum TranscriptionJobStatus {
@@ -2524,15 +2078,6 @@ export interface MedicalTranscriptionJob {
   Tags?: Tag[];
 }
 
-export namespace MedicalTranscriptionJob {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MedicalTranscriptionJob): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMedicalTranscriptionJobResponse {
   /**
    * <p>Provides detailed information about the specified medical transcription job, including job
@@ -2541,30 +2086,12 @@ export interface GetMedicalTranscriptionJobResponse {
   MedicalTranscriptionJob?: MedicalTranscriptionJob;
 }
 
-export namespace GetMedicalTranscriptionJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMedicalTranscriptionJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMedicalVocabularyRequest {
   /**
    * <p>The name of the custom medical vocabulary you want information about. Vocabulary names
    *             are case sensitive.</p>
    */
   VocabularyName: string | undefined;
-}
-
-export namespace GetMedicalVocabularyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMedicalVocabularyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMedicalVocabularyResponse {
@@ -2608,30 +2135,12 @@ export interface GetMedicalVocabularyResponse {
   DownloadUri?: string;
 }
 
-export namespace GetMedicalVocabularyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMedicalVocabularyResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTranscriptionJobRequest {
   /**
    * <p>The name of the transcription job you want information about. Job names are case
    *             sensitive.</p>
    */
   TranscriptionJobName: string | undefined;
-}
-
-export namespace GetTranscriptionJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTranscriptionJobRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2671,15 +2180,6 @@ export interface JobExecutionSettings {
   DataAccessRoleArn?: string;
 }
 
-export namespace JobExecutionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobExecutionSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information on the speech contained in a discreet utterance when
  *             multi-language identification is enabled in your request. This utterance represents a block
@@ -2696,15 +2196,6 @@ export interface LanguageCodeItem {
    * <p>Provides the total time, in seconds, each identified language is spoken in your media.</p>
    */
   DurationInSeconds?: number;
-}
-
-export namespace LanguageCodeItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LanguageCodeItem): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2725,15 +2216,6 @@ export interface ModelSettings {
    *             There are no errors or warnings associated with a language mismatch.</p>
    */
   LanguageModelName?: string;
-}
-
-export namespace ModelSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2822,15 +2304,6 @@ export interface Settings {
   VocabularyFilterMethod?: VocabularyFilterMethod | string;
 }
 
-export namespace Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Settings): any => ({
-    ...obj,
-  });
-}
-
 export enum SubtitleFormat {
   SRT = "srt",
   VTT = "vtt",
@@ -2873,15 +2346,6 @@ export interface SubtitlesOutput {
    *             in your request, the default value of <code>0</code> is used.</p>
    */
   OutputStartIndex?: number;
-}
-
-export namespace SubtitlesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubtitlesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3137,15 +2601,6 @@ export interface TranscriptionJob {
   LanguageIdSettings?: Record<string, LanguageIdSettings>;
 }
 
-export namespace TranscriptionJob {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TranscriptionJob): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTranscriptionJobResponse {
   /**
    * <p>Provides detailed information about the specified transcription job, including job status
@@ -3154,30 +2609,12 @@ export interface GetTranscriptionJobResponse {
   TranscriptionJob?: TranscriptionJob;
 }
 
-export namespace GetTranscriptionJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTranscriptionJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetVocabularyRequest {
   /**
    * <p>The name of the custom vocabulary you want information about. Vocabulary names are
    *             case sensitive.</p>
    */
   VocabularyName: string | undefined;
-}
-
-export namespace GetVocabularyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVocabularyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetVocabularyResponse {
@@ -3219,30 +2656,12 @@ export interface GetVocabularyResponse {
   DownloadUri?: string;
 }
 
-export namespace GetVocabularyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVocabularyResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetVocabularyFilterRequest {
   /**
    * <p>The name of the custom vocabulary filter you want information about. Vocabulary filter
    *             names are case sensitive.</p>
    */
   VocabularyFilterName: string | undefined;
-}
-
-export namespace GetVocabularyFilterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVocabularyFilterRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetVocabularyFilterResponse {
@@ -3271,15 +2690,6 @@ export interface GetVocabularyFilterResponse {
   DownloadUri?: string;
 }
 
-export namespace GetVocabularyFilterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVocabularyFilterResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCallAnalyticsCategoriesRequest {
   /**
    * <p>If your <code>ListCallAnalyticsCategories</code> request returns more results than can
@@ -3298,15 +2708,6 @@ export interface ListCallAnalyticsCategoriesRequest {
   MaxResults?: number;
 }
 
-export namespace ListCallAnalyticsCategoriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCallAnalyticsCategoriesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCallAnalyticsCategoriesResponse {
   /**
    * <p>If <code>NextToken</code> is present in your response, it indicates that not all results
@@ -3322,16 +2723,6 @@ export interface ListCallAnalyticsCategoriesResponse {
    *             associated with each category.</p>
    */
   Categories?: CategoryProperties[];
-}
-
-export namespace ListCallAnalyticsCategoriesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCallAnalyticsCategoriesResponse): any => ({
-    ...obj,
-    ...(obj.Categories && { Categories: obj.Categories.map((item) => CategoryProperties.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface ListCallAnalyticsJobsRequest {
@@ -3365,15 +2756,6 @@ export interface ListCallAnalyticsJobsRequest {
   MaxResults?: number;
 }
 
-export namespace ListCallAnalyticsJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCallAnalyticsJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCallAnalyticsJobsResponse {
   /**
    * <p>Lists all Call Analytics jobs that have the status specified in your request. Jobs are
@@ -3394,15 +2776,6 @@ export interface ListCallAnalyticsJobsResponse {
    * <p>Provides a summary of information about each result.</p>
    */
   CallAnalyticsJobSummaries?: CallAnalyticsJobSummary[];
-}
-
-export namespace ListCallAnalyticsJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCallAnalyticsJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLanguageModelsRequest {
@@ -3436,15 +2809,6 @@ export interface ListLanguageModelsRequest {
   MaxResults?: number;
 }
 
-export namespace ListLanguageModelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLanguageModelsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLanguageModelsResponse {
   /**
    * <p>If <code>NextToken</code> is present in your response, it indicates that not all results
@@ -3460,15 +2824,6 @@ export interface ListLanguageModelsResponse {
    *             in your request.</p>
    */
   Models?: LanguageModel[];
-}
-
-export namespace ListLanguageModelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLanguageModelsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMedicalTranscriptionJobsRequest {
@@ -3500,15 +2855,6 @@ export interface ListMedicalTranscriptionJobsRequest {
    *             specify a value, a default of 5 is used.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListMedicalTranscriptionJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMedicalTranscriptionJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum OutputLocationType {
@@ -3604,15 +2950,6 @@ export interface MedicalTranscriptionJobSummary {
   Type?: Type | string;
 }
 
-export namespace MedicalTranscriptionJobSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MedicalTranscriptionJobSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMedicalTranscriptionJobsResponse {
   /**
    * <p>Lists all medical transcription jobs that have the status specified in your request. Jobs are
@@ -3633,15 +2970,6 @@ export interface ListMedicalTranscriptionJobsResponse {
    * <p>Provides a summary of information about each result.</p>
    */
   MedicalTranscriptionJobSummaries?: MedicalTranscriptionJobSummary[];
-}
-
-export namespace ListMedicalTranscriptionJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMedicalTranscriptionJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMedicalVocabulariesRequest {
@@ -3673,15 +3001,6 @@ export interface ListMedicalVocabulariesRequest {
    *             is not case sensitive.</p>
    */
   NameContains?: string;
-}
-
-export namespace ListMedicalVocabulariesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMedicalVocabulariesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3719,15 +3038,6 @@ export interface VocabularyInfo {
   VocabularyState?: VocabularyState | string;
 }
 
-export namespace VocabularyInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VocabularyInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMedicalVocabulariesResponse {
   /**
    * <p>Lists all custom medical vocabularies that have the status specified in your request.
@@ -3751,15 +3061,6 @@ export interface ListMedicalVocabulariesResponse {
   Vocabularies?: VocabularyInfo[];
 }
 
-export namespace ListMedicalVocabulariesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMedicalVocabulariesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>Returns a list of all tags associated with the specified Amazon Resource Name (ARN). ARNs
@@ -3774,15 +3075,6 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The Amazon Resource Name (ARN) specified in your request.</p>
@@ -3794,15 +3086,6 @@ export interface ListTagsForResourceResponse {
    *             resource.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTranscriptionJobsRequest {
@@ -3834,15 +3117,6 @@ export interface ListTranscriptionJobsRequest {
    *             specify a value, a default of 5 is used.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListTranscriptionJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTranscriptionJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3959,15 +3233,6 @@ export interface TranscriptionJobSummary {
   LanguageCodes?: LanguageCodeItem[];
 }
 
-export namespace TranscriptionJobSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TranscriptionJobSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTranscriptionJobsResponse {
   /**
    * <p>Lists all transcription jobs that have the status specified in your request. Jobs are
@@ -3988,15 +3253,6 @@ export interface ListTranscriptionJobsResponse {
    * <p>Provides a summary of information about each result.</p>
    */
   TranscriptionJobSummaries?: TranscriptionJobSummary[];
-}
-
-export namespace ListTranscriptionJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTranscriptionJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListVocabulariesRequest {
@@ -4030,15 +3286,6 @@ export interface ListVocabulariesRequest {
   NameContains?: string;
 }
 
-export namespace ListVocabulariesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVocabulariesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListVocabulariesResponse {
   /**
    * <p>Lists all custom vocabularies that have the status specified in your request. Vocabularies
@@ -4060,15 +3307,6 @@ export interface ListVocabulariesResponse {
    *             request.</p>
    */
   Vocabularies?: VocabularyInfo[];
-}
-
-export namespace ListVocabulariesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVocabulariesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListVocabularyFiltersRequest {
@@ -4093,15 +3331,6 @@ export interface ListVocabularyFiltersRequest {
    *             is not case sensitive.</p>
    */
   NameContains?: string;
-}
-
-export namespace ListVocabularyFiltersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVocabularyFiltersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4137,15 +3366,6 @@ export interface VocabularyFilterInfo {
   LastModifiedTime?: Date;
 }
 
-export namespace VocabularyFilterInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VocabularyFilterInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface ListVocabularyFiltersResponse {
   /**
    * <p>If <code>NextToken</code> is present in your response, it indicates that not all results
@@ -4161,15 +3381,6 @@ export interface ListVocabularyFiltersResponse {
    *             in your request.</p>
    */
   VocabularyFilters?: VocabularyFilterInfo[];
-}
-
-export namespace ListVocabularyFiltersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVocabularyFiltersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartCallAnalyticsJobRequest {
@@ -4288,30 +3499,12 @@ export interface StartCallAnalyticsJobRequest {
   ChannelDefinitions?: ChannelDefinition[];
 }
 
-export namespace StartCallAnalyticsJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartCallAnalyticsJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartCallAnalyticsJobResponse {
   /**
    * <p>Provides detailed information about the current Call Analytics job, including job status
    *             and, if applicable, failure reason.</p>
    */
   CallAnalyticsJob?: CallAnalyticsJob;
-}
-
-export namespace StartCallAnalyticsJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartCallAnalyticsJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartMedicalTranscriptionJobRequest {
@@ -4500,30 +3693,12 @@ export interface StartMedicalTranscriptionJobRequest {
   Tags?: Tag[];
 }
 
-export namespace StartMedicalTranscriptionJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMedicalTranscriptionJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartMedicalTranscriptionJobResponse {
   /**
    * <p>Provides detailed information about the current medical transcription job, including job
    *             status and, if applicable, failure reason.</p>
    */
   MedicalTranscriptionJob?: MedicalTranscriptionJob;
-}
-
-export namespace StartMedicalTranscriptionJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMedicalTranscriptionJobResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4549,15 +3724,6 @@ export interface Subtitles {
    *             services.</p>
    */
   OutputStartIndex?: number;
-}
-
-export namespace Subtitles {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Subtitles): any => ({
-    ...obj,
-  });
 }
 
 export interface StartTranscriptionJobRequest {
@@ -4851,30 +4017,12 @@ export interface StartTranscriptionJobRequest {
   LanguageIdSettings?: Record<string, LanguageIdSettings>;
 }
 
-export namespace StartTranscriptionJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTranscriptionJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartTranscriptionJobResponse {
   /**
    * <p>Provides detailed information about the current transcription job, including job status
    *             and, if applicable, failure reason.</p>
    */
   TranscriptionJob?: TranscriptionJob;
-}
-
-export namespace StartTranscriptionJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTranscriptionJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -4898,25 +4046,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -4938,25 +4068,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateCallAnalyticsCategoryRequest {
   /**
@@ -4972,34 +4084,12 @@ export interface UpdateCallAnalyticsCategoryRequest {
   Rules: Rule[] | undefined;
 }
 
-export namespace UpdateCallAnalyticsCategoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCallAnalyticsCategoryRequest): any => ({
-    ...obj,
-    ...(obj.Rules && { Rules: obj.Rules.map((item) => Rule.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface UpdateCallAnalyticsCategoryResponse {
   /**
    * <p>Provides you with the properties of the Call Analytics category you specified in your
    *             <code>UpdateCallAnalyticsCategory</code> request.</p>
    */
   CategoryProperties?: CategoryProperties;
-}
-
-export namespace UpdateCallAnalyticsCategoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCallAnalyticsCategoryResponse): any => ({
-    ...obj,
-    ...(obj.CategoryProperties && {
-      CategoryProperties: CategoryProperties.filterSensitiveLog(obj.CategoryProperties),
-    }),
-  });
 }
 
 export interface UpdateMedicalVocabularyRequest {
@@ -5025,15 +4115,6 @@ export interface UpdateMedicalVocabularyRequest {
    *          </p>
    */
   VocabularyFileUri: string | undefined;
-}
-
-export namespace UpdateMedicalVocabularyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMedicalVocabularyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateMedicalVocabularyResponse {
@@ -5062,15 +4143,6 @@ export interface UpdateMedicalVocabularyResponse {
    *             <code>StartMedicalTranscriptionJob</code> request.</p>
    */
   VocabularyState?: VocabularyState | string;
-}
-
-export namespace UpdateMedicalVocabularyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMedicalVocabularyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateVocabularyRequest {
@@ -5119,15 +4191,6 @@ export interface UpdateVocabularyRequest {
   VocabularyFileUri?: string;
 }
 
-export namespace UpdateVocabularyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVocabularyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateVocabularyResponse {
   /**
    * <p>The name of the updated custom vocabulary.</p>
@@ -5152,15 +4215,6 @@ export interface UpdateVocabularyResponse {
    *             can use the vocabulary in a <code>StartTranscriptionJob</code> request.</p>
    */
   VocabularyState?: VocabularyState | string;
-}
-
-export namespace UpdateVocabularyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVocabularyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateVocabularyFilterRequest {
@@ -5198,15 +4252,6 @@ export interface UpdateVocabularyFilterRequest {
   VocabularyFilterFileUri?: string;
 }
 
-export namespace UpdateVocabularyFilterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVocabularyFilterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateVocabularyFilterResponse {
   /**
    * <p>The name of the updated custom vocabulary filter.</p>
@@ -5227,11 +4272,770 @@ export interface UpdateVocabularyFilterResponse {
   LastModifiedTime?: Date;
 }
 
-export namespace UpdateVocabularyFilterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVocabularyFilterResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AbsoluteTimeRangeFilterSensitiveLog = (obj: AbsoluteTimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelDefinitionFilterSensitiveLog = (obj: ChannelDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaFilterSensitiveLog = (obj: Media): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContentRedactionFilterSensitiveLog = (obj: ContentRedaction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LanguageIdSettingsFilterSensitiveLog = (obj: LanguageIdSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CallAnalyticsJobSettingsFilterSensitiveLog = (obj: CallAnalyticsJobSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TranscriptFilterSensitiveLog = (obj: Transcript): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CallAnalyticsJobFilterSensitiveLog = (obj: CallAnalyticsJob): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CallAnalyticsJobSummaryFilterSensitiveLog = (obj: CallAnalyticsJobSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelativeTimeRangeFilterSensitiveLog = (obj: RelativeTimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InterruptionFilterFilterSensitiveLog = (obj: InterruptionFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NonTalkTimeFilterFilterSensitiveLog = (obj: NonTalkTimeFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SentimentFilterFilterSensitiveLog = (obj: SentimentFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TranscriptFilterFilterSensitiveLog = (obj: TranscriptFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleFilterSensitiveLog = (obj: Rule): any => {
+  if (obj.NonTalkTimeFilter !== undefined)
+    return { NonTalkTimeFilter: NonTalkTimeFilterFilterSensitiveLog(obj.NonTalkTimeFilter) };
+  if (obj.InterruptionFilter !== undefined)
+    return { InterruptionFilter: InterruptionFilterFilterSensitiveLog(obj.InterruptionFilter) };
+  if (obj.TranscriptFilter !== undefined)
+    return { TranscriptFilter: TranscriptFilterFilterSensitiveLog(obj.TranscriptFilter) };
+  if (obj.SentimentFilter !== undefined)
+    return { SentimentFilter: SentimentFilterFilterSensitiveLog(obj.SentimentFilter) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CategoryPropertiesFilterSensitiveLog = (obj: CategoryProperties): any => ({
+  ...obj,
+  ...(obj.Rules && { Rules: obj.Rules.map((item) => RuleFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateCallAnalyticsCategoryRequestFilterSensitiveLog = (obj: CreateCallAnalyticsCategoryRequest): any => ({
+  ...obj,
+  ...(obj.Rules && { Rules: obj.Rules.map((item) => RuleFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateCallAnalyticsCategoryResponseFilterSensitiveLog = (
+  obj: CreateCallAnalyticsCategoryResponse
+): any => ({
+  ...obj,
+  ...(obj.CategoryProperties && { CategoryProperties: CategoryPropertiesFilterSensitiveLog(obj.CategoryProperties) }),
+});
+
+/**
+ * @internal
+ */
+export const InputDataConfigFilterSensitiveLog = (obj: InputDataConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLanguageModelRequestFilterSensitiveLog = (obj: CreateLanguageModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLanguageModelResponseFilterSensitiveLog = (obj: CreateLanguageModelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMedicalVocabularyRequestFilterSensitiveLog = (obj: CreateMedicalVocabularyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMedicalVocabularyResponseFilterSensitiveLog = (obj: CreateMedicalVocabularyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVocabularyRequestFilterSensitiveLog = (obj: CreateVocabularyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVocabularyResponseFilterSensitiveLog = (obj: CreateVocabularyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVocabularyFilterRequestFilterSensitiveLog = (obj: CreateVocabularyFilterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVocabularyFilterResponseFilterSensitiveLog = (obj: CreateVocabularyFilterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCallAnalyticsCategoryRequestFilterSensitiveLog = (obj: DeleteCallAnalyticsCategoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCallAnalyticsCategoryResponseFilterSensitiveLog = (
+  obj: DeleteCallAnalyticsCategoryResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCallAnalyticsJobRequestFilterSensitiveLog = (obj: DeleteCallAnalyticsJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCallAnalyticsJobResponseFilterSensitiveLog = (obj: DeleteCallAnalyticsJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLanguageModelRequestFilterSensitiveLog = (obj: DeleteLanguageModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMedicalTranscriptionJobRequestFilterSensitiveLog = (
+  obj: DeleteMedicalTranscriptionJobRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMedicalVocabularyRequestFilterSensitiveLog = (obj: DeleteMedicalVocabularyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTranscriptionJobRequestFilterSensitiveLog = (obj: DeleteTranscriptionJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVocabularyRequestFilterSensitiveLog = (obj: DeleteVocabularyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVocabularyFilterRequestFilterSensitiveLog = (obj: DeleteVocabularyFilterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLanguageModelRequestFilterSensitiveLog = (obj: DescribeLanguageModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LanguageModelFilterSensitiveLog = (obj: LanguageModel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLanguageModelResponseFilterSensitiveLog = (obj: DescribeLanguageModelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCallAnalyticsCategoryRequestFilterSensitiveLog = (obj: GetCallAnalyticsCategoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCallAnalyticsCategoryResponseFilterSensitiveLog = (obj: GetCallAnalyticsCategoryResponse): any => ({
+  ...obj,
+  ...(obj.CategoryProperties && { CategoryProperties: CategoryPropertiesFilterSensitiveLog(obj.CategoryProperties) }),
+});
+
+/**
+ * @internal
+ */
+export const GetCallAnalyticsJobRequestFilterSensitiveLog = (obj: GetCallAnalyticsJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCallAnalyticsJobResponseFilterSensitiveLog = (obj: GetCallAnalyticsJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMedicalTranscriptionJobRequestFilterSensitiveLog = (obj: GetMedicalTranscriptionJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MedicalTranscriptionSettingFilterSensitiveLog = (obj: MedicalTranscriptionSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MedicalTranscriptFilterSensitiveLog = (obj: MedicalTranscript): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MedicalTranscriptionJobFilterSensitiveLog = (obj: MedicalTranscriptionJob): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMedicalTranscriptionJobResponseFilterSensitiveLog = (obj: GetMedicalTranscriptionJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMedicalVocabularyRequestFilterSensitiveLog = (obj: GetMedicalVocabularyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMedicalVocabularyResponseFilterSensitiveLog = (obj: GetMedicalVocabularyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTranscriptionJobRequestFilterSensitiveLog = (obj: GetTranscriptionJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobExecutionSettingsFilterSensitiveLog = (obj: JobExecutionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LanguageCodeItemFilterSensitiveLog = (obj: LanguageCodeItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModelSettingsFilterSensitiveLog = (obj: ModelSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SettingsFilterSensitiveLog = (obj: Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubtitlesOutputFilterSensitiveLog = (obj: SubtitlesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TranscriptionJobFilterSensitiveLog = (obj: TranscriptionJob): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTranscriptionJobResponseFilterSensitiveLog = (obj: GetTranscriptionJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVocabularyRequestFilterSensitiveLog = (obj: GetVocabularyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVocabularyResponseFilterSensitiveLog = (obj: GetVocabularyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVocabularyFilterRequestFilterSensitiveLog = (obj: GetVocabularyFilterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVocabularyFilterResponseFilterSensitiveLog = (obj: GetVocabularyFilterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCallAnalyticsCategoriesRequestFilterSensitiveLog = (obj: ListCallAnalyticsCategoriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCallAnalyticsCategoriesResponseFilterSensitiveLog = (
+  obj: ListCallAnalyticsCategoriesResponse
+): any => ({
+  ...obj,
+  ...(obj.Categories && { Categories: obj.Categories.map((item) => CategoryPropertiesFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListCallAnalyticsJobsRequestFilterSensitiveLog = (obj: ListCallAnalyticsJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCallAnalyticsJobsResponseFilterSensitiveLog = (obj: ListCallAnalyticsJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLanguageModelsRequestFilterSensitiveLog = (obj: ListLanguageModelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLanguageModelsResponseFilterSensitiveLog = (obj: ListLanguageModelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMedicalTranscriptionJobsRequestFilterSensitiveLog = (
+  obj: ListMedicalTranscriptionJobsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MedicalTranscriptionJobSummaryFilterSensitiveLog = (obj: MedicalTranscriptionJobSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMedicalTranscriptionJobsResponseFilterSensitiveLog = (
+  obj: ListMedicalTranscriptionJobsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMedicalVocabulariesRequestFilterSensitiveLog = (obj: ListMedicalVocabulariesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VocabularyInfoFilterSensitiveLog = (obj: VocabularyInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMedicalVocabulariesResponseFilterSensitiveLog = (obj: ListMedicalVocabulariesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTranscriptionJobsRequestFilterSensitiveLog = (obj: ListTranscriptionJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TranscriptionJobSummaryFilterSensitiveLog = (obj: TranscriptionJobSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTranscriptionJobsResponseFilterSensitiveLog = (obj: ListTranscriptionJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVocabulariesRequestFilterSensitiveLog = (obj: ListVocabulariesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVocabulariesResponseFilterSensitiveLog = (obj: ListVocabulariesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVocabularyFiltersRequestFilterSensitiveLog = (obj: ListVocabularyFiltersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VocabularyFilterInfoFilterSensitiveLog = (obj: VocabularyFilterInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVocabularyFiltersResponseFilterSensitiveLog = (obj: ListVocabularyFiltersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartCallAnalyticsJobRequestFilterSensitiveLog = (obj: StartCallAnalyticsJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartCallAnalyticsJobResponseFilterSensitiveLog = (obj: StartCallAnalyticsJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMedicalTranscriptionJobRequestFilterSensitiveLog = (
+  obj: StartMedicalTranscriptionJobRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMedicalTranscriptionJobResponseFilterSensitiveLog = (
+  obj: StartMedicalTranscriptionJobResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubtitlesFilterSensitiveLog = (obj: Subtitles): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTranscriptionJobRequestFilterSensitiveLog = (obj: StartTranscriptionJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTranscriptionJobResponseFilterSensitiveLog = (obj: StartTranscriptionJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCallAnalyticsCategoryRequestFilterSensitiveLog = (obj: UpdateCallAnalyticsCategoryRequest): any => ({
+  ...obj,
+  ...(obj.Rules && { Rules: obj.Rules.map((item) => RuleFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateCallAnalyticsCategoryResponseFilterSensitiveLog = (
+  obj: UpdateCallAnalyticsCategoryResponse
+): any => ({
+  ...obj,
+  ...(obj.CategoryProperties && { CategoryProperties: CategoryPropertiesFilterSensitiveLog(obj.CategoryProperties) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMedicalVocabularyRequestFilterSensitiveLog = (obj: UpdateMedicalVocabularyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMedicalVocabularyResponseFilterSensitiveLog = (obj: UpdateMedicalVocabularyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVocabularyRequestFilterSensitiveLog = (obj: UpdateVocabularyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVocabularyResponseFilterSensitiveLog = (obj: UpdateVocabularyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVocabularyFilterRequestFilterSensitiveLog = (obj: UpdateVocabularyFilterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVocabularyFilterResponseFilterSensitiveLog = (obj: UpdateVocabularyFilterResponse): any => ({
+  ...obj,
+});

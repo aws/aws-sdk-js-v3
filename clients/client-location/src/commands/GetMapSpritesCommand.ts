@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { GetMapSpritesRequest, GetMapSpritesResponse } from "../models/models_0";
+import {
+  GetMapSpritesRequest,
+  GetMapSpritesRequestFilterSensitiveLog,
+  GetMapSpritesResponse,
+  GetMapSpritesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetMapSpritesCommand,
   serializeAws_restJson1GetMapSpritesCommand,
@@ -74,8 +79,8 @@ export class GetMapSpritesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMapSpritesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMapSpritesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMapSpritesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMapSpritesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

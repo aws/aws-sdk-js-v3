@@ -14,7 +14,9 @@ import {
 
 import {
   AuthorizeClusterSecurityGroupIngressMessage,
+  AuthorizeClusterSecurityGroupIngressMessageFilterSensitiveLog,
   AuthorizeClusterSecurityGroupIngressResult,
+  AuthorizeClusterSecurityGroupIngressResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommand,
@@ -92,8 +94,8 @@ export class AuthorizeClusterSecurityGroupIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeClusterSecurityGroupIngressMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizeClusterSecurityGroupIngressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AuthorizeClusterSecurityGroupIngressMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: AuthorizeClusterSecurityGroupIngressResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

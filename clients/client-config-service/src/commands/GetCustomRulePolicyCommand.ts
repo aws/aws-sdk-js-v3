@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { GetCustomRulePolicyRequest, GetCustomRulePolicyResponse } from "../models/models_0";
+import {
+  GetCustomRulePolicyRequest,
+  GetCustomRulePolicyRequestFilterSensitiveLog,
+  GetCustomRulePolicyResponse,
+  GetCustomRulePolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetCustomRulePolicyCommand,
   serializeAws_json1_1GetCustomRulePolicyCommand,
@@ -72,8 +77,8 @@ export class GetCustomRulePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCustomRulePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCustomRulePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCustomRulePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCustomRulePolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

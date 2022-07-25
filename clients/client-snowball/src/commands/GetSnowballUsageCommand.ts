@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetSnowballUsageRequest, GetSnowballUsageResult } from "../models/models_0";
+import {
+  GetSnowballUsageRequest,
+  GetSnowballUsageRequestFilterSensitiveLog,
+  GetSnowballUsageResult,
+  GetSnowballUsageResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetSnowballUsageCommand,
   serializeAws_json1_1GetSnowballUsageCommand,
@@ -76,8 +81,8 @@ export class GetSnowballUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSnowballUsageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSnowballUsageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSnowballUsageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSnowballUsageResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

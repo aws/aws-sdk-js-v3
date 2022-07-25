@@ -46,15 +46,6 @@ export interface Target {
   Id?: string;
 }
 
-export namespace Target {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Target): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateHomeRegionControlRequest {
   /**
    * <p>The name of the home region of the calling account.</p>
@@ -72,15 +63,6 @@ export interface CreateHomeRegionControlRequest {
    *       the caller has permission to make the call.</p>
    */
   DryRun?: boolean;
-}
-
-export namespace CreateHomeRegionControlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHomeRegionControlRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -115,30 +97,12 @@ export interface HomeRegionControl {
   RequestedTime?: Date;
 }
 
-export namespace HomeRegionControl {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HomeRegionControl): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateHomeRegionControlResult {
   /**
    * <p>This object is the <code>HomeRegionControl</code> object that's returned by a successful
    *       call to <code>CreateHomeRegionControl</code>.</p>
    */
   HomeRegionControl?: HomeRegionControl;
-}
-
-export namespace CreateHomeRegionControlResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHomeRegionControlResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -287,15 +251,6 @@ export interface DescribeHomeRegionControlsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeHomeRegionControlsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHomeRegionControlsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeHomeRegionControlsResult {
   /**
    * <p>An array that contains your <code>HomeRegionControl</code> objects.</p>
@@ -310,25 +265,7 @@ export interface DescribeHomeRegionControlsResult {
   NextToken?: string;
 }
 
-export namespace DescribeHomeRegionControlsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHomeRegionControlsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetHomeRegionRequest {}
-
-export namespace GetHomeRegionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHomeRegionRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetHomeRegionResult {
   /**
@@ -337,11 +274,58 @@ export interface GetHomeRegionResult {
   HomeRegion?: string;
 }
 
-export namespace GetHomeRegionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHomeRegionResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TargetFilterSensitiveLog = (obj: Target): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHomeRegionControlRequestFilterSensitiveLog = (obj: CreateHomeRegionControlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HomeRegionControlFilterSensitiveLog = (obj: HomeRegionControl): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHomeRegionControlResultFilterSensitiveLog = (obj: CreateHomeRegionControlResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHomeRegionControlsRequestFilterSensitiveLog = (obj: DescribeHomeRegionControlsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHomeRegionControlsResultFilterSensitiveLog = (obj: DescribeHomeRegionControlsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHomeRegionRequestFilterSensitiveLog = (obj: GetHomeRegionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHomeRegionResultFilterSensitiveLog = (obj: GetHomeRegionResult): any => ({
+  ...obj,
+});

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateDBClusterEndpointMessage, DBClusterEndpoint } from "../models/models_0";
+import {
+  CreateDBClusterEndpointMessage,
+  CreateDBClusterEndpointMessageFilterSensitiveLog,
+  DBClusterEndpoint,
+  DBClusterEndpointFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCreateDBClusterEndpointCommand,
   serializeAws_queryCreateDBClusterEndpointCommand,
@@ -75,8 +80,8 @@ export class CreateDBClusterEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBClusterEndpointMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterEndpoint.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDBClusterEndpointMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterEndpointFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

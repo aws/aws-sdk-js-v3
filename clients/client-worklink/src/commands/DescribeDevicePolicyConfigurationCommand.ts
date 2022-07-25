@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeDevicePolicyConfigurationRequest,
+  DescribeDevicePolicyConfigurationRequestFilterSensitiveLog,
   DescribeDevicePolicyConfigurationResponse,
+  DescribeDevicePolicyConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeDevicePolicyConfigurationCommand,
@@ -79,8 +81,8 @@ export class DescribeDevicePolicyConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDevicePolicyConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDevicePolicyConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDevicePolicyConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDevicePolicyConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { InvokeAsyncRequest, InvokeAsyncResponse } from "../models/models_0";
+import {
+  InvokeAsyncRequest,
+  InvokeAsyncRequestFilterSensitiveLog,
+  InvokeAsyncResponse,
+  InvokeAsyncResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1InvokeAsyncCommand,
   serializeAws_restJson1InvokeAsyncCommand,
@@ -86,8 +91,8 @@ export class InvokeAsyncCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InvokeAsyncRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: InvokeAsyncResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: InvokeAsyncRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: InvokeAsyncResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

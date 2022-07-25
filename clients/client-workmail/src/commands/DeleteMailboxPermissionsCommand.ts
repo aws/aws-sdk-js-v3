@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteMailboxPermissionsRequest, DeleteMailboxPermissionsResponse } from "../models/models_0";
+import {
+  DeleteMailboxPermissionsRequest,
+  DeleteMailboxPermissionsRequestFilterSensitiveLog,
+  DeleteMailboxPermissionsResponse,
+  DeleteMailboxPermissionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteMailboxPermissionsCommand,
   serializeAws_json1_1DeleteMailboxPermissionsCommand,
@@ -72,8 +77,8 @@ export class DeleteMailboxPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMailboxPermissionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMailboxPermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMailboxPermissionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMailboxPermissionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

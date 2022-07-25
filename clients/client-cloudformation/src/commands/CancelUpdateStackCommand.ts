@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { CancelUpdateStackInput } from "../models/models_0";
+import { CancelUpdateStackInput, CancelUpdateStackInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryCancelUpdateStackCommand,
   serializeAws_queryCancelUpdateStackCommand,
@@ -77,7 +77,7 @@ export class CancelUpdateStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelUpdateStackInput.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelUpdateStackInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

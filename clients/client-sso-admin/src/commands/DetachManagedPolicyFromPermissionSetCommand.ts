@@ -14,7 +14,9 @@ import {
 
 import {
   DetachManagedPolicyFromPermissionSetRequest,
+  DetachManagedPolicyFromPermissionSetRequestFilterSensitiveLog,
   DetachManagedPolicyFromPermissionSetResponse,
+  DetachManagedPolicyFromPermissionSetResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand,
@@ -77,8 +79,8 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachManagedPolicyFromPermissionSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DetachManagedPolicyFromPermissionSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachManagedPolicyFromPermissionSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DetachManagedPolicyFromPermissionSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

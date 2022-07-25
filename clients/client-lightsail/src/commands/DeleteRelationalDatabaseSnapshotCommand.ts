@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DeleteRelationalDatabaseSnapshotRequest, DeleteRelationalDatabaseSnapshotResult } from "../models/models_0";
+import {
+  DeleteRelationalDatabaseSnapshotRequest,
+  DeleteRelationalDatabaseSnapshotRequestFilterSensitiveLog,
+  DeleteRelationalDatabaseSnapshotResult,
+  DeleteRelationalDatabaseSnapshotResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRelationalDatabaseSnapshotCommand,
   serializeAws_json1_1DeleteRelationalDatabaseSnapshotCommand,
@@ -77,8 +82,8 @@ export class DeleteRelationalDatabaseSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRelationalDatabaseSnapshotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRelationalDatabaseSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRelationalDatabaseSnapshotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRelationalDatabaseSnapshotResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

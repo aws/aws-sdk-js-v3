@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AssociateVpcCidrBlockRequest, AssociateVpcCidrBlockResult } from "../models/models_0";
+import {
+  AssociateVpcCidrBlockRequest,
+  AssociateVpcCidrBlockRequestFilterSensitiveLog,
+  AssociateVpcCidrBlockResult,
+  AssociateVpcCidrBlockResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_ec2AssociateVpcCidrBlockCommand,
   serializeAws_ec2AssociateVpcCidrBlockCommand,
@@ -80,8 +85,8 @@ export class AssociateVpcCidrBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateVpcCidrBlockRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateVpcCidrBlockResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateVpcCidrBlockRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateVpcCidrBlockResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AcceptVpcEndpointConnectionsRequest, AcceptVpcEndpointConnectionsResult } from "../models/models_0";
+import {
+  AcceptVpcEndpointConnectionsRequest,
+  AcceptVpcEndpointConnectionsRequestFilterSensitiveLog,
+  AcceptVpcEndpointConnectionsResult,
+  AcceptVpcEndpointConnectionsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_ec2AcceptVpcEndpointConnectionsCommand,
   serializeAws_ec2AcceptVpcEndpointConnectionsCommand,
@@ -74,8 +79,8 @@ export class AcceptVpcEndpointConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptVpcEndpointConnectionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AcceptVpcEndpointConnectionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AcceptVpcEndpointConnectionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AcceptVpcEndpointConnectionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

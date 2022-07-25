@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { DeleteDeviceUsageDataRequest, DeleteDeviceUsageDataResponse } from "../models/models_0";
+import {
+  DeleteDeviceUsageDataRequest,
+  DeleteDeviceUsageDataRequestFilterSensitiveLog,
+  DeleteDeviceUsageDataResponse,
+  DeleteDeviceUsageDataResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDeviceUsageDataCommand,
   serializeAws_json1_1DeleteDeviceUsageDataCommand,
@@ -74,8 +79,8 @@ export class DeleteDeviceUsageDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeviceUsageDataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDeviceUsageDataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDeviceUsageDataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDeviceUsageDataResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

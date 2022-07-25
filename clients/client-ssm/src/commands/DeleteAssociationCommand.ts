@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAssociationRequest, DeleteAssociationResult } from "../models/models_0";
+import {
+  DeleteAssociationRequest,
+  DeleteAssociationRequestFilterSensitiveLog,
+  DeleteAssociationResult,
+  DeleteAssociationResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAssociationCommand,
   serializeAws_json1_1DeleteAssociationCommand,
@@ -78,8 +83,8 @@ export class DeleteAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAssociationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAssociationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAssociationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAssociationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

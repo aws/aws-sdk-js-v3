@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { RebootCacheClusterMessage, RebootCacheClusterResult } from "../models/models_0";
+import {
+  RebootCacheClusterMessage,
+  RebootCacheClusterMessageFilterSensitiveLog,
+  RebootCacheClusterResult,
+  RebootCacheClusterResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryRebootCacheClusterCommand,
   serializeAws_queryRebootCacheClusterCommand,
@@ -84,8 +89,8 @@ export class RebootCacheClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootCacheClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: RebootCacheClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RebootCacheClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: RebootCacheClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

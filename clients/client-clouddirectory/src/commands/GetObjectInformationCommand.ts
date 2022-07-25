@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { GetObjectInformationRequest, GetObjectInformationResponse } from "../models/models_0";
+import {
+  GetObjectInformationRequest,
+  GetObjectInformationRequestFilterSensitiveLog,
+  GetObjectInformationResponse,
+  GetObjectInformationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetObjectInformationCommand,
   serializeAws_restJson1GetObjectInformationCommand,
@@ -72,8 +77,8 @@ export class GetObjectInformationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetObjectInformationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetObjectInformationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetObjectInformationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetObjectInformationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { CreateReplicationInstanceMessage, CreateReplicationInstanceResponse } from "../models/models_0";
+import {
+  CreateReplicationInstanceMessage,
+  CreateReplicationInstanceMessageFilterSensitiveLog,
+  CreateReplicationInstanceResponse,
+  CreateReplicationInstanceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateReplicationInstanceCommand,
   serializeAws_json1_1CreateReplicationInstanceCommand,
@@ -81,8 +86,8 @@ export class CreateReplicationInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReplicationInstanceMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateReplicationInstanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateReplicationInstanceMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateReplicationInstanceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

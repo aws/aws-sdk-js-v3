@@ -18,15 +18,6 @@ export interface AttributeValue {
   Value?: string;
 }
 
-export namespace AttributeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeValue): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeServicesRequest {
   /**
    * <p>The code for the service whose information you want to retrieve, such as <code>AmazonEC2</code>.
@@ -54,15 +45,6 @@ export interface DescribeServicesRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeServicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServicesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The metadata for a service, such as the service code and available attribute names.</p>
  */
@@ -76,15 +58,6 @@ export interface Service {
    * <p>The attributes that are available for this service.</p>
    */
   AttributeNames?: string[];
-}
-
-export namespace Service {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Service): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeServicesResponse {
@@ -102,15 +75,6 @@ export interface DescribeServicesResponse {
    * <p>The pagination token for the next set of retrievable results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeServicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServicesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -241,15 +205,6 @@ export interface GetAttributeValuesRequest {
   MaxResults?: number;
 }
 
-export namespace GetAttributeValuesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAttributeValuesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAttributeValuesResponse {
   /**
    * <p>The list of values for an attribute. For example, <code>Throughput Optimized HDD</code> and
@@ -262,15 +217,6 @@ export interface GetAttributeValuesResponse {
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetAttributeValuesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAttributeValuesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum FilterType {
@@ -309,15 +255,6 @@ export interface Filter {
   Value: string | undefined;
 }
 
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
-}
-
 export interface GetProductsRequest {
   /**
    * <p>The code for the service whose products you want to retrieve. </p>
@@ -348,15 +285,6 @@ export interface GetProductsRequest {
   MaxResults?: number;
 }
 
-export namespace GetProductsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProductsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetProductsResponse {
   /**
    * <p>The format version of the response. For example, aws_v1.</p>
@@ -375,11 +303,65 @@ export interface GetProductsResponse {
   NextToken?: string;
 }
 
-export namespace GetProductsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProductsResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServicesRequestFilterSensitiveLog = (obj: DescribeServicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceFilterSensitiveLog = (obj: Service): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServicesResponseFilterSensitiveLog = (obj: DescribeServicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAttributeValuesRequestFilterSensitiveLog = (obj: GetAttributeValuesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAttributeValuesResponseFilterSensitiveLog = (obj: GetAttributeValuesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProductsRequestFilterSensitiveLog = (obj: GetProductsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProductsResponseFilterSensitiveLog = (obj: GetProductsResponse): any => ({
+  ...obj,
+});

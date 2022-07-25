@@ -14,7 +14,9 @@ import {
 
 import {
   ListAccountAssignmentDeletionStatusRequest,
+  ListAccountAssignmentDeletionStatusRequestFilterSensitiveLog,
   ListAccountAssignmentDeletionStatusResponse,
+  ListAccountAssignmentDeletionStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAccountAssignmentDeletionStatusCommand,
@@ -78,8 +80,8 @@ export class ListAccountAssignmentDeletionStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccountAssignmentDeletionStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAccountAssignmentDeletionStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAccountAssignmentDeletionStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAccountAssignmentDeletionStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

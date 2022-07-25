@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
-import { ListSuiteDefinitionsRequest, ListSuiteDefinitionsResponse } from "../models/models_0";
+import {
+  ListSuiteDefinitionsRequest,
+  ListSuiteDefinitionsRequestFilterSensitiveLog,
+  ListSuiteDefinitionsResponse,
+  ListSuiteDefinitionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListSuiteDefinitionsCommand,
   serializeAws_restJson1ListSuiteDefinitionsCommand,
@@ -73,8 +78,8 @@ export class ListSuiteDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSuiteDefinitionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSuiteDefinitionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSuiteDefinitionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSuiteDefinitionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

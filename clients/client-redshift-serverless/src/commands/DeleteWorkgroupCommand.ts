@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteWorkgroupRequest, DeleteWorkgroupResponse } from "../models/models_0";
+import {
+  DeleteWorkgroupRequest,
+  DeleteWorkgroupRequestFilterSensitiveLog,
+  DeleteWorkgroupResponse,
+  DeleteWorkgroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteWorkgroupCommand,
   serializeAws_json1_1DeleteWorkgroupCommand,
@@ -76,8 +81,8 @@ export class DeleteWorkgroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkgroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkgroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteWorkgroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteWorkgroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

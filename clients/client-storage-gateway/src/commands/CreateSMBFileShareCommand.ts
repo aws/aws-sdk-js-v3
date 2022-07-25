@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateSMBFileShareInput, CreateSMBFileShareOutput } from "../models/models_0";
+import {
+  CreateSMBFileShareInput,
+  CreateSMBFileShareInputFilterSensitiveLog,
+  CreateSMBFileShareOutput,
+  CreateSMBFileShareOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSMBFileShareCommand,
   serializeAws_json1_1CreateSMBFileShareCommand,
@@ -88,8 +93,8 @@ export class CreateSMBFileShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSMBFileShareInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSMBFileShareOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSMBFileShareInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSMBFileShareOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

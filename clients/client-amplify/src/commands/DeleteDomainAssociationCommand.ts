@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { DeleteDomainAssociationRequest, DeleteDomainAssociationResult } from "../models/models_0";
+import {
+  DeleteDomainAssociationRequest,
+  DeleteDomainAssociationRequestFilterSensitiveLog,
+  DeleteDomainAssociationResult,
+  DeleteDomainAssociationResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDomainAssociationCommand,
   serializeAws_restJson1DeleteDomainAssociationCommand,
@@ -72,8 +77,8 @@ export class DeleteDomainAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDomainAssociationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDomainAssociationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDomainAssociationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDomainAssociationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

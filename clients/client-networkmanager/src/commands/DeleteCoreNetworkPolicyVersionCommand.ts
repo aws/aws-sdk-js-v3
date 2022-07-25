@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteCoreNetworkPolicyVersionRequest, DeleteCoreNetworkPolicyVersionResponse } from "../models/models_0";
+import {
+  DeleteCoreNetworkPolicyVersionRequest,
+  DeleteCoreNetworkPolicyVersionRequestFilterSensitiveLog,
+  DeleteCoreNetworkPolicyVersionResponse,
+  DeleteCoreNetworkPolicyVersionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1DeleteCoreNetworkPolicyVersionCommand,
@@ -74,8 +79,8 @@ export class DeleteCoreNetworkPolicyVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCoreNetworkPolicyVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCoreNetworkPolicyVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCoreNetworkPolicyVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCoreNetworkPolicyVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

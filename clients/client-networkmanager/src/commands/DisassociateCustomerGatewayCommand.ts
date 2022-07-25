@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateCustomerGatewayRequest, DisassociateCustomerGatewayResponse } from "../models/models_0";
+import {
+  DisassociateCustomerGatewayRequest,
+  DisassociateCustomerGatewayRequestFilterSensitiveLog,
+  DisassociateCustomerGatewayResponse,
+  DisassociateCustomerGatewayResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1DisassociateCustomerGatewayCommand,
@@ -74,8 +79,8 @@ export class DisassociateCustomerGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateCustomerGatewayRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateCustomerGatewayResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateCustomerGatewayRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateCustomerGatewayResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

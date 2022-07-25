@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateResiliencyPolicyRequest, CreateResiliencyPolicyResponse } from "../models/models_0";
+import {
+  CreateResiliencyPolicyRequest,
+  CreateResiliencyPolicyRequestFilterSensitiveLog,
+  CreateResiliencyPolicyResponse,
+  CreateResiliencyPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateResiliencyPolicyCommand,
   serializeAws_restJson1CreateResiliencyPolicyCommand,
@@ -72,8 +77,8 @@ export class CreateResiliencyPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateResiliencyPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateResiliencyPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateResiliencyPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateResiliencyPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

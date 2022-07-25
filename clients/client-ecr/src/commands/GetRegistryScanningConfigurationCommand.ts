@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { GetRegistryScanningConfigurationRequest, GetRegistryScanningConfigurationResponse } from "../models/models_0";
+import {
+  GetRegistryScanningConfigurationRequest,
+  GetRegistryScanningConfigurationRequestFilterSensitiveLog,
+  GetRegistryScanningConfigurationResponse,
+  GetRegistryScanningConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetRegistryScanningConfigurationCommand,
   serializeAws_json1_1GetRegistryScanningConfigurationCommand,
@@ -74,8 +79,8 @@ export class GetRegistryScanningConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRegistryScanningConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRegistryScanningConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRegistryScanningConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRegistryScanningConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

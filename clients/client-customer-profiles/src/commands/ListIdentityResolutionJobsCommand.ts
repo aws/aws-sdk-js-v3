@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { ListIdentityResolutionJobsRequest, ListIdentityResolutionJobsResponse } from "../models/models_0";
+import {
+  ListIdentityResolutionJobsRequest,
+  ListIdentityResolutionJobsRequestFilterSensitiveLog,
+  ListIdentityResolutionJobsResponse,
+  ListIdentityResolutionJobsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListIdentityResolutionJobsCommand,
   serializeAws_restJson1ListIdentityResolutionJobsCommand,
@@ -73,8 +78,8 @@ export class ListIdentityResolutionJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIdentityResolutionJobsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListIdentityResolutionJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListIdentityResolutionJobsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListIdentityResolutionJobsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

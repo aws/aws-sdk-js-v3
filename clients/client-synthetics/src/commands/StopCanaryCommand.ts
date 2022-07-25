@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopCanaryRequest, StopCanaryResponse } from "../models/models_0";
+import {
+  StopCanaryRequest,
+  StopCanaryRequestFilterSensitiveLog,
+  StopCanaryResponse,
+  StopCanaryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StopCanaryCommand,
   serializeAws_restJson1StopCanaryCommand,
@@ -76,8 +81,8 @@ export class StopCanaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopCanaryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopCanaryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopCanaryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopCanaryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

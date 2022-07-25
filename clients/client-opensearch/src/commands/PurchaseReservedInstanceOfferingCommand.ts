@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PurchaseReservedInstanceOfferingRequest, PurchaseReservedInstanceOfferingResponse } from "../models/models_0";
+import {
+  PurchaseReservedInstanceOfferingRequest,
+  PurchaseReservedInstanceOfferingRequestFilterSensitiveLog,
+  PurchaseReservedInstanceOfferingResponse,
+  PurchaseReservedInstanceOfferingResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1PurchaseReservedInstanceOfferingCommand,
@@ -74,8 +79,8 @@ export class PurchaseReservedInstanceOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseReservedInstanceOfferingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseReservedInstanceOfferingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PurchaseReservedInstanceOfferingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseReservedInstanceOfferingResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

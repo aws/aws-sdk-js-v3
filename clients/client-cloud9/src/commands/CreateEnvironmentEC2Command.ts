@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import { CreateEnvironmentEC2Request, CreateEnvironmentEC2Result } from "../models/models_0";
+import {
+  CreateEnvironmentEC2Request,
+  CreateEnvironmentEC2RequestFilterSensitiveLog,
+  CreateEnvironmentEC2Result,
+  CreateEnvironmentEC2ResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateEnvironmentEC2Command,
   serializeAws_json1_1CreateEnvironmentEC2Command,
@@ -73,8 +78,8 @@ export class CreateEnvironmentEC2Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEnvironmentEC2Request.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateEnvironmentEC2Result.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateEnvironmentEC2RequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateEnvironmentEC2ResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

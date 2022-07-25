@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PublishInput, PublishResponse } from "../models/models_0";
+import {
+  PublishInput,
+  PublishInputFilterSensitiveLog,
+  PublishResponse,
+  PublishResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryPublishCommand, serializeAws_queryPublishCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
@@ -81,8 +86,8 @@ export class PublishCommand extends $Command<PublishCommandInput, PublishCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PublishResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PublishInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PublishResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

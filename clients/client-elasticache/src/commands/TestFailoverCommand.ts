@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { TestFailoverMessage, TestFailoverResult } from "../models/models_0";
+import {
+  TestFailoverMessage,
+  TestFailoverMessageFilterSensitiveLog,
+  TestFailoverResult,
+  TestFailoverResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryTestFailoverCommand, serializeAws_queryTestFailoverCommand } from "../protocols/Aws_query";
 
 export interface TestFailoverCommandInput extends TestFailoverMessage {}
@@ -132,8 +137,8 @@ export class TestFailoverCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestFailoverMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: TestFailoverResult.filterSensitiveLog,
+      inputFilterSensitiveLog: TestFailoverMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: TestFailoverResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -47,15 +47,6 @@ export interface EntityPropertyReference {
   propertyName: string | undefined;
 }
 
-export namespace EntityPropertyReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityPropertyReference): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A value that associates a component and an entity.</p>
  */
@@ -69,15 +60,6 @@ export interface RelationshipValue {
    * <p>The name of the target component associated with the relationship value.</p>
    */
   targetComponentName?: string;
-}
-
-export namespace RelationshipValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelationshipValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -185,15 +167,6 @@ export interface LambdaFunction {
   arn: string | undefined;
 }
 
-export namespace LambdaFunction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaFunction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The data connector.</p>
  */
@@ -207,15 +180,6 @@ export interface DataConnector {
    * <p>A Boolean value that specifies whether the data connector is native to IoT TwinMaker.</p>
    */
   isNative?: boolean;
-}
-
-export namespace DataConnector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataConnector): any => ({
-    ...obj,
-  });
 }
 
 export enum Scope {
@@ -243,15 +207,6 @@ export interface FunctionRequest {
   implementedBy?: DataConnector;
 }
 
-export namespace FunctionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that specifies a relationship with another component type.</p>
  */
@@ -265,15 +220,6 @@ export interface Relationship {
    * <p>The type of the relationship.</p>
    */
   relationshipType?: string;
-}
-
-export namespace Relationship {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Relationship): any => ({
-    ...obj,
-  });
 }
 
 export enum Type {
@@ -310,15 +256,6 @@ export interface CreateComponentTypeResponse {
    * <p>The current state of the component type.</p>
    */
   state: State | string | undefined;
-}
-
-export namespace CreateComponentTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateComponentTypeResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -368,15 +305,6 @@ export interface CreateEntityResponse {
   state: State | string | undefined;
 }
 
-export namespace CreateEntityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEntityResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSceneRequest {
   /**
    * <p>The ID of the workspace that contains the scene.</p>
@@ -409,15 +337,6 @@ export interface CreateSceneRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateSceneRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSceneRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSceneResponse {
   /**
    * <p>The ARN of the scene.</p>
@@ -428,15 +347,6 @@ export interface CreateSceneResponse {
    * <p>The date and time when the scene was created.</p>
    */
   creationDateTime: Date | undefined;
-}
-
-export namespace CreateSceneResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSceneResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateWorkspaceRequest {
@@ -466,15 +376,6 @@ export interface CreateWorkspaceRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkspaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWorkspaceResponse {
   /**
    * <p>The ARN of the workspace.</p>
@@ -485,15 +386,6 @@ export interface CreateWorkspaceResponse {
    * <p>The date and time when the workspace was created.</p>
    */
   creationDateTime: Date | undefined;
-}
-
-export namespace CreateWorkspaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkspaceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteComponentTypeRequest {
@@ -508,29 +400,11 @@ export interface DeleteComponentTypeRequest {
   componentTypeId: string | undefined;
 }
 
-export namespace DeleteComponentTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteComponentTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteComponentTypeResponse {
   /**
    * <p>The current state of the component type to be deleted.</p>
    */
   state: State | string | undefined;
-}
-
-export namespace DeleteComponentTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteComponentTypeResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteEntityRequest {
@@ -550,29 +424,11 @@ export interface DeleteEntityRequest {
   isRecursive?: boolean;
 }
 
-export namespace DeleteEntityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEntityRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEntityResponse {
   /**
    * <p>The current state of the deleted entity.</p>
    */
   state: State | string | undefined;
-}
-
-export namespace DeleteEntityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEntityResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteSceneRequest {
@@ -587,25 +443,7 @@ export interface DeleteSceneRequest {
   sceneId: string | undefined;
 }
 
-export namespace DeleteSceneRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSceneRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSceneResponse {}
-
-export namespace DeleteSceneResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSceneResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteWorkspaceRequest {
   /**
@@ -614,25 +452,7 @@ export interface DeleteWorkspaceRequest {
   workspaceId: string | undefined;
 }
 
-export namespace DeleteWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkspaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWorkspaceResponse {}
-
-export namespace DeleteWorkspaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkspaceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetComponentTypeRequest {
   /**
@@ -644,15 +464,6 @@ export interface GetComponentTypeRequest {
    * <p>The ID of the component type.</p>
    */
   componentTypeId: string | undefined;
-}
-
-export namespace GetComponentTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComponentTypeRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -680,15 +491,6 @@ export interface FunctionResponse {
   isInherited?: boolean;
 }
 
-export namespace FunctionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum ErrorCode {
   INTERNAL_FAILURE = "INTERNAL_FAILURE",
   VALIDATION_ERROR = "VALIDATION_ERROR",
@@ -709,15 +511,6 @@ export interface ErrorDetails {
   message?: string;
 }
 
-export namespace ErrorDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that represents the status of an entity, component, component type, or workspace.</p>
  */
@@ -733,15 +526,6 @@ export interface Status {
   error?: ErrorDetails;
 }
 
-export namespace Status {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Status): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEntityRequest {
   /**
    * <p>The ID of the workspace.</p>
@@ -752,15 +536,6 @@ export interface GetEntityRequest {
    * <p>The ID of the entity.</p>
    */
   entityId: string | undefined;
-}
-
-export namespace GetEntityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEntityRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -828,15 +603,6 @@ export interface GetPropertyValueRequest {
   workspaceId: string | undefined;
 }
 
-export namespace GetPropertyValueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPropertyValueRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum InterpolationType {
   LINEAR = "LINEAR",
 }
@@ -856,15 +622,6 @@ export interface InterpolationParameters {
   intervalInSeconds?: number;
 }
 
-export namespace InterpolationParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InterpolationParameters): any => ({
-    ...obj,
-  });
-}
-
 export enum OrderByTime {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
@@ -880,15 +637,6 @@ export interface GetSceneRequest {
    * <p>The ID of the scene.</p>
    */
   sceneId: string | undefined;
-}
-
-export namespace GetSceneRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSceneRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSceneResponse {
@@ -933,29 +681,11 @@ export interface GetSceneResponse {
   capabilities?: string[];
 }
 
-export namespace GetSceneResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSceneResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWorkspaceRequest {
   /**
    * <p>The ID of the workspace.</p>
    */
   workspaceId: string | undefined;
-}
-
-export namespace GetWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkspaceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetWorkspaceResponse {
@@ -993,15 +723,6 @@ export interface GetWorkspaceResponse {
    * <p>The date and time when the workspace was last updated.</p>
    */
   updateDateTime: Date | undefined;
-}
-
-export namespace GetWorkspaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkspaceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1067,16 +788,6 @@ export namespace ListComponentTypesFilter {
     if (value.isAbstract !== undefined) return visitor.isAbstract(value.isAbstract);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentTypesFilter): any => {
-    if (obj.extendsFrom !== undefined) return { extendsFrom: obj.extendsFrom };
-    if (obj.namespace !== undefined) return { namespace: obj.namespace };
-    if (obj.isAbstract !== undefined) return { isAbstract: obj.isAbstract };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export interface ListComponentTypesRequest {
@@ -1099,16 +810,6 @@ export interface ListComponentTypesRequest {
    * <p>The maximum number of results to display.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListComponentTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentTypesRequest): any => ({
-    ...obj,
-    ...(obj.filters && { filters: obj.filters.map((item) => ListComponentTypesFilter.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -1146,15 +847,6 @@ export interface ComponentTypeSummary {
   status?: Status;
 }
 
-export namespace ComponentTypeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentTypeSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListComponentTypesResponse {
   /**
    * <p>The ID of the workspace.</p>
@@ -1175,15 +867,6 @@ export interface ListComponentTypesResponse {
    * <p>Specifies the maximum number of results to display.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListComponentTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentTypesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1246,16 +929,6 @@ export namespace ListEntitiesFilter {
     if (value.externalId !== undefined) return visitor.externalId(value.externalId);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEntitiesFilter): any => {
-    if (obj.parentEntityId !== undefined) return { parentEntityId: obj.parentEntityId };
-    if (obj.componentTypeId !== undefined) return { componentTypeId: obj.componentTypeId };
-    if (obj.externalId !== undefined) return { externalId: obj.externalId };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export interface ListEntitiesRequest {
@@ -1281,16 +954,6 @@ export interface ListEntitiesRequest {
    * <p>The string that specifies the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListEntitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEntitiesRequest): any => ({
-    ...obj,
-    ...(obj.filters && { filters: obj.filters.map((item) => ListEntitiesFilter.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -1343,15 +1006,6 @@ export interface EntitySummary {
   updateDateTime: Date | undefined;
 }
 
-export namespace EntitySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntitySummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEntitiesResponse {
   /**
    * <p>A list of objects that contain information about the entities.</p>
@@ -1362,15 +1016,6 @@ export interface ListEntitiesResponse {
    * <p>The string that specifies the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListEntitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEntitiesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListScenesRequest {
@@ -1388,15 +1033,6 @@ export interface ListScenesRequest {
    * <p>The string that specifies the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListScenesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListScenesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1434,15 +1070,6 @@ export interface SceneSummary {
   description?: string;
 }
 
-export namespace SceneSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SceneSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListScenesResponse {
   /**
    * <p>A list of objects that contain information about the scenes.</p>
@@ -1453,15 +1080,6 @@ export interface ListScenesResponse {
    * <p>The string that specifies the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListScenesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListScenesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -1481,15 +1099,6 @@ export interface ListTagsForResourceRequest {
   nextToken?: string;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>Metadata that you can use to manage a resource.</p>
@@ -1502,15 +1111,6 @@ export interface ListTagsForResourceResponse {
   nextToken?: string;
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWorkspacesRequest {
   /**
    * <p>The maximum number of results to display.</p>
@@ -1521,15 +1121,6 @@ export interface ListWorkspacesRequest {
    * <p>The string that specifies the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListWorkspacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkspacesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1562,15 +1153,6 @@ export interface WorkspaceSummary {
   updateDateTime: Date | undefined;
 }
 
-export namespace WorkspaceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWorkspacesResponse {
   /**
    * <p>A list of objects that contain information about the workspaces.</p>
@@ -1581,15 +1163,6 @@ export interface ListWorkspacesResponse {
    * <p>The string that specifies the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListWorkspacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkspacesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -1604,25 +1177,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The number of tags exceeds the limit.</p>
@@ -1655,25 +1210,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateComponentTypeResponse {
   /**
@@ -1695,15 +1232,6 @@ export interface UpdateComponentTypeResponse {
    * <p>The current state of the component type.</p>
    */
   state: State | string | undefined;
-}
-
-export namespace UpdateComponentTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateComponentTypeResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ComponentUpdateType {
@@ -1732,15 +1260,6 @@ export interface ParentEntityUpdateRequest {
   parentEntityId?: string;
 }
 
-export namespace ParentEntityUpdateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParentEntityUpdateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEntityResponse {
   /**
    * <p>The date and time when the entity was last updated.</p>
@@ -1751,15 +1270,6 @@ export interface UpdateEntityResponse {
    * <p>The current state of the entity update.</p>
    */
   state: State | string | undefined;
-}
-
-export namespace UpdateEntityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEntityResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSceneRequest {
@@ -1789,29 +1299,11 @@ export interface UpdateSceneRequest {
   capabilities?: string[];
 }
 
-export namespace UpdateSceneRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSceneRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSceneResponse {
   /**
    * <p>The date and time when the scene was last updated.</p>
    */
   updateDateTime: Date | undefined;
-}
-
-export namespace UpdateSceneResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSceneResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateWorkspaceRequest {
@@ -1831,29 +1323,11 @@ export interface UpdateWorkspaceRequest {
   role?: string;
 }
 
-export namespace UpdateWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkspaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateWorkspaceResponse {
   /**
    * <p>The date and time of the current update.</p>
    */
   updateDateTime: Date | undefined;
-}
-
-export namespace UpdateWorkspaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkspaceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1906,15 +1380,6 @@ export interface DataValue {
   expression?: string;
 }
 
-export namespace DataValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataValue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that filters items returned by a property request.</p>
  */
@@ -1935,15 +1400,6 @@ export interface PropertyFilter {
   value?: DataValue;
 }
 
-export namespace PropertyFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PropertyFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The latest value of the property.</p>
  */
@@ -1957,15 +1413,6 @@ export interface PropertyLatestValue {
    * <p>The value of the property.</p>
    */
   propertyValue?: DataValue;
-}
-
-export namespace PropertyLatestValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PropertyLatestValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2032,15 +1479,6 @@ export interface PropertyValue {
   time?: string;
 }
 
-export namespace PropertyValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PropertyValue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that specifies the data type of a property.</p>
  */
@@ -2069,15 +1507,6 @@ export interface DataType {
    * <p>A relationship that associates a component with another component.</p>
    */
   relationship?: Relationship;
-}
-
-export namespace DataType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataType): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPropertyValueHistoryRequest {
@@ -2158,30 +1587,12 @@ export interface GetPropertyValueHistoryRequest {
   endTime?: string;
 }
 
-export namespace GetPropertyValueHistoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPropertyValueHistoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPropertyValueResponse {
   /**
    * <p>An object that maps strings to the properties and latest property values in the response. Each string
    *        in the mapping must be unique to this object.</p>
    */
   propertyValues: Record<string, PropertyLatestValue> | undefined;
-}
-
-export namespace GetPropertyValueResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPropertyValueResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2199,15 +1610,6 @@ export interface PropertyValueEntry {
   propertyValues?: PropertyValue[];
 }
 
-export namespace PropertyValueEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PropertyValueEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The history of values for a time series property.</p>
  */
@@ -2221,15 +1623,6 @@ export interface PropertyValueHistory {
    * <p>A list of objects that contain information about the values in the history of a time series property.</p>
    */
   values?: PropertyValue[];
-}
-
-export namespace PropertyValueHistory {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PropertyValueHistory): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2252,15 +1645,6 @@ export interface BatchPutPropertyError {
   entry: PropertyValueEntry | undefined;
 }
 
-export namespace BatchPutPropertyError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutPropertyError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchPutPropertyValuesRequest {
   /**
    * <p>The ID of the workspace that contains the properties to set.</p>
@@ -2272,15 +1656,6 @@ export interface BatchPutPropertyValuesRequest {
    *        in the mapping must be unique to this object.</p>
    */
   entries: PropertyValueEntry[] | undefined;
-}
-
-export namespace BatchPutPropertyValuesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutPropertyValuesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPropertyValueHistoryResponse {
@@ -2296,15 +1671,6 @@ export interface GetPropertyValueHistoryResponse {
   nextToken?: string;
 }
 
-export namespace GetPropertyValueHistoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPropertyValueHistoryResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains information about errors returned by the <code>BatchPutProperty</code> action.</p>
  */
@@ -2314,15 +1680,6 @@ export interface BatchPutPropertyErrorEntry {
    *             <code>BatchPutProperty</code> action.</p>
    */
   errors: BatchPutPropertyError[] | undefined;
-}
-
-export namespace BatchPutPropertyErrorEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutPropertyErrorEntry): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2364,15 +1721,6 @@ export interface PropertyDefinitionRequest {
    *          specify information that you read from and write to an external source.</p>
    */
   configuration?: Record<string, string>;
-}
-
-export namespace PropertyDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PropertyDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2430,29 +1778,11 @@ export interface PropertyDefinitionResponse {
   configuration?: Record<string, string>;
 }
 
-export namespace PropertyDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PropertyDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchPutPropertyValuesResponse {
   /**
    * <p>Entries that caused errors in the batch put operation.</p>
    */
   errorEntries: BatchPutPropertyErrorEntry[] | undefined;
-}
-
-export namespace BatchPutPropertyValuesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutPropertyValuesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateComponentTypeRequest {
@@ -2498,15 +1828,6 @@ export interface CreateComponentTypeRequest {
    * <p>Metadata that you can use to manage the component type.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateComponentTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateComponentTypeRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetComponentTypeResponse {
@@ -2580,15 +1901,6 @@ export interface GetComponentTypeResponse {
   status?: Status;
 }
 
-export namespace GetComponentTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComponentTypeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateComponentTypeRequest {
   /**
    * <p>The ID of the workspace that contains the component type.</p>
@@ -2629,15 +1941,6 @@ export interface UpdateComponentTypeRequest {
   functions?: Record<string, FunctionRequest>;
 }
 
-export namespace UpdateComponentTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateComponentTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that sets information about a property.</p>
  */
@@ -2658,15 +1961,6 @@ export interface PropertyRequest {
   updateType?: PropertyUpdateType | string;
 }
 
-export namespace PropertyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PropertyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains information about a property response.</p>
  */
@@ -2680,15 +1974,6 @@ export interface PropertyResponse {
    * <p>The value of the property.</p>
    */
   value?: DataValue;
-}
-
-export namespace PropertyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PropertyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2710,15 +1995,6 @@ export interface ComponentRequest {
    *        in the mapping must be unique to this object.</p>
    */
   properties?: Record<string, PropertyRequest>;
-}
-
-export namespace ComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2757,15 +2033,6 @@ export interface ComponentResponse {
   properties?: Record<string, PropertyResponse>;
 }
 
-export namespace ComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The component update request.</p>
  */
@@ -2790,15 +2057,6 @@ export interface ComponentUpdateRequest {
    *        in the mapping must be unique to this object.</p>
    */
   propertyUpdates?: Record<string, PropertyRequest>;
-}
-
-export namespace ComponentUpdateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentUpdateRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateEntityRequest {
@@ -2837,15 +2095,6 @@ export interface CreateEntityRequest {
    * <p>Metadata that you can use to manage the entity.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateEntityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEntityRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEntityResponse {
@@ -2906,15 +2155,6 @@ export interface GetEntityResponse {
   updateDateTime: Date | undefined;
 }
 
-export namespace GetEntityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEntityResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEntityRequest {
   /**
    * <p>The ID of the workspace that contains the entity.</p>
@@ -2948,11 +2188,605 @@ export interface UpdateEntityRequest {
   parentEntityUpdate?: ParentEntityUpdateRequest;
 }
 
-export namespace UpdateEntityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEntityRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const EntityPropertyReferenceFilterSensitiveLog = (obj: EntityPropertyReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelationshipValueFilterSensitiveLog = (obj: RelationshipValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionFilterSensitiveLog = (obj: LambdaFunction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataConnectorFilterSensitiveLog = (obj: DataConnector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionRequestFilterSensitiveLog = (obj: FunctionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelationshipFilterSensitiveLog = (obj: Relationship): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateComponentTypeResponseFilterSensitiveLog = (obj: CreateComponentTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEntityResponseFilterSensitiveLog = (obj: CreateEntityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSceneRequestFilterSensitiveLog = (obj: CreateSceneRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSceneResponseFilterSensitiveLog = (obj: CreateSceneResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkspaceRequestFilterSensitiveLog = (obj: CreateWorkspaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkspaceResponseFilterSensitiveLog = (obj: CreateWorkspaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteComponentTypeRequestFilterSensitiveLog = (obj: DeleteComponentTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteComponentTypeResponseFilterSensitiveLog = (obj: DeleteComponentTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEntityRequestFilterSensitiveLog = (obj: DeleteEntityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEntityResponseFilterSensitiveLog = (obj: DeleteEntityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSceneRequestFilterSensitiveLog = (obj: DeleteSceneRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSceneResponseFilterSensitiveLog = (obj: DeleteSceneResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkspaceRequestFilterSensitiveLog = (obj: DeleteWorkspaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkspaceResponseFilterSensitiveLog = (obj: DeleteWorkspaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComponentTypeRequestFilterSensitiveLog = (obj: GetComponentTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionResponseFilterSensitiveLog = (obj: FunctionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorDetailsFilterSensitiveLog = (obj: ErrorDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatusFilterSensitiveLog = (obj: Status): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEntityRequestFilterSensitiveLog = (obj: GetEntityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPropertyValueRequestFilterSensitiveLog = (obj: GetPropertyValueRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InterpolationParametersFilterSensitiveLog = (obj: InterpolationParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSceneRequestFilterSensitiveLog = (obj: GetSceneRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSceneResponseFilterSensitiveLog = (obj: GetSceneResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWorkspaceRequestFilterSensitiveLog = (obj: GetWorkspaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWorkspaceResponseFilterSensitiveLog = (obj: GetWorkspaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComponentTypesFilterFilterSensitiveLog = (obj: ListComponentTypesFilter): any => {
+  if (obj.extendsFrom !== undefined) return { extendsFrom: obj.extendsFrom };
+  if (obj.namespace !== undefined) return { namespace: obj.namespace };
+  if (obj.isAbstract !== undefined) return { isAbstract: obj.isAbstract };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ListComponentTypesRequestFilterSensitiveLog = (obj: ListComponentTypesRequest): any => ({
+  ...obj,
+  ...(obj.filters && { filters: obj.filters.map((item) => ListComponentTypesFilterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ComponentTypeSummaryFilterSensitiveLog = (obj: ComponentTypeSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComponentTypesResponseFilterSensitiveLog = (obj: ListComponentTypesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEntitiesFilterFilterSensitiveLog = (obj: ListEntitiesFilter): any => {
+  if (obj.parentEntityId !== undefined) return { parentEntityId: obj.parentEntityId };
+  if (obj.componentTypeId !== undefined) return { componentTypeId: obj.componentTypeId };
+  if (obj.externalId !== undefined) return { externalId: obj.externalId };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ListEntitiesRequestFilterSensitiveLog = (obj: ListEntitiesRequest): any => ({
+  ...obj,
+  ...(obj.filters && { filters: obj.filters.map((item) => ListEntitiesFilterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const EntitySummaryFilterSensitiveLog = (obj: EntitySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEntitiesResponseFilterSensitiveLog = (obj: ListEntitiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListScenesRequestFilterSensitiveLog = (obj: ListScenesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SceneSummaryFilterSensitiveLog = (obj: SceneSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListScenesResponseFilterSensitiveLog = (obj: ListScenesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkspacesRequestFilterSensitiveLog = (obj: ListWorkspacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkspaceSummaryFilterSensitiveLog = (obj: WorkspaceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkspacesResponseFilterSensitiveLog = (obj: ListWorkspacesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateComponentTypeResponseFilterSensitiveLog = (obj: UpdateComponentTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParentEntityUpdateRequestFilterSensitiveLog = (obj: ParentEntityUpdateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEntityResponseFilterSensitiveLog = (obj: UpdateEntityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSceneRequestFilterSensitiveLog = (obj: UpdateSceneRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSceneResponseFilterSensitiveLog = (obj: UpdateSceneResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkspaceRequestFilterSensitiveLog = (obj: UpdateWorkspaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkspaceResponseFilterSensitiveLog = (obj: UpdateWorkspaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataValueFilterSensitiveLog = (obj: DataValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PropertyFilterFilterSensitiveLog = (obj: PropertyFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PropertyLatestValueFilterSensitiveLog = (obj: PropertyLatestValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PropertyValueFilterSensitiveLog = (obj: PropertyValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataTypeFilterSensitiveLog = (obj: DataType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPropertyValueHistoryRequestFilterSensitiveLog = (obj: GetPropertyValueHistoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPropertyValueResponseFilterSensitiveLog = (obj: GetPropertyValueResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PropertyValueEntryFilterSensitiveLog = (obj: PropertyValueEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PropertyValueHistoryFilterSensitiveLog = (obj: PropertyValueHistory): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutPropertyErrorFilterSensitiveLog = (obj: BatchPutPropertyError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutPropertyValuesRequestFilterSensitiveLog = (obj: BatchPutPropertyValuesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPropertyValueHistoryResponseFilterSensitiveLog = (obj: GetPropertyValueHistoryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutPropertyErrorEntryFilterSensitiveLog = (obj: BatchPutPropertyErrorEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PropertyDefinitionRequestFilterSensitiveLog = (obj: PropertyDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PropertyDefinitionResponseFilterSensitiveLog = (obj: PropertyDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutPropertyValuesResponseFilterSensitiveLog = (obj: BatchPutPropertyValuesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateComponentTypeRequestFilterSensitiveLog = (obj: CreateComponentTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComponentTypeResponseFilterSensitiveLog = (obj: GetComponentTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateComponentTypeRequestFilterSensitiveLog = (obj: UpdateComponentTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PropertyRequestFilterSensitiveLog = (obj: PropertyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PropertyResponseFilterSensitiveLog = (obj: PropertyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentRequestFilterSensitiveLog = (obj: ComponentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentResponseFilterSensitiveLog = (obj: ComponentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentUpdateRequestFilterSensitiveLog = (obj: ComponentUpdateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEntityRequestFilterSensitiveLog = (obj: CreateEntityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEntityResponseFilterSensitiveLog = (obj: GetEntityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEntityRequestFilterSensitiveLog = (obj: UpdateEntityRequest): any => ({
+  ...obj,
+});

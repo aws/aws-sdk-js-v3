@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteTerminologyRequest } from "../models/models_0";
+import { DeleteTerminologyRequest, DeleteTerminologyRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTerminologyCommand,
   serializeAws_json1_1DeleteTerminologyCommand,
@@ -72,7 +72,7 @@ export class DeleteTerminologyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTerminologyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTerminologyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

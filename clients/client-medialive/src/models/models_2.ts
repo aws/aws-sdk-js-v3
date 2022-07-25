@@ -31,15 +31,6 @@ export interface UpdateInputResponse {
   Input?: Input;
 }
 
-export namespace UpdateInputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInputResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A request to update an input device.
  */
@@ -63,15 +54,6 @@ export interface UpdateInputDeviceRequest {
    * The settings that you want to apply to the UHD input device.
    */
   UhdDeviceSettings?: InputDeviceConfigurableSettings;
-}
-
-export namespace UpdateInputDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInputDeviceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -139,15 +121,6 @@ export interface UpdateInputDeviceResponse {
   UhdDeviceSettings?: InputDeviceUhdSettings;
 }
 
-export namespace UpdateInputDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInputDeviceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The request to update some combination of the Input Security Group name and the IPv4 CIDRs the Input Security Group should allow.
  */
@@ -168,15 +141,6 @@ export interface UpdateInputSecurityGroupRequest {
   WhitelistRules?: InputWhitelistRuleCidr[];
 }
 
-export namespace UpdateInputSecurityGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInputSecurityGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for UpdateInputSecurityGroupResponse
  */
@@ -185,15 +149,6 @@ export interface UpdateInputSecurityGroupResponse {
    * An Input Security Group
    */
   SecurityGroup?: InputSecurityGroup;
-}
-
-export namespace UpdateInputSecurityGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInputSecurityGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -216,15 +171,6 @@ export interface UpdateMultiplexRequest {
   Name?: string;
 }
 
-export namespace UpdateMultiplexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMultiplexRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for UpdateMultiplexResponse
  */
@@ -233,15 +179,6 @@ export interface UpdateMultiplexResponse {
    * The updated multiplex.
    */
   Multiplex?: Multiplex;
-}
-
-export namespace UpdateMultiplexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMultiplexResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -264,15 +201,6 @@ export interface UpdateMultiplexProgramRequest {
   ProgramName: string | undefined;
 }
 
-export namespace UpdateMultiplexProgramRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMultiplexProgramRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for UpdateMultiplexProgramResponse
  */
@@ -281,15 +209,6 @@ export interface UpdateMultiplexProgramResponse {
    * The updated multiplex program.
    */
   MultiplexProgram?: MultiplexProgram;
-}
-
-export namespace UpdateMultiplexProgramResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMultiplexProgramResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -312,15 +231,6 @@ export interface UpdateReservationRequest {
   ReservationId: string | undefined;
 }
 
-export namespace UpdateReservationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReservationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for UpdateReservationResponse
  */
@@ -331,11 +241,79 @@ export interface UpdateReservationResponse {
   Reservation?: Reservation;
 }
 
-export namespace UpdateReservationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReservationResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const UpdateInputResponseFilterSensitiveLog = (obj: UpdateInputResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInputDeviceRequestFilterSensitiveLog = (obj: UpdateInputDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInputDeviceResponseFilterSensitiveLog = (obj: UpdateInputDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInputSecurityGroupRequestFilterSensitiveLog = (obj: UpdateInputSecurityGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInputSecurityGroupResponseFilterSensitiveLog = (obj: UpdateInputSecurityGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMultiplexRequestFilterSensitiveLog = (obj: UpdateMultiplexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMultiplexResponseFilterSensitiveLog = (obj: UpdateMultiplexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMultiplexProgramRequestFilterSensitiveLog = (obj: UpdateMultiplexProgramRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMultiplexProgramResponseFilterSensitiveLog = (obj: UpdateMultiplexProgramResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateReservationRequestFilterSensitiveLog = (obj: UpdateReservationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateReservationResponseFilterSensitiveLog = (obj: UpdateReservationResponse): any => ({
+  ...obj,
+});

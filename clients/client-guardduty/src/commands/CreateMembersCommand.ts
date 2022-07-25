@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { CreateMembersRequest, CreateMembersResponse } from "../models/models_0";
+import {
+  CreateMembersRequest,
+  CreateMembersRequestFilterSensitiveLog,
+  CreateMembersResponse,
+  CreateMembersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateMembersCommand,
   serializeAws_restJson1CreateMembersCommand,
@@ -83,8 +88,8 @@ export class CreateMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMembersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateMembersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateMembersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateMembersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

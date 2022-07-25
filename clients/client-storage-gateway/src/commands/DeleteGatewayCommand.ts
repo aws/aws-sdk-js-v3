@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteGatewayInput, DeleteGatewayOutput } from "../models/models_0";
+import {
+  DeleteGatewayInput,
+  DeleteGatewayInputFilterSensitiveLog,
+  DeleteGatewayOutput,
+  DeleteGatewayOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteGatewayCommand,
   serializeAws_json1_1DeleteGatewayCommand,
@@ -89,8 +94,8 @@ export class DeleteGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGatewayInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGatewayOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGatewayInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGatewayOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

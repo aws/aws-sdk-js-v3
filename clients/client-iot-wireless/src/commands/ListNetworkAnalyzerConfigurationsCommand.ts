@@ -15,7 +15,9 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   ListNetworkAnalyzerConfigurationsRequest,
+  ListNetworkAnalyzerConfigurationsRequestFilterSensitiveLog,
   ListNetworkAnalyzerConfigurationsResponse,
+  ListNetworkAnalyzerConfigurationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ListNetworkAnalyzerConfigurationsCommand,
@@ -77,8 +79,8 @@ export class ListNetworkAnalyzerConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNetworkAnalyzerConfigurationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListNetworkAnalyzerConfigurationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListNetworkAnalyzerConfigurationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListNetworkAnalyzerConfigurationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { CreateLoginProfileRequest, CreateLoginProfileResponse } from "../models/models_0";
+import {
+  CreateLoginProfileRequest,
+  CreateLoginProfileRequestFilterSensitiveLog,
+  CreateLoginProfileResponse,
+  CreateLoginProfileResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCreateLoginProfileCommand,
   serializeAws_queryCreateLoginProfileCommand,
@@ -77,8 +82,8 @@ export class CreateLoginProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLoginProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLoginProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLoginProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateLoginProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

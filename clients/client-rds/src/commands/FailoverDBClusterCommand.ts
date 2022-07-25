@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { FailoverDBClusterMessage, FailoverDBClusterResult } from "../models/models_1";
+import {
+  FailoverDBClusterMessage,
+  FailoverDBClusterMessageFilterSensitiveLog,
+  FailoverDBClusterResult,
+  FailoverDBClusterResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryFailoverDBClusterCommand,
   serializeAws_queryFailoverDBClusterCommand,
@@ -88,8 +93,8 @@ export class FailoverDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FailoverDBClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: FailoverDBClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: FailoverDBClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: FailoverDBClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

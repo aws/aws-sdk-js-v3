@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListContactReferencesRequest, ListContactReferencesResponse } from "../models/models_0";
+import {
+  ListContactReferencesRequest,
+  ListContactReferencesRequestFilterSensitiveLog,
+  ListContactReferencesResponse,
+  ListContactReferencesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListContactReferencesCommand,
   serializeAws_restJson1ListContactReferencesCommand,
@@ -74,8 +79,8 @@ export class ListContactReferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListContactReferencesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListContactReferencesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListContactReferencesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListContactReferencesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

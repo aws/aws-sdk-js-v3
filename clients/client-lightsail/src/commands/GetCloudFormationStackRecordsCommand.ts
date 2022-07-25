@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetCloudFormationStackRecordsRequest, GetCloudFormationStackRecordsResult } from "../models/models_0";
+import {
+  GetCloudFormationStackRecordsRequest,
+  GetCloudFormationStackRecordsRequestFilterSensitiveLog,
+  GetCloudFormationStackRecordsResult,
+  GetCloudFormationStackRecordsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetCloudFormationStackRecordsCommand,
   serializeAws_json1_1GetCloudFormationStackRecordsCommand,
@@ -77,8 +82,8 @@ export class GetCloudFormationStackRecordsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCloudFormationStackRecordsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCloudFormationStackRecordsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCloudFormationStackRecordsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCloudFormationStackRecordsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

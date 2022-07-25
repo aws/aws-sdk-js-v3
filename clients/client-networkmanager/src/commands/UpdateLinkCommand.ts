@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateLinkRequest, UpdateLinkResponse } from "../models/models_0";
+import {
+  UpdateLinkRequest,
+  UpdateLinkRequestFilterSensitiveLog,
+  UpdateLinkResponse,
+  UpdateLinkResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1UpdateLinkCommand,
@@ -73,8 +78,8 @@ export class UpdateLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLinkRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLinkResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateLinkRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateLinkResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

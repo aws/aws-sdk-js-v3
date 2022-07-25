@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { GetNetworkProfileRequest, GetNetworkProfileResponse } from "../models/models_0";
+import {
+  GetNetworkProfileRequest,
+  GetNetworkProfileRequestFilterSensitiveLog,
+  GetNetworkProfileResponse,
+  GetNetworkProfileResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetNetworkProfileCommand,
   serializeAws_json1_1GetNetworkProfileCommand,
@@ -72,8 +77,8 @@ export class GetNetworkProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetNetworkProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetNetworkProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetNetworkProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { UpdateSchedulingPolicyRequest, UpdateSchedulingPolicyResponse } from "../models/models_0";
+import {
+  UpdateSchedulingPolicyRequest,
+  UpdateSchedulingPolicyRequestFilterSensitiveLog,
+  UpdateSchedulingPolicyResponse,
+  UpdateSchedulingPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateSchedulingPolicyCommand,
   serializeAws_restJson1UpdateSchedulingPolicyCommand,
@@ -72,8 +77,8 @@ export class UpdateSchedulingPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSchedulingPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSchedulingPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSchedulingPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSchedulingPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

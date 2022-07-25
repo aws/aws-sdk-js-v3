@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartDBInstanceMessage, StartDBInstanceResult } from "../models/models_1";
+import {
+  StartDBInstanceMessage,
+  StartDBInstanceMessageFilterSensitiveLog,
+  StartDBInstanceResult,
+  StartDBInstanceResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryStartDBInstanceCommand,
   serializeAws_queryStartDBInstanceCommand,
@@ -81,8 +86,8 @@ export class StartDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDBInstanceMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: StartDBInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartDBInstanceMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: StartDBInstanceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

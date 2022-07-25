@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
-import { GetScreenDataRequest, GetScreenDataResult } from "../models/models_0";
+import {
+  GetScreenDataRequest,
+  GetScreenDataRequestFilterSensitiveLog,
+  GetScreenDataResult,
+  GetScreenDataResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetScreenDataCommand,
   serializeAws_restJson1GetScreenDataCommand,
@@ -76,8 +81,8 @@ export class GetScreenDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetScreenDataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetScreenDataResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetScreenDataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetScreenDataResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

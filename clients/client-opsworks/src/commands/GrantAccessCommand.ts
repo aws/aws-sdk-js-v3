@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GrantAccessRequest, GrantAccessResult } from "../models/models_0";
+import {
+  GrantAccessRequest,
+  GrantAccessRequestFilterSensitiveLog,
+  GrantAccessResult,
+  GrantAccessResultFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1GrantAccessCommand,
@@ -75,8 +80,8 @@ export class GrantAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GrantAccessRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GrantAccessResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GrantAccessRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GrantAccessResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

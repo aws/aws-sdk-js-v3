@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { UpdateLocationSmbRequest, UpdateLocationSmbResponse } from "../models/models_0";
+import {
+  UpdateLocationSmbRequest,
+  UpdateLocationSmbRequestFilterSensitiveLog,
+  UpdateLocationSmbResponse,
+  UpdateLocationSmbResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateLocationSmbCommand,
   serializeAws_json1_1UpdateLocationSmbCommand,
@@ -74,8 +79,8 @@ export class UpdateLocationSmbCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLocationSmbRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLocationSmbResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateLocationSmbRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateLocationSmbResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

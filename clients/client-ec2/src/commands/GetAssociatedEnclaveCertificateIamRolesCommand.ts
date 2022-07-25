@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetAssociatedEnclaveCertificateIamRolesRequest,
+  GetAssociatedEnclaveCertificateIamRolesRequestFilterSensitiveLog,
   GetAssociatedEnclaveCertificateIamRolesResult,
+  GetAssociatedEnclaveCertificateIamRolesResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
   deserializeAws_ec2GetAssociatedEnclaveCertificateIamRolesCommand,
@@ -84,8 +86,8 @@ export class GetAssociatedEnclaveCertificateIamRolesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssociatedEnclaveCertificateIamRolesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAssociatedEnclaveCertificateIamRolesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAssociatedEnclaveCertificateIamRolesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAssociatedEnclaveCertificateIamRolesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

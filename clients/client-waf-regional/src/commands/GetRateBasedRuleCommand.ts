@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetRateBasedRuleRequest, GetRateBasedRuleResponse } from "../models/models_0";
+import {
+  GetRateBasedRuleRequest,
+  GetRateBasedRuleRequestFilterSensitiveLog,
+  GetRateBasedRuleResponse,
+  GetRateBasedRuleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetRateBasedRuleCommand,
   serializeAws_json1_1GetRateBasedRuleCommand,
@@ -82,8 +87,8 @@ export class GetRateBasedRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRateBasedRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRateBasedRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRateBasedRuleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRateBasedRuleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

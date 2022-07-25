@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RebuildWorkspacesRequest, RebuildWorkspacesResult } from "../models/models_0";
+import {
+  RebuildWorkspacesRequest,
+  RebuildWorkspacesRequestFilterSensitiveLog,
+  RebuildWorkspacesResult,
+  RebuildWorkspacesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RebuildWorkspacesCommand,
   serializeAws_json1_1RebuildWorkspacesCommand,
@@ -80,8 +85,8 @@ export class RebuildWorkspacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebuildWorkspacesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RebuildWorkspacesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RebuildWorkspacesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RebuildWorkspacesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

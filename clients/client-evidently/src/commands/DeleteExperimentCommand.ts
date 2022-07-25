@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import { DeleteExperimentRequest, DeleteExperimentResponse } from "../models/models_0";
+import {
+  DeleteExperimentRequest,
+  DeleteExperimentRequestFilterSensitiveLog,
+  DeleteExperimentResponse,
+  DeleteExperimentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteExperimentCommand,
   serializeAws_restJson1DeleteExperimentCommand,
@@ -73,8 +78,8 @@ export class DeleteExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExperimentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteExperimentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteExperimentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteExperimentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

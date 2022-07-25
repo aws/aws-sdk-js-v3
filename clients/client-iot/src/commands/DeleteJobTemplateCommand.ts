@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteJobTemplateRequest } from "../models/models_0";
+import { DeleteJobTemplateRequest, DeleteJobTemplateRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteJobTemplateCommand,
   serializeAws_restJson1DeleteJobTemplateCommand,
@@ -72,7 +72,7 @@ export class DeleteJobTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteJobTemplateRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteJobTemplateRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

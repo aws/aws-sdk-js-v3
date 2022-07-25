@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { DescribePublishingDestinationRequest, DescribePublishingDestinationResponse } from "../models/models_0";
+import {
+  DescribePublishingDestinationRequest,
+  DescribePublishingDestinationRequestFilterSensitiveLog,
+  DescribePublishingDestinationResponse,
+  DescribePublishingDestinationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribePublishingDestinationCommand,
   serializeAws_restJson1DescribePublishingDestinationCommand,
@@ -75,8 +80,8 @@ export class DescribePublishingDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePublishingDestinationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribePublishingDestinationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePublishingDestinationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribePublishingDestinationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

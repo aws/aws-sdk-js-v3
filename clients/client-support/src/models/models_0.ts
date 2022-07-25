@@ -19,15 +19,6 @@ export interface Attachment {
   data?: Uint8Array;
 }
 
-export namespace Attachment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Attachment): any => ({
-    ...obj,
-  });
-}
-
 export interface AddAttachmentsToSetRequest {
   /**
    * <p>The ID of the attachment set. If an <code>attachmentSetId</code> is not specified, a
@@ -49,15 +40,6 @@ export interface AddAttachmentsToSetRequest {
   attachments: Attachment[] | undefined;
 }
 
-export namespace AddAttachmentsToSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddAttachmentsToSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The ID and expiry time of the attachment set returned by the <a>AddAttachmentsToSet</a> operation.</p>
  */
@@ -74,15 +56,6 @@ export interface AddAttachmentsToSetResponse {
    * <p>The time and date when the attachment set expires.</p>
    */
   expiryTime?: string;
-}
-
-export namespace AddAttachmentsToSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddAttachmentsToSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -210,15 +183,6 @@ export interface AddCommunicationToCaseRequest {
   attachmentSetId?: string;
 }
 
-export namespace AddCommunicationToCaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddCommunicationToCaseRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of the <a>AddCommunicationToCase</a> operation.</p>
  */
@@ -228,15 +192,6 @@ export interface AddCommunicationToCaseResponse {
    *             error.</p>
    */
   result?: boolean;
-}
-
-export namespace AddCommunicationToCaseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddCommunicationToCaseResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -272,15 +227,6 @@ export interface AttachmentDetails {
    * <p>The file name of the attachment.</p>
    */
   fileName?: string;
-}
-
-export namespace AttachmentDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachmentDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -387,15 +333,6 @@ export interface CreateCaseRequest {
   attachmentSetId?: string;
 }
 
-export namespace CreateCaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCaseRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The support case ID returned by a successful completion of the <a>CreateCase</a> operation.</p>
  */
@@ -407,15 +344,6 @@ export interface CreateCaseResponse {
    *         </p>
    */
   caseId?: string;
-}
-
-export namespace CreateCaseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCaseResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -445,15 +373,6 @@ export interface DescribeAttachmentRequest {
   attachmentId: string | undefined;
 }
 
-export namespace DescribeAttachmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAttachmentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The content and file name of the attachment returned by the <a>DescribeAttachment</a> operation.</p>
  */
@@ -466,15 +385,6 @@ export interface DescribeAttachmentResponse {
    *                 <code>troubleshoot-screenshot.png</code>.</p>
    */
   attachment?: Attachment;
-}
-
-export namespace DescribeAttachmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAttachmentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCasesRequest {
@@ -531,15 +441,6 @@ export interface DescribeCasesRequest {
   includeCommunications?: boolean;
 }
 
-export namespace DescribeCasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCasesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A communication associated with a support case. The communication consists of the
  *             case ID, the message body, attachment information, the submitter of the communication,
@@ -579,15 +480,6 @@ export interface Communication {
   attachmentSet?: AttachmentDetails[];
 }
 
-export namespace Communication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Communication): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The five most recent communications associated with the case.</p>
  */
@@ -601,15 +493,6 @@ export interface RecentCaseCommunications {
    * <p>A resumption point for pagination.</p>
    */
   nextToken?: string;
-}
-
-export namespace RecentCaseCommunications {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecentCaseCommunications): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -820,15 +703,6 @@ export interface CaseDetails {
   language?: string;
 }
 
-export namespace CaseDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaseDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns an array of <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CaseDetails.html">CaseDetails</a>
  *             objects and a <code>nextToken</code> that defines a point for pagination in the result
@@ -844,15 +718,6 @@ export interface DescribeCasesResponse {
    * <p>A resumption point for pagination.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeCasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCasesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCommunicationsRequest {
@@ -887,15 +752,6 @@ export interface DescribeCommunicationsRequest {
   maxResults?: number;
 }
 
-export namespace DescribeCommunicationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCommunicationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The communications returned by the <a>DescribeCommunications</a>
  *             operation.</p>
@@ -912,15 +768,6 @@ export interface DescribeCommunicationsResponse {
   nextToken?: string;
 }
 
-export namespace DescribeCommunicationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCommunicationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeServicesRequest {
   /**
    * <p>A JSON-formatted list of service codes available for Amazon Web Services services.</p>
@@ -933,15 +780,6 @@ export interface DescribeServicesRequest {
    *             passed explicitly for operations that take them.</p>
    */
   language?: string;
-}
-
-export namespace DescribeServicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServicesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -959,15 +797,6 @@ export interface Category {
    * <p>The category name for the support case.</p>
    */
   name?: string;
-}
-
-export namespace Category {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Category): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -995,15 +824,6 @@ export interface Service {
   categories?: Category[];
 }
 
-export namespace Service {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Service): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The list of Amazon Web Services services returned by the <a>DescribeServices</a>
  *             operation.</p>
@@ -1015,15 +835,6 @@ export interface DescribeServicesResponse {
   services?: Service[];
 }
 
-export namespace DescribeServicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServicesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSeverityLevelsRequest {
   /**
    * <p>The ISO 639-1 code for the language in which Amazon Web Services provides support. Amazon Web Services Support
@@ -1031,15 +842,6 @@ export interface DescribeSeverityLevelsRequest {
    *             passed explicitly for operations that take them.</p>
    */
   language?: string;
-}
-
-export namespace DescribeSeverityLevelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSeverityLevelsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1093,15 +895,6 @@ export interface SeverityLevel {
   name?: string;
 }
 
-export namespace SeverityLevel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SeverityLevel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The list of severity levels returned by the <a>DescribeSeverityLevels</a>
  *             operation.</p>
@@ -1114,15 +907,6 @@ export interface DescribeSeverityLevelsResponse {
   severityLevels?: SeverityLevel[];
 }
 
-export namespace DescribeSeverityLevelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSeverityLevelsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
   /**
    * <p>The IDs of the Trusted Advisor checks to get the status.</p>
@@ -1132,15 +916,6 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
    *         </note>
    */
   checkIds: string[] | undefined;
-}
-
-export namespace DescribeTrustedAdvisorCheckRefreshStatusesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckRefreshStatusesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1190,15 +965,6 @@ export interface TrustedAdvisorCheckRefreshStatus {
   millisUntilNextRefreshable: number | undefined;
 }
 
-export namespace TrustedAdvisorCheckRefreshStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrustedAdvisorCheckRefreshStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The statuses of the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorCheckRefreshStatuses</a> operation.</p>
  */
@@ -1207,15 +973,6 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse {
    * <p>The refresh status of the specified Trusted Advisor checks.</p>
    */
   statuses: TrustedAdvisorCheckRefreshStatus[] | undefined;
-}
-
-export namespace DescribeTrustedAdvisorCheckRefreshStatusesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckRefreshStatusesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1233,15 +990,6 @@ export interface DescribeTrustedAdvisorCheckResultRequest {
    *             passed explicitly for operations that take them.</p>
    */
   language?: string;
-}
-
-export namespace DescribeTrustedAdvisorCheckResultRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckResultRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1262,15 +1010,6 @@ export interface TrustedAdvisorCostOptimizingSummary {
   estimatedPercentMonthlySavings: number | undefined;
 }
 
-export namespace TrustedAdvisorCostOptimizingSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrustedAdvisorCostOptimizingSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container for summary information that relates to the category of the Trusted Advisor check.</p>
  */
@@ -1280,15 +1019,6 @@ export interface TrustedAdvisorCategorySpecificSummary {
    *             Cost Optimizing category.</p>
    */
   costOptimizing?: TrustedAdvisorCostOptimizingSummary;
-}
-
-export namespace TrustedAdvisorCategorySpecificSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrustedAdvisorCategorySpecificSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1325,15 +1055,6 @@ export interface TrustedAdvisorResourceDetail {
   metadata: string[] | undefined;
 }
 
-export namespace TrustedAdvisorResourceDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrustedAdvisorResourceDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about Amazon Web Services resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
  */
@@ -1360,15 +1081,6 @@ export interface TrustedAdvisorResourcesSummary {
    *             suppressed by the user.</p>
    */
   resourcesSuppressed: number | undefined;
-}
-
-export namespace TrustedAdvisorResourcesSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrustedAdvisorResourcesSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1408,15 +1120,6 @@ export interface TrustedAdvisorCheckResult {
   flaggedResources: TrustedAdvisorResourceDetail[] | undefined;
 }
 
-export namespace TrustedAdvisorCheckResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrustedAdvisorCheckResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of the Trusted Advisor check returned by the <a>DescribeTrustedAdvisorCheckResult</a> operation.</p>
  */
@@ -1427,15 +1130,6 @@ export interface DescribeTrustedAdvisorCheckResultResponse {
   result?: TrustedAdvisorCheckResult;
 }
 
-export namespace DescribeTrustedAdvisorCheckResultResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckResultResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTrustedAdvisorChecksRequest {
   /**
    * <p>The ISO 639-1 code for the language in which Amazon Web Services provides support. Amazon Web Services Support
@@ -1443,15 +1137,6 @@ export interface DescribeTrustedAdvisorChecksRequest {
    *             passed explicitly for operations that take them.</p>
    */
   language: string | undefined;
-}
-
-export namespace DescribeTrustedAdvisorChecksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrustedAdvisorChecksRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1489,15 +1174,6 @@ export interface TrustedAdvisorCheckDescription {
   metadata: string[] | undefined;
 }
 
-export namespace TrustedAdvisorCheckDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrustedAdvisorCheckDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
  */
@@ -1508,29 +1184,11 @@ export interface DescribeTrustedAdvisorChecksResponse {
   checks: TrustedAdvisorCheckDescription[] | undefined;
 }
 
-export namespace DescribeTrustedAdvisorChecksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrustedAdvisorChecksResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTrustedAdvisorCheckSummariesRequest {
   /**
    * <p>The IDs of the Trusted Advisor checks.</p>
    */
   checkIds: string[] | undefined;
-}
-
-export namespace DescribeTrustedAdvisorCheckSummariesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckSummariesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1571,15 +1229,6 @@ export interface TrustedAdvisorCheckSummary {
   categorySpecificSummary: TrustedAdvisorCategorySpecificSummary | undefined;
 }
 
-export namespace TrustedAdvisorCheckSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrustedAdvisorCheckSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The summaries of the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorCheckSummaries</a> operation.</p>
  */
@@ -1588,15 +1237,6 @@ export interface DescribeTrustedAdvisorCheckSummariesResponse {
    * <p>The summary information for the requested Trusted Advisor checks.</p>
    */
   summaries: TrustedAdvisorCheckSummary[] | undefined;
-}
-
-export namespace DescribeTrustedAdvisorCheckSummariesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckSummariesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1613,15 +1253,6 @@ export interface RefreshTrustedAdvisorCheckRequest {
   checkId: string | undefined;
 }
 
-export namespace RefreshTrustedAdvisorCheckRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RefreshTrustedAdvisorCheckRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The current refresh status of a Trusted Advisor check.</p>
  */
@@ -1633,15 +1264,6 @@ export interface RefreshTrustedAdvisorCheckResponse {
   status: TrustedAdvisorCheckRefreshStatus | undefined;
 }
 
-export namespace RefreshTrustedAdvisorCheckResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RefreshTrustedAdvisorCheckResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ResolveCaseRequest {
   /**
    * <p>The support case ID requested or returned in the call. The case ID is an
@@ -1650,15 +1272,6 @@ export interface ResolveCaseRequest {
    *         </p>
    */
   caseId?: string;
-}
-
-export namespace ResolveCaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolveCaseRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1677,11 +1290,330 @@ export interface ResolveCaseResponse {
   finalCaseStatus?: string;
 }
 
-export namespace ResolveCaseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolveCaseResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AttachmentFilterSensitiveLog = (obj: Attachment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddAttachmentsToSetRequestFilterSensitiveLog = (obj: AddAttachmentsToSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddAttachmentsToSetResponseFilterSensitiveLog = (obj: AddAttachmentsToSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddCommunicationToCaseRequestFilterSensitiveLog = (obj: AddCommunicationToCaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddCommunicationToCaseResponseFilterSensitiveLog = (obj: AddCommunicationToCaseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachmentDetailsFilterSensitiveLog = (obj: AttachmentDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCaseRequestFilterSensitiveLog = (obj: CreateCaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCaseResponseFilterSensitiveLog = (obj: CreateCaseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAttachmentRequestFilterSensitiveLog = (obj: DescribeAttachmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAttachmentResponseFilterSensitiveLog = (obj: DescribeAttachmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCasesRequestFilterSensitiveLog = (obj: DescribeCasesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommunicationFilterSensitiveLog = (obj: Communication): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecentCaseCommunicationsFilterSensitiveLog = (obj: RecentCaseCommunications): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaseDetailsFilterSensitiveLog = (obj: CaseDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCasesResponseFilterSensitiveLog = (obj: DescribeCasesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCommunicationsRequestFilterSensitiveLog = (obj: DescribeCommunicationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCommunicationsResponseFilterSensitiveLog = (obj: DescribeCommunicationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServicesRequestFilterSensitiveLog = (obj: DescribeServicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CategoryFilterSensitiveLog = (obj: Category): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceFilterSensitiveLog = (obj: Service): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServicesResponseFilterSensitiveLog = (obj: DescribeServicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSeverityLevelsRequestFilterSensitiveLog = (obj: DescribeSeverityLevelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SeverityLevelFilterSensitiveLog = (obj: SeverityLevel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSeverityLevelsResponseFilterSensitiveLog = (obj: DescribeSeverityLevelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrustedAdvisorCheckRefreshStatusesRequestFilterSensitiveLog = (
+  obj: DescribeTrustedAdvisorCheckRefreshStatusesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrustedAdvisorCheckRefreshStatusFilterSensitiveLog = (obj: TrustedAdvisorCheckRefreshStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrustedAdvisorCheckRefreshStatusesResponseFilterSensitiveLog = (
+  obj: DescribeTrustedAdvisorCheckRefreshStatusesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrustedAdvisorCheckResultRequestFilterSensitiveLog = (
+  obj: DescribeTrustedAdvisorCheckResultRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrustedAdvisorCostOptimizingSummaryFilterSensitiveLog = (
+  obj: TrustedAdvisorCostOptimizingSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrustedAdvisorCategorySpecificSummaryFilterSensitiveLog = (
+  obj: TrustedAdvisorCategorySpecificSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrustedAdvisorResourceDetailFilterSensitiveLog = (obj: TrustedAdvisorResourceDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrustedAdvisorResourcesSummaryFilterSensitiveLog = (obj: TrustedAdvisorResourcesSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrustedAdvisorCheckResultFilterSensitiveLog = (obj: TrustedAdvisorCheckResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrustedAdvisorCheckResultResponseFilterSensitiveLog = (
+  obj: DescribeTrustedAdvisorCheckResultResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrustedAdvisorChecksRequestFilterSensitiveLog = (
+  obj: DescribeTrustedAdvisorChecksRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrustedAdvisorCheckDescriptionFilterSensitiveLog = (obj: TrustedAdvisorCheckDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrustedAdvisorChecksResponseFilterSensitiveLog = (
+  obj: DescribeTrustedAdvisorChecksResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrustedAdvisorCheckSummariesRequestFilterSensitiveLog = (
+  obj: DescribeTrustedAdvisorCheckSummariesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrustedAdvisorCheckSummaryFilterSensitiveLog = (obj: TrustedAdvisorCheckSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrustedAdvisorCheckSummariesResponseFilterSensitiveLog = (
+  obj: DescribeTrustedAdvisorCheckSummariesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RefreshTrustedAdvisorCheckRequestFilterSensitiveLog = (obj: RefreshTrustedAdvisorCheckRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RefreshTrustedAdvisorCheckResponseFilterSensitiveLog = (obj: RefreshTrustedAdvisorCheckResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolveCaseRequestFilterSensitiveLog = (obj: ResolveCaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolveCaseResponseFilterSensitiveLog = (obj: ResolveCaseResponse): any => ({
+  ...obj,
+});

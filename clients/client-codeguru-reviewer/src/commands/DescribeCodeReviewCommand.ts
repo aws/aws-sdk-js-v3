@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
-import { DescribeCodeReviewRequest, DescribeCodeReviewResponse } from "../models/models_0";
+import {
+  DescribeCodeReviewRequest,
+  DescribeCodeReviewRequestFilterSensitiveLog,
+  DescribeCodeReviewResponse,
+  DescribeCodeReviewResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeCodeReviewCommand,
   serializeAws_restJson1DescribeCodeReviewCommand,
@@ -72,8 +77,8 @@ export class DescribeCodeReviewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCodeReviewRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCodeReviewResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCodeReviewRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCodeReviewResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

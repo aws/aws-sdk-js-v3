@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import { ListHsmsRequest, ListHsmsResponse } from "../models/models_0";
+import {
+  ListHsmsRequest,
+  ListHsmsRequestFilterSensitiveLog,
+  ListHsmsResponse,
+  ListHsmsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1ListHsmsCommand, serializeAws_json1_1ListHsmsCommand } from "../protocols/Aws_json1_1";
 
 export interface ListHsmsCommandInput extends ListHsmsRequest {}
@@ -84,8 +89,8 @@ export class ListHsmsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHsmsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListHsmsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHsmsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListHsmsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

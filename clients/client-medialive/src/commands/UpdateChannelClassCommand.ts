@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { UpdateChannelClassRequest, UpdateChannelClassResponse } from "../models/models_1";
+import {
+  UpdateChannelClassRequest,
+  UpdateChannelClassRequestFilterSensitiveLog,
+  UpdateChannelClassResponse,
+  UpdateChannelClassResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateChannelClassCommand,
   serializeAws_restJson1UpdateChannelClassCommand,
@@ -72,8 +77,8 @@ export class UpdateChannelClassCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateChannelClassRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateChannelClassResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateChannelClassRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateChannelClassResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

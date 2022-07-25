@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetNetworkTelemetryRequest, GetNetworkTelemetryResponse } from "../models/models_0";
+import {
+  GetNetworkTelemetryRequest,
+  GetNetworkTelemetryRequestFilterSensitiveLog,
+  GetNetworkTelemetryResponse,
+  GetNetworkTelemetryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1GetNetworkTelemetryCommand,
@@ -72,8 +77,8 @@ export class GetNetworkTelemetryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkTelemetryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetNetworkTelemetryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetNetworkTelemetryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetNetworkTelemetryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { DeletePipelineRequest } from "../models/models_0";
+import { DeletePipelineRequest, DeletePipelineRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePipelineCommand,
   serializeAws_restJson1DeletePipelineCommand,
@@ -72,7 +72,7 @@ export class DeletePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePipelineRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePipelineRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

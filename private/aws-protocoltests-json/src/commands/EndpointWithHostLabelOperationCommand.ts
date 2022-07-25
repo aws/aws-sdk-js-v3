@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { HostLabelInput } from "../models/models_0";
+import { HostLabelInput, HostLabelInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1EndpointWithHostLabelOperationCommand,
   serializeAws_json1_1EndpointWithHostLabelOperationCommand,
@@ -55,7 +55,7 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HostLabelInput.filterSensitiveLog,
+      inputFilterSensitiveLog: HostLabelInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

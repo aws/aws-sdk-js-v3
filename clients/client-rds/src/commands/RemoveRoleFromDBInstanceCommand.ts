@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RemoveRoleFromDBInstanceMessage } from "../models/models_1";
+import { RemoveRoleFromDBInstanceMessage, RemoveRoleFromDBInstanceMessageFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_queryRemoveRoleFromDBInstanceCommand,
   serializeAws_queryRemoveRoleFromDBInstanceCommand,
@@ -72,7 +72,7 @@ export class RemoveRoleFromDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveRoleFromDBInstanceMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveRoleFromDBInstanceMessageFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

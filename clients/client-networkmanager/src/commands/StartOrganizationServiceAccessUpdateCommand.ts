@@ -14,7 +14,9 @@ import {
 
 import {
   StartOrganizationServiceAccessUpdateRequest,
+  StartOrganizationServiceAccessUpdateRequestFilterSensitiveLog,
   StartOrganizationServiceAccessUpdateResponse,
+  StartOrganizationServiceAccessUpdateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
@@ -77,8 +79,8 @@ export class StartOrganizationServiceAccessUpdateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartOrganizationServiceAccessUpdateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartOrganizationServiceAccessUpdateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartOrganizationServiceAccessUpdateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartOrganizationServiceAccessUpdateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

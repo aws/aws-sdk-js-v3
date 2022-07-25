@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { DeleteExpressionRequest, DeleteExpressionResponse } from "../models/models_0";
+import {
+  DeleteExpressionRequest,
+  DeleteExpressionRequestFilterSensitiveLog,
+  DeleteExpressionResponse,
+  DeleteExpressionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteExpressionCommand,
   serializeAws_queryDeleteExpressionCommand,
@@ -72,8 +77,8 @@ export class DeleteExpressionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExpressionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteExpressionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteExpressionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteExpressionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

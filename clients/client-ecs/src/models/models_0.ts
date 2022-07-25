@@ -101,15 +101,6 @@ export interface ManagedScaling {
   instanceWarmupPeriod?: number;
 }
 
-export namespace ManagedScaling {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagedScaling): any => ({
-    ...obj,
-  });
-}
-
 export enum ManagedTerminationProtection {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -145,15 +136,6 @@ export interface AutoScalingGroupProvider {
    * 			from termination when the Auto Scaling group scales in.</p>
    */
   managedTerminationProtection?: ManagedTerminationProtection | string;
-}
-
-export namespace AutoScalingGroupProvider {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScalingGroupProvider): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -203,15 +185,6 @@ export interface Tag {
    * 			a descriptor within a tag category (key).</p>
    */
   value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateCapacityProviderRequest {
@@ -265,15 +238,6 @@ export interface CreateCapacityProviderRequest {
    *          </ul>
    */
   tags?: Tag[];
-}
-
-export namespace CreateCapacityProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCapacityProviderRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum CapacityProviderStatus {
@@ -382,29 +346,11 @@ export interface CapacityProvider {
   tags?: Tag[];
 }
 
-export namespace CapacityProvider {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CapacityProvider): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCapacityProviderResponse {
   /**
    * <p>The full description of the new capacity provider.</p>
    */
   capacityProvider?: CapacityProvider;
-}
-
-export namespace CreateCapacityProviderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCapacityProviderResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -527,15 +473,6 @@ export interface ExecuteCommandLogConfiguration {
   s3KeyPrefix?: string;
 }
 
-export namespace ExecuteCommandLogConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteCommandLogConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum ExecuteCommandLogging {
   DEFAULT = "DEFAULT",
   NONE = "NONE",
@@ -585,15 +522,6 @@ export interface ExecuteCommandConfiguration {
   logConfiguration?: ExecuteCommandLogConfiguration;
 }
 
-export namespace ExecuteCommandConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteCommandConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The execute command configuration for the cluster.</p>
  */
@@ -602,15 +530,6 @@ export interface ClusterConfiguration {
    * <p>The details of the execute command configuration.</p>
    */
   executeCommandConfiguration?: ExecuteCommandConfiguration;
-}
-
-export namespace ClusterConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -668,15 +587,6 @@ export interface CapacityProviderStrategyItem {
   base?: number;
 }
 
-export namespace CapacityProviderStrategyItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CapacityProviderStrategyItem): any => ({
-    ...obj,
-  });
-}
-
 export enum ClusterSettingName {
   CONTAINER_INSIGHTS = "containerInsights",
 }
@@ -701,15 +611,6 @@ export interface ClusterSetting {
    * 			set with <a>PutAccountSetting</a> or <a>PutAccountSettingDefault</a>.</p>
    */
   value?: string;
-}
-
-export namespace ClusterSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterSetting): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateClusterRequest {
@@ -800,15 +701,6 @@ export interface CreateClusterRequest {
   defaultCapacityProviderStrategy?: CapacityProviderStrategyItem[];
 }
 
-export namespace CreateClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A key-value pair object.</p>
  */
@@ -824,15 +716,6 @@ export interface KeyValuePair {
    * 			environment variable.</p>
    */
   value?: string;
-}
-
-export namespace KeyValuePair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyValuePair): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -862,15 +745,6 @@ export interface Attachment {
    * 			interface ID, the MAC address, the subnet ID, and the private IPv4 address.</p>
    */
   details?: KeyValuePair[];
-}
-
-export namespace Attachment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Attachment): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1068,29 +942,11 @@ export interface Cluster {
   attachmentsStatus?: string;
 }
 
-export namespace Cluster {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Cluster): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateClusterResponse {
   /**
    * <p>The full description of your new cluster.</p>
    */
   cluster?: Cluster;
-}
-
-export namespace CreateClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateClusterResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1136,15 +992,6 @@ export interface DeploymentCircuitBreaker {
    * 			back to the last deployment that completed successfully.</p>
    */
   rollback: boolean | undefined;
-}
-
-export namespace DeploymentCircuitBreaker {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentCircuitBreaker): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1249,15 +1096,6 @@ export interface DeploymentConfiguration {
   minimumHealthyPercent?: number;
 }
 
-export namespace DeploymentConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum DeploymentControllerType {
   CODE_DEPLOY = "CODE_DEPLOY",
   ECS = "ECS",
@@ -1295,15 +1133,6 @@ export interface DeploymentController {
    *          </dl>
    */
   type: DeploymentControllerType | string | undefined;
-}
-
-export namespace DeploymentController {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentController): any => ({
-    ...obj,
-  });
 }
 
 export enum LaunchType {
@@ -1371,15 +1200,6 @@ export interface LoadBalancer {
   containerPort?: number;
 }
 
-export namespace LoadBalancer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancer): any => ({
-    ...obj,
-  });
-}
-
 export enum AssignPublicIp {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -1418,15 +1238,6 @@ export interface AwsVpcConfiguration {
   assignPublicIp?: AssignPublicIp | string;
 }
 
-export namespace AwsVpcConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsVpcConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing the network configuration for a task or service.</p>
  */
@@ -1438,15 +1249,6 @@ export interface NetworkConfiguration {
    * 		       </note>
    */
   awsvpcConfiguration?: AwsVpcConfiguration;
-}
-
-export namespace NetworkConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum PlacementConstraintType {
@@ -1481,15 +1283,6 @@ export interface PlacementConstraint {
   expression?: string;
 }
 
-export namespace PlacementConstraint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlacementConstraint): any => ({
-    ...obj,
-  });
-}
-
 export enum PlacementStrategyType {
   BINPACK = "binpack",
   RANDOM = "random",
@@ -1522,15 +1315,6 @@ export interface PlacementStrategy {
    * 			not used.</p>
    */
   field?: string;
-}
-
-export namespace PlacementStrategy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlacementStrategy): any => ({
-    ...obj,
-  });
 }
 
 export enum PropagateTags {
@@ -1589,15 +1373,6 @@ export interface ServiceRegistry {
    * 				<code>port</code> value. However, you can't specify both.</p>
    */
   containerPort?: number;
-}
-
-export namespace ServiceRegistry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceRegistry): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateServiceRequest {
@@ -1897,15 +1672,6 @@ export interface CreateServiceRequest {
   enableExecuteCommand?: boolean;
 }
 
-export namespace CreateServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum DeploymentRolloutState {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -2043,15 +1809,6 @@ export interface Deployment {
   rolloutStateReason?: string;
 }
 
-export namespace Deployment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Deployment): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The details for an event that's associated with a service.</p>
  */
@@ -2070,15 +1827,6 @@ export interface ServiceEvent {
    * <p>The event message.</p>
    */
   message?: string;
-}
-
-export namespace ServiceEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceEvent): any => ({
-    ...obj,
-  });
 }
 
 export enum ScaleUnit {
@@ -2100,15 +1848,6 @@ export interface Scale {
    * <p>The unit of measure for the scale value.</p>
    */
   unit?: ScaleUnit | string;
-}
-
-export namespace Scale {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scale): any => ({
-    ...obj,
-  });
 }
 
 export enum StabilityStatus {
@@ -2335,15 +2074,6 @@ export interface TaskSet {
    *          </ul>
    */
   tags?: Tag[];
-}
-
-export namespace TaskSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskSet): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2596,15 +2326,6 @@ export interface Service {
   enableExecuteCommand?: boolean;
 }
 
-export namespace Service {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Service): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateServiceResponse {
   /**
    * <p>The full description of your service following the create call.</p>
@@ -2620,15 +2341,6 @@ export interface CreateServiceResponse {
    * 				<code>deployments</code> parameter will be an empty list.</p>
    */
   service?: Service;
-}
-
-export namespace CreateServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2821,15 +2533,6 @@ export interface CreateTaskSetRequest {
   tags?: Tag[];
 }
 
-export namespace CreateTaskSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTaskSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTaskSetResponse {
   /**
    * <p>Information about a set of Amazon ECS tasks in either an CodeDeploy or an
@@ -2838,15 +2541,6 @@ export interface CreateTaskSetResponse {
    * 			traffic.</p>
    */
   taskSet?: TaskSet;
-}
-
-export namespace CreateTaskSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTaskSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2919,15 +2613,6 @@ export interface DeleteAccountSettingRequest {
   principalArn?: string;
 }
 
-export namespace DeleteAccountSettingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccountSettingRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The current account setting for a resource.</p>
  */
@@ -2950,29 +2635,11 @@ export interface Setting {
   principalArn?: string;
 }
 
-export namespace Setting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Setting): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAccountSettingResponse {
   /**
    * <p>The account setting for the specified principal ARN.</p>
    */
   setting?: Setting;
-}
-
-export namespace DeleteAccountSettingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccountSettingResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum TargetType {
@@ -3013,15 +2680,6 @@ export interface Attribute {
   targetId?: string;
 }
 
-export namespace Attribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Attribute): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAttributesRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to delete
@@ -3038,29 +2696,11 @@ export interface DeleteAttributesRequest {
   attributes: Attribute[] | undefined;
 }
 
-export namespace DeleteAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAttributesResponse {
   /**
    * <p>A list of attribute objects that were successfully deleted from your resource.</p>
    */
   attributes?: Attribute[];
-}
-
-export namespace DeleteAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAttributesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3091,29 +2731,11 @@ export interface DeleteCapacityProviderRequest {
   capacityProvider: string | undefined;
 }
 
-export namespace DeleteCapacityProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCapacityProviderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCapacityProviderResponse {
   /**
    * <p>The details of the capacity provider.</p>
    */
   capacityProvider?: CapacityProvider;
-}
-
-export namespace DeleteCapacityProviderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCapacityProviderResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3184,29 +2806,11 @@ export interface DeleteClusterRequest {
   cluster: string | undefined;
 }
 
-export namespace DeleteClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteClusterResponse {
   /**
    * <p>The full description of the deleted cluster.</p>
    */
   cluster?: Cluster;
-}
-
-export namespace DeleteClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClusterResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteServiceRequest {
@@ -3229,29 +2833,11 @@ export interface DeleteServiceRequest {
   force?: boolean;
 }
 
-export namespace DeleteServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteServiceResponse {
   /**
    * <p>The full description of the deleted service.</p>
    */
   service?: Service;
-}
-
-export namespace DeleteServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteTaskSetRequest {
@@ -3279,29 +2865,11 @@ export interface DeleteTaskSetRequest {
   force?: boolean;
 }
 
-export namespace DeleteTaskSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTaskSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTaskSetResponse {
   /**
    * <p>Details about the task set.</p>
    */
   taskSet?: TaskSet;
-}
-
-export namespace DeleteTaskSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTaskSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3352,15 +2920,6 @@ export interface DeregisterContainerInstanceRequest {
   force?: boolean;
 }
 
-export namespace DeregisterContainerInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterContainerInstanceRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum InstanceHealthCheckState {
   IMPAIRED = "IMPAIRED",
   INITIALIZING = "INITIALIZING",
@@ -3398,15 +2957,6 @@ export interface InstanceHealthCheckResult {
   lastStatusChange?: Date;
 }
 
-export namespace InstanceHealthCheckResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceHealthCheckResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing the health status of the container instance.</p>
  */
@@ -3422,15 +2972,6 @@ export interface ContainerInstanceHealthStatus {
    * 			status.</p>
    */
   details?: InstanceHealthCheckResult[];
-}
-
-export namespace ContainerInstanceHealthStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerInstanceHealthStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3474,15 +3015,6 @@ export interface Resource {
   stringSetValue?: string[];
 }
 
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Docker and Amazon ECS container agent version information about a container
  * 			instance.</p>
@@ -3503,15 +3035,6 @@ export interface VersionInfo {
    * <p>The Docker version that's running on the container instance.</p>
    */
   dockerVersion?: string;
-}
-
-export namespace VersionInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VersionInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3685,29 +3208,11 @@ export interface ContainerInstance {
   healthStatus?: ContainerInstanceHealthStatus;
 }
 
-export namespace ContainerInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerInstance): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterContainerInstanceResponse {
   /**
    * <p>The container instance that was deregistered.</p>
    */
   containerInstance?: ContainerInstance;
-}
-
-export namespace DeregisterContainerInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterContainerInstanceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeregisterTaskDefinitionRequest {
@@ -3717,15 +3222,6 @@ export interface DeregisterTaskDefinitionRequest {
    * 				<code>revision</code>.</p>
    */
   taskDefinition: string | undefined;
-}
-
-export namespace DeregisterTaskDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterTaskDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum Compatibility {
@@ -3809,15 +3305,6 @@ export interface ContainerDependency {
   condition: ContainerCondition | string | undefined;
 }
 
-export namespace ContainerDependency {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerDependency): any => ({
-    ...obj,
-  });
-}
-
 export enum EnvironmentFileType {
   S3 = "s3",
 }
@@ -3860,15 +3347,6 @@ export interface EnvironmentFile {
   type: EnvironmentFileType | string | undefined;
 }
 
-export namespace EnvironmentFile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentFile): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Hostnames and IP address entries that are added to the <code>/etc/hosts</code> file of
  * 			a container via the <code>extraHosts</code> parameter of its <a>ContainerDefinition</a>. </p>
@@ -3883,15 +3361,6 @@ export interface HostEntry {
    * <p>The IP address to use in the <code>/etc/hosts</code> entry.</p>
    */
   ipAddress: string | undefined;
-}
-
-export namespace HostEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostEntry): any => ({
-    ...obj,
-  });
 }
 
 export enum FirelensConfigurationType {
@@ -3926,15 +3395,6 @@ export interface FirelensConfiguration {
    * 		       </note>
    */
   options?: Record<string, string>;
-}
-
-export namespace FirelensConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirelensConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4066,15 +3526,6 @@ export interface HealthCheck {
   startPeriod?: number;
 }
 
-export namespace HealthCheck {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HealthCheck): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Linux capabilities for the container that are added to or dropped from the default
  * 			configuration provided by Docker. For more information about the default capabilities
@@ -4124,15 +3575,6 @@ export interface KernelCapabilities {
   drop?: string[];
 }
 
-export namespace KernelCapabilities {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KernelCapabilities): any => ({
-    ...obj,
-  });
-}
-
 export enum DeviceCgroupPermission {
   MKNOD = "mknod",
   READ = "read",
@@ -4161,15 +3603,6 @@ export interface Device {
   permissions?: (DeviceCgroupPermission | string)[];
 }
 
-export namespace Device {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Device): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container path, mount options, and size of the tmpfs mount.</p>
  */
@@ -4195,15 +3628,6 @@ export interface Tmpfs {
    *          </p>
    */
   mountOptions?: string[];
-}
-
-export namespace Tmpfs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tmpfs): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4294,15 +3718,6 @@ export interface LinuxParameters {
   swappiness?: number;
 }
 
-export namespace LinuxParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LinuxParameters): any => ({
-    ...obj,
-  });
-}
-
 export enum LogDriver {
   AWSFIRELENS = "awsfirelens",
   AWSLOGS = "awslogs",
@@ -4350,15 +3765,6 @@ export interface Secret {
    * 		       </note>
    */
   valueFrom: string | undefined;
-}
-
-export namespace Secret {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Secret): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4437,15 +3843,6 @@ export interface LogConfiguration {
   secretOptions?: Secret[];
 }
 
-export namespace LogConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details for a volume mount point that's used in a container definition.</p>
  */
@@ -4467,15 +3864,6 @@ export interface MountPoint {
    * 			default value is <code>false</code>.</p>
    */
   readOnly?: boolean;
-}
-
-export namespace MountPoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MountPoint): any => ({
-    ...obj,
-  });
 }
 
 export enum TransportProtocol {
@@ -4552,15 +3940,6 @@ export interface PortMapping {
   protocol?: TransportProtocol | string;
 }
 
-export namespace PortMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The repository credentials for private registry authentication.</p>
  */
@@ -4576,15 +3955,6 @@ export interface RepositoryCredentials {
    * 		       </note>
    */
   credentialsParameter: string | undefined;
-}
-
-export namespace RepositoryCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryCredentials): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceType {
@@ -4618,15 +3988,6 @@ export interface ResourceRequirement {
    * 				<code>GPU</code> or <code>InferenceAccelerator</code>.</p>
    */
   type: ResourceType | string | undefined;
-}
-
-export namespace ResourceRequirement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceRequirement): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4664,15 +4025,6 @@ export interface SystemControl {
    * 				<code>namespace</code>.</p>
    */
   value?: string;
-}
-
-export namespace SystemControl {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SystemControl): any => ({
-    ...obj,
-  });
 }
 
 export enum UlimitName {
@@ -4720,15 +4072,6 @@ export interface Ulimit {
   hardLimit: number | undefined;
 }
 
-export namespace Ulimit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ulimit): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details on a data volume from another container in the same task definition.</p>
  */
@@ -4745,15 +4088,6 @@ export interface VolumeFrom {
    * 			default value is <code>false</code>.</p>
    */
   readOnly?: boolean;
-}
-
-export namespace VolumeFrom {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeFrom): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5433,15 +4767,6 @@ export interface ContainerDefinition {
   firelensConfiguration?: FirelensConfiguration;
 }
 
-export namespace ContainerDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The amount of ephemeral storage to allocate for the task. This parameter is used to
  * 			expand the total amount of ephemeral storage available, beyond the default amount, for
@@ -5462,15 +4787,6 @@ export interface EphemeralStorage {
   sizeInGiB: number | undefined;
 }
 
-export namespace EphemeralStorage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EphemeralStorage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details on an Elastic Inference accelerator. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with Amazon Elastic Inference on
  * 				Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -5486,15 +4802,6 @@ export interface InferenceAccelerator {
    * <p>The Elastic Inference accelerator type to use.</p>
    */
   deviceType: string | undefined;
-}
-
-export namespace InferenceAccelerator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferenceAccelerator): any => ({
-    ...obj,
-  });
 }
 
 export enum IpcMode {
@@ -5540,15 +4847,6 @@ export interface TaskDefinitionPlacementConstraint {
    * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   expression?: string;
-}
-
-export namespace TaskDefinitionPlacementConstraint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskDefinitionPlacementConstraint): any => ({
-    ...obj,
-  });
 }
 
 export enum ProxyConfigurationType {
@@ -5627,15 +4925,6 @@ export interface ProxyConfiguration {
   properties?: KeyValuePair[];
 }
 
-export namespace ProxyConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProxyConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum CPUArchitecture {
   ARM64 = "ARM64",
   X86_64 = "X86_64",
@@ -5669,15 +4958,6 @@ export interface RuntimePlatform {
    * <p>The operating system.</p>
    */
   operatingSystemFamily?: OSFamily | string;
-}
-
-export namespace RuntimePlatform {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuntimePlatform): any => ({
-    ...obj,
-  });
 }
 
 export enum TaskDefinitionStatus {
@@ -5744,15 +5024,6 @@ export interface DockerVolumeConfiguration {
   labels?: Record<string, string>;
 }
 
-export namespace DockerVolumeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DockerVolumeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum EFSAuthorizationConfigIAM {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -5780,15 +5051,6 @@ export interface EFSAuthorizationConfig {
    * 				Amazon EFS access points</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   iam?: EFSAuthorizationConfigIAM | string;
-}
-
-export namespace EFSAuthorizationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EFSAuthorizationConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum EFSTransitEncryption {
@@ -5842,15 +5104,6 @@ export interface EFSVolumeConfiguration {
   authorizationConfig?: EFSAuthorizationConfig;
 }
 
-export namespace EFSVolumeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EFSVolumeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The authorization configuration details for Amazon FSx for Windows File Server file system. See <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_FSxWindowsFileServerVolumeConfiguration.html">FSxWindowsFileServerVolumeConfiguration</a> in the <i>Amazon ECS API
  * 				Reference</i>.</p>
@@ -5870,15 +5123,6 @@ export interface FSxWindowsFileServerAuthorizationConfig {
    * 			Amazon EC2.</p>
    */
   domain: string | undefined;
-}
-
-export namespace FSxWindowsFileServerAuthorizationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FSxWindowsFileServerAuthorizationConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5905,15 +5149,6 @@ export interface FSxWindowsFileServerVolumeConfiguration {
   authorizationConfig: FSxWindowsFileServerAuthorizationConfig | undefined;
 }
 
-export namespace FSxWindowsFileServerVolumeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FSxWindowsFileServerVolumeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details on a container instance bind mount host volume.</p>
  */
@@ -5931,15 +5166,6 @@ export interface HostVolumeProperties {
    * 			parameter is not supported.</p>
    */
   sourcePath?: string;
-}
-
-export namespace HostVolumeProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostVolumeProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5996,15 +5222,6 @@ export interface Volume {
    * 			storage.</p>
    */
   fsxWindowsFileServerVolumeConfiguration?: FSxWindowsFileServerVolumeConfiguration;
-}
-
-export namespace Volume {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Volume): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6303,29 +5520,11 @@ export interface TaskDefinition {
   ephemeralStorage?: EphemeralStorage;
 }
 
-export namespace TaskDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskDefinition): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterTaskDefinitionResponse {
   /**
    * <p>The full description of the deregistered task.</p>
    */
   taskDefinition?: TaskDefinition;
-}
-
-export namespace DeregisterTaskDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterTaskDefinitionResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum CapacityProviderField {
@@ -6374,15 +5573,6 @@ export interface DescribeCapacityProvidersRequest {
   nextToken?: string;
 }
 
-export namespace DescribeCapacityProvidersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCapacityProvidersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A failed resource. For a list of common causes, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html">API failure
  * 				reasons</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -6404,15 +5594,6 @@ export interface Failure {
   detail?: string;
 }
 
-export namespace Failure {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Failure): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCapacityProvidersResponse {
   /**
    * <p>The list of capacity providers.</p>
@@ -6432,15 +5613,6 @@ export interface DescribeCapacityProvidersResponse {
    * 			when there are no more results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeCapacityProvidersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCapacityProvidersResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ClusterField {
@@ -6475,15 +5647,6 @@ export interface DescribeClustersRequest {
   include?: (ClusterField | string)[];
 }
 
-export namespace DescribeClustersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClustersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeClustersResponse {
   /**
    * <p>The list of clusters.</p>
@@ -6494,15 +5657,6 @@ export interface DescribeClustersResponse {
    * <p>Any failures associated with the call.</p>
    */
   failures?: Failure[];
-}
-
-export namespace DescribeClustersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClustersResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ContainerInstanceField {
@@ -6534,15 +5688,6 @@ export interface DescribeContainerInstancesRequest {
   include?: (ContainerInstanceField | string)[];
 }
 
-export namespace DescribeContainerInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeContainerInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeContainerInstancesResponse {
   /**
    * <p>The list of container instances.</p>
@@ -6553,15 +5698,6 @@ export interface DescribeContainerInstancesResponse {
    * <p>Any failures associated with the call.</p>
    */
   failures?: Failure[];
-}
-
-export namespace DescribeContainerInstancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeContainerInstancesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ServiceField {
@@ -6590,15 +5726,6 @@ export interface DescribeServicesRequest {
   include?: (ServiceField | string)[];
 }
 
-export namespace DescribeServicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServicesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeServicesResponse {
   /**
    * <p>The list of services described.</p>
@@ -6609,15 +5736,6 @@ export interface DescribeServicesResponse {
    * <p>Any failures associated with the call.</p>
    */
   failures?: Failure[];
-}
-
-export namespace DescribeServicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServicesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum TaskDefinitionField {
@@ -6639,15 +5757,6 @@ export interface DescribeTaskDefinitionRequest {
    * 			is omitted, tags aren't included in the response.</p>
    */
   include?: (TaskDefinitionField | string)[];
-}
-
-export namespace DescribeTaskDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTaskDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeTaskDefinitionResponse {
@@ -6694,15 +5803,6 @@ export interface DescribeTaskDefinitionResponse {
   tags?: Tag[];
 }
 
-export namespace DescribeTaskDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTaskDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum TaskField {
   TAGS = "TAGS",
 }
@@ -6726,15 +5826,6 @@ export interface DescribeTasksRequest {
    * 			aren't included in the response.</p>
    */
   include?: (TaskField | string)[];
-}
-
-export namespace DescribeTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTasksRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum Connectivity {
@@ -6778,15 +5869,6 @@ export interface ManagedAgent {
   lastStatus?: string;
 }
 
-export namespace ManagedAgent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagedAgent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details on the network bindings between a container and its host container instance.
  * 			After a task reaches the <code>RUNNING</code> status, manual and automatic host and
@@ -6815,15 +5897,6 @@ export interface NetworkBinding {
   protocol?: TransportProtocol | string;
 }
 
-export namespace NetworkBinding {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkBinding): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing the elastic network interface for tasks that use the
  * 				<code>awsvpc</code> network mode.</p>
@@ -6843,15 +5916,6 @@ export interface NetworkInterface {
    * <p>The private IPv6 address for the network interface.</p>
    */
   ipv6Address?: string;
-}
-
-export namespace NetworkInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInterface): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6953,15 +6017,6 @@ export interface Container {
   gpuIds?: string[];
 }
 
-export namespace Container {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Container): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The overrides that are sent to a container. An empty container override can be passed
  * 			in. An example of an empty container override is <code>{"containerOverrides": [ ]
@@ -7021,15 +6076,6 @@ export interface ContainerOverride {
   resourceRequirements?: ResourceRequirement[];
 }
 
-export namespace ContainerOverride {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerOverride): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details on an Elastic Inference accelerator task override. This parameter is used to
  * 			override the Elastic Inference accelerator specified in the task definition. For more
@@ -7048,15 +6094,6 @@ export interface InferenceAcceleratorOverride {
    * <p>The Elastic Inference accelerator type to use.</p>
    */
   deviceType?: string;
-}
-
-export namespace InferenceAcceleratorOverride {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferenceAcceleratorOverride): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7114,15 +6151,6 @@ export interface TaskOverride {
    * 		       </note>
    */
   ephemeralStorage?: EphemeralStorage;
-}
-
-export namespace TaskOverride {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskOverride): any => ({
-    ...obj,
-  });
 }
 
 export enum TaskStopCode {
@@ -7476,15 +6504,6 @@ export interface Task {
   ephemeralStorage?: EphemeralStorage;
 }
 
-export namespace Task {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Task): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTasksResponse {
   /**
    * <p>The list of tasks.</p>
@@ -7495,15 +6514,6 @@ export interface DescribeTasksResponse {
    * <p>Any failures associated with the call.</p>
    */
   failures?: Failure[];
-}
-
-export namespace DescribeTasksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTasksResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum TaskSetField {
@@ -7536,15 +6546,6 @@ export interface DescribeTaskSetsRequest {
   include?: (TaskSetField | string)[];
 }
 
-export namespace DescribeTaskSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTaskSetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTaskSetsResponse {
   /**
    * <p>The list of task sets described.</p>
@@ -7555,15 +6556,6 @@ export interface DescribeTaskSetsResponse {
    * <p>Any failures associated with the call.</p>
    */
   failures?: Failure[];
-}
-
-export namespace DescribeTaskSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTaskSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DiscoverPollEndpointRequest {
@@ -7580,15 +6572,6 @@ export interface DiscoverPollEndpointRequest {
   cluster?: string;
 }
 
-export namespace DiscoverPollEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiscoverPollEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DiscoverPollEndpointResponse {
   /**
    * <p>The endpoint for the Amazon ECS agent to poll.</p>
@@ -7599,15 +6582,6 @@ export interface DiscoverPollEndpointResponse {
    * <p>The telemetry endpoint for the Amazon ECS agent.</p>
    */
   telemetryEndpoint?: string;
-}
-
-export namespace DiscoverPollEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiscoverPollEndpointResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ExecuteCommandRequest {
@@ -7639,15 +6613,6 @@ export interface ExecuteCommandRequest {
   task: string | undefined;
 }
 
-export namespace ExecuteCommandRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteCommandRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The details for the execute command session.</p>
  */
@@ -7668,16 +6633,6 @@ export interface Session {
    * 			authenticate the connection to the container.</p>
    */
   tokenValue?: string;
-}
-
-export namespace Session {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Session): any => ({
-    ...obj,
-    ...(obj.tokenValue && { tokenValue: SENSITIVE_STRING }),
-  });
 }
 
 export interface ExecuteCommandResponse {
@@ -7713,16 +6668,6 @@ export interface ExecuteCommandResponse {
    * <p>The Amazon Resource Name (ARN) of the task.</p>
    */
   taskArn?: string;
-}
-
-export namespace ExecuteCommandResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteCommandResponse): any => ({
-    ...obj,
-    ...(obj.session && { session: Session.filterSensitiveLog(obj.session) }),
-  });
 }
 
 /**
@@ -7817,15 +6762,6 @@ export interface ListAccountSettingsRequest {
   maxResults?: number;
 }
 
-export namespace ListAccountSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccountSettingsResponse {
   /**
    * <p>The account settings for the resource.</p>
@@ -7840,15 +6776,6 @@ export interface ListAccountSettingsResponse {
    * 			there are no more results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAccountSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountSettingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAttributesRequest {
@@ -7899,15 +6826,6 @@ export interface ListAttributesRequest {
   maxResults?: number;
 }
 
-export namespace ListAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAttributesResponse {
   /**
    * <p>A list of attribute objects that meet the criteria of the request.</p>
@@ -7922,15 +6840,6 @@ export interface ListAttributesResponse {
    * 			return.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAttributesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListClustersRequest {
@@ -7959,15 +6868,6 @@ export interface ListClustersRequest {
   maxResults?: number;
 }
 
-export namespace ListClustersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClustersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListClustersResponse {
   /**
    * <p>The list of full Amazon Resource Name (ARN) entries for each cluster that's associated with your
@@ -7983,15 +6883,6 @@ export interface ListClustersResponse {
    * 			return.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListClustersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClustersResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ContainerInstanceStatus {
@@ -8052,15 +6943,6 @@ export interface ListContainerInstancesRequest {
   status?: ContainerInstanceStatus | string;
 }
 
-export namespace ListContainerInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContainerInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListContainerInstancesResponse {
   /**
    * <p>The list of container instances with full ARN entries for each container instance
@@ -8076,15 +6958,6 @@ export interface ListContainerInstancesResponse {
    * 			when there are no more results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListContainerInstancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContainerInstancesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListServicesRequest {
@@ -8131,15 +7004,6 @@ export interface ListServicesRequest {
   schedulingStrategy?: SchedulingStrategy | string;
 }
 
-export namespace ListServicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServicesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServicesResponse {
   /**
    * <p>The list of full ARN entries for each service that's associated with the specified
@@ -8157,15 +7021,6 @@ export interface ListServicesResponse {
   nextToken?: string;
 }
 
-export namespace ListServicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServicesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the
@@ -8175,29 +7030,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
    */
   tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum TaskDefinitionFamilyStatus {
@@ -8256,15 +7093,6 @@ export interface ListTaskDefinitionFamiliesRequest {
   maxResults?: number;
 }
 
-export namespace ListTaskDefinitionFamiliesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTaskDefinitionFamiliesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTaskDefinitionFamiliesResponse {
   /**
    * <p>The list of task definition family names that match the
@@ -8280,15 +7108,6 @@ export interface ListTaskDefinitionFamiliesResponse {
    * 			when there are no more results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListTaskDefinitionFamiliesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTaskDefinitionFamiliesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum SortOrder {
@@ -8350,15 +7169,6 @@ export interface ListTaskDefinitionsRequest {
   maxResults?: number;
 }
 
-export namespace ListTaskDefinitionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTaskDefinitionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTaskDefinitionsResponse {
   /**
    * <p>The list of task definition Amazon Resource Name (ARN) entries for the <code>ListTaskDefinitions</code>
@@ -8374,15 +7184,6 @@ export interface ListTaskDefinitionsResponse {
    * 			there are no more results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListTaskDefinitionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTaskDefinitionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum DesiredStatus {
@@ -8473,15 +7274,6 @@ export interface ListTasksRequest {
   launchType?: LaunchType | string;
 }
 
-export namespace ListTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTasksRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTasksResponse {
   /**
    * <p>The list of task ARN entries for the <code>ListTasks</code> request.</p>
@@ -8496,15 +7288,6 @@ export interface ListTasksResponse {
    * 			return.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListTasksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTasksResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutAccountSettingRequest {
@@ -8541,29 +7324,11 @@ export interface PutAccountSettingRequest {
   principalArn?: string;
 }
 
-export namespace PutAccountSettingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccountSettingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAccountSettingResponse {
   /**
    * <p>The current account setting for a resource.</p>
    */
   setting?: Setting;
-}
-
-export namespace PutAccountSettingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccountSettingResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutAccountSettingDefaultRequest {
@@ -8586,29 +7351,11 @@ export interface PutAccountSettingDefaultRequest {
   value: string | undefined;
 }
 
-export namespace PutAccountSettingDefaultRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccountSettingDefaultRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAccountSettingDefaultResponse {
   /**
    * <p>The current setting for a resource.</p>
    */
   setting?: Setting;
-}
-
-export namespace PutAccountSettingDefaultResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccountSettingDefaultResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8646,29 +7393,11 @@ export interface PutAttributesRequest {
   attributes: Attribute[] | undefined;
 }
 
-export namespace PutAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAttributesResponse {
   /**
    * <p>The attributes applied to your resource.</p>
    */
   attributes?: Attribute[];
-}
-
-export namespace PutAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAttributesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutClusterCapacityProvidersRequest {
@@ -8710,29 +7439,11 @@ export interface PutClusterCapacityProvidersRequest {
   defaultCapacityProviderStrategy: CapacityProviderStrategyItem[] | undefined;
 }
 
-export namespace PutClusterCapacityProvidersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutClusterCapacityProvidersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutClusterCapacityProvidersResponse {
   /**
    * <p>Details about the cluster.</p>
    */
   cluster?: Cluster;
-}
-
-export namespace PutClusterCapacityProvidersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutClusterCapacityProvidersResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8775,15 +7486,6 @@ export interface PlatformDevice {
    * 			value is <code>GPU</code>.</p>
    */
   type: PlatformDeviceType | string | undefined;
-}
-
-export namespace PlatformDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlatformDevice): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterContainerInstanceRequest {
@@ -8874,29 +7576,11 @@ export interface RegisterContainerInstanceRequest {
   tags?: Tag[];
 }
 
-export namespace RegisterContainerInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterContainerInstanceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterContainerInstanceResponse {
   /**
    * <p>The container instance that was registered.</p>
    */
   containerInstance?: ContainerInstance;
-}
-
-export namespace RegisterContainerInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterContainerInstanceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterTaskDefinitionRequest {
@@ -9195,15 +7879,6 @@ export interface RegisterTaskDefinitionRequest {
   runtimePlatform?: RuntimePlatform;
 }
 
-export namespace RegisterTaskDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTaskDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterTaskDefinitionResponse {
   /**
    * <p>The full description of the registered task definition.</p>
@@ -9214,15 +7889,6 @@ export interface RegisterTaskDefinitionResponse {
    * <p>The list of tags associated with the task definition.</p>
    */
   tags?: Tag[];
-}
-
-export namespace RegisterTaskDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTaskDefinitionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9446,15 +8112,6 @@ export interface RunTaskRequest {
   taskDefinition: string | undefined;
 }
 
-export namespace RunTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RunTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RunTaskResponse {
   /**
    * <p>A full description of the tasks that were run. The tasks that were successfully placed
@@ -9466,15 +8123,6 @@ export interface RunTaskResponse {
    * <p>Any failures associated with the call.</p>
    */
   failures?: Failure[];
-}
-
-export namespace RunTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RunTaskResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartTaskRequest {
@@ -9598,15 +8246,6 @@ export interface StartTaskRequest {
   taskDefinition: string | undefined;
 }
 
-export namespace StartTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartTaskResponse {
   /**
    * <p>A full description of the tasks that were started. Each task that was successfully
@@ -9618,15 +8257,6 @@ export interface StartTaskResponse {
    * <p>Any failures associated with the call.</p>
    */
   failures?: Failure[];
-}
-
-export namespace StartTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTaskResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StopTaskRequest {
@@ -9650,29 +8280,11 @@ export interface StopTaskRequest {
   reason?: string;
 }
 
-export namespace StopTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopTaskResponse {
   /**
    * <p>The task that was stopped.</p>
    */
   task?: Task;
-}
-
-export namespace StopTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopTaskResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9690,15 +8302,6 @@ export interface AttachmentStateChange {
   status: string | undefined;
 }
 
-export namespace AttachmentStateChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachmentStateChange): any => ({
-    ...obj,
-  });
-}
-
 export interface SubmitAttachmentStateChangesRequest {
   /**
    * <p>The short name or full ARN of the cluster that hosts the container instance the
@@ -9712,29 +8315,11 @@ export interface SubmitAttachmentStateChangesRequest {
   attachments: AttachmentStateChange[] | undefined;
 }
 
-export namespace SubmitAttachmentStateChangesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubmitAttachmentStateChangesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SubmitAttachmentStateChangesResponse {
   /**
    * <p>Acknowledgement of the state change.</p>
    */
   acknowledgment?: string;
-}
-
-export namespace SubmitAttachmentStateChangesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubmitAttachmentStateChangesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SubmitContainerStateChangeRequest {
@@ -9779,29 +8364,11 @@ export interface SubmitContainerStateChangeRequest {
   networkBindings?: NetworkBinding[];
 }
 
-export namespace SubmitContainerStateChangeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubmitContainerStateChangeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SubmitContainerStateChangeResponse {
   /**
    * <p>Acknowledgement of the state change.</p>
    */
   acknowledgment?: string;
-}
-
-export namespace SubmitContainerStateChangeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubmitContainerStateChangeResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9845,15 +8412,6 @@ export interface ContainerStateChange {
   status?: string;
 }
 
-export namespace ContainerStateChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerStateChange): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing a change in state for a managed agent.</p>
  */
@@ -9877,15 +8435,6 @@ export interface ManagedAgentStateChange {
    * <p>The reason for the status of the managed agent.</p>
    */
   reason?: string;
-}
-
-export namespace ManagedAgentStateChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagedAgentStateChange): any => ({
-    ...obj,
-  });
 }
 
 export interface SubmitTaskStateChangeRequest {
@@ -9940,29 +8489,11 @@ export interface SubmitTaskStateChangeRequest {
   executionStoppedAt?: Date;
 }
 
-export namespace SubmitTaskStateChangeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubmitTaskStateChangeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SubmitTaskStateChangeResponse {
   /**
    * <p>Acknowledgement of the state change.</p>
    */
   acknowledgment?: string;
-}
-
-export namespace SubmitTaskStateChangeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubmitTaskStateChangeResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10029,25 +8560,7 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -10063,25 +8576,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The details of the Auto Scaling group capacity provider to update.</p>
@@ -10110,15 +8605,6 @@ export interface AutoScalingGroupProviderUpdate {
   managedTerminationProtection?: ManagedTerminationProtection | string;
 }
 
-export namespace AutoScalingGroupProviderUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScalingGroupProviderUpdate): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCapacityProviderRequest {
   /**
    * <p>The name of the capacity provider to update.</p>
@@ -10132,29 +8618,11 @@ export interface UpdateCapacityProviderRequest {
   autoScalingGroupProvider: AutoScalingGroupProviderUpdate | undefined;
 }
 
-export namespace UpdateCapacityProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCapacityProviderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCapacityProviderResponse {
   /**
    * <p>Details about the capacity provider.</p>
    */
   capacityProvider?: CapacityProvider;
-}
-
-export namespace UpdateCapacityProviderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCapacityProviderResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateClusterRequest {
@@ -10174,29 +8642,11 @@ export interface UpdateClusterRequest {
   configuration?: ClusterConfiguration;
 }
 
-export namespace UpdateClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateClusterResponse {
   /**
    * <p>Details about the cluster.</p>
    */
   cluster?: Cluster;
-}
-
-export namespace UpdateClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClusterResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateClusterSettingsRequest {
@@ -10214,29 +8664,11 @@ export interface UpdateClusterSettingsRequest {
   settings: ClusterSetting[] | undefined;
 }
 
-export namespace UpdateClusterSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClusterSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateClusterSettingsResponse {
   /**
    * <p>Details about the cluster</p>
    */
   cluster?: Cluster;
-}
-
-export namespace UpdateClusterSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClusterSettingsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10296,29 +8728,11 @@ export interface UpdateContainerAgentRequest {
   containerInstance: string | undefined;
 }
 
-export namespace UpdateContainerAgentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContainerAgentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateContainerAgentResponse {
   /**
    * <p>The container instance that the container agent was updated for.</p>
    */
   containerInstance?: ContainerInstance;
-}
-
-export namespace UpdateContainerAgentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContainerAgentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateContainerInstancesStateRequest {
@@ -10344,15 +8758,6 @@ export interface UpdateContainerInstancesStateRequest {
   status: ContainerInstanceStatus | string | undefined;
 }
 
-export namespace UpdateContainerInstancesStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContainerInstancesStateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateContainerInstancesStateResponse {
   /**
    * <p>The list of container instances.</p>
@@ -10363,15 +8768,6 @@ export interface UpdateContainerInstancesStateResponse {
    * <p>Any failures associated with the call.</p>
    */
   failures?: Failure[];
-}
-
-export namespace UpdateContainerInstancesStateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContainerInstancesStateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateServiceRequest {
@@ -10554,29 +8950,11 @@ export interface UpdateServiceRequest {
   serviceRegistries?: ServiceRegistry[];
 }
 
-export namespace UpdateServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateServiceResponse {
   /**
    * <p>The full description of your service following the update call.</p>
    */
   service?: Service;
-}
-
-export namespace UpdateServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateServicePrimaryTaskSetRequest {
@@ -10598,29 +8976,11 @@ export interface UpdateServicePrimaryTaskSetRequest {
   primaryTaskSet: string | undefined;
 }
 
-export namespace UpdateServicePrimaryTaskSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServicePrimaryTaskSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateServicePrimaryTaskSetResponse {
   /**
    * <p>etails about the task set.</p>
    */
   taskSet?: TaskSet;
-}
-
-export namespace UpdateServicePrimaryTaskSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServicePrimaryTaskSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateTaskSetRequest {
@@ -10647,15 +9007,6 @@ export interface UpdateTaskSetRequest {
   scale: Scale | undefined;
 }
 
-export namespace UpdateTaskSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTaskSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTaskSetResponse {
   /**
    * <p>Details about the task set.</p>
@@ -10663,11 +9014,1310 @@ export interface UpdateTaskSetResponse {
   taskSet?: TaskSet;
 }
 
-export namespace UpdateTaskSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTaskSetResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ManagedScalingFilterSensitiveLog = (obj: ManagedScaling): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingGroupProviderFilterSensitiveLog = (obj: AutoScalingGroupProvider): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCapacityProviderRequestFilterSensitiveLog = (obj: CreateCapacityProviderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CapacityProviderFilterSensitiveLog = (obj: CapacityProvider): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCapacityProviderResponseFilterSensitiveLog = (obj: CreateCapacityProviderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecuteCommandLogConfigurationFilterSensitiveLog = (obj: ExecuteCommandLogConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecuteCommandConfigurationFilterSensitiveLog = (obj: ExecuteCommandConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterConfigurationFilterSensitiveLog = (obj: ClusterConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CapacityProviderStrategyItemFilterSensitiveLog = (obj: CapacityProviderStrategyItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterSettingFilterSensitiveLog = (obj: ClusterSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterRequestFilterSensitiveLog = (obj: CreateClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeyValuePairFilterSensitiveLog = (obj: KeyValuePair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachmentFilterSensitiveLog = (obj: Attachment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterFilterSensitiveLog = (obj: Cluster): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterResponseFilterSensitiveLog = (obj: CreateClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentCircuitBreakerFilterSensitiveLog = (obj: DeploymentCircuitBreaker): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentConfigurationFilterSensitiveLog = (obj: DeploymentConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentControllerFilterSensitiveLog = (obj: DeploymentController): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerFilterSensitiveLog = (obj: LoadBalancer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsVpcConfigurationFilterSensitiveLog = (obj: AwsVpcConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkConfigurationFilterSensitiveLog = (obj: NetworkConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlacementConstraintFilterSensitiveLog = (obj: PlacementConstraint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlacementStrategyFilterSensitiveLog = (obj: PlacementStrategy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceRegistryFilterSensitiveLog = (obj: ServiceRegistry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceRequestFilterSensitiveLog = (obj: CreateServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentFilterSensitiveLog = (obj: Deployment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceEventFilterSensitiveLog = (obj: ServiceEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScaleFilterSensitiveLog = (obj: Scale): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskSetFilterSensitiveLog = (obj: TaskSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceFilterSensitiveLog = (obj: Service): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceResponseFilterSensitiveLog = (obj: CreateServiceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTaskSetRequestFilterSensitiveLog = (obj: CreateTaskSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTaskSetResponseFilterSensitiveLog = (obj: CreateTaskSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccountSettingRequestFilterSensitiveLog = (obj: DeleteAccountSettingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SettingFilterSensitiveLog = (obj: Setting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccountSettingResponseFilterSensitiveLog = (obj: DeleteAccountSettingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributeFilterSensitiveLog = (obj: Attribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAttributesRequestFilterSensitiveLog = (obj: DeleteAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAttributesResponseFilterSensitiveLog = (obj: DeleteAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCapacityProviderRequestFilterSensitiveLog = (obj: DeleteCapacityProviderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCapacityProviderResponseFilterSensitiveLog = (obj: DeleteCapacityProviderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteClusterRequestFilterSensitiveLog = (obj: DeleteClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteClusterResponseFilterSensitiveLog = (obj: DeleteClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceRequestFilterSensitiveLog = (obj: DeleteServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceResponseFilterSensitiveLog = (obj: DeleteServiceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTaskSetRequestFilterSensitiveLog = (obj: DeleteTaskSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTaskSetResponseFilterSensitiveLog = (obj: DeleteTaskSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterContainerInstanceRequestFilterSensitiveLog = (obj: DeregisterContainerInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceHealthCheckResultFilterSensitiveLog = (obj: InstanceHealthCheckResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerInstanceHealthStatusFilterSensitiveLog = (obj: ContainerInstanceHealthStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VersionInfoFilterSensitiveLog = (obj: VersionInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerInstanceFilterSensitiveLog = (obj: ContainerInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterContainerInstanceResponseFilterSensitiveLog = (
+  obj: DeregisterContainerInstanceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterTaskDefinitionRequestFilterSensitiveLog = (obj: DeregisterTaskDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerDependencyFilterSensitiveLog = (obj: ContainerDependency): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentFileFilterSensitiveLog = (obj: EnvironmentFile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HostEntryFilterSensitiveLog = (obj: HostEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirelensConfigurationFilterSensitiveLog = (obj: FirelensConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HealthCheckFilterSensitiveLog = (obj: HealthCheck): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KernelCapabilitiesFilterSensitiveLog = (obj: KernelCapabilities): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceFilterSensitiveLog = (obj: Device): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TmpfsFilterSensitiveLog = (obj: Tmpfs): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LinuxParametersFilterSensitiveLog = (obj: LinuxParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecretFilterSensitiveLog = (obj: Secret): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogConfigurationFilterSensitiveLog = (obj: LogConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MountPointFilterSensitiveLog = (obj: MountPoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PortMappingFilterSensitiveLog = (obj: PortMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositoryCredentialsFilterSensitiveLog = (obj: RepositoryCredentials): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceRequirementFilterSensitiveLog = (obj: ResourceRequirement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SystemControlFilterSensitiveLog = (obj: SystemControl): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UlimitFilterSensitiveLog = (obj: Ulimit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VolumeFromFilterSensitiveLog = (obj: VolumeFrom): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerDefinitionFilterSensitiveLog = (obj: ContainerDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EphemeralStorageFilterSensitiveLog = (obj: EphemeralStorage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferenceAcceleratorFilterSensitiveLog = (obj: InferenceAccelerator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskDefinitionPlacementConstraintFilterSensitiveLog = (obj: TaskDefinitionPlacementConstraint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProxyConfigurationFilterSensitiveLog = (obj: ProxyConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuntimePlatformFilterSensitiveLog = (obj: RuntimePlatform): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DockerVolumeConfigurationFilterSensitiveLog = (obj: DockerVolumeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EFSAuthorizationConfigFilterSensitiveLog = (obj: EFSAuthorizationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EFSVolumeConfigurationFilterSensitiveLog = (obj: EFSVolumeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FSxWindowsFileServerAuthorizationConfigFilterSensitiveLog = (
+  obj: FSxWindowsFileServerAuthorizationConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FSxWindowsFileServerVolumeConfigurationFilterSensitiveLog = (
+  obj: FSxWindowsFileServerVolumeConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HostVolumePropertiesFilterSensitiveLog = (obj: HostVolumeProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VolumeFilterSensitiveLog = (obj: Volume): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskDefinitionFilterSensitiveLog = (obj: TaskDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterTaskDefinitionResponseFilterSensitiveLog = (obj: DeregisterTaskDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCapacityProvidersRequestFilterSensitiveLog = (obj: DescribeCapacityProvidersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailureFilterSensitiveLog = (obj: Failure): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCapacityProvidersResponseFilterSensitiveLog = (obj: DescribeCapacityProvidersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClustersRequestFilterSensitiveLog = (obj: DescribeClustersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClustersResponseFilterSensitiveLog = (obj: DescribeClustersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeContainerInstancesRequestFilterSensitiveLog = (obj: DescribeContainerInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeContainerInstancesResponseFilterSensitiveLog = (obj: DescribeContainerInstancesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServicesRequestFilterSensitiveLog = (obj: DescribeServicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServicesResponseFilterSensitiveLog = (obj: DescribeServicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTaskDefinitionRequestFilterSensitiveLog = (obj: DescribeTaskDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTaskDefinitionResponseFilterSensitiveLog = (obj: DescribeTaskDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTasksRequestFilterSensitiveLog = (obj: DescribeTasksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagedAgentFilterSensitiveLog = (obj: ManagedAgent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkBindingFilterSensitiveLog = (obj: NetworkBinding): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerFilterSensitiveLog = (obj: Container): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerOverrideFilterSensitiveLog = (obj: ContainerOverride): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferenceAcceleratorOverrideFilterSensitiveLog = (obj: InferenceAcceleratorOverride): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskOverrideFilterSensitiveLog = (obj: TaskOverride): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskFilterSensitiveLog = (obj: Task): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTasksResponseFilterSensitiveLog = (obj: DescribeTasksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTaskSetsRequestFilterSensitiveLog = (obj: DescribeTaskSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTaskSetsResponseFilterSensitiveLog = (obj: DescribeTaskSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiscoverPollEndpointRequestFilterSensitiveLog = (obj: DiscoverPollEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiscoverPollEndpointResponseFilterSensitiveLog = (obj: DiscoverPollEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecuteCommandRequestFilterSensitiveLog = (obj: ExecuteCommandRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionFilterSensitiveLog = (obj: Session): any => ({
+  ...obj,
+  ...(obj.tokenValue && { tokenValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ExecuteCommandResponseFilterSensitiveLog = (obj: ExecuteCommandResponse): any => ({
+  ...obj,
+  ...(obj.session && { session: SessionFilterSensitiveLog(obj.session) }),
+});
+
+/**
+ * @internal
+ */
+export const ListAccountSettingsRequestFilterSensitiveLog = (obj: ListAccountSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountSettingsResponseFilterSensitiveLog = (obj: ListAccountSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAttributesRequestFilterSensitiveLog = (obj: ListAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAttributesResponseFilterSensitiveLog = (obj: ListAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClustersRequestFilterSensitiveLog = (obj: ListClustersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClustersResponseFilterSensitiveLog = (obj: ListClustersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContainerInstancesRequestFilterSensitiveLog = (obj: ListContainerInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContainerInstancesResponseFilterSensitiveLog = (obj: ListContainerInstancesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServicesRequestFilterSensitiveLog = (obj: ListServicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServicesResponseFilterSensitiveLog = (obj: ListServicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTaskDefinitionFamiliesRequestFilterSensitiveLog = (obj: ListTaskDefinitionFamiliesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTaskDefinitionFamiliesResponseFilterSensitiveLog = (obj: ListTaskDefinitionFamiliesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTaskDefinitionsRequestFilterSensitiveLog = (obj: ListTaskDefinitionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTaskDefinitionsResponseFilterSensitiveLog = (obj: ListTaskDefinitionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTasksRequestFilterSensitiveLog = (obj: ListTasksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTasksResponseFilterSensitiveLog = (obj: ListTasksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAccountSettingRequestFilterSensitiveLog = (obj: PutAccountSettingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAccountSettingResponseFilterSensitiveLog = (obj: PutAccountSettingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAccountSettingDefaultRequestFilterSensitiveLog = (obj: PutAccountSettingDefaultRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAccountSettingDefaultResponseFilterSensitiveLog = (obj: PutAccountSettingDefaultResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAttributesRequestFilterSensitiveLog = (obj: PutAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAttributesResponseFilterSensitiveLog = (obj: PutAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutClusterCapacityProvidersRequestFilterSensitiveLog = (obj: PutClusterCapacityProvidersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutClusterCapacityProvidersResponseFilterSensitiveLog = (
+  obj: PutClusterCapacityProvidersResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlatformDeviceFilterSensitiveLog = (obj: PlatformDevice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterContainerInstanceRequestFilterSensitiveLog = (obj: RegisterContainerInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterContainerInstanceResponseFilterSensitiveLog = (obj: RegisterContainerInstanceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterTaskDefinitionRequestFilterSensitiveLog = (obj: RegisterTaskDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterTaskDefinitionResponseFilterSensitiveLog = (obj: RegisterTaskDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RunTaskRequestFilterSensitiveLog = (obj: RunTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RunTaskResponseFilterSensitiveLog = (obj: RunTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTaskRequestFilterSensitiveLog = (obj: StartTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTaskResponseFilterSensitiveLog = (obj: StartTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopTaskRequestFilterSensitiveLog = (obj: StopTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopTaskResponseFilterSensitiveLog = (obj: StopTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachmentStateChangeFilterSensitiveLog = (obj: AttachmentStateChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubmitAttachmentStateChangesRequestFilterSensitiveLog = (
+  obj: SubmitAttachmentStateChangesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubmitAttachmentStateChangesResponseFilterSensitiveLog = (
+  obj: SubmitAttachmentStateChangesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubmitContainerStateChangeRequestFilterSensitiveLog = (obj: SubmitContainerStateChangeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubmitContainerStateChangeResponseFilterSensitiveLog = (obj: SubmitContainerStateChangeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerStateChangeFilterSensitiveLog = (obj: ContainerStateChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagedAgentStateChangeFilterSensitiveLog = (obj: ManagedAgentStateChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubmitTaskStateChangeRequestFilterSensitiveLog = (obj: SubmitTaskStateChangeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubmitTaskStateChangeResponseFilterSensitiveLog = (obj: SubmitTaskStateChangeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingGroupProviderUpdateFilterSensitiveLog = (obj: AutoScalingGroupProviderUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCapacityProviderRequestFilterSensitiveLog = (obj: UpdateCapacityProviderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCapacityProviderResponseFilterSensitiveLog = (obj: UpdateCapacityProviderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateClusterRequestFilterSensitiveLog = (obj: UpdateClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateClusterResponseFilterSensitiveLog = (obj: UpdateClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateClusterSettingsRequestFilterSensitiveLog = (obj: UpdateClusterSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateClusterSettingsResponseFilterSensitiveLog = (obj: UpdateClusterSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContainerAgentRequestFilterSensitiveLog = (obj: UpdateContainerAgentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContainerAgentResponseFilterSensitiveLog = (obj: UpdateContainerAgentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContainerInstancesStateRequestFilterSensitiveLog = (
+  obj: UpdateContainerInstancesStateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContainerInstancesStateResponseFilterSensitiveLog = (
+  obj: UpdateContainerInstancesStateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceRequestFilterSensitiveLog = (obj: UpdateServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceResponseFilterSensitiveLog = (obj: UpdateServiceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServicePrimaryTaskSetRequestFilterSensitiveLog = (obj: UpdateServicePrimaryTaskSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServicePrimaryTaskSetResponseFilterSensitiveLog = (
+  obj: UpdateServicePrimaryTaskSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTaskSetRequestFilterSensitiveLog = (obj: UpdateTaskSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTaskSetResponseFilterSensitiveLog = (obj: UpdateTaskSetResponse): any => ({
+  ...obj,
+});

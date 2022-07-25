@@ -12,8 +12,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ResumeClusterMessage } from "../models/models_0";
-import { ResumeClusterResult } from "../models/models_1";
+import { ResumeClusterMessage, ResumeClusterMessageFilterSensitiveLog } from "../models/models_0";
+import { ResumeClusterResult, ResumeClusterResultFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_queryResumeClusterCommand,
   serializeAws_queryResumeClusterCommand,
@@ -73,8 +73,8 @@ export class ResumeClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResumeClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ResumeClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ResumeClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ResumeClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

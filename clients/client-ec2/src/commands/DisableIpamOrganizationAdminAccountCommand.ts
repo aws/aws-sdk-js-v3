@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DisableIpamOrganizationAdminAccountRequest,
+  DisableIpamOrganizationAdminAccountRequestFilterSensitiveLog,
   DisableIpamOrganizationAdminAccountResult,
+  DisableIpamOrganizationAdminAccountResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
   deserializeAws_ec2DisableIpamOrganizationAdminAccountCommand,
@@ -78,8 +80,8 @@ export class DisableIpamOrganizationAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableIpamOrganizationAdminAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableIpamOrganizationAdminAccountResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableIpamOrganizationAdminAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisableIpamOrganizationAdminAccountResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

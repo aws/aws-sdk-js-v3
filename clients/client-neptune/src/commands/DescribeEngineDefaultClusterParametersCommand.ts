@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeEngineDefaultClusterParametersMessage,
+  DescribeEngineDefaultClusterParametersMessageFilterSensitiveLog,
   DescribeEngineDefaultClusterParametersResult,
+  DescribeEngineDefaultClusterParametersResultFilterSensitiveLog,
 } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
@@ -79,8 +81,8 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEngineDefaultClusterParametersMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEngineDefaultClusterParametersResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEngineDefaultClusterParametersMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEngineDefaultClusterParametersResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { UpdateDistributionRequest, UpdateDistributionResult } from "../models/models_1";
+import {
+  UpdateDistributionRequest,
+  UpdateDistributionRequestFilterSensitiveLog,
+  UpdateDistributionResult,
+  UpdateDistributionResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlUpdateDistributionCommand,
   serializeAws_restXmlUpdateDistributionCommand,
@@ -150,8 +155,8 @@ export class UpdateDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDistributionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDistributionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDistributionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDistributionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

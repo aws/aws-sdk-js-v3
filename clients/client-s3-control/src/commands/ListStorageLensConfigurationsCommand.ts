@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListStorageLensConfigurationsRequest, ListStorageLensConfigurationsResult } from "../models/models_0";
+import {
+  ListStorageLensConfigurationsRequest,
+  ListStorageLensConfigurationsRequestFilterSensitiveLog,
+  ListStorageLensConfigurationsResult,
+  ListStorageLensConfigurationsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlListStorageLensConfigurationsCommand,
   serializeAws_restXmlListStorageLensConfigurationsCommand,
@@ -85,8 +90,8 @@ export class ListStorageLensConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStorageLensConfigurationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListStorageLensConfigurationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListStorageLensConfigurationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListStorageLensConfigurationsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

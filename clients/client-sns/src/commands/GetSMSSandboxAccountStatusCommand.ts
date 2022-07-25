@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetSMSSandboxAccountStatusInput, GetSMSSandboxAccountStatusResult } from "../models/models_0";
+import {
+  GetSMSSandboxAccountStatusInput,
+  GetSMSSandboxAccountStatusInputFilterSensitiveLog,
+  GetSMSSandboxAccountStatusResult,
+  GetSMSSandboxAccountStatusResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetSMSSandboxAccountStatusCommand,
   serializeAws_queryGetSMSSandboxAccountStatusCommand,
@@ -80,8 +85,8 @@ export class GetSMSSandboxAccountStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSMSSandboxAccountStatusInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSMSSandboxAccountStatusResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSMSSandboxAccountStatusInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSMSSandboxAccountStatusResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

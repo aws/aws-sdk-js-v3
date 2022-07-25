@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { CancelJobRequest, CancelJobResponse } from "../models/models_1";
+import {
+  CancelJobRequest,
+  CancelJobRequestFilterSensitiveLog,
+  CancelJobResponse,
+  CancelJobResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1CancelJobCommand,
   serializeAws_restJson1CancelJobCommand,
@@ -72,8 +77,8 @@ export class CancelJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

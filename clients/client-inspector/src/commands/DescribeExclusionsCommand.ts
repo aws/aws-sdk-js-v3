@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { DescribeExclusionsRequest, DescribeExclusionsResponse } from "../models/models_0";
+import {
+  DescribeExclusionsRequest,
+  DescribeExclusionsRequestFilterSensitiveLog,
+  DescribeExclusionsResponse,
+  DescribeExclusionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeExclusionsCommand,
   serializeAws_json1_1DescribeExclusionsCommand,
@@ -72,8 +77,8 @@ export class DescribeExclusionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExclusionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeExclusionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeExclusionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeExclusionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

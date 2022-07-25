@@ -14,7 +14,9 @@ import {
 
 import {
   GetDeliverabilityDashboardOptionsRequest,
+  GetDeliverabilityDashboardOptionsRequestFilterSensitiveLog,
   GetDeliverabilityDashboardOptionsResponse,
+  GetDeliverabilityDashboardOptionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
@@ -83,8 +85,8 @@ export class GetDeliverabilityDashboardOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeliverabilityDashboardOptionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDeliverabilityDashboardOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDeliverabilityDashboardOptionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDeliverabilityDashboardOptionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

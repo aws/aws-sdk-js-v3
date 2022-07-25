@@ -14,7 +14,9 @@ import {
 
 import {
   BatchAssociateServiceActionWithProvisioningArtifactInput,
+  BatchAssociateServiceActionWithProvisioningArtifactInputFilterSensitiveLog,
   BatchAssociateServiceActionWithProvisioningArtifactOutput,
+  BatchAssociateServiceActionWithProvisioningArtifactOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand,
@@ -81,8 +83,8 @@ export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends 
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchAssociateServiceActionWithProvisioningArtifactInput.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchAssociateServiceActionWithProvisioningArtifactOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchAssociateServiceActionWithProvisioningArtifactInputFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchAssociateServiceActionWithProvisioningArtifactOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

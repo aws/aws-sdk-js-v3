@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetConsoleOutputRequest, GetConsoleOutputResult } from "../models/models_5";
+import {
+  GetConsoleOutputRequest,
+  GetConsoleOutputRequestFilterSensitiveLog,
+  GetConsoleOutputResult,
+  GetConsoleOutputResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2GetConsoleOutputCommand,
   serializeAws_ec2GetConsoleOutputCommand,
@@ -84,8 +89,8 @@ export class GetConsoleOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConsoleOutputRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetConsoleOutputResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetConsoleOutputRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetConsoleOutputResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

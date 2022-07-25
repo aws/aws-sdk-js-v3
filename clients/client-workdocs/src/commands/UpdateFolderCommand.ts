@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateFolderRequest } from "../models/models_0";
+import { UpdateFolderRequest, UpdateFolderRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFolderCommand,
   serializeAws_restJson1UpdateFolderCommand,
@@ -73,7 +73,7 @@ export class UpdateFolderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFolderRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFolderRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

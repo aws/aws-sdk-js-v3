@@ -14,7 +14,9 @@ import {
 
 import {
   PutAccountDedicatedIpWarmupAttributesRequest,
+  PutAccountDedicatedIpWarmupAttributesRequestFilterSensitiveLog,
   PutAccountDedicatedIpWarmupAttributesResponse,
+  PutAccountDedicatedIpWarmupAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
@@ -78,8 +80,8 @@ export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccountDedicatedIpWarmupAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutAccountDedicatedIpWarmupAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAccountDedicatedIpWarmupAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutAccountDedicatedIpWarmupAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

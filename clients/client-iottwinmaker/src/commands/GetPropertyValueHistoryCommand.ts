@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import { GetPropertyValueHistoryRequest, GetPropertyValueHistoryResponse } from "../models/models_0";
+import {
+  GetPropertyValueHistoryRequest,
+  GetPropertyValueHistoryRequestFilterSensitiveLog,
+  GetPropertyValueHistoryResponse,
+  GetPropertyValueHistoryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetPropertyValueHistoryCommand,
   serializeAws_restJson1GetPropertyValueHistoryCommand,
@@ -74,8 +79,8 @@ export class GetPropertyValueHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPropertyValueHistoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPropertyValueHistoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPropertyValueHistoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetPropertyValueHistoryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

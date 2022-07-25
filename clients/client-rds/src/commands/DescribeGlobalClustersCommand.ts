@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeGlobalClustersMessage, GlobalClustersMessage } from "../models/models_1";
+import {
+  DescribeGlobalClustersMessage,
+  DescribeGlobalClustersMessageFilterSensitiveLog,
+  GlobalClustersMessage,
+  GlobalClustersMessageFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryDescribeGlobalClustersCommand,
   serializeAws_queryDescribeGlobalClustersCommand,
@@ -77,8 +82,8 @@ export class DescribeGlobalClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGlobalClustersMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: GlobalClustersMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeGlobalClustersMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: GlobalClustersMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { StartReportJobInput, StartReportJobOutput } from "../models/models_0";
+import {
+  StartReportJobInput,
+  StartReportJobInputFilterSensitiveLog,
+  StartReportJobOutput,
+  StartReportJobOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartReportJobCommand,
   serializeAws_restJson1StartReportJobCommand,
@@ -72,8 +77,8 @@ export class StartReportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReportJobInput.filterSensitiveLog,
-      outputFilterSensitiveLog: StartReportJobOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StartReportJobInputFilterSensitiveLog,
+      outputFilterSensitiveLog: StartReportJobOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

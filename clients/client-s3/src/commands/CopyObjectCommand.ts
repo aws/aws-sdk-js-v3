@@ -15,7 +15,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CopyObjectOutput, CopyObjectRequest } from "../models/models_0";
+import {
+  CopyObjectOutput,
+  CopyObjectOutputFilterSensitiveLog,
+  CopyObjectRequest,
+  CopyObjectRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlCopyObjectCommand,
   serializeAws_restXmlCopyObjectCommand,
@@ -263,8 +268,8 @@ export class CopyObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyObjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CopyObjectOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CopyObjectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CopyObjectOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

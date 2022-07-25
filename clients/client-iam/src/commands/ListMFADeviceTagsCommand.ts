@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ListMFADeviceTagsRequest, ListMFADeviceTagsResponse } from "../models/models_0";
+import {
+  ListMFADeviceTagsRequest,
+  ListMFADeviceTagsRequestFilterSensitiveLog,
+  ListMFADeviceTagsResponse,
+  ListMFADeviceTagsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryListMFADeviceTagsCommand,
   serializeAws_queryListMFADeviceTagsCommand,
@@ -74,8 +79,8 @@ export class ListMFADeviceTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMFADeviceTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListMFADeviceTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListMFADeviceTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListMFADeviceTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

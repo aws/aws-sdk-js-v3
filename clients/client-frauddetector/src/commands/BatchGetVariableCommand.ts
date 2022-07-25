@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { BatchGetVariableRequest, BatchGetVariableResult } from "../models/models_0";
+import {
+  BatchGetVariableRequest,
+  BatchGetVariableRequestFilterSensitiveLog,
+  BatchGetVariableResult,
+  BatchGetVariableResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetVariableCommand,
   serializeAws_json1_1BatchGetVariableCommand,
@@ -72,8 +77,8 @@ export class BatchGetVariableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetVariableRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetVariableResult.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchGetVariableRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetVariableResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

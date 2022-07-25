@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { UpdateNamedQueryInput, UpdateNamedQueryOutput } from "../models/models_0";
+import {
+  UpdateNamedQueryInput,
+  UpdateNamedQueryInputFilterSensitiveLog,
+  UpdateNamedQueryOutput,
+  UpdateNamedQueryOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateNamedQueryCommand,
   serializeAws_json1_1UpdateNamedQueryCommand,
@@ -73,8 +78,8 @@ export class UpdateNamedQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNamedQueryInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNamedQueryOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateNamedQueryInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNamedQueryOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

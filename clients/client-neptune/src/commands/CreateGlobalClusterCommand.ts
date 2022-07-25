@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateGlobalClusterMessage, CreateGlobalClusterResult } from "../models/models_0";
+import {
+  CreateGlobalClusterMessage,
+  CreateGlobalClusterMessageFilterSensitiveLog,
+  CreateGlobalClusterResult,
+  CreateGlobalClusterResultFilterSensitiveLog,
+} from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryCreateGlobalClusterCommand,
@@ -81,8 +86,8 @@ export class CreateGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGlobalClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateGlobalClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateGlobalClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateGlobalClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

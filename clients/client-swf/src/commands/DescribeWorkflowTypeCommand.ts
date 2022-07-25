@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeWorkflowTypeInput, WorkflowTypeDetail } from "../models/models_0";
+import {
+  DescribeWorkflowTypeInput,
+  DescribeWorkflowTypeInputFilterSensitiveLog,
+  WorkflowTypeDetail,
+  WorkflowTypeDetailFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeWorkflowTypeCommand,
   serializeAws_json1_0DescribeWorkflowTypeCommand,
@@ -110,8 +115,8 @@ export class DescribeWorkflowTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkflowTypeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: WorkflowTypeDetail.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeWorkflowTypeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: WorkflowTypeDetailFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

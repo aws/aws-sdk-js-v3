@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetCredentialsRequest, GetCredentialsResponse } from "../models/models_0";
+import {
+  GetCredentialsRequest,
+  GetCredentialsRequestFilterSensitiveLog,
+  GetCredentialsResponse,
+  GetCredentialsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetCredentialsCommand,
   serializeAws_json1_1GetCredentialsCommand,
@@ -89,8 +94,8 @@ export class GetCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCredentialsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCredentialsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCredentialsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCredentialsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

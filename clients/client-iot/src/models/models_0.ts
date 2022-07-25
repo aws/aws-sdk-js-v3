@@ -41,15 +41,6 @@ export interface AbortCriteria {
   minNumberOfExecutedThings: number | undefined;
 }
 
-export namespace AbortCriteria {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbortCriteria): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The criteria that determine when and how a job abort takes place.</p>
  */
@@ -58,15 +49,6 @@ export interface AbortConfig {
    * <p>The list of criteria that determine when and how to abort the job.</p>
    */
   criteriaList: AbortCriteria[] | undefined;
-}
-
-export namespace AbortConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbortConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -83,15 +65,6 @@ export interface AcceptCertificateTransferRequest {
    * <p>Specifies whether the certificate is active.</p>
    */
   setAsActive?: boolean;
-}
-
-export namespace AcceptCertificateTransferRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptCertificateTransferRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -254,15 +227,6 @@ export interface CloudwatchAlarmAction {
   stateValue: string | undefined;
 }
 
-export namespace CloudwatchAlarmAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudwatchAlarmAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an action that sends data to CloudWatch Logs.</p>
  */
@@ -276,15 +240,6 @@ export interface CloudwatchLogsAction {
    * <p>The CloudWatch log group to which the action sends data.</p>
    */
   logGroupName: string | undefined;
-}
-
-export namespace CloudwatchLogsAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudwatchLogsAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -321,15 +276,6 @@ export interface CloudwatchMetricAction {
    * <p>An optional <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Unix timestamp</a>.</p>
    */
   metricTimestamp?: string;
-}
-
-export namespace CloudwatchMetricAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudwatchMetricAction): any => ({
-    ...obj,
-  });
 }
 
 export enum DynamoKeyType {
@@ -409,15 +355,6 @@ export interface DynamoDBAction {
   payloadField?: string;
 }
 
-export namespace DynamoDBAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DynamoDBAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the DynamoActionVS action that specifies the DynamoDB table to which
  *          the message data will be written.</p>
@@ -427,15 +364,6 @@ export interface PutItemInput {
    * <p>The table where the message data will be written.</p>
    */
   tableName: string | undefined;
-}
-
-export namespace PutItemInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutItemInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -460,15 +388,6 @@ export interface DynamoDBv2Action {
    *          DynamoDB database.</p>
    */
   putItem: PutItemInput | undefined;
-}
-
-export namespace DynamoDBv2Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DynamoDBv2Action): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -507,15 +426,6 @@ export interface ElasticsearchAction {
   id: string | undefined;
 }
 
-export namespace ElasticsearchAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticsearchAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an action that writes data to an Amazon Kinesis Firehose stream.</p>
  */
@@ -551,15 +461,6 @@ export interface FirehoseAction {
   batchMode?: boolean;
 }
 
-export namespace FirehoseAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirehoseAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 signing process</a>.</p>
  */
@@ -580,15 +481,6 @@ export interface SigV4Authorization {
   roleArn: string | undefined;
 }
 
-export namespace SigV4Authorization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SigV4Authorization): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The authorization method used to send messages.</p>
  */
@@ -598,15 +490,6 @@ export interface HttpAuthorization {
    *             Version 4 Signing Process</a>.</p>
    */
   sigv4?: SigV4Authorization;
-}
-
-export namespace HttpAuthorization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpAuthorization): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -622,15 +505,6 @@ export interface HttpActionHeader {
    * <p>The HTTP header value. Substitution templates are supported.</p>
    */
   value: string | undefined;
-}
-
-export namespace HttpActionHeader {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpActionHeader): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -665,15 +539,6 @@ export interface HttpAction {
   auth?: HttpAuthorization;
 }
 
-export namespace HttpAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Sends message data to an IoT Analytics channel.</p>
  */
@@ -705,15 +570,6 @@ export interface IotAnalyticsAction {
    *          message data via IoT Analytics (iotanalytics:BatchPutMessage).</p>
    */
   roleArn?: string;
-}
-
-export namespace IotAnalyticsAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotAnalyticsAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -755,15 +611,6 @@ export interface IotEventsAction {
   roleArn: string | undefined;
 }
 
-export namespace IotEventsAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotEventsAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An asset property timestamp entry containing the following information.</p>
  */
@@ -779,15 +626,6 @@ export interface AssetPropertyTimestamp {
    *       templates.</p>
    */
   offsetInNanos?: string;
-}
-
-export namespace AssetPropertyTimestamp {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssetPropertyTimestamp): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -871,17 +709,6 @@ export namespace AssetPropertyVariant {
     if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssetPropertyVariant): any => {
-    if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-    if (obj.integerValue !== undefined) return { integerValue: obj.integerValue };
-    if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
-    if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -903,16 +730,6 @@ export interface AssetPropertyValue {
    *       templates. Must be <code>GOOD</code>, <code>BAD</code>, or <code>UNCERTAIN</code>.</p>
    */
   quality?: string;
-}
-
-export namespace AssetPropertyValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssetPropertyValue): any => ({
-    ...obj,
-    ...(obj.value && { value: AssetPropertyVariant.filterSensitiveLog(obj.value) }),
-  });
 }
 
 /**
@@ -954,18 +771,6 @@ export interface PutAssetPropertyValueEntry {
   propertyValues: AssetPropertyValue[] | undefined;
 }
 
-export namespace PutAssetPropertyValueEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAssetPropertyValueEntry): any => ({
-    ...obj,
-    ...(obj.propertyValues && {
-      propertyValues: obj.propertyValues.map((item) => AssetPropertyValue.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 /**
  * <p>Describes an action to send data from an MQTT message that triggered the rule to IoT
  *       SiteWise asset properties.</p>
@@ -981,15 +786,6 @@ export interface IotSiteWiseAction {
    *       policy can restrict access to specific asset hierarchy paths.</p>
    */
   roleArn: string | undefined;
-}
-
-export namespace IotSiteWiseAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotSiteWiseAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1022,15 +818,6 @@ export interface KafkaAction {
   clientProperties: Record<string, string> | undefined;
 }
 
-export namespace KafkaAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KafkaAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an action to write data to an Amazon Kinesis stream.</p>
  */
@@ -1051,15 +838,6 @@ export interface KinesisAction {
   partitionKey?: string;
 }
 
-export namespace KinesisAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an action to invoke a Lambda function.</p>
  */
@@ -1068,15 +846,6 @@ export interface LambdaAction {
    * <p>The ARN of the Lambda function.</p>
    */
   functionArn: string | undefined;
-}
-
-export namespace LambdaAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1110,15 +879,6 @@ export interface OpenSearchAction {
   id: string | undefined;
 }
 
-export namespace OpenSearchAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenSearchAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an action to republish to another topic.</p>
  */
@@ -1138,15 +898,6 @@ export interface RepublishAction {
    *          is 0.</p>
    */
   qos?: number;
-}
-
-export namespace RepublishAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepublishAction): any => ({
-    ...obj,
-  });
 }
 
 export enum CannedAccessControlList {
@@ -1186,15 +937,6 @@ export interface S3Action {
   cannedAcl?: CannedAccessControlList | string;
 }
 
-export namespace S3Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Action): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an action to write a message to a Salesforce IoT Cloud Input
  *          Stream.</p>
@@ -1212,15 +954,6 @@ export interface SalesforceAction {
    *          the Salesforce IoT Cloud platform after creation of the Input Stream.</p>
    */
   url: string | undefined;
-}
-
-export namespace SalesforceAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SalesforceAction): any => ({
-    ...obj,
-  });
 }
 
 export enum MessageFormat {
@@ -1251,15 +984,6 @@ export interface SnsAction {
   messageFormat?: MessageFormat | string;
 }
 
-export namespace SnsAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnsAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an action to publish data to an Amazon SQS queue.</p>
  */
@@ -1278,15 +1002,6 @@ export interface SqsAction {
    * <p>Specifies whether to use Base64 encoding.</p>
    */
   useBase64?: boolean;
-}
-
-export namespace SqsAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqsAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1312,15 +1027,6 @@ export interface StepFunctionsAction {
   roleArn: string | undefined;
 }
 
-export namespace StepFunctionsAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StepFunctionsAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Metadata attributes of the time series that are written in each measure record.</p>
  */
@@ -1343,15 +1049,6 @@ export interface TimestreamDimension {
   value: string | undefined;
 }
 
-export namespace TimestreamDimension {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestreamDimension): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes how to interpret an application-defined timestamp value from an MQTT message
  *          payload and the precision of that value.</p>
@@ -1370,15 +1067,6 @@ export interface TimestreamTimestamp {
    *             <code>MILLISECONDS</code>.</p>
    */
   unit: string | undefined;
-}
-
-export namespace TimestreamTimestamp {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestreamTimestamp): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1418,15 +1106,6 @@ export interface TimestreamAction {
    *          processed the rule. </p>
    */
   timestamp?: TimestreamTimestamp;
-}
-
-export namespace TimestreamAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestreamAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1555,15 +1234,6 @@ export interface Action {
   openSearch?: OpenSearchAction;
 }
 
-export namespace Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Action): any => ({
-    ...obj,
-  });
-}
-
 export enum ActionType {
   CONNECT = "CONNECT",
   PUBLISH = "PUBLISH",
@@ -1604,15 +1274,6 @@ export interface MachineLearningDetectionConfig {
   confidenceLevel: ConfidenceLevel | string | undefined;
 }
 
-export namespace MachineLearningDetectionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MachineLearningDetectionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A statistical ranking (percentile) that
  *       indicates a threshold value by which a behavior is determined to be in compliance or in
@@ -1630,15 +1291,6 @@ export interface StatisticalThreshold {
    *       occurs.</p>
    */
   statistic?: string;
-}
-
-export namespace StatisticalThreshold {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatisticalThreshold): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1683,15 +1335,6 @@ export interface MetricValue {
    *         </p>
    */
   strings?: string[];
-}
-
-export namespace MetricValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1769,15 +1412,6 @@ export interface BehaviorCriteria {
   mlDetectionConfig?: MachineLearningDetectionConfig;
 }
 
-export namespace BehaviorCriteria {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BehaviorCriteria): any => ({
-    ...obj,
-  });
-}
-
 export enum DimensionValueOperator {
   IN = "IN",
   NOT_IN = "NOT_IN",
@@ -1796,15 +1430,6 @@ export interface MetricDimension {
    * <p>Defines how the <code>dimensionValues</code> of a dimension are interpreted. For example, for dimension type TOPIC_FILTER, the <code>IN</code> operator, a message will be counted only if its topic matches one of the topic filters. With <code>NOT_IN</code> operator, a message will be counted only if it doesn't match any of the topic filters. The operator is optional: if it's not provided (is <code>null</code>), it will be interpreted as <code>IN</code>.</p>
    */
   operator?: DimensionValueOperator | string;
-}
-
-export namespace MetricDimension {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricDimension): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1842,15 +1467,6 @@ export interface Behavior {
   suppressAlerts?: boolean;
 }
 
-export namespace Behavior {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Behavior): any => ({
-    ...obj,
-  });
-}
-
 export enum VerificationState {
   BENIGN_POSITIVE = "BENIGN_POSITIVE",
   FALSE_POSITIVE = "FALSE_POSITIVE",
@@ -1870,15 +1486,6 @@ export interface ViolationEventAdditionalInfo {
    *         </p>
    */
   confidenceLevel?: ConfidenceLevel | string;
-}
-
-export namespace ViolationEventAdditionalInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ViolationEventAdditionalInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1938,15 +1545,6 @@ export interface ActiveViolation {
   violationStartTime?: Date;
 }
 
-export namespace ActiveViolation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActiveViolation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The metric you want to retain. Dimensions are optional.</p>
  */
@@ -1962,15 +1560,6 @@ export interface MetricToRetain {
   metricDimension?: MetricDimension;
 }
 
-export namespace MetricToRetain {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricToRetain): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Parameters used when defining a mitigation action that move a set of things to a thing group.</p>
  */
@@ -1984,15 +1573,6 @@ export interface AddThingsToThingGroupParams {
    * <p>Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic thing groups.</p>
    */
   overrideDynamicGroups?: boolean;
-}
-
-export namespace AddThingsToThingGroupParams {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddThingsToThingGroupParams): any => ({
-    ...obj,
-  });
 }
 
 export interface AddThingToBillingGroupRequest {
@@ -2020,25 +1600,7 @@ export interface AddThingToBillingGroupRequest {
   thingArn?: string;
 }
 
-export namespace AddThingToBillingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddThingToBillingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AddThingToBillingGroupResponse {}
-
-export namespace AddThingToBillingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddThingToBillingGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface AddThingToThingGroupRequest {
   /**
@@ -2070,25 +1632,7 @@ export interface AddThingToThingGroupRequest {
   overrideDynamicGroups?: boolean;
 }
 
-export namespace AddThingToThingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddThingToThingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AddThingToThingGroupResponse {}
-
-export namespace AddThingToThingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddThingToThingGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum AggregationTypeName {
   CARDINALITY = "Cardinality",
@@ -2111,15 +1655,6 @@ export interface AggregationType {
   values?: string[];
 }
 
-export namespace AggregationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregationType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure containing the alert target ARN and the role ARN.</p>
  */
@@ -2134,15 +1669,6 @@ export interface AlertTarget {
    *         notification target.</p>
    */
   roleArn: string | undefined;
-}
-
-export namespace AlertTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlertTarget): any => ({
-    ...obj,
-  });
 }
 
 export enum AlertTargetType {
@@ -2164,15 +1690,6 @@ export interface Policy {
   policyArn?: string;
 }
 
-export namespace Policy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Policy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information that allowed the authorization.</p>
  */
@@ -2181,15 +1698,6 @@ export interface Allowed {
    * <p>A list of policies that allowed the authentication.</p>
    */
   policies?: Policy[];
-}
-
-export namespace Allowed {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Allowed): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateTargetsWithJobRequest {
@@ -2222,15 +1730,6 @@ export interface AssociateTargetsWithJobRequest {
   namespaceId?: string;
 }
 
-export namespace AssociateTargetsWithJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateTargetsWithJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateTargetsWithJobResponse {
   /**
    * <p>An ARN identifying the job.</p>
@@ -2246,15 +1745,6 @@ export interface AssociateTargetsWithJobResponse {
    * <p>A short text description of the job.</p>
    */
   description?: string;
-}
-
-export namespace AssociateTargetsWithJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateTargetsWithJobResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2288,15 +1778,6 @@ export interface AttachPolicyRequest {
   target: string | undefined;
 }
 
-export namespace AttachPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the AttachPrincipalPolicy operation.</p>
  */
@@ -2313,15 +1794,6 @@ export interface AttachPrincipalPolicyRequest {
   principal: string | undefined;
 }
 
-export namespace AttachPrincipalPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachPrincipalPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachSecurityProfileRequest {
   /**
    * <p>The security profile that is attached.</p>
@@ -2334,25 +1806,7 @@ export interface AttachSecurityProfileRequest {
   securityProfileTargetArn: string | undefined;
 }
 
-export namespace AttachSecurityProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachSecurityProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachSecurityProfileResponse {}
-
-export namespace AttachSecurityProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachSecurityProfileResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>An exception thrown when the version of an entity specified with the
@@ -2391,28 +1845,10 @@ export interface AttachThingPrincipalRequest {
   principal: string | undefined;
 }
 
-export namespace AttachThingPrincipalRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachThingPrincipalRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output from the AttachThingPrincipal operation.</p>
  */
 export interface AttachThingPrincipalResponse {}
-
-export namespace AttachThingPrincipalResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachThingPrincipalResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The attribute payload.</p>
@@ -2437,15 +1873,6 @@ export interface AttributePayload {
   merge?: boolean;
 }
 
-export namespace AttributePayload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributePayload): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Which audit checks are enabled and disabled for this account.</p>
  */
@@ -2454,15 +1881,6 @@ export interface AuditCheckConfiguration {
    * <p>True if this audit check is enabled for this account.</p>
    */
   enabled?: boolean;
-}
-
-export namespace AuditCheckConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuditCheckConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum AuditCheckRunStatus {
@@ -2518,15 +1936,6 @@ export interface AuditCheckDetails {
   message?: string;
 }
 
-export namespace AuditCheckDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuditCheckDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the version of the policy associated with the resource.</p>
  */
@@ -2540,15 +1949,6 @@ export interface PolicyVersionIdentifier {
    * <p>The ID of the version of the policy associated with the resource.</p>
    */
   policyVersionId?: string;
-}
-
-export namespace PolicyVersionIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyVersionIdentifier): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2596,15 +1996,6 @@ export interface ResourceIdentifier {
   roleAliasArn?: string;
 }
 
-export namespace ResourceIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceIdentifier): any => ({
-    ...obj,
-  });
-}
-
 export enum ResourceType {
   ACCOUNT_SETTINGS = "ACCOUNT_SETTINGS",
   CA_CERTIFICATE = "CA_CERTIFICATE",
@@ -2636,15 +2027,6 @@ export interface NonCompliantResource {
   additionalInfo?: Record<string, string>;
 }
 
-export namespace NonCompliantResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NonCompliantResource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a related resource.</p>
  */
@@ -2663,15 +2045,6 @@ export interface RelatedResource {
    * <p>Other information about the resource.</p>
    */
   additionalInfo?: Record<string, string>;
-}
-
-export namespace RelatedResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelatedResource): any => ({
-    ...obj,
-  });
 }
 
 export enum AuditFindingSeverity {
@@ -2745,15 +2118,6 @@ export interface AuditFinding {
   isSuppressed?: boolean;
 }
 
-export namespace AuditFinding {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuditFinding): any => ({
-    ...obj,
-  });
-}
-
 export enum AuditFrequency {
   BIWEEKLY = "BIWEEKLY",
   DAILY = "DAILY",
@@ -2820,15 +2184,6 @@ export interface AuditMitigationActionExecutionMetadata {
   message?: string;
 }
 
-export namespace AuditMitigationActionExecutionMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuditMitigationActionExecutionMetadata): any => ({
-    ...obj,
-  });
-}
-
 export enum AuditMitigationActionsTaskStatus {
   CANCELED = "CANCELED",
   COMPLETED = "COMPLETED",
@@ -2854,15 +2209,6 @@ export interface AuditMitigationActionsTaskMetadata {
    * <p>The current state of the audit mitigation actions task.</p>
    */
   taskStatus?: AuditMitigationActionsTaskStatus | string;
-}
-
-export namespace AuditMitigationActionsTaskMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuditMitigationActionsTaskMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2895,15 +2241,6 @@ export interface TaskStatisticsForAuditCheck {
   canceledFindingsCount?: number;
 }
 
-export namespace TaskStatisticsForAuditCheck {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskStatisticsForAuditCheck): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Used in MitigationActionParams, this information identifies the target findings to which the mitigation actions are applied. Only one entry appears.</p>
  */
@@ -2924,15 +2261,6 @@ export interface AuditMitigationActionsTaskTarget {
   auditCheckToReasonCodeFilter?: Record<string, string[]>;
 }
 
-export namespace AuditMitigationActionsTaskTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuditMitigationActionsTaskTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the targets to which audit notifications are sent.</p>
  */
@@ -2951,15 +2279,6 @@ export interface AuditNotificationTarget {
    * <p>True if notifications to the target are enabled.</p>
    */
   enabled?: boolean;
-}
-
-export namespace AuditNotificationTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuditNotificationTarget): any => ({
-    ...obj,
-  });
 }
 
 export enum AuditNotificationType {
@@ -3005,15 +2324,6 @@ export interface AuditSuppression {
   description?: string;
 }
 
-export namespace AuditSuppression {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuditSuppression): any => ({
-    ...obj,
-  });
-}
-
 export enum AuditTaskStatus {
   CANCELED = "CANCELED",
   COMPLETED = "COMPLETED",
@@ -3047,15 +2357,6 @@ export interface AuditTaskMetadata {
   taskType?: AuditTaskType | string;
 }
 
-export namespace AuditTaskMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuditTaskMetadata): any => ({
-    ...obj,
-  });
-}
-
 export enum AuthDecision {
   ALLOWED = "ALLOWED",
   EXPLICIT_DENY = "EXPLICIT_DENY",
@@ -3078,15 +2379,6 @@ export interface AuthInfo {
   resources: string[] | undefined;
 }
 
-export namespace AuthInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that specifies the authorization service for a domain.</p>
  */
@@ -3100,15 +2392,6 @@ export interface AuthorizerConfig {
    * <p>A Boolean that specifies whether the domain configuration's authorization service can be overridden.</p>
    */
   allowAuthorizerOverride?: boolean;
-}
-
-export namespace AuthorizerConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizerConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum AuthorizerStatus {
@@ -3174,15 +2457,6 @@ export interface AuthorizerDescription {
   enableCachingForHttp?: boolean;
 }
 
-export namespace AuthorizerDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizerDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The authorizer summary.</p>
  */
@@ -3198,15 +2472,6 @@ export interface AuthorizerSummary {
   authorizerArn?: string;
 }
 
-export namespace AuthorizerSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizerSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information that explicitly denies authorization.</p>
  */
@@ -3215,15 +2480,6 @@ export interface ExplicitDeny {
    * <p>The policies that denied the authorization.</p>
    */
   policies?: Policy[];
-}
-
-export namespace ExplicitDeny {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExplicitDeny): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3236,15 +2492,6 @@ export interface ImplicitDeny {
    *          action on the specified resource. </p>
    */
   policies?: Policy[];
-}
-
-export namespace ImplicitDeny {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImplicitDeny): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3262,15 +2509,6 @@ export interface Denied {
    * <p>Information that explicitly denies the authorization. </p>
    */
   explicitDeny?: ExplicitDeny;
-}
-
-export namespace Denied {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Denied): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3305,15 +2543,6 @@ export interface AuthResult {
   missingContextValues?: string[];
 }
 
-export namespace AuthResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthResult): any => ({
-    ...obj,
-  });
-}
-
 export enum AutoRegistrationStatus {
   DISABLE = "DISABLE",
   ENABLE = "ENABLE",
@@ -3326,25 +2555,7 @@ export interface CancelAuditMitigationActionsTaskRequest {
   taskId: string | undefined;
 }
 
-export namespace CancelAuditMitigationActionsTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelAuditMitigationActionsTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelAuditMitigationActionsTaskResponse {}
-
-export namespace CancelAuditMitigationActionsTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelAuditMitigationActionsTaskResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface CancelAuditTaskRequest {
   /**
@@ -3354,25 +2565,7 @@ export interface CancelAuditTaskRequest {
   taskId: string | undefined;
 }
 
-export namespace CancelAuditTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelAuditTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelAuditTaskResponse {}
-
-export namespace CancelAuditTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelAuditTaskResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The input for the CancelCertificateTransfer operation.</p>
@@ -3385,15 +2578,6 @@ export interface CancelCertificateTransferRequest {
   certificateId: string | undefined;
 }
 
-export namespace CancelCertificateTransferRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelCertificateTransferRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelDetectMitigationActionsTaskRequest {
   /**
    * <p>
@@ -3403,25 +2587,7 @@ export interface CancelDetectMitigationActionsTaskRequest {
   taskId: string | undefined;
 }
 
-export namespace CancelDetectMitigationActionsTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelDetectMitigationActionsTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelDetectMitigationActionsTaskResponse {}
-
-export namespace CancelDetectMitigationActionsTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelDetectMitigationActionsTaskResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface CancelJobRequest {
   /**
@@ -3450,15 +2616,6 @@ export interface CancelJobRequest {
   force?: boolean;
 }
 
-export namespace CancelJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelJobResponse {
   /**
    * <p>The job ARN.</p>
@@ -3474,15 +2631,6 @@ export interface CancelJobResponse {
    * <p>A short text description of the job.</p>
    */
   description?: string;
-}
-
-export namespace CancelJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CancelJobExecutionRequest {
@@ -3525,15 +2673,6 @@ export interface CancelJobExecutionRequest {
   statusDetails?: Record<string, string>;
 }
 
-export namespace CancelJobExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJobExecutionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An attempt was made to change to an invalid state, for example by deleting a job or a
  *          job execution which is "IN_PROGRESS" without setting the <code>force</code>
@@ -3557,25 +2696,7 @@ export class InvalidStateTransitionException extends __BaseException {
 
 export interface ClearDefaultAuthorizerRequest {}
 
-export namespace ClearDefaultAuthorizerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClearDefaultAuthorizerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ClearDefaultAuthorizerResponse {}
-
-export namespace ClearDefaultAuthorizerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClearDefaultAuthorizerResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface ConfirmTopicRuleDestinationRequest {
   /**
@@ -3584,25 +2705,7 @@ export interface ConfirmTopicRuleDestinationRequest {
   confirmationToken: string | undefined;
 }
 
-export namespace ConfirmTopicRuleDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmTopicRuleDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ConfirmTopicRuleDestinationResponse {}
-
-export namespace ConfirmTopicRuleDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmTopicRuleDestinationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A conflicting resource update exception. This exception is thrown when two pending
@@ -3687,25 +2790,7 @@ export interface CreateAuditSuppressionRequest {
   clientRequestToken?: string;
 }
 
-export namespace CreateAuditSuppressionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAuditSuppressionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAuditSuppressionResponse {}
-
-export namespace CreateAuditSuppressionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAuditSuppressionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The resource already exists.</p>
@@ -3751,15 +2836,6 @@ export interface Tag {
    * <p>The tag's value.</p>
    */
   Value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAuthorizerRequest {
@@ -3816,15 +2892,6 @@ export interface CreateAuthorizerRequest {
   enableCachingForHttp?: boolean;
 }
 
-export namespace CreateAuthorizerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAuthorizerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAuthorizerResponse {
   /**
    * <p>The authorizer's name.</p>
@@ -3837,15 +2904,6 @@ export interface CreateAuthorizerResponse {
   authorizerArn?: string;
 }
 
-export namespace CreateAuthorizerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAuthorizerResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The properties of a billing group.</p>
  */
@@ -3854,15 +2912,6 @@ export interface BillingGroupProperties {
    * <p>The description of the billing group.</p>
    */
   billingGroupDescription?: string;
-}
-
-export namespace BillingGroupProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BillingGroupProperties): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBillingGroupRequest {
@@ -3882,15 +2931,6 @@ export interface CreateBillingGroupRequest {
   tags?: Tag[];
 }
 
-export namespace CreateBillingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBillingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateBillingGroupResponse {
   /**
    * <p>The name you gave to the billing group.</p>
@@ -3908,15 +2948,6 @@ export interface CreateBillingGroupResponse {
   billingGroupId?: string;
 }
 
-export namespace CreateBillingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBillingGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the CreateCertificateFromCsr operation.</p>
  */
@@ -3930,15 +2961,6 @@ export interface CreateCertificateFromCsrRequest {
    * <p>Specifies whether the certificate is active.</p>
    */
   setAsActive?: boolean;
-}
-
-export namespace CreateCertificateFromCsrRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCertificateFromCsrRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3961,15 +2983,6 @@ export interface CreateCertificateFromCsrResponse {
    * <p>The certificate data, in PEM format.</p>
    */
   certificatePem?: string;
-}
-
-export namespace CreateCertificateFromCsrResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCertificateFromCsrResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum CustomMetricType {
@@ -4021,15 +3034,6 @@ export interface CreateCustomMetricRequest {
   clientRequestToken?: string;
 }
 
-export namespace CreateCustomMetricRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomMetricRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCustomMetricResponse {
   /**
    * <p>
@@ -4045,15 +3049,6 @@ export interface CreateCustomMetricResponse {
    *          </p>
    */
   metricArn?: string;
-}
-
-export namespace CreateCustomMetricResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomMetricResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum DimensionType {
@@ -4089,15 +3084,6 @@ export interface CreateDimensionRequest {
   clientRequestToken?: string;
 }
 
-export namespace CreateDimensionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDimensionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDimensionResponse {
   /**
    * <p>A unique identifier for the dimension.</p>
@@ -4111,15 +3097,6 @@ export interface CreateDimensionResponse {
    *       the created dimension.</p>
    */
   arn?: string;
-}
-
-export namespace CreateDimensionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDimensionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4196,15 +3173,6 @@ export interface CreateDomainConfigurationRequest {
   tags?: Tag[];
 }
 
-export namespace CreateDomainConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDomainConfigurationResponse {
   /**
    * <p>The name of the domain configuration.</p>
@@ -4215,15 +3183,6 @@ export interface CreateDomainConfigurationResponse {
    * <p>The ARN of the domain configuration.</p>
    */
   domainConfigurationArn?: string;
-}
-
-export namespace CreateDomainConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4239,15 +3198,6 @@ export interface ThingGroupProperties {
    * <p>The thing group attributes in JSON format.</p>
    */
   attributePayload?: AttributePayload;
-}
-
-export namespace ThingGroupProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThingGroupProperties): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDynamicThingGroupRequest {
@@ -4290,15 +3240,6 @@ export interface CreateDynamicThingGroupRequest {
   tags?: Tag[];
 }
 
-export namespace CreateDynamicThingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDynamicThingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDynamicThingGroupResponse {
   /**
    * <p>The dynamic thing group name.</p>
@@ -4329,15 +3270,6 @@ export interface CreateDynamicThingGroupResponse {
    * <p>The dynamic thing group query version.</p>
    */
   queryVersion?: string;
-}
-
-export namespace CreateDynamicThingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDynamicThingGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4442,15 +3374,6 @@ export interface CreateFleetMetricRequest {
   tags?: Tag[];
 }
 
-export namespace CreateFleetMetricRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFleetMetricRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFleetMetricResponse {
   /**
    * <p>The name of the fleet metric to create.</p>
@@ -4461,15 +3384,6 @@ export interface CreateFleetMetricResponse {
    * <p>The Amazon Resource Name (ARN) of the new fleet metric.</p>
    */
   metricArn?: string;
-}
-
-export namespace CreateFleetMetricResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFleetMetricResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4532,15 +3446,6 @@ export interface RetryCriteria {
   numberOfRetries: number | undefined;
 }
 
-export namespace RetryCriteria {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetryCriteria): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration that determines how many retries are allowed for each failure
  *             type for a job.</p>
@@ -4551,15 +3456,6 @@ export interface JobExecutionsRetryConfig {
    *             type for a job.</p>
    */
   criteriaList: RetryCriteria[] | undefined;
-}
-
-export namespace JobExecutionsRetryConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobExecutionsRetryConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4575,15 +3471,6 @@ export interface RateIncreaseCriteria {
    * <p>The threshold for number of succeeded things that will initiate the increase in rate of rollout.</p>
    */
   numberOfSucceededThings?: number;
-}
-
-export namespace RateIncreaseCriteria {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RateIncreaseCriteria): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4608,15 +3495,6 @@ export interface ExponentialRolloutRate {
   rateIncreaseCriteria: RateIncreaseCriteria | undefined;
 }
 
-export namespace ExponentialRolloutRate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExponentialRolloutRate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Allows you to create a staged rollout of a job.</p>
  */
@@ -4632,15 +3510,6 @@ export interface JobExecutionsRolloutConfig {
    *             This parameter allows you to define an exponential rate for a job rollout.</p>
    */
   exponentialRate?: ExponentialRolloutRate;
-}
-
-export namespace JobExecutionsRolloutConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobExecutionsRolloutConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4664,15 +3533,6 @@ export interface PresignedUrlConfig {
   expiresInSec?: number;
 }
 
-export namespace PresignedUrlConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PresignedUrlConfig): any => ({
-    ...obj,
-  });
-}
-
 export enum TargetSelection {
   CONTINUOUS = "CONTINUOUS",
   SNAPSHOT = "SNAPSHOT",
@@ -4693,15 +3553,6 @@ export interface TimeoutConfig {
    *            and switch to the terminal <code>TIMED_OUT</code> status.</p>
    */
   inProgressTimeoutInMinutes?: number;
-}
-
-export namespace TimeoutConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeoutConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateJobRequest {
@@ -4815,15 +3666,6 @@ export interface CreateJobRequest {
   documentParameters?: Record<string, string>;
 }
 
-export namespace CreateJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateJobResponse {
   /**
    * <p>The job ARN.</p>
@@ -4839,15 +3681,6 @@ export interface CreateJobResponse {
    * <p>The job description.</p>
    */
   description?: string;
-}
-
-export namespace CreateJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4938,15 +3771,6 @@ export interface CreateJobTemplateRequest {
   jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
 }
 
-export namespace CreateJobTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateJobTemplateResponse {
   /**
    * <p>The ARN of the job template.</p>
@@ -4959,15 +3783,6 @@ export interface CreateJobTemplateResponse {
   jobTemplateId?: string;
 }
 
-export namespace CreateJobTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the CreateKeysAndCertificate operation.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateKeysAndCertificateRequest</a> action.</p>
@@ -4977,15 +3792,6 @@ export interface CreateKeysAndCertificateRequest {
    * <p>Specifies whether the certificate is active.</p>
    */
   setAsActive?: boolean;
-}
-
-export namespace CreateKeysAndCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateKeysAndCertificateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5001,16 +3807,6 @@ export interface KeyPair {
    * <p>The private key.</p>
    */
   PrivateKey?: string;
-}
-
-export namespace KeyPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyPair): any => ({
-    ...obj,
-    ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -5039,16 +3835,6 @@ export interface CreateKeysAndCertificateResponse {
   keyPair?: KeyPair;
 }
 
-export namespace CreateKeysAndCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateKeysAndCertificateResponse): any => ({
-    ...obj,
-    ...(obj.keyPair && { keyPair: KeyPair.filterSensitiveLog(obj.keyPair) }),
-  });
-}
-
 export enum LogLevel {
   DEBUG = "DEBUG",
   DISABLED = "DISABLED",
@@ -5072,15 +3858,6 @@ export interface EnableIoTLoggingParams {
   logLevel: LogLevel | string | undefined;
 }
 
-export namespace EnableIoTLoggingParams {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableIoTLoggingParams): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>
  */
@@ -5089,15 +3866,6 @@ export interface PublishFindingToSnsParams {
    * <p>The ARN of the topic to which you want to publish the findings.</p>
    */
   topicArn: string | undefined;
-}
-
-export namespace PublishFindingToSnsParams {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishFindingToSnsParams): any => ({
-    ...obj,
-  });
 }
 
 export enum PolicyTemplateName {
@@ -5114,15 +3882,6 @@ export interface ReplaceDefaultPolicyVersionParams {
   templateName: PolicyTemplateName | string | undefined;
 }
 
-export namespace ReplaceDefaultPolicyVersionParams {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceDefaultPolicyVersionParams): any => ({
-    ...obj,
-  });
-}
-
 export enum CACertificateUpdateAction {
   DEACTIVATE = "DEACTIVATE",
 }
@@ -5137,15 +3896,6 @@ export interface UpdateCACertificateParams {
   action: CACertificateUpdateAction | string | undefined;
 }
 
-export namespace UpdateCACertificateParams {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCACertificateParams): any => ({
-    ...obj,
-  });
-}
-
 export enum DeviceCertificateUpdateAction {
   DEACTIVATE = "DEACTIVATE",
 }
@@ -5158,15 +3908,6 @@ export interface UpdateDeviceCertificateParams {
    * <p>The action that you want to apply to the device certificate. The only supported value is <code>DEACTIVATE</code>.</p>
    */
   action: DeviceCertificateUpdateAction | string | undefined;
-}
-
-export namespace UpdateDeviceCertificateParams {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeviceCertificateParams): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5204,15 +3945,6 @@ export interface MitigationActionParams {
   publishFindingToSnsParams?: PublishFindingToSnsParams;
 }
 
-export namespace MitigationActionParams {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MitigationActionParams): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateMitigationActionRequest {
   /**
    * <p>A friendly name for the action. Choose a friendly name that accurately describes the action (for example, <code>EnableLoggingAction</code>).</p>
@@ -5235,15 +3967,6 @@ export interface CreateMitigationActionRequest {
   tags?: Tag[];
 }
 
-export namespace CreateMitigationActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMitigationActionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateMitigationActionResponse {
   /**
    * <p>The ARN for the new mitigation action.</p>
@@ -5254,15 +3977,6 @@ export interface CreateMitigationActionResponse {
    * <p>A unique identifier for the new mitigation action.</p>
    */
   actionId?: string;
-}
-
-export namespace CreateMitigationActionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMitigationActionResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum AwsJobAbortCriteriaAbortAction {
@@ -5303,15 +4017,6 @@ export interface AwsJobAbortCriteria {
   minNumberOfExecutedThings: number | undefined;
 }
 
-export namespace AwsJobAbortCriteria {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsJobAbortCriteria): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The criteria that determine when and how a job abort takes place.</p>
  */
@@ -5320,15 +4025,6 @@ export interface AwsJobAbortConfig {
    * <p>The list of criteria that determine when and how to abort the job.</p>
    */
   abortCriteriaList: AwsJobAbortCriteria[] | undefined;
-}
-
-export namespace AwsJobAbortConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsJobAbortConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5346,15 +4042,6 @@ export interface AwsJobRateIncreaseCriteria {
    *             increase in the rollout rate.</p>
    */
   numberOfSucceededThings?: number;
-}
-
-export namespace AwsJobRateIncreaseCriteria {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsJobRateIncreaseCriteria): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5381,15 +4068,6 @@ export interface AwsJobExponentialRolloutRate {
   rateIncreaseCriteria: AwsJobRateIncreaseCriteria | undefined;
 }
 
-export namespace AwsJobExponentialRolloutRate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsJobExponentialRolloutRate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration for the rollout of OTA updates.</p>
  */
@@ -5406,15 +4084,6 @@ export interface AwsJobExecutionsRolloutConfig {
   exponentialRate?: AwsJobExponentialRolloutRate;
 }
 
-export namespace AwsJobExecutionsRolloutConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsJobExecutionsRolloutConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration information for pre-signed URLs. Valid when <code>protocols</code>
  *            contains HTTP.</p>
@@ -5425,15 +4094,6 @@ export interface AwsJobPresignedUrlConfig {
    *             seconds. Pre-signed URLs are generated when a request for the job document is received.</p>
    */
   expiresInSec?: number;
-}
-
-export namespace AwsJobPresignedUrlConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsJobPresignedUrlConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5453,15 +4113,6 @@ export interface AwsJobTimeoutConfig {
   inProgressTimeoutInMinutes?: number;
 }
 
-export namespace AwsJobTimeoutConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsJobTimeoutConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the certificate chain being used when code signing a file.</p>
  */
@@ -5477,15 +4128,6 @@ export interface CodeSigningCertificateChain {
   inlineDocument?: string;
 }
 
-export namespace CodeSigningCertificateChain {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeSigningCertificateChain): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the signature for a file.</p>
  */
@@ -5494,15 +4136,6 @@ export interface CodeSigningSignature {
    * <p>A base64 encoded binary representation of the code signing signature.</p>
    */
   inlineDocument?: Uint8Array;
-}
-
-export namespace CodeSigningSignature {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeSigningSignature): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5530,15 +4163,6 @@ export interface CustomCodeSigning {
   signatureAlgorithm?: string;
 }
 
-export namespace CustomCodeSigning {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomCodeSigning): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the location of updated firmware in S3.</p>
  */
@@ -5554,15 +4178,6 @@ export interface S3Destination {
   prefix?: string;
 }
 
-export namespace S3Destination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Destination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the location of the updated firmware.</p>
  */
@@ -5571,15 +4186,6 @@ export interface Destination {
    * <p>Describes the location in S3 of the updated firmware.</p>
    */
   s3Destination?: S3Destination;
-}
-
-export namespace Destination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Destination): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5602,15 +4208,6 @@ export interface SigningProfileParameter {
   certificatePathOnDevice?: string;
 }
 
-export namespace SigningProfileParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SigningProfileParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information required to start a signing job.</p>
  */
@@ -5629,15 +4226,6 @@ export interface StartSigningJobParameter {
    * <p>The location to write the code-signed file.</p>
    */
   destination?: Destination;
-}
-
-export namespace StartSigningJobParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSigningJobParameter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5660,15 +4248,6 @@ export interface CodeSigning {
   customCodeSigning?: CustomCodeSigning;
 }
 
-export namespace CodeSigning {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeSigning): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The S3 location.</p>
  */
@@ -5689,15 +4268,6 @@ export interface S3Location {
   version?: string;
 }
 
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a group of files that can be streamed.</p>
  */
@@ -5713,15 +4283,6 @@ export interface _Stream {
   fileId?: number;
 }
 
-export namespace _Stream {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Stream): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The location of the OTA update.</p>
  */
@@ -5735,15 +4296,6 @@ export interface FileLocation {
    * <p>The location of the updated firmware in S3.</p>
    */
   s3Location?: S3Location;
-}
-
-export namespace FileLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileLocation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5780,15 +4332,6 @@ export interface OTAUpdateFile {
    * <p>A list of name/attribute pairs.</p>
    */
   attributes?: Record<string, string>;
-}
-
-export namespace OTAUpdateFile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OTAUpdateFile): any => ({
-    ...obj,
-  });
 }
 
 export enum Protocol {
@@ -5872,15 +4415,6 @@ export interface CreateOTAUpdateRequest {
   tags?: Tag[];
 }
 
-export namespace CreateOTAUpdateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOTAUpdateRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum OTAUpdateStatus {
   CREATE_COMPLETE = "CREATE_COMPLETE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -5915,15 +4449,6 @@ export interface CreateOTAUpdateResponse {
   otaUpdateStatus?: OTAUpdateStatus | string;
 }
 
-export namespace CreateOTAUpdateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOTAUpdateResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the CreatePolicy operation.</p>
  */
@@ -5952,15 +4477,6 @@ export interface CreatePolicyRequest {
   tags?: Tag[];
 }
 
-export namespace CreatePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output from the CreatePolicy operation.</p>
  */
@@ -5984,15 +4500,6 @@ export interface CreatePolicyResponse {
    * <p>The policy version ID.</p>
    */
   policyVersionId?: string;
-}
-
-export namespace CreatePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6037,15 +4544,6 @@ export interface CreatePolicyVersionRequest {
   setAsDefault?: boolean;
 }
 
-export namespace CreatePolicyVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePolicyVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output of the CreatePolicyVersion operation.</p>
  */
@@ -6069,15 +4567,6 @@ export interface CreatePolicyVersionResponse {
    * <p>Specifies whether the policy version is the default.</p>
    */
   isDefaultVersion?: boolean;
-}
-
-export namespace CreatePolicyVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePolicyVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6106,15 +4595,6 @@ export interface CreateProvisioningClaimRequest {
   templateName: string | undefined;
 }
 
-export namespace CreateProvisioningClaimRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProvisioningClaimRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProvisioningClaimResponse {
   /**
    * <p>The ID of the certificate.</p>
@@ -6137,16 +4617,6 @@ export interface CreateProvisioningClaimResponse {
   expiration?: Date;
 }
 
-export namespace CreateProvisioningClaimResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProvisioningClaimResponse): any => ({
-    ...obj,
-    ...(obj.keyPair && { keyPair: KeyPair.filterSensitiveLog(obj.keyPair) }),
-  });
-}
-
 /**
  * <p>Structure that contains <code>payloadVersion</code> and
  *          <code>targetArn</code>.</p>
@@ -6165,15 +4635,6 @@ export interface ProvisioningHook {
    *             <i>Note:</i> Only Lambda functions are currently supported.</p>
    */
   targetArn: string | undefined;
-}
-
-export namespace ProvisioningHook {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisioningHook): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProvisioningTemplateRequest {
@@ -6221,15 +4682,6 @@ export interface CreateProvisioningTemplateRequest {
   tags?: Tag[];
 }
 
-export namespace CreateProvisioningTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProvisioningTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProvisioningTemplateResponse {
   /**
    * <p>The ARN that identifies the provisioning template.</p>
@@ -6247,15 +4699,6 @@ export interface CreateProvisioningTemplateResponse {
   defaultVersionId?: number;
 }
 
-export namespace CreateProvisioningTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProvisioningTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProvisioningTemplateVersionRequest {
   /**
    * <p>The name of the fleet provisioning template.</p>
@@ -6271,15 +4714,6 @@ export interface CreateProvisioningTemplateVersionRequest {
    * <p>Sets a fleet provision template version as the default version.</p>
    */
   setAsDefault?: boolean;
-}
-
-export namespace CreateProvisioningTemplateVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProvisioningTemplateVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProvisioningTemplateVersionResponse {
@@ -6303,15 +4737,6 @@ export interface CreateProvisioningTemplateVersionResponse {
    *          false.</p>
    */
   isDefaultVersion?: boolean;
-}
-
-export namespace CreateProvisioningTemplateVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProvisioningTemplateVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRoleAliasRequest {
@@ -6346,15 +4771,6 @@ export interface CreateRoleAliasRequest {
   tags?: Tag[];
 }
 
-export namespace CreateRoleAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRoleAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRoleAliasResponse {
   /**
    * <p>The role alias.</p>
@@ -6365,15 +4781,6 @@ export interface CreateRoleAliasResponse {
    * <p>The role alias ARN.</p>
    */
   roleAliasArn?: string;
-}
-
-export namespace CreateRoleAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRoleAliasResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum DayOfWeek {
@@ -6437,29 +4844,11 @@ export interface CreateScheduledAuditRequest {
   tags?: Tag[];
 }
 
-export namespace CreateScheduledAuditRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateScheduledAuditRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateScheduledAuditResponse {
   /**
    * <p>The ARN of the scheduled audit.</p>
    */
   scheduledAuditArn?: string;
-}
-
-export namespace CreateScheduledAuditResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateScheduledAuditResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSecurityProfileRequest {
@@ -6507,15 +4896,6 @@ export interface CreateSecurityProfileRequest {
   tags?: Tag[];
 }
 
-export namespace CreateSecurityProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSecurityProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSecurityProfileResponse {
   /**
    * <p>The name you gave to the security profile.</p>
@@ -6526,15 +4906,6 @@ export interface CreateSecurityProfileResponse {
    * <p>The ARN of the security profile.</p>
    */
   securityProfileArn?: string;
-}
-
-export namespace CreateSecurityProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSecurityProfileResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6550,15 +4921,6 @@ export interface StreamFile {
    * <p>The location of the file in S3.</p>
    */
   s3Location?: S3Location;
-}
-
-export namespace StreamFile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamFile): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateStreamRequest {
@@ -6588,15 +4950,6 @@ export interface CreateStreamRequest {
   tags?: Tag[];
 }
 
-export namespace CreateStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateStreamResponse {
   /**
    * <p>The stream ID.</p>
@@ -6617,15 +4970,6 @@ export interface CreateStreamResponse {
    * <p>The version of the stream.</p>
    */
   streamVersion?: number;
-}
-
-export namespace CreateStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6659,15 +5003,6 @@ export interface CreateThingRequest {
   billingGroupName?: string;
 }
 
-export namespace CreateThingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateThingRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output of the CreateThing operation.</p>
  */
@@ -6686,15 +5021,6 @@ export interface CreateThingResponse {
    * <p>The thing ID.</p>
    */
   thingId?: string;
-}
-
-export namespace CreateThingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateThingResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateThingGroupRequest {
@@ -6719,15 +5045,6 @@ export interface CreateThingGroupRequest {
   tags?: Tag[];
 }
 
-export namespace CreateThingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateThingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateThingGroupResponse {
   /**
    * <p>The thing group name.</p>
@@ -6745,15 +5062,6 @@ export interface CreateThingGroupResponse {
   thingGroupId?: string;
 }
 
-export namespace CreateThingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateThingGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The ThingTypeProperties contains information about the thing type including: a thing type description,
  * 			and a list of searchable thing attribute names.</p>
@@ -6768,15 +5076,6 @@ export interface ThingTypeProperties {
    * <p>A list of searchable thing attribute names.</p>
    */
   searchableAttributes?: string[];
-}
-
-export namespace ThingTypeProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThingTypeProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6801,15 +5100,6 @@ export interface CreateThingTypeRequest {
   tags?: Tag[];
 }
 
-export namespace CreateThingTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateThingTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output of the CreateThingType operation.</p>
  */
@@ -6828,15 +5118,6 @@ export interface CreateThingTypeResponse {
    * <p>The thing type ID.</p>
    */
   thingTypeId?: string;
-}
-
-export namespace CreateThingTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateThingTypeResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6875,15 +5156,6 @@ export interface TopicRulePayload {
   errorAction?: Action;
 }
 
-export namespace TopicRulePayload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TopicRulePayload): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the CreateTopicRule operation.</p>
  */
@@ -6909,15 +5181,6 @@ export interface CreateTopicRuleRequest {
    *          </note>
    */
   tags?: string;
-}
-
-export namespace CreateTopicRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTopicRuleRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6950,15 +5213,6 @@ export interface HttpUrlDestinationConfiguration {
   confirmationUrl: string | undefined;
 }
 
-export namespace HttpUrlDestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpUrlDestinationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration information for a virtual private cloud (VPC) destination.</p>
  */
@@ -6984,15 +5238,6 @@ export interface VpcDestinationConfiguration {
   roleArn: string | undefined;
 }
 
-export namespace VpcDestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcDestinationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration of the topic rule destination.</p>
  */
@@ -7008,29 +5253,11 @@ export interface TopicRuleDestinationConfiguration {
   vpcConfiguration?: VpcDestinationConfiguration;
 }
 
-export namespace TopicRuleDestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TopicRuleDestinationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTopicRuleDestinationRequest {
   /**
    * <p>The topic rule destination configuration.</p>
    */
   destinationConfiguration: TopicRuleDestinationConfiguration | undefined;
-}
-
-export namespace CreateTopicRuleDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTopicRuleDestinationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7041,15 +5268,6 @@ export interface HttpUrlDestinationProperties {
    * <p>The URL used to confirm the HTTP topic rule destination URL.</p>
    */
   confirmationUrl?: string;
-}
-
-export namespace HttpUrlDestinationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpUrlDestinationProperties): any => ({
-    ...obj,
-  });
 }
 
 export enum TopicRuleDestinationStatus {
@@ -7083,15 +5301,6 @@ export interface VpcDestinationProperties {
    * <p>The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).</p>
    */
   roleArn?: string;
-}
-
-export namespace VpcDestinationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcDestinationProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7166,29 +5375,11 @@ export interface TopicRuleDestination {
   vpcProperties?: VpcDestinationProperties;
 }
 
-export namespace TopicRuleDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TopicRuleDestination): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTopicRuleDestinationResponse {
   /**
    * <p>The topic rule destination.</p>
    */
   topicRuleDestination?: TopicRuleDestination;
-}
-
-export namespace CreateTopicRuleDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTopicRuleDestinationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAccountAuditConfigurationRequest {
@@ -7198,25 +5389,7 @@ export interface DeleteAccountAuditConfigurationRequest {
   deleteScheduledAudits?: boolean;
 }
 
-export namespace DeleteAccountAuditConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccountAuditConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAccountAuditConfigurationResponse {}
-
-export namespace DeleteAccountAuditConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccountAuditConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteAuditSuppressionRequest {
   /**
@@ -7233,25 +5406,7 @@ export interface DeleteAuditSuppressionRequest {
   resourceIdentifier: ResourceIdentifier | undefined;
 }
 
-export namespace DeleteAuditSuppressionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAuditSuppressionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAuditSuppressionResponse {}
-
-export namespace DeleteAuditSuppressionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAuditSuppressionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteAuthorizerRequest {
   /**
@@ -7260,25 +5415,7 @@ export interface DeleteAuthorizerRequest {
   authorizerName: string | undefined;
 }
 
-export namespace DeleteAuthorizerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAuthorizerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAuthorizerResponse {}
-
-export namespace DeleteAuthorizerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAuthorizerResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>You can't delete the resource because it is attached to one or more
@@ -7315,25 +5452,7 @@ export interface DeleteBillingGroupRequest {
   expectedVersion?: number;
 }
 
-export namespace DeleteBillingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBillingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBillingGroupResponse {}
-
-export namespace DeleteBillingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBillingGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The certificate operation is not allowed.</p>
@@ -7365,28 +5484,10 @@ export interface DeleteCACertificateRequest {
   certificateId: string | undefined;
 }
 
-export namespace DeleteCACertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCACertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for the DeleteCACertificate operation.</p>
  */
 export interface DeleteCACertificateResponse {}
-
-export namespace DeleteCACertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCACertificateResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The input for the DeleteCertificate operation.</p>
@@ -7405,15 +5506,6 @@ export interface DeleteCertificateRequest {
   forceDelete?: boolean;
 }
 
-export namespace DeleteCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCustomMetricRequest {
   /**
    * <p>
@@ -7423,25 +5515,7 @@ export interface DeleteCustomMetricRequest {
   metricName: string | undefined;
 }
 
-export namespace DeleteCustomMetricRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomMetricRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCustomMetricResponse {}
-
-export namespace DeleteCustomMetricResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomMetricResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteDimensionRequest {
   /**
@@ -7450,25 +5524,7 @@ export interface DeleteDimensionRequest {
   name: string | undefined;
 }
 
-export namespace DeleteDimensionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDimensionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDimensionResponse {}
-
-export namespace DeleteDimensionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDimensionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteDomainConfigurationRequest {
   /**
@@ -7477,25 +5533,7 @@ export interface DeleteDomainConfigurationRequest {
   domainConfigurationName: string | undefined;
 }
 
-export namespace DeleteDomainConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDomainConfigurationResponse {}
-
-export namespace DeleteDomainConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteDynamicThingGroupRequest {
   /**
@@ -7509,25 +5547,7 @@ export interface DeleteDynamicThingGroupRequest {
   expectedVersion?: number;
 }
 
-export namespace DeleteDynamicThingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDynamicThingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDynamicThingGroupResponse {}
-
-export namespace DeleteDynamicThingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDynamicThingGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteFleetMetricRequest {
   /**
@@ -7539,15 +5559,6 @@ export interface DeleteFleetMetricRequest {
    * <p>The expected version of the fleet metric to delete.</p>
    */
   expectedVersion?: number;
-}
-
-export namespace DeleteFleetMetricRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFleetMetricRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteJobRequest {
@@ -7584,15 +5595,6 @@ export interface DeleteJobRequest {
    *          </note>
    */
   namespaceId?: string;
-}
-
-export namespace DeleteJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteJobExecutionRequest {
@@ -7640,29 +5642,11 @@ export interface DeleteJobExecutionRequest {
   namespaceId?: string;
 }
 
-export namespace DeleteJobExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteJobExecutionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteJobTemplateRequest {
   /**
    * <p>The unique identifier of the job template to delete.</p>
    */
   jobTemplateId: string | undefined;
-}
-
-export namespace DeleteJobTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteJobTemplateRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteMitigationActionRequest {
@@ -7672,25 +5656,7 @@ export interface DeleteMitigationActionRequest {
   actionName: string | undefined;
 }
 
-export namespace DeleteMitigationActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMitigationActionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteMitigationActionResponse {}
-
-export namespace DeleteMitigationActionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMitigationActionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteOTAUpdateRequest {
   /**
@@ -7711,25 +5677,7 @@ export interface DeleteOTAUpdateRequest {
   forceDeleteAWSJob?: boolean;
 }
 
-export namespace DeleteOTAUpdateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOTAUpdateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteOTAUpdateResponse {}
-
-export namespace DeleteOTAUpdateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOTAUpdateResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The input for the DeletePolicy operation.</p>
@@ -7739,15 +5687,6 @@ export interface DeletePolicyRequest {
    * <p>The name of the policy to delete.</p>
    */
   policyName: string | undefined;
-}
-
-export namespace DeletePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7765,15 +5704,6 @@ export interface DeletePolicyVersionRequest {
   policyVersionId: string | undefined;
 }
 
-export namespace DeletePolicyVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePolicyVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProvisioningTemplateRequest {
   /**
    * <p>The name of the fleet provision template to delete.</p>
@@ -7781,25 +5711,7 @@ export interface DeleteProvisioningTemplateRequest {
   templateName: string | undefined;
 }
 
-export namespace DeleteProvisioningTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProvisioningTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProvisioningTemplateResponse {}
-
-export namespace DeleteProvisioningTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProvisioningTemplateResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteProvisioningTemplateVersionRequest {
   /**
@@ -7813,53 +5725,17 @@ export interface DeleteProvisioningTemplateVersionRequest {
   versionId: number | undefined;
 }
 
-export namespace DeleteProvisioningTemplateVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProvisioningTemplateVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProvisioningTemplateVersionResponse {}
-
-export namespace DeleteProvisioningTemplateVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProvisioningTemplateVersionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The input for the DeleteRegistrationCode operation.</p>
  */
 export interface DeleteRegistrationCodeRequest {}
 
-export namespace DeleteRegistrationCodeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRegistrationCodeRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for the DeleteRegistrationCode operation.</p>
  */
 export interface DeleteRegistrationCodeResponse {}
-
-export namespace DeleteRegistrationCodeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRegistrationCodeResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteRoleAliasRequest {
   /**
@@ -7868,22 +5744,1698 @@ export interface DeleteRoleAliasRequest {
   roleAlias: string | undefined;
 }
 
-export namespace DeleteRoleAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRoleAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRoleAliasResponse {}
 
-export namespace DeleteRoleAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRoleAliasResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AbortCriteriaFilterSensitiveLog = (obj: AbortCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AbortConfigFilterSensitiveLog = (obj: AbortConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptCertificateTransferRequestFilterSensitiveLog = (obj: AcceptCertificateTransferRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudwatchAlarmActionFilterSensitiveLog = (obj: CloudwatchAlarmAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudwatchLogsActionFilterSensitiveLog = (obj: CloudwatchLogsAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudwatchMetricActionFilterSensitiveLog = (obj: CloudwatchMetricAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DynamoDBActionFilterSensitiveLog = (obj: DynamoDBAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutItemInputFilterSensitiveLog = (obj: PutItemInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DynamoDBv2ActionFilterSensitiveLog = (obj: DynamoDBv2Action): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ElasticsearchActionFilterSensitiveLog = (obj: ElasticsearchAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirehoseActionFilterSensitiveLog = (obj: FirehoseAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SigV4AuthorizationFilterSensitiveLog = (obj: SigV4Authorization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpAuthorizationFilterSensitiveLog = (obj: HttpAuthorization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpActionHeaderFilterSensitiveLog = (obj: HttpActionHeader): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpActionFilterSensitiveLog = (obj: HttpAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IotAnalyticsActionFilterSensitiveLog = (obj: IotAnalyticsAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IotEventsActionFilterSensitiveLog = (obj: IotEventsAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssetPropertyTimestampFilterSensitiveLog = (obj: AssetPropertyTimestamp): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssetPropertyVariantFilterSensitiveLog = (obj: AssetPropertyVariant): any => {
+  if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
+  if (obj.integerValue !== undefined) return { integerValue: obj.integerValue };
+  if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
+  if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const AssetPropertyValueFilterSensitiveLog = (obj: AssetPropertyValue): any => ({
+  ...obj,
+  ...(obj.value && { value: AssetPropertyVariantFilterSensitiveLog(obj.value) }),
+});
+
+/**
+ * @internal
+ */
+export const PutAssetPropertyValueEntryFilterSensitiveLog = (obj: PutAssetPropertyValueEntry): any => ({
+  ...obj,
+  ...(obj.propertyValues && {
+    propertyValues: obj.propertyValues.map((item) => AssetPropertyValueFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const IotSiteWiseActionFilterSensitiveLog = (obj: IotSiteWiseAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KafkaActionFilterSensitiveLog = (obj: KafkaAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisActionFilterSensitiveLog = (obj: KinesisAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaActionFilterSensitiveLog = (obj: LambdaAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpenSearchActionFilterSensitiveLog = (obj: OpenSearchAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepublishActionFilterSensitiveLog = (obj: RepublishAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ActionFilterSensitiveLog = (obj: S3Action): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SalesforceActionFilterSensitiveLog = (obj: SalesforceAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnsActionFilterSensitiveLog = (obj: SnsAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SqsActionFilterSensitiveLog = (obj: SqsAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StepFunctionsActionFilterSensitiveLog = (obj: StepFunctionsAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimestreamDimensionFilterSensitiveLog = (obj: TimestreamDimension): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimestreamTimestampFilterSensitiveLog = (obj: TimestreamTimestamp): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimestreamActionFilterSensitiveLog = (obj: TimestreamAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionFilterSensitiveLog = (obj: Action): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MachineLearningDetectionConfigFilterSensitiveLog = (obj: MachineLearningDetectionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatisticalThresholdFilterSensitiveLog = (obj: StatisticalThreshold): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricValueFilterSensitiveLog = (obj: MetricValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BehaviorCriteriaFilterSensitiveLog = (obj: BehaviorCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricDimensionFilterSensitiveLog = (obj: MetricDimension): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BehaviorFilterSensitiveLog = (obj: Behavior): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ViolationEventAdditionalInfoFilterSensitiveLog = (obj: ViolationEventAdditionalInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActiveViolationFilterSensitiveLog = (obj: ActiveViolation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricToRetainFilterSensitiveLog = (obj: MetricToRetain): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddThingsToThingGroupParamsFilterSensitiveLog = (obj: AddThingsToThingGroupParams): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddThingToBillingGroupRequestFilterSensitiveLog = (obj: AddThingToBillingGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddThingToBillingGroupResponseFilterSensitiveLog = (obj: AddThingToBillingGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddThingToThingGroupRequestFilterSensitiveLog = (obj: AddThingToThingGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddThingToThingGroupResponseFilterSensitiveLog = (obj: AddThingToThingGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregationTypeFilterSensitiveLog = (obj: AggregationType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlertTargetFilterSensitiveLog = (obj: AlertTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyFilterSensitiveLog = (obj: Policy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllowedFilterSensitiveLog = (obj: Allowed): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateTargetsWithJobRequestFilterSensitiveLog = (obj: AssociateTargetsWithJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateTargetsWithJobResponseFilterSensitiveLog = (obj: AssociateTargetsWithJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachPolicyRequestFilterSensitiveLog = (obj: AttachPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachPrincipalPolicyRequestFilterSensitiveLog = (obj: AttachPrincipalPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachSecurityProfileRequestFilterSensitiveLog = (obj: AttachSecurityProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachSecurityProfileResponseFilterSensitiveLog = (obj: AttachSecurityProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachThingPrincipalRequestFilterSensitiveLog = (obj: AttachThingPrincipalRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachThingPrincipalResponseFilterSensitiveLog = (obj: AttachThingPrincipalResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributePayloadFilterSensitiveLog = (obj: AttributePayload): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuditCheckConfigurationFilterSensitiveLog = (obj: AuditCheckConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuditCheckDetailsFilterSensitiveLog = (obj: AuditCheckDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyVersionIdentifierFilterSensitiveLog = (obj: PolicyVersionIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceIdentifierFilterSensitiveLog = (obj: ResourceIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NonCompliantResourceFilterSensitiveLog = (obj: NonCompliantResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelatedResourceFilterSensitiveLog = (obj: RelatedResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuditFindingFilterSensitiveLog = (obj: AuditFinding): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuditMitigationActionExecutionMetadataFilterSensitiveLog = (
+  obj: AuditMitigationActionExecutionMetadata
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuditMitigationActionsTaskMetadataFilterSensitiveLog = (obj: AuditMitigationActionsTaskMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskStatisticsForAuditCheckFilterSensitiveLog = (obj: TaskStatisticsForAuditCheck): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuditMitigationActionsTaskTargetFilterSensitiveLog = (obj: AuditMitigationActionsTaskTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuditNotificationTargetFilterSensitiveLog = (obj: AuditNotificationTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuditSuppressionFilterSensitiveLog = (obj: AuditSuppression): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuditTaskMetadataFilterSensitiveLog = (obj: AuditTaskMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthInfoFilterSensitiveLog = (obj: AuthInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthorizerConfigFilterSensitiveLog = (obj: AuthorizerConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthorizerDescriptionFilterSensitiveLog = (obj: AuthorizerDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthorizerSummaryFilterSensitiveLog = (obj: AuthorizerSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExplicitDenyFilterSensitiveLog = (obj: ExplicitDeny): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImplicitDenyFilterSensitiveLog = (obj: ImplicitDeny): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeniedFilterSensitiveLog = (obj: Denied): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthResultFilterSensitiveLog = (obj: AuthResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelAuditMitigationActionsTaskRequestFilterSensitiveLog = (
+  obj: CancelAuditMitigationActionsTaskRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelAuditMitigationActionsTaskResponseFilterSensitiveLog = (
+  obj: CancelAuditMitigationActionsTaskResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelAuditTaskRequestFilterSensitiveLog = (obj: CancelAuditTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelAuditTaskResponseFilterSensitiveLog = (obj: CancelAuditTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelCertificateTransferRequestFilterSensitiveLog = (obj: CancelCertificateTransferRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelDetectMitigationActionsTaskRequestFilterSensitiveLog = (
+  obj: CancelDetectMitigationActionsTaskRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelDetectMitigationActionsTaskResponseFilterSensitiveLog = (
+  obj: CancelDetectMitigationActionsTaskResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelJobRequestFilterSensitiveLog = (obj: CancelJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelJobResponseFilterSensitiveLog = (obj: CancelJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelJobExecutionRequestFilterSensitiveLog = (obj: CancelJobExecutionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClearDefaultAuthorizerRequestFilterSensitiveLog = (obj: ClearDefaultAuthorizerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClearDefaultAuthorizerResponseFilterSensitiveLog = (obj: ClearDefaultAuthorizerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmTopicRuleDestinationRequestFilterSensitiveLog = (obj: ConfirmTopicRuleDestinationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmTopicRuleDestinationResponseFilterSensitiveLog = (
+  obj: ConfirmTopicRuleDestinationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAuditSuppressionRequestFilterSensitiveLog = (obj: CreateAuditSuppressionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAuditSuppressionResponseFilterSensitiveLog = (obj: CreateAuditSuppressionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAuthorizerRequestFilterSensitiveLog = (obj: CreateAuthorizerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAuthorizerResponseFilterSensitiveLog = (obj: CreateAuthorizerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BillingGroupPropertiesFilterSensitiveLog = (obj: BillingGroupProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBillingGroupRequestFilterSensitiveLog = (obj: CreateBillingGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBillingGroupResponseFilterSensitiveLog = (obj: CreateBillingGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCertificateFromCsrRequestFilterSensitiveLog = (obj: CreateCertificateFromCsrRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCertificateFromCsrResponseFilterSensitiveLog = (obj: CreateCertificateFromCsrResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomMetricRequestFilterSensitiveLog = (obj: CreateCustomMetricRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomMetricResponseFilterSensitiveLog = (obj: CreateCustomMetricResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDimensionRequestFilterSensitiveLog = (obj: CreateDimensionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDimensionResponseFilterSensitiveLog = (obj: CreateDimensionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainConfigurationRequestFilterSensitiveLog = (obj: CreateDomainConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainConfigurationResponseFilterSensitiveLog = (obj: CreateDomainConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThingGroupPropertiesFilterSensitiveLog = (obj: ThingGroupProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDynamicThingGroupRequestFilterSensitiveLog = (obj: CreateDynamicThingGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDynamicThingGroupResponseFilterSensitiveLog = (obj: CreateDynamicThingGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFleetMetricRequestFilterSensitiveLog = (obj: CreateFleetMetricRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFleetMetricResponseFilterSensitiveLog = (obj: CreateFleetMetricResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetryCriteriaFilterSensitiveLog = (obj: RetryCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobExecutionsRetryConfigFilterSensitiveLog = (obj: JobExecutionsRetryConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RateIncreaseCriteriaFilterSensitiveLog = (obj: RateIncreaseCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExponentialRolloutRateFilterSensitiveLog = (obj: ExponentialRolloutRate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobExecutionsRolloutConfigFilterSensitiveLog = (obj: JobExecutionsRolloutConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PresignedUrlConfigFilterSensitiveLog = (obj: PresignedUrlConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeoutConfigFilterSensitiveLog = (obj: TimeoutConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobResponseFilterSensitiveLog = (obj: CreateJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobTemplateRequestFilterSensitiveLog = (obj: CreateJobTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobTemplateResponseFilterSensitiveLog = (obj: CreateJobTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateKeysAndCertificateRequestFilterSensitiveLog = (obj: CreateKeysAndCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeyPairFilterSensitiveLog = (obj: KeyPair): any => ({
+  ...obj,
+  ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateKeysAndCertificateResponseFilterSensitiveLog = (obj: CreateKeysAndCertificateResponse): any => ({
+  ...obj,
+  ...(obj.keyPair && { keyPair: KeyPairFilterSensitiveLog(obj.keyPair) }),
+});
+
+/**
+ * @internal
+ */
+export const EnableIoTLoggingParamsFilterSensitiveLog = (obj: EnableIoTLoggingParams): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishFindingToSnsParamsFilterSensitiveLog = (obj: PublishFindingToSnsParams): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplaceDefaultPolicyVersionParamsFilterSensitiveLog = (obj: ReplaceDefaultPolicyVersionParams): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCACertificateParamsFilterSensitiveLog = (obj: UpdateCACertificateParams): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeviceCertificateParamsFilterSensitiveLog = (obj: UpdateDeviceCertificateParams): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MitigationActionParamsFilterSensitiveLog = (obj: MitigationActionParams): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMitigationActionRequestFilterSensitiveLog = (obj: CreateMitigationActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMitigationActionResponseFilterSensitiveLog = (obj: CreateMitigationActionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsJobAbortCriteriaFilterSensitiveLog = (obj: AwsJobAbortCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsJobAbortConfigFilterSensitiveLog = (obj: AwsJobAbortConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsJobRateIncreaseCriteriaFilterSensitiveLog = (obj: AwsJobRateIncreaseCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsJobExponentialRolloutRateFilterSensitiveLog = (obj: AwsJobExponentialRolloutRate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsJobExecutionsRolloutConfigFilterSensitiveLog = (obj: AwsJobExecutionsRolloutConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsJobPresignedUrlConfigFilterSensitiveLog = (obj: AwsJobPresignedUrlConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsJobTimeoutConfigFilterSensitiveLog = (obj: AwsJobTimeoutConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeSigningCertificateChainFilterSensitiveLog = (obj: CodeSigningCertificateChain): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeSigningSignatureFilterSensitiveLog = (obj: CodeSigningSignature): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomCodeSigningFilterSensitiveLog = (obj: CustomCodeSigning): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationFilterSensitiveLog = (obj: S3Destination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationFilterSensitiveLog = (obj: Destination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SigningProfileParameterFilterSensitiveLog = (obj: SigningProfileParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSigningJobParameterFilterSensitiveLog = (obj: StartSigningJobParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeSigningFilterSensitiveLog = (obj: CodeSigning): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const _StreamFilterSensitiveLog = (obj: _Stream): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileLocationFilterSensitiveLog = (obj: FileLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OTAUpdateFileFilterSensitiveLog = (obj: OTAUpdateFile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOTAUpdateRequestFilterSensitiveLog = (obj: CreateOTAUpdateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOTAUpdateResponseFilterSensitiveLog = (obj: CreateOTAUpdateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePolicyRequestFilterSensitiveLog = (obj: CreatePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePolicyResponseFilterSensitiveLog = (obj: CreatePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePolicyVersionRequestFilterSensitiveLog = (obj: CreatePolicyVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePolicyVersionResponseFilterSensitiveLog = (obj: CreatePolicyVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProvisioningClaimRequestFilterSensitiveLog = (obj: CreateProvisioningClaimRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProvisioningClaimResponseFilterSensitiveLog = (obj: CreateProvisioningClaimResponse): any => ({
+  ...obj,
+  ...(obj.keyPair && { keyPair: KeyPairFilterSensitiveLog(obj.keyPair) }),
+});
+
+/**
+ * @internal
+ */
+export const ProvisioningHookFilterSensitiveLog = (obj: ProvisioningHook): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProvisioningTemplateRequestFilterSensitiveLog = (obj: CreateProvisioningTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProvisioningTemplateResponseFilterSensitiveLog = (obj: CreateProvisioningTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProvisioningTemplateVersionRequestFilterSensitiveLog = (
+  obj: CreateProvisioningTemplateVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProvisioningTemplateVersionResponseFilterSensitiveLog = (
+  obj: CreateProvisioningTemplateVersionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRoleAliasRequestFilterSensitiveLog = (obj: CreateRoleAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRoleAliasResponseFilterSensitiveLog = (obj: CreateRoleAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateScheduledAuditRequestFilterSensitiveLog = (obj: CreateScheduledAuditRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateScheduledAuditResponseFilterSensitiveLog = (obj: CreateScheduledAuditResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSecurityProfileRequestFilterSensitiveLog = (obj: CreateSecurityProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSecurityProfileResponseFilterSensitiveLog = (obj: CreateSecurityProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamFileFilterSensitiveLog = (obj: StreamFile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamRequestFilterSensitiveLog = (obj: CreateStreamRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamResponseFilterSensitiveLog = (obj: CreateStreamResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateThingRequestFilterSensitiveLog = (obj: CreateThingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateThingResponseFilterSensitiveLog = (obj: CreateThingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateThingGroupRequestFilterSensitiveLog = (obj: CreateThingGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateThingGroupResponseFilterSensitiveLog = (obj: CreateThingGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThingTypePropertiesFilterSensitiveLog = (obj: ThingTypeProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateThingTypeRequestFilterSensitiveLog = (obj: CreateThingTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateThingTypeResponseFilterSensitiveLog = (obj: CreateThingTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TopicRulePayloadFilterSensitiveLog = (obj: TopicRulePayload): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTopicRuleRequestFilterSensitiveLog = (obj: CreateTopicRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpUrlDestinationConfigurationFilterSensitiveLog = (obj: HttpUrlDestinationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcDestinationConfigurationFilterSensitiveLog = (obj: VpcDestinationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TopicRuleDestinationConfigurationFilterSensitiveLog = (obj: TopicRuleDestinationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTopicRuleDestinationRequestFilterSensitiveLog = (obj: CreateTopicRuleDestinationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpUrlDestinationPropertiesFilterSensitiveLog = (obj: HttpUrlDestinationProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcDestinationPropertiesFilterSensitiveLog = (obj: VpcDestinationProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TopicRuleDestinationFilterSensitiveLog = (obj: TopicRuleDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTopicRuleDestinationResponseFilterSensitiveLog = (obj: CreateTopicRuleDestinationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccountAuditConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteAccountAuditConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccountAuditConfigurationResponseFilterSensitiveLog = (
+  obj: DeleteAccountAuditConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAuditSuppressionRequestFilterSensitiveLog = (obj: DeleteAuditSuppressionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAuditSuppressionResponseFilterSensitiveLog = (obj: DeleteAuditSuppressionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAuthorizerRequestFilterSensitiveLog = (obj: DeleteAuthorizerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAuthorizerResponseFilterSensitiveLog = (obj: DeleteAuthorizerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBillingGroupRequestFilterSensitiveLog = (obj: DeleteBillingGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBillingGroupResponseFilterSensitiveLog = (obj: DeleteBillingGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCACertificateRequestFilterSensitiveLog = (obj: DeleteCACertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCACertificateResponseFilterSensitiveLog = (obj: DeleteCACertificateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCertificateRequestFilterSensitiveLog = (obj: DeleteCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomMetricRequestFilterSensitiveLog = (obj: DeleteCustomMetricRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomMetricResponseFilterSensitiveLog = (obj: DeleteCustomMetricResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDimensionRequestFilterSensitiveLog = (obj: DeleteDimensionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDimensionResponseFilterSensitiveLog = (obj: DeleteDimensionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainConfigurationRequestFilterSensitiveLog = (obj: DeleteDomainConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainConfigurationResponseFilterSensitiveLog = (obj: DeleteDomainConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDynamicThingGroupRequestFilterSensitiveLog = (obj: DeleteDynamicThingGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDynamicThingGroupResponseFilterSensitiveLog = (obj: DeleteDynamicThingGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFleetMetricRequestFilterSensitiveLog = (obj: DeleteFleetMetricRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteJobRequestFilterSensitiveLog = (obj: DeleteJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteJobExecutionRequestFilterSensitiveLog = (obj: DeleteJobExecutionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteJobTemplateRequestFilterSensitiveLog = (obj: DeleteJobTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMitigationActionRequestFilterSensitiveLog = (obj: DeleteMitigationActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMitigationActionResponseFilterSensitiveLog = (obj: DeleteMitigationActionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOTAUpdateRequestFilterSensitiveLog = (obj: DeleteOTAUpdateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOTAUpdateResponseFilterSensitiveLog = (obj: DeleteOTAUpdateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePolicyRequestFilterSensitiveLog = (obj: DeletePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePolicyVersionRequestFilterSensitiveLog = (obj: DeletePolicyVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProvisioningTemplateRequestFilterSensitiveLog = (obj: DeleteProvisioningTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProvisioningTemplateResponseFilterSensitiveLog = (obj: DeleteProvisioningTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProvisioningTemplateVersionRequestFilterSensitiveLog = (
+  obj: DeleteProvisioningTemplateVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProvisioningTemplateVersionResponseFilterSensitiveLog = (
+  obj: DeleteProvisioningTemplateVersionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRegistrationCodeRequestFilterSensitiveLog = (obj: DeleteRegistrationCodeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRegistrationCodeResponseFilterSensitiveLog = (obj: DeleteRegistrationCodeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRoleAliasRequestFilterSensitiveLog = (obj: DeleteRoleAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRoleAliasResponseFilterSensitiveLog = (obj: DeleteRoleAliasResponse): any => ({
+  ...obj,
+});

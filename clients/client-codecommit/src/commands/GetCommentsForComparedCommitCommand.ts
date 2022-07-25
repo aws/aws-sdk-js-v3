@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { GetCommentsForComparedCommitInput, GetCommentsForComparedCommitOutput } from "../models/models_0";
+import {
+  GetCommentsForComparedCommitInput,
+  GetCommentsForComparedCommitInputFilterSensitiveLog,
+  GetCommentsForComparedCommitOutput,
+  GetCommentsForComparedCommitOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetCommentsForComparedCommitCommand,
   serializeAws_json1_1GetCommentsForComparedCommitCommand,
@@ -78,8 +83,8 @@ export class GetCommentsForComparedCommitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCommentsForComparedCommitInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCommentsForComparedCommitOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCommentsForComparedCommitInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCommentsForComparedCommitOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

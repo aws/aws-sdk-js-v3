@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateSecretVersionStageRequest, UpdateSecretVersionStageResponse } from "../models/models_0";
+import {
+  UpdateSecretVersionStageRequest,
+  UpdateSecretVersionStageRequestFilterSensitiveLog,
+  UpdateSecretVersionStageResponse,
+  UpdateSecretVersionStageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSecretVersionStageCommand,
   serializeAws_json1_1UpdateSecretVersionStageCommand,
@@ -92,8 +97,8 @@ export class UpdateSecretVersionStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSecretVersionStageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSecretVersionStageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSecretVersionStageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSecretVersionStageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -8,15 +8,6 @@ import { QLDBSessionServiceException as __BaseException } from "./QLDBSessionSer
  */
 export interface AbortTransactionRequest {}
 
-export namespace AbortTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbortTransactionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains server-side performance information for a command. Amazon QLDB captures timing
  *          information between the times when it receives the request and when it sends the
@@ -30,15 +21,6 @@ export interface TimingInformation {
   ProcessingTimeMilliseconds?: number;
 }
 
-export namespace TimingInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimingInformation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the details of the aborted transaction.</p>
  */
@@ -47,15 +29,6 @@ export interface AbortTransactionResult {
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
-}
-
-export namespace AbortTransactionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbortTransactionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -124,15 +97,6 @@ export interface CommitTransactionRequest {
   CommitDigest: Uint8Array | undefined;
 }
 
-export namespace CommitTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitTransactionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains I/O usage metrics for a command that was invoked.</p>
  */
@@ -146,15 +110,6 @@ export interface IOUsage {
    * <p>The number of write I/O requests that the command made.</p>
    */
   WriteIOs?: number;
-}
-
-export namespace IOUsage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IOUsage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -182,28 +137,10 @@ export interface CommitTransactionResult {
   ConsumedIOs?: IOUsage;
 }
 
-export namespace CommitTransactionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitTransactionResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a request to end the session.</p>
  */
 export interface EndSessionRequest {}
-
-export namespace EndSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndSessionRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the details of the ended session.</p>
@@ -213,15 +150,6 @@ export interface EndSessionResult {
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
-}
-
-export namespace EndSessionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndSessionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -237,15 +165,6 @@ export interface ValueHolder {
    * <p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</p>
    */
   IonText?: string;
-}
-
-export namespace ValueHolder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValueHolder): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -268,15 +187,6 @@ export interface ExecuteStatementRequest {
   Parameters?: ValueHolder[];
 }
 
-export namespace ExecuteStatementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains details of the fetched page.</p>
  */
@@ -290,15 +200,6 @@ export interface Page {
    * <p>The token of the next page.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace Page {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Page): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -321,15 +222,6 @@ export interface ExecuteStatementResult {
   ConsumedIOs?: IOUsage;
 }
 
-export namespace ExecuteStatementResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteStatementResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the details of the page to be fetched.</p>
  */
@@ -343,15 +235,6 @@ export interface FetchPageRequest {
    * <p>Specifies the next page token of the page to be fetched.</p>
    */
   NextPageToken: string | undefined;
-}
-
-export namespace FetchPageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FetchPageRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -372,15 +255,6 @@ export interface FetchPageResult {
    * <p>Contains metrics about the number of I/O requests that were consumed.</p>
    */
   ConsumedIOs?: IOUsage;
-}
-
-export namespace FetchPageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FetchPageResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -480,28 +354,10 @@ export interface StartSessionRequest {
   LedgerName: string | undefined;
 }
 
-export namespace StartSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a request to start a transaction.</p>
  */
 export interface StartTransactionRequest {}
-
-export namespace StartTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTransactionRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface SendCommandRequest {
   /**
@@ -550,15 +406,6 @@ export interface SendCommandRequest {
   FetchPage?: FetchPageRequest;
 }
 
-export namespace SendCommandRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendCommandRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the details of the started session.</p>
  */
@@ -575,15 +422,6 @@ export interface StartSessionResult {
   TimingInformation?: TimingInformation;
 }
 
-export namespace StartSessionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSessionResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the details of the started transaction.</p>
  */
@@ -597,15 +435,6 @@ export interface StartTransactionResult {
    * <p>Contains server-side performance information for the command.</p>
    */
   TimingInformation?: TimingInformation;
-}
-
-export namespace StartTransactionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTransactionResult): any => ({
-    ...obj,
-  });
 }
 
 export interface SendCommandResult {
@@ -647,11 +476,142 @@ export interface SendCommandResult {
   FetchPage?: FetchPageResult;
 }
 
-export namespace SendCommandResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendCommandResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AbortTransactionRequestFilterSensitiveLog = (obj: AbortTransactionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimingInformationFilterSensitiveLog = (obj: TimingInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AbortTransactionResultFilterSensitiveLog = (obj: AbortTransactionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommitTransactionRequestFilterSensitiveLog = (obj: CommitTransactionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IOUsageFilterSensitiveLog = (obj: IOUsage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommitTransactionResultFilterSensitiveLog = (obj: CommitTransactionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndSessionRequestFilterSensitiveLog = (obj: EndSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndSessionResultFilterSensitiveLog = (obj: EndSessionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValueHolderFilterSensitiveLog = (obj: ValueHolder): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecuteStatementRequestFilterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PageFilterSensitiveLog = (obj: Page): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecuteStatementResultFilterSensitiveLog = (obj: ExecuteStatementResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FetchPageRequestFilterSensitiveLog = (obj: FetchPageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FetchPageResultFilterSensitiveLog = (obj: FetchPageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSessionRequestFilterSensitiveLog = (obj: StartSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTransactionRequestFilterSensitiveLog = (obj: StartTransactionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendCommandRequestFilterSensitiveLog = (obj: SendCommandRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSessionResultFilterSensitiveLog = (obj: StartSessionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTransactionResultFilterSensitiveLog = (obj: StartTransactionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendCommandResultFilterSensitiveLog = (obj: SendCommandResult): any => ({
+  ...obj,
+});

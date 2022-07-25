@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import { CreateMetricSetRequest, CreateMetricSetResponse } from "../models/models_0";
+import {
+  CreateMetricSetRequest,
+  CreateMetricSetRequestFilterSensitiveLog,
+  CreateMetricSetResponse,
+  CreateMetricSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateMetricSetCommand,
   serializeAws_restJson1CreateMetricSetCommand,
@@ -72,8 +77,8 @@ export class CreateMetricSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMetricSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateMetricSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateMetricSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateMetricSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -24,15 +24,6 @@ export interface AllowedRenditionSize {
   Width?: number;
 }
 
-export namespace AllowedRenditionSize {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllowedRenditionSize): any => ({
-    ...obj,
-  });
-}
-
 export enum AudioChannelTag {
   C = "C",
   CS = "CS",
@@ -59,15 +50,6 @@ export interface AudioChannelTaggingSettings {
    * You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout.  For example, if this track is the left surround channel, choose Left surround (LS).
    */
   ChannelTag?: AudioChannelTag | string;
-}
-
-export namespace AudioChannelTaggingSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioChannelTaggingSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum AudioNormalizationAlgorithm {
@@ -125,15 +107,6 @@ export interface AudioNormalizationSettings {
    * When you use Audio normalization (AudioNormalizationSettings), optionally use this setting to specify a target loudness. If you don't specify a value here, the encoder chooses a value for you, based on the algorithm that you choose for Algorithm (algorithm). If you choose algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the encoder will choose -23 LKFS.
    */
   TargetLkfs?: number;
-}
-
-export namespace AudioNormalizationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioNormalizationSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum AudioTypeControl {
@@ -230,15 +203,6 @@ export interface AacSettings {
    * VBR Quality Level - Only used if rate_control_mode is VBR.
    */
   VbrQuality?: AacVbrQuality | string;
-}
-
-export namespace AacSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AacSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum Ac3BitstreamMode {
@@ -347,15 +311,6 @@ export interface Ac3Settings {
   SampleRate?: number;
 }
 
-export namespace Ac3Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ac3Settings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AIFF.
  */
@@ -374,15 +329,6 @@ export interface AiffSettings {
    * Sample rate in hz.
    */
   SampleRate?: number;
-}
-
-export namespace AiffSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AiffSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum AudioCodec {
@@ -552,15 +498,6 @@ export interface Eac3AtmosSettings {
    * Specify whether your input audio has an additional center rear surround channel matrix encoded into your left and right surround channels.
    */
   SurroundExMode?: Eac3AtmosSurroundExMode | string;
-}
-
-export namespace Eac3AtmosSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Eac3AtmosSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum Eac3AttenuationControl {
@@ -759,15 +696,6 @@ export interface Eac3Settings {
   SurroundMode?: Eac3SurroundMode | string;
 }
 
-export namespace Eac3Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Eac3Settings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value MP2.
  */
@@ -786,15 +714,6 @@ export interface Mp2Settings {
    * Sample rate in hz.
    */
   SampleRate?: number;
-}
-
-export namespace Mp2Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Mp2Settings): any => ({
-    ...obj,
-  });
 }
 
 export enum Mp3RateControlMode {
@@ -832,15 +751,6 @@ export interface Mp3Settings {
   VbrQuality?: number;
 }
 
-export namespace Mp3Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Mp3Settings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value OPUS.
  */
@@ -861,15 +771,6 @@ export interface OpusSettings {
   SampleRate?: number;
 }
 
-export namespace OpusSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpusSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value Vorbis.
  */
@@ -888,15 +789,6 @@ export interface VorbisSettings {
    * Optional. Specify the variable audio quality of this Vorbis output from -1 (lowest quality, ~45 kbit/s) to 10 (highest quality, ~500 kbit/s). The default value is 4 (~128 kbit/s). Values 5 and 6 are approximately 160 and 192 kbit/s, respectively.
    */
   VbrQuality?: number;
-}
-
-export namespace VorbisSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VorbisSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum WavFormat {
@@ -927,15 +819,6 @@ export interface WavSettings {
    * Sample rate in Hz.
    */
   SampleRate?: number;
-}
-
-export namespace WavSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WavSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -996,15 +879,6 @@ export interface AudioCodecSettings {
    * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value WAV.
    */
   WavSettings?: WavSettings;
-}
-
-export namespace AudioCodecSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioCodecSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum LanguageCode {
@@ -1222,15 +1096,6 @@ export interface OutputChannelMapping {
   InputChannelsFineTune?: number[];
 }
 
-export namespace OutputChannelMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputChannelMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Channel mapping (ChannelMapping) contains the group of fields that hold the remixing value for each channel, in dB. Specify remix values to indicate how much of the content from your input audio channel you want in your output audio channels. Each instance of the InputChannels or InputChannelsFineTune array specifies these values for one output channel. Use one instance of this array for each output channel. In the console, each array corresponds to a column in the graphical depiction of the mapping matrix. The rows of the graphical matrix correspond to input channels. Valid values are within the range from -60 (mute) through 6. A setting of 0 passes the input channel unchanged to the output channel (no attenuation or amplification). Use InputChannels or InputChannelsFineTune to specify your remix values. Don't use both.
  */
@@ -1239,15 +1104,6 @@ export interface ChannelMapping {
    * In your JSON job specification, include one child of OutputChannels for each audio channel that you want in your output. Each child should contain one instance of InputChannels or InputChannelsFineTune.
    */
   OutputChannels?: OutputChannelMapping[];
-}
-
-export namespace ChannelMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelMapping): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1268,15 +1124,6 @@ export interface RemixSettings {
    * Specify the number of channels in this output after remixing. Valid values: 1, 2, 4, 6, 8... 64. (1 and even numbers to 64.) If you are doing both input channel mapping and output channel mapping, the number of output channels in your input mapping must be the same as the number of input channels in your output mapping.
    */
   ChannelsOut?: number;
-}
-
-export namespace RemixSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemixSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1339,15 +1186,6 @@ export interface AudioDescription {
   StreamName?: string;
 }
 
-export namespace AudioDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Use Force include renditions to specify one or more resolutions to include your ABR stack. * (Recommended) To optimize automated ABR, specify as few resolutions as possible. * (Required) The number of resolutions that you specify must be equal to, or less than, the Max renditions setting. * If you specify a Min top rendition size rule, specify at least one resolution that is equal to, or greater than, Min top rendition size. * If you specify a Min bottom rendition size rule, only specify resolutions that are equal to, or greater than, Min bottom rendition size. * If you specify a Force include renditions rule, do not specify a separate rule for Allowed renditions. * Note: The ABR stack may include other resolutions that you do not specify here, depending on the Max renditions setting.
  */
@@ -1361,15 +1199,6 @@ export interface ForceIncludeRenditionSize {
    * Use Width to define the video resolution width, in pixels, for this rule.
    */
   Width?: number;
-}
-
-export namespace ForceIncludeRenditionSize {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForceIncludeRenditionSize): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1387,15 +1216,6 @@ export interface MinBottomRenditionSize {
   Width?: number;
 }
 
-export namespace MinBottomRenditionSize {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MinBottomRenditionSize): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Use Min top rendition size to specify a minimum size for the highest resolution in your ABR stack. * The highest resolution in your ABR stack will be equal to or greater than the value that you enter. For example: If you specify 1280x720 the highest resolution in your ABR stack will be equal to or greater than 1280x720. * If you specify a value for Max resolution, the value that you specify for Min top rendition size must be less than, or equal to, Max resolution.
  */
@@ -1409,15 +1229,6 @@ export interface MinTopRenditionSize {
    * Use Width to define the video resolution width, in pixels, for this rule.
    */
   Width?: number;
-}
-
-export namespace MinTopRenditionSize {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MinTopRenditionSize): any => ({
-    ...obj,
-  });
 }
 
 export enum RuleType {
@@ -1455,15 +1266,6 @@ export interface AutomatedAbrRule {
    * Use Min top rendition size to specify a minimum size for the highest resolution in your ABR stack. * The highest resolution in your ABR stack will be equal to or greater than the value that you enter. For example: If you specify 1280x720 the highest resolution in your ABR stack will be equal to or greater than 1280x720. * If you specify a value for Max resolution, the value that you specify for Min top rendition size must be less than, or equal to, Max resolution. Use Min bottom rendition size to specify a minimum size for the lowest resolution in your ABR stack. * The lowest resolution in your ABR stack will be equal to or greater than the value that you enter. For example: If you specify 640x360 the lowest resolution in your ABR stack will be equal to or greater than to 640x360. * If you specify a Min top rendition size rule, the value that you specify for Min bottom rendition size must be less than, or equal to, Min top rendition size. Use Force include renditions to specify one or more resolutions to include your ABR stack. * (Recommended) To optimize automated ABR, specify as few resolutions as possible. * (Required) The number of resolutions that you specify must be equal to, or less than, the Max renditions setting. * If you specify a Min top rendition size rule, specify at least one resolution that is equal to, or greater than, Min top rendition size. * If you specify a Min bottom rendition size rule, only specify resolutions that are equal to, or greater than, Min bottom rendition size. * If you specify a Force include renditions rule, do not specify a separate rule for Allowed renditions. * Note: The ABR stack may include other resolutions that you do not specify here, depending on the Max renditions setting. Use Allowed renditions to specify a list of possible resolutions in your ABR stack. * (Required) The number of resolutions that you specify must be equal to, or greater than, the Max renditions setting. * MediaConvert will create an ABR stack exclusively from the list of resolutions that you specify. * Some resolutions in the Allowed renditions list may not be included, however you can force a resolution to be included by setting Required to ENABLED. * You must specify at least one resolution that is greater than or equal to any resolutions that you specify in Min top rendition size or Min bottom rendition size. * If you specify Allowed renditions, you must not specify a separate rule for Force include renditions.
    */
   Type?: RuleType | string;
-}
-
-export namespace AutomatedAbrRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutomatedAbrRule): any => ({
-    ...obj,
-  });
 }
 
 export enum BurninSubtitleAlignment {
@@ -1645,15 +1447,6 @@ export interface BurninDestinationSettings {
    * Specify the vertical position (YPosition) of the captions, relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit y_position is provided, the caption will be positioned towards the bottom of the output.
    */
   YPosition?: number;
-}
-
-export namespace BurninDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BurninDestinationSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum CaptionDestinationType {
@@ -1889,15 +1682,6 @@ export interface DvbSubDestinationSettings {
   YPosition?: number;
 }
 
-export namespace DvbSubDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DvbSubDestinationSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings related to CEA/EIA-608 and CEA/EIA-708 (also called embedded or ancillary) captions. Set up embedded captions in the same output as your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/embedded-output-captions.html. When you work directly in your JSON job specification, include this object and any required children when you set destinationType to EMBEDDED, EMBEDDED_PLUS_SCTE20, or SCTE20_PLUS_EMBEDDED.
  */
@@ -1911,15 +1695,6 @@ export interface EmbeddedDestinationSettings {
    * Ignore this setting unless your input captions are SCC format and you want both 608 and 708 captions embedded in your output stream. Optionally, specify the 708 service number for each output captions channel. Choose a different number for each channel. To use this setting, also set Force 608 to 708 upconvert (Convert608To708) to Upconvert (UPCONVERT) in your input captions selector settings. If you choose to upconvert but don't specify a 708 service number, MediaConvert uses the number that you specify for CC channel number (destination608ChannelNumber) for the 708 service number. For more information, see https://docs.aws.amazon.com/console/mediaconvert/dual-scc-to-embedded.
    */
   Destination708ServiceNumber?: number;
-}
-
-export namespace EmbeddedDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmbeddedDestinationSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum ImscAccessibilitySubs {
@@ -1947,15 +1722,6 @@ export interface ImscDestinationSettings {
   StylePassthrough?: ImscStylePassthrough | string;
 }
 
-export namespace ImscDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImscDestinationSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum SccDestinationFramerate {
   FRAMERATE_23_97 = "FRAMERATE_23_97",
   FRAMERATE_24 = "FRAMERATE_24",
@@ -1974,15 +1740,6 @@ export interface SccDestinationSettings {
   Framerate?: SccDestinationFramerate | string;
 }
 
-export namespace SccDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SccDestinationSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum SrtStylePassthrough {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -1996,15 +1753,6 @@ export interface SrtDestinationSettings {
    * Set Style passthrough (StylePassthrough) to ENABLED to use the available style, color, and position information from your input captions. MediaConvert uses default settings for any missing style and position information in your input captions. Set Style passthrough to DISABLED, or leave blank, to ignore the style and position information from your input captions and use simplified output captions.
    */
   StylePassthrough?: SrtStylePassthrough | string;
-}
-
-export namespace SrtDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SrtDestinationSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum TeletextPageType {
@@ -2030,15 +1778,6 @@ export interface TeletextDestinationSettings {
   PageTypes?: (TeletextPageType | string)[];
 }
 
-export namespace TeletextDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TeletextDestinationSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum TtmlStylePassthrough {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -2052,15 +1791,6 @@ export interface TtmlDestinationSettings {
    * Pass through style and position information from a TTML-like input source (TTML, IMSC, SMPTE-TT) to the TTML output.
    */
   StylePassthrough?: TtmlStylePassthrough | string;
-}
-
-export namespace TtmlDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TtmlDestinationSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum WebvttAccessibilitySubs {
@@ -2087,15 +1817,6 @@ export interface WebvttDestinationSettings {
    * To use the available style, color, and position information from your input captions: Set Style passthrough (stylePassthrough) to Enabled (ENABLED). MediaConvert uses default settings when style and position information is missing from your input captions. To recreate the input captions exactly: Set Style passthrough to Strict (STRICT). MediaConvert automatically applies timing adjustments, including adjustments for frame rate conversion, ad avails, and input clipping. Your input captions format must be WebVTT. To ignore the style and position information from your input captions and use simplified output captions: Set Style passthrough to Disabled (DISABLED), or leave blank.
    */
   StylePassthrough?: WebvttStylePassthrough | string;
-}
-
-export namespace WebvttDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebvttDestinationSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2153,15 +1874,6 @@ export interface CaptionDestinationSettings {
   WebvttDestinationSettings?: WebvttDestinationSettings;
 }
 
-export namespace CaptionDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptionDestinationSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * This object holds groups of settings related to captions for one output. For each output that has captions, include one instance of CaptionDescriptions.
  */
@@ -2192,15 +1904,6 @@ export interface CaptionDescription {
   LanguageDescription?: string;
 }
 
-export namespace CaptionDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptionDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Caption Description for preset
  */
@@ -2226,15 +1929,6 @@ export interface CaptionDescriptionPreset {
   LanguageDescription?: string;
 }
 
-export namespace CaptionDescriptionPreset {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptionDescriptionPreset): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Specify the details for each pair of HLS and DASH additional manifests that you want the service to generate for this CMAF output group. Each pair of manifests can reference a different subset of outputs in the group.
  */
@@ -2248,15 +1942,6 @@ export interface CmafAdditionalManifest {
    * Specify the outputs that you want this additional top-level manifest to reference.
    */
   SelectedOutputs?: string[];
-}
-
-export namespace CmafAdditionalManifest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CmafAdditionalManifest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2274,15 +1959,6 @@ export interface DashAdditionalManifest {
   SelectedOutputs?: string[];
 }
 
-export namespace DashAdditionalManifest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashAdditionalManifest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Describes an account-specific API endpoint.
  */
@@ -2291,15 +1967,6 @@ export interface Endpoint {
    * URL of endpoint
    */
   Url?: string;
-}
-
-export namespace Endpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Endpoint): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2315,15 +1982,6 @@ export interface HlsAdditionalManifest {
    * Specify the outputs that you want this additional top-level manifest to reference.
    */
   SelectedOutputs?: string[];
-}
-
-export namespace HlsAdditionalManifest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsAdditionalManifest): any => ({
-    ...obj,
-  });
 }
 
 export enum HlsAdMarkers {
@@ -2356,15 +2014,6 @@ export interface HlsCaptionLanguageMapping {
   LanguageDescription?: string;
 }
 
-export namespace HlsCaptionLanguageMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsCaptionLanguageMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Optional. Configuration for a destination queue to which the job can hop once a customer-defined minimum wait time has passed.
  */
@@ -2385,15 +2034,6 @@ export interface HopDestination {
   WaitMinutes?: number;
 }
 
-export namespace HopDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HopDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * To insert ID3 tags in your output, specify two values. Use ID3 tag (Id3) to specify the base 64 encoded string and use Timecode (TimeCode) to specify the time when the tag should be inserted. To insert multiple ID3 tags in your output, create multiple instances of ID3 insertion (Id3Insertion).
  */
@@ -2409,15 +2049,6 @@ export interface Id3Insertion {
   Timecode?: string;
 }
 
-export namespace Id3Insertion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Id3Insertion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Use audio selector groups to combine multiple sidecar audio inputs so that you can assign them to a single output audio tab (AudioDescription). Note that, if you're working with embedded audio, it's simpler to assign multiple input tracks into a single audio selector rather than use an audio selector group.
  */
@@ -2426,15 +2057,6 @@ export interface AudioSelectorGroup {
    * Name of an Audio Selector within the same input to include in the group.  Audio selector names are standardized, based on their order within the input (e.g., "Audio Selector 1"). The audio selector name parameter can be repeated to add any number of audio selectors to the group.
    */
   AudioSelectorNames?: string[];
-}
-
-export namespace AudioSelectorGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioSelectorGroup): any => ({
-    ...obj,
-  });
 }
 
 export enum AudioDurationCorrection {
@@ -2467,15 +2089,6 @@ export interface HlsRenditionGroupSettings {
    * Optional. Specify media name
    */
   RenditionName?: string;
-}
-
-export namespace HlsRenditionGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsRenditionGroupSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum AudioSelectorType {
@@ -2550,15 +2163,6 @@ export interface AudioSelector {
   Tracks?: number[];
 }
 
-export namespace AudioSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioSelector): any => ({
-    ...obj,
-  });
-}
-
 export enum AncillaryConvert608To708 {
   DISABLED = "DISABLED",
   UPCONVERT = "UPCONVERT",
@@ -2589,15 +2193,6 @@ export interface AncillarySourceSettings {
   TerminateCaptions?: AncillaryTerminateCaptions | string;
 }
 
-export namespace AncillarySourceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AncillarySourceSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * DVB Sub Source Settings
  */
@@ -2606,15 +2201,6 @@ export interface DvbSubSourceSettings {
    * When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
    */
   Pid?: number;
-}
-
-export namespace DvbSubSourceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DvbSubSourceSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum EmbeddedConvert608To708 {
@@ -2652,15 +2238,6 @@ export interface EmbeddedSourceSettings {
   TerminateCaptions?: EmbeddedTerminateCaptions | string;
 }
 
-export namespace EmbeddedSourceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmbeddedSourceSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum FileSourceConvert608To708 {
   DISABLED = "DISABLED",
   UPCONVERT = "UPCONVERT",
@@ -2679,15 +2256,6 @@ export interface CaptionSourceFramerate {
    * Specify the numerator of the fraction that represents the frame rate for the setting Caption source frame rate (CaptionSourceFramerate). Use this setting along with the setting Framerate denominator (framerateDenominator).
    */
   FramerateNumerator?: number;
-}
-
-export namespace CaptionSourceFramerate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptionSourceFramerate): any => ({
-    ...obj,
-  });
 }
 
 export enum FileSourceTimeDeltaUnits {
@@ -2725,15 +2293,6 @@ export interface FileSourceSettings {
   TimeDeltaUnits?: FileSourceTimeDeltaUnits | string;
 }
 
-export namespace FileSourceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSourceSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum CaptionSourceType {
   ANCILLARY = "ANCILLARY",
   DVB_SUB = "DVB_SUB",
@@ -2761,15 +2320,6 @@ export interface TeletextSourceSettings {
   PageNumber?: string;
 }
 
-export namespace TeletextSourceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TeletextSourceSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings specific to caption sources that are specified by track number. Currently, this is only IMSC captions in an IMF package. If your caption source is IMSC 1.1 in a separate xml file, use FileSourceSettings instead of TrackSourceSettings.
  */
@@ -2778,15 +2328,6 @@ export interface TrackSourceSettings {
    * Use this setting to select a single captions track from a source. Track numbers correspond to the order in the captions source file. For IMF sources, track numbering is based on the order that the captions appear in the CPL. For example, use 1 to select the captions asset that is listed first in the CPL. To include more than one captions track in your job outputs, create multiple input captions selectors. Specify one track per selector.
    */
   TrackNumber?: number;
-}
-
-export namespace TrackSourceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrackSourceSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2807,15 +2348,6 @@ export interface WebvttHlsSourceSettings {
    * Optional. Specify media name
    */
   RenditionName?: string;
-}
-
-export namespace WebvttHlsSourceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebvttHlsSourceSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2863,15 +2395,6 @@ export interface CaptionSourceSettings {
   WebvttHlsSourceSettings?: WebvttHlsSourceSettings;
 }
 
-export namespace CaptionSourceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptionSourceSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Use captions selectors to specify the captions data from your input that you use in your outputs. You can use up to 20 captions selectors per input.
  */
@@ -2890,15 +2413,6 @@ export interface CaptionSelector {
    * If your input captions are SCC, TTML, STL, SMI, SRT, or IMSC in an xml file, specify the URI of the input captions source file. If your input captions are IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
    */
   SourceSettings?: CaptionSourceSettings;
-}
-
-export namespace CaptionSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptionSelector): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2924,15 +2438,6 @@ export interface Rectangle {
    * The distance, in pixels, between the rectangle and the top edge of the video frame. Specify only even numbers.
    */
   Y?: number;
-}
-
-export namespace Rectangle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Rectangle): any => ({
-    ...obj,
-  });
 }
 
 export enum InputDeblockFilter {
@@ -2969,15 +2474,6 @@ export interface InputDecryptionSettings {
    * Specify the AWS Region for AWS Key Management Service (KMS) that you used to encrypt your data key, if that Region is different from the one you are using for AWS Elemental MediaConvert.
    */
   KmsKeyRegion?: string;
-}
-
-export namespace InputDecryptionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDecryptionSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum InputDenoiseFilter {
@@ -3051,15 +2547,6 @@ export interface InsertableImage {
   Width?: number;
 }
 
-export namespace InsertableImage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsertableImage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Use the image inserter feature to include a graphic overlay on your video. Enable or disable this feature for each input or output individually. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/graphic-overlay.html. This setting is disabled by default.
  */
@@ -3068,15 +2555,6 @@ export interface ImageInserter {
    * Specify the images that you want to overlay on your video. The images must be PNG or TGA files.
    */
   InsertableImages?: InsertableImage[];
-}
-
-export namespace ImageInserter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageInserter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3092,15 +2570,6 @@ export interface InputClipping {
    * Set Start timecode (StartTimecode) to the beginning of the portion of the input you are clipping. The frame corresponding to the Start timecode value is included in the clip. Start timecode or End timecode may be left blank, but not both. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the hour, MM is the minute, SS is the second, and FF is the frame number. When choosing this value, take into account your setting for Input timecode source. For example, if you have embedded timecodes that start at 01:00:00:00 and you want your clip to begin five minutes into the video, use 01:05:00:00.
    */
   StartTimecode?: string;
-}
-
-export namespace InputClipping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputClipping): any => ({
-    ...obj,
-  });
 }
 
 export enum InputScanType {
@@ -3127,15 +2596,6 @@ export interface InputVideoGenerator {
    * Specify an integer value for Black video duration from 50 to 86400000 to generate a black video input for that many milliseconds. Required when you include Video generator.
    */
   Duration?: number;
-}
-
-export namespace InputVideoGenerator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputVideoGenerator): any => ({
-    ...obj,
-  });
 }
 
 export enum AlphaBehavior {
@@ -3226,15 +2686,6 @@ export interface Hdr10Metadata {
   WhitePointY?: number;
 }
 
-export namespace Hdr10Metadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Hdr10Metadata): any => ({
-    ...obj,
-  });
-}
-
 export enum PadVideo {
   BLACK = "BLACK",
   DISABLED = "DISABLED",
@@ -3307,15 +2758,6 @@ export interface VideoSelector {
    * If the sample range metadata in your input video is accurate, or if you don't know about sample range, keep the default value, Follow (FOLLOW), for this setting. When you do, the service automatically detects your input sample range. If your input video has metadata indicating the wrong sample range, specify the accurate sample range here. When you do, MediaConvert ignores any sample range information in the input metadata. Regardless of whether MediaConvert uses the input sample range or the sample range that you specify, MediaConvert uses the sample range for transcoding and also writes it to the output metadata.
    */
   SampleRange?: InputSampleRange | string;
-}
-
-export namespace VideoSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoSelector): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3433,15 +2875,6 @@ export interface Input {
   VideoSelector?: VideoSelector;
 }
 
-export namespace Input {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Input): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Specified video input in a template.
  */
@@ -3537,15 +2970,6 @@ export interface InputTemplate {
   VideoSelector?: VideoSelector;
 }
 
-export namespace InputTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputTemplate): any => ({
-    ...obj,
-  });
-}
-
 export enum AccelerationMode {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -3560,15 +2984,6 @@ export interface AccelerationSettings {
    * Specify the conditions when the service will run your job with accelerated transcoding.
    */
   Mode: AccelerationMode | string | undefined;
-}
-
-export namespace AccelerationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccelerationSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum AccelerationStatus {
@@ -3606,15 +3021,6 @@ export interface JobMessages {
   Warning?: string[];
 }
 
-export namespace JobMessages {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobMessages): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Contains details about the output's video stream
  */
@@ -3628,15 +3034,6 @@ export interface VideoDetail {
    * Width in pixels for the output
    */
   WidthInPx?: number;
-}
-
-export namespace VideoDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3654,15 +3051,6 @@ export interface OutputDetail {
   VideoDetails?: VideoDetail;
 }
 
-export namespace OutputDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Contains details about the output groups specified in the job settings.
  */
@@ -3671,15 +3059,6 @@ export interface OutputGroupDetail {
    * Details about the output
    */
   OutputDetails?: OutputDetail[];
-}
-
-export namespace OutputGroupDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputGroupDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3702,15 +3081,6 @@ export interface QueueTransition {
   Timestamp?: Date;
 }
 
-export namespace QueueTransition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueueTransition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Use ad avail blanking settings to specify your output content during SCTE-35 triggered ad avails. You can blank your video or overlay it with an image. MediaConvert also removes any audio and embedded captions during the ad avail. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/ad-avail-blanking.html.
  */
@@ -3719,15 +3089,6 @@ export interface AvailBlanking {
    * Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
    */
   AvailBlankingImage?: string;
-}
-
-export namespace AvailBlanking {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailBlanking): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3740,15 +3101,6 @@ export interface EsamManifestConfirmConditionNotification {
   MccXml?: string;
 }
 
-export namespace EsamManifestConfirmConditionNotification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EsamManifestConfirmConditionNotification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * ESAM SignalProcessingNotification data defined by OC-SP-ESAM-API-I03-131025.
  */
@@ -3757,15 +3109,6 @@ export interface EsamSignalProcessingNotification {
    * Provide your ESAM SignalProcessingNotification XML document inside your JSON job settings. Form the XML document as per OC-SP-ESAM-API-I03-131025. The transcoder will use the signal processing instructions in the message that you supply. Provide your ESAM SignalProcessingNotification XML document inside your JSON job settings. For your MPEG2-TS file outputs, if you want the service to place SCTE-35 markers at the insertion points you specify in the XML document, you must also enable SCTE-35 ESAM (scte35Esam). Note that you can either specify an ESAM XML document or enable SCTE-35 passthrough. You can't do both.
    */
   SccXml?: string;
-}
-
-export namespace EsamSignalProcessingNotification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EsamSignalProcessingNotification): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3786,15 +3129,6 @@ export interface EsamSettings {
    * Specifies an ESAM SignalProcessingNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the signal processing instructions that you provide in the setting SCC XML (sccXml).
    */
   SignalProcessingNotification?: EsamSignalProcessingNotification;
-}
-
-export namespace EsamSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EsamSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum CopyProtectionAction {
@@ -3820,15 +3154,6 @@ export interface ExtendedDataServices {
    * The action to take on content advisory XDS packets.  If you select PASSTHROUGH, packets will not be changed. If you select STRIP, any packets will be removed in output captions.
    */
   VchipAction?: VchipAction | string;
-}
-
-export namespace ExtendedDataServices {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtendedDataServices): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3901,15 +3226,6 @@ export interface KantarWatermarkSettings {
   Metadata8?: string;
 }
 
-export namespace KantarWatermarkSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KantarWatermarkSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * For motion overlays that don't have a built-in frame rate, specify the frame rate of the overlay in frames per second, as a fraction. For example, specify 24 fps as 24/1. The overlay frame rate doesn't need to match the frame rate of the underlying video.
  */
@@ -3923,15 +3239,6 @@ export interface MotionImageInsertionFramerate {
    * The top of the fraction that expresses your overlay frame rate. For example, if your frame rate is 24 fps, set this value to 24.
    */
   FramerateNumerator?: number;
-}
-
-export namespace MotionImageInsertionFramerate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MotionImageInsertionFramerate): any => ({
-    ...obj,
-  });
 }
 
 export enum MotionImageInsertionMode {
@@ -3952,15 +3259,6 @@ export interface MotionImageInsertionOffset {
    * Set the distance, in pixels, between the overlay and the top edge of the video frame.
    */
   ImageY?: number;
-}
-
-export namespace MotionImageInsertionOffset {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MotionImageInsertionOffset): any => ({
-    ...obj,
-  });
 }
 
 export enum MotionImagePlayback {
@@ -4003,15 +3301,6 @@ export interface MotionImageInserter {
   StartTime?: string;
 }
 
-export namespace MotionImageInserter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MotionImageInserter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings for your Nielsen configuration. If you don't do Nielsen measurement and analytics, ignore these settings. When you enable Nielsen configuration (nielsenConfiguration), MediaConvert enables PCM to ID3 tagging for all outputs in the job. To enable Nielsen configuration programmatically, include an instance of nielsenConfiguration in your JSON job specification. Even if you don't include any children of nielsenConfiguration, you still enable the setting.
  */
@@ -4025,15 +3314,6 @@ export interface NielsenConfiguration {
    * Use Distributor ID (DistributorID) to specify the distributor ID that is assigned to your organization by Neilsen.
    */
   DistributorId?: string;
-}
-
-export namespace NielsenConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NielsenConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum NielsenActiveWatermarkProcessType {
@@ -4112,15 +3392,6 @@ export interface NielsenNonLinearWatermarkSettings {
   UniqueTicPerAudioTrack?: NielsenUniqueTicPerAudioTrackType | string;
 }
 
-export namespace NielsenNonLinearWatermarkSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NielsenNonLinearWatermarkSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Use automated ABR to have MediaConvert set up the renditions in your ABR package for you automatically, based on characteristics of your input video. This feature optimizes video quality while minimizing the overall size of your ABR package.
  */
@@ -4146,15 +3417,6 @@ export interface AutomatedAbrSettings {
   Rules?: AutomatedAbrRule[];
 }
 
-export namespace AutomatedAbrSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutomatedAbrSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Use automated encoding to have MediaConvert choose your encoding settings for you, based on characteristics of your input video.
  */
@@ -4163,15 +3425,6 @@ export interface AutomatedEncodingSettings {
    * Use automated ABR to have MediaConvert set up the renditions in your ABR package for you automatically, based on characteristics of your input video. This feature optimizes video quality while minimizing the overall size of your ABR package.
    */
   AbrSettings?: AutomatedAbrSettings;
-}
-
-export namespace AutomatedEncodingSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutomatedEncodingSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum CmafClientCache {
@@ -4201,15 +3454,6 @@ export interface S3DestinationAccessControl {
   CannedAcl?: S3ObjectCannedAcl | string;
 }
 
-export namespace S3DestinationAccessControl {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DestinationAccessControl): any => ({
-    ...obj,
-  });
-}
-
 export enum S3ServerSideEncryptionType {
   SERVER_SIDE_ENCRYPTION_KMS = "SERVER_SIDE_ENCRYPTION_KMS",
   SERVER_SIDE_ENCRYPTION_S3 = "SERVER_SIDE_ENCRYPTION_S3",
@@ -4235,15 +3479,6 @@ export interface S3EncryptionSettings {
   KmsKeyArn?: string;
 }
 
-export namespace S3EncryptionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3EncryptionSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings associated with S3 destination
  */
@@ -4259,15 +3494,6 @@ export interface S3DestinationSettings {
   Encryption?: S3EncryptionSettings;
 }
 
-export namespace S3DestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DestinationSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings associated with the destination. Will vary based on the type of destination
  */
@@ -4276,15 +3502,6 @@ export interface DestinationSettings {
    * Settings associated with S3 destination
    */
   S3Settings?: S3DestinationSettings;
-}
-
-export namespace DestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum CmafEncryptionType {
@@ -4327,15 +3544,6 @@ export interface SpekeKeyProviderCmaf {
   Url?: string;
 }
 
-export namespace SpekeKeyProviderCmaf {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SpekeKeyProviderCmaf): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Use these settings to set up encryption with a static key provider.
  */
@@ -4359,15 +3567,6 @@ export interface StaticKeyProvider {
    * Relates to DRM implementation. The location of the license server used for protecting content.
    */
   Url?: string;
-}
-
-export namespace StaticKeyProvider {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StaticKeyProvider): any => ({
-    ...obj,
-  });
 }
 
 export enum CmafKeyProviderType {
@@ -4408,15 +3607,6 @@ export interface CmafEncryptionSettings {
    * Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
    */
   Type?: CmafKeyProviderType | string;
-}
-
-export namespace CmafEncryptionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CmafEncryptionSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum CmafImageBasedTrickPlay {
@@ -4464,15 +3654,6 @@ export interface CmafImageBasedTrickPlaySettings {
    * Number of thumbnails in each row of a tile image.  Set a value between 1 and 512.
    */
   TileWidth?: number;
-}
-
-export namespace CmafImageBasedTrickPlaySettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CmafImageBasedTrickPlaySettings): any => ({
-    ...obj,
-  });
 }
 
 export enum CmafManifestCompression {
@@ -4655,15 +3836,6 @@ export interface CmafGroupSettings {
   WriteSegmentTimelineInRepresentation?: CmafWriteSegmentTimelineInRepresentation | string;
 }
 
-export namespace CmafGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CmafGroupSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum DashIsoGroupAudioChannelConfigSchemeIdUri {
   DOLBY_CHANNEL_CONFIGURATION = "DOLBY_CHANNEL_CONFIGURATION",
   MPEG_CHANNEL_CONFIGURATION = "MPEG_CHANNEL_CONFIGURATION",
@@ -4700,15 +3872,6 @@ export interface SpekeKeyProvider {
   Url?: string;
 }
 
-export namespace SpekeKeyProvider {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SpekeKeyProvider): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Specifies DRM settings for DASH outputs.
  */
@@ -4722,15 +3885,6 @@ export interface DashIsoEncryptionSettings {
    * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
    */
   SpekeKeyProvider?: SpekeKeyProvider;
-}
-
-export namespace DashIsoEncryptionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashIsoEncryptionSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum DashIsoHbbtvCompliance {
@@ -4783,15 +3937,6 @@ export interface DashIsoImageBasedTrickPlaySettings {
    * Number of thumbnails in each row of a tile image.  Set a value between 1 and 512.
    */
   TileWidth?: number;
-}
-
-export namespace DashIsoImageBasedTrickPlaySettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashIsoImageBasedTrickPlaySettings): any => ({
-    ...obj,
-  });
 }
 
 export enum DashIsoMpdProfile {
@@ -4914,15 +4059,6 @@ export interface DashIsoGroupSettings {
   WriteSegmentTimelineInRepresentation?: DashIsoWriteSegmentTimelineInRepresentation | string;
 }
 
-export namespace DashIsoGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashIsoGroupSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings related to your File output group. MediaConvert uses this group of settings to generate a single standalone file, rather than a streaming package. When you work directly in your JSON job specification, include this object and any required children when you set Type, under OutputGroupSettings, to FILE_GROUP_SETTINGS.
  */
@@ -4936,15 +4072,6 @@ export interface FileGroupSettings {
    * Settings associated with the destination. Will vary based on the type of destination
    */
   DestinationSettings?: DestinationSettings;
-}
-
-export namespace FileGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileGroupSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum HlsAudioOnlyHeader {
@@ -5038,15 +4165,6 @@ export interface HlsEncryptionSettings {
   Type?: HlsKeyProviderType | string;
 }
 
-export namespace HlsEncryptionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsEncryptionSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum HlsImageBasedTrickPlay {
   ADVANCED = "ADVANCED",
   NONE = "NONE",
@@ -5092,15 +4210,6 @@ export interface HlsImageBasedTrickPlaySettings {
    * Number of thumbnails in each row of a tile image.  Set a value between 1 and 512.
    */
   TileWidth?: number;
-}
-
-export namespace HlsImageBasedTrickPlaySettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsImageBasedTrickPlaySettings): any => ({
-    ...obj,
-  });
 }
 
 export enum HlsManifestCompression {
@@ -5309,15 +4418,6 @@ export interface HlsGroupSettings {
   TimestampDeltaMilliseconds?: number;
 }
 
-export namespace HlsGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsGroupSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Specify the details for each additional Microsoft Smooth Streaming manifest that you want the service to generate for this output group. Each manifest can reference a different subset of outputs in the group.
  */
@@ -5333,15 +4433,6 @@ export interface MsSmoothAdditionalManifest {
   SelectedOutputs?: string[];
 }
 
-export namespace MsSmoothAdditionalManifest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MsSmoothAdditionalManifest): any => ({
-    ...obj,
-  });
-}
-
 export enum MsSmoothAudioDeduplication {
   COMBINE_DUPLICATE_STREAMS = "COMBINE_DUPLICATE_STREAMS",
   NONE = "NONE",
@@ -5355,15 +4446,6 @@ export interface MsSmoothEncryptionSettings {
    * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
    */
   SpekeKeyProvider?: SpekeKeyProvider;
-}
-
-export namespace MsSmoothEncryptionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MsSmoothEncryptionSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum MsSmoothFragmentLengthControl {
@@ -5421,15 +4503,6 @@ export interface MsSmoothGroupSettings {
   ManifestEncoding?: MsSmoothManifestEncoding | string;
 }
 
-export namespace MsSmoothGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MsSmoothGroupSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum OutputGroupType {
   CMAF_GROUP_SETTINGS = "CMAF_GROUP_SETTINGS",
   DASH_ISO_GROUP_SETTINGS = "DASH_ISO_GROUP_SETTINGS",
@@ -5471,15 +4544,6 @@ export interface OutputGroupSettings {
    * Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming, CMAF)
    */
   Type?: OutputGroupType | string;
-}
-
-export namespace OutputGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputGroupSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum CmfcAudioDuration {
@@ -5578,15 +4642,6 @@ export interface CmfcSettings {
   TimedMetadata?: CmfcTimedMetadata | string;
 }
 
-export namespace CmfcSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CmfcSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum ContainerType {
   CMFC = "CMFC",
   F4V = "F4V",
@@ -5614,15 +4669,6 @@ export interface F4vSettings {
    * If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
    */
   MoovPlacement?: F4vMoovPlacement | string;
-}
-
-export namespace F4vSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: F4vSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum M2tsAudioBufferModel {
@@ -5665,15 +4711,6 @@ export interface DvbNitSettings {
   NitInterval?: number;
 }
 
-export namespace DvbNitSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DvbNitSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum OutputSdt {
   SDT_FOLLOW = "SDT_FOLLOW",
   SDT_FOLLOW_IF_PRESENT = "SDT_FOLLOW_IF_PRESENT",
@@ -5706,15 +4743,6 @@ export interface DvbSdtSettings {
   ServiceProviderName?: string;
 }
 
-export namespace DvbSdtSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DvbSdtSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Use these settings to insert a DVB Time and Date Table (TDT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
  */
@@ -5723,15 +4751,6 @@ export interface DvbTdtSettings {
    * The number of milliseconds between instances of this table in the output transport stream.
    */
   TdtInterval?: number;
-}
-
-export namespace DvbTdtSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DvbTdtSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum M2tsEbpAudioInterval {
@@ -5753,3 +4772,768 @@ export enum M2tsForceTsVideoEbpOrder {
   DEFAULT = "DEFAULT",
   FORCE = "FORCE",
 }
+
+/**
+ * @internal
+ */
+export const AllowedRenditionSizeFilterSensitiveLog = (obj: AllowedRenditionSize): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioChannelTaggingSettingsFilterSensitiveLog = (obj: AudioChannelTaggingSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioNormalizationSettingsFilterSensitiveLog = (obj: AudioNormalizationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AacSettingsFilterSensitiveLog = (obj: AacSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Ac3SettingsFilterSensitiveLog = (obj: Ac3Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AiffSettingsFilterSensitiveLog = (obj: AiffSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Eac3AtmosSettingsFilterSensitiveLog = (obj: Eac3AtmosSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Eac3SettingsFilterSensitiveLog = (obj: Eac3Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Mp2SettingsFilterSensitiveLog = (obj: Mp2Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Mp3SettingsFilterSensitiveLog = (obj: Mp3Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpusSettingsFilterSensitiveLog = (obj: OpusSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VorbisSettingsFilterSensitiveLog = (obj: VorbisSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WavSettingsFilterSensitiveLog = (obj: WavSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioCodecSettingsFilterSensitiveLog = (obj: AudioCodecSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputChannelMappingFilterSensitiveLog = (obj: OutputChannelMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelMappingFilterSensitiveLog = (obj: ChannelMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemixSettingsFilterSensitiveLog = (obj: RemixSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioDescriptionFilterSensitiveLog = (obj: AudioDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ForceIncludeRenditionSizeFilterSensitiveLog = (obj: ForceIncludeRenditionSize): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MinBottomRenditionSizeFilterSensitiveLog = (obj: MinBottomRenditionSize): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MinTopRenditionSizeFilterSensitiveLog = (obj: MinTopRenditionSize): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutomatedAbrRuleFilterSensitiveLog = (obj: AutomatedAbrRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BurninDestinationSettingsFilterSensitiveLog = (obj: BurninDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DvbSubDestinationSettingsFilterSensitiveLog = (obj: DvbSubDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EmbeddedDestinationSettingsFilterSensitiveLog = (obj: EmbeddedDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImscDestinationSettingsFilterSensitiveLog = (obj: ImscDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SccDestinationSettingsFilterSensitiveLog = (obj: SccDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SrtDestinationSettingsFilterSensitiveLog = (obj: SrtDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TeletextDestinationSettingsFilterSensitiveLog = (obj: TeletextDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TtmlDestinationSettingsFilterSensitiveLog = (obj: TtmlDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebvttDestinationSettingsFilterSensitiveLog = (obj: WebvttDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptionDestinationSettingsFilterSensitiveLog = (obj: CaptionDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptionDescriptionFilterSensitiveLog = (obj: CaptionDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptionDescriptionPresetFilterSensitiveLog = (obj: CaptionDescriptionPreset): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CmafAdditionalManifestFilterSensitiveLog = (obj: CmafAdditionalManifest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashAdditionalManifestFilterSensitiveLog = (obj: DashAdditionalManifest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsAdditionalManifestFilterSensitiveLog = (obj: HlsAdditionalManifest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsCaptionLanguageMappingFilterSensitiveLog = (obj: HlsCaptionLanguageMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HopDestinationFilterSensitiveLog = (obj: HopDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Id3InsertionFilterSensitiveLog = (obj: Id3Insertion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioSelectorGroupFilterSensitiveLog = (obj: AudioSelectorGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsRenditionGroupSettingsFilterSensitiveLog = (obj: HlsRenditionGroupSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioSelectorFilterSensitiveLog = (obj: AudioSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AncillarySourceSettingsFilterSensitiveLog = (obj: AncillarySourceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DvbSubSourceSettingsFilterSensitiveLog = (obj: DvbSubSourceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EmbeddedSourceSettingsFilterSensitiveLog = (obj: EmbeddedSourceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptionSourceFramerateFilterSensitiveLog = (obj: CaptionSourceFramerate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileSourceSettingsFilterSensitiveLog = (obj: FileSourceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TeletextSourceSettingsFilterSensitiveLog = (obj: TeletextSourceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrackSourceSettingsFilterSensitiveLog = (obj: TrackSourceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebvttHlsSourceSettingsFilterSensitiveLog = (obj: WebvttHlsSourceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptionSourceSettingsFilterSensitiveLog = (obj: CaptionSourceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptionSelectorFilterSensitiveLog = (obj: CaptionSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RectangleFilterSensitiveLog = (obj: Rectangle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDecryptionSettingsFilterSensitiveLog = (obj: InputDecryptionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InsertableImageFilterSensitiveLog = (obj: InsertableImage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageInserterFilterSensitiveLog = (obj: ImageInserter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputClippingFilterSensitiveLog = (obj: InputClipping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputVideoGeneratorFilterSensitiveLog = (obj: InputVideoGenerator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Hdr10MetadataFilterSensitiveLog = (obj: Hdr10Metadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoSelectorFilterSensitiveLog = (obj: VideoSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputFilterSensitiveLog = (obj: Input): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputTemplateFilterSensitiveLog = (obj: InputTemplate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccelerationSettingsFilterSensitiveLog = (obj: AccelerationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobMessagesFilterSensitiveLog = (obj: JobMessages): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoDetailFilterSensitiveLog = (obj: VideoDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputDetailFilterSensitiveLog = (obj: OutputDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputGroupDetailFilterSensitiveLog = (obj: OutputGroupDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueueTransitionFilterSensitiveLog = (obj: QueueTransition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvailBlankingFilterSensitiveLog = (obj: AvailBlanking): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EsamManifestConfirmConditionNotificationFilterSensitiveLog = (
+  obj: EsamManifestConfirmConditionNotification
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EsamSignalProcessingNotificationFilterSensitiveLog = (obj: EsamSignalProcessingNotification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EsamSettingsFilterSensitiveLog = (obj: EsamSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtendedDataServicesFilterSensitiveLog = (obj: ExtendedDataServices): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KantarWatermarkSettingsFilterSensitiveLog = (obj: KantarWatermarkSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MotionImageInsertionFramerateFilterSensitiveLog = (obj: MotionImageInsertionFramerate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MotionImageInsertionOffsetFilterSensitiveLog = (obj: MotionImageInsertionOffset): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MotionImageInserterFilterSensitiveLog = (obj: MotionImageInserter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NielsenConfigurationFilterSensitiveLog = (obj: NielsenConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NielsenNonLinearWatermarkSettingsFilterSensitiveLog = (obj: NielsenNonLinearWatermarkSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutomatedAbrSettingsFilterSensitiveLog = (obj: AutomatedAbrSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutomatedEncodingSettingsFilterSensitiveLog = (obj: AutomatedEncodingSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationAccessControlFilterSensitiveLog = (obj: S3DestinationAccessControl): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3EncryptionSettingsFilterSensitiveLog = (obj: S3EncryptionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationSettingsFilterSensitiveLog = (obj: S3DestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationSettingsFilterSensitiveLog = (obj: DestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SpekeKeyProviderCmafFilterSensitiveLog = (obj: SpekeKeyProviderCmaf): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StaticKeyProviderFilterSensitiveLog = (obj: StaticKeyProvider): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CmafEncryptionSettingsFilterSensitiveLog = (obj: CmafEncryptionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CmafImageBasedTrickPlaySettingsFilterSensitiveLog = (obj: CmafImageBasedTrickPlaySettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CmafGroupSettingsFilterSensitiveLog = (obj: CmafGroupSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SpekeKeyProviderFilterSensitiveLog = (obj: SpekeKeyProvider): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashIsoEncryptionSettingsFilterSensitiveLog = (obj: DashIsoEncryptionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashIsoImageBasedTrickPlaySettingsFilterSensitiveLog = (obj: DashIsoImageBasedTrickPlaySettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashIsoGroupSettingsFilterSensitiveLog = (obj: DashIsoGroupSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileGroupSettingsFilterSensitiveLog = (obj: FileGroupSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsEncryptionSettingsFilterSensitiveLog = (obj: HlsEncryptionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsImageBasedTrickPlaySettingsFilterSensitiveLog = (obj: HlsImageBasedTrickPlaySettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsGroupSettingsFilterSensitiveLog = (obj: HlsGroupSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MsSmoothAdditionalManifestFilterSensitiveLog = (obj: MsSmoothAdditionalManifest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MsSmoothEncryptionSettingsFilterSensitiveLog = (obj: MsSmoothEncryptionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MsSmoothGroupSettingsFilterSensitiveLog = (obj: MsSmoothGroupSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputGroupSettingsFilterSensitiveLog = (obj: OutputGroupSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CmfcSettingsFilterSensitiveLog = (obj: CmfcSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const F4vSettingsFilterSensitiveLog = (obj: F4vSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DvbNitSettingsFilterSensitiveLog = (obj: DvbNitSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DvbSdtSettingsFilterSensitiveLog = (obj: DvbSdtSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DvbTdtSettingsFilterSensitiveLog = (obj: DvbTdtSettings): any => ({
+  ...obj,
+});

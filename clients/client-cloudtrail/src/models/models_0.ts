@@ -19,15 +19,6 @@ export interface Tag {
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the tags to add to a trail or event data store.</p>
  */
@@ -46,28 +37,10 @@ export interface AddTagsRequest {
   TagsList: Tag[] | undefined;
 }
 
-export namespace AddTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns the objects or data if successful. Otherwise, returns an error.</p>
  */
 export interface AddTagsResponse {}
-
-export namespace AddTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>This exception is thrown when an operation is called with a trail ARN that is not valid. The following is the format of a trail ARN.</p>
@@ -655,15 +628,6 @@ export interface AdvancedFieldSelector {
   NotEndsWith?: string[];
 }
 
-export namespace AdvancedFieldSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdvancedFieldSelector): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Advanced event selectors let you create fine-grained selectors for the following CloudTrail
  *          event record ﬁelds. They help you control costs by logging only those events
@@ -715,15 +679,6 @@ export interface AdvancedEventSelector {
   FieldSelectors: AdvancedFieldSelector[] | undefined;
 }
 
-export namespace AdvancedEventSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdvancedEventSelector): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelQueryRequest {
   /**
    * <p>The ARN (or the ID suffix of the ARN) of an event data store on which the specified query is running.</p>
@@ -735,15 +690,6 @@ export interface CancelQueryRequest {
    *       operation.</p>
    */
   QueryId: string | undefined;
-}
-
-export namespace CancelQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelQueryRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum QueryStatus {
@@ -766,15 +712,6 @@ export interface CancelQueryResponse {
    *          <code>RUNNING</code> or <code>CANCELLED</code>.</p>
    */
   QueryStatus: QueryStatus | string | undefined;
-}
-
-export namespace CancelQueryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelQueryResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -942,15 +879,6 @@ export interface CreateEventDataStoreRequest {
   TagsList?: Tag[];
 }
 
-export namespace CreateEventDataStoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEventDataStoreRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum EventDataStoreStatus {
   CREATED = "CREATED",
   ENABLED = "ENABLED",
@@ -1013,15 +941,6 @@ export interface CreateEventDataStoreResponse {
    *          <code>UpdatedTimestamp</code> is always either the same or newer than the time shown in <code>CreatedTimestamp</code>.</p>
    */
   UpdatedTimestamp?: Date;
-}
-
-export namespace CreateEventDataStoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEventDataStoreResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1314,15 +1233,6 @@ export interface CreateTrailRequest {
   TagsList?: Tag[];
 }
 
-export namespace CreateTrailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTrailRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
@@ -1405,15 +1315,6 @@ export interface CreateTrailResponse {
    * <p>Specifies whether the trail is an organization trail.</p>
    */
   IsOrganizationTrail?: boolean;
-}
-
-export namespace CreateTrailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTrailResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1835,25 +1736,7 @@ export interface DeleteEventDataStoreRequest {
   EventDataStore: string | undefined;
 }
 
-export namespace DeleteEventDataStoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEventDataStoreRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEventDataStoreResponse {}
-
-export namespace DeleteEventDataStoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEventDataStoreResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The event data store cannot be deleted because termination protection is enabled for it.</p>
@@ -1892,28 +1775,10 @@ export interface DeleteTrailRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteTrailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTrailRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
 export interface DeleteTrailResponse {}
-
-export namespace DeleteTrailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTrailResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>This exception is thrown when an operation is called on a trail from a region other than the region in which the trail was created.</p>
@@ -1975,15 +1840,6 @@ export interface DescribeQueryRequest {
   QueryId: string | undefined;
 }
 
-export namespace DescribeQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeQueryRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Gets metadata about a query, including the number of events that were matched, the total number of events scanned, the query run time
  *          in milliseconds, and the query's creation time.</p>
@@ -2016,15 +1872,6 @@ export interface QueryStatisticsForDescribeQuery {
   CreationTime?: Date;
 }
 
-export namespace QueryStatisticsForDescribeQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryStatisticsForDescribeQuery): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeQueryResponse {
   /**
    * <p>The ID of the query.</p>
@@ -2053,15 +1900,6 @@ export interface DescribeQueryResponse {
    * <p>The error message returned if a query failed.</p>
    */
   ErrorMessage?: string;
-}
-
-export namespace DescribeQueryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeQueryResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2096,15 +1934,6 @@ export interface DescribeTrailsRequest {
    *          and region replication trails will not be returned. The default is true.</p>
    */
   includeShadowTrails?: boolean;
-}
-
-export namespace DescribeTrailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrailsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2209,15 +2038,6 @@ export interface Trail {
   IsOrganizationTrail?: boolean;
 }
 
-export namespace Trail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Trail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
@@ -2230,29 +2050,11 @@ export interface DescribeTrailsResponse {
   trailList?: Trail[];
 }
 
-export namespace DescribeTrailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrailsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEventDataStoreRequest {
   /**
    * <p>The ARN (or ID suffix of the ARN) of the event data store about which you want information.</p>
    */
   EventDataStore: string | undefined;
-}
-
-export namespace GetEventDataStoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEventDataStoreRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEventDataStoreResponse {
@@ -2307,15 +2109,6 @@ export interface GetEventDataStoreResponse {
   UpdatedTimestamp?: Date;
 }
 
-export namespace GetEventDataStoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEventDataStoreResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEventSelectorsRequest {
   /**
    * <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the
@@ -2344,15 +2137,6 @@ export interface GetEventSelectorsRequest {
    *          </p>
    */
   TrailName: string | undefined;
-}
-
-export namespace GetEventSelectorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEventSelectorsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2522,15 +2306,6 @@ export interface DataResource {
   Values?: string[];
 }
 
-export namespace DataResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataResource): any => ({
-    ...obj,
-  });
-}
-
 export enum ReadWriteType {
   All = "All",
   ReadOnly = "ReadOnly",
@@ -2589,15 +2364,6 @@ export interface EventSelector {
   ExcludeManagementEventSources?: string[];
 }
 
-export namespace EventSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventSelector): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEventSelectorsResponse {
   /**
    * <p>The specified trail ARN that has the event selectors.</p>
@@ -2615,15 +2381,6 @@ export interface GetEventSelectorsResponse {
    *       </p>
    */
   AdvancedEventSelectors?: AdvancedEventSelector[];
-}
-
-export namespace GetEventSelectorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEventSelectorsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetInsightSelectorsRequest {
@@ -2656,15 +2413,6 @@ export interface GetInsightSelectorsRequest {
   TrailName: string | undefined;
 }
 
-export namespace GetInsightSelectorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInsightSelectorsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum InsightType {
   ApiCallRateInsight = "ApiCallRateInsight",
   ApiErrorRateInsight = "ApiErrorRateInsight",
@@ -2680,15 +2428,6 @@ export interface InsightSelector {
   InsightType?: InsightType | string;
 }
 
-export namespace InsightSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsightSelector): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInsightSelectorsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of a trail for which you want to get Insights selectors.</p>
@@ -2700,15 +2439,6 @@ export interface GetInsightSelectorsResponse {
    *          <code>ApiCallRateInsight</code> are supported as insight types.</p>
    */
   InsightSelectors?: InsightSelector[];
-}
-
-export namespace GetInsightSelectorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInsightSelectorsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2757,15 +2487,6 @@ export interface GetQueryResultsRequest {
   MaxQueryResults?: number;
 }
 
-export namespace GetQueryResultsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueryResultsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Metadata about a query, such as the number of results.</p>
  */
@@ -2785,15 +2506,6 @@ export interface QueryStatistics {
    *          bytes for which your account is billed for the query, unless the query is still running.</p>
    */
   BytesScanned?: number;
-}
-
-export namespace QueryStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryStatistics): any => ({
-    ...obj,
-  });
 }
 
 export interface GetQueryResultsResponse {
@@ -2822,15 +2534,6 @@ export interface GetQueryResultsResponse {
    * <p>The error message returned if a query failed.</p>
    */
   ErrorMessage?: string;
-}
-
-export namespace GetQueryResultsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueryResultsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2888,29 +2591,11 @@ export interface GetTrailRequest {
   Name: string | undefined;
 }
 
-export namespace GetTrailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTrailRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTrailResponse {
   /**
    * <p>The settings for a trail.</p>
    */
   Trail?: Trail;
-}
-
-export namespace GetTrailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTrailResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2925,15 +2610,6 @@ export interface GetTrailStatusRequest {
    *          </p>
    */
   Name: string | undefined;
-}
-
-export namespace GetTrailStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTrailStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3044,15 +2720,6 @@ export interface GetTrailStatusResponse {
   TimeLoggingStopped?: string;
 }
 
-export namespace GetTrailStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTrailStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEventDataStoresRequest {
   /**
    * <p>A token you can use to get the next page of event data store results.</p>
@@ -3063,15 +2730,6 @@ export interface ListEventDataStoresRequest {
    * <p>The maximum number of event data stores to display on a single page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListEventDataStoresRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventDataStoresRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3148,15 +2806,6 @@ export interface EventDataStore {
   UpdatedTimestamp?: Date;
 }
 
-export namespace EventDataStore {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDataStore): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEventDataStoresResponse {
   /**
    * <p>Contains information about event data stores in the account, in the current region.</p>
@@ -3167,15 +2816,6 @@ export interface ListEventDataStoresResponse {
    * <p>A token you can use to get the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListEventDataStoresResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventDataStoresResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3248,15 +2888,6 @@ export interface ListPublicKeysRequest {
   NextToken?: string;
 }
 
-export namespace ListPublicKeysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPublicKeysRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a returned public key.</p>
  */
@@ -3282,15 +2913,6 @@ export interface PublicKey {
   Fingerprint?: string;
 }
 
-export namespace PublicKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicKey): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
@@ -3307,15 +2929,6 @@ export interface ListPublicKeysResponse {
    * <p>Reserved for future use.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPublicKeysResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPublicKeysResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3404,15 +3017,6 @@ export interface ListQueriesRequest {
   QueryStatus?: QueryStatus | string;
 }
 
-export namespace ListQueriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueriesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A SQL string of criteria about events that you want to collect in an event data store.</p>
  */
@@ -3434,15 +3038,6 @@ export interface Query {
   CreationTime?: Date;
 }
 
-export namespace Query {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Query): any => ({
-    ...obj,
-  });
-}
-
 export interface ListQueriesResponse {
   /**
    * <p>Lists matching query results, and shows query ID, status, and creation time of each query.</p>
@@ -3453,15 +3048,6 @@ export interface ListQueriesResponse {
    * <p>A token you can use to get the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListQueriesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueriesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3480,15 +3066,6 @@ export interface ListTagsRequest {
   NextToken?: string;
 }
 
-export namespace ListTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A resource tag.</p>
  */
@@ -3502,15 +3079,6 @@ export interface ResourceTag {
    * <p>A list of tags.</p>
    */
   TagsList?: Tag[];
-}
-
-export namespace ResourceTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3528,15 +3096,6 @@ export interface ListTagsResponse {
   NextToken?: string;
 }
 
-export namespace ListTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTrailsRequest {
   /**
    * <p>The token to use to get the next page of results after a previous API call. This token must be passed
@@ -3545,15 +3104,6 @@ export interface ListTrailsRequest {
    *          include those same parameters.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTrailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrailsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3576,15 +3126,6 @@ export interface TrailInfo {
   HomeRegion?: string;
 }
 
-export namespace TrailInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrailInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTrailsResponse {
   /**
    * <p>Returns the name, ARN, and home region of trails in the current account.</p>
@@ -3598,15 +3139,6 @@ export interface ListTrailsResponse {
    *          NextToken should include those same parameters.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTrailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrailsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3687,15 +3219,6 @@ export interface LookupAttribute {
   AttributeValue: string | undefined;
 }
 
-export namespace LookupAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LookupAttribute): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a request for LookupEvents.</p>
  */
@@ -3733,15 +3256,6 @@ export interface LookupEventsRequest {
   NextToken?: string;
 }
 
-export namespace LookupEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LookupEventsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the type and name of a resource referenced by an event.</p>
  */
@@ -3758,15 +3272,6 @@ export interface Resource {
    * <p>The name of the resource referenced by the event returned. These are user-created names whose values will depend on the environment. For example, the resource name might be "auto-scaling-test-group" for an Auto Scaling Group or "i-1234567" for an EC2 Instance.</p>
    */
   ResourceName?: string;
-}
-
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3820,15 +3325,6 @@ export interface Event {
   CloudTrailEvent?: string;
 }
 
-export namespace Event {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Event): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a response to a LookupEvents action.</p>
  */
@@ -3845,15 +3341,6 @@ export interface LookupEventsResponse {
    *          NextToken should include those same parameters.</p>
    */
   NextToken?: string;
-}
-
-export namespace LookupEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LookupEventsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3952,15 +3439,6 @@ export interface PutEventSelectorsRequest {
   AdvancedEventSelectors?: AdvancedEventSelector[];
 }
 
-export namespace PutEventSelectorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEventSelectorsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutEventSelectorsResponse {
   /**
    * <p>Specifies the ARN of the trail that was updated with event selectors. The following is the format of a trail ARN.</p>
@@ -3979,15 +3457,6 @@ export interface PutEventSelectorsResponse {
    * <p>Specifies the advanced event selectors configured for your trail.</p>
    */
   AdvancedEventSelectors?: AdvancedEventSelector[];
-}
-
-export namespace PutEventSelectorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEventSelectorsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4027,15 +3496,6 @@ export interface PutInsightSelectorsRequest {
   InsightSelectors: InsightSelector[] | undefined;
 }
 
-export namespace PutInsightSelectorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutInsightSelectorsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutInsightSelectorsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of a trail for which you want to change or add Insights selectors.</p>
@@ -4047,15 +3507,6 @@ export interface PutInsightSelectorsResponse {
    *          <code>ApiErrorRateInsight</code> and <code>ApiCallRateInsight</code>.</p>
    */
   InsightSelectors?: InsightSelector[];
-}
-
-export namespace PutInsightSelectorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutInsightSelectorsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4078,28 +3529,10 @@ export interface RemoveTagsRequest {
   TagsList: Tag[] | undefined;
 }
 
-export namespace RemoveTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
 export interface RemoveTagsResponse {}
-
-export namespace RemoveTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The event data store is not in a status that supports the operation.</p>
@@ -4130,15 +3563,6 @@ export interface RestoreEventDataStoreRequest {
    * <p>The ARN (or the ID suffix of the ARN) of the event data store that you want to restore.</p>
    */
   EventDataStore: string | undefined;
-}
-
-export namespace RestoreEventDataStoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreEventDataStoreRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreEventDataStoreResponse {
@@ -4195,15 +3619,6 @@ export interface RestoreEventDataStoreResponse {
   UpdatedTimestamp?: Date;
 }
 
-export namespace RestoreEventDataStoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreEventDataStoreResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request to CloudTrail to start logging Amazon Web Services API calls for an account.</p>
  */
@@ -4218,28 +3633,10 @@ export interface StartLoggingRequest {
   Name: string | undefined;
 }
 
-export namespace StartLoggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartLoggingRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
 export interface StartLoggingResponse {}
-
-export namespace StartLoggingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartLoggingResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The query that was submitted has validation errors, or uses incorrect syntax or unsupported keywords. For more information
@@ -4299,29 +3696,11 @@ export interface StartQueryRequest {
   QueryStatement: string | undefined;
 }
 
-export namespace StartQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartQueryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartQueryResponse {
   /**
    * <p>The ID of the started query.</p>
    */
   QueryId?: string;
-}
-
-export namespace StartQueryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartQueryResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4338,28 +3717,10 @@ export interface StopLoggingRequest {
   Name: string | undefined;
 }
 
-export namespace StopLoggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopLoggingRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
 export interface StopLoggingResponse {}
-
-export namespace StopLoggingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopLoggingResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateEventDataStoreRequest {
   /**
@@ -4396,15 +3757,6 @@ export interface UpdateEventDataStoreRequest {
    * <p>Indicates that termination protection is enabled and the event data store cannot be automatically deleted.</p>
    */
   TerminationProtectionEnabled?: boolean;
-}
-
-export namespace UpdateEventDataStoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEventDataStoreRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateEventDataStoreResponse {
@@ -4457,15 +3809,6 @@ export interface UpdateEventDataStoreResponse {
    * <p>The timestamp that shows when the event data store was last updated. <code>UpdatedTimestamp</code> is always either the same or newer than the time shown in <code>CreatedTimestamp</code>.</p>
    */
   UpdatedTimestamp?: Date;
-}
-
-export namespace UpdateEventDataStoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEventDataStoreResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4585,15 +3928,6 @@ export interface UpdateTrailRequest {
   IsOrganizationTrail?: boolean;
 }
 
-export namespace UpdateTrailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTrailRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
  */
@@ -4679,11 +4013,527 @@ export interface UpdateTrailResponse {
   IsOrganizationTrail?: boolean;
 }
 
-export namespace UpdateTrailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTrailResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsRequestFilterSensitiveLog = (obj: AddTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsResponseFilterSensitiveLog = (obj: AddTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdvancedFieldSelectorFilterSensitiveLog = (obj: AdvancedFieldSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdvancedEventSelectorFilterSensitiveLog = (obj: AdvancedEventSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelQueryRequestFilterSensitiveLog = (obj: CancelQueryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelQueryResponseFilterSensitiveLog = (obj: CancelQueryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEventDataStoreRequestFilterSensitiveLog = (obj: CreateEventDataStoreRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEventDataStoreResponseFilterSensitiveLog = (obj: CreateEventDataStoreResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTrailRequestFilterSensitiveLog = (obj: CreateTrailRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTrailResponseFilterSensitiveLog = (obj: CreateTrailResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEventDataStoreRequestFilterSensitiveLog = (obj: DeleteEventDataStoreRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEventDataStoreResponseFilterSensitiveLog = (obj: DeleteEventDataStoreResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTrailRequestFilterSensitiveLog = (obj: DeleteTrailRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTrailResponseFilterSensitiveLog = (obj: DeleteTrailResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeQueryRequestFilterSensitiveLog = (obj: DescribeQueryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryStatisticsForDescribeQueryFilterSensitiveLog = (obj: QueryStatisticsForDescribeQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeQueryResponseFilterSensitiveLog = (obj: DescribeQueryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrailsRequestFilterSensitiveLog = (obj: DescribeTrailsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrailFilterSensitiveLog = (obj: Trail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrailsResponseFilterSensitiveLog = (obj: DescribeTrailsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEventDataStoreRequestFilterSensitiveLog = (obj: GetEventDataStoreRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEventDataStoreResponseFilterSensitiveLog = (obj: GetEventDataStoreResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEventSelectorsRequestFilterSensitiveLog = (obj: GetEventSelectorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataResourceFilterSensitiveLog = (obj: DataResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventSelectorFilterSensitiveLog = (obj: EventSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEventSelectorsResponseFilterSensitiveLog = (obj: GetEventSelectorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInsightSelectorsRequestFilterSensitiveLog = (obj: GetInsightSelectorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InsightSelectorFilterSensitiveLog = (obj: InsightSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInsightSelectorsResponseFilterSensitiveLog = (obj: GetInsightSelectorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueryResultsRequestFilterSensitiveLog = (obj: GetQueryResultsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryStatisticsFilterSensitiveLog = (obj: QueryStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueryResultsResponseFilterSensitiveLog = (obj: GetQueryResultsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTrailRequestFilterSensitiveLog = (obj: GetTrailRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTrailResponseFilterSensitiveLog = (obj: GetTrailResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTrailStatusRequestFilterSensitiveLog = (obj: GetTrailStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTrailStatusResponseFilterSensitiveLog = (obj: GetTrailStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventDataStoresRequestFilterSensitiveLog = (obj: ListEventDataStoresRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventDataStoreFilterSensitiveLog = (obj: EventDataStore): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventDataStoresResponseFilterSensitiveLog = (obj: ListEventDataStoresResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPublicKeysRequestFilterSensitiveLog = (obj: ListPublicKeysRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublicKeyFilterSensitiveLog = (obj: PublicKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPublicKeysResponseFilterSensitiveLog = (obj: ListPublicKeysResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQueriesRequestFilterSensitiveLog = (obj: ListQueriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryFilterSensitiveLog = (obj: Query): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQueriesResponseFilterSensitiveLog = (obj: ListQueriesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceTagFilterSensitiveLog = (obj: ResourceTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrailsRequestFilterSensitiveLog = (obj: ListTrailsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrailInfoFilterSensitiveLog = (obj: TrailInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrailsResponseFilterSensitiveLog = (obj: ListTrailsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LookupAttributeFilterSensitiveLog = (obj: LookupAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LookupEventsRequestFilterSensitiveLog = (obj: LookupEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventFilterSensitiveLog = (obj: Event): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LookupEventsResponseFilterSensitiveLog = (obj: LookupEventsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEventSelectorsRequestFilterSensitiveLog = (obj: PutEventSelectorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEventSelectorsResponseFilterSensitiveLog = (obj: PutEventSelectorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutInsightSelectorsRequestFilterSensitiveLog = (obj: PutInsightSelectorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutInsightSelectorsResponseFilterSensitiveLog = (obj: PutInsightSelectorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsRequestFilterSensitiveLog = (obj: RemoveTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsResponseFilterSensitiveLog = (obj: RemoveTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreEventDataStoreRequestFilterSensitiveLog = (obj: RestoreEventDataStoreRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreEventDataStoreResponseFilterSensitiveLog = (obj: RestoreEventDataStoreResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartLoggingRequestFilterSensitiveLog = (obj: StartLoggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartLoggingResponseFilterSensitiveLog = (obj: StartLoggingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartQueryRequestFilterSensitiveLog = (obj: StartQueryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartQueryResponseFilterSensitiveLog = (obj: StartQueryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopLoggingRequestFilterSensitiveLog = (obj: StopLoggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopLoggingResponseFilterSensitiveLog = (obj: StopLoggingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEventDataStoreRequestFilterSensitiveLog = (obj: UpdateEventDataStoreRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEventDataStoreResponseFilterSensitiveLog = (obj: UpdateEventDataStoreResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTrailRequestFilterSensitiveLog = (obj: UpdateTrailRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTrailResponseFilterSensitiveLog = (obj: UpdateTrailResponse): any => ({
+  ...obj,
+});

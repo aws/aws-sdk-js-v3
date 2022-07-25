@@ -17,7 +17,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { DeleteBotRequest } from "../models/models_0";
+import { DeleteBotRequest, DeleteBotRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBotCommand,
   serializeAws_restJson1DeleteBotCommand,
@@ -92,7 +92,7 @@ export class DeleteBotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBotRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBotRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteAccountAliasRequest } from "../models/models_0";
+import { DeleteAccountAliasRequest, DeleteAccountAliasRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDeleteAccountAliasCommand,
   serializeAws_queryDeleteAccountAliasCommand,
@@ -74,7 +74,7 @@ export class DeleteAccountAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccountAliasRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAccountAliasRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

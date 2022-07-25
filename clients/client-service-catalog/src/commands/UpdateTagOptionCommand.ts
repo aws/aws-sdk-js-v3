@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateTagOptionInput, UpdateTagOptionOutput } from "../models/models_0";
+import {
+  UpdateTagOptionInput,
+  UpdateTagOptionInputFilterSensitiveLog,
+  UpdateTagOptionOutput,
+  UpdateTagOptionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateTagOptionCommand,
   serializeAws_json1_1UpdateTagOptionCommand,
@@ -72,8 +77,8 @@ export class UpdateTagOptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTagOptionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTagOptionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTagOptionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTagOptionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

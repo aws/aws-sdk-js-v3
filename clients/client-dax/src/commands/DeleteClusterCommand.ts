@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import { DeleteClusterRequest, DeleteClusterResponse } from "../models/models_0";
+import {
+  DeleteClusterRequest,
+  DeleteClusterRequestFilterSensitiveLog,
+  DeleteClusterResponse,
+  DeleteClusterResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteClusterCommand,
   serializeAws_json1_1DeleteClusterCommand,
@@ -76,8 +81,8 @@ export class DeleteClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteClusterRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteClusterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteClusterRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteClusterResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

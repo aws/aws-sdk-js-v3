@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifySubnetAttributeRequest } from "../models/models_5";
+import { ModifySubnetAttributeRequest, ModifySubnetAttributeRequestFilterSensitiveLog } from "../models/models_5";
 import {
   deserializeAws_ec2ModifySubnetAttributeCommand,
   serializeAws_ec2ModifySubnetAttributeCommand,
@@ -102,7 +102,7 @@ export class ModifySubnetAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifySubnetAttributeRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifySubnetAttributeRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateConfigurationSetReputationMetricsEnabledRequest } from "../models/models_0";
+import {
+  UpdateConfigurationSetReputationMetricsEnabledRequest,
+  UpdateConfigurationSetReputationMetricsEnabledRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand,
   serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand,
@@ -80,7 +83,7 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfigurationSetReputationMetricsEnabledRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateConfigurationSetReputationMetricsEnabledRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { QueryIdempotencyTokenAutoFillInput } from "../models/models_0";
+import {
+  QueryIdempotencyTokenAutoFillInput,
+  QueryIdempotencyTokenAutoFillInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_ec2QueryIdempotencyTokenAutoFillCommand,
   serializeAws_ec2QueryIdempotencyTokenAutoFillCommand,
@@ -72,7 +75,7 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryIdempotencyTokenAutoFillInput.filterSensitiveLog,
+      inputFilterSensitiveLog: QueryIdempotencyTokenAutoFillInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

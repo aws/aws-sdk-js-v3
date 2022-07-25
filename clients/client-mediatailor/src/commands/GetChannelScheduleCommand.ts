@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import { GetChannelScheduleRequest, GetChannelScheduleResponse } from "../models/models_0";
+import {
+  GetChannelScheduleRequest,
+  GetChannelScheduleRequestFilterSensitiveLog,
+  GetChannelScheduleResponse,
+  GetChannelScheduleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetChannelScheduleCommand,
   serializeAws_restJson1GetChannelScheduleCommand,
@@ -72,8 +77,8 @@ export class GetChannelScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChannelScheduleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetChannelScheduleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetChannelScheduleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetChannelScheduleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

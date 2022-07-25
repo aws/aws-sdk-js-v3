@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListAvailableResourceDimensionsRequest, ListAvailableResourceDimensionsResponse } from "../models/models_0";
+import {
+  ListAvailableResourceDimensionsRequest,
+  ListAvailableResourceDimensionsRequestFilterSensitiveLog,
+  ListAvailableResourceDimensionsResponse,
+  ListAvailableResourceDimensionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
 import {
   deserializeAws_json1_1ListAvailableResourceDimensionsCommand,
@@ -74,8 +79,8 @@ export class ListAvailableResourceDimensionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAvailableResourceDimensionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAvailableResourceDimensionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAvailableResourceDimensionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAvailableResourceDimensionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

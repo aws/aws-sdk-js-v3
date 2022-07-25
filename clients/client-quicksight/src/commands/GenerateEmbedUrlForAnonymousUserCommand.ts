@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GenerateEmbedUrlForAnonymousUserRequest, GenerateEmbedUrlForAnonymousUserResponse } from "../models/models_1";
+import {
+  GenerateEmbedUrlForAnonymousUserRequest,
+  GenerateEmbedUrlForAnonymousUserRequestFilterSensitiveLog,
+  GenerateEmbedUrlForAnonymousUserResponse,
+  GenerateEmbedUrlForAnonymousUserResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand,
   serializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand,
@@ -91,8 +96,8 @@ export class GenerateEmbedUrlForAnonymousUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateEmbedUrlForAnonymousUserRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GenerateEmbedUrlForAnonymousUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GenerateEmbedUrlForAnonymousUserRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GenerateEmbedUrlForAnonymousUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

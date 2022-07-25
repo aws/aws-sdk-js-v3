@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisableAWSServiceAccessRequest } from "../models/models_0";
+import { DisableAWSServiceAccessRequest, DisableAWSServiceAccessRequestFilterSensitiveLog } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1DisableAWSServiceAccessCommand,
@@ -127,7 +127,7 @@ export class DisableAWSServiceAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableAWSServiceAccessRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableAWSServiceAccessRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

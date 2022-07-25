@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteVpcPeeringConnectionRequest, DeleteVpcPeeringConnectionResult } from "../models/models_2";
+import {
+  DeleteVpcPeeringConnectionRequest,
+  DeleteVpcPeeringConnectionRequestFilterSensitiveLog,
+  DeleteVpcPeeringConnectionResult,
+  DeleteVpcPeeringConnectionResultFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_ec2DeleteVpcPeeringConnectionCommand,
   serializeAws_ec2DeleteVpcPeeringConnectionCommand,
@@ -76,8 +81,8 @@ export class DeleteVpcPeeringConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcPeeringConnectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVpcPeeringConnectionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVpcPeeringConnectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVpcPeeringConnectionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ImportResourcesToDraftAppVersionRequest, ImportResourcesToDraftAppVersionResponse } from "../models/models_0";
+import {
+  ImportResourcesToDraftAppVersionRequest,
+  ImportResourcesToDraftAppVersionRequestFilterSensitiveLog,
+  ImportResourcesToDraftAppVersionResponse,
+  ImportResourcesToDraftAppVersionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ImportResourcesToDraftAppVersionCommand,
   serializeAws_restJson1ImportResourcesToDraftAppVersionCommand,
@@ -75,8 +80,8 @@ export class ImportResourcesToDraftAppVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportResourcesToDraftAppVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ImportResourcesToDraftAppVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportResourcesToDraftAppVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ImportResourcesToDraftAppVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

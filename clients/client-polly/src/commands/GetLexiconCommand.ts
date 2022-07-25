@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetLexiconInput, GetLexiconOutput } from "../models/models_0";
+import {
+  GetLexiconInput,
+  GetLexiconInputFilterSensitiveLog,
+  GetLexiconOutput,
+  GetLexiconOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
 import {
   deserializeAws_restJson1GetLexiconCommand,
@@ -73,8 +78,8 @@ export class GetLexiconCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLexiconInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetLexiconOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLexiconInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetLexiconOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetRoutingControlStateRequest, GetRoutingControlStateResponse } from "../models/models_0";
+import {
+  GetRoutingControlStateRequest,
+  GetRoutingControlStateRequestFilterSensitiveLog,
+  GetRoutingControlStateResponse,
+  GetRoutingControlStateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0GetRoutingControlStateCommand,
   serializeAws_json1_0GetRoutingControlStateCommand,
@@ -106,8 +111,8 @@ export class GetRoutingControlStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRoutingControlStateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRoutingControlStateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRoutingControlStateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRoutingControlStateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -19,7 +19,9 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DescribeOrderableReplicationInstancesMessage,
+  DescribeOrderableReplicationInstancesMessageFilterSensitiveLog,
   DescribeOrderableReplicationInstancesResponse,
+  DescribeOrderableReplicationInstancesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeOrderableReplicationInstancesCommand,
@@ -83,8 +85,8 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrderableReplicationInstancesMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrderableReplicationInstancesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeOrderableReplicationInstancesMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeOrderableReplicationInstancesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

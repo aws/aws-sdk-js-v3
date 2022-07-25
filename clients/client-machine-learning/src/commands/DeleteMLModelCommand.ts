@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { DeleteMLModelInput, DeleteMLModelOutput } from "../models/models_0";
+import {
+  DeleteMLModelInput,
+  DeleteMLModelInputFilterSensitiveLog,
+  DeleteMLModelOutput,
+  DeleteMLModelOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteMLModelCommand,
   serializeAws_json1_1DeleteMLModelCommand,
@@ -77,8 +82,8 @@ export class DeleteMLModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMLModelInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMLModelOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMLModelInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMLModelOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

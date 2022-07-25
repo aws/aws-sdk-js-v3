@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { DescribeAnomalyDetectorsInput, DescribeAnomalyDetectorsOutput } from "../models/models_0";
+import {
+  DescribeAnomalyDetectorsInput,
+  DescribeAnomalyDetectorsInputFilterSensitiveLog,
+  DescribeAnomalyDetectorsOutput,
+  DescribeAnomalyDetectorsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeAnomalyDetectorsCommand,
   serializeAws_queryDescribeAnomalyDetectorsCommand,
@@ -78,8 +83,8 @@ export class DescribeAnomalyDetectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAnomalyDetectorsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAnomalyDetectorsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAnomalyDetectorsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAnomalyDetectorsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

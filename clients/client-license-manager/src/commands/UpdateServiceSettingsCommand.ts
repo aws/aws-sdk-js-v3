@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import { UpdateServiceSettingsRequest, UpdateServiceSettingsResponse } from "../models/models_0";
+import {
+  UpdateServiceSettingsRequest,
+  UpdateServiceSettingsRequestFilterSensitiveLog,
+  UpdateServiceSettingsResponse,
+  UpdateServiceSettingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateServiceSettingsCommand,
   serializeAws_json1_1UpdateServiceSettingsCommand,
@@ -72,8 +77,8 @@ export class UpdateServiceSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServiceSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServiceSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateServiceSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateServiceSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

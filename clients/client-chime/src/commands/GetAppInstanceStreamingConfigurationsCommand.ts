@@ -15,7 +15,9 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   GetAppInstanceStreamingConfigurationsRequest,
+  GetAppInstanceStreamingConfigurationsRequestFilterSensitiveLog,
   GetAppInstanceStreamingConfigurationsResponse,
+  GetAppInstanceStreamingConfigurationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAppInstanceStreamingConfigurationsCommand,
@@ -78,8 +80,8 @@ export class GetAppInstanceStreamingConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppInstanceStreamingConfigurationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAppInstanceStreamingConfigurationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAppInstanceStreamingConfigurationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAppInstanceStreamingConfigurationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

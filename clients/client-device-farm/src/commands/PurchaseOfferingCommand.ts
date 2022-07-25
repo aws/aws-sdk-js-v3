@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { PurchaseOfferingRequest, PurchaseOfferingResult } from "../models/models_0";
+import {
+  PurchaseOfferingRequest,
+  PurchaseOfferingRequestFilterSensitiveLog,
+  PurchaseOfferingResult,
+  PurchaseOfferingResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PurchaseOfferingCommand,
   serializeAws_json1_1PurchaseOfferingCommand,
@@ -75,8 +80,8 @@ export class PurchaseOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseOfferingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseOfferingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PurchaseOfferingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseOfferingResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

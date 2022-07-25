@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { DisassociateApiRequest, DisassociateApiResponse } from "../models/models_0";
+import {
+  DisassociateApiRequest,
+  DisassociateApiRequestFilterSensitiveLog,
+  DisassociateApiResponse,
+  DisassociateApiResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateApiCommand,
   serializeAws_restJson1DisassociateApiCommand,
@@ -72,8 +77,8 @@ export class DisassociateApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateApiRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateApiResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateApiRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateApiResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

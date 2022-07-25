@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { ActivateTypeInput, ActivateTypeOutput } from "../models/models_0";
+import {
+  ActivateTypeInput,
+  ActivateTypeInputFilterSensitiveLog,
+  ActivateTypeOutput,
+  ActivateTypeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryActivateTypeCommand, serializeAws_queryActivateTypeCommand } from "../protocols/Aws_query";
 
 export interface ActivateTypeCommandInput extends ActivateTypeInput {}
@@ -74,8 +79,8 @@ export class ActivateTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ActivateTypeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ActivateTypeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ActivateTypeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ActivateTypeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

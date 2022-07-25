@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { BatchUpdateDevicePositionRequest, BatchUpdateDevicePositionResponse } from "../models/models_0";
+import {
+  BatchUpdateDevicePositionRequest,
+  BatchUpdateDevicePositionRequestFilterSensitiveLog,
+  BatchUpdateDevicePositionResponse,
+  BatchUpdateDevicePositionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BatchUpdateDevicePositionCommand,
   serializeAws_restJson1BatchUpdateDevicePositionCommand,
@@ -90,8 +95,8 @@ export class BatchUpdateDevicePositionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUpdateDevicePositionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdateDevicePositionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchUpdateDevicePositionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchUpdateDevicePositionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

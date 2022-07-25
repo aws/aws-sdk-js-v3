@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { ListIndexRequest, ListIndexResponse } from "../models/models_0";
+import {
+  ListIndexRequest,
+  ListIndexRequestFilterSensitiveLog,
+  ListIndexResponse,
+  ListIndexResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListIndexCommand,
   serializeAws_restJson1ListIndexCommand,
@@ -72,8 +77,8 @@ export class ListIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIndexRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListIndexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListIndexRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListIndexResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { PutEventTypeRequest, PutEventTypeResult } from "../models/models_0";
+import {
+  PutEventTypeRequest,
+  PutEventTypeRequestFilterSensitiveLog,
+  PutEventTypeResult,
+  PutEventTypeResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutEventTypeCommand,
   serializeAws_json1_1PutEventTypeCommand,
@@ -72,8 +77,8 @@ export class PutEventTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEventTypeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutEventTypeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutEventTypeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutEventTypeResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

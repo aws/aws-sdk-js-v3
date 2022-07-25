@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteEnvironmentAccountConnectionInput, DeleteEnvironmentAccountConnectionOutput } from "../models/models_0";
+import {
+  DeleteEnvironmentAccountConnectionInput,
+  DeleteEnvironmentAccountConnectionInputFilterSensitiveLog,
+  DeleteEnvironmentAccountConnectionOutput,
+  DeleteEnvironmentAccountConnectionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteEnvironmentAccountConnectionCommand,
   serializeAws_json1_0DeleteEnvironmentAccountConnectionCommand,
@@ -79,8 +84,8 @@ export class DeleteEnvironmentAccountConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEnvironmentAccountConnectionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEnvironmentAccountConnectionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEnvironmentAccountConnectionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEnvironmentAccountConnectionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

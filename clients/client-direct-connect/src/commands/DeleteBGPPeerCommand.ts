@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { DeleteBGPPeerRequest, DeleteBGPPeerResponse } from "../models/models_0";
+import {
+  DeleteBGPPeerRequest,
+  DeleteBGPPeerRequestFilterSensitiveLog,
+  DeleteBGPPeerResponse,
+  DeleteBGPPeerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteBGPPeerCommand,
   serializeAws_json1_1DeleteBGPPeerCommand,
@@ -73,8 +78,8 @@ export class DeleteBGPPeerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBGPPeerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBGPPeerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBGPPeerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBGPPeerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

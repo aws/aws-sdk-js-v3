@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { GetRecoveryPointRestoreMetadataInput, GetRecoveryPointRestoreMetadataOutput } from "../models/models_0";
+import {
+  GetRecoveryPointRestoreMetadataInput,
+  GetRecoveryPointRestoreMetadataInputFilterSensitiveLog,
+  GetRecoveryPointRestoreMetadataOutput,
+  GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommand,
   serializeAws_restJson1GetRecoveryPointRestoreMetadataCommand,
@@ -74,8 +79,8 @@ export class GetRecoveryPointRestoreMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecoveryPointRestoreMetadataInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRecoveryPointRestoreMetadataOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRecoveryPointRestoreMetadataInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

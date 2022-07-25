@@ -131,15 +131,6 @@ export interface StartSelector {
   ContinuationToken?: string;
 }
 
-export namespace StartSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSelector): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMediaInput {
   /**
    * <p>The Kinesis video stream name from where you want to get the media content. If you
@@ -158,15 +149,6 @@ export interface GetMediaInput {
    * <p>Identifies the starting chunk to get from the specified stream. </p>
    */
   StartSelector: StartSelector | undefined;
-}
-
-export namespace GetMediaInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMediaInput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMediaOutput {
@@ -246,15 +228,6 @@ export interface GetMediaOutput {
    *          </ul>
    */
   Payload?: Readable | ReadableStream | Blob;
-}
-
-export namespace GetMediaOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMediaOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -344,3 +317,24 @@ export class ResourceNotFoundException extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * @internal
+ */
+export const StartSelectorFilterSensitiveLog = (obj: StartSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMediaInputFilterSensitiveLog = (obj: GetMediaInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMediaOutputFilterSensitiveLog = (obj: GetMediaOutput): any => ({
+  ...obj,
+});

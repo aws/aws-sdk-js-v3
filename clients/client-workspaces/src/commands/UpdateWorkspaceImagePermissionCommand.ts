@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateWorkspaceImagePermissionRequest, UpdateWorkspaceImagePermissionResult } from "../models/models_0";
+import {
+  UpdateWorkspaceImagePermissionRequest,
+  UpdateWorkspaceImagePermissionRequestFilterSensitiveLog,
+  UpdateWorkspaceImagePermissionResult,
+  UpdateWorkspaceImagePermissionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateWorkspaceImagePermissionCommand,
   serializeAws_json1_1UpdateWorkspaceImagePermissionCommand,
@@ -96,8 +101,8 @@ export class UpdateWorkspaceImagePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkspaceImagePermissionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkspaceImagePermissionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateWorkspaceImagePermissionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateWorkspaceImagePermissionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { QueryTimestampsInput } from "../models/models_0";
+import { QueryTimestampsInput, QueryTimestampsInputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_ec2QueryTimestampsCommand, serializeAws_ec2QueryTimestampsCommand } from "../protocols/Aws_ec2";
 
 export interface QueryTimestampsCommandInput extends QueryTimestampsInput {}
@@ -73,7 +73,7 @@ export class QueryTimestampsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryTimestampsInput.filterSensitiveLog,
+      inputFilterSensitiveLog: QueryTimestampsInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

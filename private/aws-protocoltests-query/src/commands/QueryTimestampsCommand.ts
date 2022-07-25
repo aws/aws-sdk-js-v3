@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { QueryTimestampsInput } from "../models/models_0";
+import { QueryTimestampsInput, QueryTimestampsInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryQueryTimestampsCommand,
   serializeAws_queryQueryTimestampsCommand,
@@ -76,7 +76,7 @@ export class QueryTimestampsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryTimestampsInput.filterSensitiveLog,
+      inputFilterSensitiveLog: QueryTimestampsInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

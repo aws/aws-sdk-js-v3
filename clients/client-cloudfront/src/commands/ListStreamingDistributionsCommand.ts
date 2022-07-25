@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { ListStreamingDistributionsRequest, ListStreamingDistributionsResult } from "../models/models_1";
+import {
+  ListStreamingDistributionsRequest,
+  ListStreamingDistributionsRequestFilterSensitiveLog,
+  ListStreamingDistributionsResult,
+  ListStreamingDistributionsResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlListStreamingDistributionsCommand,
   serializeAws_restXmlListStreamingDistributionsCommand,
@@ -72,8 +77,8 @@ export class ListStreamingDistributionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStreamingDistributionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListStreamingDistributionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListStreamingDistributionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListStreamingDistributionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

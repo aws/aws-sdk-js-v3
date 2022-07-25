@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { CancelTransactionRequest, CancelTransactionResponse } from "../models/models_0";
+import {
+  CancelTransactionRequest,
+  CancelTransactionRequestFilterSensitiveLog,
+  CancelTransactionResponse,
+  CancelTransactionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CancelTransactionCommand,
   serializeAws_restJson1CancelTransactionCommand,
@@ -72,8 +77,8 @@ export class CancelTransactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelTransactionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelTransactionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelTransactionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelTransactionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import { DescribeProgramRequest, DescribeProgramResponse } from "../models/models_0";
+import {
+  DescribeProgramRequest,
+  DescribeProgramRequestFilterSensitiveLog,
+  DescribeProgramResponse,
+  DescribeProgramResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeProgramCommand,
   serializeAws_restJson1DescribeProgramCommand,
@@ -72,8 +77,8 @@ export class DescribeProgramCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProgramRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProgramResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeProgramRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeProgramResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

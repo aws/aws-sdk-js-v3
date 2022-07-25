@@ -19,7 +19,9 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   GetCompatibleElasticsearchVersionsRequest,
+  GetCompatibleElasticsearchVersionsRequestFilterSensitiveLog,
   GetCompatibleElasticsearchVersionsResponse,
+  GetCompatibleElasticsearchVersionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommand,
@@ -88,8 +90,8 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCompatibleElasticsearchVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCompatibleElasticsearchVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCompatibleElasticsearchVersionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCompatibleElasticsearchVersionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

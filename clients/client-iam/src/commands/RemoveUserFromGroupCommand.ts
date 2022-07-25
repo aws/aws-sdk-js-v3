@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { RemoveUserFromGroupRequest } from "../models/models_0";
+import { RemoveUserFromGroupRequest, RemoveUserFromGroupRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryRemoveUserFromGroupCommand,
   serializeAws_queryRemoveUserFromGroupCommand,
@@ -72,7 +72,7 @@ export class RemoveUserFromGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveUserFromGroupRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveUserFromGroupRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

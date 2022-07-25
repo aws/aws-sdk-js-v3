@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { UpdateRecordsRequest, UpdateRecordsResponse } from "../models/models_0";
+import {
+  UpdateRecordsRequest,
+  UpdateRecordsRequestFilterSensitiveLog,
+  UpdateRecordsResponse,
+  UpdateRecordsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateRecordsCommand,
   serializeAws_restJson1UpdateRecordsCommand,
@@ -74,8 +79,8 @@ export class UpdateRecordsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRecordsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRecordsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRecordsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRecordsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

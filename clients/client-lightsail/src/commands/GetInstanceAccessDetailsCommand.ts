@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetInstanceAccessDetailsRequest, GetInstanceAccessDetailsResult } from "../models/models_1";
+import {
+  GetInstanceAccessDetailsRequest,
+  GetInstanceAccessDetailsRequestFilterSensitiveLog,
+  GetInstanceAccessDetailsResult,
+  GetInstanceAccessDetailsResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetInstanceAccessDetailsCommand,
   serializeAws_json1_1GetInstanceAccessDetailsCommand,
@@ -76,8 +81,8 @@ export class GetInstanceAccessDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstanceAccessDetailsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetInstanceAccessDetailsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInstanceAccessDetailsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetInstanceAccessDetailsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import { ModifyClusterRequest, ModifyClusterResponse } from "../models/models_0";
+import {
+  ModifyClusterRequest,
+  ModifyClusterRequestFilterSensitiveLog,
+  ModifyClusterResponse,
+  ModifyClusterResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ModifyClusterCommand,
   serializeAws_json1_1ModifyClusterCommand,
@@ -72,8 +77,8 @@ export class ModifyClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClusterRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyClusterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyClusterRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyClusterResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

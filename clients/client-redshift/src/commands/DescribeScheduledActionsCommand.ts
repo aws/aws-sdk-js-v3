@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeScheduledActionsMessage, ScheduledActionsMessage } from "../models/models_1";
+import {
+  DescribeScheduledActionsMessage,
+  DescribeScheduledActionsMessageFilterSensitiveLog,
+  ScheduledActionsMessage,
+  ScheduledActionsMessageFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryDescribeScheduledActionsCommand,
   serializeAws_queryDescribeScheduledActionsCommand,
@@ -73,8 +78,8 @@ export class DescribeScheduledActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScheduledActionsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ScheduledActionsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeScheduledActionsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ScheduledActionsMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

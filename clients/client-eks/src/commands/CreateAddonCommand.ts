@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { CreateAddonRequest, CreateAddonResponse } from "../models/models_0";
+import {
+  CreateAddonRequest,
+  CreateAddonRequestFilterSensitiveLog,
+  CreateAddonResponse,
+  CreateAddonResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateAddonCommand,
   serializeAws_restJson1CreateAddonCommand,
@@ -78,8 +83,8 @@ export class CreateAddonCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAddonRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateAddonResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAddonRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateAddonResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListSigningJobsRequest, ListSigningJobsResponse } from "../models/models_0";
+import {
+  ListSigningJobsRequest,
+  ListSigningJobsRequestFilterSensitiveLog,
+  ListSigningJobsResponse,
+  ListSigningJobsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListSigningJobsCommand,
   serializeAws_restJson1ListSigningJobsCommand,
@@ -78,8 +83,8 @@ export class ListSigningJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSigningJobsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSigningJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSigningJobsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSigningJobsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

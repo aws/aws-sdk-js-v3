@@ -32,15 +32,6 @@ export interface CancelResourceRequestInput {
   RequestToken: string | undefined;
 }
 
-export namespace CancelResourceRequestInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelResourceRequestInput): any => ({
-    ...obj,
-  });
-}
-
 export enum HandlerErrorCode {
   ACCESS_DENIED = "AccessDenied",
   ALREADY_EXISTS = "AlreadyExists",
@@ -168,16 +159,6 @@ export interface ProgressEvent {
   RetryAfter?: Date;
 }
 
-export namespace ProgressEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProgressEvent): any => ({
-    ...obj,
-    ...(obj.ResourceModel && { ResourceModel: SENSITIVE_STRING }),
-  });
-}
-
 export interface CancelResourceRequestOutput {
   /**
    * <p>Represents the current status of a resource operation request. For more information, see
@@ -185,16 +166,6 @@ export interface CancelResourceRequestOutput {
    *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    */
   ProgressEvent?: ProgressEvent;
-}
-
-export namespace CancelResourceRequestOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelResourceRequestOutput): any => ({
-    ...obj,
-    ...(obj.ProgressEvent && { ProgressEvent: ProgressEvent.filterSensitiveLog(obj.ProgressEvent) }),
-  });
 }
 
 /**
@@ -335,16 +306,6 @@ export interface CreateResourceInput {
   DesiredState: string | undefined;
 }
 
-export namespace CreateResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceInput): any => ({
-    ...obj,
-    ...(obj.DesiredState && { DesiredState: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateResourceOutput {
   /**
    * <p>Represents the current status of the resource creation request.</p>
@@ -353,16 +314,6 @@ export interface CreateResourceOutput {
    *         <code>ProgressEvent</code> returned by <code>CreateResource</code>.</p>
    */
   ProgressEvent?: ProgressEvent;
-}
-
-export namespace CreateResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceOutput): any => ({
-    ...obj,
-    ...(obj.ProgressEvent && { ProgressEvent: ProgressEvent.filterSensitiveLog(obj.ProgressEvent) }),
-  });
 }
 
 /**
@@ -752,15 +703,6 @@ export interface DeleteResourceInput {
   Identifier: string | undefined;
 }
 
-export namespace DeleteResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourceOutput {
   /**
    * <p>Represents the current status of the resource deletion request.</p>
@@ -769,16 +711,6 @@ export interface DeleteResourceOutput {
    *         <code>ProgressEvent</code> returned by <code>DeleteResource</code>.</p>
    */
   ProgressEvent?: ProgressEvent;
-}
-
-export namespace DeleteResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourceOutput): any => ({
-    ...obj,
-    ...(obj.ProgressEvent && { ProgressEvent: ProgressEvent.filterSensitiveLog(obj.ProgressEvent) }),
-  });
 }
 
 export interface GetResourceInput {
@@ -810,15 +742,6 @@ export interface GetResourceInput {
   Identifier: string | undefined;
 }
 
-export namespace GetResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents information about a provisioned resource.</p>
  */
@@ -836,16 +759,6 @@ export interface ResourceDescription {
   Properties?: string;
 }
 
-export namespace ResourceDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDescription): any => ({
-    ...obj,
-    ...(obj.Properties && { Properties: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetResourceOutput {
   /**
    * <p>The name of the resource type.</p>
@@ -858,18 +771,6 @@ export interface GetResourceOutput {
   ResourceDescription?: ResourceDescription;
 }
 
-export namespace GetResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceOutput): any => ({
-    ...obj,
-    ...(obj.ResourceDescription && {
-      ResourceDescription: ResourceDescription.filterSensitiveLog(obj.ResourceDescription),
-    }),
-  });
-}
-
 export interface GetResourceRequestStatusInput {
   /**
    * <p>A unique token used to track the progress of the resource operation request.</p>
@@ -879,30 +780,11 @@ export interface GetResourceRequestStatusInput {
   RequestToken: string | undefined;
 }
 
-export namespace GetResourceRequestStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceRequestStatusInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourceRequestStatusOutput {
   /**
    * <p>Represents the current status of the resource operation request.</p>
    */
   ProgressEvent?: ProgressEvent;
-}
-
-export namespace GetResourceRequestStatusOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceRequestStatusOutput): any => ({
-    ...obj,
-    ...(obj.ProgressEvent && { ProgressEvent: ProgressEvent.filterSensitiveLog(obj.ProgressEvent) }),
-  });
 }
 
 /**
@@ -947,15 +829,6 @@ export interface ResourceRequestStatusFilter {
   OperationStatuses?: (OperationStatus | string)[];
 }
 
-export namespace ResourceRequestStatusFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceRequestStatusFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourceRequestsInput {
   /**
    * <p>The maximum number of results to be returned with a single call. If the number of
@@ -977,15 +850,6 @@ export interface ListResourceRequestsInput {
   ResourceRequestStatusFilter?: ResourceRequestStatusFilter;
 }
 
-export namespace ListResourceRequestsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceRequestsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourceRequestsOutput {
   /**
    * <p>The requests that match the specified filter criteria.</p>
@@ -996,20 +860,6 @@ export interface ListResourceRequestsOutput {
    * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To retrieve the next set of results, call <code>ListResources</code> again and assign that token to the request object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListResourceRequestsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceRequestsOutput): any => ({
-    ...obj,
-    ...(obj.ResourceRequestStatusSummaries && {
-      ResourceRequestStatusSummaries: obj.ResourceRequestStatusSummaries.map((item) =>
-        ProgressEvent.filterSensitiveLog(item)
-      ),
-    }),
-  });
 }
 
 export interface ListResourcesInput {
@@ -1048,16 +898,6 @@ export interface ListResourcesInput {
   ResourceModel?: string;
 }
 
-export namespace ListResourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesInput): any => ({
-    ...obj,
-    ...(obj.ResourceModel && { ResourceModel: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListResourcesOutput {
   /**
    * <p>The name of the resource type.</p>
@@ -1074,18 +914,6 @@ export interface ListResourcesOutput {
    * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To retrieve the next set of results, call <code>ListResources</code> again and assign that token to the request object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListResourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesOutput): any => ({
-    ...obj,
-    ...(obj.ResourceDescriptions && {
-      ResourceDescriptions: obj.ResourceDescriptions.map((item) => ResourceDescription.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface UpdateResourceInput {
@@ -1132,16 +960,6 @@ export interface UpdateResourceInput {
   PatchDocument: string | undefined;
 }
 
-export namespace UpdateResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceInput): any => ({
-    ...obj,
-    ...(obj.PatchDocument && { PatchDocument: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateResourceOutput {
   /**
    * <p>Represents the current status of the resource update request.</p>
@@ -1151,12 +969,156 @@ export interface UpdateResourceOutput {
   ProgressEvent?: ProgressEvent;
 }
 
-export namespace UpdateResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceOutput): any => ({
-    ...obj,
-    ...(obj.ProgressEvent && { ProgressEvent: ProgressEvent.filterSensitiveLog(obj.ProgressEvent) }),
-  });
-}
+/**
+ * @internal
+ */
+export const CancelResourceRequestInputFilterSensitiveLog = (obj: CancelResourceRequestInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProgressEventFilterSensitiveLog = (obj: ProgressEvent): any => ({
+  ...obj,
+  ...(obj.ResourceModel && { ResourceModel: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CancelResourceRequestOutputFilterSensitiveLog = (obj: CancelResourceRequestOutput): any => ({
+  ...obj,
+  ...(obj.ProgressEvent && { ProgressEvent: ProgressEventFilterSensitiveLog(obj.ProgressEvent) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceInputFilterSensitiveLog = (obj: CreateResourceInput): any => ({
+  ...obj,
+  ...(obj.DesiredState && { DesiredState: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceOutputFilterSensitiveLog = (obj: CreateResourceOutput): any => ({
+  ...obj,
+  ...(obj.ProgressEvent && { ProgressEvent: ProgressEventFilterSensitiveLog(obj.ProgressEvent) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourceInputFilterSensitiveLog = (obj: DeleteResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourceOutputFilterSensitiveLog = (obj: DeleteResourceOutput): any => ({
+  ...obj,
+  ...(obj.ProgressEvent && { ProgressEvent: ProgressEventFilterSensitiveLog(obj.ProgressEvent) }),
+});
+
+/**
+ * @internal
+ */
+export const GetResourceInputFilterSensitiveLog = (obj: GetResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceDescriptionFilterSensitiveLog = (obj: ResourceDescription): any => ({
+  ...obj,
+  ...(obj.Properties && { Properties: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetResourceOutputFilterSensitiveLog = (obj: GetResourceOutput): any => ({
+  ...obj,
+  ...(obj.ResourceDescription && {
+    ResourceDescription: ResourceDescriptionFilterSensitiveLog(obj.ResourceDescription),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetResourceRequestStatusInputFilterSensitiveLog = (obj: GetResourceRequestStatusInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceRequestStatusOutputFilterSensitiveLog = (obj: GetResourceRequestStatusOutput): any => ({
+  ...obj,
+  ...(obj.ProgressEvent && { ProgressEvent: ProgressEventFilterSensitiveLog(obj.ProgressEvent) }),
+});
+
+/**
+ * @internal
+ */
+export const ResourceRequestStatusFilterFilterSensitiveLog = (obj: ResourceRequestStatusFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceRequestsInputFilterSensitiveLog = (obj: ListResourceRequestsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceRequestsOutputFilterSensitiveLog = (obj: ListResourceRequestsOutput): any => ({
+  ...obj,
+  ...(obj.ResourceRequestStatusSummaries && {
+    ResourceRequestStatusSummaries: obj.ResourceRequestStatusSummaries.map((item) =>
+      ProgressEventFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesInputFilterSensitiveLog = (obj: ListResourcesInput): any => ({
+  ...obj,
+  ...(obj.ResourceModel && { ResourceModel: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesOutputFilterSensitiveLog = (obj: ListResourcesOutput): any => ({
+  ...obj,
+  ...(obj.ResourceDescriptions && {
+    ResourceDescriptions: obj.ResourceDescriptions.map((item) => ResourceDescriptionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceInputFilterSensitiveLog = (obj: UpdateResourceInput): any => ({
+  ...obj,
+  ...(obj.PatchDocument && { PatchDocument: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceOutputFilterSensitiveLog = (obj: UpdateResourceOutput): any => ({
+  ...obj,
+  ...(obj.ProgressEvent && { ProgressEvent: ProgressEventFilterSensitiveLog(obj.ProgressEvent) }),
+});

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateContactChannelRequest, UpdateContactChannelResult } from "../models/models_0";
+import {
+  UpdateContactChannelRequest,
+  UpdateContactChannelRequestFilterSensitiveLog,
+  UpdateContactChannelResult,
+  UpdateContactChannelResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateContactChannelCommand,
   serializeAws_json1_1UpdateContactChannelCommand,
@@ -72,8 +77,8 @@ export class UpdateContactChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContactChannelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContactChannelResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateContactChannelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateContactChannelResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

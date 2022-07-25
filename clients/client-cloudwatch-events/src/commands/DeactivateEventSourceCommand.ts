@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { DeactivateEventSourceRequest } from "../models/models_0";
+import { DeactivateEventSourceRequest, DeactivateEventSourceRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeactivateEventSourceCommand,
   serializeAws_json1_1DeactivateEventSourceCommand,
@@ -76,7 +76,7 @@ export class DeactivateEventSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeactivateEventSourceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeactivateEventSourceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

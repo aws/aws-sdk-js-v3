@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAppLaunchConfigurationRequest, DeleteAppLaunchConfigurationResponse } from "../models/models_0";
+import {
+  DeleteAppLaunchConfigurationRequest,
+  DeleteAppLaunchConfigurationRequestFilterSensitiveLog,
+  DeleteAppLaunchConfigurationResponse,
+  DeleteAppLaunchConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAppLaunchConfigurationCommand,
   serializeAws_json1_1DeleteAppLaunchConfigurationCommand,
@@ -74,8 +79,8 @@ export class DeleteAppLaunchConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppLaunchConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppLaunchConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAppLaunchConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAppLaunchConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

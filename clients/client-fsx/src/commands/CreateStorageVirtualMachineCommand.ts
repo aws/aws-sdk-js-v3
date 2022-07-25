@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CreateStorageVirtualMachineRequest, CreateStorageVirtualMachineResponse } from "../models/models_0";
+import {
+  CreateStorageVirtualMachineRequest,
+  CreateStorageVirtualMachineRequestFilterSensitiveLog,
+  CreateStorageVirtualMachineResponse,
+  CreateStorageVirtualMachineResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateStorageVirtualMachineCommand,
   serializeAws_json1_1CreateStorageVirtualMachineCommand,
@@ -74,8 +79,8 @@ export class CreateStorageVirtualMachineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStorageVirtualMachineRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateStorageVirtualMachineResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateStorageVirtualMachineRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateStorageVirtualMachineResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

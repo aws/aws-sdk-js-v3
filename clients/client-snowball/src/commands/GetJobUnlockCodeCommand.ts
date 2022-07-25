@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetJobUnlockCodeRequest, GetJobUnlockCodeResult } from "../models/models_0";
+import {
+  GetJobUnlockCodeRequest,
+  GetJobUnlockCodeRequestFilterSensitiveLog,
+  GetJobUnlockCodeResult,
+  GetJobUnlockCodeResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetJobUnlockCodeCommand,
   serializeAws_json1_1GetJobUnlockCodeCommand,
@@ -84,8 +89,8 @@ export class GetJobUnlockCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobUnlockCodeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetJobUnlockCodeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetJobUnlockCodeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetJobUnlockCodeResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

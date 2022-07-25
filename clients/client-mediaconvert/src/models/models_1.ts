@@ -77,15 +77,6 @@ export interface M2tsScte35Esam {
   Scte35EsamPid?: number;
 }
 
-export namespace M2tsScte35Esam {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: M2tsScte35Esam): any => ({
-    ...obj,
-  });
-}
-
 export enum M2tsScte35Source {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
@@ -305,15 +296,6 @@ export interface M2tsSettings {
   VideoPid?: number;
 }
 
-export namespace M2tsSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: M2tsSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum M3u8AudioDuration {
   DEFAULT_CODEC_DURATION = "DEFAULT_CODEC_DURATION",
   MATCH_VIDEO_DURATION = "MATCH_VIDEO_DURATION",
@@ -444,15 +426,6 @@ export interface M3u8Settings {
   VideoPid?: number;
 }
 
-export namespace M3u8Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: M3u8Settings): any => ({
-    ...obj,
-  });
-}
-
 export enum MovClapAtom {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
@@ -508,15 +481,6 @@ export interface MovSettings {
   Reference?: MovReference | string;
 }
 
-export namespace MovSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MovSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum Mp4CslgAtom {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
@@ -565,15 +529,6 @@ export interface Mp4Settings {
    * Overrides the "Major Brand" field in the output file. Usually not necessary to specify.
    */
   Mp4MajorBrand?: string;
-}
-
-export namespace Mp4Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Mp4Settings): any => ({
-    ...obj,
-  });
 }
 
 export enum MpdAccessibilityCaptionHints {
@@ -651,15 +606,6 @@ export interface MpdSettings {
   TimedMetadata?: MpdTimedMetadata | string;
 }
 
-export namespace MpdSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MpdSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum MxfAfdSignaling {
   COPY_FROM_VIDEO = "COPY_FROM_VIDEO",
   NO_COPY = "NO_COPY",
@@ -692,15 +638,6 @@ export interface MxfXavcProfileSettings {
   MaxAncDataSize?: number;
 }
 
-export namespace MxfXavcProfileSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MxfXavcProfileSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * These settings relate to your MXF output container.
  */
@@ -719,15 +656,6 @@ export interface MxfSettings {
    * Specify the XAVC profile settings for MXF outputs when you set your MXF profile to XAVC.
    */
   XavcProfileSettings?: MxfXavcProfileSettings;
-}
-
-export namespace MxfSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MxfSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -778,15 +706,6 @@ export interface ContainerSettings {
    * These settings relate to your MXF output container.
    */
   MxfSettings?: MxfSettings;
-}
-
-export namespace ContainerSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum HlsAudioOnlyContainer {
@@ -851,15 +770,6 @@ export interface HlsSettings {
   SegmentModifier?: string;
 }
 
-export namespace HlsSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Specific settings for this type of output.
  */
@@ -868,15 +778,6 @@ export interface OutputSettings {
    * Settings for HLS output groups
    */
   HlsSettings?: HlsSettings;
-}
-
-export namespace OutputSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum AfdSignaling {
@@ -928,15 +829,6 @@ export interface Av1QvbrSettings {
    * Optional. Specify a value here to set the QVBR quality to a level that is between whole numbers. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33. MediaConvert rounds your QVBR quality level to the nearest third of a whole number. For example, if you set qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your actual QVBR quality level is 7.33.
    */
   QvbrQualityLevelFineTune?: number;
-}
-
-export namespace Av1QvbrSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Av1QvbrSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum Av1RateControlMode {
@@ -1018,15 +910,6 @@ export interface Av1Settings {
   SpatialAdaptiveQuantization?: Av1SpatialAdaptiveQuantization | string;
 }
 
-export namespace Av1Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Av1Settings): any => ({
-    ...obj,
-  });
-}
-
 export enum AvcIntraClass {
   CLASS_100 = "CLASS_100",
   CLASS_200 = "CLASS_200",
@@ -1047,15 +930,6 @@ export interface AvcIntraUhdSettings {
    * Optional. Use Quality tuning level (qualityTuningLevel) to choose how many transcoding passes MediaConvert does with your video. When you choose Multi-pass (MULTI_PASS), your video quality is better and your output bitrate is more accurate. That is, the actual bitrate of your output is closer to the target bitrate defined in the specification. When you choose Single-pass (SINGLE_PASS), your encoding time is faster. The default behavior is Single-pass (SINGLE_PASS).
    */
   QualityTuningLevel?: AvcIntraUhdQualityTuningLevel | string;
-}
-
-export namespace AvcIntraUhdSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvcIntraUhdSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum AvcIntraFramerateControl {
@@ -1147,15 +1021,6 @@ export interface AvcIntraSettings {
   Telecine?: AvcIntraTelecine | string;
 }
 
-export namespace AvcIntraSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvcIntraSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum VideoCodec {
   AV1 = "AV1",
   AVC_INTRA = "AVC_INTRA",
@@ -1193,15 +1058,6 @@ export interface FrameCaptureSettings {
    * JPEG Quality - a higher value equals higher quality.
    */
   Quality?: number;
-}
-
-export namespace FrameCaptureSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FrameCaptureSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum H264AdaptiveQuantization {
@@ -1323,15 +1179,6 @@ export interface H264QvbrSettings {
    * Optional. Specify a value here to set the QVBR quality to a level that is between whole numbers. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33. MediaConvert rounds your QVBR quality level to the nearest third of a whole number. For example, if you set qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your actual QVBR quality level is 7.33.
    */
   QvbrQualityLevelFineTune?: number;
-}
-
-export namespace H264QvbrSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: H264QvbrSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum H264RateControlMode {
@@ -1592,15 +1439,6 @@ export interface H264Settings {
   UnregisteredSeiTimecode?: H264UnregisteredSeiTimecode | string;
 }
 
-export namespace H264Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: H264Settings): any => ({
-    ...obj,
-  });
-}
-
 export enum H265AdaptiveQuantization {
   AUTO = "AUTO",
   HIGH = "HIGH",
@@ -1713,15 +1551,6 @@ export interface H265QvbrSettings {
    * Optional. Specify a value here to set the QVBR quality to a level that is between whole numbers. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33. MediaConvert rounds your QVBR quality level to the nearest third of a whole number. For example, if you set qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your actual QVBR quality level is 7.33.
    */
   QvbrQualityLevelFineTune?: number;
-}
-
-export namespace H265QvbrSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: H265QvbrSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum H265RateControlMode {
@@ -1991,15 +1820,6 @@ export interface H265Settings {
    * If the location of parameter set NAL units doesn't matter in your workflow, ignore this setting. Use this setting only with CMAF or DASH outputs, or with standalone file outputs in an MPEG-4 container (MP4 outputs). Choose HVC1 to mark your output as HVC1. This makes your output compliant with the following specification: ISO IECJTC1 SC29 N13798 Text ISO/IEC FDIS 14496-15 3rd Edition. For these outputs, the service stores parameter set NAL units in the sample headers but not in the samples directly. For MP4 outputs, when you choose HVC1, your output video might not work properly with some downstream systems and video players. The service defaults to marking your output as HEV1. For these outputs, the service writes parameter set NAL units directly into the samples.
    */
   WriteMp4PackagingType?: H265WriteMp4PackagingType | string;
-}
-
-export namespace H265Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: H265Settings): any => ({
-    ...obj,
-  });
 }
 
 export enum Mpeg2AdaptiveQuantization {
@@ -2275,15 +2095,6 @@ export interface Mpeg2Settings {
   TemporalAdaptiveQuantization?: Mpeg2TemporalAdaptiveQuantization | string;
 }
 
-export namespace Mpeg2Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Mpeg2Settings): any => ({
-    ...obj,
-  });
-}
-
 export enum ProresChromaSampling {
   PRESERVE_444_SAMPLING = "PRESERVE_444_SAMPLING",
   SUBSAMPLE_TO_422 = "SUBSAMPLE_TO_422",
@@ -2407,15 +2218,6 @@ export interface ProresSettings {
   Telecine?: ProresTelecine | string;
 }
 
-export namespace ProresSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProresSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum Vc3FramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
@@ -2501,15 +2303,6 @@ export interface Vc3Settings {
    * Specify the VC3 class to choose the quality characteristics for this output. VC3 class, together with the settings Framerate (framerateNumerator and framerateDenominator) and Resolution (height and width), determine your output bitrate. For example, say that your video resolution is 1920x1080 and your framerate is 29.97. Then Class 145 (CLASS_145) gives you an output with a bitrate of approximately 145 Mbps and Class 220 (CLASS_220) gives you and output with a bitrate of approximately 220 Mbps. VC3 class also specifies the color bit depth of your output.
    */
   Vc3Class?: Vc3Class | string;
-}
-
-export namespace Vc3Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Vc3Settings): any => ({
-    ...obj,
-  });
 }
 
 export enum Vp8FramerateControl {
@@ -2607,15 +2400,6 @@ export interface Vp8Settings {
   RateControlMode?: Vp8RateControlMode | string;
 }
 
-export namespace Vp8Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Vp8Settings): any => ({
-    ...obj,
-  });
-}
-
 export enum Vp9FramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
@@ -2711,15 +2495,6 @@ export interface Vp9Settings {
   RateControlMode?: Vp9RateControlMode | string;
 }
 
-export namespace Vp9Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Vp9Settings): any => ({
-    ...obj,
-  });
-}
-
 export enum XavcAdaptiveQuantization {
   AUTO = "AUTO",
   HIGH = "HIGH",
@@ -2786,15 +2561,6 @@ export interface Xavc4kIntraCbgProfileSettings {
   XavcClass?: Xavc4kIntraCbgProfileClass | string;
 }
 
-export namespace Xavc4kIntraCbgProfileSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Xavc4kIntraCbgProfileSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum Xavc4kIntraVbrProfileClass {
   CLASS_100 = "CLASS_100",
   CLASS_300 = "CLASS_300",
@@ -2809,15 +2575,6 @@ export interface Xavc4kIntraVbrProfileSettings {
    * Specify the XAVC Intra 4k (VBR) Class to set the bitrate of your output. Outputs of the same class have similar image quality over the operating points that are valid for that class.
    */
   XavcClass?: Xavc4kIntraVbrProfileClass | string;
-}
-
-export namespace Xavc4kIntraVbrProfileSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Xavc4kIntraVbrProfileSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum Xavc4kProfileBitrateClass {
@@ -2892,15 +2649,6 @@ export interface Xavc4kProfileSettings {
   Slices?: number;
 }
 
-export namespace Xavc4kProfileSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Xavc4kProfileSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum XavcHdIntraCbgProfileClass {
   CLASS_100 = "CLASS_100",
   CLASS_200 = "CLASS_200",
@@ -2915,15 +2663,6 @@ export interface XavcHdIntraCbgProfileSettings {
    * Specify the XAVC Intra HD (CBG) Class to set the bitrate of your output. Outputs of the same class have similar image quality over the operating points that are valid for that class.
    */
   XavcClass?: XavcHdIntraCbgProfileClass | string;
-}
-
-export namespace XavcHdIntraCbgProfileSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: XavcHdIntraCbgProfileSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum XavcHdProfileBitrateClass {
@@ -2999,15 +2738,6 @@ export interface XavcHdProfileSettings {
    * Ignore this setting unless you set Frame rate (framerateNumerator divided by framerateDenominator) to 29.970. If your input framerate is 23.976, choose Hard (HARD). Otherwise, keep the default value None (NONE). For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-telecine-and-inverse-telecine.html.
    */
   Telecine?: XavcHdProfileTelecine | string;
-}
-
-export namespace XavcHdProfileSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: XavcHdProfileSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3095,15 +2825,6 @@ export interface XavcSettings {
   XavcHdProfileSettings?: XavcHdProfileSettings;
 }
 
-export namespace XavcSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: XavcSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Video codec settings, (CodecSettings) under (VideoDescription), contains the group of settings related to video encoding. The settings in this group vary depending on the value that you choose for Video codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE, FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings * MPEG2, Mpeg2Settings * PRORES, ProresSettings * VC3, Vc3Settings * VP8, Vp8Settings * VP9, Vp9Settings * XAVC, XavcSettings
  */
@@ -3167,15 +2888,6 @@ export interface VideoCodecSettings {
    * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value XAVC.
    */
   XavcSettings?: XavcSettings;
-}
-
-export namespace VideoCodecSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoCodecSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum ColorMetadata {
@@ -3257,15 +2969,6 @@ export interface ColorCorrector {
   Saturation?: number;
 }
 
-export namespace ColorCorrector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColorCorrector): any => ({
-    ...obj,
-  });
-}
-
 export enum DeinterlaceAlgorithm {
   BLEND = "BLEND",
   BLEND_TICKER = "BLEND_TICKER",
@@ -3304,15 +3007,6 @@ export interface Deinterlacer {
   Mode?: DeinterlacerMode | string;
 }
 
-export namespace Deinterlacer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Deinterlacer): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to override the MaxCLL and MaxFALL values in your input with new values.
  */
@@ -3326,15 +3020,6 @@ export interface DolbyVisionLevel6Metadata {
    * Maximum Frame-Average Light Level. Static HDR metadata that corresponds to the highest frame-average brightness in the entire stream. Measured in nits.
    */
   MaxFall?: number;
-}
-
-export namespace DolbyVisionLevel6Metadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DolbyVisionLevel6Metadata): any => ({
-    ...obj,
-  });
 }
 
 export enum DolbyVisionLevel6Mode {
@@ -3378,15 +3063,6 @@ export interface DolbyVision {
   Profile?: DolbyVisionProfile | string;
 }
 
-export namespace DolbyVision {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DolbyVision): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Setting for HDR10+ metadata insertion
  */
@@ -3400,15 +3076,6 @@ export interface Hdr10Plus {
    * Specify the HDR10+ target display nominal peak luminance, in nits. This is the nominal maximum luminance of the target display as defined by ST 2094-40.
    */
   TargetMonitorNits?: number;
-}
-
-export namespace Hdr10Plus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Hdr10Plus): any => ({
-    ...obj,
-  });
 }
 
 export enum NoiseReducerFilter {
@@ -3432,15 +3099,6 @@ export interface NoiseReducerFilterSettings {
   Strength?: number;
 }
 
-export namespace NoiseReducerFilterSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoiseReducerFilterSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Noise reducer filter settings for spatial filter.
  */
@@ -3459,15 +3117,6 @@ export interface NoiseReducerSpatialFilterSettings {
    * Relative strength of noise reducing filter. Higher values produce stronger filtering.
    */
   Strength?: number;
-}
-
-export namespace NoiseReducerSpatialFilterSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoiseReducerSpatialFilterSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum NoiseFilterPostTemporalSharpening {
@@ -3512,15 +3161,6 @@ export interface NoiseReducerTemporalFilterSettings {
   Strength?: number;
 }
 
-export namespace NoiseReducerTemporalFilterSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoiseReducerTemporalFilterSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Enable the Noise reducer (NoiseReducer) feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default. When you enable Noise reducer (NoiseReducer), you must also select a value for Noise reducer filter (NoiseReducerFilter).
  */
@@ -3544,15 +3184,6 @@ export interface NoiseReducer {
    * Noise reducer filter settings for temporal filter.
    */
   TemporalFilterSettings?: NoiseReducerTemporalFilterSettings;
-}
-
-export namespace NoiseReducer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoiseReducer): any => ({
-    ...obj,
-  });
 }
 
 export enum WatermarkingStrength {
@@ -3588,15 +3219,6 @@ export interface NexGuardFileMarkerSettings {
   Strength?: WatermarkingStrength | string;
 }
 
-export namespace NexGuardFileMarkerSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NexGuardFileMarkerSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * If you work with a third party video watermarking partner, use the group of settings that correspond with your watermarking partner to include watermarks in your output.
  */
@@ -3605,15 +3227,6 @@ export interface PartnerWatermarking {
    * For forensic video watermarking, MediaConvert supports Nagra NexGuard File Marker watermarking. MediaConvert supports both PreRelease Content (NGPR/G2) and OTT Streaming workflows.
    */
   NexguardFileMarkerSettings?: NexGuardFileMarkerSettings;
-}
-
-export namespace PartnerWatermarking {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PartnerWatermarking): any => ({
-    ...obj,
-  });
 }
 
 export enum TimecodeBurninPosition {
@@ -3646,15 +3259,6 @@ export interface TimecodeBurnin {
    * Use Prefix (Prefix) to place ASCII characters before any burned-in timecode. For example, a prefix of "EZ-" will result in the timecode "EZ-00:00:00:00". Provide either the characters themselves or the ASCII code equivalents. The supported range of characters is 0x20 through 0x7e. This includes letters, numbers, and all special characters represented on a standard English keyboard.
    */
   Prefix?: string;
-}
-
-export namespace TimecodeBurnin {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimecodeBurnin): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3700,15 +3304,6 @@ export interface VideoPreprocessor {
    * Settings for burning the output timecode and specified prefix into the output.
    */
   TimecodeBurnin?: TimecodeBurnin;
-}
-
-export namespace VideoPreprocessor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoPreprocessor): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3791,15 +3386,6 @@ export interface VideoDescription {
   Width?: number;
 }
 
-export namespace VideoDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Each output in your job is a collection of settings that describes how you want MediaConvert to encode a single output file or stream. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/create-outputs.html.
  */
@@ -3845,15 +3431,6 @@ export interface Output {
   VideoDescription?: VideoDescription;
 }
 
-export namespace Output {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Output): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Group of outputs
  */
@@ -3882,15 +3459,6 @@ export interface OutputGroup {
    * This object holds groups of encoding settings, one group of settings per output.
    */
   Outputs?: Output[];
-}
-
-export namespace OutputGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputGroup): any => ({
-    ...obj,
-  });
 }
 
 export enum TimecodeSource {
@@ -3924,15 +3492,6 @@ export interface TimecodeConfig {
   TimestampOffset?: string;
 }
 
-export namespace TimecodeConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimecodeConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Insert user-defined custom ID3 metadata (id3) at timecodes (timecode) that you specify. In each output that you want to include this metadata, you must set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
  */
@@ -3941,15 +3500,6 @@ export interface TimedMetadataInsertion {
    * Id3Insertions contains the array of Id3Insertion instances.
    */
   Id3Insertions?: Id3Insertion[];
-}
-
-export namespace TimedMetadataInsertion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimedMetadataInsertion): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4017,15 +3567,6 @@ export interface JobSettings {
   TimedMetadataInsertion?: TimedMetadataInsertion;
 }
 
-export namespace JobSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum SimulateReservedQueue {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -4075,15 +3616,6 @@ export interface Timing {
    * The time, in Unix epoch format, that you submitted the job.
    */
   SubmitTime?: Date;
-}
-
-export namespace Timing {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Timing): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4216,15 +3748,6 @@ export interface Job {
   UserMetadata?: Record<string, string>;
 }
 
-export namespace Job {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Job): any => ({
-    ...obj,
-  });
-}
-
 /**
  * JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
  */
@@ -4288,15 +3811,6 @@ export interface JobTemplateSettings {
    * Insert user-defined custom ID3 metadata (id3) at timecodes (timecode) that you specify. In each output that you want to include this metadata, you must set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
    */
   TimedMetadataInsertion?: TimedMetadataInsertion;
-}
-
-export namespace JobTemplateSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobTemplateSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum Type {
@@ -4374,15 +3888,6 @@ export interface JobTemplate {
   Type?: Type | string;
 }
 
-export namespace JobTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobTemplate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings for preset
  */
@@ -4406,15 +3911,6 @@ export interface PresetSettings {
    * VideoDescription contains a group of video encoding settings. The specific video settings depend on the video codec that you choose for the property codec. Include one instance of VideoDescription per output.
    */
   VideoDescription?: VideoDescription;
-}
-
-export namespace PresetSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PresetSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4460,15 +3956,6 @@ export interface Preset {
    * A preset can be of two types: system or custom. System or built-in preset can't be modified or deleted by the user.
    */
   Type?: Type | string;
-}
-
-export namespace Preset {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Preset): any => ({
-    ...obj,
-  });
 }
 
 export enum PricingPlan {
@@ -4523,15 +4010,6 @@ export interface ReservationPlan {
    * Specifies whether the pricing plan for your reserved queue is ACTIVE or EXPIRED.
    */
   Status?: ReservationPlanStatus | string;
-}
-
-export namespace ReservationPlan {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservationPlan): any => ({
-    ...obj,
-  });
 }
 
 export enum QueueStatus {
@@ -4599,15 +4077,6 @@ export interface Queue {
   Type?: Type | string;
 }
 
-export namespace Queue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Queue): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateCertificateRequest {
   /**
    * The ARN of the ACM certificate that you want to associate with your MediaConvert resource.
@@ -4615,25 +4084,7 @@ export interface AssociateCertificateRequest {
   Arn: string | undefined;
 }
 
-export namespace AssociateCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateCertificateResponse {}
-
-export namespace AssociateCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateCertificateResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * The service can't process your request because of a problem in the request. Please check your request form and syntax.
@@ -4768,25 +4219,7 @@ export interface CancelJobRequest {
   Id: string | undefined;
 }
 
-export namespace CancelJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelJobResponse {}
-
-export namespace CancelJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJobResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateJobRequest {
   /**
@@ -4855,29 +4288,11 @@ export interface CreateJobRequest {
   UserMetadata?: Record<string, string>;
 }
 
-export namespace CreateJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateJobResponse {
   /**
    * Each job converts an input file into an output file or files. For more information, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
    */
   Job?: Job;
-}
-
-export namespace CreateJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateJobTemplateRequest {
@@ -4932,29 +4347,11 @@ export interface CreateJobTemplateRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateJobTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateJobTemplateResponse {
   /**
    * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
    */
   JobTemplate?: JobTemplate;
-}
-
-export namespace CreateJobTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePresetRequest {
@@ -4984,29 +4381,11 @@ export interface CreatePresetRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreatePresetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePresetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePresetResponse {
   /**
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
    */
   Preset?: Preset;
-}
-
-export namespace CreatePresetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePresetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5027,15 +4406,6 @@ export interface ReservationPlanSettings {
    * Specifies the number of reserved transcode slots (RTS) for this queue. The number of RTS determines how many jobs the queue can process in parallel; each RTS can process one job at a time. You can't decrease the number of RTS in your reserved queue. You can increase the number of RTS by extending your existing commitment with a new 12-month commitment for the larger number. The new commitment begins when you purchase the additional capacity. You can't cancel your commitment or revert to your original commitment after you increase the capacity.
    */
   ReservedSlots: number | undefined;
-}
-
-export namespace ReservationPlanSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservationPlanSettings): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateQueueRequest {
@@ -5070,29 +4440,11 @@ export interface CreateQueueRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateQueueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateQueueRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateQueueResponse {
   /**
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
    */
   Queue?: Queue;
-}
-
-export namespace CreateQueueResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateQueueResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteJobTemplateRequest {
@@ -5102,47 +4454,11 @@ export interface DeleteJobTemplateRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteJobTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteJobTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteJobTemplateResponse {}
-
-export namespace DeleteJobTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteJobTemplateResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeletePolicyRequest {}
 
-export namespace DeletePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePolicyResponse {}
-
-export namespace DeletePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeletePresetRequest {
   /**
@@ -5151,25 +4467,7 @@ export interface DeletePresetRequest {
   Name: string | undefined;
 }
 
-export namespace DeletePresetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePresetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePresetResponse {}
-
-export namespace DeletePresetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePresetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteQueueRequest {
   /**
@@ -5178,25 +4476,7 @@ export interface DeleteQueueRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteQueueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteQueueRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteQueueResponse {}
-
-export namespace DeleteQueueResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteQueueResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum DescribeEndpointsMode {
   DEFAULT = "DEFAULT",
@@ -5223,15 +4503,6 @@ export interface DescribeEndpointsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEndpointsResponse {
   /**
    * List of endpoints
@@ -5244,15 +4515,6 @@ export interface DescribeEndpointsResponse {
   NextToken?: string;
 }
 
-export namespace DescribeEndpointsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateCertificateRequest {
   /**
    * The ARN of the ACM certificate that you want to disassociate from your MediaConvert resource.
@@ -5260,40 +4522,13 @@ export interface DisassociateCertificateRequest {
   Arn: string | undefined;
 }
 
-export namespace DisassociateCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateCertificateResponse {}
-
-export namespace DisassociateCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateCertificateResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetJobRequest {
   /**
    * the job ID of the job.
    */
   Id: string | undefined;
-}
-
-export namespace GetJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetJobResponse {
@@ -5303,29 +4538,11 @@ export interface GetJobResponse {
   Job?: Job;
 }
 
-export namespace GetJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetJobTemplateRequest {
   /**
    * The name of the job template.
    */
   Name: string | undefined;
-}
-
-export namespace GetJobTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobTemplateRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetJobTemplateResponse {
@@ -5335,25 +4552,7 @@ export interface GetJobTemplateResponse {
   JobTemplate?: JobTemplate;
 }
 
-export namespace GetJobTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPolicyRequest {}
-
-export namespace GetPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPolicyRequest): any => ({
-    ...obj,
-  });
-}
 
 export enum InputPolicy {
   ALLOWED = "ALLOWED",
@@ -5380,29 +4579,11 @@ export interface Policy {
   S3Inputs?: InputPolicy | string;
 }
 
-export namespace Policy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Policy): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPolicyResponse {
   /**
    * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
    */
   Policy?: Policy;
-}
-
-export namespace GetPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPresetRequest {
@@ -5412,29 +4593,11 @@ export interface GetPresetRequest {
   Name: string | undefined;
 }
 
-export namespace GetPresetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPresetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPresetResponse {
   /**
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
    */
   Preset?: Preset;
-}
-
-export namespace GetPresetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPresetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetQueueRequest {
@@ -5444,29 +4607,11 @@ export interface GetQueueRequest {
   Name: string | undefined;
 }
 
-export namespace GetQueueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueueRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetQueueResponse {
   /**
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
    */
   Queue?: Queue;
-}
-
-export namespace GetQueueResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueueResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum JobTemplateListBy {
@@ -5507,11 +4652,674 @@ export interface ListJobsRequest {
   Status?: JobStatus | string;
 }
 
-export namespace ListJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const M2tsScte35EsamFilterSensitiveLog = (obj: M2tsScte35Esam): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const M2tsSettingsFilterSensitiveLog = (obj: M2tsSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const M3u8SettingsFilterSensitiveLog = (obj: M3u8Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MovSettingsFilterSensitiveLog = (obj: MovSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Mp4SettingsFilterSensitiveLog = (obj: Mp4Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MpdSettingsFilterSensitiveLog = (obj: MpdSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MxfXavcProfileSettingsFilterSensitiveLog = (obj: MxfXavcProfileSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MxfSettingsFilterSensitiveLog = (obj: MxfSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerSettingsFilterSensitiveLog = (obj: ContainerSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsSettingsFilterSensitiveLog = (obj: HlsSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputSettingsFilterSensitiveLog = (obj: OutputSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Av1QvbrSettingsFilterSensitiveLog = (obj: Av1QvbrSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Av1SettingsFilterSensitiveLog = (obj: Av1Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvcIntraUhdSettingsFilterSensitiveLog = (obj: AvcIntraUhdSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvcIntraSettingsFilterSensitiveLog = (obj: AvcIntraSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FrameCaptureSettingsFilterSensitiveLog = (obj: FrameCaptureSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const H264QvbrSettingsFilterSensitiveLog = (obj: H264QvbrSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const H264SettingsFilterSensitiveLog = (obj: H264Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const H265QvbrSettingsFilterSensitiveLog = (obj: H265QvbrSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const H265SettingsFilterSensitiveLog = (obj: H265Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Mpeg2SettingsFilterSensitiveLog = (obj: Mpeg2Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProresSettingsFilterSensitiveLog = (obj: ProresSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Vc3SettingsFilterSensitiveLog = (obj: Vc3Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Vp8SettingsFilterSensitiveLog = (obj: Vp8Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Vp9SettingsFilterSensitiveLog = (obj: Vp9Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Xavc4kIntraCbgProfileSettingsFilterSensitiveLog = (obj: Xavc4kIntraCbgProfileSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Xavc4kIntraVbrProfileSettingsFilterSensitiveLog = (obj: Xavc4kIntraVbrProfileSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Xavc4kProfileSettingsFilterSensitiveLog = (obj: Xavc4kProfileSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const XavcHdIntraCbgProfileSettingsFilterSensitiveLog = (obj: XavcHdIntraCbgProfileSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const XavcHdProfileSettingsFilterSensitiveLog = (obj: XavcHdProfileSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const XavcSettingsFilterSensitiveLog = (obj: XavcSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoCodecSettingsFilterSensitiveLog = (obj: VideoCodecSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColorCorrectorFilterSensitiveLog = (obj: ColorCorrector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeinterlacerFilterSensitiveLog = (obj: Deinterlacer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DolbyVisionLevel6MetadataFilterSensitiveLog = (obj: DolbyVisionLevel6Metadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DolbyVisionFilterSensitiveLog = (obj: DolbyVision): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Hdr10PlusFilterSensitiveLog = (obj: Hdr10Plus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NoiseReducerFilterSettingsFilterSensitiveLog = (obj: NoiseReducerFilterSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NoiseReducerSpatialFilterSettingsFilterSensitiveLog = (obj: NoiseReducerSpatialFilterSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NoiseReducerTemporalFilterSettingsFilterSensitiveLog = (obj: NoiseReducerTemporalFilterSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NoiseReducerFilterSensitiveLog = (obj: NoiseReducer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NexGuardFileMarkerSettingsFilterSensitiveLog = (obj: NexGuardFileMarkerSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PartnerWatermarkingFilterSensitiveLog = (obj: PartnerWatermarking): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimecodeBurninFilterSensitiveLog = (obj: TimecodeBurnin): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoPreprocessorFilterSensitiveLog = (obj: VideoPreprocessor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoDescriptionFilterSensitiveLog = (obj: VideoDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputFilterSensitiveLog = (obj: Output): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputGroupFilterSensitiveLog = (obj: OutputGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimecodeConfigFilterSensitiveLog = (obj: TimecodeConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimedMetadataInsertionFilterSensitiveLog = (obj: TimedMetadataInsertion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobSettingsFilterSensitiveLog = (obj: JobSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimingFilterSensitiveLog = (obj: Timing): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobFilterSensitiveLog = (obj: Job): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobTemplateSettingsFilterSensitiveLog = (obj: JobTemplateSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobTemplateFilterSensitiveLog = (obj: JobTemplate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PresetSettingsFilterSensitiveLog = (obj: PresetSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PresetFilterSensitiveLog = (obj: Preset): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservationPlanFilterSensitiveLog = (obj: ReservationPlan): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueueFilterSensitiveLog = (obj: Queue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateCertificateRequestFilterSensitiveLog = (obj: AssociateCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateCertificateResponseFilterSensitiveLog = (obj: AssociateCertificateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelJobRequestFilterSensitiveLog = (obj: CancelJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelJobResponseFilterSensitiveLog = (obj: CancelJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobResponseFilterSensitiveLog = (obj: CreateJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobTemplateRequestFilterSensitiveLog = (obj: CreateJobTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobTemplateResponseFilterSensitiveLog = (obj: CreateJobTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePresetRequestFilterSensitiveLog = (obj: CreatePresetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePresetResponseFilterSensitiveLog = (obj: CreatePresetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservationPlanSettingsFilterSensitiveLog = (obj: ReservationPlanSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateQueueRequestFilterSensitiveLog = (obj: CreateQueueRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateQueueResponseFilterSensitiveLog = (obj: CreateQueueResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteJobTemplateRequestFilterSensitiveLog = (obj: DeleteJobTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteJobTemplateResponseFilterSensitiveLog = (obj: DeleteJobTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePolicyRequestFilterSensitiveLog = (obj: DeletePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePolicyResponseFilterSensitiveLog = (obj: DeletePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePresetRequestFilterSensitiveLog = (obj: DeletePresetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePresetResponseFilterSensitiveLog = (obj: DeletePresetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteQueueRequestFilterSensitiveLog = (obj: DeleteQueueRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteQueueResponseFilterSensitiveLog = (obj: DeleteQueueResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEndpointsRequestFilterSensitiveLog = (obj: DescribeEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEndpointsResponseFilterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateCertificateRequestFilterSensitiveLog = (obj: DisassociateCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateCertificateResponseFilterSensitiveLog = (obj: DisassociateCertificateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobRequestFilterSensitiveLog = (obj: GetJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobResponseFilterSensitiveLog = (obj: GetJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobTemplateRequestFilterSensitiveLog = (obj: GetJobTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobTemplateResponseFilterSensitiveLog = (obj: GetJobTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPolicyRequestFilterSensitiveLog = (obj: GetPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyFilterSensitiveLog = (obj: Policy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPolicyResponseFilterSensitiveLog = (obj: GetPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPresetRequestFilterSensitiveLog = (obj: GetPresetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPresetResponseFilterSensitiveLog = (obj: GetPresetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueueRequestFilterSensitiveLog = (obj: GetQueueRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueueResponseFilterSensitiveLog = (obj: GetQueueResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsRequestFilterSensitiveLog = (obj: ListJobsRequest): any => ({
+  ...obj,
+});

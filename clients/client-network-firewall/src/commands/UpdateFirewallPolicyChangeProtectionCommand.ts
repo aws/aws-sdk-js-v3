@@ -14,7 +14,9 @@ import {
 
 import {
   UpdateFirewallPolicyChangeProtectionRequest,
+  UpdateFirewallPolicyChangeProtectionRequestFilterSensitiveLog,
   UpdateFirewallPolicyChangeProtectionResponse,
+  UpdateFirewallPolicyChangeProtectionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
@@ -79,8 +81,8 @@ export class UpdateFirewallPolicyChangeProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFirewallPolicyChangeProtectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFirewallPolicyChangeProtectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFirewallPolicyChangeProtectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFirewallPolicyChangeProtectionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

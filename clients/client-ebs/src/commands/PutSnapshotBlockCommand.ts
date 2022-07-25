@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
-import { PutSnapshotBlockRequest, PutSnapshotBlockResponse } from "../models/models_0";
+import {
+  PutSnapshotBlockRequest,
+  PutSnapshotBlockRequestFilterSensitiveLog,
+  PutSnapshotBlockResponse,
+  PutSnapshotBlockResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutSnapshotBlockCommand,
   serializeAws_restJson1PutSnapshotBlockCommand,
@@ -84,8 +89,8 @@ export class PutSnapshotBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSnapshotBlockRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutSnapshotBlockResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutSnapshotBlockRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutSnapshotBlockResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

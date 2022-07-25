@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { DeleteInterconnectRequest, DeleteInterconnectResponse } from "../models/models_0";
+import {
+  DeleteInterconnectRequest,
+  DeleteInterconnectRequestFilterSensitiveLog,
+  DeleteInterconnectResponse,
+  DeleteInterconnectResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteInterconnectCommand,
   serializeAws_json1_1DeleteInterconnectCommand,
@@ -76,8 +81,8 @@ export class DeleteInterconnectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInterconnectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInterconnectResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteInterconnectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteInterconnectResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

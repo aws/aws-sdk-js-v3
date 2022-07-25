@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { ListTagsRequest, ListTagsResponse } from "../models/models_0";
+import {
+  ListTagsRequest,
+  ListTagsRequestFilterSensitiveLog,
+  ListTagsResponse,
+  ListTagsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListTagsCommand,
   serializeAws_restJson1ListTagsCommand,
@@ -76,8 +81,8 @@ export class ListTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

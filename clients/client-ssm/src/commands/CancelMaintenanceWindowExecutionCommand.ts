@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CancelMaintenanceWindowExecutionRequest, CancelMaintenanceWindowExecutionResult } from "../models/models_0";
+import {
+  CancelMaintenanceWindowExecutionRequest,
+  CancelMaintenanceWindowExecutionRequestFilterSensitiveLog,
+  CancelMaintenanceWindowExecutionResult,
+  CancelMaintenanceWindowExecutionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CancelMaintenanceWindowExecutionCommand,
   serializeAws_json1_1CancelMaintenanceWindowExecutionCommand,
@@ -76,8 +81,8 @@ export class CancelMaintenanceWindowExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelMaintenanceWindowExecutionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelMaintenanceWindowExecutionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelMaintenanceWindowExecutionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelMaintenanceWindowExecutionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

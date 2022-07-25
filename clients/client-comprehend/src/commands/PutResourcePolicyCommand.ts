@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/models_0";
+import {
+  PutResourcePolicyRequest,
+  PutResourcePolicyRequestFilterSensitiveLog,
+  PutResourcePolicyResponse,
+  PutResourcePolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutResourcePolicyCommand,
   serializeAws_json1_1PutResourcePolicyCommand,
@@ -74,8 +79,8 @@ export class PutResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResourcePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutResourcePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutResourcePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutResourcePolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

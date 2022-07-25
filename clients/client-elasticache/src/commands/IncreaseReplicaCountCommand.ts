@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { IncreaseReplicaCountMessage, IncreaseReplicaCountResult } from "../models/models_0";
+import {
+  IncreaseReplicaCountMessage,
+  IncreaseReplicaCountMessageFilterSensitiveLog,
+  IncreaseReplicaCountResult,
+  IncreaseReplicaCountResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryIncreaseReplicaCountCommand,
   serializeAws_queryIncreaseReplicaCountCommand,
@@ -74,8 +79,8 @@ export class IncreaseReplicaCountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IncreaseReplicaCountMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: IncreaseReplicaCountResult.filterSensitiveLog,
+      inputFilterSensitiveLog: IncreaseReplicaCountMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: IncreaseReplicaCountResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

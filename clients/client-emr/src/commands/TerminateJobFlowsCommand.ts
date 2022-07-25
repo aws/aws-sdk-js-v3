@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { TerminateJobFlowsInput } from "../models/models_0";
+import { TerminateJobFlowsInput, TerminateJobFlowsInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1TerminateJobFlowsCommand,
   serializeAws_json1_1TerminateJobFlowsCommand,
@@ -79,7 +79,7 @@ export class TerminateJobFlowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateJobFlowsInput.filterSensitiveLog,
+      inputFilterSensitiveLog: TerminateJobFlowsInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

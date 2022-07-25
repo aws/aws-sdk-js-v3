@@ -42,25 +42,7 @@ export interface DeviceDescription {
   Tags?: Record<string, string>;
 }
 
-export namespace DeviceDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface Attributes {}
-
-export namespace Attributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Attributes): any => ({
-    ...obj,
-  });
-}
 
 export interface Device {
   /**
@@ -79,15 +61,6 @@ export interface Device {
   Type?: string;
 }
 
-export namespace Device {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Device): any => ({
-    ...obj,
-  });
-}
-
 export interface DeviceEvent {
   /**
    * <p>An object representing the device associated with the event.</p>
@@ -98,15 +71,6 @@ export interface DeviceEvent {
    * <p>A serialized JSON object representing the device-type specific event.</p>
    */
   StdEvent?: string;
-}
-
-export namespace DeviceEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceEvent): any => ({
-    ...obj,
-  });
 }
 
 export interface DeviceMethod {
@@ -121,29 +85,11 @@ export interface DeviceMethod {
   MethodName?: string;
 }
 
-export namespace DeviceMethod {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceMethod): any => ({
-    ...obj,
-  });
-}
-
 export interface ClaimDevicesByClaimCodeRequest {
   /**
    * <p>The claim code, starting with "C-", as provided by the device manufacturer.</p>
    */
   ClaimCode: string | undefined;
-}
-
-export namespace ClaimDevicesByClaimCodeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClaimDevicesByClaimCodeRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ClaimDevicesByClaimCodeResponse {
@@ -157,15 +103,6 @@ export interface ClaimDevicesByClaimCodeResponse {
    *  the claim request.</p>
    */
   Total?: number;
-}
-
-export namespace ClaimDevicesByClaimCodeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClaimDevicesByClaimCodeResponse): any => ({
-    ...obj,
-  });
 }
 
 export class ForbiddenException extends __BaseException {
@@ -256,29 +193,11 @@ export interface DescribeDeviceRequest {
   DeviceId: string | undefined;
 }
 
-export namespace DescribeDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDeviceResponse {
   /**
    * <p>Device details.</p>
    */
   DeviceDescription?: DeviceDescription;
-}
-
-export namespace DescribeDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
-    ...obj,
-  });
 }
 
 export class ResourceNotFoundException extends __BaseException {
@@ -324,29 +243,11 @@ export interface FinalizeDeviceClaimRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace FinalizeDeviceClaimRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FinalizeDeviceClaimRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface FinalizeDeviceClaimResponse {
   /**
    * <p>The device's final claim state.</p>
    */
   State?: string;
-}
-
-export namespace FinalizeDeviceClaimResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FinalizeDeviceClaimResponse): any => ({
-    ...obj,
-  });
 }
 
 export class PreconditionFailedException extends __BaseException {
@@ -410,29 +311,11 @@ export interface GetDeviceMethodsRequest {
   DeviceId: string | undefined;
 }
 
-export namespace GetDeviceMethodsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceMethodsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeviceMethodsResponse {
   /**
    * <p>List of available device APIs.</p>
    */
   DeviceMethods?: DeviceMethod[];
-}
-
-export namespace GetDeviceMethodsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceMethodsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface InitiateDeviceClaimRequest {
@@ -442,29 +325,11 @@ export interface InitiateDeviceClaimRequest {
   DeviceId: string | undefined;
 }
 
-export namespace InitiateDeviceClaimRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitiateDeviceClaimRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface InitiateDeviceClaimResponse {
   /**
    * <p>The device's final claim state.</p>
    */
   State?: string;
-}
-
-export namespace InitiateDeviceClaimResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitiateDeviceClaimResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface InvokeDeviceMethodRequest {
@@ -484,29 +349,11 @@ export interface InvokeDeviceMethodRequest {
   DeviceMethodParameters?: string;
 }
 
-export namespace InvokeDeviceMethodRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvokeDeviceMethodRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface InvokeDeviceMethodResponse {
   /**
    * <p>A JSON encoded string containing the device method response.</p>
    */
   DeviceMethodResponse?: string;
-}
-
-export namespace InvokeDeviceMethodResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvokeDeviceMethodResponse): any => ({
-    ...obj,
-  });
 }
 
 export class RangeNotSatisfiableException extends __BaseException {
@@ -569,15 +416,6 @@ export interface ListDeviceEventsRequest {
   ToTimeStamp: Date | undefined;
 }
 
-export namespace ListDeviceEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeviceEventsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDeviceEventsResponse {
   /**
    * <p>An array of zero or more elements describing the event(s) associated with the
@@ -589,15 +427,6 @@ export interface ListDeviceEventsResponse {
    * <p>The token to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDeviceEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeviceEventsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDevicesRequest {
@@ -618,15 +447,6 @@ export interface ListDevicesRequest {
   NextToken?: string;
 }
 
-export namespace ListDevicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDevicesResponse {
   /**
    * <p>A list of devices.</p>
@@ -639,29 +459,11 @@ export interface ListDevicesResponse {
   NextToken?: string;
 }
 
-export namespace ListDevicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -673,15 +475,6 @@ export interface ListTagsForResourceResponse {
    *  </p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -700,15 +493,6 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UnclaimDeviceRequest {
   /**
    * <p>The unique identifier of the device.</p>
@@ -716,29 +500,11 @@ export interface UnclaimDeviceRequest {
   DeviceId: string | undefined;
 }
 
-export namespace UnclaimDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnclaimDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UnclaimDeviceResponse {
   /**
    * <p>The device's final claim state.</p>
    */
   State?: string;
-}
-
-export namespace UnclaimDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnclaimDeviceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {
@@ -751,15 +517,6 @@ export interface UntagResourceRequest {
    * <p>A collections of tag keys. For example, {"key1","key2"}</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDeviceStateRequest {
@@ -775,22 +532,207 @@ export interface UpdateDeviceStateRequest {
   Enabled?: boolean;
 }
 
-export namespace UpdateDeviceStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeviceStateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDeviceStateResponse {}
 
-export namespace UpdateDeviceStateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeviceStateResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DeviceDescriptionFilterSensitiveLog = (obj: DeviceDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributesFilterSensitiveLog = (obj: Attributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceFilterSensitiveLog = (obj: Device): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceEventFilterSensitiveLog = (obj: DeviceEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceMethodFilterSensitiveLog = (obj: DeviceMethod): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClaimDevicesByClaimCodeRequestFilterSensitiveLog = (obj: ClaimDevicesByClaimCodeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClaimDevicesByClaimCodeResponseFilterSensitiveLog = (obj: ClaimDevicesByClaimCodeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeviceRequestFilterSensitiveLog = (obj: DescribeDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeviceResponseFilterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FinalizeDeviceClaimRequestFilterSensitiveLog = (obj: FinalizeDeviceClaimRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FinalizeDeviceClaimResponseFilterSensitiveLog = (obj: FinalizeDeviceClaimResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceMethodsRequestFilterSensitiveLog = (obj: GetDeviceMethodsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceMethodsResponseFilterSensitiveLog = (obj: GetDeviceMethodsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitiateDeviceClaimRequestFilterSensitiveLog = (obj: InitiateDeviceClaimRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitiateDeviceClaimResponseFilterSensitiveLog = (obj: InitiateDeviceClaimResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InvokeDeviceMethodRequestFilterSensitiveLog = (obj: InvokeDeviceMethodRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InvokeDeviceMethodResponseFilterSensitiveLog = (obj: InvokeDeviceMethodResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeviceEventsRequestFilterSensitiveLog = (obj: ListDeviceEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeviceEventsResponseFilterSensitiveLog = (obj: ListDeviceEventsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDevicesRequestFilterSensitiveLog = (obj: ListDevicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDevicesResponseFilterSensitiveLog = (obj: ListDevicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnclaimDeviceRequestFilterSensitiveLog = (obj: UnclaimDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnclaimDeviceResponseFilterSensitiveLog = (obj: UnclaimDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeviceStateRequestFilterSensitiveLog = (obj: UpdateDeviceStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeviceStateResponseFilterSensitiveLog = (obj: UpdateDeviceStateResponse): any => ({
+  ...obj,
+});

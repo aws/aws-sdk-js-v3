@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { UpdateImagePermissionsRequest, UpdateImagePermissionsResult } from "../models/models_0";
+import {
+  UpdateImagePermissionsRequest,
+  UpdateImagePermissionsRequestFilterSensitiveLog,
+  UpdateImagePermissionsResult,
+  UpdateImagePermissionsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateImagePermissionsCommand,
   serializeAws_json1_1UpdateImagePermissionsCommand,
@@ -72,8 +77,8 @@ export class UpdateImagePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateImagePermissionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateImagePermissionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateImagePermissionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateImagePermissionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

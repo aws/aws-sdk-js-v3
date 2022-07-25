@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateSnapshotScheduleInput, UpdateSnapshotScheduleOutput } from "../models/models_0";
+import {
+  UpdateSnapshotScheduleInput,
+  UpdateSnapshotScheduleInputFilterSensitiveLog,
+  UpdateSnapshotScheduleOutput,
+  UpdateSnapshotScheduleOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSnapshotScheduleCommand,
   serializeAws_json1_1UpdateSnapshotScheduleCommand,
@@ -81,8 +86,8 @@ export class UpdateSnapshotScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSnapshotScheduleInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSnapshotScheduleOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSnapshotScheduleInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSnapshotScheduleOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

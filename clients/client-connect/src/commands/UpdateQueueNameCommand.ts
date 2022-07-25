@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateQueueNameRequest } from "../models/models_1";
+import { UpdateQueueNameRequest, UpdateQueueNameRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateQueueNameCommand,
   serializeAws_restJson1UpdateQueueNameCommand,
@@ -73,7 +73,7 @@ export class UpdateQueueNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateQueueNameRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateQueueNameRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

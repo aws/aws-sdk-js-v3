@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteIdentityRequest, DeleteIdentityResponse } from "../models/models_0";
+import {
+  DeleteIdentityRequest,
+  DeleteIdentityRequestFilterSensitiveLog,
+  DeleteIdentityResponse,
+  DeleteIdentityResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteIdentityCommand,
   serializeAws_queryDeleteIdentityCommand,
@@ -74,8 +79,8 @@ export class DeleteIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIdentityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIdentityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteIdentityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteIdentityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

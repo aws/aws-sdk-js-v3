@@ -28,15 +28,6 @@ export interface InvalidParameterDetail {
   Problem?: InvalidParameterProblem | string;
 }
 
-export namespace InvalidParameterDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Detailed information about the input that failed to satisfy the constraints specified by
  *          a call.</p>
@@ -65,23 +56,6 @@ export namespace BadRequestDetails {
   export const visit = <T>(value: BadRequestDetails, visitor: Visitor<T>): T => {
     if (value.InvalidParameters !== undefined) return visitor.InvalidParameters(value.InvalidParameters);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestDetails): any => {
-    if (obj.InvalidParameters !== undefined)
-      return {
-        InvalidParameters: Object.entries(obj.InvalidParameters).reduce(
-          (acc: any, [key, value]: [string, InvalidParameterDetail]) => ({
-            ...acc,
-            [key]: InvalidParameterDetail.filterSensitiveLog(value),
-          }),
-          {}
-        ),
-      };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -225,15 +199,6 @@ export interface StartConfigurationSessionRequest {
   RequiredMinimumPollIntervalInSeconds?: number;
 }
 
-export namespace StartConfigurationSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartConfigurationSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartConfigurationSessionResponse {
   /**
    * <p>Token encapsulating state about the configuration session. Provide this token to the
@@ -247,15 +212,6 @@ export interface StartConfigurationSessionResponse {
    *          </important>
    */
   InitialConfigurationToken?: string;
-}
-
-export namespace StartConfigurationSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartConfigurationSessionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -290,15 +246,6 @@ export interface GetLatestConfigurationRequest {
   ConfigurationToken: string | undefined;
 }
 
-export namespace GetLatestConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLatestConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLatestConfigurationResponse {
   /**
    * <p>The latest token describing the current state of the configuration session. This MUST be
@@ -326,12 +273,55 @@ export interface GetLatestConfigurationResponse {
   Configuration?: Uint8Array;
 }
 
-export namespace GetLatestConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLatestConfigurationResponse): any => ({
-    ...obj,
-    ...(obj.Configuration && { Configuration: SENSITIVE_STRING }),
-  });
-}
+/**
+ * @internal
+ */
+export const InvalidParameterDetailFilterSensitiveLog = (obj: InvalidParameterDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BadRequestDetailsFilterSensitiveLog = (obj: BadRequestDetails): any => {
+  if (obj.InvalidParameters !== undefined)
+    return {
+      InvalidParameters: Object.entries(obj.InvalidParameters).reduce(
+        (acc: any, [key, value]: [string, InvalidParameterDetail]) => ({
+          ...acc,
+          [key]: InvalidParameterDetailFilterSensitiveLog(value),
+        }),
+        {}
+      ),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const StartConfigurationSessionRequestFilterSensitiveLog = (obj: StartConfigurationSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartConfigurationSessionResponseFilterSensitiveLog = (obj: StartConfigurationSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLatestConfigurationRequestFilterSensitiveLog = (obj: GetLatestConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLatestConfigurationResponseFilterSensitiveLog = (obj: GetLatestConfigurationResponse): any => ({
+  ...obj,
+  ...(obj.Configuration && { Configuration: SENSITIVE_STRING }),
+});

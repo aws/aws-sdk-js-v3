@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DetachCertificateFromDistributionRequest, DetachCertificateFromDistributionResult } from "../models/models_0";
+import {
+  DetachCertificateFromDistributionRequest,
+  DetachCertificateFromDistributionRequestFilterSensitiveLog,
+  DetachCertificateFromDistributionResult,
+  DetachCertificateFromDistributionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DetachCertificateFromDistributionCommand,
   serializeAws_json1_1DetachCertificateFromDistributionCommand,
@@ -77,8 +82,8 @@ export class DetachCertificateFromDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachCertificateFromDistributionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DetachCertificateFromDistributionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachCertificateFromDistributionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DetachCertificateFromDistributionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

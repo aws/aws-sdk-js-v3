@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { GetPositionRequest, GetPositionResponse } from "../models/models_0";
+import {
+  GetPositionRequest,
+  GetPositionRequestFilterSensitiveLog,
+  GetPositionResponse,
+  GetPositionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetPositionCommand,
   serializeAws_restJson1GetPositionCommand,
@@ -72,8 +77,8 @@ export class GetPositionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPositionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPositionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPositionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetPositionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

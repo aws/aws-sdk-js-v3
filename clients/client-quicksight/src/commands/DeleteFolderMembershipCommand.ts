@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteFolderMembershipRequest, DeleteFolderMembershipResponse } from "../models/models_0";
+import {
+  DeleteFolderMembershipRequest,
+  DeleteFolderMembershipRequestFilterSensitiveLog,
+  DeleteFolderMembershipResponse,
+  DeleteFolderMembershipResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFolderMembershipCommand,
   serializeAws_restJson1DeleteFolderMembershipCommand,
@@ -72,8 +77,8 @@ export class DeleteFolderMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFolderMembershipRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFolderMembershipResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFolderMembershipRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFolderMembershipResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

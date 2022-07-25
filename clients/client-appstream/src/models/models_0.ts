@@ -22,15 +22,6 @@ export interface AccessEndpoint {
   VpceId?: string;
 }
 
-export namespace AccessEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessEndpoint): any => ({
-    ...obj,
-  });
-}
-
 export enum Action {
   CLIPBOARD_COPY_FROM_LOCAL_DEVICE = "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
   CLIPBOARD_COPY_TO_LOCAL_DEVICE = "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
@@ -56,15 +47,6 @@ export interface S3Location {
   S3Key: string | undefined;
 }
 
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the details of the script.</p>
  */
@@ -88,15 +70,6 @@ export interface ScriptDetails {
    * <p>The run timeout, in seconds, for the script.</p>
    */
   TimeoutInSeconds: number | undefined;
-}
-
-export namespace ScriptDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScriptDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -143,15 +116,6 @@ export interface AppBlock {
    * <p>The created time of the app block.</p>
    */
   CreatedTime?: Date;
-}
-
-export namespace AppBlock {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppBlock): any => ({
-    ...obj,
-  });
 }
 
 export type PlatformType = "AMAZON_LINUX2" | "WINDOWS" | "WINDOWS_SERVER_2016" | "WINDOWS_SERVER_2019";
@@ -236,15 +200,6 @@ export interface Application {
   CreatedTime?: Date;
 }
 
-export namespace Application {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Application): any => ({
-    ...obj,
-  });
-}
-
 export enum ApplicationAttribute {
   LAUNCH_PARAMETERS = "LAUNCH_PARAMETERS",
   WORKING_DIRECTORY = "WORKING_DIRECTORY",
@@ -265,15 +220,6 @@ export interface ApplicationFleetAssociation {
   ApplicationArn: string | undefined;
 }
 
-export namespace ApplicationFleetAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationFleetAssociation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The persistent application settings for users of a stack.</p>
  */
@@ -287,15 +233,6 @@ export interface ApplicationSettings {
    * <p>The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack. </p>
    */
   SettingsGroup?: string;
-}
-
-export namespace ApplicationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -319,15 +256,6 @@ export interface ApplicationSettingsResponse {
   S3BucketName?: string;
 }
 
-export namespace ApplicationSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum AppVisibility {
   ALL = "ALL",
   ASSOCIATED = "ASSOCIATED",
@@ -345,15 +273,6 @@ export interface AssociateApplicationFleetRequest {
   ApplicationArn: string | undefined;
 }
 
-export namespace AssociateApplicationFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateApplicationFleetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateApplicationFleetResult {
   /**
    * <p>If fleet name is specified, this returns the list of applications that are associated
@@ -361,15 +280,6 @@ export interface AssociateApplicationFleetResult {
    *             associated.</p>
    */
   ApplicationFleetAssociation?: ApplicationFleetAssociation;
-}
-
-export namespace AssociateApplicationFleetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateApplicationFleetResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -509,25 +419,7 @@ export interface AssociateApplicationToEntitlementRequest {
   ApplicationIdentifier: string | undefined;
 }
 
-export namespace AssociateApplicationToEntitlementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateApplicationToEntitlementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateApplicationToEntitlementResult {}
-
-export namespace AssociateApplicationToEntitlementResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateApplicationToEntitlementResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The entitlement can't be found.</p>
@@ -565,25 +457,7 @@ export interface AssociateFleetRequest {
   StackName: string | undefined;
 }
 
-export namespace AssociateFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateFleetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateFleetResult {}
-
-export namespace AssociateFleetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateFleetResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The image can't be updated because it's not compatible for updates.</p>
@@ -668,33 +542,11 @@ export interface UserStackAssociation {
   SendEmailNotification?: boolean;
 }
 
-export namespace UserStackAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserStackAssociation): any => ({
-    ...obj,
-    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
-  });
-}
-
 export interface BatchAssociateUserStackRequest {
   /**
    * <p>The list of UserStackAssociation objects.</p>
    */
   UserStackAssociations: UserStackAssociation[] | undefined;
-}
-
-export namespace BatchAssociateUserStackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateUserStackRequest): any => ({
-    ...obj,
-    ...(obj.UserStackAssociations && {
-      UserStackAssociations: obj.UserStackAssociations.map((item) => UserStackAssociation.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export enum UserStackAssociationErrorCode {
@@ -724,33 +576,11 @@ export interface UserStackAssociationError {
   ErrorMessage?: string;
 }
 
-export namespace UserStackAssociationError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserStackAssociationError): any => ({
-    ...obj,
-    ...(obj.UserStackAssociation && {
-      UserStackAssociation: UserStackAssociation.filterSensitiveLog(obj.UserStackAssociation),
-    }),
-  });
-}
-
 export interface BatchAssociateUserStackResult {
   /**
    * <p>The list of UserStackAssociationError objects.</p>
    */
   errors?: UserStackAssociationError[];
-}
-
-export namespace BatchAssociateUserStackResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateUserStackResult): any => ({
-    ...obj,
-    ...(obj.errors && { errors: obj.errors.map((item) => UserStackAssociationError.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface BatchDisassociateUserStackRequest {
@@ -760,33 +590,11 @@ export interface BatchDisassociateUserStackRequest {
   UserStackAssociations: UserStackAssociation[] | undefined;
 }
 
-export namespace BatchDisassociateUserStackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateUserStackRequest): any => ({
-    ...obj,
-    ...(obj.UserStackAssociations && {
-      UserStackAssociations: obj.UserStackAssociations.map((item) => UserStackAssociation.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface BatchDisassociateUserStackResult {
   /**
    * <p>The list of UserStackAssociationError objects.</p>
    */
   errors?: UserStackAssociationError[];
-}
-
-export namespace BatchDisassociateUserStackResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateUserStackResult): any => ({
-    ...obj,
-    ...(obj.errors && { errors: obj.errors.map((item) => UserStackAssociationError.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -797,15 +605,6 @@ export interface ComputeCapacity {
    * <p>The desired number of streaming instances.</p>
    */
   DesiredInstances: number | undefined;
-}
-
-export namespace ComputeCapacity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComputeCapacity): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -834,15 +633,6 @@ export interface ComputeCapacityStatus {
   Available?: number;
 }
 
-export namespace ComputeCapacityStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComputeCapacityStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface CopyImageRequest {
   /**
    * <p>The name of the image to copy.</p>
@@ -865,29 +655,11 @@ export interface CopyImageRequest {
   DestinationImageDescription?: string;
 }
 
-export namespace CopyImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyImageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CopyImageResponse {
   /**
    * <p>The name of the destination image.</p>
    */
   DestinationImageName?: string;
-}
-
-export namespace CopyImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyImageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -970,29 +742,11 @@ export interface CreateAppBlockRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateAppBlockRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAppBlockRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAppBlockResult {
   /**
    * <p>The app block.</p>
    */
   AppBlock?: AppBlock;
-}
-
-export namespace CreateAppBlockResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAppBlockResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateApplicationRequest {
@@ -1052,29 +806,11 @@ export interface CreateApplicationRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateApplicationResult {
   /**
    * <p>Describes an application in the application catalog.</p>
    */
   Application?: Application;
-}
-
-export namespace CreateApplicationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1094,17 +830,6 @@ export interface ServiceAccountCredentials {
   AccountPassword: string | undefined;
 }
 
-export namespace ServiceAccountCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceAccountCredentials): any => ({
-    ...obj,
-    ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
-    ...(obj.AccountPassword && { AccountPassword: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateDirectoryConfigRequest {
   /**
    * <p>The fully qualified name of the directory (for example, corp.example.com).</p>
@@ -1120,18 +845,6 @@ export interface CreateDirectoryConfigRequest {
    * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
    */
   ServiceAccountCredentials?: ServiceAccountCredentials;
-}
-
-export namespace CreateDirectoryConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDirectoryConfigRequest): any => ({
-    ...obj,
-    ...(obj.ServiceAccountCredentials && {
-      ServiceAccountCredentials: ServiceAccountCredentials.filterSensitiveLog(obj.ServiceAccountCredentials),
-    }),
-  });
 }
 
 /**
@@ -1159,33 +872,11 @@ export interface DirectoryConfig {
   CreatedTime?: Date;
 }
 
-export namespace DirectoryConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryConfig): any => ({
-    ...obj,
-    ...(obj.ServiceAccountCredentials && {
-      ServiceAccountCredentials: ServiceAccountCredentials.filterSensitiveLog(obj.ServiceAccountCredentials),
-    }),
-  });
-}
-
 export interface CreateDirectoryConfigResult {
   /**
    * <p>Information about the directory configuration.</p>
    */
   DirectoryConfig?: DirectoryConfig;
-}
-
-export namespace CreateDirectoryConfigResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDirectoryConfigResult): any => ({
-    ...obj,
-    ...(obj.DirectoryConfig && { DirectoryConfig: DirectoryConfig.filterSensitiveLog(obj.DirectoryConfig) }),
-  });
 }
 
 /**
@@ -1257,15 +948,6 @@ export interface EntitlementAttribute {
   Value: string | undefined;
 }
 
-export namespace EntitlementAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntitlementAttribute): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateEntitlementRequest {
   /**
    * <p>The name of the entitlement.</p>
@@ -1291,15 +973,6 @@ export interface CreateEntitlementRequest {
    * <p>The attributes of the entitlement.</p>
    */
   Attributes: EntitlementAttribute[] | undefined;
-}
-
-export namespace CreateEntitlementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEntitlementRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1347,29 +1020,11 @@ export interface Entitlement {
   LastModifiedTime?: Date;
 }
 
-export namespace Entitlement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Entitlement): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateEntitlementResult {
   /**
    * <p>The entitlement.</p>
    */
   Entitlement?: Entitlement;
-}
-
-export namespace CreateEntitlementResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEntitlementResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1411,15 +1066,6 @@ export interface DomainJoinInfo {
   OrganizationalUnitDistinguishedName?: string;
 }
 
-export namespace DomainJoinInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainJoinInfo): any => ({
-    ...obj,
-  });
-}
-
 export enum FleetType {
   ALWAYS_ON = "ALWAYS_ON",
   ELASTIC = "ELASTIC",
@@ -1444,15 +1090,6 @@ export interface VpcConfig {
    * <p>The identifiers of the security groups for the fleet or image builder.</p>
    */
   SecurityGroupIds?: string[];
-}
-
-export namespace VpcConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateFleetRequest {
@@ -1713,15 +1350,6 @@ export interface CreateFleetRequest {
   SessionScriptS3Location?: S3Location;
 }
 
-export namespace CreateFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFleetRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum FleetErrorCode {
   DOMAIN_JOIN_ERROR_ACCESS_DENIED = "DOMAIN_JOIN_ERROR_ACCESS_DENIED",
   DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED = "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED",
@@ -1768,15 +1396,6 @@ export interface FleetError {
    * <p>The error message.</p>
    */
   ErrorMessage?: string;
-}
-
-export namespace FleetError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FleetError): any => ({
-    ...obj,
-  });
 }
 
 export enum FleetState {
@@ -2045,29 +1664,11 @@ export interface Fleet {
   SessionScriptS3Location?: S3Location;
 }
 
-export namespace Fleet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Fleet): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFleetResult {
   /**
    * <p>Information about the fleet.</p>
    */
   Fleet?: Fleet;
-}
-
-export namespace CreateFleetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFleetResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2271,15 +1872,6 @@ export interface CreateImageBuilderRequest {
   AccessEndpoints?: AccessEndpoint[];
 }
 
-export namespace CreateImageBuilderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateImageBuilderRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a resource error.</p>
  */
@@ -2300,15 +1892,6 @@ export interface ResourceError {
   ErrorTimestamp?: Date;
 }
 
-export namespace ResourceError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the network details of the fleet or image builder instance.</p>
  */
@@ -2322,15 +1905,6 @@ export interface NetworkAccessConfiguration {
    * <p>The resource identifier of the elastic network interface that is attached to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource identifier.</p>
    */
   EniId?: string;
-}
-
-export namespace NetworkAccessConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkAccessConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum ImageBuilderState {
@@ -2365,15 +1939,6 @@ export interface ImageBuilderStateChangeReason {
    * <p>The state change reason message.</p>
    */
   Message?: string;
-}
-
-export namespace ImageBuilderStateChangeReason {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageBuilderStateChangeReason): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2574,29 +2139,11 @@ export interface ImageBuilder {
   AccessEndpoints?: AccessEndpoint[];
 }
 
-export namespace ImageBuilder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageBuilder): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateImageBuilderResult {
   /**
    * <p>Information about the image builder.</p>
    */
   ImageBuilder?: ImageBuilder;
-}
-
-export namespace CreateImageBuilderResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateImageBuilderResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateImageBuilderStreamingURLRequest {
@@ -2612,15 +2159,6 @@ export interface CreateImageBuilderStreamingURLRequest {
   Validity?: number;
 }
 
-export namespace CreateImageBuilderStreamingURLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateImageBuilderStreamingURLRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateImageBuilderStreamingURLResult {
   /**
    * <p>The URL to start the AppStream 2.0 streaming session.</p>
@@ -2631,15 +2169,6 @@ export interface CreateImageBuilderStreamingURLResult {
    * <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
    */
   Expires?: Date;
-}
-
-export namespace CreateImageBuilderStreamingURLResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateImageBuilderStreamingURLResult): any => ({
-    ...obj,
-  });
 }
 
 export enum StorageConnectorType {
@@ -2668,15 +2197,6 @@ export interface StorageConnector {
   Domains?: string[];
 }
 
-export namespace StorageConnector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageConnector): any => ({
-    ...obj,
-  });
-}
-
 export enum PreferredProtocol {
   TCP = "TCP",
   UDP = "UDP",
@@ -2690,15 +2210,6 @@ export interface StreamingExperienceSettings {
    * <p>The preferred protocol that you want to use while streaming your application.</p>
    */
   PreferredProtocol?: PreferredProtocol | string;
-}
-
-export namespace StreamingExperienceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingExperienceSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum Permission {
@@ -2719,15 +2230,6 @@ export interface UserSetting {
    * <p>Indicates whether the action is enabled or disabled.</p>
    */
   Permission: Permission | string | undefined;
-}
-
-export namespace UserSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserSetting): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateStackRequest {
@@ -2799,15 +2301,6 @@ export interface CreateStackRequest {
   StreamingExperienceSettings?: StreamingExperienceSettings;
 }
 
-export namespace CreateStackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStackRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum StackErrorCode {
   INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
   STORAGE_CONNECTOR_ERROR = "STORAGE_CONNECTOR_ERROR",
@@ -2826,15 +2319,6 @@ export interface StackError {
    * <p>The error message.</p>
    */
   ErrorMessage?: string;
-}
-
-export namespace StackError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackError): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2912,29 +2396,11 @@ export interface Stack {
   StreamingExperienceSettings?: StreamingExperienceSettings;
 }
 
-export namespace Stack {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Stack): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateStackResult {
   /**
    * <p>Information about the stack.</p>
    */
   Stack?: Stack;
-}
-
-export namespace CreateStackResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStackResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateStreamingURLRequest {
@@ -2971,15 +2437,6 @@ export interface CreateStreamingURLRequest {
   SessionContext?: string;
 }
 
-export namespace CreateStreamingURLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingURLRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateStreamingURLResult {
   /**
    * <p>The URL to start the AppStream 2.0 streaming session.</p>
@@ -2990,15 +2447,6 @@ export interface CreateStreamingURLResult {
    * <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
    */
   Expires?: Date;
-}
-
-export namespace CreateStreamingURLResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamingURLResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateUpdatedImageRequest {
@@ -3037,15 +2485,6 @@ export interface CreateUpdatedImageRequest {
   dryRun?: boolean;
 }
 
-export namespace CreateUpdatedImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUpdatedImageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the permissions for an image. </p>
  */
@@ -3059,15 +2498,6 @@ export interface ImagePermissions {
    * <p>Indicates whether the image can be used for an image builder.</p>
    */
   allowImageBuilder?: boolean;
-}
-
-export namespace ImagePermissions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImagePermissions): any => ({
-    ...obj,
-  });
 }
 
 export enum ImageState {
@@ -3099,15 +2529,6 @@ export interface ImageStateChangeReason {
    * <p>The state change reason message.</p>
    */
   Message?: string;
-}
-
-export namespace ImageStateChangeReason {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageStateChangeReason): any => ({
-    ...obj,
-  });
 }
 
 export enum VisibilityType {
@@ -3208,15 +2629,6 @@ export interface Image {
   ImageErrors?: ResourceError[];
 }
 
-export namespace Image {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Image): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUpdatedImageResult {
   /**
    * <p>Describes an image.</p>
@@ -3229,25 +2641,7 @@ export interface CreateUpdatedImageResult {
   canUpdateImage?: boolean;
 }
 
-export namespace CreateUpdatedImageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUpdatedImageResult): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUsageReportSubscriptionRequest {}
-
-export namespace CreateUsageReportSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUsageReportSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
 
 export enum UsageReportSchedule {
   DAILY = "DAILY",
@@ -3269,15 +2663,6 @@ export interface CreateUsageReportSubscriptionResult {
    * <p>The schedule for generating usage reports.</p>
    */
   Schedule?: UsageReportSchedule | string;
-}
-
-export namespace CreateUsageReportSubscriptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUsageReportSubscriptionResult): any => ({
-    ...obj,
-  });
 }
 
 export enum MessageAction {
@@ -3320,28 +2705,7 @@ export interface CreateUserRequest {
   AuthenticationType: AuthenticationType | string | undefined;
 }
 
-export namespace CreateUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
-    ...obj,
-    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
-    ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
-    ...(obj.LastName && { LastName: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateUserResult {}
-
-export namespace CreateUserResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteAppBlockRequest {
   /**
@@ -3350,25 +2714,7 @@ export interface DeleteAppBlockRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteAppBlockRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppBlockRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAppBlockResult {}
-
-export namespace DeleteAppBlockResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppBlockResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The specified resource is in use.</p>
@@ -3401,25 +2747,7 @@ export interface DeleteApplicationRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteApplicationResult {}
-
-export namespace DeleteApplicationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteDirectoryConfigRequest {
   /**
@@ -3428,25 +2756,7 @@ export interface DeleteDirectoryConfigRequest {
   DirectoryName: string | undefined;
 }
 
-export namespace DeleteDirectoryConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDirectoryConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDirectoryConfigResult {}
-
-export namespace DeleteDirectoryConfigResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDirectoryConfigResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteEntitlementRequest {
   /**
@@ -3460,25 +2770,7 @@ export interface DeleteEntitlementRequest {
   StackName: string | undefined;
 }
 
-export namespace DeleteEntitlementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEntitlementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEntitlementResult {}
-
-export namespace DeleteEntitlementResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEntitlementResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteFleetRequest {
   /**
@@ -3487,40 +2779,13 @@ export interface DeleteFleetRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFleetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFleetResult {}
-
-export namespace DeleteFleetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFleetResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteImageRequest {
   /**
    * <p>The name of the image.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DeleteImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImageRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteImageResult {
@@ -3530,15 +2795,6 @@ export interface DeleteImageResult {
   Image?: Image;
 }
 
-export namespace DeleteImageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImageResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteImageBuilderRequest {
   /**
    * <p>The name of the image builder.</p>
@@ -3546,29 +2802,11 @@ export interface DeleteImageBuilderRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteImageBuilderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImageBuilderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteImageBuilderResult {
   /**
    * <p>Information about the image builder.</p>
    */
   ImageBuilder?: ImageBuilder;
-}
-
-export namespace DeleteImageBuilderResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImageBuilderResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteImagePermissionsRequest {
@@ -3583,25 +2821,7 @@ export interface DeleteImagePermissionsRequest {
   SharedAccountId: string | undefined;
 }
 
-export namespace DeleteImagePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImagePermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteImagePermissionsResult {}
-
-export namespace DeleteImagePermissionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImagePermissionsResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteStackRequest {
   /**
@@ -3610,47 +2830,11 @@ export interface DeleteStackRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteStackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStackRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStackResult {}
-
-export namespace DeleteStackResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStackResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteUsageReportSubscriptionRequest {}
 
-export namespace DeleteUsageReportSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUsageReportSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUsageReportSubscriptionResult {}
-
-export namespace DeleteUsageReportSubscriptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUsageReportSubscriptionResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteUserRequest {
   /**
@@ -3668,26 +2852,7 @@ export interface DeleteUserRequest {
   AuthenticationType: AuthenticationType | string | undefined;
 }
 
-export namespace DeleteUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
-    ...obj,
-    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
-  });
-}
-
 export interface DeleteUserResult {}
-
-export namespace DeleteUserResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeAppBlocksRequest {
   /**
@@ -3707,15 +2872,6 @@ export interface DescribeAppBlocksRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeAppBlocksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppBlocksRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAppBlocksResult {
   /**
    * <p>The app blocks in the list.</p>
@@ -3727,15 +2883,6 @@ export interface DescribeAppBlocksResult {
    *             operation.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeAppBlocksResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppBlocksResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeApplicationFleetAssociationsRequest {
@@ -3761,15 +2908,6 @@ export interface DescribeApplicationFleetAssociationsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeApplicationFleetAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApplicationFleetAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeApplicationFleetAssociationsResult {
   /**
    * <p>The application fleet associations in the list.</p>
@@ -3781,15 +2919,6 @@ export interface DescribeApplicationFleetAssociationsResult {
    *             operation.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeApplicationFleetAssociationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApplicationFleetAssociationsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeApplicationsRequest {
@@ -3810,15 +2939,6 @@ export interface DescribeApplicationsRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeApplicationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApplicationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeApplicationsResult {
   /**
    * <p>The applications in the list.</p>
@@ -3830,15 +2950,6 @@ export interface DescribeApplicationsResult {
    *             operation.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeApplicationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApplicationsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDirectoryConfigsRequest {
@@ -3858,15 +2969,6 @@ export interface DescribeDirectoryConfigsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeDirectoryConfigsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDirectoryConfigsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDirectoryConfigsResult {
   /**
    * <p>Information about the directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response. </p>
@@ -3877,18 +2979,6 @@ export interface DescribeDirectoryConfigsResult {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeDirectoryConfigsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDirectoryConfigsResult): any => ({
-    ...obj,
-    ...(obj.DirectoryConfigs && {
-      DirectoryConfigs: obj.DirectoryConfigs.map((item) => DirectoryConfig.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface DescribeEntitlementsRequest {
@@ -3913,15 +3003,6 @@ export interface DescribeEntitlementsRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeEntitlementsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEntitlementsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEntitlementsResult {
   /**
    * <p>The entitlements.</p>
@@ -3933,15 +3014,6 @@ export interface DescribeEntitlementsResult {
    *             operation.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeEntitlementsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEntitlementsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeFleetsRequest {
@@ -3956,15 +3028,6 @@ export interface DescribeFleetsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeFleetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFleetsResult {
   /**
    * <p>Information about the fleets.</p>
@@ -3975,15 +3038,6 @@ export interface DescribeFleetsResult {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeFleetsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeImageBuildersRequest {
@@ -4003,15 +3057,6 @@ export interface DescribeImageBuildersRequest {
   NextToken?: string;
 }
 
-export namespace DescribeImageBuildersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImageBuildersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeImageBuildersResult {
   /**
    * <p>Information about the image builders.</p>
@@ -4022,15 +3067,6 @@ export interface DescribeImageBuildersResult {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeImageBuildersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImageBuildersResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeImagePermissionsRequest {
@@ -4055,15 +3091,6 @@ export interface DescribeImagePermissionsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeImagePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImagePermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the permissions that are available to the specified AWS account for a shared image.</p>
  */
@@ -4077,15 +3104,6 @@ export interface SharedImagePermissions {
    * <p>Describes the permissions for a shared image.</p>
    */
   imagePermissions: ImagePermissions | undefined;
-}
-
-export namespace SharedImagePermissions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SharedImagePermissions): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeImagePermissionsResult {
@@ -4103,15 +3121,6 @@ export interface DescribeImagePermissionsResult {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeImagePermissionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImagePermissionsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeImagesRequest {
@@ -4141,15 +3150,6 @@ export interface DescribeImagesRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeImagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImagesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeImagesResult {
   /**
    * <p>Information about the images.</p>
@@ -4160,15 +3160,6 @@ export interface DescribeImagesResult {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeImagesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImagesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSessionsRequest {
@@ -4203,15 +3194,6 @@ export interface DescribeSessionsRequest {
    *             The default is to authenticate users using a streaming URL.</p>
    */
   AuthenticationType?: AuthenticationType | string;
-}
-
-export namespace DescribeSessionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSessionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum SessionConnectionState {
@@ -4281,15 +3263,6 @@ export interface Session {
   NetworkAccessConfiguration?: NetworkAccessConfiguration;
 }
 
-export namespace Session {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Session): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSessionsResult {
   /**
    * <p>Information about the streaming sessions.</p>
@@ -4300,15 +3273,6 @@ export interface DescribeSessionsResult {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeSessionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSessionsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeStacksRequest {
@@ -4323,15 +3287,6 @@ export interface DescribeStacksRequest {
   NextToken?: string;
 }
 
-export namespace DescribeStacksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStacksRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeStacksResult {
   /**
    * <p>Information about the stacks.</p>
@@ -4344,15 +3299,6 @@ export interface DescribeStacksResult {
   NextToken?: string;
 }
 
-export namespace DescribeStacksResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStacksResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUsageReportSubscriptionsRequest {
   /**
    * <p>The maximum size of each page of results.</p>
@@ -4363,15 +3309,6 @@ export interface DescribeUsageReportSubscriptionsRequest {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeUsageReportSubscriptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUsageReportSubscriptionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum UsageReportExecutionErrorCode {
@@ -4393,15 +3330,6 @@ export interface LastReportGenerationExecutionError {
    * <p>The error message for the error that is returned when a usage report can't be generated.</p>
    */
   ErrorMessage?: string;
-}
-
-export namespace LastReportGenerationExecutionError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LastReportGenerationExecutionError): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4435,15 +3363,6 @@ export interface UsageReportSubscription {
   SubscriptionErrors?: LastReportGenerationExecutionError[];
 }
 
-export namespace UsageReportSubscription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsageReportSubscription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUsageReportSubscriptionsResult {
   /**
    * <p>Information about the usage report subscription.</p>
@@ -4454,15 +3373,6 @@ export interface DescribeUsageReportSubscriptionsResult {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeUsageReportSubscriptionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUsageReportSubscriptionsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeUsersRequest {
@@ -4480,15 +3390,6 @@ export interface DescribeUsersRequest {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeUsersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUsersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4557,18 +3458,6 @@ export interface User {
   AuthenticationType: AuthenticationType | string | undefined;
 }
 
-export namespace User {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: User): any => ({
-    ...obj,
-    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
-    ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
-    ...(obj.LastName && { LastName: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeUsersResult {
   /**
    * <p>Information about users in the user pool.</p>
@@ -4579,16 +3468,6 @@ export interface DescribeUsersResult {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeUsersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUsersResult): any => ({
-    ...obj,
-    ...(obj.Users && { Users: obj.Users.map((item) => User.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface DescribeUserStackAssociationsRequest {
@@ -4622,16 +3501,6 @@ export interface DescribeUserStackAssociationsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeUserStackAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserStackAssociationsRequest): any => ({
-    ...obj,
-    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeUserStackAssociationsResult {
   /**
    * <p>The UserStackAssociation objects.</p>
@@ -4642,18 +3511,6 @@ export interface DescribeUserStackAssociationsResult {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeUserStackAssociationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserStackAssociationsResult): any => ({
-    ...obj,
-    ...(obj.UserStackAssociations && {
-      UserStackAssociations: obj.UserStackAssociations.map((item) => UserStackAssociation.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface DisableUserRequest {
@@ -4672,26 +3529,7 @@ export interface DisableUserRequest {
   AuthenticationType: AuthenticationType | string | undefined;
 }
 
-export namespace DisableUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableUserRequest): any => ({
-    ...obj,
-    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
-  });
-}
-
 export interface DisableUserResult {}
-
-export namespace DisableUserResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableUserResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateApplicationFleetRequest {
   /**
@@ -4705,25 +3543,7 @@ export interface DisassociateApplicationFleetRequest {
   ApplicationArn: string | undefined;
 }
 
-export namespace DisassociateApplicationFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateApplicationFleetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateApplicationFleetResult {}
-
-export namespace DisassociateApplicationFleetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateApplicationFleetResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateApplicationFromEntitlementRequest {
   /**
@@ -4742,25 +3562,7 @@ export interface DisassociateApplicationFromEntitlementRequest {
   ApplicationIdentifier: string | undefined;
 }
 
-export namespace DisassociateApplicationFromEntitlementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateApplicationFromEntitlementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateApplicationFromEntitlementResult {}
-
-export namespace DisassociateApplicationFromEntitlementResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateApplicationFromEntitlementResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateFleetRequest {
   /**
@@ -4774,25 +3576,7 @@ export interface DisassociateFleetRequest {
   StackName: string | undefined;
 }
 
-export namespace DisassociateFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateFleetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateFleetResult {}
-
-export namespace DisassociateFleetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateFleetResult): any => ({
-    ...obj,
-  });
-}
 
 export interface EnableUserRequest {
   /**
@@ -4810,26 +3594,7 @@ export interface EnableUserRequest {
   AuthenticationType: AuthenticationType | string | undefined;
 }
 
-export namespace EnableUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableUserRequest): any => ({
-    ...obj,
-    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
-  });
-}
-
 export interface EnableUserResult {}
-
-export namespace EnableUserResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableUserResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The application associated to an entitlement. Access is controlled based on user attributes.</p>
@@ -4841,15 +3606,6 @@ export interface EntitledApplication {
   ApplicationIdentifier: string | undefined;
 }
 
-export namespace EntitledApplication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntitledApplication): any => ({
-    ...obj,
-  });
-}
-
 export interface ExpireSessionRequest {
   /**
    * <p>The identifier of the streaming session.</p>
@@ -4857,25 +3613,7 @@ export interface ExpireSessionRequest {
   SessionId: string | undefined;
 }
 
-export namespace ExpireSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpireSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ExpireSessionResult {}
-
-export namespace ExpireSessionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpireSessionResult): any => ({
-    ...obj,
-  });
-}
 
 export enum FleetAttribute {
   DOMAIN_JOIN_INFO = "DOMAIN_JOIN_INFO",
@@ -4898,15 +3636,6 @@ export interface ListAssociatedFleetsRequest {
   NextToken?: string;
 }
 
-export namespace ListAssociatedFleetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedFleetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssociatedFleetsResult {
   /**
    * <p>The name of the fleet.</p>
@@ -4917,15 +3646,6 @@ export interface ListAssociatedFleetsResult {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAssociatedFleetsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedFleetsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssociatedStacksRequest {
@@ -4940,15 +3660,6 @@ export interface ListAssociatedStacksRequest {
   NextToken?: string;
 }
 
-export namespace ListAssociatedStacksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedStacksRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssociatedStacksResult {
   /**
    * <p>The name of the stack.</p>
@@ -4959,15 +3670,6 @@ export interface ListAssociatedStacksResult {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAssociatedStacksResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedStacksResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEntitledApplicationsRequest {
@@ -4992,15 +3694,6 @@ export interface ListEntitledApplicationsRequest {
   MaxResults?: number;
 }
 
-export namespace ListEntitledApplicationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEntitledApplicationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEntitledApplicationsResult {
   /**
    * <p>The entitled applications.</p>
@@ -5013,29 +3706,11 @@ export interface ListEntitledApplicationsResult {
   NextToken?: string;
 }
 
-export namespace ListEntitledApplicationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEntitledApplicationsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -5045,15 +3720,6 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StartFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -5061,25 +3727,7 @@ export interface StartFleetRequest {
   Name: string | undefined;
 }
 
-export namespace StartFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFleetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartFleetResult {}
-
-export namespace StartFleetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFleetResult): any => ({
-    ...obj,
-  });
-}
 
 export interface StartImageBuilderRequest {
   /**
@@ -5093,29 +3741,11 @@ export interface StartImageBuilderRequest {
   AppstreamAgentVersion?: string;
 }
 
-export namespace StartImageBuilderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartImageBuilderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartImageBuilderResult {
   /**
    * <p>Information about the image builder.</p>
    */
   ImageBuilder?: ImageBuilder;
-}
-
-export namespace StartImageBuilderResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartImageBuilderResult): any => ({
-    ...obj,
-  });
 }
 
 export interface StopFleetRequest {
@@ -5125,25 +3755,7 @@ export interface StopFleetRequest {
   Name: string | undefined;
 }
 
-export namespace StopFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopFleetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopFleetResult {}
-
-export namespace StopFleetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopFleetResult): any => ({
-    ...obj,
-  });
-}
 
 export interface StopImageBuilderRequest {
   /**
@@ -5152,29 +3764,11 @@ export interface StopImageBuilderRequest {
   Name: string | undefined;
 }
 
-export namespace StopImageBuilderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopImageBuilderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopImageBuilderResult {
   /**
    * <p>Information about the image builder.</p>
    */
   ImageBuilder?: ImageBuilder;
-}
-
-export namespace StopImageBuilderResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopImageBuilderResult): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -5194,25 +3788,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -5226,25 +3802,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateApplicationRequest {
   /**
@@ -5293,29 +3851,11 @@ export interface UpdateApplicationRequest {
   AttributesToDelete?: (ApplicationAttribute | string)[];
 }
 
-export namespace UpdateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApplicationResult {
   /**
    * <p>Describes an application in the application catalog.</p>
    */
   Application?: Application;
-}
-
-export namespace UpdateApplicationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDirectoryConfigRequest {
@@ -5335,33 +3875,11 @@ export interface UpdateDirectoryConfigRequest {
   ServiceAccountCredentials?: ServiceAccountCredentials;
 }
 
-export namespace UpdateDirectoryConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDirectoryConfigRequest): any => ({
-    ...obj,
-    ...(obj.ServiceAccountCredentials && {
-      ServiceAccountCredentials: ServiceAccountCredentials.filterSensitiveLog(obj.ServiceAccountCredentials),
-    }),
-  });
-}
-
 export interface UpdateDirectoryConfigResult {
   /**
    * <p>Information about the Directory Config object.</p>
    */
   DirectoryConfig?: DirectoryConfig;
-}
-
-export namespace UpdateDirectoryConfigResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDirectoryConfigResult): any => ({
-    ...obj,
-    ...(obj.DirectoryConfig && { DirectoryConfig: DirectoryConfig.filterSensitiveLog(obj.DirectoryConfig) }),
-  });
 }
 
 export interface UpdateEntitlementRequest {
@@ -5391,29 +3909,11 @@ export interface UpdateEntitlementRequest {
   Attributes?: EntitlementAttribute[];
 }
 
-export namespace UpdateEntitlementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEntitlementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEntitlementResult {
   /**
    * <p>The entitlement.</p>
    */
   Entitlement?: Entitlement;
-}
-
-export namespace UpdateEntitlementResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEntitlementResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateFleetRequest {
@@ -5655,29 +4155,11 @@ export interface UpdateFleetRequest {
   SessionScriptS3Location?: S3Location;
 }
 
-export namespace UpdateFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFleetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFleetResult {
   /**
    * <p>Information about the fleet.</p>
    */
   Fleet?: Fleet;
-}
-
-export namespace UpdateFleetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFleetResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateImagePermissionsRequest {
@@ -5697,25 +4179,7 @@ export interface UpdateImagePermissionsRequest {
   ImagePermissions: ImagePermissions | undefined;
 }
 
-export namespace UpdateImagePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateImagePermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateImagePermissionsResult {}
-
-export namespace UpdateImagePermissionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateImagePermissionsResult): any => ({
-    ...obj,
-  });
-}
 
 export enum StackAttribute {
   ACCESS_ENDPOINTS = "ACCESS_ENDPOINTS",
@@ -5801,15 +4265,6 @@ export interface UpdateStackRequest {
   StreamingExperienceSettings?: StreamingExperienceSettings;
 }
 
-export namespace UpdateStackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStackRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateStackResult {
   /**
    * <p>Information about the stack.</p>
@@ -5817,11 +4272,1254 @@ export interface UpdateStackResult {
   Stack?: Stack;
 }
 
-export namespace UpdateStackResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStackResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccessEndpointFilterSensitiveLog = (obj: AccessEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScriptDetailsFilterSensitiveLog = (obj: ScriptDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppBlockFilterSensitiveLog = (obj: AppBlock): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationFilterSensitiveLog = (obj: Application): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationFleetAssociationFilterSensitiveLog = (obj: ApplicationFleetAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationSettingsFilterSensitiveLog = (obj: ApplicationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationSettingsResponseFilterSensitiveLog = (obj: ApplicationSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateApplicationFleetRequestFilterSensitiveLog = (obj: AssociateApplicationFleetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateApplicationFleetResultFilterSensitiveLog = (obj: AssociateApplicationFleetResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateApplicationToEntitlementRequestFilterSensitiveLog = (
+  obj: AssociateApplicationToEntitlementRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateApplicationToEntitlementResultFilterSensitiveLog = (
+  obj: AssociateApplicationToEntitlementResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateFleetRequestFilterSensitiveLog = (obj: AssociateFleetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateFleetResultFilterSensitiveLog = (obj: AssociateFleetResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserStackAssociationFilterSensitiveLog = (obj: UserStackAssociation): any => ({
+  ...obj,
+  ...(obj.UserName && { UserName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchAssociateUserStackRequestFilterSensitiveLog = (obj: BatchAssociateUserStackRequest): any => ({
+  ...obj,
+  ...(obj.UserStackAssociations && {
+    UserStackAssociations: obj.UserStackAssociations.map((item) => UserStackAssociationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UserStackAssociationErrorFilterSensitiveLog = (obj: UserStackAssociationError): any => ({
+  ...obj,
+  ...(obj.UserStackAssociation && {
+    UserStackAssociation: UserStackAssociationFilterSensitiveLog(obj.UserStackAssociation),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchAssociateUserStackResultFilterSensitiveLog = (obj: BatchAssociateUserStackResult): any => ({
+  ...obj,
+  ...(obj.errors && { errors: obj.errors.map((item) => UserStackAssociationErrorFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateUserStackRequestFilterSensitiveLog = (obj: BatchDisassociateUserStackRequest): any => ({
+  ...obj,
+  ...(obj.UserStackAssociations && {
+    UserStackAssociations: obj.UserStackAssociations.map((item) => UserStackAssociationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateUserStackResultFilterSensitiveLog = (obj: BatchDisassociateUserStackResult): any => ({
+  ...obj,
+  ...(obj.errors && { errors: obj.errors.map((item) => UserStackAssociationErrorFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ComputeCapacityFilterSensitiveLog = (obj: ComputeCapacity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComputeCapacityStatusFilterSensitiveLog = (obj: ComputeCapacityStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyImageRequestFilterSensitiveLog = (obj: CopyImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyImageResponseFilterSensitiveLog = (obj: CopyImageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAppBlockRequestFilterSensitiveLog = (obj: CreateAppBlockRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAppBlockResultFilterSensitiveLog = (obj: CreateAppBlockResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationResultFilterSensitiveLog = (obj: CreateApplicationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceAccountCredentialsFilterSensitiveLog = (obj: ServiceAccountCredentials): any => ({
+  ...obj,
+  ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
+  ...(obj.AccountPassword && { AccountPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDirectoryConfigRequestFilterSensitiveLog = (obj: CreateDirectoryConfigRequest): any => ({
+  ...obj,
+  ...(obj.ServiceAccountCredentials && {
+    ServiceAccountCredentials: ServiceAccountCredentialsFilterSensitiveLog(obj.ServiceAccountCredentials),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DirectoryConfigFilterSensitiveLog = (obj: DirectoryConfig): any => ({
+  ...obj,
+  ...(obj.ServiceAccountCredentials && {
+    ServiceAccountCredentials: ServiceAccountCredentialsFilterSensitiveLog(obj.ServiceAccountCredentials),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDirectoryConfigResultFilterSensitiveLog = (obj: CreateDirectoryConfigResult): any => ({
+  ...obj,
+  ...(obj.DirectoryConfig && { DirectoryConfig: DirectoryConfigFilterSensitiveLog(obj.DirectoryConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const EntitlementAttributeFilterSensitiveLog = (obj: EntitlementAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEntitlementRequestFilterSensitiveLog = (obj: CreateEntitlementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EntitlementFilterSensitiveLog = (obj: Entitlement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEntitlementResultFilterSensitiveLog = (obj: CreateEntitlementResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainJoinInfoFilterSensitiveLog = (obj: DomainJoinInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcConfigFilterSensitiveLog = (obj: VpcConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFleetRequestFilterSensitiveLog = (obj: CreateFleetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FleetErrorFilterSensitiveLog = (obj: FleetError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FleetFilterSensitiveLog = (obj: Fleet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFleetResultFilterSensitiveLog = (obj: CreateFleetResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateImageBuilderRequestFilterSensitiveLog = (obj: CreateImageBuilderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceErrorFilterSensitiveLog = (obj: ResourceError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkAccessConfigurationFilterSensitiveLog = (obj: NetworkAccessConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageBuilderStateChangeReasonFilterSensitiveLog = (obj: ImageBuilderStateChangeReason): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageBuilderFilterSensitiveLog = (obj: ImageBuilder): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateImageBuilderResultFilterSensitiveLog = (obj: CreateImageBuilderResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateImageBuilderStreamingURLRequestFilterSensitiveLog = (
+  obj: CreateImageBuilderStreamingURLRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateImageBuilderStreamingURLResultFilterSensitiveLog = (
+  obj: CreateImageBuilderStreamingURLResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageConnectorFilterSensitiveLog = (obj: StorageConnector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamingExperienceSettingsFilterSensitiveLog = (obj: StreamingExperienceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserSettingFilterSensitiveLog = (obj: UserSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStackRequestFilterSensitiveLog = (obj: CreateStackRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackErrorFilterSensitiveLog = (obj: StackError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackFilterSensitiveLog = (obj: Stack): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStackResultFilterSensitiveLog = (obj: CreateStackResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingURLRequestFilterSensitiveLog = (obj: CreateStreamingURLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingURLResultFilterSensitiveLog = (obj: CreateStreamingURLResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUpdatedImageRequestFilterSensitiveLog = (obj: CreateUpdatedImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImagePermissionsFilterSensitiveLog = (obj: ImagePermissions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageStateChangeReasonFilterSensitiveLog = (obj: ImageStateChangeReason): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageFilterSensitiveLog = (obj: Image): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUpdatedImageResultFilterSensitiveLog = (obj: CreateUpdatedImageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUsageReportSubscriptionRequestFilterSensitiveLog = (
+  obj: CreateUsageReportSubscriptionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUsageReportSubscriptionResultFilterSensitiveLog = (
+  obj: CreateUsageReportSubscriptionResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
+  ...obj,
+  ...(obj.UserName && { UserName: SENSITIVE_STRING }),
+  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
+  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateUserResultFilterSensitiveLog = (obj: CreateUserResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppBlockRequestFilterSensitiveLog = (obj: DeleteAppBlockRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppBlockResultFilterSensitiveLog = (obj: DeleteAppBlockResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationRequestFilterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationResultFilterSensitiveLog = (obj: DeleteApplicationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDirectoryConfigRequestFilterSensitiveLog = (obj: DeleteDirectoryConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDirectoryConfigResultFilterSensitiveLog = (obj: DeleteDirectoryConfigResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEntitlementRequestFilterSensitiveLog = (obj: DeleteEntitlementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEntitlementResultFilterSensitiveLog = (obj: DeleteEntitlementResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFleetRequestFilterSensitiveLog = (obj: DeleteFleetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFleetResultFilterSensitiveLog = (obj: DeleteFleetResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImageRequestFilterSensitiveLog = (obj: DeleteImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImageResultFilterSensitiveLog = (obj: DeleteImageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImageBuilderRequestFilterSensitiveLog = (obj: DeleteImageBuilderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImageBuilderResultFilterSensitiveLog = (obj: DeleteImageBuilderResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImagePermissionsRequestFilterSensitiveLog = (obj: DeleteImagePermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImagePermissionsResultFilterSensitiveLog = (obj: DeleteImagePermissionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStackRequestFilterSensitiveLog = (obj: DeleteStackRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStackResultFilterSensitiveLog = (obj: DeleteStackResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUsageReportSubscriptionRequestFilterSensitiveLog = (
+  obj: DeleteUsageReportSubscriptionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUsageReportSubscriptionResultFilterSensitiveLog = (
+  obj: DeleteUsageReportSubscriptionResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any => ({
+  ...obj,
+  ...(obj.UserName && { UserName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserResultFilterSensitiveLog = (obj: DeleteUserResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppBlocksRequestFilterSensitiveLog = (obj: DescribeAppBlocksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppBlocksResultFilterSensitiveLog = (obj: DescribeAppBlocksResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeApplicationFleetAssociationsRequestFilterSensitiveLog = (
+  obj: DescribeApplicationFleetAssociationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeApplicationFleetAssociationsResultFilterSensitiveLog = (
+  obj: DescribeApplicationFleetAssociationsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeApplicationsRequestFilterSensitiveLog = (obj: DescribeApplicationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeApplicationsResultFilterSensitiveLog = (obj: DescribeApplicationsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDirectoryConfigsRequestFilterSensitiveLog = (obj: DescribeDirectoryConfigsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDirectoryConfigsResultFilterSensitiveLog = (obj: DescribeDirectoryConfigsResult): any => ({
+  ...obj,
+  ...(obj.DirectoryConfigs && {
+    DirectoryConfigs: obj.DirectoryConfigs.map((item) => DirectoryConfigFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeEntitlementsRequestFilterSensitiveLog = (obj: DescribeEntitlementsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEntitlementsResultFilterSensitiveLog = (obj: DescribeEntitlementsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetsRequestFilterSensitiveLog = (obj: DescribeFleetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetsResultFilterSensitiveLog = (obj: DescribeFleetsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImageBuildersRequestFilterSensitiveLog = (obj: DescribeImageBuildersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImageBuildersResultFilterSensitiveLog = (obj: DescribeImageBuildersResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImagePermissionsRequestFilterSensitiveLog = (obj: DescribeImagePermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SharedImagePermissionsFilterSensitiveLog = (obj: SharedImagePermissions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImagePermissionsResultFilterSensitiveLog = (obj: DescribeImagePermissionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImagesRequestFilterSensitiveLog = (obj: DescribeImagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImagesResultFilterSensitiveLog = (obj: DescribeImagesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSessionsRequestFilterSensitiveLog = (obj: DescribeSessionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionFilterSensitiveLog = (obj: Session): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSessionsResultFilterSensitiveLog = (obj: DescribeSessionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStacksRequestFilterSensitiveLog = (obj: DescribeStacksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStacksResultFilterSensitiveLog = (obj: DescribeStacksResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUsageReportSubscriptionsRequestFilterSensitiveLog = (
+  obj: DescribeUsageReportSubscriptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LastReportGenerationExecutionErrorFilterSensitiveLog = (obj: LastReportGenerationExecutionError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsageReportSubscriptionFilterSensitiveLog = (obj: UsageReportSubscription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUsageReportSubscriptionsResultFilterSensitiveLog = (
+  obj: DescribeUsageReportSubscriptionsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUsersRequestFilterSensitiveLog = (obj: DescribeUsersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserFilterSensitiveLog = (obj: User): any => ({
+  ...obj,
+  ...(obj.UserName && { UserName: SENSITIVE_STRING }),
+  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
+  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeUsersResultFilterSensitiveLog = (obj: DescribeUsersResult): any => ({
+  ...obj,
+  ...(obj.Users && { Users: obj.Users.map((item) => UserFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserStackAssociationsRequestFilterSensitiveLog = (
+  obj: DescribeUserStackAssociationsRequest
+): any => ({
+  ...obj,
+  ...(obj.UserName && { UserName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserStackAssociationsResultFilterSensitiveLog = (
+  obj: DescribeUserStackAssociationsResult
+): any => ({
+  ...obj,
+  ...(obj.UserStackAssociations && {
+    UserStackAssociations: obj.UserStackAssociations.map((item) => UserStackAssociationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DisableUserRequestFilterSensitiveLog = (obj: DisableUserRequest): any => ({
+  ...obj,
+  ...(obj.UserName && { UserName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DisableUserResultFilterSensitiveLog = (obj: DisableUserResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateApplicationFleetRequestFilterSensitiveLog = (
+  obj: DisassociateApplicationFleetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateApplicationFleetResultFilterSensitiveLog = (obj: DisassociateApplicationFleetResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateApplicationFromEntitlementRequestFilterSensitiveLog = (
+  obj: DisassociateApplicationFromEntitlementRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateApplicationFromEntitlementResultFilterSensitiveLog = (
+  obj: DisassociateApplicationFromEntitlementResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateFleetRequestFilterSensitiveLog = (obj: DisassociateFleetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateFleetResultFilterSensitiveLog = (obj: DisassociateFleetResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableUserRequestFilterSensitiveLog = (obj: EnableUserRequest): any => ({
+  ...obj,
+  ...(obj.UserName && { UserName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EnableUserResultFilterSensitiveLog = (obj: EnableUserResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EntitledApplicationFilterSensitiveLog = (obj: EntitledApplication): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExpireSessionRequestFilterSensitiveLog = (obj: ExpireSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExpireSessionResultFilterSensitiveLog = (obj: ExpireSessionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociatedFleetsRequestFilterSensitiveLog = (obj: ListAssociatedFleetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociatedFleetsResultFilterSensitiveLog = (obj: ListAssociatedFleetsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociatedStacksRequestFilterSensitiveLog = (obj: ListAssociatedStacksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociatedStacksResultFilterSensitiveLog = (obj: ListAssociatedStacksResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEntitledApplicationsRequestFilterSensitiveLog = (obj: ListEntitledApplicationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEntitledApplicationsResultFilterSensitiveLog = (obj: ListEntitledApplicationsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFleetRequestFilterSensitiveLog = (obj: StartFleetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFleetResultFilterSensitiveLog = (obj: StartFleetResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartImageBuilderRequestFilterSensitiveLog = (obj: StartImageBuilderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartImageBuilderResultFilterSensitiveLog = (obj: StartImageBuilderResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopFleetRequestFilterSensitiveLog = (obj: StopFleetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopFleetResultFilterSensitiveLog = (obj: StopFleetResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopImageBuilderRequestFilterSensitiveLog = (obj: StopImageBuilderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopImageBuilderResultFilterSensitiveLog = (obj: StopImageBuilderResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationRequestFilterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationResultFilterSensitiveLog = (obj: UpdateApplicationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDirectoryConfigRequestFilterSensitiveLog = (obj: UpdateDirectoryConfigRequest): any => ({
+  ...obj,
+  ...(obj.ServiceAccountCredentials && {
+    ServiceAccountCredentials: ServiceAccountCredentialsFilterSensitiveLog(obj.ServiceAccountCredentials),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDirectoryConfigResultFilterSensitiveLog = (obj: UpdateDirectoryConfigResult): any => ({
+  ...obj,
+  ...(obj.DirectoryConfig && { DirectoryConfig: DirectoryConfigFilterSensitiveLog(obj.DirectoryConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateEntitlementRequestFilterSensitiveLog = (obj: UpdateEntitlementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEntitlementResultFilterSensitiveLog = (obj: UpdateEntitlementResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFleetRequestFilterSensitiveLog = (obj: UpdateFleetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFleetResultFilterSensitiveLog = (obj: UpdateFleetResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateImagePermissionsRequestFilterSensitiveLog = (obj: UpdateImagePermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateImagePermissionsResultFilterSensitiveLog = (obj: UpdateImagePermissionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStackRequestFilterSensitiveLog = (obj: UpdateStackRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStackResultFilterSensitiveLog = (obj: UpdateStackResult): any => ({
+  ...obj,
+});

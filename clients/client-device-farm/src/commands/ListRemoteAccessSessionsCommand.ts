@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { ListRemoteAccessSessionsRequest, ListRemoteAccessSessionsResult } from "../models/models_0";
+import {
+  ListRemoteAccessSessionsRequest,
+  ListRemoteAccessSessionsRequestFilterSensitiveLog,
+  ListRemoteAccessSessionsResult,
+  ListRemoteAccessSessionsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListRemoteAccessSessionsCommand,
   serializeAws_json1_1ListRemoteAccessSessionsCommand,
@@ -72,8 +77,8 @@ export class ListRemoteAccessSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRemoteAccessSessionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListRemoteAccessSessionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRemoteAccessSessionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListRemoteAccessSessionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetBucketInventoryConfigurationOutput, GetBucketInventoryConfigurationRequest } from "../models/models_0";
+import {
+  GetBucketInventoryConfigurationOutput,
+  GetBucketInventoryConfigurationOutputFilterSensitiveLog,
+  GetBucketInventoryConfigurationRequest,
+  GetBucketInventoryConfigurationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketInventoryConfigurationCommand,
   serializeAws_restXmlGetBucketInventoryConfigurationCommand,
@@ -105,8 +110,8 @@ export class GetBucketInventoryConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketInventoryConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketInventoryConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketInventoryConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketInventoryConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

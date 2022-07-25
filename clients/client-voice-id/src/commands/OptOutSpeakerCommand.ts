@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { OptOutSpeakerRequest, OptOutSpeakerResponse } from "../models/models_0";
+import {
+  OptOutSpeakerRequest,
+  OptOutSpeakerRequestFilterSensitiveLog,
+  OptOutSpeakerResponse,
+  OptOutSpeakerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0OptOutSpeakerCommand,
   serializeAws_json1_0OptOutSpeakerCommand,
@@ -76,8 +81,8 @@ export class OptOutSpeakerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: OptOutSpeakerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: OptOutSpeakerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: OptOutSpeakerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: OptOutSpeakerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

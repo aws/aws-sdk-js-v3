@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { BatchImportFindingsRequest, BatchImportFindingsResponse } from "../models/models_1";
+import {
+  BatchImportFindingsRequest,
+  BatchImportFindingsRequestFilterSensitiveLog,
+  BatchImportFindingsResponse,
+  BatchImportFindingsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1BatchImportFindingsCommand,
   serializeAws_restJson1BatchImportFindingsCommand,
@@ -146,8 +151,8 @@ export class BatchImportFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchImportFindingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchImportFindingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchImportFindingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchImportFindingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

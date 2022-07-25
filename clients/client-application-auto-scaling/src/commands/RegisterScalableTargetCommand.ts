@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import { RegisterScalableTargetRequest, RegisterScalableTargetResponse } from "../models/models_0";
+import {
+  RegisterScalableTargetRequest,
+  RegisterScalableTargetRequestFilterSensitiveLog,
+  RegisterScalableTargetResponse,
+  RegisterScalableTargetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterScalableTargetCommand,
   serializeAws_json1_1RegisterScalableTargetCommand,
@@ -97,8 +102,8 @@ export class RegisterScalableTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterScalableTargetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterScalableTargetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterScalableTargetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RegisterScalableTargetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

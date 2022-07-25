@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateAddressRequest, CreateAddressResult } from "../models/models_0";
+import {
+  CreateAddressRequest,
+  CreateAddressRequestFilterSensitiveLog,
+  CreateAddressResult,
+  CreateAddressResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateAddressCommand,
   serializeAws_json1_1CreateAddressCommand,
@@ -75,8 +80,8 @@ export class CreateAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAddressRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateAddressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAddressRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateAddressResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAccessRequest } from "../models/models_0";
+import { DeleteAccessRequest, DeleteAccessRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAccessCommand,
   serializeAws_json1_1DeleteAccessCommand,
@@ -73,7 +73,7 @@ export class DeleteAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAccessRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

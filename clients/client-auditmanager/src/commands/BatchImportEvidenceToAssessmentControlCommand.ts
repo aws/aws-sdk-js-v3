@@ -15,7 +15,9 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   BatchImportEvidenceToAssessmentControlRequest,
+  BatchImportEvidenceToAssessmentControlRequestFilterSensitiveLog,
   BatchImportEvidenceToAssessmentControlResponse,
+  BatchImportEvidenceToAssessmentControlResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchImportEvidenceToAssessmentControlCommand,
@@ -79,8 +81,8 @@ export class BatchImportEvidenceToAssessmentControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchImportEvidenceToAssessmentControlRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchImportEvidenceToAssessmentControlResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchImportEvidenceToAssessmentControlRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchImportEvidenceToAssessmentControlResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

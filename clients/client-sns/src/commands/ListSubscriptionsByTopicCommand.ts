@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListSubscriptionsByTopicInput, ListSubscriptionsByTopicResponse } from "../models/models_0";
+import {
+  ListSubscriptionsByTopicInput,
+  ListSubscriptionsByTopicInputFilterSensitiveLog,
+  ListSubscriptionsByTopicResponse,
+  ListSubscriptionsByTopicResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryListSubscriptionsByTopicCommand,
   serializeAws_queryListSubscriptionsByTopicCommand,
@@ -76,8 +81,8 @@ export class ListSubscriptionsByTopicCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSubscriptionsByTopicInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSubscriptionsByTopicResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSubscriptionsByTopicInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSubscriptionsByTopicResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

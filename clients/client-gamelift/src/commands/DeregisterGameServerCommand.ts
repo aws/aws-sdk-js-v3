@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DeregisterGameServerInput } from "../models/models_0";
+import { DeregisterGameServerInput, DeregisterGameServerInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterGameServerCommand,
   serializeAws_json1_1DeregisterGameServerCommand,
@@ -98,7 +98,7 @@ export class DeregisterGameServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterGameServerInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterGameServerInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

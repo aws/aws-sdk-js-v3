@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { TagResourceRequest, TagResourceResult } from "../models/models_0";
+import {
+  TagResourceRequest,
+  TagResourceRequestFilterSensitiveLog,
+  TagResourceResult,
+  TagResourceResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1TagResourceCommand,
   serializeAws_json1_1TagResourceCommand,
@@ -72,8 +77,8 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TagResourceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: TagResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TagResourceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

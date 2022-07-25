@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { EnableAWSOrganizationsAccessInput, EnableAWSOrganizationsAccessOutput } from "../models/models_0";
+import {
+  EnableAWSOrganizationsAccessInput,
+  EnableAWSOrganizationsAccessInputFilterSensitiveLog,
+  EnableAWSOrganizationsAccessOutput,
+  EnableAWSOrganizationsAccessOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1EnableAWSOrganizationsAccessCommand,
   serializeAws_json1_1EnableAWSOrganizationsAccessCommand,
@@ -79,8 +84,8 @@ export class EnableAWSOrganizationsAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableAWSOrganizationsAccessInput.filterSensitiveLog,
-      outputFilterSensitiveLog: EnableAWSOrganizationsAccessOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableAWSOrganizationsAccessInputFilterSensitiveLog,
+      outputFilterSensitiveLog: EnableAWSOrganizationsAccessOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

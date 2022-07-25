@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { DeprecateSystemTemplateRequest, DeprecateSystemTemplateResponse } from "../models/models_0";
+import {
+  DeprecateSystemTemplateRequest,
+  DeprecateSystemTemplateRequestFilterSensitiveLog,
+  DeprecateSystemTemplateResponse,
+  DeprecateSystemTemplateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeprecateSystemTemplateCommand,
   serializeAws_json1_1DeprecateSystemTemplateCommand,
@@ -72,8 +77,8 @@ export class DeprecateSystemTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeprecateSystemTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeprecateSystemTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeprecateSystemTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeprecateSystemTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

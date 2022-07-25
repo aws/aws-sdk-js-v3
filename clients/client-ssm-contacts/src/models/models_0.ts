@@ -52,25 +52,7 @@ export interface AcceptPageRequest {
   AcceptCodeValidation?: AcceptCodeValidation | string;
 }
 
-export namespace AcceptPageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptPageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AcceptPageResult {}
-
-export namespace AcceptPageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptPageResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>You don't have sufficient access to perform this operation.</p>
@@ -205,15 +187,6 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "CANNOT_PARSE",
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
@@ -266,25 +239,7 @@ export interface ActivateContactChannelRequest {
   ActivationCode: string | undefined;
 }
 
-export namespace ActivateContactChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivateContactChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ActivateContactChannelResult {}
-
-export namespace ActivateContactChannelResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivateContactChannelResult): any => ({
-    ...obj,
-  });
-}
 
 export enum ActivationStatus {
   ACTIVATED = "ACTIVATED",
@@ -306,15 +261,6 @@ export interface ChannelTargetInfo {
    *          initially fails.</p>
    */
   RetryIntervalInMinutes?: number;
-}
-
-export namespace ChannelTargetInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelTargetInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum ChannelType {
@@ -387,15 +333,6 @@ export interface Contact {
   Type: ContactType | string | undefined;
 }
 
-export namespace Contact {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Contact): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The details that Incident Manager uses when trying to engage the contact channel. </p>
  */
@@ -416,15 +353,6 @@ export interface ContactChannelAddress {
    *          </ul>
    */
   SimpleAddress?: string;
-}
-
-export namespace ContactChannelAddress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContactChannelAddress): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -474,15 +402,6 @@ export interface ContactChannel {
   ActivationStatus: ActivationStatus | string | undefined;
 }
 
-export namespace ContactChannel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContactChannel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The contact that Incident Manager is engaging during an incident.</p>
  */
@@ -499,15 +418,6 @@ export interface ContactTargetInfo {
   IsEssential: boolean | undefined;
 }
 
-export namespace ContactTargetInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContactTargetInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The contact or contact channel that's being engaged.</p>
  */
@@ -521,15 +431,6 @@ export interface Target {
    * <p>Information about the contact that Incident Manager is engaging.</p>
    */
   ContactTargetInfo?: ContactTargetInfo;
-}
-
-export namespace Target {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Target): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -550,15 +451,6 @@ export interface Stage {
   Targets: Target[] | undefined;
 }
 
-export namespace Stage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Stage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The stages that an escalation plan or engagement plan engages contacts and contact
  *          methods in.</p>
@@ -569,15 +461,6 @@ export interface Plan {
    *          contact methods.</p>
    */
   Stages: Stage[] | undefined;
-}
-
-export namespace Plan {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Plan): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -595,15 +478,6 @@ export interface Tag {
    * <p>Value of the tag.</p>
    */
   Value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateContactRequest {
@@ -643,29 +517,11 @@ export interface CreateContactRequest {
   IdempotencyToken?: string;
 }
 
-export namespace CreateContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContactRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateContactResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the created contact or escalation plan.</p>
    */
   ContactArn: string | undefined;
-}
-
-export namespace CreateContactResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContactResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -797,29 +653,11 @@ export interface CreateContactChannelRequest {
   IdempotencyToken?: string;
 }
 
-export namespace CreateContactChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContactChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateContactChannelResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact channel.</p>
    */
   ContactChannelArn: string | undefined;
-}
-
-export namespace CreateContactChannelResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContactChannelResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeactivateContactChannelRequest {
@@ -829,25 +667,7 @@ export interface DeactivateContactChannelRequest {
   ContactChannelId: string | undefined;
 }
 
-export namespace DeactivateContactChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeactivateContactChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeactivateContactChannelResult {}
-
-export namespace DeactivateContactChannelResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeactivateContactChannelResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteContactRequest {
   /**
@@ -856,25 +676,7 @@ export interface DeleteContactRequest {
   ContactId: string | undefined;
 }
 
-export namespace DeleteContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContactRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteContactResult {}
-
-export namespace DeleteContactResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContactResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteContactChannelRequest {
   /**
@@ -883,40 +685,13 @@ export interface DeleteContactChannelRequest {
   ContactChannelId: string | undefined;
 }
 
-export namespace DeleteContactChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContactChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteContactChannelResult {}
-
-export namespace DeleteContactChannelResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContactChannelResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeEngagementRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the engagement you want the details of.</p>
    */
   EngagementId: string | undefined;
-}
-
-export namespace DescribeEngagementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEngagementRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeEngagementResult {
@@ -975,29 +750,11 @@ export interface DescribeEngagementResult {
   StopTime?: Date;
 }
 
-export namespace DescribeEngagementResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEngagementResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePageRequest {
   /**
    * <p>The ID of the engagement to a contact channel.</p>
    */
   PageId: string | undefined;
-}
-
-export namespace DescribePageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePageRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePageResult {
@@ -1066,15 +823,6 @@ export interface DescribePageResult {
   DeliveryTime?: Date;
 }
 
-export namespace DescribePageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePageResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Incident Manager reaching out to a contact or escalation plan to engage contact during an
  *          incident.</p>
@@ -1111,29 +859,11 @@ export interface Engagement {
   StopTime?: Date;
 }
 
-export namespace Engagement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Engagement): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContactRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
    */
   ContactId: string | undefined;
-}
-
-export namespace GetContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContactRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetContactResult {
@@ -1165,29 +895,11 @@ export interface GetContactResult {
   Plan: Plan | undefined;
 }
 
-export namespace GetContactResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContactResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContactChannelRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact channel you want information about.</p>
    */
   ContactChannelId: string | undefined;
-}
-
-export namespace GetContactChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContactChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetContactChannelResult {
@@ -1223,29 +935,11 @@ export interface GetContactChannelResult {
   ActivationStatus?: ActivationStatus | string;
 }
 
-export namespace GetContactChannelResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContactChannelResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContactPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
    */
   ContactArn: string | undefined;
-}
-
-export namespace GetContactPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContactPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetContactPolicyResult {
@@ -1258,15 +952,6 @@ export interface GetContactPolicyResult {
    * <p>Details about the resource policy attached to the contact or escalation plan.</p>
    */
   Policy?: string;
-}
-
-export namespace GetContactPolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContactPolicyResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListContactChannelsRequest {
@@ -1286,15 +971,6 @@ export interface ListContactChannelsRequest {
   MaxResults?: number;
 }
 
-export namespace ListContactChannelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContactChannelsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListContactChannelsResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1305,15 +981,6 @@ export interface ListContactChannelsResult {
    * <p>A list of contact channels related to the specified contact.</p>
    */
   ContactChannels: ContactChannel[] | undefined;
-}
-
-export namespace ListContactChannelsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContactChannelsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListContactsRequest {
@@ -1339,15 +1006,6 @@ export interface ListContactsRequest {
   Type?: ContactType | string;
 }
 
-export namespace ListContactsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContactsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListContactsResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1358,15 +1016,6 @@ export interface ListContactsResult {
    * <p>A list of the contacts and escalation plans in your Incident Manager account.</p>
    */
   Contacts?: Contact[];
-}
-
-export namespace ListContactsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContactsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1382,15 +1031,6 @@ export interface TimeRange {
    * <p>The end of the time range.</p>
    */
   EndTime?: Date;
-}
-
-export namespace TimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeRange): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEngagementsRequest {
@@ -1415,15 +1055,6 @@ export interface ListEngagementsRequest {
   TimeRangeValue?: TimeRange;
 }
 
-export namespace ListEngagementsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEngagementsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEngagementsResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1435,15 +1066,6 @@ export interface ListEngagementsResult {
    *          incident.</p>
    */
   Engagements: Engagement[] | undefined;
-}
-
-export namespace ListEngagementsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEngagementsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPageReceiptsRequest {
@@ -1461,15 +1083,6 @@ export interface ListPageReceiptsRequest {
    * <p>The maximum number of acknowledgements per page of results.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListPageReceiptsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPageReceiptsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ReceiptType {
@@ -1507,15 +1120,6 @@ export interface Receipt {
   ReceiptTime: Date | undefined;
 }
 
-export namespace Receipt {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Receipt): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPageReceiptsResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1526,15 +1130,6 @@ export interface ListPageReceiptsResult {
    * <p>A list of each acknowledgement.</p>
    */
   Receipts?: Receipt[];
-}
-
-export namespace ListPageReceiptsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPageReceiptsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPagesByContactRequest {
@@ -1552,15 +1147,6 @@ export interface ListPagesByContactRequest {
    * <p>The maximum number of engagements to contact channels to list per page of results. </p>
    */
   MaxResults?: number;
-}
-
-export namespace ListPagesByContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPagesByContactRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1608,15 +1194,6 @@ export interface Page {
   ReadTime?: Date;
 }
 
-export namespace Page {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Page): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPagesByContactResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1627,15 +1204,6 @@ export interface ListPagesByContactResult {
    * <p>The list of engagements to a contact's contact channel.</p>
    */
   Pages: Page[] | undefined;
-}
-
-export namespace ListPagesByContactResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPagesByContactResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPagesByEngagementRequest {
@@ -1656,15 +1224,6 @@ export interface ListPagesByEngagementRequest {
   MaxResults?: number;
 }
 
-export namespace ListPagesByEngagementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPagesByEngagementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPagesByEngagementResult {
   /**
    * <p>The pagination token to continue to the next page of results.</p>
@@ -1677,15 +1236,6 @@ export interface ListPagesByEngagementResult {
   Pages: Page[] | undefined;
 }
 
-export namespace ListPagesByEngagementResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPagesByEngagementResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the contact or escalation plan.</p>
@@ -1693,29 +1243,11 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResult {
   /**
    * <p>The tags related to the contact or escalation plan.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-    ...obj,
-  });
 }
 
 export interface PutContactPolicyRequest {
@@ -1730,25 +1262,7 @@ export interface PutContactPolicyRequest {
   Policy: string | undefined;
 }
 
-export namespace PutContactPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutContactPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutContactPolicyResult {}
-
-export namespace PutContactPolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutContactPolicyResult): any => ({
-    ...obj,
-  });
-}
 
 export interface SendActivationCodeRequest {
   /**
@@ -1757,25 +1271,7 @@ export interface SendActivationCodeRequest {
   ContactChannelId: string | undefined;
 }
 
-export namespace SendActivationCodeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendActivationCodeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendActivationCodeResult {}
-
-export namespace SendActivationCodeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendActivationCodeResult): any => ({
-    ...obj,
-  });
-}
 
 export interface StartEngagementRequest {
   /**
@@ -1824,29 +1320,11 @@ export interface StartEngagementRequest {
   IdempotencyToken?: string;
 }
 
-export namespace StartEngagementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartEngagementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartEngagementResult {
   /**
    * <p>The ARN of the engagement.</p>
    */
   EngagementArn: string | undefined;
-}
-
-export namespace StartEngagementResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartEngagementResult): any => ({
-    ...obj,
-  });
 }
 
 export interface StopEngagementRequest {
@@ -1861,25 +1339,7 @@ export interface StopEngagementRequest {
   Reason?: string;
 }
 
-export namespace StopEngagementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopEngagementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopEngagementResult {}
-
-export namespace StopEngagementResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopEngagementResult): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -1893,25 +1353,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResult {}
-
-export namespace TagResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1925,25 +1367,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResult {}
-
-export namespace UntagResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateContactRequest {
   /**
@@ -1963,25 +1387,7 @@ export interface UpdateContactRequest {
   Plan?: Plan;
 }
 
-export namespace UpdateContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContactRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateContactResult {}
-
-export namespace UpdateContactResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContactResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateContactChannelRequest {
   /**
@@ -2000,22 +1406,480 @@ export interface UpdateContactChannelRequest {
   DeliveryAddress?: ContactChannelAddress;
 }
 
-export namespace UpdateContactChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContactChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateContactChannelResult {}
 
-export namespace UpdateContactChannelResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContactChannelResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcceptPageRequestFilterSensitiveLog = (obj: AcceptPageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptPageResultFilterSensitiveLog = (obj: AcceptPageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivateContactChannelRequestFilterSensitiveLog = (obj: ActivateContactChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivateContactChannelResultFilterSensitiveLog = (obj: ActivateContactChannelResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelTargetInfoFilterSensitiveLog = (obj: ChannelTargetInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContactFilterSensitiveLog = (obj: Contact): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContactChannelAddressFilterSensitiveLog = (obj: ContactChannelAddress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContactChannelFilterSensitiveLog = (obj: ContactChannel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContactTargetInfoFilterSensitiveLog = (obj: ContactTargetInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetFilterSensitiveLog = (obj: Target): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StageFilterSensitiveLog = (obj: Stage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlanFilterSensitiveLog = (obj: Plan): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContactRequestFilterSensitiveLog = (obj: CreateContactRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContactResultFilterSensitiveLog = (obj: CreateContactResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContactChannelRequestFilterSensitiveLog = (obj: CreateContactChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContactChannelResultFilterSensitiveLog = (obj: CreateContactChannelResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeactivateContactChannelRequestFilterSensitiveLog = (obj: DeactivateContactChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeactivateContactChannelResultFilterSensitiveLog = (obj: DeactivateContactChannelResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContactRequestFilterSensitiveLog = (obj: DeleteContactRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContactResultFilterSensitiveLog = (obj: DeleteContactResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContactChannelRequestFilterSensitiveLog = (obj: DeleteContactChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContactChannelResultFilterSensitiveLog = (obj: DeleteContactChannelResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEngagementRequestFilterSensitiveLog = (obj: DescribeEngagementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEngagementResultFilterSensitiveLog = (obj: DescribeEngagementResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePageRequestFilterSensitiveLog = (obj: DescribePageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePageResultFilterSensitiveLog = (obj: DescribePageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EngagementFilterSensitiveLog = (obj: Engagement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContactRequestFilterSensitiveLog = (obj: GetContactRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContactResultFilterSensitiveLog = (obj: GetContactResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContactChannelRequestFilterSensitiveLog = (obj: GetContactChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContactChannelResultFilterSensitiveLog = (obj: GetContactChannelResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContactPolicyRequestFilterSensitiveLog = (obj: GetContactPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContactPolicyResultFilterSensitiveLog = (obj: GetContactPolicyResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContactChannelsRequestFilterSensitiveLog = (obj: ListContactChannelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContactChannelsResultFilterSensitiveLog = (obj: ListContactChannelsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContactsRequestFilterSensitiveLog = (obj: ListContactsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContactsResultFilterSensitiveLog = (obj: ListContactsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeRangeFilterSensitiveLog = (obj: TimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEngagementsRequestFilterSensitiveLog = (obj: ListEngagementsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEngagementsResultFilterSensitiveLog = (obj: ListEngagementsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPageReceiptsRequestFilterSensitiveLog = (obj: ListPageReceiptsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReceiptFilterSensitiveLog = (obj: Receipt): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPageReceiptsResultFilterSensitiveLog = (obj: ListPageReceiptsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPagesByContactRequestFilterSensitiveLog = (obj: ListPagesByContactRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PageFilterSensitiveLog = (obj: Page): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPagesByContactResultFilterSensitiveLog = (obj: ListPagesByContactResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPagesByEngagementRequestFilterSensitiveLog = (obj: ListPagesByEngagementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPagesByEngagementResultFilterSensitiveLog = (obj: ListPagesByEngagementResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutContactPolicyRequestFilterSensitiveLog = (obj: PutContactPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutContactPolicyResultFilterSensitiveLog = (obj: PutContactPolicyResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendActivationCodeRequestFilterSensitiveLog = (obj: SendActivationCodeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendActivationCodeResultFilterSensitiveLog = (obj: SendActivationCodeResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartEngagementRequestFilterSensitiveLog = (obj: StartEngagementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartEngagementResultFilterSensitiveLog = (obj: StartEngagementResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopEngagementRequestFilterSensitiveLog = (obj: StopEngagementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopEngagementResultFilterSensitiveLog = (obj: StopEngagementResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResultFilterSensitiveLog = (obj: TagResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResultFilterSensitiveLog = (obj: UntagResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContactRequestFilterSensitiveLog = (obj: UpdateContactRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContactResultFilterSensitiveLog = (obj: UpdateContactResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContactChannelRequestFilterSensitiveLog = (obj: UpdateContactChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContactChannelResultFilterSensitiveLog = (obj: UpdateContactChannelResult): any => ({
+  ...obj,
+});

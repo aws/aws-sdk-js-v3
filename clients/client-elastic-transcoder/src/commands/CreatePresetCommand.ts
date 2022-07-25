@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import { CreatePresetRequest, CreatePresetResponse } from "../models/models_0";
+import {
+  CreatePresetRequest,
+  CreatePresetRequestFilterSensitiveLog,
+  CreatePresetResponse,
+  CreatePresetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreatePresetCommand,
   serializeAws_restJson1CreatePresetCommand,
@@ -89,8 +94,8 @@ export class CreatePresetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePresetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreatePresetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePresetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreatePresetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

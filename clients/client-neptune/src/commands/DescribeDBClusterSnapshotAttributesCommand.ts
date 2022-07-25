@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeDBClusterSnapshotAttributesMessage,
+  DescribeDBClusterSnapshotAttributesMessageFilterSensitiveLog,
   DescribeDBClusterSnapshotAttributesResult,
+  DescribeDBClusterSnapshotAttributesResultFilterSensitiveLog,
 } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
@@ -86,8 +88,8 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBClusterSnapshotAttributesMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDBClusterSnapshotAttributesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDBClusterSnapshotAttributesMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDBClusterSnapshotAttributesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

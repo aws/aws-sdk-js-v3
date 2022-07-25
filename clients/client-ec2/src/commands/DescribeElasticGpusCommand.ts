@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeElasticGpusRequest, DescribeElasticGpusResult } from "../models/models_3";
+import {
+  DescribeElasticGpusRequest,
+  DescribeElasticGpusRequestFilterSensitiveLog,
+  DescribeElasticGpusResult,
+  DescribeElasticGpusResultFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeElasticGpusCommand,
   serializeAws_ec2DescribeElasticGpusCommand,
@@ -73,8 +78,8 @@ export class DescribeElasticGpusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeElasticGpusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeElasticGpusResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeElasticGpusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeElasticGpusResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

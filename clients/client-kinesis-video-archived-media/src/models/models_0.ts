@@ -57,15 +57,6 @@ export interface ClipTimestampRange {
   EndTimestamp: Date | undefined;
 }
 
-export namespace ClipTimestampRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClipTimestampRange): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the timestamp range and timestamp origin of a range of fragments.</p>
  *         <p>Fragments that have duplicate producer timestamps are deduplicated. This means that if
@@ -87,15 +78,6 @@ export interface ClipFragmentSelector {
   TimestampRange: ClipTimestampRange | undefined;
 }
 
-export namespace ClipFragmentSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClipFragmentSelector): any => ({
-    ...obj,
-  });
-}
-
 export interface GetClipInput {
   /**
    * <p>The name of the stream for which to retrieve the media clip. </p>
@@ -115,15 +97,6 @@ export interface GetClipInput {
   ClipFragmentSelector: ClipFragmentSelector | undefined;
 }
 
-export namespace GetClipInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetClipInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetClipOutput {
   /**
    * <p>The content type of the media in the requested clip.</p>
@@ -137,15 +110,6 @@ export interface GetClipOutput {
    *                 Video Streams Limits</a>. </p>
    */
   Payload?: Readable | ReadableStream | Blob;
-}
-
-export namespace GetClipOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetClipOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -380,15 +344,6 @@ export interface DASHTimestampRange {
   EndTimestamp?: Date;
 }
 
-export namespace DASHTimestampRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DASHTimestampRange): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the range of timestamps for the requested media, and the source of the
  *             timestamps. </p>
@@ -425,15 +380,6 @@ export interface DASHFragmentSelector {
    *             <code>LIVE</code>.</p>
    */
   TimestampRange?: DASHTimestampRange;
-}
-
-export namespace DASHFragmentSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DASHFragmentSelector): any => ({
-    ...obj,
-  });
 }
 
 export enum DASHDisplayFragmentNumber {
@@ -604,30 +550,12 @@ export interface GetDASHStreamingSessionURLInput {
   MaxManifestFragmentResults?: number;
 }
 
-export namespace GetDASHStreamingSessionURLInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDASHStreamingSessionURLInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDASHStreamingSessionURLOutput {
   /**
    * <p>The URL (containing the session token) that a media player can use to retrieve the
    *             MPEG-DASH manifest.</p>
    */
   DASHStreamingSessionURL?: string;
-}
-
-export namespace GetDASHStreamingSessionURLOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDASHStreamingSessionURLOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ContainerFormat {
@@ -689,15 +617,6 @@ export interface HLSTimestampRange {
   EndTimestamp?: Date;
 }
 
-export namespace HLSTimestampRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HLSTimestampRange): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the range of timestamps for the requested media, and the source of the
  *             timestamps.</p>
@@ -734,15 +653,6 @@ export interface HLSFragmentSelector {
    *             <code>LIVE</code>.</p>
    */
   TimestampRange?: HLSTimestampRange;
-}
-
-export namespace HLSFragmentSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HLSFragmentSelector): any => ({
-    ...obj,
-  });
 }
 
 export enum HLSPlaybackMode {
@@ -944,30 +854,12 @@ export interface GetHLSStreamingSessionURLInput {
   MaxMediaPlaylistFragmentResults?: number;
 }
 
-export namespace GetHLSStreamingSessionURLInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHLSStreamingSessionURLInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetHLSStreamingSessionURLOutput {
   /**
    * <p>The URL (containing the session token) that a media player can use to retrieve the HLS
    *             master playlist.</p>
    */
   HLSStreamingSessionURL?: string;
-}
-
-export namespace GetHLSStreamingSessionURLOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHLSStreamingSessionURLOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum Format {
@@ -1059,15 +951,6 @@ export interface GetImagesInput {
   NextToken?: string;
 }
 
-export namespace GetImagesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImagesInput): any => ({
-    ...obj,
-  });
-}
-
 export enum ImageError {
   MEDIA_ERROR = "MEDIA_ERROR",
   NO_MEDIA = "NO_MEDIA",
@@ -1105,15 +988,6 @@ export interface Image {
   ImageContent?: string;
 }
 
-export namespace Image {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Image): any => ({
-    ...obj,
-  });
-}
-
 export interface GetImagesOutput {
   /**
    * <p>The list of images generated from the video stream. If there is no media available for the given timestamp, the <code>NO_MEDIA</code> error will be listed in the output.
@@ -1125,15 +999,6 @@ export interface GetImagesOutput {
    * <p>The encrypted token that was  used in the request to get more images.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetImagesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImagesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMediaForFragmentListInput {
@@ -1152,15 +1017,6 @@ export interface GetMediaForFragmentListInput {
    *             values with <a>ListFragments</a>.</p>
    */
   Fragments: string[] | undefined;
-}
-
-export namespace GetMediaForFragmentListInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMediaForFragmentListInput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMediaForFragmentListOutput {
@@ -1207,15 +1063,6 @@ export interface GetMediaForFragmentListOutput {
   Payload?: Readable | ReadableStream | Blob;
 }
 
-export namespace GetMediaForFragmentListOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMediaForFragmentListOutput): any => ({
-    ...obj,
-  });
-}
-
 export enum FragmentSelectorType {
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
   SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
@@ -1235,15 +1082,6 @@ export interface TimestampRange {
    * <p>The ending timestamp in the range of timestamps for which to return fragments.</p>
    */
   EndTimestamp: Date | undefined;
-}
-
-export namespace TimestampRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestampRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1280,15 +1118,6 @@ export interface FragmentSelector {
   TimestampRange: TimestampRange | undefined;
 }
 
-export namespace FragmentSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FragmentSelector): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFragmentsInput {
   /**
    * <p>The name of the stream from which to retrieve a fragment list. Specify either this parameter or the <code>StreamARN</code> parameter.</p>
@@ -1318,15 +1147,6 @@ export interface ListFragmentsInput {
    *             return.</p>
    */
   FragmentSelector?: FragmentSelector;
-}
-
-export namespace ListFragmentsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFragmentsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1361,15 +1181,6 @@ export interface Fragment {
   FragmentLengthInMilliseconds?: number;
 }
 
-export namespace Fragment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Fragment): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFragmentsOutput {
   /**
    * <p>A list of archived <a>Fragment</a> objects from the stream that meet the
@@ -1385,11 +1196,156 @@ export interface ListFragmentsOutput {
   NextToken?: string;
 }
 
-export namespace ListFragmentsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFragmentsOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ClipTimestampRangeFilterSensitiveLog = (obj: ClipTimestampRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClipFragmentSelectorFilterSensitiveLog = (obj: ClipFragmentSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetClipInputFilterSensitiveLog = (obj: GetClipInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetClipOutputFilterSensitiveLog = (obj: GetClipOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DASHTimestampRangeFilterSensitiveLog = (obj: DASHTimestampRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DASHFragmentSelectorFilterSensitiveLog = (obj: DASHFragmentSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDASHStreamingSessionURLInputFilterSensitiveLog = (obj: GetDASHStreamingSessionURLInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDASHStreamingSessionURLOutputFilterSensitiveLog = (obj: GetDASHStreamingSessionURLOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HLSTimestampRangeFilterSensitiveLog = (obj: HLSTimestampRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HLSFragmentSelectorFilterSensitiveLog = (obj: HLSFragmentSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHLSStreamingSessionURLInputFilterSensitiveLog = (obj: GetHLSStreamingSessionURLInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHLSStreamingSessionURLOutputFilterSensitiveLog = (obj: GetHLSStreamingSessionURLOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImagesInputFilterSensitiveLog = (obj: GetImagesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageFilterSensitiveLog = (obj: Image): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImagesOutputFilterSensitiveLog = (obj: GetImagesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMediaForFragmentListInputFilterSensitiveLog = (obj: GetMediaForFragmentListInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMediaForFragmentListOutputFilterSensitiveLog = (obj: GetMediaForFragmentListOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimestampRangeFilterSensitiveLog = (obj: TimestampRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FragmentSelectorFilterSensitiveLog = (obj: FragmentSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFragmentsInputFilterSensitiveLog = (obj: ListFragmentsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FragmentFilterSensitiveLog = (obj: Fragment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFragmentsOutputFilterSensitiveLog = (obj: ListFragmentsOutput): any => ({
+  ...obj,
+});

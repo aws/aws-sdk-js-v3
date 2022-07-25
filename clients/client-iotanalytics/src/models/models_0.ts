@@ -28,15 +28,6 @@ export interface AddAttributesActivity {
   next?: string;
 }
 
-export namespace AddAttributesActivity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddAttributesActivity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a message.</p>
  */
@@ -53,15 +44,6 @@ export interface Message {
    *          activity.</p>
    */
   payload: Uint8Array | undefined;
-}
-
-export namespace Message {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Message): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchPutMessageRequest {
@@ -103,15 +85,6 @@ export interface BatchPutMessageRequest {
   messages: Message[] | undefined;
 }
 
-export namespace BatchPutMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutMessageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains informations about errors.</p>
  */
@@ -133,29 +106,11 @@ export interface BatchPutMessageErrorEntry {
   errorMessage?: string;
 }
 
-export namespace BatchPutMessageErrorEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutMessageErrorEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchPutMessageResponse {
   /**
    * <p>A list of any errors encountered when sending the messages to the channel.</p>
    */
   batchPutMessageErrorEntries?: BatchPutMessageErrorEntry[];
-}
-
-export namespace BatchPutMessageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutMessageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -266,25 +221,7 @@ export interface CancelPipelineReprocessingRequest {
   reprocessingId: string | undefined;
 }
 
-export namespace CancelPipelineReprocessingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelPipelineReprocessingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelPipelineReprocessingResponse {}
-
-export namespace CancelPipelineReprocessingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelPipelineReprocessingResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Used to store channel data in an S3 bucket that you manage. If customer-managed storage is
@@ -311,29 +248,11 @@ export interface CustomerManagedChannelS3Storage {
   roleArn: string | undefined;
 }
 
-export namespace CustomerManagedChannelS3Storage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerManagedChannelS3Storage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Used to store channel data in an S3 bucket managed by IoT Analytics. You can't change the choice
  *       of S3 storage after the data store is created.</p>
  */
 export interface ServiceManagedChannelS3Storage {}
-
-export namespace ServiceManagedChannelS3Storage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceManagedChannelS3Storage): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Where channel data is stored. You may choose one of <code>serviceManagedS3</code>,
@@ -355,15 +274,6 @@ export interface ChannelStorage {
   customerManagedS3?: CustomerManagedChannelS3Storage;
 }
 
-export namespace ChannelStorage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelStorage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>How long, in days, message data is kept.</p>
  */
@@ -380,15 +290,6 @@ export interface RetentionPeriod {
   numberOfDays?: number;
 }
 
-export namespace RetentionPeriod {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetentionPeriod): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A set of key-value pairs that are used to manage the resource.</p>
  */
@@ -402,15 +303,6 @@ export interface Tag {
    * <p>The tag's value.</p>
    */
   value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateChannelRequest {
@@ -439,15 +331,6 @@ export interface CreateChannelRequest {
   tags?: Tag[];
 }
 
-export namespace CreateChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateChannelResponse {
   /**
    * <p>The name of the channel.</p>
@@ -463,15 +346,6 @@ export interface CreateChannelResponse {
    * <p>How long, in days, message data is kept for the channel.</p>
    */
   retentionPeriod?: RetentionPeriod;
-}
-
-export namespace CreateChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -547,15 +421,6 @@ export interface ResourceConfiguration {
   volumeSizeInGB: number | undefined;
 }
 
-export namespace ResourceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The dataset whose latest contents are used as input to the notebook or application.</p>
  */
@@ -567,15 +432,6 @@ export interface DatasetContentVersionValue {
   datasetName: string | undefined;
 }
 
-export namespace DatasetContentVersionValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetContentVersionValue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The value of the variable as a structure that specifies an output file URI.</p>
  */
@@ -585,15 +441,6 @@ export interface OutputFileUriValue {
    *       S3 bucket.</p>
    */
   fileName: string | undefined;
-}
-
-export namespace OutputFileUriValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputFileUriValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -628,15 +475,6 @@ export interface Variable {
   outputFileUriValue?: OutputFileUriValue;
 }
 
-export namespace Variable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Variable): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information required to run the <code>containerAction</code> to produce dataset
  *       contents.</p>
@@ -669,15 +507,6 @@ export interface ContainerDatasetAction {
   variables?: Variable[];
 }
 
-export namespace ContainerDatasetAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerDatasetAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Used to limit data to that which has arrived since the last execution of the
  *       action.</p>
@@ -702,15 +531,6 @@ export interface DeltaTime {
   timeExpression: string | undefined;
 }
 
-export namespace DeltaTime {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeltaTime): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information that is used to filter message data, to segregate it according to the
  *       timeframe in which it arrives.</p>
@@ -721,15 +541,6 @@ export interface QueryFilter {
    *       action.</p>
    */
   deltaTime?: DeltaTime;
-}
-
-export namespace QueryFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -745,15 +556,6 @@ export interface SqlQueryDatasetAction {
    * <p>Prefilters applied to message data.</p>
    */
   filters?: QueryFilter[];
-}
-
-export namespace SqlQueryDatasetAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqlQueryDatasetAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -780,15 +582,6 @@ export interface DatasetAction {
   containerAction?: ContainerDatasetAction;
 }
 
-export namespace DatasetAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration information for delivery of dataset contents to IoT Events.</p>
  */
@@ -803,15 +596,6 @@ export interface IotEventsDestinationConfiguration {
    *       input.</p>
    */
   roleArn: string | undefined;
-}
-
-export namespace IotEventsDestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotEventsDestinationConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -831,15 +615,6 @@ export interface GlueConfiguration {
    *       Glue Data Catalog database contains metadata tables.</p>
    */
   databaseName: string | undefined;
-}
-
-export namespace GlueConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlueConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -894,15 +669,6 @@ export interface S3DestinationConfiguration {
   roleArn: string | undefined;
 }
 
-export namespace S3DestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The destination to which dataset contents are delivered.</p>
  */
@@ -916,15 +682,6 @@ export interface DatasetContentDeliveryDestination {
    * <p>Configuration information for delivery of dataset contents to Amazon S3.</p>
    */
   s3DestinationConfiguration?: S3DestinationConfiguration;
-}
-
-export namespace DatasetContentDeliveryDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetContentDeliveryDestination): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -941,15 +698,6 @@ export interface DatasetContentDeliveryRule {
    * <p>The destination to which dataset contents are delivered.</p>
    */
   destination: DatasetContentDeliveryDestination | undefined;
-}
-
-export namespace DatasetContentDeliveryRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetContentDeliveryRule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -975,15 +723,6 @@ export interface DeltaTimeSessionWindowConfiguration {
   timeoutInMinutes: number | undefined;
 }
 
-export namespace DeltaTimeSessionWindowConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeltaTimeSessionWindowConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The information needed to configure a delta time session window.</p>
  */
@@ -992,15 +731,6 @@ export interface LateDataRuleConfiguration {
    * <p>The information needed to configure a delta time session window.</p>
    */
   deltaTimeSessionWindowConfiguration?: DeltaTimeSessionWindowConfiguration;
-}
-
-export namespace LateDataRuleConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LateDataRuleConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1019,15 +749,6 @@ export interface LateDataRule {
   ruleConfiguration: LateDataRuleConfiguration | undefined;
 }
 
-export namespace LateDataRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LateDataRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the dataset whose content generation triggers the new dataset content
  *       generation.</p>
@@ -1040,15 +761,6 @@ export interface TriggeringDataset {
   name: string | undefined;
 }
 
-export namespace TriggeringDataset {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TriggeringDataset): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The schedule for when to trigger an update.</p>
  */
@@ -1059,15 +771,6 @@ export interface Schedule {
    *         Guide</i>.</p>
    */
   expression?: string;
-}
-
-export namespace Schedule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Schedule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1087,15 +790,6 @@ export interface DatasetTrigger {
   dataset?: TriggeringDataset;
 }
 
-export namespace DatasetTrigger {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetTrigger): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the versioning of dataset contents.</p>
  */
@@ -1110,15 +804,6 @@ export interface VersioningConfiguration {
    *       be <code>false</code>.</p>
    */
   maxVersions?: number;
-}
-
-export namespace VersioningConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VersioningConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDatasetRequest {
@@ -1175,15 +860,6 @@ export interface CreateDatasetRequest {
   lateDataRules?: LateDataRule[];
 }
 
-export namespace CreateDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatasetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDatasetResponse {
   /**
    * <p>The name of the dataset.</p>
@@ -1201,15 +877,6 @@ export interface CreateDatasetResponse {
   retentionPeriod?: RetentionPeriod;
 }
 
-export namespace CreateDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatasetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDatasetContentRequest {
   /**
    * <p>The name of the dataset.</p>
@@ -1223,29 +890,11 @@ export interface CreateDatasetContentRequest {
   versionId?: string;
 }
 
-export namespace CreateDatasetContentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatasetContentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDatasetContentResponse {
   /**
    * <p>The version ID of the dataset contents that are being created.</p>
    */
   versionId?: string;
-}
-
-export namespace CreateDatasetContentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatasetContentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1256,15 +905,6 @@ export interface Partition {
    * <p> The name of the attribute that defines a partition dimension. </p>
    */
   attributeName: string | undefined;
-}
-
-export namespace Partition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Partition): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1283,15 +923,6 @@ export interface TimestampPartition {
   timestampFormat?: string;
 }
 
-export namespace TimestampPartition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestampPartition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> A single dimension to partition a data store. The dimension must be an
  *         <code>AttributePartition</code> or a <code>TimestampPartition</code>. </p>
@@ -1308,15 +939,6 @@ export interface DatastorePartition {
   timestampPartition?: TimestampPartition;
 }
 
-export namespace DatastorePartition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatastorePartition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Contains information about the partition dimensions in a data store. </p>
  */
@@ -1325,15 +947,6 @@ export interface DatastorePartitions {
    * <p> A list of partition dimensions in a data store. </p>
    */
   partitions?: DatastorePartition[];
-}
-
-export namespace DatastorePartitions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatastorePartitions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1356,15 +969,6 @@ export interface CustomerManagedDatastoreS3Storage {
   roleArn: string | undefined;
 }
 
-export namespace CustomerManagedDatastoreS3Storage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerManagedDatastoreS3Storage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Used to store data used by IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.   </p>
  */
@@ -1380,15 +984,6 @@ export interface IotSiteWiseCustomerManagedDatastoreS3Storage {
   keyPrefix?: string;
 }
 
-export namespace IotSiteWiseCustomerManagedDatastoreS3Storage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotSiteWiseCustomerManagedDatastoreS3Storage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Used to store data used by IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.   </p>
  */
@@ -1399,28 +994,10 @@ export interface DatastoreIotSiteWiseMultiLayerStorage {
   customerManagedS3Storage: IotSiteWiseCustomerManagedDatastoreS3Storage | undefined;
 }
 
-export namespace DatastoreIotSiteWiseMultiLayerStorage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatastoreIotSiteWiseMultiLayerStorage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Used to store data in an Amazon S3 bucket managed by IoT Analytics. You can't change the choice of Amazon S3 storage after your data store is created.  </p>
  */
 export interface ServiceManagedDatastoreS3Storage {}
-
-export namespace ServiceManagedDatastoreS3Storage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceManagedDatastoreS3Storage): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Where data in a data store is stored.. You can choose <code>serviceManagedS3</code> storage, <code>customerManagedS3</code> storage, or <code>iotSiteWiseMultiLayerStorage</code> storage. The default is <code>serviceManagedS3</code>. You can't change the choice of Amazon S3 storage after your data store is created. </p>
@@ -1483,38 +1060,12 @@ export namespace DatastoreStorage {
       return visitor.iotSiteWiseMultiLayerStorage(value.iotSiteWiseMultiLayerStorage);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatastoreStorage): any => {
-    if (obj.serviceManagedS3 !== undefined)
-      return { serviceManagedS3: ServiceManagedDatastoreS3Storage.filterSensitiveLog(obj.serviceManagedS3) };
-    if (obj.customerManagedS3 !== undefined)
-      return { customerManagedS3: CustomerManagedDatastoreS3Storage.filterSensitiveLog(obj.customerManagedS3) };
-    if (obj.iotSiteWiseMultiLayerStorage !== undefined)
-      return {
-        iotSiteWiseMultiLayerStorage: DatastoreIotSiteWiseMultiLayerStorage.filterSensitiveLog(
-          obj.iotSiteWiseMultiLayerStorage
-        ),
-      };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
  * <p>Contains the configuration information of the JSON format.</p>
  */
 export interface JsonConfiguration {}
-
-export namespace JsonConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JsonConfiguration): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains information about a column that stores your data.</p>
@@ -1532,15 +1083,6 @@ export interface Column {
   type: string | undefined;
 }
 
-export namespace Column {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Column): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information needed to define a schema.</p>
  */
@@ -1553,15 +1095,6 @@ export interface SchemaDefinition {
   columns?: Column[];
 }
 
-export namespace SchemaDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchemaDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the configuration information of the Parquet format.</p>
  */
@@ -1570,15 +1103,6 @@ export interface ParquetConfiguration {
    * <p>Information needed to define a schema.</p>
    */
   schemaDefinition?: SchemaDefinition;
-}
-
-export namespace ParquetConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParquetConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1596,15 +1120,6 @@ export interface FileFormatConfiguration {
    * <p>Contains the configuration information of the Parquet format.</p>
    */
   parquetConfiguration?: ParquetConfiguration;
-}
-
-export namespace FileFormatConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileFormatConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDatastoreRequest {
@@ -1642,16 +1157,6 @@ export interface CreateDatastoreRequest {
   datastorePartitions?: DatastorePartitions;
 }
 
-export namespace CreateDatastoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatastoreRequest): any => ({
-    ...obj,
-    ...(obj.datastoreStorage && { datastoreStorage: DatastoreStorage.filterSensitiveLog(obj.datastoreStorage) }),
-  });
-}
-
 export interface CreateDatastoreResponse {
   /**
    * <p>The name of the data store.</p>
@@ -1667,15 +1172,6 @@ export interface CreateDatastoreResponse {
    * <p>How long, in days, message data is kept for the data store.</p>
    */
   retentionPeriod?: RetentionPeriod;
-}
-
-export namespace CreateDatastoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatastoreResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1698,15 +1194,6 @@ export interface ChannelActivity {
   next?: string;
 }
 
-export namespace ChannelActivity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelActivity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The datastore activity that specifies where to store the processed data.</p>
  */
@@ -1720,15 +1207,6 @@ export interface DatastoreActivity {
    * <p>The name of the data store where processed messages are stored.</p>
    */
   datastoreName: string | undefined;
-}
-
-export namespace DatastoreActivity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatastoreActivity): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1759,15 +1237,6 @@ export interface DeviceRegistryEnrichActivity {
    * <p>The next activity in the pipeline.</p>
    */
   next?: string;
-}
-
-export namespace DeviceRegistryEnrichActivity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceRegistryEnrichActivity): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1801,15 +1270,6 @@ export interface DeviceShadowEnrichActivity {
   next?: string;
 }
 
-export namespace DeviceShadowEnrichActivity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceShadowEnrichActivity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An activity that filters a message based on its attributes.</p>
  */
@@ -1829,15 +1289,6 @@ export interface FilterActivity {
    * <p>The next activity in the pipeline.</p>
    */
   next?: string;
-}
-
-export namespace FilterActivity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilterActivity): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1867,15 +1318,6 @@ export interface LambdaActivity {
   next?: string;
 }
 
-export namespace LambdaActivity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaActivity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An activity that computes an arithmetic expression using the message's attributes.</p>
  */
@@ -1902,15 +1344,6 @@ export interface MathActivity {
   next?: string;
 }
 
-export namespace MathActivity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MathActivity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An activity that removes attributes from a message.</p>
  */
@@ -1929,15 +1362,6 @@ export interface RemoveAttributesActivity {
    * <p>The next activity in the pipeline.</p>
    */
   next?: string;
-}
-
-export namespace RemoveAttributesActivity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveAttributesActivity): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1959,15 +1383,6 @@ export interface SelectAttributesActivity {
    * <p>The next activity in the pipeline.</p>
    */
   next?: string;
-}
-
-export namespace SelectAttributesActivity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelectAttributesActivity): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2027,15 +1442,6 @@ export interface PipelineActivity {
   deviceShadowEnrich?: DeviceShadowEnrichActivity;
 }
 
-export namespace PipelineActivity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineActivity): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePipelineRequest {
   /**
    * <p>The name of the pipeline.</p>
@@ -2063,15 +1469,6 @@ export interface CreatePipelineRequest {
   tags?: Tag[];
 }
 
-export namespace CreatePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePipelineRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePipelineResponse {
   /**
    * <p>The name of the pipeline.</p>
@@ -2084,15 +1481,6 @@ export interface CreatePipelineResponse {
   pipelineArn?: string;
 }
 
-export namespace CreatePipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePipelineResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteChannelRequest {
   /**
    * <p>The name of the channel to delete.</p>
@@ -2100,29 +1488,11 @@ export interface DeleteChannelRequest {
   channelName: string | undefined;
 }
 
-export namespace DeleteChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDatasetRequest {
   /**
    * <p>The name of the dataset to delete.</p>
    */
   datasetName: string | undefined;
-}
-
-export namespace DeleteDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDatasetContentRequest {
@@ -2139,15 +1509,6 @@ export interface DeleteDatasetContentRequest {
   versionId?: string;
 }
 
-export namespace DeleteDatasetContentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDatasetContentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDatastoreRequest {
   /**
    * <p>The name of the data store to delete.</p>
@@ -2155,29 +1516,11 @@ export interface DeleteDatastoreRequest {
   datastoreName: string | undefined;
 }
 
-export namespace DeleteDatastoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDatastoreRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePipelineRequest {
   /**
    * <p>The name of the pipeline to delete.</p>
    */
   pipelineName: string | undefined;
-}
-
-export namespace DeletePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePipelineRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeChannelRequest {
@@ -2191,15 +1534,6 @@ export interface DescribeChannelRequest {
    *       This feature can't be used with a channel whose S3 storage is customer-managed.</p>
    */
   includeStatistics?: boolean;
-}
-
-export namespace DescribeChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ChannelStatus {
@@ -2259,15 +1593,6 @@ export interface Channel {
   lastMessageArrivalTime?: Date;
 }
 
-export namespace Channel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Channel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The estimated size of the resource.</p>
  */
@@ -2283,15 +1608,6 @@ export interface EstimatedResourceSize {
   estimatedOn?: Date;
 }
 
-export namespace EstimatedResourceSize {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EstimatedResourceSize): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Statistics information about the channel.</p>
  */
@@ -2300,15 +1616,6 @@ export interface ChannelStatistics {
    * <p>The estimated size of the channel.</p>
    */
   size?: EstimatedResourceSize;
-}
-
-export namespace ChannelStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelStatistics): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeChannelResponse {
@@ -2324,29 +1631,11 @@ export interface DescribeChannelResponse {
   statistics?: ChannelStatistics;
 }
 
-export namespace DescribeChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDatasetRequest {
   /**
    * <p>The name of the dataset whose information is retrieved.</p>
    */
   datasetName: string | undefined;
-}
-
-export namespace DescribeDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DatasetStatus {
@@ -2423,29 +1712,11 @@ export interface Dataset {
   lateDataRules?: LateDataRule[];
 }
 
-export namespace Dataset {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Dataset): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDatasetResponse {
   /**
    * <p>An object that contains information about the dataset.</p>
    */
   dataset?: Dataset;
-}
-
-export namespace DescribeDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDatastoreRequest {
@@ -2460,15 +1731,6 @@ export interface DescribeDatastoreRequest {
    *       customer-managed.</p>
    */
   includeStatistics?: boolean;
-}
-
-export namespace DescribeDatastoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatastoreRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DatastoreStatus {
@@ -2551,16 +1813,6 @@ export interface Datastore {
   datastorePartitions?: DatastorePartitions;
 }
 
-export namespace Datastore {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Datastore): any => ({
-    ...obj,
-    ...(obj.storage && { storage: DatastoreStorage.filterSensitiveLog(obj.storage) }),
-  });
-}
-
 /**
  * <p>Statistical information about the data store.</p>
  */
@@ -2569,15 +1821,6 @@ export interface DatastoreStatistics {
    * <p>The estimated size of the data store.</p>
    */
   size?: EstimatedResourceSize;
-}
-
-export namespace DatastoreStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatastoreStatistics): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDatastoreResponse {
@@ -2593,26 +1836,7 @@ export interface DescribeDatastoreResponse {
   statistics?: DatastoreStatistics;
 }
 
-export namespace DescribeDatastoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatastoreResponse): any => ({
-    ...obj,
-    ...(obj.datastore && { datastore: Datastore.filterSensitiveLog(obj.datastore) }),
-  });
-}
-
 export interface DescribeLoggingOptionsRequest {}
-
-export namespace DescribeLoggingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoggingOptionsRequest): any => ({
-    ...obj,
-  });
-}
 
 export enum LoggingLevel {
   ERROR = "ERROR",
@@ -2638,15 +1862,6 @@ export interface LoggingOptions {
   enabled: boolean | undefined;
 }
 
-export namespace LoggingOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingOptions): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLoggingOptionsResponse {
   /**
    * <p>The current settings of the IoT Analytics logging options.</p>
@@ -2654,29 +1869,11 @@ export interface DescribeLoggingOptionsResponse {
   loggingOptions?: LoggingOptions;
 }
 
-export namespace DescribeLoggingOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoggingOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePipelineRequest {
   /**
    * <p>The name of the pipeline whose information is retrieved.</p>
    */
   pipelineName: string | undefined;
-}
-
-export namespace DescribePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePipelineRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ReprocessingStatus {
@@ -2704,15 +1901,6 @@ export interface ReprocessingSummary {
    * <p>The time the pipeline reprocessing was created.</p>
    */
   creationTime?: Date;
-}
-
-export namespace ReprocessingSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReprocessingSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2750,29 +1938,11 @@ export interface Pipeline {
   lastUpdateTime?: Date;
 }
 
-export namespace Pipeline {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Pipeline): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePipelineResponse {
   /**
    * <p>A <code>Pipeline</code> object that contains information about the pipeline.</p>
    */
   pipeline?: Pipeline;
-}
-
-export namespace DescribePipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePipelineResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDatasetContentRequest {
@@ -2789,15 +1959,6 @@ export interface GetDatasetContentRequest {
   versionId?: string;
 }
 
-export namespace GetDatasetContentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDatasetContentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The reference to a dataset entry.</p>
  */
@@ -2811,15 +1972,6 @@ export interface DatasetEntry {
    * <p>The presigned URI of the dataset item.</p>
    */
   dataURI?: string;
-}
-
-export namespace DatasetEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetEntry): any => ({
-    ...obj,
-  });
 }
 
 export enum DatasetContentState {
@@ -2844,15 +1996,6 @@ export interface DatasetContentStatus {
   reason?: string;
 }
 
-export namespace DatasetContentStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetContentStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDatasetContentResponse {
   /**
    * <p>A list of <code>DatasetEntry</code> objects.</p>
@@ -2870,15 +2013,6 @@ export interface GetDatasetContentResponse {
   status?: DatasetContentStatus;
 }
 
-export namespace GetDatasetContentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDatasetContentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListChannelsRequest {
   /**
    * <p>The token for the next set of results.</p>
@@ -2890,15 +2024,6 @@ export interface ListChannelsRequest {
    *          <p>The default value is 100.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListChannelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2924,28 +2049,10 @@ export interface CustomerManagedChannelS3StorageSummary {
   roleArn?: string;
 }
 
-export namespace CustomerManagedChannelS3StorageSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerManagedChannelS3StorageSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Used to store channel data in an S3 bucket managed by IoT Analytics.</p>
  */
 export interface ServiceManagedChannelS3StorageSummary {}
-
-export namespace ServiceManagedChannelS3StorageSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceManagedChannelS3StorageSummary): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Where channel data is stored.</p>
@@ -2960,15 +2067,6 @@ export interface ChannelStorageSummary {
    * <p>Used to store channel data in an S3 bucket that you manage.</p>
    */
   customerManagedS3?: CustomerManagedChannelS3StorageSummary;
-}
-
-export namespace ChannelStorageSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelStorageSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3008,15 +2106,6 @@ export interface ChannelSummary {
   lastMessageArrivalTime?: Date;
 }
 
-export namespace ChannelSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListChannelsResponse {
   /**
    * <p>A list of <code>ChannelSummary</code> objects.</p>
@@ -3028,15 +2117,6 @@ export interface ListChannelsResponse {
    *       results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListChannelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDatasetContentsRequest {
@@ -3070,15 +2150,6 @@ export interface ListDatasetContentsRequest {
   scheduledBefore?: Date;
 }
 
-export namespace ListDatasetContentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetContentsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary information about dataset contents.</p>
  */
@@ -3109,15 +2180,6 @@ export interface DatasetContentSummary {
   completionTime?: Date;
 }
 
-export namespace DatasetContentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetContentSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDatasetContentsResponse {
   /**
    * <p>Summary information about dataset contents that have been created.</p>
@@ -3131,15 +2193,6 @@ export interface ListDatasetContentsResponse {
   nextToken?: string;
 }
 
-export namespace ListDatasetContentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetContentsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDatasetsRequest {
   /**
    * <p>The token for the next set of results.</p>
@@ -3151,15 +2204,6 @@ export interface ListDatasetsRequest {
    *          <p>The default value is 100.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListDatasetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DatasetActionType {
@@ -3180,15 +2224,6 @@ export interface DatasetActionSummary {
    * <p>The type of action by which the dataset's contents are automatically created.</p>
    */
   actionType?: DatasetActionType | string;
-}
-
-export namespace DatasetActionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetActionSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3228,15 +2263,6 @@ export interface DatasetSummary {
   actions?: DatasetActionSummary[];
 }
 
-export namespace DatasetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDatasetsResponse {
   /**
    * <p>A list of <code>DatasetSummary</code> objects.</p>
@@ -3250,15 +2276,6 @@ export interface ListDatasetsResponse {
   nextToken?: string;
 }
 
-export namespace ListDatasetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDatastoresRequest {
   /**
    * <p>The token for the next set of results.</p>
@@ -3270,15 +2287,6 @@ export interface ListDatastoresRequest {
    *          <p>The default value is 100.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListDatastoresRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatastoresRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3301,15 +2309,6 @@ export interface CustomerManagedDatastoreS3StorageSummary {
   roleArn?: string;
 }
 
-export namespace CustomerManagedDatastoreS3StorageSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerManagedDatastoreS3StorageSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Contains information about the data store that you manage, which stores data used by IoT SiteWise. </p>
  */
@@ -3325,15 +2324,6 @@ export interface IotSiteWiseCustomerManagedDatastoreS3StorageSummary {
   keyPrefix?: string;
 }
 
-export namespace IotSiteWiseCustomerManagedDatastoreS3StorageSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IotSiteWiseCustomerManagedDatastoreS3StorageSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Contains information about the data store that you manage, which stores data used by IoT SiteWise. </p>
  */
@@ -3344,28 +2334,10 @@ export interface DatastoreIotSiteWiseMultiLayerStorageSummary {
   customerManagedS3Storage?: IotSiteWiseCustomerManagedDatastoreS3StorageSummary;
 }
 
-export namespace DatastoreIotSiteWiseMultiLayerStorageSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatastoreIotSiteWiseMultiLayerStorageSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the data store that is managed by IoT Analytics.</p>
  */
 export interface ServiceManagedDatastoreS3StorageSummary {}
-
-export namespace ServiceManagedDatastoreS3StorageSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceManagedDatastoreS3StorageSummary): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains information about your data store.</p>
@@ -3385,15 +2357,6 @@ export interface DatastoreStorageSummary {
    * <p> Used to store data used by IoT SiteWise in an Amazon S3 bucket that you manage. </p>
    */
   iotSiteWiseMultiLayerStorage?: DatastoreIotSiteWiseMultiLayerStorageSummary;
-}
-
-export namespace DatastoreStorageSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatastoreStorageSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum FileFormatType {
@@ -3448,15 +2411,6 @@ export interface DatastoreSummary {
   datastorePartitions?: DatastorePartitions;
 }
 
-export namespace DatastoreSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatastoreSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDatastoresResponse {
   /**
    * <p>A list of <code>DatastoreSummary</code> objects.</p>
@@ -3470,15 +2424,6 @@ export interface ListDatastoresResponse {
   nextToken?: string;
 }
 
-export namespace ListDatastoresResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatastoresResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPipelinesRequest {
   /**
    * <p>The token for the next set of results.</p>
@@ -3490,15 +2435,6 @@ export interface ListPipelinesRequest {
    *          <p>The default value is 100.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListPipelinesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPipelinesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3526,15 +2462,6 @@ export interface PipelineSummary {
   lastUpdateTime?: Date;
 }
 
-export namespace PipelineSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPipelinesResponse {
   /**
    * <p>A list of <code>PipelineSummary</code> objects.</p>
@@ -3548,29 +2475,11 @@ export interface ListPipelinesResponse {
   nextToken?: string;
 }
 
-export namespace ListPipelinesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPipelinesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource whose tags you want to list.</p>
    */
   resourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -3580,29 +2489,11 @@ export interface ListTagsForResourceResponse {
   tags?: Tag[];
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PutLoggingOptionsRequest {
   /**
    * <p>The new values of the IoT Analytics logging options.</p>
    */
   loggingOptions: LoggingOptions | undefined;
-}
-
-export namespace PutLoggingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLoggingOptionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RunPipelineActivityRequest {
@@ -3621,15 +2512,6 @@ export interface RunPipelineActivityRequest {
   payloads: Uint8Array[] | undefined;
 }
 
-export namespace RunPipelineActivityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RunPipelineActivityRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RunPipelineActivityResponse {
   /**
    * <p>The enriched or transformed sample message payloads as base64-encoded strings. (The
@@ -3642,15 +2524,6 @@ export interface RunPipelineActivityResponse {
    * <p>In case the pipeline activity fails, the log message that is generated.</p>
    */
   logResult?: string;
-}
-
-export namespace RunPipelineActivityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RunPipelineActivityResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SampleChannelDataRequest {
@@ -3676,30 +2549,12 @@ export interface SampleChannelDataRequest {
   endTime?: Date;
 }
 
-export namespace SampleChannelDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SampleChannelDataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SampleChannelDataResponse {
   /**
    * <p>The list of message samples. Each sample message is returned as a base64-encoded
    *       string.</p>
    */
   payloads?: Uint8Array[];
-}
-
-export namespace SampleChannelDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SampleChannelDataResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3715,15 +2570,6 @@ export interface ChannelMessages {
    *          </p>
    */
   s3Paths?: string[];
-}
-
-export namespace ChannelMessages {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelMessages): any => ({
-    ...obj,
-  });
 }
 
 export interface StartPipelineReprocessingRequest {
@@ -3754,29 +2600,11 @@ export interface StartPipelineReprocessingRequest {
   channelMessages?: ChannelMessages;
 }
 
-export namespace StartPipelineReprocessingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartPipelineReprocessingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartPipelineReprocessingResponse {
   /**
    * <p>The ID of the pipeline reprocessing activity that was started.</p>
    */
   reprocessingId?: string;
-}
-
-export namespace StartPipelineReprocessingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartPipelineReprocessingResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -3791,25 +2619,7 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -3823,25 +2633,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateChannelRequest {
   /**
@@ -3862,15 +2654,6 @@ export interface UpdateChannelRequest {
    *       updated if the channel's Amazon S3 storage is customer-managed.</p>
    */
   retentionPeriod?: RetentionPeriod;
-}
-
-export namespace UpdateChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDatasetRequest {
@@ -3916,15 +2699,6 @@ export interface UpdateDatasetRequest {
   lateDataRules?: LateDataRule[];
 }
 
-export namespace UpdateDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDatasetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDatastoreRequest {
   /**
    * <p>The name of the data store to be updated.</p>
@@ -3950,16 +2724,6 @@ export interface UpdateDatastoreRequest {
   fileFormatConfiguration?: FileFormatConfiguration;
 }
 
-export namespace UpdateDatastoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDatastoreRequest): any => ({
-    ...obj,
-    ...(obj.datastoreStorage && { datastoreStorage: DatastoreStorage.filterSensitiveLog(obj.datastoreStorage) }),
-  });
-}
-
 export interface UpdatePipelineRequest {
   /**
    * <p>The name of the pipeline to update.</p>
@@ -3982,11 +2746,993 @@ export interface UpdatePipelineRequest {
   pipelineActivities: PipelineActivity[] | undefined;
 }
 
-export namespace UpdatePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePipelineRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AddAttributesActivityFilterSensitiveLog = (obj: AddAttributesActivity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageFilterSensitiveLog = (obj: Message): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutMessageRequestFilterSensitiveLog = (obj: BatchPutMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutMessageErrorEntryFilterSensitiveLog = (obj: BatchPutMessageErrorEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutMessageResponseFilterSensitiveLog = (obj: BatchPutMessageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelPipelineReprocessingRequestFilterSensitiveLog = (obj: CancelPipelineReprocessingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelPipelineReprocessingResponseFilterSensitiveLog = (obj: CancelPipelineReprocessingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomerManagedChannelS3StorageFilterSensitiveLog = (obj: CustomerManagedChannelS3Storage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceManagedChannelS3StorageFilterSensitiveLog = (obj: ServiceManagedChannelS3Storage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelStorageFilterSensitiveLog = (obj: ChannelStorage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetentionPeriodFilterSensitiveLog = (obj: RetentionPeriod): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelRequestFilterSensitiveLog = (obj: CreateChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelResponseFilterSensitiveLog = (obj: CreateChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceConfigurationFilterSensitiveLog = (obj: ResourceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetContentVersionValueFilterSensitiveLog = (obj: DatasetContentVersionValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputFileUriValueFilterSensitiveLog = (obj: OutputFileUriValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VariableFilterSensitiveLog = (obj: Variable): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerDatasetActionFilterSensitiveLog = (obj: ContainerDatasetAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeltaTimeFilterSensitiveLog = (obj: DeltaTime): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryFilterFilterSensitiveLog = (obj: QueryFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SqlQueryDatasetActionFilterSensitiveLog = (obj: SqlQueryDatasetAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetActionFilterSensitiveLog = (obj: DatasetAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IotEventsDestinationConfigurationFilterSensitiveLog = (obj: IotEventsDestinationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlueConfigurationFilterSensitiveLog = (obj: GlueConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationConfigurationFilterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetContentDeliveryDestinationFilterSensitiveLog = (obj: DatasetContentDeliveryDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetContentDeliveryRuleFilterSensitiveLog = (obj: DatasetContentDeliveryRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeltaTimeSessionWindowConfigurationFilterSensitiveLog = (
+  obj: DeltaTimeSessionWindowConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LateDataRuleConfigurationFilterSensitiveLog = (obj: LateDataRuleConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LateDataRuleFilterSensitiveLog = (obj: LateDataRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TriggeringDatasetFilterSensitiveLog = (obj: TriggeringDataset): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleFilterSensitiveLog = (obj: Schedule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetTriggerFilterSensitiveLog = (obj: DatasetTrigger): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VersioningConfigurationFilterSensitiveLog = (obj: VersioningConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetRequestFilterSensitiveLog = (obj: CreateDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetResponseFilterSensitiveLog = (obj: CreateDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetContentRequestFilterSensitiveLog = (obj: CreateDatasetContentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetContentResponseFilterSensitiveLog = (obj: CreateDatasetContentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PartitionFilterSensitiveLog = (obj: Partition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimestampPartitionFilterSensitiveLog = (obj: TimestampPartition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatastorePartitionFilterSensitiveLog = (obj: DatastorePartition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatastorePartitionsFilterSensitiveLog = (obj: DatastorePartitions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomerManagedDatastoreS3StorageFilterSensitiveLog = (obj: CustomerManagedDatastoreS3Storage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IotSiteWiseCustomerManagedDatastoreS3StorageFilterSensitiveLog = (
+  obj: IotSiteWiseCustomerManagedDatastoreS3Storage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatastoreIotSiteWiseMultiLayerStorageFilterSensitiveLog = (
+  obj: DatastoreIotSiteWiseMultiLayerStorage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceManagedDatastoreS3StorageFilterSensitiveLog = (obj: ServiceManagedDatastoreS3Storage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatastoreStorageFilterSensitiveLog = (obj: DatastoreStorage): any => {
+  if (obj.serviceManagedS3 !== undefined)
+    return { serviceManagedS3: ServiceManagedDatastoreS3StorageFilterSensitiveLog(obj.serviceManagedS3) };
+  if (obj.customerManagedS3 !== undefined)
+    return { customerManagedS3: CustomerManagedDatastoreS3StorageFilterSensitiveLog(obj.customerManagedS3) };
+  if (obj.iotSiteWiseMultiLayerStorage !== undefined)
+    return {
+      iotSiteWiseMultiLayerStorage: DatastoreIotSiteWiseMultiLayerStorageFilterSensitiveLog(
+        obj.iotSiteWiseMultiLayerStorage
+      ),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const JsonConfigurationFilterSensitiveLog = (obj: JsonConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnFilterSensitiveLog = (obj: Column): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchemaDefinitionFilterSensitiveLog = (obj: SchemaDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParquetConfigurationFilterSensitiveLog = (obj: ParquetConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileFormatConfigurationFilterSensitiveLog = (obj: FileFormatConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatastoreRequestFilterSensitiveLog = (obj: CreateDatastoreRequest): any => ({
+  ...obj,
+  ...(obj.datastoreStorage && { datastoreStorage: DatastoreStorageFilterSensitiveLog(obj.datastoreStorage) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDatastoreResponseFilterSensitiveLog = (obj: CreateDatastoreResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelActivityFilterSensitiveLog = (obj: ChannelActivity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatastoreActivityFilterSensitiveLog = (obj: DatastoreActivity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceRegistryEnrichActivityFilterSensitiveLog = (obj: DeviceRegistryEnrichActivity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceShadowEnrichActivityFilterSensitiveLog = (obj: DeviceShadowEnrichActivity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterActivityFilterSensitiveLog = (obj: FilterActivity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaActivityFilterSensitiveLog = (obj: LambdaActivity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MathActivityFilterSensitiveLog = (obj: MathActivity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveAttributesActivityFilterSensitiveLog = (obj: RemoveAttributesActivity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelectAttributesActivityFilterSensitiveLog = (obj: SelectAttributesActivity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelineActivityFilterSensitiveLog = (obj: PipelineActivity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePipelineRequestFilterSensitiveLog = (obj: CreatePipelineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePipelineResponseFilterSensitiveLog = (obj: CreatePipelineResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChannelRequestFilterSensitiveLog = (obj: DeleteChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDatasetRequestFilterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDatasetContentRequestFilterSensitiveLog = (obj: DeleteDatasetContentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDatastoreRequestFilterSensitiveLog = (obj: DeleteDatastoreRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePipelineRequestFilterSensitiveLog = (obj: DeletePipelineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelRequestFilterSensitiveLog = (obj: DescribeChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelFilterSensitiveLog = (obj: Channel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EstimatedResourceSizeFilterSensitiveLog = (obj: EstimatedResourceSize): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelStatisticsFilterSensitiveLog = (obj: ChannelStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelResponseFilterSensitiveLog = (obj: DescribeChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatasetRequestFilterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetFilterSensitiveLog = (obj: Dataset): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatasetResponseFilterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatastoreRequestFilterSensitiveLog = (obj: DescribeDatastoreRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatastoreFilterSensitiveLog = (obj: Datastore): any => ({
+  ...obj,
+  ...(obj.storage && { storage: DatastoreStorageFilterSensitiveLog(obj.storage) }),
+});
+
+/**
+ * @internal
+ */
+export const DatastoreStatisticsFilterSensitiveLog = (obj: DatastoreStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatastoreResponseFilterSensitiveLog = (obj: DescribeDatastoreResponse): any => ({
+  ...obj,
+  ...(obj.datastore && { datastore: DatastoreFilterSensitiveLog(obj.datastore) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoggingOptionsRequestFilterSensitiveLog = (obj: DescribeLoggingOptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingOptionsFilterSensitiveLog = (obj: LoggingOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoggingOptionsResponseFilterSensitiveLog = (obj: DescribeLoggingOptionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePipelineRequestFilterSensitiveLog = (obj: DescribePipelineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReprocessingSummaryFilterSensitiveLog = (obj: ReprocessingSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelineFilterSensitiveLog = (obj: Pipeline): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePipelineResponseFilterSensitiveLog = (obj: DescribePipelineResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDatasetContentRequestFilterSensitiveLog = (obj: GetDatasetContentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetEntryFilterSensitiveLog = (obj: DatasetEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetContentStatusFilterSensitiveLog = (obj: DatasetContentStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDatasetContentResponseFilterSensitiveLog = (obj: GetDatasetContentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsRequestFilterSensitiveLog = (obj: ListChannelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomerManagedChannelS3StorageSummaryFilterSensitiveLog = (
+  obj: CustomerManagedChannelS3StorageSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceManagedChannelS3StorageSummaryFilterSensitiveLog = (
+  obj: ServiceManagedChannelS3StorageSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelStorageSummaryFilterSensitiveLog = (obj: ChannelStorageSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelSummaryFilterSensitiveLog = (obj: ChannelSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsResponseFilterSensitiveLog = (obj: ListChannelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetContentsRequestFilterSensitiveLog = (obj: ListDatasetContentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetContentSummaryFilterSensitiveLog = (obj: DatasetContentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetContentsResponseFilterSensitiveLog = (obj: ListDatasetContentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetsRequestFilterSensitiveLog = (obj: ListDatasetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetActionSummaryFilterSensitiveLog = (obj: DatasetActionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetSummaryFilterSensitiveLog = (obj: DatasetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetsResponseFilterSensitiveLog = (obj: ListDatasetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatastoresRequestFilterSensitiveLog = (obj: ListDatastoresRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomerManagedDatastoreS3StorageSummaryFilterSensitiveLog = (
+  obj: CustomerManagedDatastoreS3StorageSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IotSiteWiseCustomerManagedDatastoreS3StorageSummaryFilterSensitiveLog = (
+  obj: IotSiteWiseCustomerManagedDatastoreS3StorageSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatastoreIotSiteWiseMultiLayerStorageSummaryFilterSensitiveLog = (
+  obj: DatastoreIotSiteWiseMultiLayerStorageSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceManagedDatastoreS3StorageSummaryFilterSensitiveLog = (
+  obj: ServiceManagedDatastoreS3StorageSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatastoreStorageSummaryFilterSensitiveLog = (obj: DatastoreStorageSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatastoreSummaryFilterSensitiveLog = (obj: DatastoreSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatastoresResponseFilterSensitiveLog = (obj: ListDatastoresResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPipelinesRequestFilterSensitiveLog = (obj: ListPipelinesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelineSummaryFilterSensitiveLog = (obj: PipelineSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPipelinesResponseFilterSensitiveLog = (obj: ListPipelinesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutLoggingOptionsRequestFilterSensitiveLog = (obj: PutLoggingOptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RunPipelineActivityRequestFilterSensitiveLog = (obj: RunPipelineActivityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RunPipelineActivityResponseFilterSensitiveLog = (obj: RunPipelineActivityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SampleChannelDataRequestFilterSensitiveLog = (obj: SampleChannelDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SampleChannelDataResponseFilterSensitiveLog = (obj: SampleChannelDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelMessagesFilterSensitiveLog = (obj: ChannelMessages): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartPipelineReprocessingRequestFilterSensitiveLog = (obj: StartPipelineReprocessingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartPipelineReprocessingResponseFilterSensitiveLog = (obj: StartPipelineReprocessingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelRequestFilterSensitiveLog = (obj: UpdateChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDatasetRequestFilterSensitiveLog = (obj: UpdateDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDatastoreRequestFilterSensitiveLog = (obj: UpdateDatastoreRequest): any => ({
+  ...obj,
+  ...(obj.datastoreStorage && { datastoreStorage: DatastoreStorageFilterSensitiveLog(obj.datastoreStorage) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePipelineRequestFilterSensitiveLog = (obj: UpdatePipelineRequest): any => ({
+  ...obj,
+});

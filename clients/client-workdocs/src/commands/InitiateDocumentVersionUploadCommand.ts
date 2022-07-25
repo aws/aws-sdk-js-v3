@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { InitiateDocumentVersionUploadRequest, InitiateDocumentVersionUploadResponse } from "../models/models_0";
+import {
+  InitiateDocumentVersionUploadRequest,
+  InitiateDocumentVersionUploadRequestFilterSensitiveLog,
+  InitiateDocumentVersionUploadResponse,
+  InitiateDocumentVersionUploadResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1InitiateDocumentVersionUploadCommand,
   serializeAws_restJson1InitiateDocumentVersionUploadCommand,
@@ -79,8 +84,8 @@ export class InitiateDocumentVersionUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InitiateDocumentVersionUploadRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: InitiateDocumentVersionUploadResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: InitiateDocumentVersionUploadRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: InitiateDocumentVersionUploadResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

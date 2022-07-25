@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartMailboxExportJobRequest, StartMailboxExportJobResponse } from "../models/models_0";
+import {
+  StartMailboxExportJobRequest,
+  StartMailboxExportJobRequestFilterSensitiveLog,
+  StartMailboxExportJobResponse,
+  StartMailboxExportJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartMailboxExportJobCommand,
   serializeAws_json1_1StartMailboxExportJobCommand,
@@ -75,8 +80,8 @@ export class StartMailboxExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMailboxExportJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartMailboxExportJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartMailboxExportJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartMailboxExportJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

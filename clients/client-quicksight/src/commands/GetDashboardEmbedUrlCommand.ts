@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetDashboardEmbedUrlRequest, GetDashboardEmbedUrlResponse } from "../models/models_1";
+import {
+  GetDashboardEmbedUrlRequest,
+  GetDashboardEmbedUrlRequestFilterSensitiveLog,
+  GetDashboardEmbedUrlResponse,
+  GetDashboardEmbedUrlResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1GetDashboardEmbedUrlCommand,
   serializeAws_restJson1GetDashboardEmbedUrlCommand,
@@ -90,8 +95,8 @@ export class GetDashboardEmbedUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDashboardEmbedUrlRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDashboardEmbedUrlResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDashboardEmbedUrlRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDashboardEmbedUrlResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

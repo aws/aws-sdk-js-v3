@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateLaunchProfileRequest, CreateLaunchProfileResponse } from "../models/models_0";
+import {
+  CreateLaunchProfileRequest,
+  CreateLaunchProfileRequestFilterSensitiveLog,
+  CreateLaunchProfileResponse,
+  CreateLaunchProfileResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1CreateLaunchProfileCommand,
@@ -72,8 +77,8 @@ export class CreateLaunchProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLaunchProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLaunchProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLaunchProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateLaunchProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

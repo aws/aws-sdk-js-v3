@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { UpdateJobTemplateRequest, UpdateJobTemplateResponse } from "../models/models_2";
+import {
+  UpdateJobTemplateRequest,
+  UpdateJobTemplateRequestFilterSensitiveLog,
+  UpdateJobTemplateResponse,
+  UpdateJobTemplateResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateJobTemplateCommand,
   serializeAws_restJson1UpdateJobTemplateCommand,
@@ -72,8 +77,8 @@ export class UpdateJobTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateJobTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJobTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateJobTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateJobTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

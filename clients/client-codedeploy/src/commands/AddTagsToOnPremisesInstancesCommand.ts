@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { AddTagsToOnPremisesInstancesInput } from "../models/models_0";
+import {
+  AddTagsToOnPremisesInstancesInput,
+  AddTagsToOnPremisesInstancesInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AddTagsToOnPremisesInstancesCommand,
   serializeAws_json1_1AddTagsToOnPremisesInstancesCommand,
@@ -72,7 +75,7 @@ export class AddTagsToOnPremisesInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsToOnPremisesInstancesInput.filterSensitiveLog,
+      inputFilterSensitiveLog: AddTagsToOnPremisesInstancesInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

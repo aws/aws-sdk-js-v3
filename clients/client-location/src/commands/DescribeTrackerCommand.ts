@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { DescribeTrackerRequest, DescribeTrackerResponse } from "../models/models_0";
+import {
+  DescribeTrackerRequest,
+  DescribeTrackerRequestFilterSensitiveLog,
+  DescribeTrackerResponse,
+  DescribeTrackerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeTrackerCommand,
   serializeAws_restJson1DescribeTrackerCommand,
@@ -72,8 +77,8 @@ export class DescribeTrackerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrackerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrackerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTrackerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTrackerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

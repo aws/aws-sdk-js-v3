@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
-import { ListAlarmsRequest, ListAlarmsResponse } from "../models/models_0";
+import {
+  ListAlarmsRequest,
+  ListAlarmsRequestFilterSensitiveLog,
+  ListAlarmsResponse,
+  ListAlarmsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListAlarmsCommand,
   serializeAws_restJson1ListAlarmsCommand,
@@ -73,8 +78,8 @@ export class ListAlarmsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAlarmsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAlarmsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAlarmsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAlarmsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -10,15 +10,6 @@ export interface AcceptGrantRequest {
   GrantArn: string | undefined;
 }
 
-export namespace AcceptGrantRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptGrantRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum GrantStatus {
   ACTIVE = "ACTIVE",
   DELETED = "DELETED",
@@ -46,15 +37,6 @@ export interface AcceptGrantResponse {
    * <p>Grant version.</p>
    */
   Version?: string;
-}
-
-export namespace AcceptGrantResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptGrantResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -225,15 +207,6 @@ export interface AutomatedDiscoveryInformation {
   LastRunTime?: Date;
 }
 
-export namespace AutomatedDiscoveryInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutomatedDiscoveryInformation): any => ({
-    ...obj,
-  });
-}
-
 export interface CheckInLicenseRequest {
   /**
    * <p>License consumption token.</p>
@@ -246,25 +219,7 @@ export interface CheckInLicenseRequest {
   Beneficiary?: string;
 }
 
-export namespace CheckInLicenseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckInLicenseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CheckInLicenseResponse {}
-
-export namespace CheckInLicenseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckInLicenseResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>There was a conflict processing the request. Try your request again.</p>
@@ -323,15 +278,6 @@ export interface Metadata {
   Value?: string;
 }
 
-export namespace Metadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Metadata): any => ({
-    ...obj,
-  });
-}
-
 export enum DigitalSignatureMethod {
   JWT_PS384 = "JWT_PS384",
 }
@@ -386,15 +332,6 @@ export interface EntitlementData {
   Unit: EntitlementDataUnit | string | undefined;
 }
 
-export namespace EntitlementData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntitlementData): any => ({
-    ...obj,
-  });
-}
-
 export interface CheckoutBorrowLicenseRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the license. The license must use the borrow consumption configuration.</p>
@@ -426,15 +363,6 @@ export interface CheckoutBorrowLicenseRequest {
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   ClientToken: string | undefined;
-}
-
-export namespace CheckoutBorrowLicenseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckoutBorrowLicenseRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CheckoutBorrowLicenseResponse {
@@ -477,15 +405,6 @@ export interface CheckoutBorrowLicenseResponse {
    * <p>Information about constraints.</p>
    */
   CheckoutMetadata?: Metadata[];
-}
-
-export namespace CheckoutBorrowLicenseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckoutBorrowLicenseResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -616,15 +535,6 @@ export interface CheckoutLicenseRequest {
   NodeId?: string;
 }
 
-export namespace CheckoutLicenseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckoutLicenseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CheckoutLicenseResponse {
   /**
    * <p>Checkout type.</p>
@@ -667,15 +577,6 @@ export interface CheckoutLicenseResponse {
   LicenseArn?: string;
 }
 
-export namespace CheckoutLicenseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckoutLicenseResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGrantRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -708,15 +609,6 @@ export interface CreateGrantRequest {
   AllowedOperations: (AllowedOperation | string)[] | undefined;
 }
 
-export namespace CreateGrantRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGrantRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGrantResponse {
   /**
    * <p>Grant ARN.</p>
@@ -732,15 +624,6 @@ export interface CreateGrantResponse {
    * <p>Grant version.</p>
    */
   Version?: string;
-}
-
-export namespace CreateGrantResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGrantResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateGrantVersionRequest {
@@ -780,15 +663,6 @@ export interface CreateGrantVersionRequest {
   SourceVersion?: string;
 }
 
-export namespace CreateGrantVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGrantVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGrantVersionResponse {
   /**
    * <p>Grant ARN.</p>
@@ -806,15 +680,6 @@ export interface CreateGrantVersionResponse {
   Version?: string;
 }
 
-export namespace CreateGrantVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGrantVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about a borrow configuration.</p>
  */
@@ -830,15 +695,6 @@ export interface BorrowConfiguration {
   MaxTimeToLiveInMinutes: number | undefined;
 }
 
-export namespace BorrowConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BorrowConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about a provisional configuration.</p>
  */
@@ -847,15 +703,6 @@ export interface ProvisionalConfiguration {
    * <p>Maximum time for the provisional configuration, in minutes.</p>
    */
   MaxTimeToLiveInMinutes: number | undefined;
-}
-
-export namespace ProvisionalConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionalConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum RenewType {
@@ -882,15 +729,6 @@ export interface ConsumptionConfiguration {
    * <p>Details about a borrow configuration.</p>
    */
   BorrowConfiguration?: BorrowConfiguration;
-}
-
-export namespace ConsumptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConsumptionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum EntitlementUnit {
@@ -958,15 +796,6 @@ export interface Entitlement {
   AllowCheckIn?: boolean;
 }
 
-export namespace Entitlement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Entitlement): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the issuer of a license.</p>
  */
@@ -983,15 +812,6 @@ export interface Issuer {
   SignKey?: string;
 }
 
-export namespace Issuer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Issuer): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a time range, in ISO8601-UTC format.</p>
  */
@@ -1005,15 +825,6 @@ export interface DatetimeRange {
    * <p>End of the time range.</p>
    */
   End?: string;
-}
-
-export namespace DatetimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatetimeRange): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLicenseRequest {
@@ -1075,15 +886,6 @@ export interface CreateLicenseRequest {
   ClientToken: string | undefined;
 }
 
-export namespace CreateLicenseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLicenseRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum LicenseStatus {
   AVAILABLE = "AVAILABLE",
   DEACTIVATED = "DEACTIVATED",
@@ -1111,15 +913,6 @@ export interface CreateLicenseResponse {
   Version?: string;
 }
 
-export namespace CreateLicenseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLicenseResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum LicenseCountingType {
   CORE = "Core",
   INSTANCE = "Instance",
@@ -1145,15 +938,6 @@ export interface ProductInformationFilter {
    * <p>Logical operator.</p>
    */
   ProductInformationFilterComparator: string | undefined;
-}
-
-export namespace ProductInformationFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProductInformationFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1240,15 +1024,6 @@ export interface ProductInformation {
   ProductInformationFilterList: ProductInformationFilter[] | undefined;
 }
 
-export namespace ProductInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProductInformation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about a tag for a license configuration.</p>
  */
@@ -1262,15 +1037,6 @@ export interface Tag {
    * <p>Tag value.</p>
    */
   Value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLicenseConfigurationRequest {
@@ -1357,29 +1123,11 @@ export interface CreateLicenseConfigurationRequest {
   ProductInformationList?: ProductInformation[];
 }
 
-export namespace CreateLicenseConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLicenseConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLicenseConfigurationResponse {
   /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
    */
   LicenseConfigurationArn?: string;
-}
-
-export namespace CreateLicenseConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLicenseConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1392,15 +1140,6 @@ export interface LicenseConversionContext {
    *          </p>
    */
   UsageOperation?: string;
-}
-
-export namespace LicenseConversionContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LicenseConversionContext): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLicenseConversionTaskForResourceRequest {
@@ -1421,29 +1160,11 @@ export interface CreateLicenseConversionTaskForResourceRequest {
   DestinationLicenseContext: LicenseConversionContext | undefined;
 }
 
-export namespace CreateLicenseConversionTaskForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLicenseConversionTaskForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLicenseConversionTaskForResourceResponse {
   /**
    * <p>The ID of the created license type conversion task.</p>
    */
   LicenseConversionTaskId?: string;
-}
-
-export namespace CreateLicenseConversionTaskForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLicenseConversionTaskForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1454,15 +1175,6 @@ export interface ReportContext {
    * <p>Amazon Resource Name (ARN) of the license configuration that this generator reports on.</p>
    */
   licenseConfigurationArns: string[] | undefined;
-}
-
-export namespace ReportContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportContext): any => ({
-    ...obj,
-  });
 }
 
 export enum ReportFrequencyType {
@@ -1485,15 +1197,6 @@ export interface ReportFrequency {
    * <p>Time period between each report. The period can be daily, weekly, or monthly.</p>
    */
   period?: ReportFrequencyType | string;
-}
-
-export namespace ReportFrequency {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportFrequency): any => ({
-    ...obj,
-  });
 }
 
 export enum ReportType {
@@ -1546,29 +1249,11 @@ export interface CreateLicenseManagerReportGeneratorRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateLicenseManagerReportGeneratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLicenseManagerReportGeneratorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLicenseManagerReportGeneratorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the new report generator.</p>
    */
   LicenseManagerReportGeneratorArn?: string;
-}
-
-export namespace CreateLicenseManagerReportGeneratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLicenseManagerReportGeneratorResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLicenseVersionRequest {
@@ -1635,15 +1320,6 @@ export interface CreateLicenseVersionRequest {
   SourceVersion?: string;
 }
 
-export namespace CreateLicenseVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLicenseVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLicenseVersionResponse {
   /**
    * <p>License ARN.</p>
@@ -1659,15 +1335,6 @@ export interface CreateLicenseVersionResponse {
    * <p>License status.</p>
    */
   Status?: LicenseStatus | string;
-}
-
-export namespace CreateLicenseVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLicenseVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateTokenRequest {
@@ -1700,15 +1367,6 @@ export interface CreateTokenRequest {
   ClientToken: string | undefined;
 }
 
-export namespace CreateTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTokenRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum TokenType {
   REFRESH_TOKEN = "REFRESH_TOKEN",
 }
@@ -1730,15 +1388,6 @@ export interface CreateTokenResponse {
   Token?: string;
 }
 
-export namespace CreateTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTokenResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGrantRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the grant.</p>
@@ -1754,15 +1403,6 @@ export interface DeleteGrantRequest {
    * <p>Current version of the grant.</p>
    */
   Version: string | undefined;
-}
-
-export namespace DeleteGrantRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGrantRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteGrantResponse {
@@ -1782,15 +1422,6 @@ export interface DeleteGrantResponse {
   Version?: string;
 }
 
-export namespace DeleteGrantResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGrantResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLicenseRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the license.</p>
@@ -1801,15 +1432,6 @@ export interface DeleteLicenseRequest {
    * <p>Current version of the license.</p>
    */
   SourceVersion: string | undefined;
-}
-
-export namespace DeleteLicenseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLicenseRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum LicenseDeletionStatus {
@@ -1829,15 +1451,6 @@ export interface DeleteLicenseResponse {
   DeletionDate?: string;
 }
 
-export namespace DeleteLicenseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLicenseResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLicenseConfigurationRequest {
   /**
    * <p>ID of the license configuration.</p>
@@ -1845,25 +1458,7 @@ export interface DeleteLicenseConfigurationRequest {
   LicenseConfigurationArn: string | undefined;
 }
 
-export namespace DeleteLicenseConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLicenseConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLicenseConfigurationResponse {}
-
-export namespace DeleteLicenseConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLicenseConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteLicenseManagerReportGeneratorRequest {
   /**
@@ -1872,25 +1467,7 @@ export interface DeleteLicenseManagerReportGeneratorRequest {
   LicenseManagerReportGeneratorArn: string | undefined;
 }
 
-export namespace DeleteLicenseManagerReportGeneratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLicenseManagerReportGeneratorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLicenseManagerReportGeneratorResponse {}
-
-export namespace DeleteLicenseManagerReportGeneratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLicenseManagerReportGeneratorResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteTokenRequest {
   /**
@@ -1899,25 +1476,7 @@ export interface DeleteTokenRequest {
   TokenId: string | undefined;
 }
 
-export namespace DeleteTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTokenRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTokenResponse {}
-
-export namespace DeleteTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTokenResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface ExtendLicenseConsumptionRequest {
   /**
@@ -1929,15 +1488,6 @@ export interface ExtendLicenseConsumptionRequest {
    * <p>Checks whether you have the required permissions for the action, without actually making the request. Provides an error response if you do not have the required permissions.</p>
    */
   DryRun?: boolean;
-}
-
-export namespace ExtendLicenseConsumptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtendLicenseConsumptionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ExtendLicenseConsumptionResponse {
@@ -1952,15 +1502,6 @@ export interface ExtendLicenseConsumptionResponse {
   Expiration?: string;
 }
 
-export namespace ExtendLicenseConsumptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtendLicenseConsumptionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccessTokenRequest {
   /**
    * <p>Refresh token, encoded as a JWT token.</p>
@@ -1973,29 +1514,11 @@ export interface GetAccessTokenRequest {
   TokenProperties?: string[];
 }
 
-export namespace GetAccessTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessTokenRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccessTokenResponse {
   /**
    * <p>Temporary access token.</p>
    */
   AccessToken?: string;
-}
-
-export namespace GetAccessTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessTokenResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetGrantRequest {
@@ -2008,15 +1531,6 @@ export interface GetGrantRequest {
    * <p>Grant version.</p>
    */
   Version?: string;
-}
-
-export namespace GetGrantRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGrantRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2074,29 +1588,11 @@ export interface Grant {
   GrantedOperations: (AllowedOperation | string)[] | undefined;
 }
 
-export namespace Grant {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Grant): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGrantResponse {
   /**
    * <p>Grant details.</p>
    */
   Grant?: Grant;
-}
-
-export namespace GetGrantResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGrantResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLicenseRequest {
@@ -2109,15 +1605,6 @@ export interface GetLicenseRequest {
    * <p>License version.</p>
    */
   Version?: string;
-}
-
-export namespace GetLicenseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLicenseRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2139,15 +1626,6 @@ export interface IssuerDetails {
    * <p>Issuer key fingerprint.</p>
    */
   KeyFingerprint?: string;
-}
-
-export namespace IssuerDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IssuerDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2225,15 +1703,6 @@ export interface License {
   Version?: string;
 }
 
-export namespace License {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: License): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLicenseResponse {
   /**
    * <p>License details.</p>
@@ -2241,29 +1710,11 @@ export interface GetLicenseResponse {
   License?: License;
 }
 
-export namespace GetLicenseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLicenseResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLicenseConfigurationRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
    */
   LicenseConfigurationArn: string | undefined;
-}
-
-export namespace GetLicenseConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLicenseConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceType {
@@ -2289,15 +1740,6 @@ export interface ConsumedLicenseSummary {
   ConsumedLicenses?: number;
 }
 
-export namespace ConsumedLicenseSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConsumedLicenseSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary information about a managed resource.</p>
  */
@@ -2311,15 +1753,6 @@ export interface ManagedResourceSummary {
    * <p>Number of resources associated with licenses.</p>
    */
   AssociationCount?: number;
-}
-
-export namespace ManagedResourceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagedResourceSummary): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLicenseConfigurationResponse {
@@ -2409,29 +1842,11 @@ export interface GetLicenseConfigurationResponse {
   DisassociateWhenNotFound?: boolean;
 }
 
-export namespace GetLicenseConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLicenseConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLicenseConversionTaskRequest {
   /**
    * <p>ID of the license type conversion task to retrieve information on.</p>
    */
   LicenseConversionTaskId: string | undefined;
-}
-
-export namespace GetLicenseConversionTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLicenseConversionTaskRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum LicenseConversionTaskStatus {
@@ -2487,29 +1902,11 @@ export interface GetLicenseConversionTaskResponse {
   EndTime?: Date;
 }
 
-export namespace GetLicenseConversionTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLicenseConversionTaskResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLicenseManagerReportGeneratorRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the report generator.</p>
    */
   LicenseManagerReportGeneratorArn: string | undefined;
-}
-
-export namespace GetLicenseManagerReportGeneratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLicenseManagerReportGeneratorRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2525,15 +1922,6 @@ export interface S3Location {
    * <p>Prefix of the S3 bucket reports are published to.</p>
    */
   keyPrefix?: string;
-}
-
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2606,15 +1994,6 @@ export interface ReportGenerator {
   Tags?: Tag[];
 }
 
-export namespace ReportGenerator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportGenerator): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLicenseManagerReportGeneratorResponse {
   /**
    * <p>A report generator that creates periodic reports about your license configurations.</p>
@@ -2622,29 +2001,11 @@ export interface GetLicenseManagerReportGeneratorResponse {
   ReportGenerator?: ReportGenerator;
 }
 
-export namespace GetLicenseManagerReportGeneratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLicenseManagerReportGeneratorResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLicenseUsageRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the license.</p>
    */
   LicenseArn: string | undefined;
-}
-
-export namespace GetLicenseUsageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLicenseUsageRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2672,15 +2033,6 @@ export interface EntitlementUsage {
   Unit: EntitlementDataUnit | string | undefined;
 }
 
-export namespace EntitlementUsage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntitlementUsage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the entitlement usage associated with a license.</p>
  */
@@ -2691,15 +2043,6 @@ export interface LicenseUsage {
   EntitlementUsages?: EntitlementUsage[];
 }
 
-export namespace LicenseUsage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LicenseUsage): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLicenseUsageResponse {
   /**
    * <p>License usage details.</p>
@@ -2707,25 +2050,7 @@ export interface GetLicenseUsageResponse {
   LicenseUsage?: LicenseUsage;
 }
 
-export namespace GetLicenseUsageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLicenseUsageResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServiceSettingsRequest {}
-
-export namespace GetServiceSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceSettingsRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Configuration information for Organizations.</p>
@@ -2735,15 +2060,6 @@ export interface OrganizationConfiguration {
    * <p>Enables Organizations integration.</p>
    */
   EnableIntegration: boolean | undefined;
-}
-
-export namespace OrganizationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface GetServiceSettingsResponse {
@@ -2774,15 +2090,6 @@ export interface GetServiceSettingsResponse {
    *          provides member accounts with access to this share.</p>
    */
   LicenseManagerResourceShareArn?: string;
-}
-
-export namespace GetServiceSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceSettingsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2823,15 +2130,6 @@ export interface ListAssociationsForLicenseConfigurationRequest {
   NextToken?: string;
 }
 
-export namespace ListAssociationsForLicenseConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociationsForLicenseConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an association with a license configuration.</p>
  */
@@ -2862,15 +2160,6 @@ export interface LicenseConfigurationAssociation {
   AmiAssociationScope?: string;
 }
 
-export namespace LicenseConfigurationAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LicenseConfigurationAssociation): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssociationsForLicenseConfigurationResponse {
   /**
    * <p>Information about the associations for the license configuration.</p>
@@ -2881,15 +2170,6 @@ export interface ListAssociationsForLicenseConfigurationResponse {
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAssociationsForLicenseConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociationsForLicenseConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2907,15 +2187,6 @@ export interface Filter {
    * <p>Filter values. Filter values are case-sensitive.</p>
    */
   Values?: string[];
-}
-
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDistributedGrantsRequest {
@@ -2967,15 +2238,6 @@ export interface ListDistributedGrantsRequest {
   MaxResults?: number;
 }
 
-export namespace ListDistributedGrantsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDistributedGrantsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDistributedGrantsResponse {
   /**
    * <p>Distributed grant details.</p>
@@ -2986,15 +2248,6 @@ export interface ListDistributedGrantsResponse {
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDistributedGrantsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDistributedGrantsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFailuresForLicenseConfigurationOperationsRequest {
@@ -3012,15 +2265,6 @@ export interface ListFailuresForLicenseConfigurationOperationsRequest {
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListFailuresForLicenseConfigurationOperationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFailuresForLicenseConfigurationOperationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3068,15 +2312,6 @@ export interface LicenseOperationFailure {
   MetadataList?: Metadata[];
 }
 
-export namespace LicenseOperationFailure {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LicenseOperationFailure): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFailuresForLicenseConfigurationOperationsResponse {
   /**
    * <p>License configuration operations that failed.</p>
@@ -3087,15 +2322,6 @@ export interface ListFailuresForLicenseConfigurationOperationsResponse {
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListFailuresForLicenseConfigurationOperationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFailuresForLicenseConfigurationOperationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLicenseConfigurationsRequest {
@@ -3137,15 +2363,6 @@ export interface ListLicenseConfigurationsRequest {
    *          </ul>
    */
   Filters?: Filter[];
-}
-
-export namespace ListLicenseConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLicenseConfigurationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3237,15 +2454,6 @@ export interface LicenseConfiguration {
   AutomatedDiscoveryInformation?: AutomatedDiscoveryInformation;
 }
 
-export namespace LicenseConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LicenseConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLicenseConfigurationsResponse {
   /**
    * <p>Information about the license configurations.</p>
@@ -3256,15 +2464,6 @@ export interface ListLicenseConfigurationsResponse {
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLicenseConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLicenseConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLicenseConversionTasksRequest {
@@ -3284,15 +2483,6 @@ export interface ListLicenseConversionTasksRequest {
    *       </p>
    */
   Filters?: Filter[];
-}
-
-export namespace ListLicenseConversionTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLicenseConversionTasksRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3346,15 +2536,6 @@ export interface LicenseConversionTask {
   EndTime?: Date;
 }
 
-export namespace LicenseConversionTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LicenseConversionTask): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLicenseConversionTasksResponse {
   /**
    * <p>Information about the license configuration tasks for your account.</p>
@@ -3365,15 +2546,6 @@ export interface ListLicenseConversionTasksResponse {
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLicenseConversionTasksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLicenseConversionTasksResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLicenseManagerReportGeneratorsRequest {
@@ -3400,15 +2572,6 @@ export interface ListLicenseManagerReportGeneratorsRequest {
   MaxResults?: number;
 }
 
-export namespace ListLicenseManagerReportGeneratorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLicenseManagerReportGeneratorsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLicenseManagerReportGeneratorsResponse {
   /**
    * <p>A report generator that creates periodic reports about your license configurations.</p>
@@ -3419,15 +2582,6 @@ export interface ListLicenseManagerReportGeneratorsResponse {
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLicenseManagerReportGeneratorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLicenseManagerReportGeneratorsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLicensesRequest {
@@ -3474,15 +2628,6 @@ export interface ListLicensesRequest {
   MaxResults?: number;
 }
 
-export namespace ListLicensesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLicensesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLicensesResponse {
   /**
    * <p>License details.</p>
@@ -3493,15 +2638,6 @@ export interface ListLicensesResponse {
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLicensesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLicensesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLicenseSpecificationsForResourceRequest {
@@ -3521,15 +2657,6 @@ export interface ListLicenseSpecificationsForResourceRequest {
   NextToken?: string;
 }
 
-export namespace ListLicenseSpecificationsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLicenseSpecificationsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details for associating a license configuration with a resource.</p>
  */
@@ -3545,15 +2672,6 @@ export interface LicenseSpecification {
   AmiAssociationScope?: string;
 }
 
-export namespace LicenseSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LicenseSpecification): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLicenseSpecificationsForResourceResponse {
   /**
    * <p>License configurations associated with a resource.</p>
@@ -3564,15 +2682,6 @@ export interface ListLicenseSpecificationsForResourceResponse {
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLicenseSpecificationsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLicenseSpecificationsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLicenseVersionsRequest {
@@ -3592,15 +2701,6 @@ export interface ListLicenseVersionsRequest {
   MaxResults?: number;
 }
 
-export namespace ListLicenseVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLicenseVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLicenseVersionsResponse {
   /**
    * <p>License details.</p>
@@ -3611,15 +2711,6 @@ export interface ListLicenseVersionsResponse {
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLicenseVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLicenseVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListReceivedGrantsRequest {
@@ -3671,15 +2762,6 @@ export interface ListReceivedGrantsRequest {
   MaxResults?: number;
 }
 
-export namespace ListReceivedGrantsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReceivedGrantsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListReceivedGrantsResponse {
   /**
    * <p>Received grant details.</p>
@@ -3690,15 +2772,6 @@ export interface ListReceivedGrantsResponse {
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListReceivedGrantsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReceivedGrantsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListReceivedLicensesRequest {
@@ -3750,15 +2823,6 @@ export interface ListReceivedLicensesRequest {
   MaxResults?: number;
 }
 
-export namespace ListReceivedLicensesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReceivedLicensesRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ReceivedStatus {
   ACTIVE = "ACTIVE",
   DELETED = "DELETED",
@@ -3788,15 +2852,6 @@ export interface ReceivedMetadata {
    * <p>Allowed operations.</p>
    */
   AllowedOperations?: (AllowedOperation | string)[];
-}
-
-export namespace ReceivedMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReceivedMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3879,15 +2934,6 @@ export interface GrantedLicense {
   ReceivedMetadata?: ReceivedMetadata;
 }
 
-export namespace GrantedLicense {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GrantedLicense): any => ({
-    ...obj,
-  });
-}
-
 export interface ListReceivedLicensesResponse {
   /**
    * <p>Received license details.</p>
@@ -3898,15 +2944,6 @@ export interface ListReceivedLicensesResponse {
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListReceivedLicensesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReceivedLicensesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3957,15 +2994,6 @@ export interface InventoryFilter {
    * <p>Value of the filter.</p>
    */
   Value?: string;
-}
-
-export namespace InventoryFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventoryFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourceInventoryRequest {
@@ -4023,15 +3051,6 @@ export interface ListResourceInventoryRequest {
   Filters?: InventoryFilter[];
 }
 
-export namespace ListResourceInventoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceInventoryRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about a resource.</p>
  */
@@ -4067,15 +3086,6 @@ export interface ResourceInventory {
   ResourceOwningAccountId?: string;
 }
 
-export namespace ResourceInventory {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInventory): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourceInventoryResponse {
   /**
    * <p>Information about the resources.</p>
@@ -4088,15 +3098,6 @@ export interface ListResourceInventoryResponse {
   NextToken?: string;
 }
 
-export namespace ListResourceInventoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceInventoryResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
@@ -4104,29 +3105,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTokensRequest {
@@ -4156,15 +3139,6 @@ export interface ListTokensRequest {
    * <p>Maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListTokensRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTokensRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4207,15 +3181,6 @@ export interface TokenData {
   Status?: string;
 }
 
-export namespace TokenData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TokenData): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTokensResponse {
   /**
    * <p>Received token details.</p>
@@ -4226,15 +3191,6 @@ export interface ListTokensResponse {
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTokensResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTokensResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListUsageForLicenseConfigurationRequest {
@@ -4277,15 +3233,6 @@ export interface ListUsageForLicenseConfigurationRequest {
   Filters?: Filter[];
 }
 
-export namespace ListUsageForLicenseConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsageForLicenseConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the usage of a resource associated with a license configuration.</p>
  */
@@ -4321,15 +3268,6 @@ export interface LicenseConfigurationUsage {
   ConsumedLicenses?: number;
 }
 
-export namespace LicenseConfigurationUsage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LicenseConfigurationUsage): any => ({
-    ...obj,
-  });
-}
-
 export interface ListUsageForLicenseConfigurationResponse {
   /**
    * <p>Information about the license configurations.</p>
@@ -4342,29 +3280,11 @@ export interface ListUsageForLicenseConfigurationResponse {
   NextToken?: string;
 }
 
-export namespace ListUsageForLicenseConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsageForLicenseConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectGrantRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the grant.</p>
    */
   GrantArn: string | undefined;
-}
-
-export namespace RejectGrantRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectGrantRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RejectGrantResponse {
@@ -4384,15 +3304,6 @@ export interface RejectGrantResponse {
   Version?: string;
 }
 
-export namespace RejectGrantResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectGrantResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
@@ -4405,25 +3316,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -4437,25 +3330,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum LicenseConfigurationStatus {
   AVAILABLE = "AVAILABLE",
@@ -4510,25 +3385,7 @@ export interface UpdateLicenseConfigurationRequest {
   DisassociateWhenNotFound?: boolean;
 }
 
-export namespace UpdateLicenseConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLicenseConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLicenseConfigurationResponse {}
-
-export namespace UpdateLicenseConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLicenseConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateLicenseManagerReportGeneratorRequest {
   /**
@@ -4575,25 +3432,7 @@ export interface UpdateLicenseManagerReportGeneratorRequest {
   Description?: string;
 }
 
-export namespace UpdateLicenseManagerReportGeneratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLicenseManagerReportGeneratorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLicenseManagerReportGeneratorResponse {}
-
-export namespace UpdateLicenseManagerReportGeneratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLicenseManagerReportGeneratorResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>License Manager cannot allocate a license to a resource because of its state. </p>
@@ -4656,25 +3495,7 @@ export interface UpdateLicenseSpecificationsForResourceRequest {
   RemoveLicenseSpecifications?: LicenseSpecification[];
 }
 
-export namespace UpdateLicenseSpecificationsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLicenseSpecificationsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLicenseSpecificationsForResourceResponse {}
-
-export namespace UpdateLicenseSpecificationsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLicenseSpecificationsForResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateServiceSettingsRequest {
   /**
@@ -4698,22 +3519,979 @@ export interface UpdateServiceSettingsRequest {
   EnableCrossAccountsDiscovery?: boolean;
 }
 
-export namespace UpdateServiceSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateServiceSettingsResponse {}
 
-export namespace UpdateServiceSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceSettingsResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcceptGrantRequestFilterSensitiveLog = (obj: AcceptGrantRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptGrantResponseFilterSensitiveLog = (obj: AcceptGrantResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutomatedDiscoveryInformationFilterSensitiveLog = (obj: AutomatedDiscoveryInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckInLicenseRequestFilterSensitiveLog = (obj: CheckInLicenseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckInLicenseResponseFilterSensitiveLog = (obj: CheckInLicenseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetadataFilterSensitiveLog = (obj: Metadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EntitlementDataFilterSensitiveLog = (obj: EntitlementData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckoutBorrowLicenseRequestFilterSensitiveLog = (obj: CheckoutBorrowLicenseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckoutBorrowLicenseResponseFilterSensitiveLog = (obj: CheckoutBorrowLicenseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckoutLicenseRequestFilterSensitiveLog = (obj: CheckoutLicenseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckoutLicenseResponseFilterSensitiveLog = (obj: CheckoutLicenseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGrantRequestFilterSensitiveLog = (obj: CreateGrantRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGrantResponseFilterSensitiveLog = (obj: CreateGrantResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGrantVersionRequestFilterSensitiveLog = (obj: CreateGrantVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGrantVersionResponseFilterSensitiveLog = (obj: CreateGrantVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BorrowConfigurationFilterSensitiveLog = (obj: BorrowConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionalConfigurationFilterSensitiveLog = (obj: ProvisionalConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConsumptionConfigurationFilterSensitiveLog = (obj: ConsumptionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EntitlementFilterSensitiveLog = (obj: Entitlement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IssuerFilterSensitiveLog = (obj: Issuer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatetimeRangeFilterSensitiveLog = (obj: DatetimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLicenseRequestFilterSensitiveLog = (obj: CreateLicenseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLicenseResponseFilterSensitiveLog = (obj: CreateLicenseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProductInformationFilterFilterSensitiveLog = (obj: ProductInformationFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProductInformationFilterSensitiveLog = (obj: ProductInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLicenseConfigurationRequestFilterSensitiveLog = (obj: CreateLicenseConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLicenseConfigurationResponseFilterSensitiveLog = (obj: CreateLicenseConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LicenseConversionContextFilterSensitiveLog = (obj: LicenseConversionContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLicenseConversionTaskForResourceRequestFilterSensitiveLog = (
+  obj: CreateLicenseConversionTaskForResourceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLicenseConversionTaskForResourceResponseFilterSensitiveLog = (
+  obj: CreateLicenseConversionTaskForResourceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportContextFilterSensitiveLog = (obj: ReportContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportFrequencyFilterSensitiveLog = (obj: ReportFrequency): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLicenseManagerReportGeneratorRequestFilterSensitiveLog = (
+  obj: CreateLicenseManagerReportGeneratorRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLicenseManagerReportGeneratorResponseFilterSensitiveLog = (
+  obj: CreateLicenseManagerReportGeneratorResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLicenseVersionRequestFilterSensitiveLog = (obj: CreateLicenseVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLicenseVersionResponseFilterSensitiveLog = (obj: CreateLicenseVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTokenRequestFilterSensitiveLog = (obj: CreateTokenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTokenResponseFilterSensitiveLog = (obj: CreateTokenResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGrantRequestFilterSensitiveLog = (obj: DeleteGrantRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGrantResponseFilterSensitiveLog = (obj: DeleteGrantResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLicenseRequestFilterSensitiveLog = (obj: DeleteLicenseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLicenseResponseFilterSensitiveLog = (obj: DeleteLicenseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLicenseConfigurationRequestFilterSensitiveLog = (obj: DeleteLicenseConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLicenseConfigurationResponseFilterSensitiveLog = (obj: DeleteLicenseConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLicenseManagerReportGeneratorRequestFilterSensitiveLog = (
+  obj: DeleteLicenseManagerReportGeneratorRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLicenseManagerReportGeneratorResponseFilterSensitiveLog = (
+  obj: DeleteLicenseManagerReportGeneratorResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTokenRequestFilterSensitiveLog = (obj: DeleteTokenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTokenResponseFilterSensitiveLog = (obj: DeleteTokenResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtendLicenseConsumptionRequestFilterSensitiveLog = (obj: ExtendLicenseConsumptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtendLicenseConsumptionResponseFilterSensitiveLog = (obj: ExtendLicenseConsumptionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessTokenRequestFilterSensitiveLog = (obj: GetAccessTokenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessTokenResponseFilterSensitiveLog = (obj: GetAccessTokenResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGrantRequestFilterSensitiveLog = (obj: GetGrantRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GrantFilterSensitiveLog = (obj: Grant): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGrantResponseFilterSensitiveLog = (obj: GetGrantResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLicenseRequestFilterSensitiveLog = (obj: GetLicenseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IssuerDetailsFilterSensitiveLog = (obj: IssuerDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LicenseFilterSensitiveLog = (obj: License): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLicenseResponseFilterSensitiveLog = (obj: GetLicenseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLicenseConfigurationRequestFilterSensitiveLog = (obj: GetLicenseConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConsumedLicenseSummaryFilterSensitiveLog = (obj: ConsumedLicenseSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagedResourceSummaryFilterSensitiveLog = (obj: ManagedResourceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLicenseConfigurationResponseFilterSensitiveLog = (obj: GetLicenseConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLicenseConversionTaskRequestFilterSensitiveLog = (obj: GetLicenseConversionTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLicenseConversionTaskResponseFilterSensitiveLog = (obj: GetLicenseConversionTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLicenseManagerReportGeneratorRequestFilterSensitiveLog = (
+  obj: GetLicenseManagerReportGeneratorRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportGeneratorFilterSensitiveLog = (obj: ReportGenerator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLicenseManagerReportGeneratorResponseFilterSensitiveLog = (
+  obj: GetLicenseManagerReportGeneratorResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLicenseUsageRequestFilterSensitiveLog = (obj: GetLicenseUsageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EntitlementUsageFilterSensitiveLog = (obj: EntitlementUsage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LicenseUsageFilterSensitiveLog = (obj: LicenseUsage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLicenseUsageResponseFilterSensitiveLog = (obj: GetLicenseUsageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceSettingsRequestFilterSensitiveLog = (obj: GetServiceSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationConfigurationFilterSensitiveLog = (obj: OrganizationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceSettingsResponseFilterSensitiveLog = (obj: GetServiceSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociationsForLicenseConfigurationRequestFilterSensitiveLog = (
+  obj: ListAssociationsForLicenseConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LicenseConfigurationAssociationFilterSensitiveLog = (obj: LicenseConfigurationAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociationsForLicenseConfigurationResponseFilterSensitiveLog = (
+  obj: ListAssociationsForLicenseConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDistributedGrantsRequestFilterSensitiveLog = (obj: ListDistributedGrantsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDistributedGrantsResponseFilterSensitiveLog = (obj: ListDistributedGrantsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFailuresForLicenseConfigurationOperationsRequestFilterSensitiveLog = (
+  obj: ListFailuresForLicenseConfigurationOperationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LicenseOperationFailureFilterSensitiveLog = (obj: LicenseOperationFailure): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFailuresForLicenseConfigurationOperationsResponseFilterSensitiveLog = (
+  obj: ListFailuresForLicenseConfigurationOperationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLicenseConfigurationsRequestFilterSensitiveLog = (obj: ListLicenseConfigurationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LicenseConfigurationFilterSensitiveLog = (obj: LicenseConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLicenseConfigurationsResponseFilterSensitiveLog = (obj: ListLicenseConfigurationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLicenseConversionTasksRequestFilterSensitiveLog = (obj: ListLicenseConversionTasksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LicenseConversionTaskFilterSensitiveLog = (obj: LicenseConversionTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLicenseConversionTasksResponseFilterSensitiveLog = (obj: ListLicenseConversionTasksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLicenseManagerReportGeneratorsRequestFilterSensitiveLog = (
+  obj: ListLicenseManagerReportGeneratorsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLicenseManagerReportGeneratorsResponseFilterSensitiveLog = (
+  obj: ListLicenseManagerReportGeneratorsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLicensesRequestFilterSensitiveLog = (obj: ListLicensesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLicensesResponseFilterSensitiveLog = (obj: ListLicensesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLicenseSpecificationsForResourceRequestFilterSensitiveLog = (
+  obj: ListLicenseSpecificationsForResourceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LicenseSpecificationFilterSensitiveLog = (obj: LicenseSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLicenseSpecificationsForResourceResponseFilterSensitiveLog = (
+  obj: ListLicenseSpecificationsForResourceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLicenseVersionsRequestFilterSensitiveLog = (obj: ListLicenseVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLicenseVersionsResponseFilterSensitiveLog = (obj: ListLicenseVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReceivedGrantsRequestFilterSensitiveLog = (obj: ListReceivedGrantsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReceivedGrantsResponseFilterSensitiveLog = (obj: ListReceivedGrantsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReceivedLicensesRequestFilterSensitiveLog = (obj: ListReceivedLicensesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReceivedMetadataFilterSensitiveLog = (obj: ReceivedMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GrantedLicenseFilterSensitiveLog = (obj: GrantedLicense): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReceivedLicensesResponseFilterSensitiveLog = (obj: ListReceivedLicensesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InventoryFilterFilterSensitiveLog = (obj: InventoryFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceInventoryRequestFilterSensitiveLog = (obj: ListResourceInventoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceInventoryFilterSensitiveLog = (obj: ResourceInventory): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceInventoryResponseFilterSensitiveLog = (obj: ListResourceInventoryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTokensRequestFilterSensitiveLog = (obj: ListTokensRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TokenDataFilterSensitiveLog = (obj: TokenData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTokensResponseFilterSensitiveLog = (obj: ListTokensResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsageForLicenseConfigurationRequestFilterSensitiveLog = (
+  obj: ListUsageForLicenseConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LicenseConfigurationUsageFilterSensitiveLog = (obj: LicenseConfigurationUsage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsageForLicenseConfigurationResponseFilterSensitiveLog = (
+  obj: ListUsageForLicenseConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectGrantRequestFilterSensitiveLog = (obj: RejectGrantRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectGrantResponseFilterSensitiveLog = (obj: RejectGrantResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLicenseConfigurationRequestFilterSensitiveLog = (obj: UpdateLicenseConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLicenseConfigurationResponseFilterSensitiveLog = (obj: UpdateLicenseConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLicenseManagerReportGeneratorRequestFilterSensitiveLog = (
+  obj: UpdateLicenseManagerReportGeneratorRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLicenseManagerReportGeneratorResponseFilterSensitiveLog = (
+  obj: UpdateLicenseManagerReportGeneratorResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLicenseSpecificationsForResourceRequestFilterSensitiveLog = (
+  obj: UpdateLicenseSpecificationsForResourceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLicenseSpecificationsForResourceResponseFilterSensitiveLog = (
+  obj: UpdateLicenseSpecificationsForResourceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceSettingsRequestFilterSensitiveLog = (obj: UpdateServiceSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceSettingsResponseFilterSensitiveLog = (obj: UpdateServiceSettingsResponse): any => ({
+  ...obj,
+});

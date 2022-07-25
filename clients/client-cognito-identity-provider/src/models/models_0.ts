@@ -25,15 +25,6 @@ export interface RecoveryOptionType {
   Name: RecoveryOptionNameType | string | undefined;
 }
 
-export namespace RecoveryOptionType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecoveryOptionType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The data type for <code>AccountRecoverySetting</code>.</p>
  */
@@ -42,15 +33,6 @@ export interface AccountRecoverySettingType {
    * <p>The list of <code>RecoveryOptionTypes</code>.</p>
    */
   RecoveryMechanisms?: RecoveryOptionType[];
-}
-
-export namespace AccountRecoverySettingType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountRecoverySettingType): any => ({
-    ...obj,
-  });
 }
 
 export enum AccountTakeoverEventActionType {
@@ -96,15 +78,6 @@ export interface AccountTakeoverActionType {
   EventAction: AccountTakeoverEventActionType | string | undefined;
 }
 
-export namespace AccountTakeoverActionType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountTakeoverActionType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Account takeover actions type.</p>
  */
@@ -125,15 +98,6 @@ export interface AccountTakeoverActionsType {
   HighAction?: AccountTakeoverActionType;
 }
 
-export namespace AccountTakeoverActionsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountTakeoverActionsType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The notify email type.</p>
  */
@@ -152,15 +116,6 @@ export interface NotifyEmailType {
    * <p>The email text body.</p>
    */
   TextBody?: string;
-}
-
-export namespace NotifyEmailType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyEmailType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -202,15 +157,6 @@ export interface NotifyConfigurationType {
   MfaEmail?: NotifyEmailType;
 }
 
-export namespace NotifyConfigurationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyConfigurationType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration for mitigation actions and notification for different levels of risk
  *             detected for a potential account takeover.</p>
@@ -225,15 +171,6 @@ export interface AccountTakeoverRiskConfigurationType {
    * <p>Account takeover risk configuration actions.</p>
    */
   Actions: AccountTakeoverActionsType | undefined;
-}
-
-export namespace AccountTakeoverRiskConfigurationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountTakeoverRiskConfigurationType): any => ({
-    ...obj,
-  });
 }
 
 export enum AttributeDataType {
@@ -258,15 +195,6 @@ export interface NumberAttributeConstraintsType {
   MaxValue?: string;
 }
 
-export namespace NumberAttributeConstraintsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NumberAttributeConstraintsType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The constraints associated with a string attribute.</p>
  */
@@ -280,15 +208,6 @@ export interface StringAttributeConstraintsType {
    * <p>The maximum length.</p>
    */
   MaxLength?: string;
-}
-
-export namespace StringAttributeConstraintsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StringAttributeConstraintsType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -345,15 +264,6 @@ export interface SchemaAttributeType {
   StringAttributeConstraints?: StringAttributeConstraintsType;
 }
 
-export namespace SchemaAttributeType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchemaAttributeType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the request to add custom attributes.</p>
  */
@@ -369,29 +279,11 @@ export interface AddCustomAttributesRequest {
   CustomAttributes: SchemaAttributeType[] | undefined;
 }
 
-export namespace AddCustomAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddCustomAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the response from the server for the request to add custom
  *             attributes.</p>
  */
 export interface AddCustomAttributesResponse {}
-
-export namespace AddCustomAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddCustomAttributesResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
@@ -528,16 +420,6 @@ export interface AdminAddUserToGroupRequest {
   GroupName: string | undefined;
 }
 
-export namespace AdminAddUserToGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminAddUserToGroupRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>This exception is thrown when a user isn't found.</p>
  */
@@ -609,30 +491,11 @@ export interface AdminConfirmSignUpRequest {
   ClientMetadata?: Record<string, string>;
 }
 
-export namespace AdminConfirmSignUpRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminConfirmSignUpRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Represents the response from the server for the request to confirm
  *             registration.</p>
  */
 export interface AdminConfirmSignUpResponse {}
-
-export namespace AdminConfirmSignUpResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminConfirmSignUpResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
@@ -756,16 +619,6 @@ export interface AttributeType {
    * <p>The value of the attribute.</p>
    */
   Value?: string;
-}
-
-export namespace AttributeType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeType): any => ({
-    ...obj,
-    ...(obj.Value && { Value: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -916,23 +769,6 @@ export interface AdminCreateUserRequest {
   ClientMetadata?: Record<string, string>;
 }
 
-export namespace AdminCreateUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminCreateUserRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-    ...(obj.UserAttributes && {
-      UserAttributes: obj.UserAttributes.map((item) => AttributeType.filterSensitiveLog(item)),
-    }),
-    ...(obj.ValidationData && {
-      ValidationData: obj.ValidationData.map((item) => AttributeType.filterSensitiveLog(item)),
-    }),
-    ...(obj.TemporaryPassword && { TemporaryPassword: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>
  *             <i>This data type is no longer supported.</i> Applies only to SMS
@@ -951,15 +787,6 @@ export interface MFAOptionType {
    *                 <code>phone_number</code>.</p>
    */
   AttributeName?: string;
-}
-
-export namespace MFAOptionType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MFAOptionType): any => ({
-    ...obj,
-  });
 }
 
 export enum UserStatusType {
@@ -1038,17 +865,6 @@ export interface UserType {
   MFAOptions?: MFAOptionType[];
 }
 
-export namespace UserType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserType): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-    ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeType.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
  * <p>Represents the response from the server to the request to create the user.</p>
  */
@@ -1057,16 +873,6 @@ export interface AdminCreateUserResponse {
    * <p>The newly created user.</p>
    */
   User?: UserType;
-}
-
-export namespace AdminCreateUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminCreateUserResponse): any => ({
-    ...obj,
-    ...(obj.User && { User: UserType.filterSensitiveLog(obj.User) }),
-  });
 }
 
 /**
@@ -1228,15 +1034,6 @@ export interface MessageTemplateType {
   EmailSubject?: string;
 }
 
-export namespace MessageTemplateType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageTemplateType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration for creating a new user profile.</p>
  */
@@ -1268,15 +1065,6 @@ export interface AdminCreateUserConfigType {
   InviteMessageTemplate?: MessageTemplateType;
 }
 
-export namespace AdminCreateUserConfigType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminCreateUserConfigType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the request to delete a user as an administrator.</p>
  */
@@ -1290,16 +1078,6 @@ export interface AdminDeleteUserRequest {
    * <p>The user name of the user you want to delete.</p>
    */
   Username: string | undefined;
-}
-
-export namespace AdminDeleteUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminDeleteUserRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1324,30 +1102,11 @@ export interface AdminDeleteUserAttributesRequest {
   UserAttributeNames: string[] | undefined;
 }
 
-export namespace AdminDeleteUserAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminDeleteUserAttributesRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Represents the response received from the server for a request to delete user
  *             attributes.</p>
  */
 export interface AdminDeleteUserAttributesResponse {}
-
-export namespace AdminDeleteUserAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminDeleteUserAttributesResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A container for information about an IdP for a user pool.</p>
@@ -1370,15 +1129,6 @@ export interface ProviderUserIdentifierType {
   ProviderAttributeValue?: string;
 }
 
-export namespace ProviderUserIdentifierType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProviderUserIdentifierType): any => ({
-    ...obj,
-  });
-}
-
 export interface AdminDisableProviderForUserRequest {
   /**
    * <p>The user pool ID for the user pool.</p>
@@ -1391,25 +1141,7 @@ export interface AdminDisableProviderForUserRequest {
   User: ProviderUserIdentifierType | undefined;
 }
 
-export namespace AdminDisableProviderForUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminDisableProviderForUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AdminDisableProviderForUserResponse {}
-
-export namespace AdminDisableProviderForUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminDisableProviderForUserResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>This exception is thrown when a user tries to confirm the account with an email
@@ -1449,30 +1181,11 @@ export interface AdminDisableUserRequest {
   Username: string | undefined;
 }
 
-export namespace AdminDisableUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminDisableUserRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Represents the response received from the server to disable the user as an
  *             administrator.</p>
  */
 export interface AdminDisableUserResponse {}
-
-export namespace AdminDisableUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminDisableUserResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the request that enables the user as an administrator.</p>
@@ -1489,30 +1202,11 @@ export interface AdminEnableUserRequest {
   Username: string | undefined;
 }
 
-export namespace AdminEnableUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminEnableUserRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Represents the response from the server for the request to enable a user as an
  *             administrator.</p>
  */
 export interface AdminEnableUserResponse {}
-
-export namespace AdminEnableUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminEnableUserResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Sends the forgot device request, as an administrator.</p>
@@ -1532,16 +1226,6 @@ export interface AdminForgetDeviceRequest {
    * <p>The device key.</p>
    */
   DeviceKey: string | undefined;
-}
-
-export namespace AdminForgetDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminForgetDeviceRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1583,16 +1267,6 @@ export interface AdminGetDeviceRequest {
   Username: string | undefined;
 }
 
-export namespace AdminGetDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminGetDeviceRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The device type.</p>
  */
@@ -1623,18 +1297,6 @@ export interface DeviceType {
   DeviceLastAuthenticatedDate?: Date;
 }
 
-export namespace DeviceType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceType): any => ({
-    ...obj,
-    ...(obj.DeviceAttributes && {
-      DeviceAttributes: obj.DeviceAttributes.map((item) => AttributeType.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 /**
  * <p>Gets the device response, as an administrator.</p>
  */
@@ -1643,16 +1305,6 @@ export interface AdminGetDeviceResponse {
    * <p>The device.</p>
    */
   Device: DeviceType | undefined;
-}
-
-export namespace AdminGetDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminGetDeviceResponse): any => ({
-    ...obj,
-    ...(obj.Device && { Device: DeviceType.filterSensitiveLog(obj.Device) }),
-  });
 }
 
 /**
@@ -1669,16 +1321,6 @@ export interface AdminGetUserRequest {
    * <p>The user name of the user you want to retrieve.</p>
    */
   Username: string | undefined;
-}
-
-export namespace AdminGetUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminGetUserRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1761,19 +1403,6 @@ export interface AdminGetUserResponse {
   UserMFASettingList?: string[];
 }
 
-export namespace AdminGetUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminGetUserResponse): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-    ...(obj.UserAttributes && {
-      UserAttributes: obj.UserAttributes.map((item) => AttributeType.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 /**
  * <p>An Amazon Pinpoint analytics endpoint.</p>
  *         <p>An endpoint uniquely identifies a mobile device, email address, or phone number that
@@ -1785,15 +1414,6 @@ export interface AnalyticsMetadataType {
    * <p>The endpoint ID.</p>
    */
   AnalyticsEndpointId?: string;
-}
-
-export namespace AnalyticsMetadataType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalyticsMetadataType): any => ({
-    ...obj,
-  });
 }
 
 export enum AuthFlowType {
@@ -1819,15 +1439,6 @@ export interface HttpHeader {
    * <p>The header value.</p>
    */
   headerValue?: string;
-}
-
-export namespace HttpHeader {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpHeader): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1860,15 +1471,6 @@ export interface ContextDataType {
    *             context data collection library. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint">Adding user device and session data to API requests</a>.</p>
    */
   EncodedData?: string;
-}
-
-export namespace ContextDataType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContextDataType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2057,17 +1659,6 @@ export interface AdminInitiateAuthRequest {
   ContextData?: ContextDataType;
 }
 
-export namespace AdminInitiateAuthRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminInitiateAuthRequest): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-    ...(obj.AuthParameters && { AuthParameters: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The new device metadata type.</p>
  */
@@ -2081,15 +1672,6 @@ export interface NewDeviceMetadataType {
    * <p>The device group key.</p>
    */
   DeviceGroupKey?: string;
-}
-
-export namespace NewDeviceMetadataType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NewDeviceMetadataType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2126,18 +1708,6 @@ export interface AuthenticationResultType {
    * <p>The new device metadata from an authentication result.</p>
    */
   NewDeviceMetadata?: NewDeviceMetadataType;
-}
-
-export namespace AuthenticationResultType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthenticationResultType): any => ({
-    ...obj,
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-    ...(obj.RefreshToken && { RefreshToken: SENSITIVE_STRING }),
-    ...(obj.IdToken && { IdToken: SENSITIVE_STRING }),
-  });
 }
 
 export enum ChallengeNameType {
@@ -2277,18 +1847,6 @@ export interface AdminInitiateAuthResponse {
   AuthenticationResult?: AuthenticationResultType;
 }
 
-export namespace AdminInitiateAuthResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminInitiateAuthResponse): any => ({
-    ...obj,
-    ...(obj.AuthenticationResult && {
-      AuthenticationResult: AuthenticationResultType.filterSensitiveLog(obj.AuthenticationResult),
-    }),
-  });
-}
-
 /**
  * <p>This exception is thrown when Amazon Cognito can't find a multi-factor authentication
  *             (MFA) method.</p>
@@ -2399,25 +1957,7 @@ export interface AdminLinkProviderForUserRequest {
   SourceUser: ProviderUserIdentifierType | undefined;
 }
 
-export namespace AdminLinkProviderForUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminLinkProviderForUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AdminLinkProviderForUserResponse {}
-
-export namespace AdminLinkProviderForUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminLinkProviderForUserResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the request to list devices, as an administrator.</p>
@@ -2444,16 +1984,6 @@ export interface AdminListDevicesRequest {
   PaginationToken?: string;
 }
 
-export namespace AdminListDevicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminListDevicesRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Lists the device's response, as an administrator.</p>
  */
@@ -2467,15 +1997,6 @@ export interface AdminListDevicesResponse {
    * <p>The pagination token.</p>
    */
   PaginationToken?: string;
-}
-
-export namespace AdminListDevicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminListDevicesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface AdminListGroupsForUserRequest {
@@ -2499,16 +2020,6 @@ export interface AdminListGroupsForUserRequest {
    *             used to return the next set of items in the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace AdminListGroupsForUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminListGroupsForUserRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -2564,15 +2075,6 @@ export interface GroupType {
   CreationDate?: Date;
 }
 
-export namespace GroupType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupType): any => ({
-    ...obj,
-  });
-}
-
 export interface AdminListGroupsForUserResponse {
   /**
    * <p>The groups that the user belongs to.</p>
@@ -2584,15 +2086,6 @@ export interface AdminListGroupsForUserResponse {
    *             used to return the next set of items in the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace AdminListGroupsForUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminListGroupsForUserResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface AdminListUserAuthEventsRequest {
@@ -2615,16 +2108,6 @@ export interface AdminListUserAuthEventsRequest {
    * <p>A pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace AdminListUserAuthEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminListUserAuthEventsRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
 }
 
 export enum ChallengeName {
@@ -2650,15 +2133,6 @@ export interface ChallengeResponseType {
    * <p>The challenge response.</p>
    */
   ChallengeResponse?: ChallengeResponse | string;
-}
-
-export namespace ChallengeResponseType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChallengeResponseType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2691,15 +2165,6 @@ export interface EventContextDataType {
   Country?: string;
 }
 
-export namespace EventContextDataType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventContextDataType): any => ({
-    ...obj,
-  });
-}
-
 export enum FeedbackValueType {
   INVALID = "Invalid",
   VALID = "Valid",
@@ -2723,15 +2188,6 @@ export interface EventFeedbackType {
    * <p>The event feedback date.</p>
    */
   FeedbackDate?: Date;
-}
-
-export namespace EventFeedbackType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventFeedbackType): any => ({
-    ...obj,
-  });
 }
 
 export enum EventResponseType {
@@ -2770,15 +2226,6 @@ export interface EventRiskType {
    *             event.</p>
    */
   CompromisedCredentialsDetected?: boolean;
-}
-
-export namespace EventRiskType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventRiskType): any => ({
-    ...obj,
-  });
 }
 
 export enum EventType {
@@ -2834,15 +2281,6 @@ export interface AuthEventType {
   EventFeedback?: EventFeedbackType;
 }
 
-export namespace AuthEventType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthEventType): any => ({
-    ...obj,
-  });
-}
-
 export interface AdminListUserAuthEventsResponse {
   /**
    * <p>The response object. It includes the <code>EventID</code>, <code>EventType</code>,
@@ -2855,15 +2293,6 @@ export interface AdminListUserAuthEventsResponse {
    * <p>A pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace AdminListUserAuthEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminListUserAuthEventsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2900,16 +2329,6 @@ export interface AdminRemoveUserFromGroupRequest {
    * <p>The group name.</p>
    */
   GroupName: string | undefined;
-}
-
-export namespace AdminRemoveUserFromGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminRemoveUserFromGroupRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -2964,30 +2383,11 @@ export interface AdminResetUserPasswordRequest {
   ClientMetadata?: Record<string, string>;
 }
 
-export namespace AdminResetUserPasswordRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminResetUserPasswordRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Represents the response from the server to reset a user password as an
  *             administrator.</p>
  */
 export interface AdminResetUserPasswordResponse {}
-
-export namespace AdminResetUserPasswordResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminResetUserPasswordResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
@@ -3176,16 +2576,6 @@ export interface AdminRespondToAuthChallengeRequest {
   ClientMetadata?: Record<string, string>;
 }
 
-export namespace AdminRespondToAuthChallengeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminRespondToAuthChallengeRequest): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Responds to the authentication challenge, as an administrator.</p>
  */
@@ -3212,18 +2602,6 @@ export interface AdminRespondToAuthChallengeResponse {
    * <p>The result returned by the server in response to the authentication request.</p>
    */
   AuthenticationResult?: AuthenticationResultType;
-}
-
-export namespace AdminRespondToAuthChallengeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminRespondToAuthChallengeResponse): any => ({
-    ...obj,
-    ...(obj.AuthenticationResult && {
-      AuthenticationResult: AuthenticationResultType.filterSensitiveLog(obj.AuthenticationResult),
-    }),
-  });
 }
 
 /**
@@ -3307,15 +2685,6 @@ export interface SMSMfaSettingsType {
   PreferredMfa?: boolean;
 }
 
-export namespace SMSMfaSettingsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SMSMfaSettingsType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The type used for enabling software token MFA at the user level. If an MFA type is
  *             activated for a user, the user will be prompted for MFA during all sign-in attempts,
@@ -3335,15 +2704,6 @@ export interface SoftwareTokenMfaSettingsType {
    * <p>Specifies whether software token MFA is the preferred MFA method.</p>
    */
   PreferredMfa?: boolean;
-}
-
-export namespace SoftwareTokenMfaSettingsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SoftwareTokenMfaSettingsType): any => ({
-    ...obj,
-  });
 }
 
 export interface AdminSetUserMFAPreferenceRequest {
@@ -3368,26 +2728,7 @@ export interface AdminSetUserMFAPreferenceRequest {
   UserPoolId: string | undefined;
 }
 
-export namespace AdminSetUserMFAPreferenceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminSetUserMFAPreferenceRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
-}
-
 export interface AdminSetUserMFAPreferenceResponse {}
-
-export namespace AdminSetUserMFAPreferenceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminSetUserMFAPreferenceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface AdminSetUserPasswordRequest {
   /**
@@ -3413,27 +2754,7 @@ export interface AdminSetUserPasswordRequest {
   Permanent?: boolean;
 }
 
-export namespace AdminSetUserPasswordRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminSetUserPasswordRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 export interface AdminSetUserPasswordResponse {}
-
-export namespace AdminSetUserPasswordResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminSetUserPasswordResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>You can use this parameter to set an MFA configuration that uses the SMS delivery
@@ -3457,30 +2778,11 @@ export interface AdminSetUserSettingsRequest {
   MFAOptions: MFAOptionType[] | undefined;
 }
 
-export namespace AdminSetUserSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminSetUserSettingsRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Represents the response from the server to set user settings as an
  *             administrator.</p>
  */
 export interface AdminSetUserSettingsResponse {}
-
-export namespace AdminSetUserSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminSetUserSettingsResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface AdminUpdateAuthEventFeedbackRequest {
   /**
@@ -3504,26 +2806,7 @@ export interface AdminUpdateAuthEventFeedbackRequest {
   FeedbackValue: FeedbackValueType | string | undefined;
 }
 
-export namespace AdminUpdateAuthEventFeedbackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminUpdateAuthEventFeedbackRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
-}
-
 export interface AdminUpdateAuthEventFeedbackResponse {}
-
-export namespace AdminUpdateAuthEventFeedbackResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminUpdateAuthEventFeedbackResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum DeviceRememberedStatusType {
   NOT_REMEMBERED = "not_remembered",
@@ -3555,29 +2838,10 @@ export interface AdminUpdateDeviceStatusRequest {
   DeviceRememberedStatus?: DeviceRememberedStatusType | string;
 }
 
-export namespace AdminUpdateDeviceStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminUpdateDeviceStatusRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The status response to the request to update the device, as an administrator.</p>
  */
 export interface AdminUpdateDeviceStatusResponse {}
-
-export namespace AdminUpdateDeviceStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminUpdateDeviceStatusResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the request to update the user's attributes as an administrator.</p>
@@ -3650,33 +2914,11 @@ export interface AdminUpdateUserAttributesRequest {
   ClientMetadata?: Record<string, string>;
 }
 
-export namespace AdminUpdateUserAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminUpdateUserAttributesRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-    ...(obj.UserAttributes && {
-      UserAttributes: obj.UserAttributes.map((item) => AttributeType.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 /**
  * <p>Represents the response from the server for the request to update user attributes as
  *             an administrator.</p>
  */
 export interface AdminUpdateUserAttributesResponse {}
-
-export namespace AdminUpdateUserAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminUpdateUserAttributesResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The request to sign out of all devices, as an administrator.</p>
@@ -3693,29 +2935,10 @@ export interface AdminUserGlobalSignOutRequest {
   Username: string | undefined;
 }
 
-export namespace AdminUserGlobalSignOutRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminUserGlobalSignOutRequest): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The global sign-out response, as an administrator.</p>
  */
 export interface AdminUserGlobalSignOutResponse {}
-
-export namespace AdminUserGlobalSignOutResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminUserGlobalSignOutResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum AdvancedSecurityModeType {
   AUDIT = "AUDIT",
@@ -3769,15 +2992,6 @@ export interface AnalyticsConfigurationType {
   UserDataShared?: boolean;
 }
 
-export namespace AnalyticsConfigurationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalyticsConfigurationType): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateSoftwareTokenRequest {
   /**
    * <p>A valid access token that Amazon Cognito issued to the user whose software token you want to
@@ -3792,16 +3006,6 @@ export interface AssociateSoftwareTokenRequest {
   Session?: string;
 }
 
-export namespace AssociateSoftwareTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateSoftwareTokenRequest): any => ({
-    ...obj,
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface AssociateSoftwareTokenResponse {
   /**
    * <p>A unique generated shared secret code that is used in the time-based one-time password
@@ -3814,16 +3018,6 @@ export interface AssociateSoftwareTokenResponse {
    *             service. This allows authentication of the user as part of the MFA setup process.</p>
    */
   Session?: string;
-}
-
-export namespace AssociateSoftwareTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateSoftwareTokenResponse): any => ({
-    ...obj,
-    ...(obj.SecretCode && { SecretCode: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -3872,31 +3066,10 @@ export interface ChangePasswordRequest {
   AccessToken: string | undefined;
 }
 
-export namespace ChangePasswordRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangePasswordRequest): any => ({
-    ...obj,
-    ...(obj.PreviousPassword && { PreviousPassword: SENSITIVE_STRING }),
-    ...(obj.ProposedPassword && { ProposedPassword: SENSITIVE_STRING }),
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The response from the server to the change password request.</p>
  */
 export interface ChangePasswordResponse {}
-
-export namespace ChangePasswordResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangePasswordResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The device verifier against which it is authenticated.</p>
@@ -3912,15 +3085,6 @@ export interface DeviceSecretVerifierConfigType {
    *          </p>
    */
   Salt?: string;
-}
-
-export namespace DeviceSecretVerifierConfigType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceSecretVerifierConfigType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3949,16 +3113,6 @@ export interface ConfirmDeviceRequest {
   DeviceName?: string;
 }
 
-export namespace ConfirmDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmDeviceRequest): any => ({
-    ...obj,
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Confirms the device response.</p>
  */
@@ -3967,15 +3121,6 @@ export interface ConfirmDeviceResponse {
    * <p>Indicates whether the user confirmation must confirm the device response.</p>
    */
   UserConfirmationNecessary?: boolean;
-}
-
-export namespace ConfirmDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmDeviceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3994,15 +3139,6 @@ export interface UserContextDataType {
    *             context data collection library. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint">Adding user device and session data to API requests</a>.</p>
    */
   EncodedData?: string;
-}
-
-export namespace UserContextDataType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserContextDataType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4088,33 +3224,11 @@ export interface ConfirmForgotPasswordRequest {
   ClientMetadata?: Record<string, string>;
 }
 
-export namespace ConfirmForgotPasswordRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmForgotPasswordRequest): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-    ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The response from the server that results from a user's request to retrieve a
  *             forgotten password.</p>
  */
 export interface ConfirmForgotPasswordResponse {}
-
-export namespace ConfirmForgotPasswordResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmForgotPasswordResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the request to confirm registration of a user.</p>
@@ -4202,31 +3316,10 @@ export interface ConfirmSignUpRequest {
   ClientMetadata?: Record<string, string>;
 }
 
-export namespace ConfirmSignUpRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmSignUpRequest): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-    ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Represents the response from the server for the registration confirmation.</p>
  */
 export interface ConfirmSignUpResponse {}
-
-export namespace ConfirmSignUpResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmSignUpResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateGroupRequest {
   /**
@@ -4269,29 +3362,11 @@ export interface CreateGroupRequest {
   Precedence?: number;
 }
 
-export namespace CreateGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGroupResponse {
   /**
    * <p>The group object for the group.</p>
    */
   Group?: GroupType;
-}
-
-export namespace CreateGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4468,15 +3543,6 @@ export interface CreateIdentityProviderRequest {
   IdpIdentifiers?: string[];
 }
 
-export namespace CreateIdentityProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIdentityProviderRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container for information about an IdP.</p>
  */
@@ -4639,29 +3705,11 @@ export interface IdentityProviderType {
   CreationDate?: Date;
 }
 
-export namespace IdentityProviderType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityProviderType): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateIdentityProviderResponse {
   /**
    * <p>The newly created IdP object.</p>
    */
   IdentityProvider: IdentityProviderType | undefined;
-}
-
-export namespace CreateIdentityProviderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIdentityProviderResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4699,15 +3747,6 @@ export interface ResourceServerScopeType {
   ScopeDescription: string | undefined;
 }
 
-export namespace ResourceServerScopeType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceServerScopeType): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateResourceServerRequest {
   /**
    * <p>The user pool ID for the user pool.</p>
@@ -4731,15 +3770,6 @@ export interface CreateResourceServerRequest {
    *                 <code>description</code>.</p>
    */
   Scopes?: ResourceServerScopeType[];
-}
-
-export namespace CreateResourceServerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceServerRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4767,29 +3797,11 @@ export interface ResourceServerType {
   Scopes?: ResourceServerScopeType[];
 }
 
-export namespace ResourceServerType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceServerType): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateResourceServerResponse {
   /**
    * <p>The newly created resource server.</p>
    */
   ResourceServer: ResourceServerType | undefined;
-}
-
-export namespace CreateResourceServerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceServerResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4810,15 +3822,6 @@ export interface CreateUserImportJobRequest {
    * <p>The role ARN for the Amazon CloudWatch Logs Logging role for the user import job.</p>
    */
   CloudWatchLogsRoleArn: string | undefined;
-}
-
-export namespace CreateUserImportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserImportJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum UserImportJobStatusType {
@@ -4944,15 +3947,6 @@ export interface UserImportJobType {
   CompletionMessage?: string;
 }
 
-export namespace UserImportJobType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserImportJobType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the response from the server to the request to create the user import
  *             job.</p>
@@ -4962,15 +3956,6 @@ export interface CreateUserImportJobResponse {
    * <p>The job object that represents the user import job.</p>
    */
   UserImportJob?: UserImportJobType;
-}
-
-export namespace CreateUserImportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserImportJobResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4998,15 +3983,6 @@ export interface DeviceConfigurationType {
    *             callback functions to return the user's choice.</p>
    */
   DeviceOnlyRememberedOnUserPrompt?: boolean;
-}
-
-export namespace DeviceConfigurationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceConfigurationType): any => ({
-    ...obj,
-  });
 }
 
 export enum EmailSendingAccountType {
@@ -5126,15 +4102,6 @@ export interface EmailConfigurationType {
   ConfigurationSet?: string;
 }
 
-export namespace EmailConfigurationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmailConfigurationType): any => ({
-    ...obj,
-  });
-}
-
 export enum CustomEmailSenderLambdaVersionType {
   V1_0 = "V1_0",
 }
@@ -5156,15 +4123,6 @@ export interface CustomEmailLambdaVersionConfigType {
   LambdaArn: string | undefined;
 }
 
-export namespace CustomEmailLambdaVersionConfigType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomEmailLambdaVersionConfigType): any => ({
-    ...obj,
-  });
-}
-
 export enum CustomSMSSenderLambdaVersionType {
   V1_0 = "V1_0",
 }
@@ -5184,15 +4142,6 @@ export interface CustomSMSLambdaVersionConfigType {
    *             notifications to users.</p>
    */
   LambdaArn: string | undefined;
-}
-
-export namespace CustomSMSLambdaVersionConfigType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomSMSLambdaVersionConfigType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5267,15 +4216,6 @@ export interface LambdaConfigType {
   KMSKeyID?: string;
 }
 
-export namespace LambdaConfigType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaConfigType): any => ({
-    ...obj,
-  });
-}
-
 export enum UserPoolMfaType {
   OFF = "OFF",
   ON = "ON",
@@ -5328,15 +4268,6 @@ export interface PasswordPolicyType {
   TemporaryPasswordValidityDays?: number;
 }
 
-export namespace PasswordPolicyType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PasswordPolicyType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The policy associated with a user pool.</p>
  */
@@ -5345,15 +4276,6 @@ export interface UserPoolPolicyType {
    * <p>The password policy.</p>
    */
   PasswordPolicy?: PasswordPolicyType;
-}
-
-export namespace UserPoolPolicyType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserPoolPolicyType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5398,15 +4320,6 @@ export interface SmsConfigurationType {
   SnsRegion?: string;
 }
 
-export namespace SmsConfigurationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SmsConfigurationType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>,
  * a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
@@ -5429,15 +4342,6 @@ export interface UserAttributeUpdateSettingsType {
    *                 <code>email</code> or <code>phone_number</code> attribute.</p>
    */
   AttributesRequireVerificationBeforeUpdate?: (VerifiedAttributeType | string)[];
-}
-
-export namespace UserAttributeUpdateSettingsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserAttributeUpdateSettingsType): any => ({
-    ...obj,
-  });
 }
 
 export enum UsernameAttributeType {
@@ -5473,15 +4377,6 @@ export interface UsernameConfigurationType {
   CaseSensitive: boolean | undefined;
 }
 
-export namespace UsernameConfigurationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsernameConfigurationType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The user pool add-ons type.</p>
  */
@@ -5490,15 +4385,6 @@ export interface UserPoolAddOnsType {
    * <p>The advanced security mode.</p>
    */
   AdvancedSecurityMode: AdvancedSecurityModeType | string | undefined;
-}
-
-export namespace UserPoolAddOnsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserPoolAddOnsType): any => ({
-    ...obj,
-  });
 }
 
 export enum DefaultEmailOptionType {
@@ -5548,15 +4434,6 @@ export interface VerificationMessageTemplateType {
    * <p>The default email option.</p>
    */
   DefaultEmailOption?: DefaultEmailOptionType | string;
-}
-
-export namespace VerificationMessageTemplateType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerificationMessageTemplateType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5707,15 +4584,6 @@ export interface CreateUserPoolRequest {
    *             behavior to determine the recovery method where SMS is preferred through email.</p>
    */
   AccountRecoverySetting?: AccountRecoverySettingType;
-}
-
-export namespace CreateUserPoolRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserPoolRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum StatusType {
@@ -5947,15 +4815,6 @@ export interface UserPoolType {
   AccountRecoverySetting?: AccountRecoverySettingType;
 }
 
-export namespace UserPoolType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserPoolType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the response from the server for the request to create a user pool.</p>
  */
@@ -5964,15 +4823,6 @@ export interface CreateUserPoolResponse {
    * <p>A container for the user pool details.</p>
    */
   UserPool?: UserPoolType;
-}
-
-export namespace CreateUserPoolResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserPoolResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6049,15 +4899,6 @@ export interface TokenValidityUnitsType {
    *                 <code>RefreshTokenValidity</code> time unit is days.</p>
    */
   RefreshToken?: TimeUnitsType | string;
-}
-
-export namespace TokenValidityUnitsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TokenValidityUnitsType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6335,15 +5176,6 @@ export interface CreateUserPoolClientRequest {
    *             client secret.</p>
    */
   EnablePropagateAdditionalUserContextData?: boolean;
-}
-
-export namespace CreateUserPoolClientRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserPoolClientRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6632,17 +5464,6 @@ export interface UserPoolClientType {
   EnablePropagateAdditionalUserContextData?: boolean;
 }
 
-export namespace UserPoolClientType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserPoolClientType): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-    ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Represents the response from the server to create a user pool client.</p>
  */
@@ -6651,16 +5472,6 @@ export interface CreateUserPoolClientResponse {
    * <p>The user pool client that was just created.</p>
    */
   UserPoolClient?: UserPoolClientType;
-}
-
-export namespace CreateUserPoolClientResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserPoolClientResponse): any => ({
-    ...obj,
-    ...(obj.UserPoolClient && { UserPoolClient: UserPoolClientType.filterSensitiveLog(obj.UserPoolClient) }),
-  });
 }
 
 /**
@@ -6713,15 +5524,6 @@ export interface CustomDomainConfigType {
   CertificateArn: string | undefined;
 }
 
-export namespace CustomDomainConfigType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomDomainConfigType): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUserPoolDomainRequest {
   /**
    * <p>The domain string. For custom domains, this is the fully-qualified domain name, such
@@ -6746,30 +5548,12 @@ export interface CreateUserPoolDomainRequest {
   CustomDomainConfig?: CustomDomainConfigType;
 }
 
-export namespace CreateUserPoolDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserPoolDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUserPoolDomainResponse {
   /**
    * <p>The Amazon CloudFront endpoint that you use as the target of the alias that you set up with
    *             your Domain Name Service (DNS) provider.</p>
    */
   CloudFrontDomain?: string;
-}
-
-export namespace CreateUserPoolDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserPoolDomainResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteGroupRequest {
@@ -6784,15 +5568,6 @@ export interface DeleteGroupRequest {
   UserPoolId: string | undefined;
 }
 
-export namespace DeleteGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteIdentityProviderRequest {
   /**
    * <p>The user pool ID.</p>
@@ -6803,15 +5578,6 @@ export interface DeleteIdentityProviderRequest {
    * <p>The IdP name.</p>
    */
   ProviderName: string | undefined;
-}
-
-export namespace DeleteIdentityProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIdentityProviderRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6845,15 +5611,6 @@ export interface DeleteResourceServerRequest {
   Identifier: string | undefined;
 }
 
-export namespace DeleteResourceServerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourceServerRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the request to delete a user.</p>
  */
@@ -6863,16 +5620,6 @@ export interface DeleteUserRequest {
    *             delete.</p>
    */
   AccessToken: string | undefined;
-}
-
-export namespace DeleteUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
-    ...obj,
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -6893,29 +5640,10 @@ export interface DeleteUserAttributesRequest {
   AccessToken: string | undefined;
 }
 
-export namespace DeleteUserAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserAttributesRequest): any => ({
-    ...obj,
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Represents the response from the server to delete user attributes.</p>
  */
 export interface DeleteUserAttributesResponse {}
-
-export namespace DeleteUserAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserAttributesResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the request to delete a user pool.</p>
@@ -6925,15 +5653,6 @@ export interface DeleteUserPoolRequest {
    * <p>The user pool ID for the user pool you want to delete.</p>
    */
   UserPoolId: string | undefined;
-}
-
-export namespace DeleteUserPoolRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserPoolRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6951,16 +5670,6 @@ export interface DeleteUserPoolClientRequest {
   ClientId: string | undefined;
 }
 
-export namespace DeleteUserPoolClientRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserPoolClientRequest): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  });
-}
-
 export interface DeleteUserPoolDomainRequest {
   /**
    * <p>The domain string. For custom domains, this is the fully-qualified domain name, such
@@ -6975,25 +5684,7 @@ export interface DeleteUserPoolDomainRequest {
   UserPoolId: string | undefined;
 }
 
-export namespace DeleteUserPoolDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserPoolDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUserPoolDomainResponse {}
-
-export namespace DeleteUserPoolDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserPoolDomainResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeIdentityProviderRequest {
   /**
@@ -7007,29 +5698,11 @@ export interface DescribeIdentityProviderRequest {
   ProviderName: string | undefined;
 }
 
-export namespace DescribeIdentityProviderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdentityProviderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeIdentityProviderResponse {
   /**
    * <p>The IdP that was deleted.</p>
    */
   IdentityProvider: IdentityProviderType | undefined;
-}
-
-export namespace DescribeIdentityProviderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdentityProviderResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeResourceServerRequest {
@@ -7044,29 +5717,11 @@ export interface DescribeResourceServerRequest {
   Identifier: string | undefined;
 }
 
-export namespace DescribeResourceServerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourceServerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeResourceServerResponse {
   /**
    * <p>The resource server.</p>
    */
   ResourceServer: ResourceServerType | undefined;
-}
-
-export namespace DescribeResourceServerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourceServerResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRiskConfigurationRequest {
@@ -7079,16 +5734,6 @@ export interface DescribeRiskConfigurationRequest {
    * <p>The app client ID.</p>
    */
   ClientId?: string;
-}
-
-export namespace DescribeRiskConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRiskConfigurationRequest): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  });
 }
 
 export enum CompromisedCredentialsEventActionType {
@@ -7104,15 +5749,6 @@ export interface CompromisedCredentialsActionsType {
    * <p>The event action.</p>
    */
   EventAction: CompromisedCredentialsEventActionType | string | undefined;
-}
-
-export namespace CompromisedCredentialsActionsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompromisedCredentialsActionsType): any => ({
-    ...obj,
-  });
 }
 
 export enum EventFilterType {
@@ -7137,15 +5773,6 @@ export interface CompromisedCredentialsRiskConfigurationType {
   Actions: CompromisedCredentialsActionsType | undefined;
 }
 
-export namespace CompromisedCredentialsRiskConfigurationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompromisedCredentialsRiskConfigurationType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The type of the configuration to override the risk decision.</p>
  */
@@ -7162,15 +5789,6 @@ export interface RiskExceptionConfigurationType {
    *             in CIDR notation.</p>
    */
   SkippedIPRangeList?: string[];
-}
-
-export namespace RiskExceptionConfigurationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RiskExceptionConfigurationType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7211,33 +5829,11 @@ export interface RiskConfigurationType {
   LastModifiedDate?: Date;
 }
 
-export namespace RiskConfigurationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RiskConfigurationType): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeRiskConfigurationResponse {
   /**
    * <p>The risk configuration.</p>
    */
   RiskConfiguration: RiskConfigurationType | undefined;
-}
-
-export namespace DescribeRiskConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRiskConfigurationResponse): any => ({
-    ...obj,
-    ...(obj.RiskConfiguration && {
-      RiskConfiguration: RiskConfigurationType.filterSensitiveLog(obj.RiskConfiguration),
-    }),
-  });
 }
 
 /**
@@ -7255,15 +5851,6 @@ export interface DescribeUserImportJobRequest {
   JobId: string | undefined;
 }
 
-export namespace DescribeUserImportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserImportJobRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the response from the server to the request to describe the user import
  *             job.</p>
@@ -7273,15 +5860,6 @@ export interface DescribeUserImportJobResponse {
    * <p>The job object that represents the user import job.</p>
    */
   UserImportJob?: UserImportJobType;
-}
-
-export namespace DescribeUserImportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserImportJobResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7294,15 +5872,6 @@ export interface DescribeUserPoolRequest {
   UserPoolId: string | undefined;
 }
 
-export namespace DescribeUserPoolRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserPoolRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the response to describe the user pool.</p>
  */
@@ -7311,15 +5880,6 @@ export interface DescribeUserPoolResponse {
    * <p>The container of metadata returned by the server to describe the pool.</p>
    */
   UserPool?: UserPoolType;
-}
-
-export namespace DescribeUserPoolResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserPoolResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7337,16 +5897,6 @@ export interface DescribeUserPoolClientRequest {
   ClientId: string | undefined;
 }
 
-export namespace DescribeUserPoolClientRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserPoolClientRequest): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Represents the response from the server from a request to describe the user pool
  *             client.</p>
@@ -7358,16 +5908,6 @@ export interface DescribeUserPoolClientResponse {
   UserPoolClient?: UserPoolClientType;
 }
 
-export namespace DescribeUserPoolClientResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserPoolClientResponse): any => ({
-    ...obj,
-    ...(obj.UserPoolClient && { UserPoolClient: UserPoolClientType.filterSensitiveLog(obj.UserPoolClient) }),
-  });
-}
-
 export interface DescribeUserPoolDomainRequest {
   /**
    * <p>The domain string. For custom domains, this is the fully-qualified domain name, such
@@ -7375,15 +5915,6 @@ export interface DescribeUserPoolDomainRequest {
    *             such as <code>auth</code>.</p>
    */
   Domain: string | undefined;
-}
-
-export namespace DescribeUserPoolDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserPoolDomainRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DomainStatusType {
@@ -7442,29 +5973,11 @@ export interface DomainDescriptionType {
   CustomDomainConfig?: CustomDomainConfigType;
 }
 
-export namespace DomainDescriptionType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainDescriptionType): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUserPoolDomainResponse {
   /**
    * <p>A domain description object containing information about the domain.</p>
    */
   DomainDescription?: DomainDescriptionType;
-}
-
-export namespace DescribeUserPoolDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserPoolDomainResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7481,16 +5994,6 @@ export interface ForgetDeviceRequest {
    * <p>The device key.</p>
    */
   DeviceKey: string | undefined;
-}
-
-export namespace ForgetDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForgetDeviceRequest): any => ({
-    ...obj,
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -7567,18 +6070,6 @@ export interface ForgotPasswordRequest {
   ClientMetadata?: Record<string, string>;
 }
 
-export namespace ForgotPasswordRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForgotPasswordRequest): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-    ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The delivery details for an email or SMS message that Amazon Cognito sent for authentication or
  *             verification.</p>
@@ -7600,15 +6091,6 @@ export interface CodeDeliveryDetailsType {
   AttributeName?: string;
 }
 
-export namespace CodeDeliveryDetailsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeDeliveryDetailsType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response from Amazon Cognito to a request to reset a password.</p>
  */
@@ -7620,15 +6102,6 @@ export interface ForgotPasswordResponse {
   CodeDeliveryDetails?: CodeDeliveryDetailsType;
 }
 
-export namespace ForgotPasswordResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForgotPasswordResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the request to get the header information of the CSV file for the user
  *             import job.</p>
@@ -7638,15 +6111,6 @@ export interface GetCSVHeaderRequest {
    * <p>The user pool ID for the user pool that the users are to be imported into.</p>
    */
   UserPoolId: string | undefined;
-}
-
-export namespace GetCSVHeaderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCSVHeaderRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7665,15 +6129,6 @@ export interface GetCSVHeaderResponse {
   CSVHeader?: string[];
 }
 
-export namespace GetCSVHeaderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCSVHeaderResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the request to get the device.</p>
  */
@@ -7690,16 +6145,6 @@ export interface GetDeviceRequest {
   AccessToken?: string;
 }
 
-export namespace GetDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceRequest): any => ({
-    ...obj,
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Gets the device response.</p>
  */
@@ -7708,16 +6153,6 @@ export interface GetDeviceResponse {
    * <p>The device.</p>
    */
   Device: DeviceType | undefined;
-}
-
-export namespace GetDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceResponse): any => ({
-    ...obj,
-    ...(obj.Device && { Device: DeviceType.filterSensitiveLog(obj.Device) }),
-  });
 }
 
 export interface GetGroupRequest {
@@ -7732,29 +6167,11 @@ export interface GetGroupRequest {
   UserPoolId: string | undefined;
 }
 
-export namespace GetGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGroupResponse {
   /**
    * <p>The group object for the group.</p>
    */
   Group?: GroupType;
-}
-
-export namespace GetGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetIdentityProviderByIdentifierRequest {
@@ -7769,29 +6186,11 @@ export interface GetIdentityProviderByIdentifierRequest {
   IdpIdentifier: string | undefined;
 }
 
-export namespace GetIdentityProviderByIdentifierRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityProviderByIdentifierRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetIdentityProviderByIdentifierResponse {
   /**
    * <p>The IdP object.</p>
    */
   IdentityProvider: IdentityProviderType | undefined;
-}
-
-export namespace GetIdentityProviderByIdentifierResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityProviderByIdentifierResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7804,15 +6203,6 @@ export interface GetSigningCertificateRequest {
   UserPoolId: string | undefined;
 }
 
-export namespace GetSigningCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSigningCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Response from Amazon Cognito for a signing certificate request.</p>
  */
@@ -7821,15 +6211,6 @@ export interface GetSigningCertificateResponse {
    * <p>The signing certificate.</p>
    */
   Certificate?: string;
-}
-
-export namespace GetSigningCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSigningCertificateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetUICustomizationRequest {
@@ -7842,16 +6223,6 @@ export interface GetUICustomizationRequest {
    * <p>The client ID for the client app.</p>
    */
   ClientId?: string;
-}
-
-export namespace GetUICustomizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUICustomizationRequest): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -7895,31 +6266,11 @@ export interface UICustomizationType {
   CreationDate?: Date;
 }
 
-export namespace UICustomizationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UICustomizationType): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetUICustomizationResponse {
   /**
    * <p>The UI customization information.</p>
    */
   UICustomization: UICustomizationType | undefined;
-}
-
-export namespace GetUICustomizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUICustomizationResponse): any => ({
-    ...obj,
-    ...(obj.UICustomization && { UICustomization: UICustomizationType.filterSensitiveLog(obj.UICustomization) }),
-  });
 }
 
 /**
@@ -7930,16 +6281,6 @@ export interface GetUserRequest {
    * <p>A non-expired access token for the user whose information you want to query.</p>
    */
   AccessToken: string | undefined;
-}
-
-export namespace GetUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUserRequest): any => ({
-    ...obj,
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -7979,19 +6320,6 @@ export interface GetUserResponse {
    *                 <code>SMS_MFA</code> and <code>SOFTWARE_TOKEN_MFA</code>.</p>
    */
   UserMFASettingList?: string[];
-}
-
-export namespace GetUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUserResponse): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-    ...(obj.UserAttributes && {
-      UserAttributes: obj.UserAttributes.map((item) => AttributeType.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 /**
@@ -8048,16 +6376,6 @@ export interface GetUserAttributeVerificationCodeRequest {
   ClientMetadata?: Record<string, string>;
 }
 
-export namespace GetUserAttributeVerificationCodeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUserAttributeVerificationCodeRequest): any => ({
-    ...obj,
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The verification code response returned by the server response to get the user
  *             attribute verification code.</p>
@@ -8070,29 +6388,11 @@ export interface GetUserAttributeVerificationCodeResponse {
   CodeDeliveryDetails?: CodeDeliveryDetailsType;
 }
 
-export namespace GetUserAttributeVerificationCodeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUserAttributeVerificationCodeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetUserPoolMfaConfigRequest {
   /**
    * <p>The user pool ID.</p>
    */
   UserPoolId: string | undefined;
-}
-
-export namespace GetUserPoolMfaConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUserPoolMfaConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8115,15 +6415,6 @@ export interface SmsMfaConfigType {
   SmsConfiguration?: SmsConfigurationType;
 }
 
-export namespace SmsMfaConfigType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SmsMfaConfigType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The type used for enabling software token MFA at the user pool level.</p>
  */
@@ -8132,15 +6423,6 @@ export interface SoftwareTokenMfaConfigType {
    * <p>Specifies whether software token MFA is activated.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace SoftwareTokenMfaConfigType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SoftwareTokenMfaConfigType): any => ({
-    ...obj,
-  });
 }
 
 export interface GetUserPoolMfaConfigResponse {
@@ -8175,15 +6457,6 @@ export interface GetUserPoolMfaConfigResponse {
   MfaConfiguration?: UserPoolMfaType | string;
 }
 
-export namespace GetUserPoolMfaConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUserPoolMfaConfigResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the request to sign out all devices.</p>
  */
@@ -8194,29 +6467,10 @@ export interface GlobalSignOutRequest {
   AccessToken: string | undefined;
 }
 
-export namespace GlobalSignOutRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalSignOutRequest): any => ({
-    ...obj,
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The response to the request to sign out all devices.</p>
  */
 export interface GlobalSignOutResponse {}
-
-export namespace GlobalSignOutResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalSignOutResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Initiates the authentication request.</p>
@@ -8390,17 +6644,6 @@ export interface InitiateAuthRequest {
   UserContextData?: UserContextDataType;
 }
 
-export namespace InitiateAuthRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitiateAuthRequest): any => ({
-    ...obj,
-    ...(obj.AuthParameters && { AuthParameters: SENSITIVE_STRING }),
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Initiates the authentication response.</p>
  */
@@ -8505,18 +6748,6 @@ export interface InitiateAuthResponse {
   AuthenticationResult?: AuthenticationResultType;
 }
 
-export namespace InitiateAuthResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitiateAuthResponse): any => ({
-    ...obj,
-    ...(obj.AuthenticationResult && {
-      AuthenticationResult: AuthenticationResultType.filterSensitiveLog(obj.AuthenticationResult),
-    }),
-  });
-}
-
 /**
  * <p>Represents the request to list the devices.</p>
  */
@@ -8538,16 +6769,6 @@ export interface ListDevicesRequest {
   PaginationToken?: string;
 }
 
-export namespace ListDevicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesRequest): any => ({
-    ...obj,
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Represents the response to list devices.</p>
  */
@@ -8561,15 +6782,6 @@ export interface ListDevicesResponse {
    * <p>The pagination token for the list device response.</p>
    */
   PaginationToken?: string;
-}
-
-export namespace ListDevicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGroupsRequest {
@@ -8590,15 +6802,6 @@ export interface ListGroupsRequest {
   NextToken?: string;
 }
 
-export namespace ListGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGroupsResponse {
   /**
    * <p>The group objects for the groups.</p>
@@ -8610,15 +6813,6 @@ export interface ListGroupsResponse {
    *             used to return the next set of items in the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListIdentityProvidersRequest {
@@ -8636,15 +6830,6 @@ export interface ListIdentityProvidersRequest {
    * <p>A pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListIdentityProvidersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentityProvidersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8672,15 +6857,6 @@ export interface ProviderDescription {
   CreationDate?: Date;
 }
 
-export namespace ProviderDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProviderDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface ListIdentityProvidersResponse {
   /**
    * <p>A list of IdP objects.</p>
@@ -8691,15 +6867,6 @@ export interface ListIdentityProvidersResponse {
    * <p>A pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListIdentityProvidersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentityProvidersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourceServersRequest {
@@ -8719,15 +6886,6 @@ export interface ListResourceServersRequest {
   NextToken?: string;
 }
 
-export namespace ListResourceServersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceServersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourceServersResponse {
   /**
    * <p>The resource servers.</p>
@@ -8740,15 +6898,6 @@ export interface ListResourceServersResponse {
   NextToken?: string;
 }
 
-export namespace ListResourceServersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceServersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
@@ -8756,29 +6905,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are assigned to the user pool.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8803,15 +6934,6 @@ export interface ListUserImportJobsRequest {
   PaginationToken?: string;
 }
 
-export namespace ListUserImportJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUserImportJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the response from the server to the request to list the user import
  *             jobs.</p>
@@ -8827,15 +6949,6 @@ export interface ListUserImportJobsResponse {
    *             list.</p>
    */
   PaginationToken?: string;
-}
-
-export namespace ListUserImportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUserImportJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8860,15 +6973,6 @@ export interface ListUserPoolClientsRequest {
   NextToken?: string;
 }
 
-export namespace ListUserPoolClientsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUserPoolClientsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The description of the user pool client.</p>
  */
@@ -8890,16 +6994,6 @@ export interface UserPoolClientDescription {
   ClientName?: string;
 }
 
-export namespace UserPoolClientDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserPoolClientDescription): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Represents the response from the server that lists user pool clients.</p>
  */
@@ -8914,18 +7008,6 @@ export interface ListUserPoolClientsResponse {
    *             used to return the next set of items in the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListUserPoolClientsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUserPoolClientsResponse): any => ({
-    ...obj,
-    ...(obj.UserPoolClients && {
-      UserPoolClients: obj.UserPoolClients.map((item) => UserPoolClientDescription.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 /**
@@ -8943,15 +7025,6 @@ export interface ListUserPoolsRequest {
    *             pools.</p>
    */
   MaxResults: number | undefined;
-}
-
-export namespace ListUserPoolsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUserPoolsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8989,15 +7062,6 @@ export interface UserPoolDescriptionType {
   CreationDate?: Date;
 }
 
-export namespace UserPoolDescriptionType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserPoolDescriptionType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the response to list user pools.</p>
  */
@@ -9012,15 +7076,6 @@ export interface ListUserPoolsResponse {
    *             used to return the next set of items in the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListUserPoolsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUserPoolsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9145,15 +7200,6 @@ export interface ListUsersRequest {
   Filter?: string;
 }
 
-export namespace ListUsersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response from the request to list users.</p>
  */
@@ -9168,16 +7214,6 @@ export interface ListUsersResponse {
    *             used to return the next set of items in the list.</p>
    */
   PaginationToken?: string;
-}
-
-export namespace ListUsersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
-    ...obj,
-    ...(obj.Users && { Users: obj.Users.map((item) => UserType.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface ListUsersInGroupRequest {
@@ -9203,15 +7239,6 @@ export interface ListUsersInGroupRequest {
   NextToken?: string;
 }
 
-export namespace ListUsersInGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsersInGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListUsersInGroupResponse {
   /**
    * <p>The users returned in the request to list users.</p>
@@ -9223,16 +7250,6 @@ export interface ListUsersInGroupResponse {
    *             the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListUsersInGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsersInGroupResponse): any => ({
-    ...obj,
-    ...(obj.Users && { Users: obj.Users.map((item) => UserType.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -9307,18 +7324,6 @@ export interface ResendConfirmationCodeRequest {
   ClientMetadata?: Record<string, string>;
 }
 
-export namespace ResendConfirmationCodeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResendConfirmationCodeRequest): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-    ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The response from the server when Amazon Cognito makes the request to resend a confirmation
  *             code.</p>
@@ -9329,15 +7334,6 @@ export interface ResendConfirmationCodeResponse {
    *             the confirmation code.</p>
    */
   CodeDeliveryDetails?: CodeDeliveryDetailsType;
-}
-
-export namespace ResendConfirmationCodeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResendConfirmationCodeResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9489,16 +7485,6 @@ export interface RespondToAuthChallengeRequest {
   ClientMetadata?: Record<string, string>;
 }
 
-export namespace RespondToAuthChallengeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RespondToAuthChallengeRequest): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The response to respond to the authentication challenge.</p>
  */
@@ -9528,18 +7514,6 @@ export interface RespondToAuthChallengeResponse {
   AuthenticationResult?: AuthenticationResultType;
 }
 
-export namespace RespondToAuthChallengeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RespondToAuthChallengeResponse): any => ({
-    ...obj,
-    ...(obj.AuthenticationResult && {
-      AuthenticationResult: AuthenticationResultType.filterSensitiveLog(obj.AuthenticationResult),
-    }),
-  });
-}
-
 export interface RevokeTokenRequest {
   /**
    * <p>The refresh token that you want to revoke.</p>
@@ -9558,28 +7532,7 @@ export interface RevokeTokenRequest {
   ClientSecret?: string;
 }
 
-export namespace RevokeTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeTokenRequest): any => ({
-    ...obj,
-    ...(obj.Token && { Token: SENSITIVE_STRING }),
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-    ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-  });
-}
-
 export interface RevokeTokenResponse {}
-
-export namespace RevokeTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeTokenResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Exception that is thrown when the request isn't authorized. This can happen due to an
@@ -9672,33 +7625,11 @@ export interface SetRiskConfigurationRequest {
   RiskExceptionConfiguration?: RiskExceptionConfigurationType;
 }
 
-export namespace SetRiskConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetRiskConfigurationRequest): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  });
-}
-
 export interface SetRiskConfigurationResponse {
   /**
    * <p>The risk configuration.</p>
    */
   RiskConfiguration: RiskConfigurationType | undefined;
-}
-
-export namespace SetRiskConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetRiskConfigurationResponse): any => ({
-    ...obj,
-    ...(obj.RiskConfiguration && {
-      RiskConfiguration: RiskConfigurationType.filterSensitiveLog(obj.RiskConfiguration),
-    }),
-  });
 }
 
 export interface SetUICustomizationRequest {
@@ -9723,31 +7654,11 @@ export interface SetUICustomizationRequest {
   ImageFile?: Uint8Array;
 }
 
-export namespace SetUICustomizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetUICustomizationRequest): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-  });
-}
-
 export interface SetUICustomizationResponse {
   /**
    * <p>The UI customization information.</p>
    */
   UICustomization: UICustomizationType | undefined;
-}
-
-export namespace SetUICustomizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetUICustomizationResponse): any => ({
-    ...obj,
-    ...(obj.UICustomization && { UICustomization: UICustomizationType.filterSensitiveLog(obj.UICustomization) }),
-  });
 }
 
 export interface SetUserMFAPreferenceRequest {
@@ -9768,26 +7679,7 @@ export interface SetUserMFAPreferenceRequest {
   AccessToken: string | undefined;
 }
 
-export namespace SetUserMFAPreferenceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetUserMFAPreferenceRequest): any => ({
-    ...obj,
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface SetUserMFAPreferenceResponse {}
-
-export namespace SetUserMFAPreferenceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetUserMFAPreferenceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface SetUserPoolMfaConfigRequest {
   /**
@@ -9828,15 +7720,6 @@ export interface SetUserPoolMfaConfigRequest {
   MfaConfiguration?: UserPoolMfaType | string;
 }
 
-export namespace SetUserPoolMfaConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetUserPoolMfaConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SetUserPoolMfaConfigResponse {
   /**
    * <p>The SMS text message MFA configuration.</p>
@@ -9869,15 +7752,6 @@ export interface SetUserPoolMfaConfigResponse {
   MfaConfiguration?: UserPoolMfaType | string;
 }
 
-export namespace SetUserPoolMfaConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetUserPoolMfaConfigResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the request to set user settings.</p>
  */
@@ -9895,29 +7769,10 @@ export interface SetUserSettingsRequest {
   MFAOptions: MFAOptionType[] | undefined;
 }
 
-export namespace SetUserSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetUserSettingsRequest): any => ({
-    ...obj,
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The response from the server for a set user settings request.</p>
  */
 export interface SetUserSettingsResponse {}
-
-export namespace SetUserSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetUserSettingsResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the request to register a user.</p>
@@ -10008,25 +7863,6 @@ export interface SignUpRequest {
   ClientMetadata?: Record<string, string>;
 }
 
-export namespace SignUpRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SignUpRequest): any => ({
-    ...obj,
-    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
-    ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-    ...(obj.UserAttributes && {
-      UserAttributes: obj.UserAttributes.map((item) => AttributeType.filterSensitiveLog(item)),
-    }),
-    ...(obj.ValidationData && {
-      ValidationData: obj.ValidationData.map((item) => AttributeType.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 /**
  * <p>The response from the server for a registration request.</p>
  */
@@ -10050,11 +7886,1739 @@ export interface SignUpResponse {
   UserSub: string | undefined;
 }
 
-export namespace SignUpResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SignUpResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const RecoveryOptionTypeFilterSensitiveLog = (obj: RecoveryOptionType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountRecoverySettingTypeFilterSensitiveLog = (obj: AccountRecoverySettingType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountTakeoverActionTypeFilterSensitiveLog = (obj: AccountTakeoverActionType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountTakeoverActionsTypeFilterSensitiveLog = (obj: AccountTakeoverActionsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyEmailTypeFilterSensitiveLog = (obj: NotifyEmailType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyConfigurationTypeFilterSensitiveLog = (obj: NotifyConfigurationType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountTakeoverRiskConfigurationTypeFilterSensitiveLog = (
+  obj: AccountTakeoverRiskConfigurationType
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NumberAttributeConstraintsTypeFilterSensitiveLog = (obj: NumberAttributeConstraintsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StringAttributeConstraintsTypeFilterSensitiveLog = (obj: StringAttributeConstraintsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchemaAttributeTypeFilterSensitiveLog = (obj: SchemaAttributeType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddCustomAttributesRequestFilterSensitiveLog = (obj: AddCustomAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddCustomAttributesResponseFilterSensitiveLog = (obj: AddCustomAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminAddUserToGroupRequestFilterSensitiveLog = (obj: AdminAddUserToGroupRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminConfirmSignUpRequestFilterSensitiveLog = (obj: AdminConfirmSignUpRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminConfirmSignUpResponseFilterSensitiveLog = (obj: AdminConfirmSignUpResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributeTypeFilterSensitiveLog = (obj: AttributeType): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminCreateUserRequestFilterSensitiveLog = (obj: AdminCreateUserRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.UserAttributes && {
+    UserAttributes: obj.UserAttributes.map((item) => AttributeTypeFilterSensitiveLog(item)),
+  }),
+  ...(obj.ValidationData && {
+    ValidationData: obj.ValidationData.map((item) => AttributeTypeFilterSensitiveLog(item)),
+  }),
+  ...(obj.TemporaryPassword && { TemporaryPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MFAOptionTypeFilterSensitiveLog = (obj: MFAOptionType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserTypeFilterSensitiveLog = (obj: UserType): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => AttributeTypeFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const AdminCreateUserResponseFilterSensitiveLog = (obj: AdminCreateUserResponse): any => ({
+  ...obj,
+  ...(obj.User && { User: UserTypeFilterSensitiveLog(obj.User) }),
+});
+
+/**
+ * @internal
+ */
+export const MessageTemplateTypeFilterSensitiveLog = (obj: MessageTemplateType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminCreateUserConfigTypeFilterSensitiveLog = (obj: AdminCreateUserConfigType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminDeleteUserRequestFilterSensitiveLog = (obj: AdminDeleteUserRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminDeleteUserAttributesRequestFilterSensitiveLog = (obj: AdminDeleteUserAttributesRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminDeleteUserAttributesResponseFilterSensitiveLog = (obj: AdminDeleteUserAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProviderUserIdentifierTypeFilterSensitiveLog = (obj: ProviderUserIdentifierType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminDisableProviderForUserRequestFilterSensitiveLog = (obj: AdminDisableProviderForUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminDisableProviderForUserResponseFilterSensitiveLog = (
+  obj: AdminDisableProviderForUserResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminDisableUserRequestFilterSensitiveLog = (obj: AdminDisableUserRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminDisableUserResponseFilterSensitiveLog = (obj: AdminDisableUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminEnableUserRequestFilterSensitiveLog = (obj: AdminEnableUserRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminEnableUserResponseFilterSensitiveLog = (obj: AdminEnableUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminForgetDeviceRequestFilterSensitiveLog = (obj: AdminForgetDeviceRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminGetDeviceRequestFilterSensitiveLog = (obj: AdminGetDeviceRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeviceTypeFilterSensitiveLog = (obj: DeviceType): any => ({
+  ...obj,
+  ...(obj.DeviceAttributes && {
+    DeviceAttributes: obj.DeviceAttributes.map((item) => AttributeTypeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const AdminGetDeviceResponseFilterSensitiveLog = (obj: AdminGetDeviceResponse): any => ({
+  ...obj,
+  ...(obj.Device && { Device: DeviceTypeFilterSensitiveLog(obj.Device) }),
+});
+
+/**
+ * @internal
+ */
+export const AdminGetUserRequestFilterSensitiveLog = (obj: AdminGetUserRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminGetUserResponseFilterSensitiveLog = (obj: AdminGetUserResponse): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.UserAttributes && {
+    UserAttributes: obj.UserAttributes.map((item) => AttributeTypeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const AnalyticsMetadataTypeFilterSensitiveLog = (obj: AnalyticsMetadataType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpHeaderFilterSensitiveLog = (obj: HttpHeader): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContextDataTypeFilterSensitiveLog = (obj: ContextDataType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminInitiateAuthRequestFilterSensitiveLog = (obj: AdminInitiateAuthRequest): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+  ...(obj.AuthParameters && { AuthParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NewDeviceMetadataTypeFilterSensitiveLog = (obj: NewDeviceMetadataType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthenticationResultTypeFilterSensitiveLog = (obj: AuthenticationResultType): any => ({
+  ...obj,
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+  ...(obj.RefreshToken && { RefreshToken: SENSITIVE_STRING }),
+  ...(obj.IdToken && { IdToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminInitiateAuthResponseFilterSensitiveLog = (obj: AdminInitiateAuthResponse): any => ({
+  ...obj,
+  ...(obj.AuthenticationResult && {
+    AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const AdminLinkProviderForUserRequestFilterSensitiveLog = (obj: AdminLinkProviderForUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminLinkProviderForUserResponseFilterSensitiveLog = (obj: AdminLinkProviderForUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminListDevicesRequestFilterSensitiveLog = (obj: AdminListDevicesRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminListDevicesResponseFilterSensitiveLog = (obj: AdminListDevicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminListGroupsForUserRequestFilterSensitiveLog = (obj: AdminListGroupsForUserRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GroupTypeFilterSensitiveLog = (obj: GroupType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminListGroupsForUserResponseFilterSensitiveLog = (obj: AdminListGroupsForUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminListUserAuthEventsRequestFilterSensitiveLog = (obj: AdminListUserAuthEventsRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ChallengeResponseTypeFilterSensitiveLog = (obj: ChallengeResponseType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventContextDataTypeFilterSensitiveLog = (obj: EventContextDataType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventFeedbackTypeFilterSensitiveLog = (obj: EventFeedbackType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventRiskTypeFilterSensitiveLog = (obj: EventRiskType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthEventTypeFilterSensitiveLog = (obj: AuthEventType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminListUserAuthEventsResponseFilterSensitiveLog = (obj: AdminListUserAuthEventsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminRemoveUserFromGroupRequestFilterSensitiveLog = (obj: AdminRemoveUserFromGroupRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminResetUserPasswordRequestFilterSensitiveLog = (obj: AdminResetUserPasswordRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminResetUserPasswordResponseFilterSensitiveLog = (obj: AdminResetUserPasswordResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminRespondToAuthChallengeRequestFilterSensitiveLog = (obj: AdminRespondToAuthChallengeRequest): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminRespondToAuthChallengeResponseFilterSensitiveLog = (
+  obj: AdminRespondToAuthChallengeResponse
+): any => ({
+  ...obj,
+  ...(obj.AuthenticationResult && {
+    AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const SMSMfaSettingsTypeFilterSensitiveLog = (obj: SMSMfaSettingsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SoftwareTokenMfaSettingsTypeFilterSensitiveLog = (obj: SoftwareTokenMfaSettingsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminSetUserMFAPreferenceRequestFilterSensitiveLog = (obj: AdminSetUserMFAPreferenceRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminSetUserMFAPreferenceResponseFilterSensitiveLog = (obj: AdminSetUserMFAPreferenceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminSetUserPasswordRequestFilterSensitiveLog = (obj: AdminSetUserPasswordRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminSetUserPasswordResponseFilterSensitiveLog = (obj: AdminSetUserPasswordResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminSetUserSettingsRequestFilterSensitiveLog = (obj: AdminSetUserSettingsRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminSetUserSettingsResponseFilterSensitiveLog = (obj: AdminSetUserSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminUpdateAuthEventFeedbackRequestFilterSensitiveLog = (
+  obj: AdminUpdateAuthEventFeedbackRequest
+): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminUpdateAuthEventFeedbackResponseFilterSensitiveLog = (
+  obj: AdminUpdateAuthEventFeedbackResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminUpdateDeviceStatusRequestFilterSensitiveLog = (obj: AdminUpdateDeviceStatusRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminUpdateDeviceStatusResponseFilterSensitiveLog = (obj: AdminUpdateDeviceStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminUpdateUserAttributesRequestFilterSensitiveLog = (obj: AdminUpdateUserAttributesRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.UserAttributes && {
+    UserAttributes: obj.UserAttributes.map((item) => AttributeTypeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const AdminUpdateUserAttributesResponseFilterSensitiveLog = (obj: AdminUpdateUserAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminUserGlobalSignOutRequestFilterSensitiveLog = (obj: AdminUserGlobalSignOutRequest): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AdminUserGlobalSignOutResponseFilterSensitiveLog = (obj: AdminUserGlobalSignOutResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalyticsConfigurationTypeFilterSensitiveLog = (obj: AnalyticsConfigurationType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateSoftwareTokenRequestFilterSensitiveLog = (obj: AssociateSoftwareTokenRequest): any => ({
+  ...obj,
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssociateSoftwareTokenResponseFilterSensitiveLog = (obj: AssociateSoftwareTokenResponse): any => ({
+  ...obj,
+  ...(obj.SecretCode && { SecretCode: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ChangePasswordRequestFilterSensitiveLog = (obj: ChangePasswordRequest): any => ({
+  ...obj,
+  ...(obj.PreviousPassword && { PreviousPassword: SENSITIVE_STRING }),
+  ...(obj.ProposedPassword && { ProposedPassword: SENSITIVE_STRING }),
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ChangePasswordResponseFilterSensitiveLog = (obj: ChangePasswordResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceSecretVerifierConfigTypeFilterSensitiveLog = (obj: DeviceSecretVerifierConfigType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmDeviceRequestFilterSensitiveLog = (obj: ConfirmDeviceRequest): any => ({
+  ...obj,
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConfirmDeviceResponseFilterSensitiveLog = (obj: ConfirmDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserContextDataTypeFilterSensitiveLog = (obj: UserContextDataType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmForgotPasswordRequestFilterSensitiveLog = (obj: ConfirmForgotPasswordRequest): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+  ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConfirmForgotPasswordResponseFilterSensitiveLog = (obj: ConfirmForgotPasswordResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmSignUpRequestFilterSensitiveLog = (obj: ConfirmSignUpRequest): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+  ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConfirmSignUpResponseFilterSensitiveLog = (obj: ConfirmSignUpResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupRequestFilterSensitiveLog = (obj: CreateGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupResponseFilterSensitiveLog = (obj: CreateGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIdentityProviderRequestFilterSensitiveLog = (obj: CreateIdentityProviderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityProviderTypeFilterSensitiveLog = (obj: IdentityProviderType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIdentityProviderResponseFilterSensitiveLog = (obj: CreateIdentityProviderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceServerScopeTypeFilterSensitiveLog = (obj: ResourceServerScopeType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceServerRequestFilterSensitiveLog = (obj: CreateResourceServerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceServerTypeFilterSensitiveLog = (obj: ResourceServerType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceServerResponseFilterSensitiveLog = (obj: CreateResourceServerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserImportJobRequestFilterSensitiveLog = (obj: CreateUserImportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserImportJobTypeFilterSensitiveLog = (obj: UserImportJobType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserImportJobResponseFilterSensitiveLog = (obj: CreateUserImportJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceConfigurationTypeFilterSensitiveLog = (obj: DeviceConfigurationType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EmailConfigurationTypeFilterSensitiveLog = (obj: EmailConfigurationType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomEmailLambdaVersionConfigTypeFilterSensitiveLog = (obj: CustomEmailLambdaVersionConfigType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomSMSLambdaVersionConfigTypeFilterSensitiveLog = (obj: CustomSMSLambdaVersionConfigType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaConfigTypeFilterSensitiveLog = (obj: LambdaConfigType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PasswordPolicyTypeFilterSensitiveLog = (obj: PasswordPolicyType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserPoolPolicyTypeFilterSensitiveLog = (obj: UserPoolPolicyType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SmsConfigurationTypeFilterSensitiveLog = (obj: SmsConfigurationType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserAttributeUpdateSettingsTypeFilterSensitiveLog = (obj: UserAttributeUpdateSettingsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsernameConfigurationTypeFilterSensitiveLog = (obj: UsernameConfigurationType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserPoolAddOnsTypeFilterSensitiveLog = (obj: UserPoolAddOnsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerificationMessageTemplateTypeFilterSensitiveLog = (obj: VerificationMessageTemplateType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserPoolRequestFilterSensitiveLog = (obj: CreateUserPoolRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserPoolTypeFilterSensitiveLog = (obj: UserPoolType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserPoolResponseFilterSensitiveLog = (obj: CreateUserPoolResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TokenValidityUnitsTypeFilterSensitiveLog = (obj: TokenValidityUnitsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserPoolClientRequestFilterSensitiveLog = (obj: CreateUserPoolClientRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserPoolClientTypeFilterSensitiveLog = (obj: UserPoolClientType): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateUserPoolClientResponseFilterSensitiveLog = (obj: CreateUserPoolClientResponse): any => ({
+  ...obj,
+  ...(obj.UserPoolClient && { UserPoolClient: UserPoolClientTypeFilterSensitiveLog(obj.UserPoolClient) }),
+});
+
+/**
+ * @internal
+ */
+export const CustomDomainConfigTypeFilterSensitiveLog = (obj: CustomDomainConfigType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserPoolDomainRequestFilterSensitiveLog = (obj: CreateUserPoolDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserPoolDomainResponseFilterSensitiveLog = (obj: CreateUserPoolDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupRequestFilterSensitiveLog = (obj: DeleteGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIdentityProviderRequestFilterSensitiveLog = (obj: DeleteIdentityProviderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourceServerRequestFilterSensitiveLog = (obj: DeleteResourceServerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any => ({
+  ...obj,
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserAttributesRequestFilterSensitiveLog = (obj: DeleteUserAttributesRequest): any => ({
+  ...obj,
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserAttributesResponseFilterSensitiveLog = (obj: DeleteUserAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserPoolRequestFilterSensitiveLog = (obj: DeleteUserPoolRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserPoolClientRequestFilterSensitiveLog = (obj: DeleteUserPoolClientRequest): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserPoolDomainRequestFilterSensitiveLog = (obj: DeleteUserPoolDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserPoolDomainResponseFilterSensitiveLog = (obj: DeleteUserPoolDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIdentityProviderRequestFilterSensitiveLog = (obj: DescribeIdentityProviderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIdentityProviderResponseFilterSensitiveLog = (obj: DescribeIdentityProviderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourceServerRequestFilterSensitiveLog = (obj: DescribeResourceServerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourceServerResponseFilterSensitiveLog = (obj: DescribeResourceServerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRiskConfigurationRequestFilterSensitiveLog = (obj: DescribeRiskConfigurationRequest): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CompromisedCredentialsActionsTypeFilterSensitiveLog = (obj: CompromisedCredentialsActionsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompromisedCredentialsRiskConfigurationTypeFilterSensitiveLog = (
+  obj: CompromisedCredentialsRiskConfigurationType
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RiskExceptionConfigurationTypeFilterSensitiveLog = (obj: RiskExceptionConfigurationType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RiskConfigurationTypeFilterSensitiveLog = (obj: RiskConfigurationType): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeRiskConfigurationResponseFilterSensitiveLog = (obj: DescribeRiskConfigurationResponse): any => ({
+  ...obj,
+  ...(obj.RiskConfiguration && { RiskConfiguration: RiskConfigurationTypeFilterSensitiveLog(obj.RiskConfiguration) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserImportJobRequestFilterSensitiveLog = (obj: DescribeUserImportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserImportJobResponseFilterSensitiveLog = (obj: DescribeUserImportJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserPoolRequestFilterSensitiveLog = (obj: DescribeUserPoolRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserPoolResponseFilterSensitiveLog = (obj: DescribeUserPoolResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserPoolClientRequestFilterSensitiveLog = (obj: DescribeUserPoolClientRequest): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserPoolClientResponseFilterSensitiveLog = (obj: DescribeUserPoolClientResponse): any => ({
+  ...obj,
+  ...(obj.UserPoolClient && { UserPoolClient: UserPoolClientTypeFilterSensitiveLog(obj.UserPoolClient) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserPoolDomainRequestFilterSensitiveLog = (obj: DescribeUserPoolDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainDescriptionTypeFilterSensitiveLog = (obj: DomainDescriptionType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserPoolDomainResponseFilterSensitiveLog = (obj: DescribeUserPoolDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ForgetDeviceRequestFilterSensitiveLog = (obj: ForgetDeviceRequest): any => ({
+  ...obj,
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ForgotPasswordRequestFilterSensitiveLog = (obj: ForgotPasswordRequest): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+  ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CodeDeliveryDetailsTypeFilterSensitiveLog = (obj: CodeDeliveryDetailsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ForgotPasswordResponseFilterSensitiveLog = (obj: ForgotPasswordResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCSVHeaderRequestFilterSensitiveLog = (obj: GetCSVHeaderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCSVHeaderResponseFilterSensitiveLog = (obj: GetCSVHeaderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceRequestFilterSensitiveLog = (obj: GetDeviceRequest): any => ({
+  ...obj,
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceResponseFilterSensitiveLog = (obj: GetDeviceResponse): any => ({
+  ...obj,
+  ...(obj.Device && { Device: DeviceTypeFilterSensitiveLog(obj.Device) }),
+});
+
+/**
+ * @internal
+ */
+export const GetGroupRequestFilterSensitiveLog = (obj: GetGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupResponseFilterSensitiveLog = (obj: GetGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityProviderByIdentifierRequestFilterSensitiveLog = (
+  obj: GetIdentityProviderByIdentifierRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityProviderByIdentifierResponseFilterSensitiveLog = (
+  obj: GetIdentityProviderByIdentifierResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSigningCertificateRequestFilterSensitiveLog = (obj: GetSigningCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSigningCertificateResponseFilterSensitiveLog = (obj: GetSigningCertificateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUICustomizationRequestFilterSensitiveLog = (obj: GetUICustomizationRequest): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UICustomizationTypeFilterSensitiveLog = (obj: UICustomizationType): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetUICustomizationResponseFilterSensitiveLog = (obj: GetUICustomizationResponse): any => ({
+  ...obj,
+  ...(obj.UICustomization && { UICustomization: UICustomizationTypeFilterSensitiveLog(obj.UICustomization) }),
+});
+
+/**
+ * @internal
+ */
+export const GetUserRequestFilterSensitiveLog = (obj: GetUserRequest): any => ({
+  ...obj,
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetUserResponseFilterSensitiveLog = (obj: GetUserResponse): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.UserAttributes && {
+    UserAttributes: obj.UserAttributes.map((item) => AttributeTypeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetUserAttributeVerificationCodeRequestFilterSensitiveLog = (
+  obj: GetUserAttributeVerificationCodeRequest
+): any => ({
+  ...obj,
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetUserAttributeVerificationCodeResponseFilterSensitiveLog = (
+  obj: GetUserAttributeVerificationCodeResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUserPoolMfaConfigRequestFilterSensitiveLog = (obj: GetUserPoolMfaConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SmsMfaConfigTypeFilterSensitiveLog = (obj: SmsMfaConfigType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SoftwareTokenMfaConfigTypeFilterSensitiveLog = (obj: SoftwareTokenMfaConfigType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUserPoolMfaConfigResponseFilterSensitiveLog = (obj: GetUserPoolMfaConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlobalSignOutRequestFilterSensitiveLog = (obj: GlobalSignOutRequest): any => ({
+  ...obj,
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GlobalSignOutResponseFilterSensitiveLog = (obj: GlobalSignOutResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitiateAuthRequestFilterSensitiveLog = (obj: InitiateAuthRequest): any => ({
+  ...obj,
+  ...(obj.AuthParameters && { AuthParameters: SENSITIVE_STRING }),
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InitiateAuthResponseFilterSensitiveLog = (obj: InitiateAuthResponse): any => ({
+  ...obj,
+  ...(obj.AuthenticationResult && {
+    AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListDevicesRequestFilterSensitiveLog = (obj: ListDevicesRequest): any => ({
+  ...obj,
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListDevicesResponseFilterSensitiveLog = (obj: ListDevicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupsRequestFilterSensitiveLog = (obj: ListGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupsResponseFilterSensitiveLog = (obj: ListGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIdentityProvidersRequestFilterSensitiveLog = (obj: ListIdentityProvidersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProviderDescriptionFilterSensitiveLog = (obj: ProviderDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIdentityProvidersResponseFilterSensitiveLog = (obj: ListIdentityProvidersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceServersRequestFilterSensitiveLog = (obj: ListResourceServersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceServersResponseFilterSensitiveLog = (obj: ListResourceServersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUserImportJobsRequestFilterSensitiveLog = (obj: ListUserImportJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUserImportJobsResponseFilterSensitiveLog = (obj: ListUserImportJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUserPoolClientsRequestFilterSensitiveLog = (obj: ListUserPoolClientsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserPoolClientDescriptionFilterSensitiveLog = (obj: UserPoolClientDescription): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListUserPoolClientsResponseFilterSensitiveLog = (obj: ListUserPoolClientsResponse): any => ({
+  ...obj,
+  ...(obj.UserPoolClients && {
+    UserPoolClients: obj.UserPoolClients.map((item) => UserPoolClientDescriptionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListUserPoolsRequestFilterSensitiveLog = (obj: ListUserPoolsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserPoolDescriptionTypeFilterSensitiveLog = (obj: UserPoolDescriptionType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUserPoolsResponseFilterSensitiveLog = (obj: ListUserPoolsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsersRequestFilterSensitiveLog = (obj: ListUsersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsersResponseFilterSensitiveLog = (obj: ListUsersResponse): any => ({
+  ...obj,
+  ...(obj.Users && { Users: obj.Users.map((item) => UserTypeFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListUsersInGroupRequestFilterSensitiveLog = (obj: ListUsersInGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsersInGroupResponseFilterSensitiveLog = (obj: ListUsersInGroupResponse): any => ({
+  ...obj,
+  ...(obj.Users && { Users: obj.Users.map((item) => UserTypeFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ResendConfirmationCodeRequestFilterSensitiveLog = (obj: ResendConfirmationCodeRequest): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+  ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ResendConfirmationCodeResponseFilterSensitiveLog = (obj: ResendConfirmationCodeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RespondToAuthChallengeRequestFilterSensitiveLog = (obj: RespondToAuthChallengeRequest): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RespondToAuthChallengeResponseFilterSensitiveLog = (obj: RespondToAuthChallengeResponse): any => ({
+  ...obj,
+  ...(obj.AuthenticationResult && {
+    AuthenticationResult: AuthenticationResultTypeFilterSensitiveLog(obj.AuthenticationResult),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const RevokeTokenRequestFilterSensitiveLog = (obj: RevokeTokenRequest): any => ({
+  ...obj,
+  ...(obj.Token && { Token: SENSITIVE_STRING }),
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RevokeTokenResponseFilterSensitiveLog = (obj: RevokeTokenResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetRiskConfigurationRequestFilterSensitiveLog = (obj: SetRiskConfigurationRequest): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SetRiskConfigurationResponseFilterSensitiveLog = (obj: SetRiskConfigurationResponse): any => ({
+  ...obj,
+  ...(obj.RiskConfiguration && { RiskConfiguration: RiskConfigurationTypeFilterSensitiveLog(obj.RiskConfiguration) }),
+});
+
+/**
+ * @internal
+ */
+export const SetUICustomizationRequestFilterSensitiveLog = (obj: SetUICustomizationRequest): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SetUICustomizationResponseFilterSensitiveLog = (obj: SetUICustomizationResponse): any => ({
+  ...obj,
+  ...(obj.UICustomization && { UICustomization: UICustomizationTypeFilterSensitiveLog(obj.UICustomization) }),
+});
+
+/**
+ * @internal
+ */
+export const SetUserMFAPreferenceRequestFilterSensitiveLog = (obj: SetUserMFAPreferenceRequest): any => ({
+  ...obj,
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SetUserMFAPreferenceResponseFilterSensitiveLog = (obj: SetUserMFAPreferenceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetUserPoolMfaConfigRequestFilterSensitiveLog = (obj: SetUserPoolMfaConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetUserPoolMfaConfigResponseFilterSensitiveLog = (obj: SetUserPoolMfaConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetUserSettingsRequestFilterSensitiveLog = (obj: SetUserSettingsRequest): any => ({
+  ...obj,
+  ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SetUserSettingsResponseFilterSensitiveLog = (obj: SetUserSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SignUpRequestFilterSensitiveLog = (obj: SignUpRequest): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+  ...(obj.SecretHash && { SecretHash: SENSITIVE_STRING }),
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+  ...(obj.UserAttributes && {
+    UserAttributes: obj.UserAttributes.map((item) => AttributeTypeFilterSensitiveLog(item)),
+  }),
+  ...(obj.ValidationData && {
+    ValidationData: obj.ValidationData.map((item) => AttributeTypeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const SignUpResponseFilterSensitiveLog = (obj: SignUpResponse): any => ({
+  ...obj,
+});

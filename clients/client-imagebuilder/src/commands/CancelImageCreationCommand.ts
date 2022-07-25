@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { CancelImageCreationRequest, CancelImageCreationResponse } from "../models/models_0";
+import {
+  CancelImageCreationRequest,
+  CancelImageCreationRequestFilterSensitiveLog,
+  CancelImageCreationResponse,
+  CancelImageCreationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CancelImageCreationCommand,
   serializeAws_restJson1CancelImageCreationCommand,
@@ -73,8 +78,8 @@ export class CancelImageCreationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelImageCreationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelImageCreationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelImageCreationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelImageCreationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

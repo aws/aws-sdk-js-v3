@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { DescribeUserPoolClientRequest, DescribeUserPoolClientResponse } from "../models/models_0";
+import {
+  DescribeUserPoolClientRequest,
+  DescribeUserPoolClientRequestFilterSensitiveLog,
+  DescribeUserPoolClientResponse,
+  DescribeUserPoolClientResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeUserPoolClientCommand,
   serializeAws_json1_1DescribeUserPoolClientCommand,
@@ -79,8 +84,8 @@ export class DescribeUserPoolClientCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserPoolClientRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserPoolClientResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeUserPoolClientRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeUserPoolClientResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

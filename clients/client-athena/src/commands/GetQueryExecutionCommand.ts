@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { GetQueryExecutionInput, GetQueryExecutionOutput } from "../models/models_0";
+import {
+  GetQueryExecutionInput,
+  GetQueryExecutionInputFilterSensitiveLog,
+  GetQueryExecutionOutput,
+  GetQueryExecutionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetQueryExecutionCommand,
   serializeAws_json1_1GetQueryExecutionCommand,
@@ -74,8 +79,8 @@ export class GetQueryExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueryExecutionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetQueryExecutionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetQueryExecutionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetQueryExecutionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

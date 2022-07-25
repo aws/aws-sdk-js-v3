@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteVpnGatewayRequest } from "../models/models_2";
+import { DeleteVpnGatewayRequest, DeleteVpnGatewayRequestFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteVpnGatewayCommand,
   serializeAws_ec2DeleteVpnGatewayCommand,
@@ -75,7 +75,7 @@ export class DeleteVpnGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpnGatewayRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVpnGatewayRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

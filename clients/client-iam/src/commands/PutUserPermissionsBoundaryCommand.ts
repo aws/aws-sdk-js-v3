@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { PutUserPermissionsBoundaryRequest } from "../models/models_0";
+import {
+  PutUserPermissionsBoundaryRequest,
+  PutUserPermissionsBoundaryRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryPutUserPermissionsBoundaryCommand,
   serializeAws_queryPutUserPermissionsBoundaryCommand,
@@ -82,7 +85,7 @@ export class PutUserPermissionsBoundaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutUserPermissionsBoundaryRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutUserPermissionsBoundaryRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

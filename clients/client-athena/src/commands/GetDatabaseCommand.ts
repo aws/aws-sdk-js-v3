@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { GetDatabaseInput, GetDatabaseOutput } from "../models/models_0";
+import {
+  GetDatabaseInput,
+  GetDatabaseInputFilterSensitiveLog,
+  GetDatabaseOutput,
+  GetDatabaseOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetDatabaseCommand,
   serializeAws_json1_1GetDatabaseCommand,
@@ -72,8 +77,8 @@ export class GetDatabaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDatabaseInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDatabaseOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDatabaseInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDatabaseOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

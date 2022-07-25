@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetAccessPointRequest, GetAccessPointResult } from "../models/models_0";
+import {
+  GetAccessPointRequest,
+  GetAccessPointRequestFilterSensitiveLog,
+  GetAccessPointResult,
+  GetAccessPointResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlGetAccessPointCommand,
   serializeAws_restXmlGetAccessPointCommand,
@@ -95,8 +100,8 @@ export class GetAccessPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessPointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessPointResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAccessPointRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAccessPointResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

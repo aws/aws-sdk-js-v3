@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteUserRequest } from "../models/models_0";
+import { DeleteUserRequest, DeleteUserRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryDeleteUserCommand, serializeAws_queryDeleteUserCommand } from "../protocols/Aws_query";
 
 export interface DeleteUserCommandInput extends DeleteUserRequest {}
@@ -101,7 +101,7 @@ export class DeleteUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteUserRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

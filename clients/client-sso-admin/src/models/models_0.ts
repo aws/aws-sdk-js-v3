@@ -13,15 +13,6 @@ export interface AccessControlAttributeValue {
   Source: string[] | undefined;
 }
 
-export namespace AccessControlAttributeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessControlAttributeValue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>These are Amazon Web Services SSO identity store attributes that you can configure for use in
  *       attributes-based access control (ABAC). You can create permissions policies that determine who
@@ -41,15 +32,6 @@ export interface AccessControlAttribute {
    * <p>The value used for mapping a specified attribute to an identity source.</p>
    */
   Value: AccessControlAttributeValue | undefined;
-}
-
-export namespace AccessControlAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessControlAttribute): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -107,15 +89,6 @@ export interface AccountAssignment {
    * <p>An identifier for an object in Amazon Web Services SSO, such as a user or group. PrincipalIds are GUIDs (For example, f81d4fae-7dec-11d0-a765-00a0c91e6bf6). For more information about PrincipalIds in Amazon Web Services SSO, see the <a href="/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Amazon Web Services SSO Identity Store API Reference</a>.</p>
    */
   PrincipalId?: string;
-}
-
-export namespace AccountAssignment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountAssignment): any => ({
-    ...obj,
-  });
 }
 
 export enum StatusValues {
@@ -181,15 +154,6 @@ export interface AccountAssignmentOperationStatus {
   CreatedDate?: Date;
 }
 
-export namespace AccountAssignmentOperationStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountAssignmentOperationStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the <a>AccountAssignment</a> creation
  *       request.</p>
@@ -212,15 +176,6 @@ export interface AccountAssignmentOperationStatusMetadata {
   CreatedDate?: Date;
 }
 
-export namespace AccountAssignmentOperationStatusMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountAssignmentOperationStatusMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the name and path of the IAM customer managed policy. You must have an IAM policy that matches the name and path in each Amazon Web Services account where you want to deploy your permission set.</p>
  */
@@ -234,15 +189,6 @@ export interface CustomerManagedPolicyReference {
    * <p>The path for the policy. The default is <code>/</code>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly names and paths</a> in the Identity and Access Management user guide.</p>
    */
   Path?: string;
-}
-
-export namespace CustomerManagedPolicyReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerManagedPolicyReference): any => ({
-    ...obj,
-  });
 }
 
 export interface AttachCustomerManagedPolicyReferenceToPermissionSetRequest {
@@ -262,25 +208,7 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetRequest {
   CustomerManagedPolicyReference: CustomerManagedPolicyReference | undefined;
 }
 
-export namespace AttachCustomerManagedPolicyReferenceToPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachCustomerManagedPolicyReferenceToPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachCustomerManagedPolicyReferenceToPermissionSetResponse {}
-
-export namespace AttachCustomerManagedPolicyReferenceToPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachCustomerManagedPolicyReferenceToPermissionSetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Occurs when a conflict with a previous successful write is detected. This generally occurs
@@ -430,15 +358,6 @@ export interface AttachedManagedPolicy {
   Arn?: string;
 }
 
-export namespace AttachedManagedPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachedManagedPolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachManagedPolicyToPermissionSetRequest {
   /**
    * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -458,25 +377,7 @@ export interface AttachManagedPolicyToPermissionSetRequest {
   ManagedPolicyArn: string | undefined;
 }
 
-export namespace AttachManagedPolicyToPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachManagedPolicyToPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachManagedPolicyToPermissionSetResponse {}
-
-export namespace AttachManagedPolicyToPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachManagedPolicyToPermissionSetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateAccountAssignmentRequest {
   /**
@@ -512,29 +413,11 @@ export interface CreateAccountAssignmentRequest {
   PrincipalId: string | undefined;
 }
 
-export namespace CreateAccountAssignmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccountAssignmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAccountAssignmentResponse {
   /**
    * <p>The status object for the account assignment creation operation.</p>
    */
   AccountAssignmentCreationStatus?: AccountAssignmentOperationStatus;
-}
-
-export namespace CreateAccountAssignmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccountAssignmentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -547,15 +430,6 @@ export interface InstanceAccessControlAttributeConfiguration {
    *       instance.</p>
    */
   AccessControlAttributes: AccessControlAttribute[] | undefined;
-}
-
-export namespace InstanceAccessControlAttributeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceAccessControlAttributeConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateInstanceAccessControlAttributeConfigurationRequest {
@@ -575,25 +449,7 @@ export interface CreateInstanceAccessControlAttributeConfigurationRequest {
   InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfiguration | undefined;
 }
 
-export namespace CreateInstanceAccessControlAttributeConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstanceAccessControlAttributeConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateInstanceAccessControlAttributeConfigurationResponse {}
-
-export namespace CreateInstanceAccessControlAttributeConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstanceAccessControlAttributeConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A set of key-value pairs that are used to manage the resource. Tags can only be applied to
@@ -610,15 +466,6 @@ export interface Tag {
    * <p>The value of the tag.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePermissionSetRequest {
@@ -654,15 +501,6 @@ export interface CreatePermissionSetRequest {
    * <p>The tags to attach to the new <a>PermissionSet</a>.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreatePermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePermissionSetRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -703,29 +541,11 @@ export interface PermissionSet {
   RelayState?: string;
 }
 
-export namespace PermissionSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PermissionSet): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePermissionSetResponse {
   /**
    * <p>Defines the level of access on an Amazon Web Services account.</p>
    */
   PermissionSet?: PermissionSet;
-}
-
-export namespace CreatePermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePermissionSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAccountAssignmentRequest {
@@ -761,29 +581,11 @@ export interface DeleteAccountAssignmentRequest {
   PrincipalId: string | undefined;
 }
 
-export namespace DeleteAccountAssignmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccountAssignmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAccountAssignmentResponse {
   /**
    * <p>The status object for the account assignment deletion operation.</p>
    */
   AccountAssignmentDeletionStatus?: AccountAssignmentOperationStatus;
-}
-
-export namespace DeleteAccountAssignmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccountAssignmentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteInlinePolicyFromPermissionSetRequest {
@@ -799,25 +601,7 @@ export interface DeleteInlinePolicyFromPermissionSetRequest {
   PermissionSetArn: string | undefined;
 }
 
-export namespace DeleteInlinePolicyFromPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInlinePolicyFromPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteInlinePolicyFromPermissionSetResponse {}
-
-export namespace DeleteInlinePolicyFromPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInlinePolicyFromPermissionSetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteInstanceAccessControlAttributeConfigurationRequest {
   /**
@@ -826,25 +610,7 @@ export interface DeleteInstanceAccessControlAttributeConfigurationRequest {
   InstanceArn: string | undefined;
 }
 
-export namespace DeleteInstanceAccessControlAttributeConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInstanceAccessControlAttributeConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteInstanceAccessControlAttributeConfigurationResponse {}
-
-export namespace DeleteInstanceAccessControlAttributeConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInstanceAccessControlAttributeConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeletePermissionsBoundaryFromPermissionSetRequest {
   /**
@@ -858,25 +624,7 @@ export interface DeletePermissionsBoundaryFromPermissionSetRequest {
   PermissionSetArn: string | undefined;
 }
 
-export namespace DeletePermissionsBoundaryFromPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePermissionsBoundaryFromPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePermissionsBoundaryFromPermissionSetResponse {}
-
-export namespace DeletePermissionsBoundaryFromPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePermissionsBoundaryFromPermissionSetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeletePermissionSetRequest {
   /**
@@ -891,25 +639,7 @@ export interface DeletePermissionSetRequest {
   PermissionSetArn: string | undefined;
 }
 
-export namespace DeletePermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePermissionSetResponse {}
-
-export namespace DeletePermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePermissionSetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeAccountAssignmentCreationStatusRequest {
   /**
@@ -924,29 +654,11 @@ export interface DescribeAccountAssignmentCreationStatusRequest {
   AccountAssignmentCreationRequestId: string | undefined;
 }
 
-export namespace DescribeAccountAssignmentCreationStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountAssignmentCreationStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccountAssignmentCreationStatusResponse {
   /**
    * <p>The status object for the account assignment creation operation.</p>
    */
   AccountAssignmentCreationStatus?: AccountAssignmentOperationStatus;
-}
-
-export namespace DescribeAccountAssignmentCreationStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountAssignmentCreationStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAccountAssignmentDeletionStatusRequest {
@@ -962,15 +674,6 @@ export interface DescribeAccountAssignmentDeletionStatusRequest {
   AccountAssignmentDeletionRequestId: string | undefined;
 }
 
-export namespace DescribeAccountAssignmentDeletionStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountAssignmentDeletionStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccountAssignmentDeletionStatusResponse {
   /**
    * <p>The status object for the account assignment deletion operation.</p>
@@ -978,29 +681,11 @@ export interface DescribeAccountAssignmentDeletionStatusResponse {
   AccountAssignmentDeletionStatus?: AccountAssignmentOperationStatus;
 }
 
-export namespace DescribeAccountAssignmentDeletionStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountAssignmentDeletionStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeInstanceAccessControlAttributeConfigurationRequest {
   /**
    * <p>The ARN of the SSO instance under which the operation will be executed.</p>
    */
   InstanceArn: string | undefined;
-}
-
-export namespace DescribeInstanceAccessControlAttributeConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceAccessControlAttributeConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum InstanceAccessControlAttributeConfigurationStatus {
@@ -1027,15 +712,6 @@ export interface DescribeInstanceAccessControlAttributeConfigurationResponse {
   InstanceAccessControlAttributeConfiguration?: InstanceAccessControlAttributeConfiguration;
 }
 
-export namespace DescribeInstanceAccessControlAttributeConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceAccessControlAttributeConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePermissionSetRequest {
   /**
    * <p>The ARN of the SSO instance under which the operation will be executed. For more information about ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
@@ -1049,29 +725,11 @@ export interface DescribePermissionSetRequest {
   PermissionSetArn: string | undefined;
 }
 
-export namespace DescribePermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePermissionSetResponse {
   /**
    * <p>Describes the level of access on an Amazon Web Services account.</p>
    */
   PermissionSet?: PermissionSet;
-}
-
-export namespace DescribePermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePermissionSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePermissionSetProvisioningStatusRequest {
@@ -1086,15 +744,6 @@ export interface DescribePermissionSetProvisioningStatusRequest {
    *       retrieve the current status of the provisioning workflow.</p>
    */
   ProvisionPermissionSetRequestId: string | undefined;
-}
-
-export namespace DescribePermissionSetProvisioningStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePermissionSetProvisioningStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1135,29 +784,11 @@ export interface PermissionSetProvisioningStatus {
   CreatedDate?: Date;
 }
 
-export namespace PermissionSetProvisioningStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PermissionSetProvisioningStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePermissionSetProvisioningStatusResponse {
   /**
    * <p>The status object for the permission set provisioning operation.</p>
    */
   PermissionSetProvisioningStatus?: PermissionSetProvisioningStatus;
-}
-
-export namespace DescribePermissionSetProvisioningStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePermissionSetProvisioningStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {
@@ -1177,25 +808,7 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {
   CustomerManagedPolicyReference: CustomerManagedPolicyReference | undefined;
 }
 
-export namespace DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachCustomerManagedPolicyReferenceFromPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DetachCustomerManagedPolicyReferenceFromPermissionSetResponse {}
-
-export namespace DetachCustomerManagedPolicyReferenceFromPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachCustomerManagedPolicyReferenceFromPermissionSetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DetachManagedPolicyFromPermissionSetRequest {
   /**
@@ -1216,25 +829,7 @@ export interface DetachManagedPolicyFromPermissionSetRequest {
   ManagedPolicyArn: string | undefined;
 }
 
-export namespace DetachManagedPolicyFromPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachManagedPolicyFromPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DetachManagedPolicyFromPermissionSetResponse {}
-
-export namespace DetachManagedPolicyFromPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachManagedPolicyFromPermissionSetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetInlinePolicyForPermissionSetRequest {
   /**
@@ -1249,29 +844,11 @@ export interface GetInlinePolicyForPermissionSetRequest {
   PermissionSetArn: string | undefined;
 }
 
-export namespace GetInlinePolicyForPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInlinePolicyForPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInlinePolicyForPermissionSetResponse {
   /**
    * <p>The IAM inline policy that is attached to the permission set.</p>
    */
   InlinePolicy?: string;
-}
-
-export namespace GetInlinePolicyForPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInlinePolicyForPermissionSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPermissionsBoundaryForPermissionSetRequest {
@@ -1284,15 +861,6 @@ export interface GetPermissionsBoundaryForPermissionSetRequest {
    * <p>The ARN of the <code>PermissionSet</code>.</p>
    */
   PermissionSetArn: string | undefined;
-}
-
-export namespace GetPermissionsBoundaryForPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPermissionsBoundaryForPermissionSetRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1315,29 +883,11 @@ export interface PermissionsBoundary {
   ManagedPolicyArn?: string;
 }
 
-export namespace PermissionsBoundary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PermissionsBoundary): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPermissionsBoundaryForPermissionSetResponse {
   /**
    * <p>The permissions boundary attached to the specified permission set.</p>
    */
   PermissionsBoundary?: PermissionsBoundary;
-}
-
-export namespace GetPermissionsBoundaryForPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPermissionsBoundaryForPermissionSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1356,15 +906,6 @@ export interface InstanceMetadata {
   IdentityStoreId?: string;
 }
 
-export namespace InstanceMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Filters he operation status list based on the passed attribute value.</p>
  */
@@ -1373,15 +914,6 @@ export interface OperationStatusFilter {
    * <p>Filters the list operations result based on the status attribute.</p>
    */
   Status?: StatusValues | string;
-}
-
-export namespace OperationStatusFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationStatusFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAccountAssignmentCreationStatusRequest {
@@ -1407,15 +939,6 @@ export interface ListAccountAssignmentCreationStatusRequest {
   Filter?: OperationStatusFilter;
 }
 
-export namespace ListAccountAssignmentCreationStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountAssignmentCreationStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccountAssignmentCreationStatusResponse {
   /**
    * <p>The status object for the account assignment creation operation.</p>
@@ -1426,15 +949,6 @@ export interface ListAccountAssignmentCreationStatusResponse {
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAccountAssignmentCreationStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountAssignmentCreationStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAccountAssignmentDeletionStatusRequest {
@@ -1460,15 +974,6 @@ export interface ListAccountAssignmentDeletionStatusRequest {
   Filter?: OperationStatusFilter;
 }
 
-export namespace ListAccountAssignmentDeletionStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountAssignmentDeletionStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccountAssignmentDeletionStatusResponse {
   /**
    * <p>The status object for the account assignment deletion operation.</p>
@@ -1479,15 +984,6 @@ export interface ListAccountAssignmentDeletionStatusResponse {
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAccountAssignmentDeletionStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountAssignmentDeletionStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAccountAssignmentsRequest {
@@ -1518,15 +1014,6 @@ export interface ListAccountAssignmentsRequest {
   NextToken?: string;
 }
 
-export namespace ListAccountAssignmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountAssignmentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccountAssignmentsResponse {
   /**
    * <p>The list of assignments that match the input Amazon Web Services account and permission set.</p>
@@ -1537,15 +1024,6 @@ export interface ListAccountAssignmentsResponse {
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAccountAssignmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountAssignmentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ProvisioningStatus {
@@ -1582,15 +1060,6 @@ export interface ListAccountsForProvisionedPermissionSetRequest {
   NextToken?: string;
 }
 
-export namespace ListAccountsForProvisionedPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountsForProvisionedPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccountsForProvisionedPermissionSetResponse {
   /**
    * <p>The list of Amazon Web Services <code>AccountIds</code>.</p>
@@ -1601,15 +1070,6 @@ export interface ListAccountsForProvisionedPermissionSetResponse {
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAccountsForProvisionedPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountsForProvisionedPermissionSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCustomerManagedPolicyReferencesInPermissionSetRequest {
@@ -1634,15 +1094,6 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetRequest {
   NextToken?: string;
 }
 
-export namespace ListCustomerManagedPolicyReferencesInPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomerManagedPolicyReferencesInPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCustomerManagedPolicyReferencesInPermissionSetResponse {
   /**
    * <p>Specifies the names and paths of the IAM customer managed policies that you have attached to your permission set.</p>
@@ -1653,15 +1104,6 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetResponse {
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListCustomerManagedPolicyReferencesInPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomerManagedPolicyReferencesInPermissionSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListInstancesRequest {
@@ -1676,15 +1118,6 @@ export interface ListInstancesRequest {
   NextToken?: string;
 }
 
-export namespace ListInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInstancesResponse {
   /**
    * <p>Lists the SSO instances that the caller has access to.</p>
@@ -1695,15 +1128,6 @@ export interface ListInstancesResponse {
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListInstancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInstancesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListManagedPoliciesInPermissionSetRequest {
@@ -1730,15 +1154,6 @@ export interface ListManagedPoliciesInPermissionSetRequest {
   NextToken?: string;
 }
 
-export namespace ListManagedPoliciesInPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListManagedPoliciesInPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListManagedPoliciesInPermissionSetResponse {
   /**
    * <p>The array of the <a>AttachedManagedPolicy</a> data type object.</p>
@@ -1749,15 +1164,6 @@ export interface ListManagedPoliciesInPermissionSetResponse {
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListManagedPoliciesInPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListManagedPoliciesInPermissionSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPermissionSetProvisioningStatusRequest {
@@ -1783,15 +1189,6 @@ export interface ListPermissionSetProvisioningStatusRequest {
   Filter?: OperationStatusFilter;
 }
 
-export namespace ListPermissionSetProvisioningStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionSetProvisioningStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the permission set provisioning status.</p>
  */
@@ -1813,15 +1210,6 @@ export interface PermissionSetProvisioningStatusMetadata {
   CreatedDate?: Date;
 }
 
-export namespace PermissionSetProvisioningStatusMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PermissionSetProvisioningStatusMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPermissionSetProvisioningStatusResponse {
   /**
    * <p>The status object for the permission set provisioning operation.</p>
@@ -1832,15 +1220,6 @@ export interface ListPermissionSetProvisioningStatusResponse {
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPermissionSetProvisioningStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionSetProvisioningStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPermissionSetsRequest {
@@ -1861,15 +1240,6 @@ export interface ListPermissionSetsRequest {
   MaxResults?: number;
 }
 
-export namespace ListPermissionSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionSetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPermissionSetsResponse {
   /**
    * <p>Defines the level of access on an Amazon Web Services account.</p>
@@ -1880,15 +1250,6 @@ export interface ListPermissionSetsResponse {
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPermissionSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPermissionSetsProvisionedToAccountRequest {
@@ -1919,15 +1280,6 @@ export interface ListPermissionSetsProvisionedToAccountRequest {
   NextToken?: string;
 }
 
-export namespace ListPermissionSetsProvisionedToAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionSetsProvisionedToAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPermissionSetsProvisionedToAccountResponse {
   /**
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
@@ -1938,15 +1290,6 @@ export interface ListPermissionSetsProvisionedToAccountResponse {
    * <p>Defines the level of access that an Amazon Web Services account has.</p>
    */
   PermissionSets?: string[];
-}
-
-export namespace ListPermissionSetsProvisionedToAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionSetsProvisionedToAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -1967,15 +1310,6 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A set of key-value pairs that are used to manage the resource.</p>
@@ -1986,15 +1320,6 @@ export interface ListTagsForResourceResponse {
    * <p>The pagination token for the list API. Initially the value is null. Use the output of previous API calls to make subsequent calls.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ProvisionTargetType {
@@ -2025,29 +1350,11 @@ export interface ProvisionPermissionSetRequest {
   TargetType: ProvisionTargetType | string | undefined;
 }
 
-export namespace ProvisionPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ProvisionPermissionSetResponse {
   /**
    * <p>The status object for the permission set provisioning operation.</p>
    */
   PermissionSetProvisioningStatus?: PermissionSetProvisioningStatus;
-}
-
-export namespace ProvisionPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionPermissionSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutInlinePolicyToPermissionSetRequest {
@@ -2068,25 +1375,7 @@ export interface PutInlinePolicyToPermissionSetRequest {
   InlinePolicy: string | undefined;
 }
 
-export namespace PutInlinePolicyToPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutInlinePolicyToPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutInlinePolicyToPermissionSetResponse {}
-
-export namespace PutInlinePolicyToPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutInlinePolicyToPermissionSetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface PutPermissionsBoundaryToPermissionSetRequest {
   /**
@@ -2105,25 +1394,7 @@ export interface PutPermissionsBoundaryToPermissionSetRequest {
   PermissionsBoundary: PermissionsBoundary | undefined;
 }
 
-export namespace PutPermissionsBoundaryToPermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPermissionsBoundaryToPermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutPermissionsBoundaryToPermissionSetResponse {}
-
-export namespace PutPermissionsBoundaryToPermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPermissionsBoundaryToPermissionSetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -2143,25 +1414,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2181,25 +1434,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateInstanceAccessControlAttributeConfigurationRequest {
   /**
@@ -2213,25 +1448,7 @@ export interface UpdateInstanceAccessControlAttributeConfigurationRequest {
   InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfiguration | undefined;
 }
 
-export namespace UpdateInstanceAccessControlAttributeConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInstanceAccessControlAttributeConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateInstanceAccessControlAttributeConfigurationResponse {}
-
-export namespace UpdateInstanceAccessControlAttributeConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInstanceAccessControlAttributeConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdatePermissionSetRequest {
   /**
@@ -2263,22 +1480,729 @@ export interface UpdatePermissionSetRequest {
   RelayState?: string;
 }
 
-export namespace UpdatePermissionSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePermissionSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePermissionSetResponse {}
 
-export namespace UpdatePermissionSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePermissionSetResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccessControlAttributeValueFilterSensitiveLog = (obj: AccessControlAttributeValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessControlAttributeFilterSensitiveLog = (obj: AccessControlAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountAssignmentFilterSensitiveLog = (obj: AccountAssignment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountAssignmentOperationStatusFilterSensitiveLog = (obj: AccountAssignmentOperationStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountAssignmentOperationStatusMetadataFilterSensitiveLog = (
+  obj: AccountAssignmentOperationStatusMetadata
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomerManagedPolicyReferenceFilterSensitiveLog = (obj: CustomerManagedPolicyReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachCustomerManagedPolicyReferenceToPermissionSetRequestFilterSensitiveLog = (
+  obj: AttachCustomerManagedPolicyReferenceToPermissionSetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachCustomerManagedPolicyReferenceToPermissionSetResponseFilterSensitiveLog = (
+  obj: AttachCustomerManagedPolicyReferenceToPermissionSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachedManagedPolicyFilterSensitiveLog = (obj: AttachedManagedPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachManagedPolicyToPermissionSetRequestFilterSensitiveLog = (
+  obj: AttachManagedPolicyToPermissionSetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachManagedPolicyToPermissionSetResponseFilterSensitiveLog = (
+  obj: AttachManagedPolicyToPermissionSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAccountAssignmentRequestFilterSensitiveLog = (obj: CreateAccountAssignmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAccountAssignmentResponseFilterSensitiveLog = (obj: CreateAccountAssignmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceAccessControlAttributeConfigurationFilterSensitiveLog = (
+  obj: InstanceAccessControlAttributeConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInstanceAccessControlAttributeConfigurationRequestFilterSensitiveLog = (
+  obj: CreateInstanceAccessControlAttributeConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInstanceAccessControlAttributeConfigurationResponseFilterSensitiveLog = (
+  obj: CreateInstanceAccessControlAttributeConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePermissionSetRequestFilterSensitiveLog = (obj: CreatePermissionSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PermissionSetFilterSensitiveLog = (obj: PermissionSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePermissionSetResponseFilterSensitiveLog = (obj: CreatePermissionSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccountAssignmentRequestFilterSensitiveLog = (obj: DeleteAccountAssignmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccountAssignmentResponseFilterSensitiveLog = (obj: DeleteAccountAssignmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInlinePolicyFromPermissionSetRequestFilterSensitiveLog = (
+  obj: DeleteInlinePolicyFromPermissionSetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInlinePolicyFromPermissionSetResponseFilterSensitiveLog = (
+  obj: DeleteInlinePolicyFromPermissionSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInstanceAccessControlAttributeConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteInstanceAccessControlAttributeConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInstanceAccessControlAttributeConfigurationResponseFilterSensitiveLog = (
+  obj: DeleteInstanceAccessControlAttributeConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePermissionsBoundaryFromPermissionSetRequestFilterSensitiveLog = (
+  obj: DeletePermissionsBoundaryFromPermissionSetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePermissionsBoundaryFromPermissionSetResponseFilterSensitiveLog = (
+  obj: DeletePermissionsBoundaryFromPermissionSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePermissionSetRequestFilterSensitiveLog = (obj: DeletePermissionSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePermissionSetResponseFilterSensitiveLog = (obj: DeletePermissionSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountAssignmentCreationStatusRequestFilterSensitiveLog = (
+  obj: DescribeAccountAssignmentCreationStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountAssignmentCreationStatusResponseFilterSensitiveLog = (
+  obj: DescribeAccountAssignmentCreationStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountAssignmentDeletionStatusRequestFilterSensitiveLog = (
+  obj: DescribeAccountAssignmentDeletionStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountAssignmentDeletionStatusResponseFilterSensitiveLog = (
+  obj: DescribeAccountAssignmentDeletionStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstanceAccessControlAttributeConfigurationRequestFilterSensitiveLog = (
+  obj: DescribeInstanceAccessControlAttributeConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstanceAccessControlAttributeConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeInstanceAccessControlAttributeConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePermissionSetRequestFilterSensitiveLog = (obj: DescribePermissionSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePermissionSetResponseFilterSensitiveLog = (obj: DescribePermissionSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePermissionSetProvisioningStatusRequestFilterSensitiveLog = (
+  obj: DescribePermissionSetProvisioningStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PermissionSetProvisioningStatusFilterSensitiveLog = (obj: PermissionSetProvisioningStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePermissionSetProvisioningStatusResponseFilterSensitiveLog = (
+  obj: DescribePermissionSetProvisioningStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachCustomerManagedPolicyReferenceFromPermissionSetRequestFilterSensitiveLog = (
+  obj: DetachCustomerManagedPolicyReferenceFromPermissionSetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachCustomerManagedPolicyReferenceFromPermissionSetResponseFilterSensitiveLog = (
+  obj: DetachCustomerManagedPolicyReferenceFromPermissionSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachManagedPolicyFromPermissionSetRequestFilterSensitiveLog = (
+  obj: DetachManagedPolicyFromPermissionSetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachManagedPolicyFromPermissionSetResponseFilterSensitiveLog = (
+  obj: DetachManagedPolicyFromPermissionSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInlinePolicyForPermissionSetRequestFilterSensitiveLog = (
+  obj: GetInlinePolicyForPermissionSetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInlinePolicyForPermissionSetResponseFilterSensitiveLog = (
+  obj: GetInlinePolicyForPermissionSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPermissionsBoundaryForPermissionSetRequestFilterSensitiveLog = (
+  obj: GetPermissionsBoundaryForPermissionSetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PermissionsBoundaryFilterSensitiveLog = (obj: PermissionsBoundary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPermissionsBoundaryForPermissionSetResponseFilterSensitiveLog = (
+  obj: GetPermissionsBoundaryForPermissionSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceMetadataFilterSensitiveLog = (obj: InstanceMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OperationStatusFilterFilterSensitiveLog = (obj: OperationStatusFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountAssignmentCreationStatusRequestFilterSensitiveLog = (
+  obj: ListAccountAssignmentCreationStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountAssignmentCreationStatusResponseFilterSensitiveLog = (
+  obj: ListAccountAssignmentCreationStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountAssignmentDeletionStatusRequestFilterSensitiveLog = (
+  obj: ListAccountAssignmentDeletionStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountAssignmentDeletionStatusResponseFilterSensitiveLog = (
+  obj: ListAccountAssignmentDeletionStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountAssignmentsRequestFilterSensitiveLog = (obj: ListAccountAssignmentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountAssignmentsResponseFilterSensitiveLog = (obj: ListAccountAssignmentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountsForProvisionedPermissionSetRequestFilterSensitiveLog = (
+  obj: ListAccountsForProvisionedPermissionSetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountsForProvisionedPermissionSetResponseFilterSensitiveLog = (
+  obj: ListAccountsForProvisionedPermissionSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomerManagedPolicyReferencesInPermissionSetRequestFilterSensitiveLog = (
+  obj: ListCustomerManagedPolicyReferencesInPermissionSetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomerManagedPolicyReferencesInPermissionSetResponseFilterSensitiveLog = (
+  obj: ListCustomerManagedPolicyReferencesInPermissionSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInstancesRequestFilterSensitiveLog = (obj: ListInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInstancesResponseFilterSensitiveLog = (obj: ListInstancesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListManagedPoliciesInPermissionSetRequestFilterSensitiveLog = (
+  obj: ListManagedPoliciesInPermissionSetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListManagedPoliciesInPermissionSetResponseFilterSensitiveLog = (
+  obj: ListManagedPoliciesInPermissionSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPermissionSetProvisioningStatusRequestFilterSensitiveLog = (
+  obj: ListPermissionSetProvisioningStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PermissionSetProvisioningStatusMetadataFilterSensitiveLog = (
+  obj: PermissionSetProvisioningStatusMetadata
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPermissionSetProvisioningStatusResponseFilterSensitiveLog = (
+  obj: ListPermissionSetProvisioningStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPermissionSetsRequestFilterSensitiveLog = (obj: ListPermissionSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPermissionSetsResponseFilterSensitiveLog = (obj: ListPermissionSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPermissionSetsProvisionedToAccountRequestFilterSensitiveLog = (
+  obj: ListPermissionSetsProvisionedToAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPermissionSetsProvisionedToAccountResponseFilterSensitiveLog = (
+  obj: ListPermissionSetsProvisionedToAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionPermissionSetRequestFilterSensitiveLog = (obj: ProvisionPermissionSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionPermissionSetResponseFilterSensitiveLog = (obj: ProvisionPermissionSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutInlinePolicyToPermissionSetRequestFilterSensitiveLog = (
+  obj: PutInlinePolicyToPermissionSetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutInlinePolicyToPermissionSetResponseFilterSensitiveLog = (
+  obj: PutInlinePolicyToPermissionSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPermissionsBoundaryToPermissionSetRequestFilterSensitiveLog = (
+  obj: PutPermissionsBoundaryToPermissionSetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPermissionsBoundaryToPermissionSetResponseFilterSensitiveLog = (
+  obj: PutPermissionsBoundaryToPermissionSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInstanceAccessControlAttributeConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateInstanceAccessControlAttributeConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInstanceAccessControlAttributeConfigurationResponseFilterSensitiveLog = (
+  obj: UpdateInstanceAccessControlAttributeConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePermissionSetRequestFilterSensitiveLog = (obj: UpdatePermissionSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePermissionSetResponseFilterSensitiveLog = (obj: UpdatePermissionSetResponse): any => ({
+  ...obj,
+});

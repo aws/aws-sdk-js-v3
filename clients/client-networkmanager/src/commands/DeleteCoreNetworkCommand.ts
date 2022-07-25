@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteCoreNetworkRequest, DeleteCoreNetworkResponse } from "../models/models_0";
+import {
+  DeleteCoreNetworkRequest,
+  DeleteCoreNetworkRequestFilterSensitiveLog,
+  DeleteCoreNetworkResponse,
+  DeleteCoreNetworkResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1DeleteCoreNetworkCommand,
@@ -72,8 +77,8 @@ export class DeleteCoreNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCoreNetworkRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCoreNetworkResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCoreNetworkRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCoreNetworkResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

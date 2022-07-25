@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
-import { StartAttachmentUploadRequest, StartAttachmentUploadResponse } from "../models/models_0";
+import {
+  StartAttachmentUploadRequest,
+  StartAttachmentUploadRequestFilterSensitiveLog,
+  StartAttachmentUploadResponse,
+  StartAttachmentUploadResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartAttachmentUploadCommand,
   serializeAws_restJson1StartAttachmentUploadCommand,
@@ -79,8 +84,8 @@ export class StartAttachmentUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartAttachmentUploadRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartAttachmentUploadResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartAttachmentUploadRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartAttachmentUploadResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

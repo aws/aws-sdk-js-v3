@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { TestMetricFilterRequest, TestMetricFilterResponse } from "../models/models_0";
+import {
+  TestMetricFilterRequest,
+  TestMetricFilterRequestFilterSensitiveLog,
+  TestMetricFilterResponse,
+  TestMetricFilterResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1TestMetricFilterCommand,
   serializeAws_json1_1TestMetricFilterCommand,
@@ -73,8 +78,8 @@ export class TestMetricFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestMetricFilterRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TestMetricFilterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TestMetricFilterRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TestMetricFilterResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

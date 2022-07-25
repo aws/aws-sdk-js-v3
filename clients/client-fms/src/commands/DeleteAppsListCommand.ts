@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { DeleteAppsListRequest } from "../models/models_0";
+import { DeleteAppsListRequest, DeleteAppsListRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAppsListCommand,
   serializeAws_json1_1DeleteAppsListCommand,
@@ -72,7 +72,7 @@ export class DeleteAppsListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppsListRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAppsListRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

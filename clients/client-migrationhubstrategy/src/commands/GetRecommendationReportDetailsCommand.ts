@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import { GetRecommendationReportDetailsRequest, GetRecommendationReportDetailsResponse } from "../models/models_0";
+import {
+  GetRecommendationReportDetailsRequest,
+  GetRecommendationReportDetailsRequestFilterSensitiveLog,
+  GetRecommendationReportDetailsResponse,
+  GetRecommendationReportDetailsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetRecommendationReportDetailsCommand,
   serializeAws_restJson1GetRecommendationReportDetailsCommand,
@@ -78,8 +83,8 @@ export class GetRecommendationReportDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecommendationReportDetailsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRecommendationReportDetailsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRecommendationReportDetailsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRecommendationReportDetailsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetRandomPasswordRequest, GetRandomPasswordResponse } from "../models/models_0";
+import {
+  GetRandomPasswordRequest,
+  GetRandomPasswordRequestFilterSensitiveLog,
+  GetRandomPasswordResponse,
+  GetRandomPasswordResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetRandomPasswordCommand,
   serializeAws_json1_1GetRandomPasswordCommand,
@@ -80,8 +85,8 @@ export class GetRandomPasswordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRandomPasswordRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRandomPasswordResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRandomPasswordRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRandomPasswordResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

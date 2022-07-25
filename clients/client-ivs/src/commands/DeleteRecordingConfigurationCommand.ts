@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { DeleteRecordingConfigurationRequest } from "../models/models_0";
+import {
+  DeleteRecordingConfigurationRequest,
+  DeleteRecordingConfigurationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRecordingConfigurationCommand,
   serializeAws_restJson1DeleteRecordingConfigurationCommand,
@@ -77,7 +80,7 @@ export class DeleteRecordingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRecordingConfigurationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRecordingConfigurationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

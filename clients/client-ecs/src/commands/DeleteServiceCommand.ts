@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { DeleteServiceRequest, DeleteServiceResponse } from "../models/models_0";
+import {
+  DeleteServiceRequest,
+  DeleteServiceRequestFilterSensitiveLog,
+  DeleteServiceResponse,
+  DeleteServiceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteServiceCommand,
   serializeAws_json1_1DeleteServiceCommand,
@@ -92,8 +97,8 @@ export class DeleteServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServiceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteServiceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteServiceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteServiceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

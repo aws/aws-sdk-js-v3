@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { ListPackagesForDomainRequest, ListPackagesForDomainResponse } from "../models/models_0";
+import {
+  ListPackagesForDomainRequest,
+  ListPackagesForDomainRequestFilterSensitiveLog,
+  ListPackagesForDomainResponse,
+  ListPackagesForDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListPackagesForDomainCommand,
   serializeAws_restJson1ListPackagesForDomainCommand,
@@ -76,8 +81,8 @@ export class ListPackagesForDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPackagesForDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPackagesForDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPackagesForDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPackagesForDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

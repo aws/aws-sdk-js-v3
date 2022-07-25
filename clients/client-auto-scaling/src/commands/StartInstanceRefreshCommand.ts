@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { StartInstanceRefreshAnswer, StartInstanceRefreshType } from "../models/models_0";
+import {
+  StartInstanceRefreshAnswer,
+  StartInstanceRefreshAnswerFilterSensitiveLog,
+  StartInstanceRefreshType,
+  StartInstanceRefreshTypeFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryStartInstanceRefreshCommand,
   serializeAws_queryStartInstanceRefreshCommand,
@@ -86,8 +91,8 @@ export class StartInstanceRefreshCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartInstanceRefreshType.filterSensitiveLog,
-      outputFilterSensitiveLog: StartInstanceRefreshAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: StartInstanceRefreshTypeFilterSensitiveLog,
+      outputFilterSensitiveLog: StartInstanceRefreshAnswerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

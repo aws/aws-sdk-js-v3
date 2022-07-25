@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import { PutRecommendationPreferencesRequest, PutRecommendationPreferencesResponse } from "../models/models_0";
+import {
+  PutRecommendationPreferencesRequest,
+  PutRecommendationPreferencesRequestFilterSensitiveLog,
+  PutRecommendationPreferencesResponse,
+  PutRecommendationPreferencesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0PutRecommendationPreferencesCommand,
   serializeAws_json1_0PutRecommendationPreferencesCommand,
@@ -78,8 +83,8 @@ export class PutRecommendationPreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRecommendationPreferencesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutRecommendationPreferencesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutRecommendationPreferencesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutRecommendationPreferencesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

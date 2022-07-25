@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import { DescribeSubnetGroupsRequest, DescribeSubnetGroupsResponse } from "../models/models_0";
+import {
+  DescribeSubnetGroupsRequest,
+  DescribeSubnetGroupsRequestFilterSensitiveLog,
+  DescribeSubnetGroupsResponse,
+  DescribeSubnetGroupsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeSubnetGroupsCommand,
   serializeAws_json1_1DescribeSubnetGroupsCommand,
@@ -72,8 +77,8 @@ export class DescribeSubnetGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSubnetGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSubnetGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSubnetGroupsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSubnetGroupsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

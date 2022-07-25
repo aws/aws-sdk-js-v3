@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { ClientCertificate, UpdateClientCertificateRequest } from "../models/models_0";
+import {
+  ClientCertificate,
+  ClientCertificateFilterSensitiveLog,
+  UpdateClientCertificateRequest,
+  UpdateClientCertificateRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateClientCertificateCommand,
   serializeAws_restJson1UpdateClientCertificateCommand,
@@ -72,8 +77,8 @@ export class UpdateClientCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClientCertificateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ClientCertificate.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateClientCertificateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ClientCertificateFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

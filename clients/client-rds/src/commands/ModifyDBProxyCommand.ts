@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifyDBProxyRequest, ModifyDBProxyResponse } from "../models/models_1";
+import {
+  ModifyDBProxyRequest,
+  ModifyDBProxyRequestFilterSensitiveLog,
+  ModifyDBProxyResponse,
+  ModifyDBProxyResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryModifyDBProxyCommand,
   serializeAws_queryModifyDBProxyCommand,
@@ -72,8 +77,8 @@ export class ModifyDBProxyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBProxyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBProxyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyDBProxyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyDBProxyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

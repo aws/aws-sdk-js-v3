@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { ListIpRoutesRequest, ListIpRoutesResult } from "../models/models_0";
+import {
+  ListIpRoutesRequest,
+  ListIpRoutesRequestFilterSensitiveLog,
+  ListIpRoutesResult,
+  ListIpRoutesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListIpRoutesCommand,
   serializeAws_json1_1ListIpRoutesCommand,
@@ -72,8 +77,8 @@ export class ListIpRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIpRoutesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListIpRoutesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListIpRoutesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListIpRoutesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

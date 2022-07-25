@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import { AddApplicationOutputRequest, AddApplicationOutputResponse } from "../models/models_0";
+import {
+  AddApplicationOutputRequest,
+  AddApplicationOutputRequestFilterSensitiveLog,
+  AddApplicationOutputResponse,
+  AddApplicationOutputResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AddApplicationOutputCommand,
   serializeAws_json1_1AddApplicationOutputCommand,
@@ -88,8 +93,8 @@ export class AddApplicationOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddApplicationOutputRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AddApplicationOutputResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddApplicationOutputRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AddApplicationOutputResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

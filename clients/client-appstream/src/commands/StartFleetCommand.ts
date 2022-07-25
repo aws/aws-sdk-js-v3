@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { StartFleetRequest, StartFleetResult } from "../models/models_0";
+import {
+  StartFleetRequest,
+  StartFleetRequestFilterSensitiveLog,
+  StartFleetResult,
+  StartFleetResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartFleetCommand,
   serializeAws_json1_1StartFleetCommand,
@@ -72,8 +77,8 @@ export class StartFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartFleetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartFleetResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartFleetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartFleetResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

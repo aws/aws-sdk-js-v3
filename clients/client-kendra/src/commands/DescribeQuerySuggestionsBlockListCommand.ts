@@ -15,7 +15,9 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import {
   DescribeQuerySuggestionsBlockListRequest,
+  DescribeQuerySuggestionsBlockListRequestFilterSensitiveLog,
   DescribeQuerySuggestionsBlockListResponse,
+  DescribeQuerySuggestionsBlockListResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeQuerySuggestionsBlockListCommand,
@@ -83,8 +85,8 @@ export class DescribeQuerySuggestionsBlockListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeQuerySuggestionsBlockListRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeQuerySuggestionsBlockListResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeQuerySuggestionsBlockListRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeQuerySuggestionsBlockListResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

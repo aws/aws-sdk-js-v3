@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetParameterHistoryRequest, GetParameterHistoryResult } from "../models/models_1";
+import {
+  GetParameterHistoryRequest,
+  GetParameterHistoryRequestFilterSensitiveLog,
+  GetParameterHistoryResult,
+  GetParameterHistoryResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetParameterHistoryCommand,
   serializeAws_json1_1GetParameterHistoryCommand,
@@ -78,8 +83,8 @@ export class GetParameterHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetParameterHistoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetParameterHistoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetParameterHistoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetParameterHistoryResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

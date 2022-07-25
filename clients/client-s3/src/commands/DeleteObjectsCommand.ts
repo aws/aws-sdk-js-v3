@@ -14,7 +14,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteObjectsOutput, DeleteObjectsRequest } from "../models/models_0";
+import {
+  DeleteObjectsOutput,
+  DeleteObjectsOutputFilterSensitiveLog,
+  DeleteObjectsRequest,
+  DeleteObjectsRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteObjectsCommand,
   serializeAws_restXmlDeleteObjectsCommand,
@@ -138,8 +143,8 @@ export class DeleteObjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteObjectsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteObjectsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteObjectsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteObjectsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

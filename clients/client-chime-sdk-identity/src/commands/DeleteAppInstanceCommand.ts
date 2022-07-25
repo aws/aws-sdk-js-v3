@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
-import { DeleteAppInstanceRequest } from "../models/models_0";
+import { DeleteAppInstanceRequest, DeleteAppInstanceRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAppInstanceCommand,
   serializeAws_restJson1DeleteAppInstanceCommand,
@@ -72,7 +72,7 @@ export class DeleteAppInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppInstanceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAppInstanceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

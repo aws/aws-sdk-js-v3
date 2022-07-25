@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import { DeleteACLRequest, DeleteACLResponse } from "../models/models_0";
+import {
+  DeleteACLRequest,
+  DeleteACLRequestFilterSensitiveLog,
+  DeleteACLResponse,
+  DeleteACLResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1DeleteACLCommand, serializeAws_json1_1DeleteACLCommand } from "../protocols/Aws_json1_1";
 
 export interface DeleteACLCommandInput extends DeleteACLRequest {}
@@ -69,8 +74,8 @@ export class DeleteACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteACLRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteACLResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteACLRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteACLResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

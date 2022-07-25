@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import { DeleteRulesetRequest, DeleteRulesetResponse } from "../models/models_0";
+import {
+  DeleteRulesetRequest,
+  DeleteRulesetRequestFilterSensitiveLog,
+  DeleteRulesetResponse,
+  DeleteRulesetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRulesetCommand,
   serializeAws_restJson1DeleteRulesetCommand,
@@ -72,8 +77,8 @@ export class DeleteRulesetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRulesetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRulesetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRulesetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRulesetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

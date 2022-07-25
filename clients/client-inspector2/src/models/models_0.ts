@@ -46,15 +46,6 @@ export interface ResourceStatus {
   ecr: Status | string | undefined;
 }
 
-export namespace ResourceStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An Amazon Web Services account within your environment that Amazon Inspector has been enabled for.</p>
  */
@@ -73,15 +64,6 @@ export interface Account {
    * <p>Details of the status of Amazon Inspector scans by resource type.</p>
    */
   resourceStatus: ResourceStatus | undefined;
-}
-
-export namespace Account {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Account): any => ({
-    ...obj,
-  });
 }
 
 export enum AggregationFindingType {
@@ -131,15 +113,6 @@ export interface AccountAggregation {
   sortBy?: AccountSortBy | string;
 }
 
-export namespace AccountAggregation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountAggregation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains the counts of aggregated finding per severity.</p>
  */
@@ -165,15 +138,6 @@ export interface SeverityCounts {
   critical?: number;
 }
 
-export namespace SeverityCounts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SeverityCounts): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An aggregation of findings by Amazon Web Services account ID.</p>
  */
@@ -187,15 +151,6 @@ export interface AccountAggregationResponse {
    * <p>The number of findings by severity.</p>
    */
   severityCounts?: SeverityCounts;
-}
-
-export namespace AccountAggregationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountAggregationResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ErrorCode {
@@ -235,15 +190,6 @@ export interface State {
   errorMessage: string | undefined;
 }
 
-export namespace State {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: State): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details the state of Amazon Inspector for each resource type Amazon Inspector scans.</p>
  */
@@ -257,15 +203,6 @@ export interface ResourceState {
    * <p>An object detailing the state of Amazon Inspector scanning for Amazon ECR resources.</p>
    */
   ecr: State | undefined;
-}
-
-export namespace ResourceState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceState): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -288,15 +225,6 @@ export interface AccountState {
   resourceState: ResourceState | undefined;
 }
 
-export namespace AccountState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountState): any => ({
-    ...obj,
-  });
-}
-
 export enum StringComparison {
   EQUALS = "EQUALS",
   NOT_EQUALS = "NOT_EQUALS",
@@ -316,15 +244,6 @@ export interface StringFilter {
    * <p>The value to filter on.</p>
    */
   value: string | undefined;
-}
-
-export namespace StringFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StringFilter): any => ({
-    ...obj,
-  });
 }
 
 export enum AmiSortBy {
@@ -352,15 +271,6 @@ export interface AmiAggregation {
    * <p>The value to sort results by.</p>
    */
   sortBy?: AmiSortBy | string;
-}
-
-export namespace AmiAggregation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmiAggregation): any => ({
-    ...obj,
-  });
 }
 
 export enum AwsEcrContainerSortBy {
@@ -409,15 +319,6 @@ export interface AwsEcrContainerAggregation {
   sortBy?: AwsEcrContainerSortBy | string;
 }
 
-export namespace AwsEcrContainerAggregation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcrContainerAggregation): any => ({
-    ...obj,
-  });
-}
-
 export enum MapComparison {
   EQUALS = "EQUALS",
 }
@@ -440,15 +341,6 @@ export interface MapFilter {
    * <p>The tag value used in the filter.</p>
    */
   value?: string;
-}
-
-export namespace MapFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MapFilter): any => ({
-    ...obj,
-  });
 }
 
 export enum Ec2InstanceSortBy {
@@ -495,15 +387,6 @@ export interface Ec2InstanceAggregation {
   sortBy?: Ec2InstanceSortBy | string;
 }
 
-export namespace Ec2InstanceAggregation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ec2InstanceAggregation): any => ({
-    ...obj,
-  });
-}
-
 export enum FindingTypeSortBy {
   ALL = "ALL",
   CRITICAL = "CRITICAL",
@@ -533,15 +416,6 @@ export interface FindingTypeAggregation {
    * <p>The value to sort results by.</p>
    */
   sortBy?: FindingTypeSortBy | string;
-}
-
-export namespace FindingTypeAggregation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FindingTypeAggregation): any => ({
-    ...obj,
-  });
 }
 
 export enum ImageLayerSortBy {
@@ -580,15 +454,6 @@ export interface ImageLayerAggregation {
   sortBy?: ImageLayerSortBy | string;
 }
 
-export namespace ImageLayerAggregation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageLayerAggregation): any => ({
-    ...obj,
-  });
-}
-
 export enum PackageSortBy {
   ALL = "ALL",
   CRITICAL = "CRITICAL",
@@ -613,15 +478,6 @@ export interface PackageAggregation {
    * <p>The value to sort results by.</p>
    */
   sortBy?: PackageSortBy | string;
-}
-
-export namespace PackageAggregation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageAggregation): any => ({
-    ...obj,
-  });
 }
 
 export enum RepositorySortBy {
@@ -649,15 +505,6 @@ export interface RepositoryAggregation {
    * <p>The value to sort results by.</p>
    */
   sortBy?: RepositorySortBy | string;
-}
-
-export namespace RepositoryAggregation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryAggregation): any => ({
-    ...obj,
-  });
 }
 
 export enum TitleSortBy {
@@ -694,15 +541,6 @@ export interface TitleAggregation {
    * <p>The value to sort results by.</p>
    */
   sortBy?: TitleSortBy | string;
-}
-
-export namespace TitleAggregation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TitleAggregation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -910,33 +748,6 @@ export namespace AggregationRequest {
     if (value.titleAggregation !== undefined) return visitor.titleAggregation(value.titleAggregation);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregationRequest): any => {
-    if (obj.accountAggregation !== undefined)
-      return { accountAggregation: AccountAggregation.filterSensitiveLog(obj.accountAggregation) };
-    if (obj.amiAggregation !== undefined)
-      return { amiAggregation: AmiAggregation.filterSensitiveLog(obj.amiAggregation) };
-    if (obj.awsEcrContainerAggregation !== undefined)
-      return {
-        awsEcrContainerAggregation: AwsEcrContainerAggregation.filterSensitiveLog(obj.awsEcrContainerAggregation),
-      };
-    if (obj.ec2InstanceAggregation !== undefined)
-      return { ec2InstanceAggregation: Ec2InstanceAggregation.filterSensitiveLog(obj.ec2InstanceAggregation) };
-    if (obj.findingTypeAggregation !== undefined)
-      return { findingTypeAggregation: FindingTypeAggregation.filterSensitiveLog(obj.findingTypeAggregation) };
-    if (obj.imageLayerAggregation !== undefined)
-      return { imageLayerAggregation: ImageLayerAggregation.filterSensitiveLog(obj.imageLayerAggregation) };
-    if (obj.packageAggregation !== undefined)
-      return { packageAggregation: PackageAggregation.filterSensitiveLog(obj.packageAggregation) };
-    if (obj.repositoryAggregation !== undefined)
-      return { repositoryAggregation: RepositoryAggregation.filterSensitiveLog(obj.repositoryAggregation) };
-    if (obj.titleAggregation !== undefined)
-      return { titleAggregation: TitleAggregation.filterSensitiveLog(obj.titleAggregation) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -962,15 +773,6 @@ export interface AmiAggregationResponse {
    * <p>The IDs of Amazon EC2 instances using this AMI.</p>
    */
   affectedInstances?: number;
-}
-
-export namespace AmiAggregationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmiAggregationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1013,15 +815,6 @@ export interface AwsEcrContainerAggregationResponse {
   severityCounts?: SeverityCounts;
 }
 
-export namespace AwsEcrContainerAggregationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcrContainerAggregationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A response that contains the results of a finding aggregation by Amazon EC2 instance.</p>
  */
@@ -1062,15 +855,6 @@ export interface Ec2InstanceAggregationResponse {
   networkFindings?: number;
 }
 
-export namespace Ec2InstanceAggregationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ec2InstanceAggregationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A response that contains the results of a finding type aggregation.</p>
  */
@@ -1084,15 +868,6 @@ export interface FindingTypeAggregationResponse {
    * <p>The value to sort results by.</p>
    */
   severityCounts?: SeverityCounts;
-}
-
-export namespace FindingTypeAggregationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FindingTypeAggregationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1125,15 +900,6 @@ export interface ImageLayerAggregationResponse {
   severityCounts?: SeverityCounts;
 }
 
-export namespace ImageLayerAggregationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageLayerAggregationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A response that contains the results of a finding aggregation by image layer.</p>
  */
@@ -1152,15 +918,6 @@ export interface PackageAggregationResponse {
    * <p>An object that contains the count of matched findings per severity.</p>
    */
   severityCounts?: SeverityCounts;
-}
-
-export namespace PackageAggregationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageAggregationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1188,15 +945,6 @@ export interface RepositoryAggregationResponse {
   affectedImages?: number;
 }
 
-export namespace RepositoryAggregationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryAggregationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A response that contains details on the results of a finding aggregation by title.</p>
  */
@@ -1220,15 +968,6 @@ export interface TitleAggregationResponse {
    * <p>An object that represent the count of matched findings per severity.</p>
    */
   severityCounts?: SeverityCounts;
-}
-
-export namespace TitleAggregationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TitleAggregationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1437,35 +1176,6 @@ export namespace AggregationResponse {
     if (value.titleAggregation !== undefined) return visitor.titleAggregation(value.titleAggregation);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregationResponse): any => {
-    if (obj.accountAggregation !== undefined)
-      return { accountAggregation: AccountAggregationResponse.filterSensitiveLog(obj.accountAggregation) };
-    if (obj.amiAggregation !== undefined)
-      return { amiAggregation: AmiAggregationResponse.filterSensitiveLog(obj.amiAggregation) };
-    if (obj.awsEcrContainerAggregation !== undefined)
-      return {
-        awsEcrContainerAggregation: AwsEcrContainerAggregationResponse.filterSensitiveLog(
-          obj.awsEcrContainerAggregation
-        ),
-      };
-    if (obj.ec2InstanceAggregation !== undefined)
-      return { ec2InstanceAggregation: Ec2InstanceAggregationResponse.filterSensitiveLog(obj.ec2InstanceAggregation) };
-    if (obj.findingTypeAggregation !== undefined)
-      return { findingTypeAggregation: FindingTypeAggregationResponse.filterSensitiveLog(obj.findingTypeAggregation) };
-    if (obj.imageLayerAggregation !== undefined)
-      return { imageLayerAggregation: ImageLayerAggregationResponse.filterSensitiveLog(obj.imageLayerAggregation) };
-    if (obj.packageAggregation !== undefined)
-      return { packageAggregation: PackageAggregationResponse.filterSensitiveLog(obj.packageAggregation) };
-    if (obj.repositoryAggregation !== undefined)
-      return { repositoryAggregation: RepositoryAggregationResponse.filterSensitiveLog(obj.repositoryAggregation) };
-    if (obj.titleAggregation !== undefined)
-      return { titleAggregation: TitleAggregationResponse.filterSensitiveLog(obj.titleAggregation) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export enum AggregationType {
@@ -1487,29 +1197,11 @@ export interface AssociateMemberRequest {
   accountId: string | undefined;
 }
 
-export namespace AssociateMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateMemberRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateMemberResponse {
   /**
    * <p>The Amazon Web Services account ID of the successfully associated member account.</p>
    */
   accountId: string | undefined;
-}
-
-export namespace AssociateMemberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateMemberResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1572,15 +1264,6 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "CANNOT_PARSE",
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
@@ -1634,15 +1317,6 @@ export interface AutoEnable {
    *          organization.</p>
    */
   ecr: boolean | undefined;
-}
-
-export namespace AutoEnable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoEnable): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1700,15 +1374,6 @@ export interface AwsEc2InstanceDetails {
   platform?: string;
 }
 
-export namespace AwsEc2InstanceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2InstanceDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The image details of the Amazon ECR container image.</p>
  */
@@ -1754,15 +1419,6 @@ export interface AwsEcrContainerImageDetails {
   platform?: string;
 }
 
-export namespace AwsEcrContainerImageDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcrContainerImageDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more tags submitted as part of the request is not valid.</p>
  */
@@ -1787,15 +1443,6 @@ export interface BatchGetAccountStatusRequest {
    * <p>The 12-digit Amazon Web Services account IDs of the accounts to retrieve Amazon Inspector status for.</p>
    */
   accountIds?: string[];
-}
-
-export namespace BatchGetAccountStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetAccountStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1828,15 +1475,6 @@ export interface FailedAccount {
   errorMessage: string | undefined;
 }
 
-export namespace FailedAccount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedAccount): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetAccountStatusResponse {
   /**
    * <p>An array of objects that provide details on the status of Amazon Inspector for each of the requested accounts.</p>
@@ -1847,15 +1485,6 @@ export interface BatchGetAccountStatusResponse {
    * <p>An array of objects detailing any accounts that failed to enable Amazon Inspector and why.</p>
    */
   failedAccounts?: FailedAccount[];
-}
-
-export namespace BatchGetAccountStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetAccountStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1882,15 +1511,6 @@ export interface BatchGetFreeTrialInfoRequest {
    * <p>The account IDs to get free trial status for.</p>
    */
   accountIds: string[] | undefined;
-}
-
-export namespace BatchGetFreeTrialInfoRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetFreeTrialInfoRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum FreeTrialStatus {
@@ -1928,15 +1548,6 @@ export interface FreeTrialInfo {
   status: FreeTrialStatus | string | undefined;
 }
 
-export namespace FreeTrialInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FreeTrialInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the Amazon Inspector free trial for an account.</p>
  */
@@ -1950,15 +1561,6 @@ export interface FreeTrialAccountInfo {
    * <p>Contains information about the Amazon Inspector free trial for an account.</p>
    */
   freeTrialInfo: FreeTrialInfo[] | undefined;
-}
-
-export namespace FreeTrialAccountInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FreeTrialAccountInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum FreeTrialInfoErrorCode {
@@ -1986,15 +1588,6 @@ export interface FreeTrialInfoError {
   message: string | undefined;
 }
 
-export namespace FreeTrialInfoError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FreeTrialInfoError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetFreeTrialInfoResponse {
   /**
    * <p>An array of objects that provide Amazon Inspector free trial details for each of the requested accounts.
@@ -2008,15 +1601,6 @@ export interface BatchGetFreeTrialInfoResponse {
   failedAccounts: FreeTrialInfoError[] | undefined;
 }
 
-export namespace BatchGetFreeTrialInfoResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetFreeTrialInfoResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelFindingsReportRequest {
   /**
    * <p>The ID of the report to be canceled.</p>
@@ -2024,29 +1608,11 @@ export interface CancelFindingsReportRequest {
   reportId: string | undefined;
 }
 
-export namespace CancelFindingsReportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelFindingsReportRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelFindingsReportResponse {
   /**
    * <p>The ID of the canceled report.</p>
    */
   reportId: string | undefined;
-}
-
-export namespace CancelFindingsReportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelFindingsReportResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2103,15 +1669,6 @@ export interface Counts {
   groupKey?: GroupKey | string;
 }
 
-export namespace Counts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Counts): any => ({
-    ...obj,
-  });
-}
-
 export enum CoverageStringComparison {
   EQUALS = "EQUALS",
   NOT_EQUALS = "NOT_EQUALS",
@@ -2130,15 +1687,6 @@ export interface CoverageStringFilter {
    * <p>The value to compare strings on.</p>
    */
   value: string | undefined;
-}
-
-export namespace CoverageStringFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CoverageStringFilter): any => ({
-    ...obj,
-  });
 }
 
 export enum CoverageMapComparison {
@@ -2163,15 +1711,6 @@ export interface CoverageMapFilter {
    * <p>The tag value associated with the coverage map filter.</p>
    */
   value?: string;
-}
-
-export namespace CoverageMapFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CoverageMapFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2224,15 +1763,6 @@ export interface CoverageFilterCriteria {
   ec2InstanceTags?: CoverageMapFilter[];
 }
 
-export namespace CoverageFilterCriteria {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CoverageFilterCriteria): any => ({
-    ...obj,
-  });
-}
-
 export enum CoverageResourceType {
   AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
   AWS_ECR_CONTAINER_IMAGE = "AWS_ECR_CONTAINER_IMAGE",
@@ -2265,15 +1795,6 @@ export interface Ec2Metadata {
   platform?: Ec2Platform | string;
 }
 
-export namespace Ec2Metadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ec2Metadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information on the Amazon ECR image metadata associated with a finding.</p>
  */
@@ -2282,15 +1803,6 @@ export interface EcrContainerImageMetadata {
    * <p>Tags associated with the Amazon ECR image metadata.</p>
    */
   tags?: string[];
-}
-
-export namespace EcrContainerImageMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EcrContainerImageMetadata): any => ({
-    ...obj,
-  });
 }
 
 export enum EcrScanFrequency {
@@ -2314,15 +1826,6 @@ export interface EcrRepositoryMetadata {
   scanFrequency?: EcrScanFrequency | string;
 }
 
-export namespace EcrRepositoryMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EcrRepositoryMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains details about the metadata for an Amazon ECR resource.</p>
  */
@@ -2341,15 +1844,6 @@ export interface ResourceScanMetadata {
    * <p>An object that contains metadata details for an Amazon EC2 instance.</p>
    */
   ec2?: Ec2Metadata;
-}
-
-export namespace ResourceScanMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceScanMetadata): any => ({
-    ...obj,
-  });
 }
 
 export enum ScanStatusReason {
@@ -2387,15 +1881,6 @@ export interface ScanStatus {
    * <p>The reason for the scan.</p>
    */
   reason: ScanStatusReason | string | undefined;
-}
-
-export namespace ScanStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScanStatus): any => ({
-    ...obj,
-  });
 }
 
 export enum ScanType {
@@ -2438,15 +1923,6 @@ export interface CoveredResource {
   resourceMetadata?: ResourceScanMetadata;
 }
 
-export namespace CoveredResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CoveredResource): any => ({
-    ...obj,
-  });
-}
-
 export enum FilterAction {
   NONE = "NONE",
   SUPPRESS = "SUPPRESS",
@@ -2467,15 +1943,6 @@ export interface DateFilter {
   endInclusive?: Date;
 }
 
-export namespace DateFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DateFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that describes the details of a number filter.</p>
  */
@@ -2491,15 +1958,6 @@ export interface NumberFilter {
   lowerInclusive?: number;
 }
 
-export namespace NumberFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NumberFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that describes the details of a port range filter.</p>
  */
@@ -2513,15 +1971,6 @@ export interface PortRangeFilter {
    * <p>The port number the port range ends at.</p>
    */
   endInclusive?: number;
-}
-
-export namespace PortRangeFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortRangeFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2557,15 +2006,6 @@ export interface PackageFilter {
    * <p>An object that contains details on the source layer hash to filter on.</p>
    */
   sourceLayerHash?: StringFilter;
-}
-
-export namespace PackageFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2728,15 +2168,6 @@ export interface FilterCriteria {
   relatedVulnerabilities?: StringFilter[];
 }
 
-export namespace FilterCriteria {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilterCriteria): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFilterRequest {
   /**
    * <p>Defines the action that is to be applied to the findings that match the filter.</p>
@@ -2771,29 +2202,11 @@ export interface CreateFilterRequest {
   reason?: string;
 }
 
-export namespace CreateFilterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFilterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFilterResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the successfully created filter.</p>
    */
   arn: string | undefined;
-}
-
-export namespace CreateFilterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFilterResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2847,15 +2260,6 @@ export interface Destination {
   kmsKeyArn: string | undefined;
 }
 
-export namespace Destination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Destination): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFindingsReportRequest {
   /**
    * <p>The filter criteria to apply to the results of the finding report.</p>
@@ -2873,29 +2277,11 @@ export interface CreateFindingsReportRequest {
   s3Destination: Destination | undefined;
 }
 
-export namespace CreateFindingsReportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFindingsReportRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFindingsReportResponse {
   /**
    * <p>The ID of the report.</p>
    */
   reportId?: string;
-}
-
-export namespace CreateFindingsReportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFindingsReportResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum Currency {
@@ -2927,15 +2313,6 @@ export interface CvssScore {
   source: string | undefined;
 }
 
-export namespace CvssScore {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CvssScore): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details on adjustments Amazon Inspector made to the CVSS score for a finding.</p>
  */
@@ -2949,15 +2326,6 @@ export interface CvssScoreAdjustment {
    * <p>The reason the CVSS score has been adjustment.</p>
    */
   reason: string | undefined;
-}
-
-export namespace CvssScoreAdjustment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CvssScoreAdjustment): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2995,15 +2363,6 @@ export interface CvssScoreDetails {
   adjustments?: CvssScoreAdjustment[];
 }
 
-export namespace CvssScoreDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CvssScoreDetails): any => ({
-    ...obj,
-  });
-}
-
 export enum RelationshipStatus {
   ACCOUNT_SUSPENDED = "ACCOUNT_SUSPENDED",
   CANNOT_CREATE_DETECTOR_IN_ORG_MASTER = "CANNOT_CREATE_DETECTOR_IN_ORG_MASTER",
@@ -3034,15 +2393,6 @@ export interface DelegatedAdmin {
   relationshipStatus?: RelationshipStatus | string;
 }
 
-export namespace DelegatedAdmin {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DelegatedAdmin): any => ({
-    ...obj,
-  });
-}
-
 export enum DelegatedAdminStatus {
   DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
   ENABLED = "ENABLED",
@@ -3063,29 +2413,11 @@ export interface DelegatedAdminAccount {
   status?: DelegatedAdminStatus | string;
 }
 
-export namespace DelegatedAdminAccount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DelegatedAdminAccount): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFilterRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the filter to be deleted.</p>
    */
   arn: string | undefined;
-}
-
-export namespace DeleteFilterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFilterRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFilterResponse {
@@ -3095,25 +2427,7 @@ export interface DeleteFilterResponse {
   arn: string | undefined;
 }
 
-export namespace DeleteFilterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFilterResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOrganizationConfigurationRequest {}
-
-export namespace DescribeOrganizationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationConfigurationRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeOrganizationConfigurationResponse {
   /**
@@ -3125,15 +2439,6 @@ export interface DescribeOrganizationConfigurationResponse {
    * <p>Represents whether your organization has reached the maximum Amazon Web Services account limit for Amazon Inspector.</p>
    */
   maxAccountLimitReached?: boolean;
-}
-
-export namespace DescribeOrganizationConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceScanType {
@@ -3153,15 +2458,6 @@ export interface DisableRequest {
   resourceTypes?: (ResourceScanType | string)[];
 }
 
-export namespace DisableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableResponse {
   /**
    * <p>Information on the accounts that have had Amazon Inspector scans successfully disabled. Details are
@@ -3176,29 +2472,11 @@ export interface DisableResponse {
   failedAccounts?: FailedAccount[];
 }
 
-export namespace DisableResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableDelegatedAdminAccountRequest {
   /**
    * <p>The Amazon Web Services account ID of the current Amazon Inspector delegated administrator.</p>
    */
   delegatedAdminAccountId: string | undefined;
-}
-
-export namespace DisableDelegatedAdminAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableDelegatedAdminAccountRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DisableDelegatedAdminAccountResponse {
@@ -3208,15 +2486,6 @@ export interface DisableDelegatedAdminAccountResponse {
   delegatedAdminAccountId: string | undefined;
 }
 
-export namespace DisableDelegatedAdminAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableDelegatedAdminAccountResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateMemberRequest {
   /**
    * <p>The Amazon Web Services account ID of the member account to disassociate.</p>
@@ -3224,29 +2493,11 @@ export interface DisassociateMemberRequest {
   accountId: string | undefined;
 }
 
-export namespace DisassociateMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateMemberRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateMemberResponse {
   /**
    * <p>The Amazon Web Services account ID of the successfully disassociated member.</p>
    */
   accountId: string | undefined;
-}
-
-export namespace DisassociateMemberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateMemberResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum EcrRescanDuration {
@@ -3263,15 +2514,6 @@ export interface EcrConfiguration {
    * <p>The ECR automated re-scan duration defines how long an ECR image will be actively scanned by Amazon Inspector. When the number of days since an image was last pushed exceeds the automated re-scan duration the monitoring state of that image becomes <code>inactive</code> and all associated findings are scheduled for closure.</p>
    */
   rescanDuration: EcrRescanDuration | string | undefined;
-}
-
-export namespace EcrConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EcrConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum EcrRescanDurationStatus {
@@ -3300,15 +2542,6 @@ export interface EcrRescanDurationState {
   updatedAt?: Date;
 }
 
-export namespace EcrRescanDurationState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EcrRescanDurationState): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the state of the ECR scans for your environment.</p>
  */
@@ -3317,15 +2550,6 @@ export interface EcrConfigurationState {
    * <p>An object that contains details about the state of the ECR automated re-scan setting.</p>
    */
   rescanDurationState?: EcrRescanDurationState;
-}
-
-export namespace EcrConfigurationState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EcrConfigurationState): any => ({
-    ...obj,
-  });
 }
 
 export interface EnableRequest {
@@ -3345,15 +2569,6 @@ export interface EnableRequest {
   clientToken?: string;
 }
 
-export namespace EnableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableResponse {
   /**
    * <p>Information on the accounts that have had Amazon Inspector scans successfully enabled. Details are
@@ -3368,15 +2583,6 @@ export interface EnableResponse {
   failedAccounts?: FailedAccount[];
 }
 
-export namespace EnableResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableDelegatedAdminAccountRequest {
   /**
    * <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator.</p>
@@ -3389,29 +2595,11 @@ export interface EnableDelegatedAdminAccountRequest {
   clientToken?: string;
 }
 
-export namespace EnableDelegatedAdminAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableDelegatedAdminAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableDelegatedAdminAccountResponse {
   /**
    * <p>The Amazon Web Services account ID of the successfully Amazon Inspector delegated administrator.</p>
    */
   delegatedAdminAccountId: string | undefined;
-}
-
-export namespace EnableDelegatedAdminAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableDelegatedAdminAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ExternalReportStatus {
@@ -3476,15 +2664,6 @@ export interface Filter {
   tags?: Record<string, string>;
 }
 
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the Amazon Inspector score given to a finding.</p>
  */
@@ -3493,15 +2672,6 @@ export interface InspectorScoreDetails {
    * <p>An object that contains details about the CVSS score given to a finding.</p>
    */
   adjustedCvss?: CvssScoreDetails;
-}
-
-export namespace InspectorScoreDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InspectorScoreDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3519,15 +2689,6 @@ export interface Step {
   componentType: string | undefined;
 }
 
-export namespace Step {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Step): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information on the network path associated with a finding.</p>
  */
@@ -3536,15 +2697,6 @@ export interface NetworkPath {
    * <p>The details on the steps in the network path.</p>
    */
   steps?: Step[];
-}
-
-export namespace NetworkPath {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkPath): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3560,15 +2712,6 @@ export interface PortRange {
    * <p>The ending port in a port range.</p>
    */
   end: number | undefined;
-}
-
-export namespace PortRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortRange): any => ({
-    ...obj,
-  });
 }
 
 export enum NetworkProtocol {
@@ -3594,15 +2737,6 @@ export interface NetworkReachabilityDetails {
    * <p>An object that contains details about a network path associated with a finding.</p>
    */
   networkPath: NetworkPath | undefined;
-}
-
-export namespace NetworkReachabilityDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkReachabilityDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum PackageManager {
@@ -3674,15 +2808,6 @@ export interface VulnerablePackage {
   fixedInVersion?: string;
 }
 
-export namespace VulnerablePackage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VulnerablePackage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a package vulnerability finding.</p>
  */
@@ -3738,15 +2863,6 @@ export interface PackageVulnerabilityDetails {
   referenceUrls?: string[];
 }
 
-export namespace PackageVulnerabilityDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageVulnerabilityDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the recommended course of action to remediate the finding.</p>
  */
@@ -3762,15 +2878,6 @@ export interface Recommendation {
   Url?: string;
 }
 
-export namespace Recommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Recommendation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information on how to remediate a finding.</p>
  */
@@ -3779,15 +2886,6 @@ export interface Remediation {
    * <p>An object that contains information about the recommended course of action to remediate the finding.</p>
    */
   recommendation?: Recommendation;
-}
-
-export namespace Remediation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Remediation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3803,15 +2901,6 @@ export interface ResourceDetails {
    * <p>An object that contains details about the Amazon ECR container image involved in the finding.</p>
    */
   awsEcrContainerImage?: AwsEcrContainerImageDetails;
-}
-
-export namespace ResourceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceType {
@@ -3853,15 +2942,6 @@ export interface Resource {
    * <p>An object that contains details about the resource involved in a finding.</p>
    */
   details?: ResourceDetails;
-}
-
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
 }
 
 export enum Severity {
@@ -3969,25 +3049,7 @@ export interface Finding {
   packageVulnerabilityDetails?: PackageVulnerabilityDetails;
 }
 
-export namespace Finding {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Finding): any => ({
-    ...obj,
-  });
-}
-
 export interface GetConfigurationRequest {}
-
-export namespace GetConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConfigurationRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetConfigurationResponse {
   /**
@@ -3996,25 +3058,7 @@ export interface GetConfigurationResponse {
   ecrConfiguration?: EcrConfigurationState;
 }
 
-export namespace GetConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDelegatedAdminAccountRequest {}
-
-export namespace GetDelegatedAdminAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDelegatedAdminAccountRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetDelegatedAdminAccountResponse {
   /**
@@ -4023,29 +3067,11 @@ export interface GetDelegatedAdminAccountResponse {
   delegatedAdmin?: DelegatedAdmin;
 }
 
-export namespace GetDelegatedAdminAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDelegatedAdminAccountResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFindingsReportStatusRequest {
   /**
    * <p>The ID of the report to retrieve the status of.</p>
    */
   reportId?: string;
-}
-
-export namespace GetFindingsReportStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFindingsReportStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ReportingErrorCode {
@@ -4089,29 +3115,11 @@ export interface GetFindingsReportStatusResponse {
   filterCriteria?: FilterCriteria;
 }
 
-export namespace GetFindingsReportStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFindingsReportStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMemberRequest {
   /**
    * <p>The Amazon Web Services account ID of the member account to retrieve information on.</p>
    */
   accountId: string | undefined;
-}
-
-export namespace GetMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMemberRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4139,29 +3147,11 @@ export interface Member {
   updatedAt?: Date;
 }
 
-export namespace Member {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Member): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMemberResponse {
   /**
    * <p>Details of the retrieved member account.</p>
    */
   member?: Member;
-}
-
-export namespace GetMemberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMemberResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum Service {
@@ -4189,15 +3179,6 @@ export interface ListAccountPermissionsRequest {
   nextToken?: string;
 }
 
-export namespace ListAccountPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountPermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum Operation {
   DISABLE_REPOSITORY = "DISABLE_REPOSITORY",
   DISABLE_SCANNING = "DISABLE_SCANNING",
@@ -4220,15 +3201,6 @@ export interface Permission {
   operation: Operation | string | undefined;
 }
 
-export namespace Permission {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Permission): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccountPermissionsResponse {
   /**
    * <p>Contains details on the permissions an account has to configure Amazon Inspector.</p>
@@ -4242,15 +3214,6 @@ export interface ListAccountPermissionsResponse {
    *          results after the first page.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAccountPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountPermissionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCoverageRequest {
@@ -4274,15 +3237,6 @@ export interface ListCoverageRequest {
   filterCriteria?: CoverageFilterCriteria;
 }
 
-export namespace ListCoverageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCoverageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCoverageResponse {
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value
@@ -4296,15 +3250,6 @@ export interface ListCoverageResponse {
    * <p>An object that contains details on the covered resources in your environment.</p>
    */
   coveredResources?: CoveredResource[];
-}
-
-export namespace ListCoverageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCoverageResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCoverageStatisticsRequest {
@@ -4328,15 +3273,6 @@ export interface ListCoverageStatisticsRequest {
   nextToken?: string;
 }
 
-export namespace ListCoverageStatisticsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCoverageStatisticsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCoverageStatisticsResponse {
   /**
    * <p>An array with the number for each group.</p>
@@ -4357,15 +3293,6 @@ export interface ListCoverageStatisticsResponse {
   nextToken?: string;
 }
 
-export namespace ListCoverageStatisticsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCoverageStatisticsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDelegatedAdminAccountsRequest {
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -4381,15 +3308,6 @@ export interface ListDelegatedAdminAccountsRequest {
   nextToken?: string;
 }
 
-export namespace ListDelegatedAdminAccountsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDelegatedAdminAccountsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDelegatedAdminAccountsResponse {
   /**
    * <p>Details of the Amazon Inspector delegated administrator of your organization.</p>
@@ -4403,15 +3321,6 @@ export interface ListDelegatedAdminAccountsResponse {
    *          results after the first page.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListDelegatedAdminAccountsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDelegatedAdminAccountsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFiltersRequest {
@@ -4439,15 +3348,6 @@ export interface ListFiltersRequest {
   maxResults?: number;
 }
 
-export namespace ListFiltersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFiltersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFiltersResponse {
   /**
    * <p>Contains details on the filters associated with your account.</p>
@@ -4461,15 +3361,6 @@ export interface ListFiltersResponse {
    *          results after the first page.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListFiltersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFiltersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFindingAggregationsRequest {
@@ -4502,18 +3393,6 @@ export interface ListFindingAggregationsRequest {
   aggregationRequest?: AggregationRequest;
 }
 
-export namespace ListFindingAggregationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFindingAggregationsRequest): any => ({
-    ...obj,
-    ...(obj.aggregationRequest && {
-      aggregationRequest: AggregationRequest.filterSensitiveLog(obj.aggregationRequest),
-    }),
-  });
-}
-
 export interface ListFindingAggregationsResponse {
   /**
    * <p>The type of aggregation to perform.</p>
@@ -4532,16 +3411,6 @@ export interface ListFindingAggregationsResponse {
    *          results after the first page.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListFindingAggregationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFindingAggregationsResponse): any => ({
-    ...obj,
-    ...(obj.responses && { responses: obj.responses.map((item) => AggregationResponse.filterSensitiveLog(item)) }),
-  });
 }
 
 export enum SortField {
@@ -4578,15 +3447,6 @@ export interface SortCriteria {
   sortOrder: SortOrder | string | undefined;
 }
 
-export namespace SortCriteria {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SortCriteria): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFindingsRequest {
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -4612,15 +3472,6 @@ export interface ListFindingsRequest {
   sortCriteria?: SortCriteria;
 }
 
-export namespace ListFindingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFindingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFindingsResponse {
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value
@@ -4634,15 +3485,6 @@ export interface ListFindingsResponse {
    * <p>Contains details on the findings in your environment.</p>
    */
   findings?: Finding[];
-}
-
-export namespace ListFindingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFindingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMembersRequest {
@@ -4666,15 +3508,6 @@ export interface ListMembersRequest {
   nextToken?: string;
 }
 
-export namespace ListMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMembersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMembersResponse {
   /**
    * <p>An object that contains details for each member account.</p>
@@ -4688,15 +3521,6 @@ export interface ListMembersResponse {
   nextToken?: string;
 }
 
-export namespace ListMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMembersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon resource number (ARN) of the resource to list tags of.</p>
@@ -4704,29 +3528,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with the resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListUsageTotalsRequest {
@@ -4747,15 +3553,6 @@ export interface ListUsageTotalsRequest {
    * <p>The Amazon Web Services account IDs to retrieve usage totals for.</p>
    */
   accountIds?: string[];
-}
-
-export namespace ListUsageTotalsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsageTotalsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum UsageType {
@@ -4789,15 +3586,6 @@ export interface Usage {
   currency?: Currency | string;
 }
 
-export namespace Usage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Usage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The total of usage for an account ID.</p>
  */
@@ -4813,15 +3601,6 @@ export interface UsageTotal {
   usage?: Usage[];
 }
 
-export namespace UsageTotal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsageTotal): any => ({
-    ...obj,
-  });
-}
-
 export interface ListUsageTotalsResponse {
   /**
    * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
@@ -4832,15 +3611,6 @@ export interface ListUsageTotalsResponse {
    * <p>An object with details on the total usage for the requested account.</p>
    */
   totals?: UsageTotal[];
-}
-
-export namespace ListUsageTotalsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsageTotalsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -4855,25 +3625,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -4887,25 +3639,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateConfigurationRequest {
   /**
@@ -4914,25 +3648,7 @@ export interface UpdateConfigurationRequest {
   ecrConfiguration: EcrConfiguration | undefined;
 }
 
-export namespace UpdateConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateConfigurationResponse {}
-
-export namespace UpdateConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateFilterRequest {
   /**
@@ -4966,29 +3682,11 @@ export interface UpdateFilterRequest {
   reason?: string;
 }
 
-export namespace UpdateFilterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFilterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFilterResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the successfully updated filter.</p>
    */
   arn: string | undefined;
-}
-
-export namespace UpdateFilterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFilterResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateOrganizationConfigurationRequest {
@@ -4998,15 +3696,6 @@ export interface UpdateOrganizationConfigurationRequest {
   autoEnable: AutoEnable | undefined;
 }
 
-export namespace UpdateOrganizationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOrganizationConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateOrganizationConfigurationResponse {
   /**
    * <p>The updated status of scan types automatically enabled for new members of your Amazon Inspector organization.</p>
@@ -5014,11 +3703,1049 @@ export interface UpdateOrganizationConfigurationResponse {
   autoEnable: AutoEnable | undefined;
 }
 
-export namespace UpdateOrganizationConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOrganizationConfigurationResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ResourceStatusFilterSensitiveLog = (obj: ResourceStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountFilterSensitiveLog = (obj: Account): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountAggregationFilterSensitiveLog = (obj: AccountAggregation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SeverityCountsFilterSensitiveLog = (obj: SeverityCounts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountAggregationResponseFilterSensitiveLog = (obj: AccountAggregationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StateFilterSensitiveLog = (obj: State): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceStateFilterSensitiveLog = (obj: ResourceState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountStateFilterSensitiveLog = (obj: AccountState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StringFilterFilterSensitiveLog = (obj: StringFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmiAggregationFilterSensitiveLog = (obj: AmiAggregation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcrContainerAggregationFilterSensitiveLog = (obj: AwsEcrContainerAggregation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MapFilterFilterSensitiveLog = (obj: MapFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Ec2InstanceAggregationFilterSensitiveLog = (obj: Ec2InstanceAggregation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FindingTypeAggregationFilterSensitiveLog = (obj: FindingTypeAggregation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageLayerAggregationFilterSensitiveLog = (obj: ImageLayerAggregation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageAggregationFilterSensitiveLog = (obj: PackageAggregation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositoryAggregationFilterSensitiveLog = (obj: RepositoryAggregation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TitleAggregationFilterSensitiveLog = (obj: TitleAggregation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregationRequestFilterSensitiveLog = (obj: AggregationRequest): any => {
+  if (obj.accountAggregation !== undefined)
+    return { accountAggregation: AccountAggregationFilterSensitiveLog(obj.accountAggregation) };
+  if (obj.amiAggregation !== undefined) return { amiAggregation: AmiAggregationFilterSensitiveLog(obj.amiAggregation) };
+  if (obj.awsEcrContainerAggregation !== undefined)
+    return { awsEcrContainerAggregation: AwsEcrContainerAggregationFilterSensitiveLog(obj.awsEcrContainerAggregation) };
+  if (obj.ec2InstanceAggregation !== undefined)
+    return { ec2InstanceAggregation: Ec2InstanceAggregationFilterSensitiveLog(obj.ec2InstanceAggregation) };
+  if (obj.findingTypeAggregation !== undefined)
+    return { findingTypeAggregation: FindingTypeAggregationFilterSensitiveLog(obj.findingTypeAggregation) };
+  if (obj.imageLayerAggregation !== undefined)
+    return { imageLayerAggregation: ImageLayerAggregationFilterSensitiveLog(obj.imageLayerAggregation) };
+  if (obj.packageAggregation !== undefined)
+    return { packageAggregation: PackageAggregationFilterSensitiveLog(obj.packageAggregation) };
+  if (obj.repositoryAggregation !== undefined)
+    return { repositoryAggregation: RepositoryAggregationFilterSensitiveLog(obj.repositoryAggregation) };
+  if (obj.titleAggregation !== undefined)
+    return { titleAggregation: TitleAggregationFilterSensitiveLog(obj.titleAggregation) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const AmiAggregationResponseFilterSensitiveLog = (obj: AmiAggregationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcrContainerAggregationResponseFilterSensitiveLog = (obj: AwsEcrContainerAggregationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Ec2InstanceAggregationResponseFilterSensitiveLog = (obj: Ec2InstanceAggregationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FindingTypeAggregationResponseFilterSensitiveLog = (obj: FindingTypeAggregationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageLayerAggregationResponseFilterSensitiveLog = (obj: ImageLayerAggregationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageAggregationResponseFilterSensitiveLog = (obj: PackageAggregationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositoryAggregationResponseFilterSensitiveLog = (obj: RepositoryAggregationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TitleAggregationResponseFilterSensitiveLog = (obj: TitleAggregationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregationResponseFilterSensitiveLog = (obj: AggregationResponse): any => {
+  if (obj.accountAggregation !== undefined)
+    return { accountAggregation: AccountAggregationResponseFilterSensitiveLog(obj.accountAggregation) };
+  if (obj.amiAggregation !== undefined)
+    return { amiAggregation: AmiAggregationResponseFilterSensitiveLog(obj.amiAggregation) };
+  if (obj.awsEcrContainerAggregation !== undefined)
+    return {
+      awsEcrContainerAggregation: AwsEcrContainerAggregationResponseFilterSensitiveLog(obj.awsEcrContainerAggregation),
+    };
+  if (obj.ec2InstanceAggregation !== undefined)
+    return { ec2InstanceAggregation: Ec2InstanceAggregationResponseFilterSensitiveLog(obj.ec2InstanceAggregation) };
+  if (obj.findingTypeAggregation !== undefined)
+    return { findingTypeAggregation: FindingTypeAggregationResponseFilterSensitiveLog(obj.findingTypeAggregation) };
+  if (obj.imageLayerAggregation !== undefined)
+    return { imageLayerAggregation: ImageLayerAggregationResponseFilterSensitiveLog(obj.imageLayerAggregation) };
+  if (obj.packageAggregation !== undefined)
+    return { packageAggregation: PackageAggregationResponseFilterSensitiveLog(obj.packageAggregation) };
+  if (obj.repositoryAggregation !== undefined)
+    return { repositoryAggregation: RepositoryAggregationResponseFilterSensitiveLog(obj.repositoryAggregation) };
+  if (obj.titleAggregation !== undefined)
+    return { titleAggregation: TitleAggregationResponseFilterSensitiveLog(obj.titleAggregation) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const AssociateMemberRequestFilterSensitiveLog = (obj: AssociateMemberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateMemberResponseFilterSensitiveLog = (obj: AssociateMemberResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoEnableFilterSensitiveLog = (obj: AutoEnable): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2InstanceDetailsFilterSensitiveLog = (obj: AwsEc2InstanceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcrContainerImageDetailsFilterSensitiveLog = (obj: AwsEcrContainerImageDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetAccountStatusRequestFilterSensitiveLog = (obj: BatchGetAccountStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedAccountFilterSensitiveLog = (obj: FailedAccount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetAccountStatusResponseFilterSensitiveLog = (obj: BatchGetAccountStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetFreeTrialInfoRequestFilterSensitiveLog = (obj: BatchGetFreeTrialInfoRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FreeTrialInfoFilterSensitiveLog = (obj: FreeTrialInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FreeTrialAccountInfoFilterSensitiveLog = (obj: FreeTrialAccountInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FreeTrialInfoErrorFilterSensitiveLog = (obj: FreeTrialInfoError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetFreeTrialInfoResponseFilterSensitiveLog = (obj: BatchGetFreeTrialInfoResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelFindingsReportRequestFilterSensitiveLog = (obj: CancelFindingsReportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelFindingsReportResponseFilterSensitiveLog = (obj: CancelFindingsReportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CountsFilterSensitiveLog = (obj: Counts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CoverageStringFilterFilterSensitiveLog = (obj: CoverageStringFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CoverageMapFilterFilterSensitiveLog = (obj: CoverageMapFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CoverageFilterCriteriaFilterSensitiveLog = (obj: CoverageFilterCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Ec2MetadataFilterSensitiveLog = (obj: Ec2Metadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EcrContainerImageMetadataFilterSensitiveLog = (obj: EcrContainerImageMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EcrRepositoryMetadataFilterSensitiveLog = (obj: EcrRepositoryMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceScanMetadataFilterSensitiveLog = (obj: ResourceScanMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScanStatusFilterSensitiveLog = (obj: ScanStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CoveredResourceFilterSensitiveLog = (obj: CoveredResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DateFilterFilterSensitiveLog = (obj: DateFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NumberFilterFilterSensitiveLog = (obj: NumberFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PortRangeFilterFilterSensitiveLog = (obj: PortRangeFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageFilterFilterSensitiveLog = (obj: PackageFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterCriteriaFilterSensitiveLog = (obj: FilterCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFilterRequestFilterSensitiveLog = (obj: CreateFilterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFilterResponseFilterSensitiveLog = (obj: CreateFilterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationFilterSensitiveLog = (obj: Destination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFindingsReportRequestFilterSensitiveLog = (obj: CreateFindingsReportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFindingsReportResponseFilterSensitiveLog = (obj: CreateFindingsReportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CvssScoreFilterSensitiveLog = (obj: CvssScore): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CvssScoreAdjustmentFilterSensitiveLog = (obj: CvssScoreAdjustment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CvssScoreDetailsFilterSensitiveLog = (obj: CvssScoreDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DelegatedAdminFilterSensitiveLog = (obj: DelegatedAdmin): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DelegatedAdminAccountFilterSensitiveLog = (obj: DelegatedAdminAccount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFilterRequestFilterSensitiveLog = (obj: DeleteFilterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFilterResponseFilterSensitiveLog = (obj: DeleteFilterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationConfigurationRequestFilterSensitiveLog = (
+  obj: DescribeOrganizationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeOrganizationConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableRequestFilterSensitiveLog = (obj: DisableRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableResponseFilterSensitiveLog = (obj: DisableResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableDelegatedAdminAccountRequestFilterSensitiveLog = (
+  obj: DisableDelegatedAdminAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableDelegatedAdminAccountResponseFilterSensitiveLog = (
+  obj: DisableDelegatedAdminAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateMemberRequestFilterSensitiveLog = (obj: DisassociateMemberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateMemberResponseFilterSensitiveLog = (obj: DisassociateMemberResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EcrConfigurationFilterSensitiveLog = (obj: EcrConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EcrRescanDurationStateFilterSensitiveLog = (obj: EcrRescanDurationState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EcrConfigurationStateFilterSensitiveLog = (obj: EcrConfigurationState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableRequestFilterSensitiveLog = (obj: EnableRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableResponseFilterSensitiveLog = (obj: EnableResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableDelegatedAdminAccountRequestFilterSensitiveLog = (obj: EnableDelegatedAdminAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableDelegatedAdminAccountResponseFilterSensitiveLog = (
+  obj: EnableDelegatedAdminAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InspectorScoreDetailsFilterSensitiveLog = (obj: InspectorScoreDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StepFilterSensitiveLog = (obj: Step): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkPathFilterSensitiveLog = (obj: NetworkPath): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PortRangeFilterSensitiveLog = (obj: PortRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkReachabilityDetailsFilterSensitiveLog = (obj: NetworkReachabilityDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VulnerablePackageFilterSensitiveLog = (obj: VulnerablePackage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageVulnerabilityDetailsFilterSensitiveLog = (obj: PackageVulnerabilityDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationFilterSensitiveLog = (obj: Recommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemediationFilterSensitiveLog = (obj: Remediation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceDetailsFilterSensitiveLog = (obj: ResourceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FindingFilterSensitiveLog = (obj: Finding): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConfigurationRequestFilterSensitiveLog = (obj: GetConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConfigurationResponseFilterSensitiveLog = (obj: GetConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDelegatedAdminAccountRequestFilterSensitiveLog = (obj: GetDelegatedAdminAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDelegatedAdminAccountResponseFilterSensitiveLog = (obj: GetDelegatedAdminAccountResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFindingsReportStatusRequestFilterSensitiveLog = (obj: GetFindingsReportStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFindingsReportStatusResponseFilterSensitiveLog = (obj: GetFindingsReportStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMemberRequestFilterSensitiveLog = (obj: GetMemberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberFilterSensitiveLog = (obj: Member): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMemberResponseFilterSensitiveLog = (obj: GetMemberResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountPermissionsRequestFilterSensitiveLog = (obj: ListAccountPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PermissionFilterSensitiveLog = (obj: Permission): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountPermissionsResponseFilterSensitiveLog = (obj: ListAccountPermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCoverageRequestFilterSensitiveLog = (obj: ListCoverageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCoverageResponseFilterSensitiveLog = (obj: ListCoverageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCoverageStatisticsRequestFilterSensitiveLog = (obj: ListCoverageStatisticsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCoverageStatisticsResponseFilterSensitiveLog = (obj: ListCoverageStatisticsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDelegatedAdminAccountsRequestFilterSensitiveLog = (obj: ListDelegatedAdminAccountsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDelegatedAdminAccountsResponseFilterSensitiveLog = (obj: ListDelegatedAdminAccountsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFiltersRequestFilterSensitiveLog = (obj: ListFiltersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFiltersResponseFilterSensitiveLog = (obj: ListFiltersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFindingAggregationsRequestFilterSensitiveLog = (obj: ListFindingAggregationsRequest): any => ({
+  ...obj,
+  ...(obj.aggregationRequest && { aggregationRequest: AggregationRequestFilterSensitiveLog(obj.aggregationRequest) }),
+});
+
+/**
+ * @internal
+ */
+export const ListFindingAggregationsResponseFilterSensitiveLog = (obj: ListFindingAggregationsResponse): any => ({
+  ...obj,
+  ...(obj.responses && { responses: obj.responses.map((item) => AggregationResponseFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SortCriteriaFilterSensitiveLog = (obj: SortCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFindingsRequestFilterSensitiveLog = (obj: ListFindingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFindingsResponseFilterSensitiveLog = (obj: ListFindingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMembersRequestFilterSensitiveLog = (obj: ListMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMembersResponseFilterSensitiveLog = (obj: ListMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsageTotalsRequestFilterSensitiveLog = (obj: ListUsageTotalsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsageFilterSensitiveLog = (obj: Usage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsageTotalFilterSensitiveLog = (obj: UsageTotal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsageTotalsResponseFilterSensitiveLog = (obj: ListUsageTotalsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationRequestFilterSensitiveLog = (obj: UpdateConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationResponseFilterSensitiveLog = (obj: UpdateConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFilterRequestFilterSensitiveLog = (obj: UpdateFilterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFilterResponseFilterSensitiveLog = (obj: UpdateFilterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOrganizationConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateOrganizationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOrganizationConfigurationResponseFilterSensitiveLog = (
+  obj: UpdateOrganizationConfigurationResponse
+): any => ({
+  ...obj,
+});

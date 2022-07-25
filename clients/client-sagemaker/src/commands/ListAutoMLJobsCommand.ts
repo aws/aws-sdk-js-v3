@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListAutoMLJobsRequest, ListAutoMLJobsResponse } from "../models/models_2";
+import {
+  ListAutoMLJobsRequest,
+  ListAutoMLJobsRequestFilterSensitiveLog,
+  ListAutoMLJobsResponse,
+  ListAutoMLJobsResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1ListAutoMLJobsCommand,
   serializeAws_json1_1ListAutoMLJobsCommand,
@@ -72,8 +77,8 @@ export class ListAutoMLJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAutoMLJobsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAutoMLJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAutoMLJobsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAutoMLJobsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

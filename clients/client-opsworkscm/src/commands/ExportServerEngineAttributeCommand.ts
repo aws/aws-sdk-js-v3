@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ExportServerEngineAttributeRequest, ExportServerEngineAttributeResponse } from "../models/models_0";
+import {
+  ExportServerEngineAttributeRequest,
+  ExportServerEngineAttributeRequestFilterSensitiveLog,
+  ExportServerEngineAttributeResponse,
+  ExportServerEngineAttributeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
   deserializeAws_json1_1ExportServerEngineAttributeCommand,
@@ -85,8 +90,8 @@ export class ExportServerEngineAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportServerEngineAttributeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ExportServerEngineAttributeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ExportServerEngineAttributeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ExportServerEngineAttributeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

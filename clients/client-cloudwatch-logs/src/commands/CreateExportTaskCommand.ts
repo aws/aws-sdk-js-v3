@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { CreateExportTaskRequest, CreateExportTaskResponse } from "../models/models_0";
+import {
+  CreateExportTaskRequest,
+  CreateExportTaskRequestFilterSensitiveLog,
+  CreateExportTaskResponse,
+  CreateExportTaskResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateExportTaskCommand,
   serializeAws_json1_1CreateExportTaskCommand,
@@ -94,8 +99,8 @@ export class CreateExportTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateExportTaskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateExportTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateExportTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateExportTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

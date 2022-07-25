@@ -14,15 +14,6 @@ export interface InputChannelLevel {
   InputChannel: number | undefined;
 }
 
-export namespace InputChannelLevel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputChannelLevel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Audio Channel Mapping
  */
@@ -36,15 +27,6 @@ export interface AudioChannelMapping {
    * The index of the output channel being produced.
    */
   OutputChannel: number | undefined;
-}
-
-export namespace AudioChannelMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioChannelMapping): any => ({
-    ...obj,
-  });
 }
 
 export enum AudioNormalizationAlgorithm {
@@ -74,15 +56,6 @@ export interface AudioNormalizationSettings {
    * Target LKFS(loudness) to adjust volume to. If no value is entered, a default value will be used according to the chosen algorithm.  The CALM Act (1770-1) recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends a target of -23 LKFS.
    */
   TargetLkfs?: number;
-}
-
-export namespace AudioNormalizationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioNormalizationSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum AudioType {
@@ -122,15 +95,6 @@ export interface NielsenCBET {
   Csid: string | undefined;
 }
 
-export namespace NielsenCBET {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NielsenCBET): any => ({
-    ...obj,
-  });
-}
-
 export enum NielsenWatermarksDistributionTypes {
   FINAL_DISTRIBUTOR = "FINAL_DISTRIBUTOR",
   PROGRAM_CONTENT = "PROGRAM_CONTENT",
@@ -149,15 +113,6 @@ export interface NielsenNaesIiNw {
    * Enter the Nielsen Source ID (SID) to include in the watermark
    */
   Sid: number | undefined;
-}
-
-export namespace NielsenNaesIiNw {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NielsenNaesIiNw): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -182,15 +137,6 @@ export interface NielsenWatermarksSettings {
   NielsenNaesIiNwSettings?: NielsenNaesIiNw;
 }
 
-export namespace NielsenWatermarksSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NielsenWatermarksSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Audio Watermark Settings
  */
@@ -199,15 +145,6 @@ export interface AudioWatermarkSettings {
    * Settings to configure Nielsen Watermarks in the audio encode
    */
   NielsenWatermarksSettings?: NielsenWatermarksSettings;
-}
-
-export namespace AudioWatermarkSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioWatermarkSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum AacCodingMode {
@@ -303,15 +240,6 @@ export interface AacSettings {
   VbrQuality?: AacVbrQuality | string;
 }
 
-export namespace AacSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AacSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum Ac3BitstreamMode {
   COMMENTARY = "COMMENTARY",
   COMPLETE_MAIN = "COMPLETE_MAIN",
@@ -383,15 +311,6 @@ export interface Ac3Settings {
    * When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
    */
   MetadataControl?: Ac3MetadataControl | string;
-}
-
-export namespace Ac3Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ac3Settings): any => ({
-    ...obj,
-  });
 }
 
 export enum Eac3AttenuationControl {
@@ -585,15 +504,6 @@ export interface Eac3Settings {
   SurroundMode?: Eac3SurroundMode | string;
 }
 
-export namespace Eac3Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Eac3Settings): any => ({
-    ...obj,
-  });
-}
-
 export enum Mp2CodingMode {
   CODING_MODE_1_0 = "CODING_MODE_1_0",
   CODING_MODE_2_0 = "CODING_MODE_2_0",
@@ -619,28 +529,10 @@ export interface Mp2Settings {
   SampleRate?: number;
 }
 
-export namespace Mp2Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Mp2Settings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Pass Through Settings
  */
 export interface PassThroughSettings {}
-
-export namespace PassThroughSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PassThroughSettings): any => ({
-    ...obj,
-  });
-}
 
 export enum WavCodingMode {
   CODING_MODE_1_0 = "CODING_MODE_1_0",
@@ -667,15 +559,6 @@ export interface WavSettings {
    * Sample rate in Hz.
    */
   SampleRate?: number;
-}
-
-export namespace WavSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WavSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -713,15 +596,6 @@ export interface AudioCodecSettings {
   WavSettings?: WavSettings;
 }
 
-export namespace AudioCodecSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioCodecSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum AudioDescriptionLanguageCodeControl {
   FOLLOW_INPUT = "FOLLOW_INPUT",
   USE_CONFIGURED = "USE_CONFIGURED",
@@ -746,15 +620,6 @@ export interface RemixSettings {
    * Valid values: 1, 2, 4, 6, 8
    */
   ChannelsOut?: number;
-}
-
-export namespace RemixSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemixSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -820,15 +685,6 @@ export interface AudioDescription {
   StreamName?: string;
 }
 
-export namespace AudioDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Audio Hls Rendition Selection
  */
@@ -842,15 +698,6 @@ export interface AudioHlsRenditionSelection {
    * Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
    */
   Name: string | undefined;
-}
-
-export namespace AudioHlsRenditionSelection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioHlsRenditionSelection): any => ({
-    ...obj,
-  });
 }
 
 export enum AudioLanguageSelectionPolicy {
@@ -873,15 +720,6 @@ export interface AudioLanguageSelection {
   LanguageSelectionPolicy?: AudioLanguageSelectionPolicy | string;
 }
 
-export namespace AudioLanguageSelection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioLanguageSelection): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Audio Pid Selection
  */
@@ -890,15 +728,6 @@ export interface AudioPidSelection {
    * Selects a specific PID from within a source.
    */
   Pid: number | undefined;
-}
-
-export namespace AudioPidSelection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioPidSelection): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -911,15 +740,6 @@ export interface AudioTrack {
   Track: number | undefined;
 }
 
-export namespace AudioTrack {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioTrack): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Audio Track Selection
  */
@@ -928,15 +748,6 @@ export interface AudioTrackSelection {
    * Selects one or more unique audio tracks from within a source.
    */
   Tracks: AudioTrack[] | undefined;
-}
-
-export namespace AudioTrackSelection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioTrackSelection): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -964,15 +775,6 @@ export interface AudioSelectorSettings {
   AudioTrackSelection?: AudioTrackSelection;
 }
 
-export namespace AudioSelectorSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioSelectorSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Audio Selector
  */
@@ -986,15 +788,6 @@ export interface AudioSelector {
    * The audio selector settings.
    */
   SelectorSettings?: AudioSelectorSettings;
-}
-
-export namespace AudioSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioSelector): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1022,15 +815,6 @@ export interface BatchFailedResultModel {
   Message?: string;
 }
 
-export namespace BatchFailedResultModel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchFailedResultModel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Details from a successful operation
  */
@@ -1051,15 +835,6 @@ export interface BatchSuccessfulResultModel {
   State?: string;
 }
 
-export namespace BatchSuccessfulResultModel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchSuccessfulResultModel): any => ({
-    ...obj,
-  });
-}
-
 export enum AccessibilityType {
   DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES = "DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES",
   IMPLEMENTS_ACCESSIBILITY_FEATURES = "IMPLEMENTS_ACCESSIBILITY_FEATURES",
@@ -1069,15 +844,6 @@ export enum AccessibilityType {
  * Arib Destination Settings
  */
 export interface AribDestinationSettings {}
-
-export namespace AribDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AribDestinationSettings): any => ({
-    ...obj,
-  });
-}
 
 export enum BurnInAlignment {
   CENTERED = "CENTERED",
@@ -1109,15 +875,6 @@ export interface InputLocation {
    * Documentation update needed
    */
   Username?: string;
-}
-
-export namespace InputLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputLocation): any => ({
-    ...obj,
-  });
 }
 
 export enum BurnInFontColor {
@@ -1237,15 +994,6 @@ export interface BurnInDestinationSettings {
    * Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output.  All burn-in and DVB-Sub font settings must match.
    */
   YPosition?: number;
-}
-
-export namespace BurnInDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BurnInDestinationSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum DvbSubDestinationAlignment {
@@ -1379,15 +1127,6 @@ export interface DvbSubDestinationSettings {
   YPosition?: number;
 }
 
-export namespace DvbSubDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DvbSubDestinationSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum EbuTtDFillLineGapControl {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -1434,112 +1173,40 @@ export interface EbuTtDDestinationSettings {
   StyleControl?: EbuTtDDestinationStyleControl | string;
 }
 
-export namespace EbuTtDDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EbuTtDDestinationSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Embedded Destination Settings
  */
 export interface EmbeddedDestinationSettings {}
-
-export namespace EmbeddedDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmbeddedDestinationSettings): any => ({
-    ...obj,
-  });
-}
 
 /**
  * Embedded Plus Scte20 Destination Settings
  */
 export interface EmbeddedPlusScte20DestinationSettings {}
 
-export namespace EmbeddedPlusScte20DestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmbeddedPlusScte20DestinationSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Rtmp Caption Info Destination Settings
  */
 export interface RtmpCaptionInfoDestinationSettings {}
-
-export namespace RtmpCaptionInfoDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RtmpCaptionInfoDestinationSettings): any => ({
-    ...obj,
-  });
-}
 
 /**
  * Scte20 Plus Embedded Destination Settings
  */
 export interface Scte20PlusEmbeddedDestinationSettings {}
 
-export namespace Scte20PlusEmbeddedDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scte20PlusEmbeddedDestinationSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Scte27 Destination Settings
  */
 export interface Scte27DestinationSettings {}
-
-export namespace Scte27DestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scte27DestinationSettings): any => ({
-    ...obj,
-  });
-}
 
 /**
  * Smpte Tt Destination Settings
  */
 export interface SmpteTtDestinationSettings {}
 
-export namespace SmpteTtDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SmpteTtDestinationSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Teletext Destination Settings
  */
 export interface TeletextDestinationSettings {}
-
-export namespace TeletextDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TeletextDestinationSettings): any => ({
-    ...obj,
-  });
-}
 
 export enum TtmlDestinationStyleControl {
   PASSTHROUGH = "PASSTHROUGH",
@@ -1556,15 +1223,6 @@ export interface TtmlDestinationSettings {
   StyleControl?: TtmlDestinationStyleControl | string;
 }
 
-export namespace TtmlDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TtmlDestinationSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum WebvttDestinationStyleControl {
   NO_STYLE_DATA = "NO_STYLE_DATA",
   PASSTHROUGH = "PASSTHROUGH",
@@ -1578,15 +1236,6 @@ export interface WebvttDestinationSettings {
    * Controls whether the color and position of the source captions is passed through to the WebVTT output captions.  PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT.  NO_STYLE_DATA - Don't pass through the style. The output captions will not contain any font styling information.
    */
   StyleControl?: WebvttDestinationStyleControl | string;
-}
-
-export namespace WebvttDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebvttDestinationSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1659,15 +1308,6 @@ export interface CaptionDestinationSettings {
   WebvttDestinationSettings?: WebvttDestinationSettings;
 }
 
-export namespace CaptionDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptionDestinationSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Caption Description
  */
@@ -1703,15 +1343,6 @@ export interface CaptionDescription {
   Name: string | undefined;
 }
 
-export namespace CaptionDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptionDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Maps a caption channel to an ISO 693-2 language code (http://www.loc.gov/standards/iso639-2), with an optional description.
  */
@@ -1732,15 +1363,6 @@ export interface CaptionLanguageMapping {
   LanguageDescription: string | undefined;
 }
 
-export namespace CaptionLanguageMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptionLanguageMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Ancillary Source Settings
  */
@@ -1751,28 +1373,10 @@ export interface AncillarySourceSettings {
   SourceAncillaryChannelNumber?: number;
 }
 
-export namespace AncillarySourceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AncillarySourceSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Arib Source Settings
  */
 export interface AribSourceSettings {}
-
-export namespace AribSourceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AribSourceSettings): any => ({
-    ...obj,
-  });
-}
 
 export enum DvbSubOcrLanguage {
   DEU = "DEU",
@@ -1797,15 +1401,6 @@ export interface DvbSubSourceSettings {
    * When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
    */
   Pid?: number;
-}
-
-export namespace DvbSubSourceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DvbSubSourceSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum EmbeddedConvert608To708 {
@@ -1843,15 +1438,6 @@ export interface EmbeddedSourceSettings {
   Source608TrackNumber?: number;
 }
 
-export namespace EmbeddedSourceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmbeddedSourceSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum Scte20Convert608To708 {
   DISABLED = "DISABLED",
   UPCONVERT = "UPCONVERT",
@@ -1870,15 +1456,6 @@ export interface Scte20SourceSettings {
    * Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
    */
   Source608ChannelNumber?: number;
-}
-
-export namespace Scte20SourceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scte20SourceSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum Scte27OcrLanguage {
@@ -1908,15 +1485,6 @@ export interface Scte27SourceSettings {
    *   - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
    */
   Pid?: number;
-}
-
-export namespace Scte27SourceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scte27SourceSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1953,15 +1521,6 @@ export interface CaptionRectangle {
   Width: number | undefined;
 }
 
-export namespace CaptionRectangle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptionRectangle): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Teletext Source Settings
  */
@@ -1975,15 +1534,6 @@ export interface TeletextSourceSettings {
    * Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no "0x" prefix.
    */
   PageNumber?: string;
-}
-
-export namespace TeletextSourceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TeletextSourceSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2026,15 +1576,6 @@ export interface CaptionSelectorSettings {
   TeletextSourceSettings?: TeletextSourceSettings;
 }
 
-export namespace CaptionSelectorSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptionSelectorSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Output groups for this Live Event. Output groups contain information about where streams should be distributed.
  */
@@ -2055,15 +1596,6 @@ export interface CaptionSelector {
   SelectorSettings?: CaptionSelectorSettings;
 }
 
-export namespace CaptionSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptionSelector): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for ChannelEgressEndpoint
  */
@@ -2072,15 +1604,6 @@ export interface ChannelEgressEndpoint {
    * Public IP of where a channel's output comes from
    */
   SourceIp?: string;
-}
-
-export namespace ChannelEgressEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelEgressEndpoint): any => ({
-    ...obj,
-  });
 }
 
 export enum CdiInputResolution {
@@ -2100,15 +1623,6 @@ export interface CdiInputSpecification {
   Resolution?: CdiInputResolution | string;
 }
 
-export namespace CdiInputSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CdiInputSpecification): any => ({
-    ...obj,
-  });
-}
-
 export enum ChannelClass {
   SINGLE_PIPELINE = "SINGLE_PIPELINE",
   STANDARD = "STANDARD",
@@ -2122,15 +1636,6 @@ export interface MediaPackageOutputDestinationSettings {
    * ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region.
    */
   ChannelId?: string;
-}
-
-export namespace MediaPackageOutputDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaPackageOutputDestinationSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2147,15 +1652,6 @@ export interface MultiplexProgramChannelDestinationSettings {
    * The program name of the Multiplex program that the encoder is providing output to.
    */
   ProgramName?: string;
-}
-
-export namespace MultiplexProgramChannelDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiplexProgramChannelDestinationSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2183,15 +1679,6 @@ export interface OutputDestinationSettings {
   Username?: string;
 }
 
-export namespace OutputDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputDestinationSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for OutputDestination
  */
@@ -2217,15 +1704,6 @@ export interface OutputDestination {
   Settings?: OutputDestinationSettings[];
 }
 
-export namespace OutputDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for AudioSilenceFailoverSettings
  */
@@ -2241,15 +1719,6 @@ export interface AudioSilenceFailoverSettings {
   AudioSilenceThresholdMsec?: number;
 }
 
-export namespace AudioSilenceFailoverSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioSilenceFailoverSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * MediaLive will perform a failover if content is not detected in this input for the specified period.
  */
@@ -2258,15 +1727,6 @@ export interface InputLossFailoverSettings {
    * The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
    */
   InputLossThresholdMsec?: number;
-}
-
-export namespace InputLossFailoverSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputLossFailoverSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2282,15 +1742,6 @@ export interface VideoBlackFailoverSettings {
    * The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
    */
   VideoBlackThresholdMsec?: number;
-}
-
-export namespace VideoBlackFailoverSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoBlackFailoverSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2313,15 +1764,6 @@ export interface FailoverConditionSettings {
   VideoBlackSettings?: VideoBlackFailoverSettings;
 }
 
-export namespace FailoverConditionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailoverConditionSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Failover Condition settings. There can be multiple failover conditions inside AutomaticInputFailoverSettings.
  */
@@ -2330,15 +1772,6 @@ export interface FailoverCondition {
    * Failover condition type-specific settings.
    */
   FailoverConditionSettings?: FailoverConditionSettings;
-}
-
-export namespace FailoverCondition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailoverCondition): any => ({
-    ...obj,
-  });
 }
 
 export enum InputPreference {
@@ -2369,15 +1802,6 @@ export interface AutomaticInputFailoverSettings {
    * The input ID of the secondary input in the automatic input failover pair.
    */
   SecondaryInputId: string | undefined;
-}
-
-export namespace AutomaticInputFailoverSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutomaticInputFailoverSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum InputDeblockFilter {
@@ -2431,15 +1855,6 @@ export interface HlsInputSettings {
   Scte35Source?: HlsScte35SourceType | string;
 }
 
-export namespace HlsInputSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsInputSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum NetworkInputServerValidation {
   CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME = "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME",
   CHECK_CRYPTOGRAPHY_ONLY = "CHECK_CRYPTOGRAPHY_ONLY",
@@ -2458,15 +1873,6 @@ export interface NetworkInputSettings {
    * Check HTTPS server certificates. When set to checkCryptographyOnly, cryptography in the certificate will be checked, but not the server's name. Certain subdomains (notably S3 buckets that use dots in the bucket name) do not strictly match the corresponding certificate's wildcard pattern and would otherwise cause the event to error. This setting is ignored for protocols that do not use https.
    */
   ServerValidation?: NetworkInputServerValidation | string;
-}
-
-export namespace NetworkInputSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInputSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum Smpte2038DataPreference {
@@ -2506,15 +1912,6 @@ export interface Hdr10Settings {
   MaxFall?: number;
 }
 
-export namespace Hdr10Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Hdr10Settings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Video Selector Color Space Settings
  */
@@ -2523,15 +1920,6 @@ export interface VideoSelectorColorSpaceSettings {
    * Hdr10 Settings
    */
   Hdr10Settings?: Hdr10Settings;
-}
-
-export namespace VideoSelectorColorSpaceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoSelectorColorSpaceSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum VideoSelectorColorSpaceUsage {
@@ -2549,15 +1937,6 @@ export interface VideoSelectorPid {
   Pid?: number;
 }
 
-export namespace VideoSelectorPid {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoSelectorPid): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Video Selector Program Id
  */
@@ -2566,15 +1945,6 @@ export interface VideoSelectorProgramId {
    * Selects a specific program from within a multi-program transport stream. If the program doesn't exist, the first program within the transport stream will be selected by default.
    */
   ProgramId?: number;
-}
-
-export namespace VideoSelectorProgramId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoSelectorProgramId): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2590,15 +1960,6 @@ export interface VideoSelectorSettings {
    * Video Selector Program Id
    */
   VideoSelectorProgramId?: VideoSelectorProgramId;
-}
-
-export namespace VideoSelectorSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoSelectorSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2624,15 +1985,6 @@ export interface VideoSelector {
    * The video selector settings.
    */
   SelectorSettings?: VideoSelectorSettings;
-}
-
-export namespace VideoSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoSelector): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2700,15 +2052,6 @@ export interface InputSettings {
   VideoSelector?: VideoSelector;
 }
 
-export namespace InputSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for InputAttachment
  */
@@ -2732,15 +2075,6 @@ export interface InputAttachment {
    * Settings of an input (caption selector, etc.)
    */
   InputSettings?: InputSettings;
-}
-
-export namespace InputAttachment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputAttachment): any => ({
-    ...obj,
-  });
 }
 
 export enum InputCodec {
@@ -2779,15 +2113,6 @@ export interface InputSpecification {
    * Input resolution, categorized coarsely
    */
   Resolution?: InputResolution | string;
-}
-
-export namespace InputSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputSpecification): any => ({
-    ...obj,
-  });
 }
 
 export enum LogLevel {
@@ -2833,15 +2158,6 @@ export interface MaintenanceStatus {
   MaintenanceStartTime?: string;
 }
 
-export namespace MaintenanceStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaintenanceStatus): any => ({
-    ...obj,
-  });
-}
-
 export enum ChannelState {
   CREATE_FAILED = "CREATE_FAILED",
   CREATING = "CREATING",
@@ -2882,15 +2198,6 @@ export interface VpcOutputSettingsDescription {
    * If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
    */
   SubnetIds?: string[];
-}
-
-export namespace VpcOutputSettingsDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcOutputSettingsDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2980,15 +2287,6 @@ export interface ChannelSummary {
   Vpc?: VpcOutputSettingsDescription;
 }
 
-export namespace ChannelSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum HlsAdMarkers {
   ADOBE = "ADOBE",
   ELEMENTAL = "ELEMENTAL",
@@ -3008,15 +2306,6 @@ export interface InputDestinationVpc {
    * The network interface ID of the Input destination in the VPC.
    */
   NetworkInterfaceId?: string;
-}
-
-export namespace InputDestinationVpc {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDestinationVpc): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3046,15 +2335,6 @@ export interface InputDestination {
   Vpc?: InputDestinationVpc;
 }
 
-export namespace InputDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDestination): any => ({
-    ...obj,
-  });
-}
-
 export enum InputClass {
   SINGLE_PIPELINE = "SINGLE_PIPELINE",
   STANDARD = "STANDARD",
@@ -3070,15 +2350,6 @@ export interface InputDeviceSettings {
   Id?: string;
 }
 
-export namespace InputDeviceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDeviceSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum InputSourceType {
   DYNAMIC = "DYNAMIC",
   STATIC = "STATIC",
@@ -3092,15 +2363,6 @@ export interface MediaConnectFlow {
    * The unique ARN of the MediaConnect Flow being used as a source.
    */
   FlowArn?: string;
-}
-
-export namespace MediaConnectFlow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaConnectFlow): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3122,15 +2384,6 @@ export interface InputSource {
    * The username for the input source.
    */
   Username?: string;
-}
-
-export namespace InputSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputSource): any => ({
-    ...obj,
-  });
 }
 
 export enum InputState {
@@ -3241,15 +2494,6 @@ export interface Input {
   Type?: InputType | string;
 }
 
-export namespace Input {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Input): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Endpoint settings for a PUSH type input.
  */
@@ -3261,15 +2505,6 @@ export interface InputDestinationRequest {
   StreamName?: string;
 }
 
-export namespace InputDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings for an input device.
  */
@@ -3278,15 +2513,6 @@ export interface InputDeviceRequest {
    * The unique ID for the device.
    */
   Id?: string;
-}
-
-export namespace InputDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDeviceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum InputDeviceConnectionState {
@@ -3371,15 +2597,6 @@ export interface InputDeviceHdSettings {
   Width?: number;
 }
 
-export namespace InputDeviceHdSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDeviceHdSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum InputDeviceIpScheme {
   DHCP = "DHCP",
   STATIC = "STATIC",
@@ -3413,15 +2630,6 @@ export interface InputDeviceNetworkSettings {
    * The subnet mask of the input device.
    */
   SubnetMask?: string;
-}
-
-export namespace InputDeviceNetworkSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDeviceNetworkSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum InputDeviceType {
@@ -3471,15 +2679,6 @@ export interface InputDeviceUhdSettings {
    * The width of the video source, in pixels.
    */
   Width?: number;
-}
-
-export namespace InputDeviceUhdSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDeviceUhdSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3547,15 +2746,6 @@ export interface InputDeviceSummary {
   UhdDeviceSettings?: InputDeviceUhdSettings;
 }
 
-export namespace InputDeviceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDeviceSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum InputSecurityGroupState {
   DELETED = "DELETED",
   IDLE = "IDLE",
@@ -3571,15 +2761,6 @@ export interface InputWhitelistRule {
    * The IPv4 CIDR that's whitelisted.
    */
   Cidr?: string;
-}
-
-export namespace InputWhitelistRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputWhitelistRule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3617,15 +2798,6 @@ export interface InputSecurityGroup {
   WhitelistRules?: InputWhitelistRule[];
 }
 
-export namespace InputSecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputSecurityGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Settings for for a PULL type input.
  */
@@ -3647,15 +2819,6 @@ export interface InputSourceRequest {
   Username?: string;
 }
 
-export namespace InputSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputSourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * An IPv4 CIDR to whitelist.
  */
@@ -3664,15 +2827,6 @@ export interface InputWhitelistRuleCidr {
    * The IPv4 CIDR to whitelist.
    */
   Cidr?: string;
-}
-
-export namespace InputWhitelistRuleCidr {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputWhitelistRuleCidr): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3685,15 +2839,6 @@ export interface MediaConnectFlowRequest {
   FlowArn?: string;
 }
 
-export namespace MediaConnectFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaConnectFlowRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Multiplex MediaConnect output destination settings.
  */
@@ -3704,15 +2849,6 @@ export interface MultiplexMediaConnectOutputDestinationSettings {
   EntitlementArn?: string;
 }
 
-export namespace MultiplexMediaConnectOutputDestinationSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiplexMediaConnectOutputDestinationSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Multiplex output destination settings
  */
@@ -3721,15 +2857,6 @@ export interface MultiplexOutputDestination {
    * Multiplex MediaConnect output destination settings.
    */
   MediaConnectSettings?: MultiplexMediaConnectOutputDestinationSettings;
-}
-
-export namespace MultiplexOutputDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiplexOutputDestination): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3747,15 +2874,6 @@ export interface MultiplexProgramPipelineDetail {
   PipelineId?: string;
 }
 
-export namespace MultiplexProgramPipelineDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiplexProgramPipelineDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Placeholder documentation for MultiplexProgramSummary
  */
@@ -3771,15 +2889,6 @@ export interface MultiplexProgramSummary {
   ProgramName?: string;
 }
 
-export namespace MultiplexProgramSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiplexProgramSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Contains summary configuration for a Multiplex event.
  */
@@ -3788,15 +2897,6 @@ export interface MultiplexSettingsSummary {
    * Transport stream bit rate.
    */
   TransportStreamBitrate?: number;
-}
-
-export namespace MultiplexSettingsSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiplexSettingsSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum MultiplexState {
@@ -3859,15 +2959,6 @@ export interface MultiplexSummary {
    * A collection of key-value pairs.
    */
   Tags?: Record<string, string>;
-}
-
-export namespace MultiplexSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiplexSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum OfferingDurationUnits {
@@ -3969,15 +3060,6 @@ export interface ReservationResourceSpecification {
   VideoQuality?: ReservationVideoQuality | string;
 }
 
-export namespace ReservationResourceSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservationResourceSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Reserved resources available for purchase
  */
@@ -4038,15 +3120,6 @@ export interface Offering {
   UsagePrice?: number;
 }
 
-export namespace Offering {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Offering): any => ({
-    ...obj,
-  });
-}
-
 export enum M2tsAbsentInputAudioBehavior {
   DROP = "DROP",
   ENCODE_SILENCE = "ENCODE_SILENCE",
@@ -4102,15 +3175,6 @@ export interface DvbNitSettings {
   RepInterval?: number;
 }
 
-export namespace DvbNitSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DvbNitSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum DvbSdtOutputSdt {
   SDT_FOLLOW = "SDT_FOLLOW",
   SDT_FOLLOW_IF_PRESENT = "SDT_FOLLOW_IF_PRESENT",
@@ -4143,15 +3207,6 @@ export interface DvbSdtSettings {
   ServiceProviderName?: string;
 }
 
-export namespace DvbSdtSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DvbSdtSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * DVB Time and Date Table (SDT)
  */
@@ -4160,15 +3215,6 @@ export interface DvbTdtSettings {
    * The number of milliseconds between instances of this table in the output transport stream.
    */
   RepInterval?: number;
-}
-
-export namespace DvbTdtSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DvbTdtSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum M2tsEbifControl {
@@ -4479,28 +3525,10 @@ export interface M2tsSettings {
   VideoPid?: string;
 }
 
-export namespace M2tsSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: M2tsSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Raw Settings
  */
 export interface RawSettings {}
-
-export namespace RawSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RawSettings): any => ({
-    ...obj,
-  });
-}
 
 /**
  * Archive Container Settings
@@ -4515,15 +3543,6 @@ export interface ArchiveContainerSettings {
    * Raw Settings
    */
   RawSettings?: RawSettings;
-}
-
-export namespace ArchiveContainerSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArchiveContainerSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4546,15 +3565,6 @@ export interface ArchiveOutputSettings {
   NameModifier?: string;
 }
 
-export namespace ArchiveOutputSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArchiveOutputSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Frame Capture Output Settings
  */
@@ -4563,15 +3573,6 @@ export interface FrameCaptureOutputSettings {
    * Required if the output group contains more than one output. This modifier forms part of the output file name.
    */
   NameModifier?: string;
-}
-
-export namespace FrameCaptureOutputSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FrameCaptureOutputSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum HlsH265PackagingType {
@@ -4630,15 +3631,6 @@ export interface AudioOnlyHlsSettings {
   SegmentType?: AudioOnlyHlsSegmentType | string;
 }
 
-export namespace AudioOnlyHlsSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioOnlyHlsSettings): any => ({
-    ...obj,
-  });
-}
-
 export enum Fmp4NielsenId3Behavior {
   NO_PASSTHROUGH = "NO_PASSTHROUGH",
   PASSTHROUGH = "PASSTHROUGH",
@@ -4669,28 +3661,10 @@ export interface Fmp4HlsSettings {
   TimedMetadataBehavior?: Fmp4TimedMetadataBehavior | string;
 }
 
-export namespace Fmp4HlsSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Fmp4HlsSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Frame Capture Hls Settings
  */
 export interface FrameCaptureHlsSettings {}
-
-export namespace FrameCaptureHlsSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FrameCaptureHlsSettings): any => ({
-    ...obj,
-  });
-}
 
 export enum M3u8NielsenId3Behavior {
   NO_PASSTHROUGH = "NO_PASSTHROUGH",
@@ -4802,15 +3776,6 @@ export interface M3u8Settings {
   VideoPid?: string;
 }
 
-export namespace M3u8Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: M3u8Settings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Standard Hls Settings
  */
@@ -4824,15 +3789,6 @@ export interface StandardHlsSettings {
    * Settings information for the .m3u8 container
    */
   M3u8Settings: M3u8Settings | undefined;
-}
-
-export namespace StandardHlsSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StandardHlsSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4858,15 +3814,6 @@ export interface HlsSettings {
    * Standard Hls Settings
    */
   StandardHlsSettings?: StandardHlsSettings;
-}
-
-export namespace HlsSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4895,28 +3842,10 @@ export interface HlsOutputSettings {
   SegmentModifier?: string;
 }
 
-export namespace HlsOutputSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsOutputSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Media Package Output Settings
  */
 export interface MediaPackageOutputSettings {}
-
-export namespace MediaPackageOutputSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaPackageOutputSettings): any => ({
-    ...obj,
-  });
-}
 
 export enum MsSmoothH265PackagingType {
   HEV1 = "HEV1",
@@ -4939,15 +3868,6 @@ export interface MsSmoothOutputSettings {
   NameModifier?: string;
 }
 
-export namespace MsSmoothOutputSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MsSmoothOutputSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Reference to an OutputDestination ID defined in the channel
  */
@@ -4958,15 +3878,6 @@ export interface OutputLocationRef {
   DestinationRefId?: string;
 }
 
-export namespace OutputLocationRef {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputLocationRef): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Multiplex Output Settings
  */
@@ -4975,15 +3886,6 @@ export interface MultiplexOutputSettings {
    * Destination is a Multiplex.
    */
   Destination: OutputLocationRef | undefined;
-}
-
-export namespace MultiplexOutputSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiplexOutputSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum RtmpOutputCertificateMode {
@@ -5016,15 +3918,6 @@ export interface RtmpOutputSettings {
   NumRetries?: number;
 }
 
-export namespace RtmpOutputSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RtmpOutputSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Udp Container Settings
  */
@@ -5033,15 +3926,6 @@ export interface UdpContainerSettings {
    * M2ts Settings
    */
   M2tsSettings?: M2tsSettings;
-}
-
-export namespace UdpContainerSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UdpContainerSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum FecOutputIncludeFec {
@@ -5069,15 +3953,6 @@ export interface FecOutputSettings {
   RowLength?: number;
 }
 
-export namespace FecOutputSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FecOutputSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Udp Output Settings
  */
@@ -5101,15 +3976,6 @@ export interface UdpOutputSettings {
    * Settings for enabling and adjusting Forward Error Correction on UDP outputs.
    */
   FecOutputSettings?: FecOutputSettings;
-}
-
-export namespace UdpOutputSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UdpOutputSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5157,15 +4023,6 @@ export interface OutputSettings {
   UdpOutputSettings?: UdpOutputSettings;
 }
 
-export namespace OutputSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Output settings. There can be multiple outputs within a group.
  */
@@ -5196,15 +4053,6 @@ export interface Output {
   VideoDescriptionName?: string;
 }
 
-export namespace Output {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Output): any => ({
-    ...obj,
-  });
-}
-
 export enum S3CannedAcl {
   AUTHENTICATED_READ = "AUTHENTICATED_READ",
   BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL",
@@ -5222,15 +4070,6 @@ export interface ArchiveS3Settings {
   CannedAcl?: S3CannedAcl | string;
 }
 
-export namespace ArchiveS3Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArchiveS3Settings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Archive Cdn Settings
  */
@@ -5239,15 +4078,6 @@ export interface ArchiveCdnSettings {
    * Archive S3 Settings
    */
   ArchiveS3Settings?: ArchiveS3Settings;
-}
-
-export namespace ArchiveCdnSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArchiveCdnSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5270,15 +4100,6 @@ export interface ArchiveGroupSettings {
   RolloverInterval?: number;
 }
 
-export namespace ArchiveGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArchiveGroupSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Frame Capture S3 Settings
  */
@@ -5289,15 +4110,6 @@ export interface FrameCaptureS3Settings {
   CannedAcl?: S3CannedAcl | string;
 }
 
-export namespace FrameCaptureS3Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FrameCaptureS3Settings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Frame Capture Cdn Settings
  */
@@ -5306,15 +4118,6 @@ export interface FrameCaptureCdnSettings {
    * Frame Capture S3 Settings
    */
   FrameCaptureS3Settings?: FrameCaptureS3Settings;
-}
-
-export namespace FrameCaptureCdnSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FrameCaptureCdnSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5330,15 +4133,6 @@ export interface FrameCaptureGroupSettings {
    * Parameters that control interactions with the CDN.
    */
   FrameCaptureCdnSettings?: FrameCaptureCdnSettings;
-}
-
-export namespace FrameCaptureGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FrameCaptureGroupSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum HlsCaptionLanguageSetting {
@@ -5417,15 +4211,6 @@ export interface HlsAkamaiSettings {
   Token?: string;
 }
 
-export namespace HlsAkamaiSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsAkamaiSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Hls Basic Put Settings
  */
@@ -5449,15 +4234,6 @@ export interface HlsBasicPutSettings {
    * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
    */
   RestartDelay?: number;
-}
-
-export namespace HlsBasicPutSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsBasicPutSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum HlsMediaStoreStorageClass {
@@ -5494,15 +4270,6 @@ export interface HlsMediaStoreSettings {
   RestartDelay?: number;
 }
 
-export namespace HlsMediaStoreSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsMediaStoreSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Hls S3 Settings
  */
@@ -5511,15 +4278,6 @@ export interface HlsS3Settings {
    * Specify the canned ACL to apply to each S3 request. Defaults to none.
    */
   CannedAcl?: S3CannedAcl | string;
-}
-
-export namespace HlsS3Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsS3Settings): any => ({
-    ...obj,
-  });
 }
 
 export enum HlsWebdavHttpTransferMode {
@@ -5557,15 +4315,6 @@ export interface HlsWebdavSettings {
   RestartDelay?: number;
 }
 
-export namespace HlsWebdavSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsWebdavSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Hls Cdn Settings
  */
@@ -5594,15 +4343,6 @@ export interface HlsCdnSettings {
    * Hls Webdav Settings
    */
   HlsWebdavSettings?: HlsWebdavSettings;
-}
-
-export namespace HlsCdnSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsCdnSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum HlsId3SegmentTaggingState {
@@ -5650,15 +4390,6 @@ export interface StaticKeySettings {
   StaticKeyValue: string | undefined;
 }
 
-export namespace StaticKeySettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StaticKeySettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Key Provider Settings
  */
@@ -5667,15 +4398,6 @@ export interface KeyProviderSettings {
    * Static Key Settings
    */
   StaticKeySettings?: StaticKeySettings;
-}
-
-export namespace KeyProviderSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyProviderSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum HlsManifestCompression {
@@ -5723,3 +4445,1007 @@ export enum HlsStreamInfResolution {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
 }
+
+/**
+ * @internal
+ */
+export const InputChannelLevelFilterSensitiveLog = (obj: InputChannelLevel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioChannelMappingFilterSensitiveLog = (obj: AudioChannelMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioNormalizationSettingsFilterSensitiveLog = (obj: AudioNormalizationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NielsenCBETFilterSensitiveLog = (obj: NielsenCBET): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NielsenNaesIiNwFilterSensitiveLog = (obj: NielsenNaesIiNw): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NielsenWatermarksSettingsFilterSensitiveLog = (obj: NielsenWatermarksSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioWatermarkSettingsFilterSensitiveLog = (obj: AudioWatermarkSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AacSettingsFilterSensitiveLog = (obj: AacSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Ac3SettingsFilterSensitiveLog = (obj: Ac3Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Eac3SettingsFilterSensitiveLog = (obj: Eac3Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Mp2SettingsFilterSensitiveLog = (obj: Mp2Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PassThroughSettingsFilterSensitiveLog = (obj: PassThroughSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WavSettingsFilterSensitiveLog = (obj: WavSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioCodecSettingsFilterSensitiveLog = (obj: AudioCodecSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemixSettingsFilterSensitiveLog = (obj: RemixSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioDescriptionFilterSensitiveLog = (obj: AudioDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioHlsRenditionSelectionFilterSensitiveLog = (obj: AudioHlsRenditionSelection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioLanguageSelectionFilterSensitiveLog = (obj: AudioLanguageSelection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioPidSelectionFilterSensitiveLog = (obj: AudioPidSelection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioTrackFilterSensitiveLog = (obj: AudioTrack): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioTrackSelectionFilterSensitiveLog = (obj: AudioTrackSelection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioSelectorSettingsFilterSensitiveLog = (obj: AudioSelectorSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioSelectorFilterSensitiveLog = (obj: AudioSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchFailedResultModelFilterSensitiveLog = (obj: BatchFailedResultModel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchSuccessfulResultModelFilterSensitiveLog = (obj: BatchSuccessfulResultModel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AribDestinationSettingsFilterSensitiveLog = (obj: AribDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputLocationFilterSensitiveLog = (obj: InputLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BurnInDestinationSettingsFilterSensitiveLog = (obj: BurnInDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DvbSubDestinationSettingsFilterSensitiveLog = (obj: DvbSubDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EbuTtDDestinationSettingsFilterSensitiveLog = (obj: EbuTtDDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EmbeddedDestinationSettingsFilterSensitiveLog = (obj: EmbeddedDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EmbeddedPlusScte20DestinationSettingsFilterSensitiveLog = (
+  obj: EmbeddedPlusScte20DestinationSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RtmpCaptionInfoDestinationSettingsFilterSensitiveLog = (obj: RtmpCaptionInfoDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Scte20PlusEmbeddedDestinationSettingsFilterSensitiveLog = (
+  obj: Scte20PlusEmbeddedDestinationSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Scte27DestinationSettingsFilterSensitiveLog = (obj: Scte27DestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SmpteTtDestinationSettingsFilterSensitiveLog = (obj: SmpteTtDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TeletextDestinationSettingsFilterSensitiveLog = (obj: TeletextDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TtmlDestinationSettingsFilterSensitiveLog = (obj: TtmlDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebvttDestinationSettingsFilterSensitiveLog = (obj: WebvttDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptionDestinationSettingsFilterSensitiveLog = (obj: CaptionDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptionDescriptionFilterSensitiveLog = (obj: CaptionDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptionLanguageMappingFilterSensitiveLog = (obj: CaptionLanguageMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AncillarySourceSettingsFilterSensitiveLog = (obj: AncillarySourceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AribSourceSettingsFilterSensitiveLog = (obj: AribSourceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DvbSubSourceSettingsFilterSensitiveLog = (obj: DvbSubSourceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EmbeddedSourceSettingsFilterSensitiveLog = (obj: EmbeddedSourceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Scte20SourceSettingsFilterSensitiveLog = (obj: Scte20SourceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Scte27SourceSettingsFilterSensitiveLog = (obj: Scte27SourceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptionRectangleFilterSensitiveLog = (obj: CaptionRectangle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TeletextSourceSettingsFilterSensitiveLog = (obj: TeletextSourceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptionSelectorSettingsFilterSensitiveLog = (obj: CaptionSelectorSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptionSelectorFilterSensitiveLog = (obj: CaptionSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelEgressEndpointFilterSensitiveLog = (obj: ChannelEgressEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CdiInputSpecificationFilterSensitiveLog = (obj: CdiInputSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaPackageOutputDestinationSettingsFilterSensitiveLog = (
+  obj: MediaPackageOutputDestinationSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexProgramChannelDestinationSettingsFilterSensitiveLog = (
+  obj: MultiplexProgramChannelDestinationSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputDestinationSettingsFilterSensitiveLog = (obj: OutputDestinationSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputDestinationFilterSensitiveLog = (obj: OutputDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioSilenceFailoverSettingsFilterSensitiveLog = (obj: AudioSilenceFailoverSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputLossFailoverSettingsFilterSensitiveLog = (obj: InputLossFailoverSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoBlackFailoverSettingsFilterSensitiveLog = (obj: VideoBlackFailoverSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailoverConditionSettingsFilterSensitiveLog = (obj: FailoverConditionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailoverConditionFilterSensitiveLog = (obj: FailoverCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutomaticInputFailoverSettingsFilterSensitiveLog = (obj: AutomaticInputFailoverSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsInputSettingsFilterSensitiveLog = (obj: HlsInputSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkInputSettingsFilterSensitiveLog = (obj: NetworkInputSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Hdr10SettingsFilterSensitiveLog = (obj: Hdr10Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoSelectorColorSpaceSettingsFilterSensitiveLog = (obj: VideoSelectorColorSpaceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoSelectorPidFilterSensitiveLog = (obj: VideoSelectorPid): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoSelectorProgramIdFilterSensitiveLog = (obj: VideoSelectorProgramId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoSelectorSettingsFilterSensitiveLog = (obj: VideoSelectorSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoSelectorFilterSensitiveLog = (obj: VideoSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputSettingsFilterSensitiveLog = (obj: InputSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputAttachmentFilterSensitiveLog = (obj: InputAttachment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputSpecificationFilterSensitiveLog = (obj: InputSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MaintenanceStatusFilterSensitiveLog = (obj: MaintenanceStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcOutputSettingsDescriptionFilterSensitiveLog = (obj: VpcOutputSettingsDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelSummaryFilterSensitiveLog = (obj: ChannelSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDestinationVpcFilterSensitiveLog = (obj: InputDestinationVpc): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDestinationFilterSensitiveLog = (obj: InputDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDeviceSettingsFilterSensitiveLog = (obj: InputDeviceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaConnectFlowFilterSensitiveLog = (obj: MediaConnectFlow): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputSourceFilterSensitiveLog = (obj: InputSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputFilterSensitiveLog = (obj: Input): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDestinationRequestFilterSensitiveLog = (obj: InputDestinationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDeviceRequestFilterSensitiveLog = (obj: InputDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDeviceHdSettingsFilterSensitiveLog = (obj: InputDeviceHdSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDeviceNetworkSettingsFilterSensitiveLog = (obj: InputDeviceNetworkSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDeviceUhdSettingsFilterSensitiveLog = (obj: InputDeviceUhdSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDeviceSummaryFilterSensitiveLog = (obj: InputDeviceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputWhitelistRuleFilterSensitiveLog = (obj: InputWhitelistRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputSecurityGroupFilterSensitiveLog = (obj: InputSecurityGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputSourceRequestFilterSensitiveLog = (obj: InputSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputWhitelistRuleCidrFilterSensitiveLog = (obj: InputWhitelistRuleCidr): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaConnectFlowRequestFilterSensitiveLog = (obj: MediaConnectFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexMediaConnectOutputDestinationSettingsFilterSensitiveLog = (
+  obj: MultiplexMediaConnectOutputDestinationSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexOutputDestinationFilterSensitiveLog = (obj: MultiplexOutputDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexProgramPipelineDetailFilterSensitiveLog = (obj: MultiplexProgramPipelineDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexProgramSummaryFilterSensitiveLog = (obj: MultiplexProgramSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexSettingsSummaryFilterSensitiveLog = (obj: MultiplexSettingsSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexSummaryFilterSensitiveLog = (obj: MultiplexSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservationResourceSpecificationFilterSensitiveLog = (obj: ReservationResourceSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OfferingFilterSensitiveLog = (obj: Offering): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DvbNitSettingsFilterSensitiveLog = (obj: DvbNitSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DvbSdtSettingsFilterSensitiveLog = (obj: DvbSdtSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DvbTdtSettingsFilterSensitiveLog = (obj: DvbTdtSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const M2tsSettingsFilterSensitiveLog = (obj: M2tsSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RawSettingsFilterSensitiveLog = (obj: RawSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArchiveContainerSettingsFilterSensitiveLog = (obj: ArchiveContainerSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArchiveOutputSettingsFilterSensitiveLog = (obj: ArchiveOutputSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FrameCaptureOutputSettingsFilterSensitiveLog = (obj: FrameCaptureOutputSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioOnlyHlsSettingsFilterSensitiveLog = (obj: AudioOnlyHlsSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Fmp4HlsSettingsFilterSensitiveLog = (obj: Fmp4HlsSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FrameCaptureHlsSettingsFilterSensitiveLog = (obj: FrameCaptureHlsSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const M3u8SettingsFilterSensitiveLog = (obj: M3u8Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StandardHlsSettingsFilterSensitiveLog = (obj: StandardHlsSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsSettingsFilterSensitiveLog = (obj: HlsSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsOutputSettingsFilterSensitiveLog = (obj: HlsOutputSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaPackageOutputSettingsFilterSensitiveLog = (obj: MediaPackageOutputSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MsSmoothOutputSettingsFilterSensitiveLog = (obj: MsSmoothOutputSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputLocationRefFilterSensitiveLog = (obj: OutputLocationRef): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiplexOutputSettingsFilterSensitiveLog = (obj: MultiplexOutputSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RtmpOutputSettingsFilterSensitiveLog = (obj: RtmpOutputSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UdpContainerSettingsFilterSensitiveLog = (obj: UdpContainerSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FecOutputSettingsFilterSensitiveLog = (obj: FecOutputSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UdpOutputSettingsFilterSensitiveLog = (obj: UdpOutputSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputSettingsFilterSensitiveLog = (obj: OutputSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputFilterSensitiveLog = (obj: Output): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArchiveS3SettingsFilterSensitiveLog = (obj: ArchiveS3Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArchiveCdnSettingsFilterSensitiveLog = (obj: ArchiveCdnSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArchiveGroupSettingsFilterSensitiveLog = (obj: ArchiveGroupSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FrameCaptureS3SettingsFilterSensitiveLog = (obj: FrameCaptureS3Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FrameCaptureCdnSettingsFilterSensitiveLog = (obj: FrameCaptureCdnSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FrameCaptureGroupSettingsFilterSensitiveLog = (obj: FrameCaptureGroupSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsAkamaiSettingsFilterSensitiveLog = (obj: HlsAkamaiSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsBasicPutSettingsFilterSensitiveLog = (obj: HlsBasicPutSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsMediaStoreSettingsFilterSensitiveLog = (obj: HlsMediaStoreSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsS3SettingsFilterSensitiveLog = (obj: HlsS3Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsWebdavSettingsFilterSensitiveLog = (obj: HlsWebdavSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsCdnSettingsFilterSensitiveLog = (obj: HlsCdnSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StaticKeySettingsFilterSensitiveLog = (obj: StaticKeySettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeyProviderSettingsFilterSensitiveLog = (obj: KeyProviderSettings): any => ({
+  ...obj,
+});

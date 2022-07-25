@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import { DeleteLifecyclePolicyInput, DeleteLifecyclePolicyOutput } from "../models/models_0";
+import {
+  DeleteLifecyclePolicyInput,
+  DeleteLifecyclePolicyInputFilterSensitiveLog,
+  DeleteLifecyclePolicyOutput,
+  DeleteLifecyclePolicyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLifecyclePolicyCommand,
   serializeAws_json1_1DeleteLifecyclePolicyCommand,
@@ -72,8 +77,8 @@ export class DeleteLifecyclePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLifecyclePolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLifecyclePolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLifecyclePolicyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLifecyclePolicyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

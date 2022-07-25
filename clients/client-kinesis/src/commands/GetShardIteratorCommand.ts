@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { GetShardIteratorInput, GetShardIteratorOutput } from "../models/models_0";
+import {
+  GetShardIteratorInput,
+  GetShardIteratorInputFilterSensitiveLog,
+  GetShardIteratorOutput,
+  GetShardIteratorOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetShardIteratorCommand,
   serializeAws_json1_1GetShardIteratorCommand,
@@ -105,8 +110,8 @@ export class GetShardIteratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetShardIteratorInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetShardIteratorOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetShardIteratorInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetShardIteratorOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

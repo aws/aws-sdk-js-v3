@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { SendDataToWirelessDeviceRequest, SendDataToWirelessDeviceResponse } from "../models/models_0";
+import {
+  SendDataToWirelessDeviceRequest,
+  SendDataToWirelessDeviceRequestFilterSensitiveLog,
+  SendDataToWirelessDeviceResponse,
+  SendDataToWirelessDeviceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1SendDataToWirelessDeviceCommand,
   serializeAws_restJson1SendDataToWirelessDeviceCommand,
@@ -72,8 +77,8 @@ export class SendDataToWirelessDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendDataToWirelessDeviceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendDataToWirelessDeviceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SendDataToWirelessDeviceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SendDataToWirelessDeviceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

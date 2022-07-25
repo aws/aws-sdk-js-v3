@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetInstancesHealthStatusRequest, GetInstancesHealthStatusResponse } from "../models/models_0";
+import {
+  GetInstancesHealthStatusRequest,
+  GetInstancesHealthStatusRequestFilterSensitiveLog,
+  GetInstancesHealthStatusResponse,
+  GetInstancesHealthStatusResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetInstancesHealthStatusCommand,
   serializeAws_json1_1GetInstancesHealthStatusCommand,
@@ -77,8 +82,8 @@ export class GetInstancesHealthStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstancesHealthStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetInstancesHealthStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInstancesHealthStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetInstancesHealthStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

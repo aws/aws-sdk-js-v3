@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteRobotRequest, DeleteRobotResponse } from "../models/models_0";
+import {
+  DeleteRobotRequest,
+  DeleteRobotRequestFilterSensitiveLog,
+  DeleteRobotResponse,
+  DeleteRobotResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRobotCommand,
   serializeAws_restJson1DeleteRobotCommand,
@@ -77,8 +82,8 @@ export class DeleteRobotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRobotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRobotResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRobotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRobotResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

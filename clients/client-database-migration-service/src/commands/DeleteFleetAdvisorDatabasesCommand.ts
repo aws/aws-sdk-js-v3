@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DeleteFleetAdvisorDatabasesRequest, DeleteFleetAdvisorDatabasesResponse } from "../models/models_0";
+import {
+  DeleteFleetAdvisorDatabasesRequest,
+  DeleteFleetAdvisorDatabasesRequestFilterSensitiveLog,
+  DeleteFleetAdvisorDatabasesResponse,
+  DeleteFleetAdvisorDatabasesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteFleetAdvisorDatabasesCommand,
   serializeAws_json1_1DeleteFleetAdvisorDatabasesCommand,
@@ -78,8 +83,8 @@ export class DeleteFleetAdvisorDatabasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFleetAdvisorDatabasesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFleetAdvisorDatabasesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFleetAdvisorDatabasesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFleetAdvisorDatabasesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

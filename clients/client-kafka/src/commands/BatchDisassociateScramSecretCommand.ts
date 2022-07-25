@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import { BatchDisassociateScramSecretRequest, BatchDisassociateScramSecretResponse } from "../models/models_0";
+import {
+  BatchDisassociateScramSecretRequest,
+  BatchDisassociateScramSecretRequestFilterSensitiveLog,
+  BatchDisassociateScramSecretResponse,
+  BatchDisassociateScramSecretResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BatchDisassociateScramSecretCommand,
   serializeAws_restJson1BatchDisassociateScramSecretCommand,
@@ -74,8 +79,8 @@ export class BatchDisassociateScramSecretCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDisassociateScramSecretRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchDisassociateScramSecretResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDisassociateScramSecretRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchDisassociateScramSecretResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

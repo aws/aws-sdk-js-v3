@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateByteMatchSetRequest, UpdateByteMatchSetResponse } from "../models/models_0";
+import {
+  UpdateByteMatchSetRequest,
+  UpdateByteMatchSetRequestFilterSensitiveLog,
+  UpdateByteMatchSetResponse,
+  UpdateByteMatchSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateByteMatchSetCommand,
   serializeAws_json1_1UpdateByteMatchSetCommand,
@@ -118,8 +123,8 @@ export class UpdateByteMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateByteMatchSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateByteMatchSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateByteMatchSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateByteMatchSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

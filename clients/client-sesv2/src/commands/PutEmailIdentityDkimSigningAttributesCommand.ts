@@ -14,7 +14,9 @@ import {
 
 import {
   PutEmailIdentityDkimSigningAttributesRequest,
+  PutEmailIdentityDkimSigningAttributesRequestFilterSensitiveLog,
   PutEmailIdentityDkimSigningAttributesResponse,
+  PutEmailIdentityDkimSigningAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PutEmailIdentityDkimSigningAttributesCommand,
@@ -100,8 +102,8 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEmailIdentityDkimSigningAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutEmailIdentityDkimSigningAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutEmailIdentityDkimSigningAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutEmailIdentityDkimSigningAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisassociateInstanceEventWindowRequest, DisassociateInstanceEventWindowResult } from "../models/models_4";
+import {
+  DisassociateInstanceEventWindowRequest,
+  DisassociateInstanceEventWindowRequestFilterSensitiveLog,
+  DisassociateInstanceEventWindowResult,
+  DisassociateInstanceEventWindowResultFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2DisassociateInstanceEventWindowCommand,
   serializeAws_ec2DisassociateInstanceEventWindowCommand,
@@ -76,8 +81,8 @@ export class DisassociateInstanceEventWindowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateInstanceEventWindowRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateInstanceEventWindowResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateInstanceEventWindowRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateInstanceEventWindowResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

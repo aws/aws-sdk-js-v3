@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RemoveKnowledgeBaseTemplateUriRequest, RemoveKnowledgeBaseTemplateUriResponse } from "../models/models_0";
+import {
+  RemoveKnowledgeBaseTemplateUriRequest,
+  RemoveKnowledgeBaseTemplateUriRequestFilterSensitiveLog,
+  RemoveKnowledgeBaseTemplateUriResponse,
+  RemoveKnowledgeBaseTemplateUriResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand,
   serializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand,
@@ -74,8 +79,8 @@ export class RemoveKnowledgeBaseTemplateUriCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveKnowledgeBaseTemplateUriRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RemoveKnowledgeBaseTemplateUriResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveKnowledgeBaseTemplateUriRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RemoveKnowledgeBaseTemplateUriResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

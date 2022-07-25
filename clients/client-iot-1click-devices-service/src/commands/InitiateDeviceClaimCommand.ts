@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient";
-import { InitiateDeviceClaimRequest, InitiateDeviceClaimResponse } from "../models/models_0";
+import {
+  InitiateDeviceClaimRequest,
+  InitiateDeviceClaimRequestFilterSensitiveLog,
+  InitiateDeviceClaimResponse,
+  InitiateDeviceClaimResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1InitiateDeviceClaimCommand,
   serializeAws_restJson1InitiateDeviceClaimCommand,
@@ -80,8 +85,8 @@ export class InitiateDeviceClaimCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InitiateDeviceClaimRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: InitiateDeviceClaimResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: InitiateDeviceClaimRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: InitiateDeviceClaimResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

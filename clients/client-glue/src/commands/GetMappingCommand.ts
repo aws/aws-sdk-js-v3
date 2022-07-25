@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetMappingRequest, GetMappingResponse } from "../models/models_1";
+import {
+  GetMappingRequest,
+  GetMappingRequestFilterSensitiveLog,
+  GetMappingResponse,
+  GetMappingResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetMappingCommand,
   serializeAws_json1_1GetMappingCommand,
@@ -72,8 +77,8 @@ export class GetMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMappingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMappingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMappingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMappingResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

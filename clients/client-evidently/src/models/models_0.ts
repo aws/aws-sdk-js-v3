@@ -48,15 +48,6 @@ export interface EvaluationRequest {
   evaluationContext?: __LazyJsonString | string;
 }
 
-export namespace EvaluationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchEvaluateFeatureRequest {
   /**
    * <p>The name or ARN of the project that contains the feature being evaluated.</p>
@@ -67,15 +58,6 @@ export interface BatchEvaluateFeatureRequest {
    * <p>An array of structures, where each structure assigns a feature variation to one user session.</p>
    */
   requests: EvaluationRequest[] | undefined;
-}
-
-export namespace BatchEvaluateFeatureRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchEvaluateFeatureRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -162,17 +144,6 @@ export namespace VariableValue {
     if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VariableValue): any => {
-    if (obj.boolValue !== undefined) return { boolValue: obj.boolValue };
-    if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-    if (obj.longValue !== undefined) return { longValue: obj.longValue };
-    if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -220,32 +191,12 @@ export interface EvaluationResult {
   details?: __LazyJsonString | string;
 }
 
-export namespace EvaluationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluationResult): any => ({
-    ...obj,
-    ...(obj.value && { value: VariableValue.filterSensitiveLog(obj.value) }),
-  });
-}
-
 export interface BatchEvaluateFeatureResponse {
   /**
    * <p>An array of structures, where each structure displays the results of one feature evaluation
    *        assignment to one user session.</p>
    */
   results?: EvaluationResult[];
-}
-
-export namespace BatchEvaluateFeatureResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchEvaluateFeatureResponse): any => ({
-    ...obj,
-    ...(obj.results && { results: obj.results.map((item) => EvaluationResult.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -325,15 +276,6 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "cannotParse",
   FIELD_VALIDATION_FAILED = "fieldValidationFailed",
@@ -389,15 +331,6 @@ export interface CloudWatchLogsDestination {
   logGroup?: string;
 }
 
-export namespace CloudWatchLogsDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLogsDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure containing the CloudWatch Logs log group where the project stores evaluation
  *        events.</p>
@@ -408,15 +341,6 @@ export interface CloudWatchLogsDestinationConfig {
    *        events.</p>
    */
   logGroup?: string;
-}
-
-export namespace CloudWatchLogsDestinationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLogsDestinationConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -484,15 +408,6 @@ export interface MetricDefinitionConfig {
   unitLabel?: string;
 }
 
-export namespace MetricDefinitionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricDefinitionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Use this structure to tell Evidently whether higher or lower values are desired for a metric that is
  *        used in an experiment.</p>
@@ -514,15 +429,6 @@ export interface MetricGoalConfig {
   desiredChange?: ChangeDirectionEnum | string;
 }
 
-export namespace MetricGoalConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricGoalConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that contains the configuration of which variation to use as the "control"
  *       version. The "control" version  is used for comparison with other variations. This structure
@@ -541,15 +447,6 @@ export interface OnlineAbConfig {
    *       traffic to that variation.</p>
    */
   treatmentWeights?: Record<string, number>;
-}
-
-export namespace OnlineAbConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OnlineAbConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -576,15 +473,6 @@ export interface TreatmentConfig {
    * <p>The name of the variation to use as this treatment in the experiment.</p>
    */
   variation: string | undefined;
-}
-
-export namespace TreatmentConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TreatmentConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateExperimentRequest {
@@ -656,15 +544,6 @@ export interface CreateExperimentRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateExperimentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExperimentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This structure contains the date and time that the experiment started and ended.</p>
  */
@@ -678,15 +557,6 @@ export interface ExperimentExecution {
    * <p>The date and time that the experiment ended.</p>
    */
   endedTime?: Date;
-}
-
-export namespace ExperimentExecution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExperimentExecution): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -723,15 +593,6 @@ export interface MetricDefinition {
   unitLabel?: string;
 }
 
-export namespace MetricDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that tells Evidently whether higher or lower values are desired for a metric that is
  *        used in an experiment.</p>
@@ -751,15 +612,6 @@ export interface MetricGoal {
    *      better.</p>
    */
   desiredChange?: ChangeDirectionEnum | string;
-}
-
-export namespace MetricGoal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricGoal): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -782,15 +634,6 @@ export interface OnlineAbDefinition {
   treatmentWeights?: Record<string, number>;
 }
 
-export namespace OnlineAbDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OnlineAbDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This structure contains the time and date that Evidently completed the analysis of the experiment.</p>
  */
@@ -799,15 +642,6 @@ export interface ExperimentSchedule {
    * <p>The time and date that Evidently completed the analysis of the experiment.</p>
    */
   analysisCompleteTime?: Date;
-}
-
-export namespace ExperimentSchedule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExperimentSchedule): any => ({
-    ...obj,
-  });
 }
 
 export enum ExperimentStatus {
@@ -838,15 +672,6 @@ export interface Treatment {
    *       feature name, and the value is the variation name.</p>
    */
   featureVariations?: Record<string, string>;
-}
-
-export namespace Treatment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Treatment): any => ({
-    ...obj,
-  });
 }
 
 export enum ExperimentType {
@@ -958,30 +783,12 @@ export interface Experiment {
   tags?: Record<string, string>;
 }
 
-export namespace Experiment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Experiment): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateExperimentResponse {
   /**
    * <p>A structure containing the configuration details of the experiment
    *        that you created.</p>
    */
   experiment: Experiment | undefined;
-}
-
-export namespace CreateExperimentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExperimentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1047,16 +854,6 @@ export interface VariationConfig {
   value: VariableValue | undefined;
 }
 
-export namespace VariationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VariationConfig): any => ({
-    ...obj,
-    ...(obj.value && { value: VariableValue.filterSensitiveLog(obj.value) }),
-  });
-}
-
 export interface CreateFeatureRequest {
   /**
    * <p>The name or ARN of the project that is to contain the new feature.</p>
@@ -1116,16 +913,6 @@ export interface CreateFeatureRequest {
   entityOverrides?: Record<string, string>;
 }
 
-export namespace CreateFeatureRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFeatureRequest): any => ({
-    ...obj,
-    ...(obj.variations && { variations: obj.variations.map((item) => VariationConfig.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
  * <p>A structure that contains the information about an evaluation rule for this feature,
  *       if it is used in a launch or experiment.</p>
@@ -1141,15 +928,6 @@ export interface EvaluationRule {
    *        <code>aws.evidently.onlineab</code> if this is an evaluation rule for an experiment.</p>
    */
   type: string | undefined;
-}
-
-export namespace EvaluationRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluationRule): any => ({
-    ...obj,
-  });
 }
 
 export enum FeatureStatus {
@@ -1177,16 +955,6 @@ export interface Variation {
    * <p>The value assigned to this variation.</p>
    */
   value?: VariableValue;
-}
-
-export namespace Variation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Variation): any => ({
-    ...obj,
-    ...(obj.value && { value: VariableValue.filterSensitiveLog(obj.value) }),
-  });
 }
 
 /**
@@ -1278,31 +1046,11 @@ export interface Feature {
   entityOverrides?: Record<string, string>;
 }
 
-export namespace Feature {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Feature): any => ({
-    ...obj,
-    ...(obj.variations && { variations: obj.variations.map((item) => Variation.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateFeatureResponse {
   /**
    * <p>A structure that contains information about the new feature.</p>
    */
   feature?: Feature;
-}
-
-export namespace CreateFeatureResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFeatureResponse): any => ({
-    ...obj,
-    ...(obj.feature && { feature: Feature.filterSensitiveLog(obj.feature) }),
-  });
 }
 
 /**
@@ -1331,15 +1079,6 @@ export interface LaunchGroupConfig {
   variation: string | undefined;
 }
 
-export namespace LaunchGroupConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchGroupConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that defines a metric to be used to monitor performance of the variations during a launch.</p>
  */
@@ -1348,15 +1087,6 @@ export interface MetricMonitorConfig {
    * <p>A structure that defines the metric.</p>
    */
   metricDefinition: MetricDefinitionConfig | undefined;
-}
-
-export namespace MetricMonitorConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricMonitorConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1382,15 +1112,6 @@ export interface SegmentOverride {
    *     so a weight of 50000 represents 50% of traffic.</p>
    */
   weights: Record<string, number> | undefined;
-}
-
-export namespace SegmentOverride {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SegmentOverride): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1428,15 +1149,6 @@ export interface ScheduledSplitConfig {
   segmentOverrides?: SegmentOverride[];
 }
 
-export namespace ScheduledSplitConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledSplitConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An array of structures that define the traffic allocation percentages among the feature
  *       variations during each step of a launch. This also defines the start time of each step.</p>
@@ -1448,15 +1160,6 @@ export interface ScheduledSplitsLaunchConfig {
    *       step.</p>
    */
   steps: ScheduledSplitConfig[] | undefined;
-}
-
-export namespace ScheduledSplitsLaunchConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledSplitsLaunchConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLaunchRequest {
@@ -1513,15 +1216,6 @@ export interface CreateLaunchRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateLaunchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLaunchRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This structure contains information about the start and end times of the launch.</p>
  */
@@ -1535,15 +1229,6 @@ export interface LaunchExecution {
    * <p>The date and time that the launch ended.</p>
    */
   endedTime?: Date;
-}
-
-export namespace LaunchExecution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchExecution): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1567,15 +1252,6 @@ export interface LaunchGroup {
   featureVariations: Record<string, string> | undefined;
 }
 
-export namespace LaunchGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that defines a metric to be used to monitor performance of the variations during a launch.</p>
  */
@@ -1584,15 +1260,6 @@ export interface MetricMonitor {
    * <p>A structure that defines the metric.</p>
    */
   metricDefinition: MetricDefinition | undefined;
-}
-
-export namespace MetricMonitor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricMonitor): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1629,15 +1296,6 @@ export interface ScheduledSplit {
   segmentOverrides?: SegmentOverride[];
 }
 
-export namespace ScheduledSplit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledSplit): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An array of structures that define the traffic allocation percentages among the feature
  *       variations during each step of a launch. This also defines the start time of each step.</p>
@@ -1649,15 +1307,6 @@ export interface ScheduledSplitsLaunchDefinition {
    *       step.</p>
    */
   steps?: ScheduledSplit[];
-}
-
-export namespace ScheduledSplitsLaunchDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledSplitsLaunchDefinition): any => ({
-    ...obj,
-  });
 }
 
 export enum LaunchStatus {
@@ -1756,29 +1405,11 @@ export interface Launch {
   tags?: Record<string, string>;
 }
 
-export namespace Launch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Launch): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLaunchResponse {
   /**
    * <p>A structure that contains the configuration of the launch that was created.</p>
    */
   launch: Launch | undefined;
-}
-
-export namespace CreateLaunchResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLaunchResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1797,15 +1428,6 @@ export interface S3DestinationConfig {
   prefix?: string;
 }
 
-export namespace S3DestinationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DestinationConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that contains information about where Evidently is to store
  *        evaluation events for longer term storage.</p>
@@ -1822,15 +1444,6 @@ export interface ProjectDataDeliveryConfig {
    *        stores the log group name.</p>
    */
   cloudWatchLogs?: CloudWatchLogsDestinationConfig;
-}
-
-export namespace ProjectDataDeliveryConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectDataDeliveryConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProjectRequest {
@@ -1865,15 +1478,6 @@ export interface CreateProjectRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>If the project stores evaluation events in an Amazon S3 bucket, this structure
  *        stores the bucket name and bucket prefix.</p>
@@ -1888,15 +1492,6 @@ export interface S3Destination {
    * <p>The bucket prefix in which Evidently stores evaluation events.</p>
    */
   prefix?: string;
-}
-
-export namespace S3Destination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Destination): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1915,15 +1510,6 @@ export interface ProjectDataDelivery {
    *       stores the log group name.</p>
    */
   cloudWatchLogs?: CloudWatchLogsDestination;
-}
-
-export namespace ProjectDataDelivery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectDataDelivery): any => ({
-    ...obj,
-  });
 }
 
 export enum ProjectStatus {
@@ -2005,29 +1591,11 @@ export interface Project {
   tags?: Record<string, string>;
 }
 
-export namespace Project {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Project): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProjectResponse {
   /**
    * <p>A structure that contains information about the created project.</p>
    */
   project: Project | undefined;
-}
-
-export namespace CreateProjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSegmentRequest {
@@ -2059,15 +1627,6 @@ export interface CreateSegmentRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateSegmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSegmentRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2124,29 +1683,11 @@ export interface Segment {
   tags?: Record<string, string>;
 }
 
-export namespace Segment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Segment): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSegmentResponse {
   /**
    * <p>A structure that contains the complete information about the segment that was just created.</p>
    */
   segment: Segment | undefined;
-}
-
-export namespace CreateSegmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSegmentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteExperimentRequest {
@@ -2161,25 +1702,7 @@ export interface DeleteExperimentRequest {
   experiment: string | undefined;
 }
 
-export namespace DeleteExperimentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteExperimentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteExperimentResponse {}
-
-export namespace DeleteExperimentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteExperimentResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Unexpected error while processing the request. Retry the request.</p>
@@ -2231,25 +1754,7 @@ export interface DeleteFeatureRequest {
   feature: string | undefined;
 }
 
-export namespace DeleteFeatureRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFeatureRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFeatureResponse {}
-
-export namespace DeleteFeatureResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFeatureResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteLaunchRequest {
   /**
@@ -2263,25 +1768,7 @@ export interface DeleteLaunchRequest {
   launch: string | undefined;
 }
 
-export namespace DeleteLaunchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLaunchRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLaunchResponse {}
-
-export namespace DeleteLaunchResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLaunchResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteProjectRequest {
   /**
@@ -2290,25 +1777,7 @@ export interface DeleteProjectRequest {
   project: string | undefined;
 }
 
-export namespace DeleteProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProjectResponse {}
-
-export namespace DeleteProjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteSegmentRequest {
   /**
@@ -2317,25 +1786,7 @@ export interface DeleteSegmentRequest {
   segment: string | undefined;
 }
 
-export namespace DeleteSegmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSegmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSegmentResponse {}
-
-export namespace DeleteSegmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSegmentResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface EvaluateFeatureRequest {
   /**
@@ -2367,15 +1818,6 @@ export interface EvaluateFeatureRequest {
   evaluationContext?: __LazyJsonString | string;
 }
 
-export namespace EvaluateFeatureRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluateFeatureRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EvaluateFeatureResponse {
   /**
    * <p>The name of the variation that was served to the user session.</p>
@@ -2401,16 +1843,6 @@ export interface EvaluateFeatureResponse {
    * <p>If this user was assigned to a launch or experiment, this field lists the launch or experiment name.</p>
    */
   details?: __LazyJsonString | string;
-}
-
-export namespace EvaluateFeatureResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluateFeatureResponse): any => ({
-    ...obj,
-    ...(obj.value && { value: VariableValue.filterSensitiveLog(obj.value) }),
-  });
 }
 
 export enum EventType {
@@ -2443,15 +1875,6 @@ export interface Event {
   data: __LazyJsonString | string | undefined;
 }
 
-export namespace Event {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Event): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource that you want to see the tags of.</p>
@@ -2459,29 +1882,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tag keys and values associated with the resource you specified.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetExperimentRequest {
@@ -2496,29 +1901,11 @@ export interface GetExperimentRequest {
   experiment: string | undefined;
 }
 
-export namespace GetExperimentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExperimentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetExperimentResponse {
   /**
    * <p>A structure containing the configuration details of the experiment.</p>
    */
   experiment?: Experiment;
-}
-
-export namespace GetExperimentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExperimentResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ExperimentBaseStat {
@@ -2619,15 +2006,6 @@ export interface GetExperimentResultsRequest {
   period?: number;
 }
 
-export namespace GetExperimentResultsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExperimentResultsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that contains results of an experiment.</p>
  */
@@ -2651,15 +2029,6 @@ export interface ExperimentReport {
    * <p>The content of the report.</p>
    */
   content?: __LazyJsonString | string;
-}
-
-export namespace ExperimentReport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExperimentReport): any => ({
-    ...obj,
-  });
 }
 
 export enum ExperimentResultResponseType {
@@ -2696,15 +2065,6 @@ export interface ExperimentResultsData {
   values?: number[];
 }
 
-export namespace ExperimentResultsData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExperimentResultsData): any => ({
-    ...obj,
-  });
-}
-
 export interface GetExperimentResultsResponse {
   /**
    * <p>An array of structures that include experiment results including metric names and values. </p>
@@ -2727,15 +2087,6 @@ export interface GetExperimentResultsResponse {
    *       enough events to provide valid results, this field is not returned.</p>
    */
   details?: string;
-}
-
-export namespace GetExperimentResultsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExperimentResultsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListExperimentsRequest {
@@ -2761,15 +2112,6 @@ export interface ListExperimentsRequest {
   status?: ExperimentStatus | string;
 }
 
-export namespace ListExperimentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExperimentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListExperimentsResponse {
   /**
    * <p>An array of structures that contain the configuration details of the experiments in the
@@ -2782,15 +2124,6 @@ export interface ListExperimentsResponse {
    *        the next set of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListExperimentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExperimentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartExperimentRequest {
@@ -2811,29 +2144,11 @@ export interface StartExperimentRequest {
   analysisCompleteTime: Date | undefined;
 }
 
-export namespace StartExperimentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartExperimentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartExperimentResponse {
   /**
    * <p>A timestamp that indicates when the experiment started.</p>
    */
   startedTime?: Date;
-}
-
-export namespace StartExperimentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartExperimentResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ExperimentStopDesiredState {
@@ -2864,29 +2179,11 @@ export interface StopExperimentRequest {
   reason?: string;
 }
 
-export namespace StopExperimentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopExperimentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopExperimentResponse {
   /**
    * <p>The date and time that the experiment stopped.</p>
    */
   endedTime?: Date;
-}
-
-export namespace StopExperimentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopExperimentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateExperimentRequest {
@@ -2954,30 +2251,12 @@ export interface UpdateExperimentRequest {
   onlineAbConfig?: OnlineAbConfig;
 }
 
-export namespace UpdateExperimentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateExperimentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateExperimentResponse {
   /**
    * <p>A structure containing the configuration details of the experiment
    *     that was updated.</p>
    */
   experiment: Experiment | undefined;
-}
-
-export namespace UpdateExperimentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateExperimentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFeatureRequest {
@@ -2992,30 +2271,11 @@ export interface GetFeatureRequest {
   feature: string | undefined;
 }
 
-export namespace GetFeatureRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFeatureRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFeatureResponse {
   /**
    * <p>A structure containing the configuration details of the feature.</p>
    */
   feature: Feature | undefined;
-}
-
-export namespace GetFeatureResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFeatureResponse): any => ({
-    ...obj,
-    ...(obj.feature && { feature: Feature.filterSensitiveLog(obj.feature) }),
-  });
 }
 
 export interface ListFeaturesRequest {
@@ -3034,15 +2294,6 @@ export interface ListFeaturesRequest {
    *        <code>ListFeatures</code> operation.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListFeaturesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFeaturesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3104,15 +2355,6 @@ export interface FeatureSummary {
   tags?: Record<string, string>;
 }
 
-export namespace FeatureSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FeatureSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFeaturesResponse {
   /**
    * <p>An array of structures that contain the configuration details of the features in the
@@ -3125,15 +2367,6 @@ export interface ListFeaturesResponse {
    *        the next set of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListFeaturesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFeaturesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateFeatureRequest {
@@ -3191,33 +2424,11 @@ export interface UpdateFeatureRequest {
   entityOverrides?: Record<string, string>;
 }
 
-export namespace UpdateFeatureRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFeatureRequest): any => ({
-    ...obj,
-    ...(obj.addOrUpdateVariations && {
-      addOrUpdateVariations: obj.addOrUpdateVariations.map((item) => VariationConfig.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface UpdateFeatureResponse {
   /**
    * <p>A structure that contains information about the updated feature.</p>
    */
   feature: Feature | undefined;
-}
-
-export namespace UpdateFeatureResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFeatureResponse): any => ({
-    ...obj,
-    ...(obj.feature && { feature: Feature.filterSensitiveLog(obj.feature) }),
-  });
 }
 
 export interface GetProjectRequest {
@@ -3227,29 +2438,11 @@ export interface GetProjectRequest {
   project: string | undefined;
 }
 
-export namespace GetProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetProjectResponse {
   /**
    * <p>A structure containing the configuration details of the project.</p>
    */
   project: Project | undefined;
-}
-
-export namespace GetProjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProjectResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLaunchRequest {
@@ -3264,29 +2457,11 @@ export interface GetLaunchRequest {
   launch: string | undefined;
 }
 
-export namespace GetLaunchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLaunchResponse {
   /**
    * <p>A structure containing the configuration details of the launch.</p>
    */
   launch?: Launch;
-}
-
-export namespace GetLaunchResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLaunchesRequest {
@@ -3312,15 +2487,6 @@ export interface ListLaunchesRequest {
   status?: LaunchStatus | string;
 }
 
-export namespace ListLaunchesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLaunchesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLaunchesResponse {
   /**
    * <p>An array of structures that contain the configuration details of the launches in the
@@ -3335,15 +2501,6 @@ export interface ListLaunchesResponse {
   nextToken?: string;
 }
 
-export namespace ListLaunchesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLaunchesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StartLaunchRequest {
   /**
    * <p>The name or ARN of the project that contains the launch to start.</p>
@@ -3356,29 +2513,11 @@ export interface StartLaunchRequest {
   launch: string | undefined;
 }
 
-export namespace StartLaunchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartLaunchRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartLaunchResponse {
   /**
    * <p>A structure that contains information about the launch that was started.</p>
    */
   launch: Launch | undefined;
-}
-
-export namespace StartLaunchResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartLaunchResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum LaunchStopDesiredState {
@@ -3409,29 +2548,11 @@ export interface StopLaunchRequest {
   reason?: string;
 }
 
-export namespace StopLaunchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopLaunchRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopLaunchResponse {
   /**
    * <p>The date and time that the launch stopped.</p>
    */
   endedTime?: Date;
-}
-
-export namespace StopLaunchResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopLaunchResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateLaunchRequest {
@@ -3477,29 +2598,11 @@ export interface UpdateLaunchRequest {
   scheduledSplitsConfig?: ScheduledSplitsLaunchConfig;
 }
 
-export namespace UpdateLaunchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLaunchRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLaunchResponse {
   /**
    * <p>A structure that contains the new configuration of the launch that was updated.</p>
    */
   launch: Launch | undefined;
-}
-
-export namespace UpdateLaunchResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLaunchResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListProjectsRequest {
@@ -3513,15 +2616,6 @@ export interface ListProjectsRequest {
    *        <code>ListProjects</code> operation.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListProjectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3589,15 +2683,6 @@ export interface ProjectSummary {
   tags?: Record<string, string>;
 }
 
-export namespace ProjectSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProjectsResponse {
   /**
    * <p>An array of structures that contain the configuration details of the projects in the Region.</p>
@@ -3611,15 +2696,6 @@ export interface ListProjectsResponse {
   nextToken?: string;
 }
 
-export namespace ListProjectsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PutProjectEventsRequest {
   /**
    * <p>The name or ARN of the project to write the events to.</p>
@@ -3631,15 +2707,6 @@ export interface PutProjectEventsRequest {
    *       Evidently.</p>
    */
   events: Event[] | undefined;
-}
-
-export namespace PutProjectEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutProjectEventsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3664,15 +2731,6 @@ export interface PutProjectEventsResultEntry {
   errorMessage?: string;
 }
 
-export namespace PutProjectEventsResultEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutProjectEventsResultEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface PutProjectEventsResponse {
   /**
    * <p>The number of events in the operation that could not be used by Evidently.</p>
@@ -3684,15 +2742,6 @@ export interface PutProjectEventsResponse {
    *       error codes, if any.</p>
    */
   eventResults?: PutProjectEventsResultEntry[];
-}
-
-export namespace PutProjectEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutProjectEventsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateProjectRequest {
@@ -3707,29 +2756,11 @@ export interface UpdateProjectRequest {
   description?: string;
 }
 
-export namespace UpdateProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateProjectResponse {
   /**
    * <p>A structure containing information about the updated project.</p>
    */
   project: Project | undefined;
-}
-
-export namespace UpdateProjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateProjectDataDeliveryRequest {
@@ -3750,29 +2781,11 @@ export interface UpdateProjectDataDeliveryRequest {
   cloudWatchLogs?: CloudWatchLogsDestinationConfig;
 }
 
-export namespace UpdateProjectDataDeliveryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectDataDeliveryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateProjectDataDeliveryResponse {
   /**
    * <p>A structure containing details about the project that you updated.</p>
    */
   project: Project | undefined;
-}
-
-export namespace UpdateProjectDataDeliveryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectDataDeliveryResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSegmentRequest {
@@ -3782,29 +2795,11 @@ export interface GetSegmentRequest {
   segment: string | undefined;
 }
 
-export namespace GetSegmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSegmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSegmentResponse {
   /**
    * <p>A structure that contains the complete information about the segment.</p>
    */
   segment: Segment | undefined;
-}
-
-export namespace GetSegmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSegmentResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum SegmentReferenceResourceType {
@@ -3833,15 +2828,6 @@ export interface ListSegmentReferencesRequest {
    * <p>Specifies whether to return information about launches or experiments that use this segment.</p>
    */
   type: SegmentReferenceResourceType | string | undefined;
-}
-
-export namespace ListSegmentReferencesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSegmentReferencesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3885,15 +2871,6 @@ export interface RefResource {
   lastUpdatedOn?: string;
 }
 
-export namespace RefResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RefResource): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSegmentReferencesResponse {
   /**
    * <p>An array of structures, where each structure contains information about one experiment or launch that
@@ -3906,15 +2883,6 @@ export interface ListSegmentReferencesResponse {
    *       the next set of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListSegmentReferencesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSegmentReferencesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSegmentsRequest {
@@ -3930,15 +2898,6 @@ export interface ListSegmentsRequest {
   nextToken?: string;
 }
 
-export namespace ListSegmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSegmentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSegmentsResponse {
   /**
    * <p>An array of structures that contain information about the segments in this Region.</p>
@@ -3950,15 +2909,6 @@ export interface ListSegmentsResponse {
    *       the next set of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListSegmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSegmentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -3973,25 +2923,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TestSegmentPatternRequest {
   /**
@@ -4005,29 +2937,11 @@ export interface TestSegmentPatternRequest {
   payload: __LazyJsonString | string | undefined;
 }
 
-export namespace TestSegmentPatternRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestSegmentPatternRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TestSegmentPatternResponse {
   /**
    * <p>Returns <code>true</code> if the pattern matches the payload.</p>
    */
   match: boolean | undefined;
-}
-
-export namespace TestSegmentPatternResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestSegmentPatternResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {
@@ -4042,22 +2956,868 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const EvaluationRequestFilterSensitiveLog = (obj: EvaluationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchEvaluateFeatureRequestFilterSensitiveLog = (obj: BatchEvaluateFeatureRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VariableValueFilterSensitiveLog = (obj: VariableValue): any => {
+  if (obj.boolValue !== undefined) return { boolValue: obj.boolValue };
+  if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
+  if (obj.longValue !== undefined) return { longValue: obj.longValue };
+  if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const EvaluationResultFilterSensitiveLog = (obj: EvaluationResult): any => ({
+  ...obj,
+  ...(obj.value && { value: VariableValueFilterSensitiveLog(obj.value) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchEvaluateFeatureResponseFilterSensitiveLog = (obj: BatchEvaluateFeatureResponse): any => ({
+  ...obj,
+  ...(obj.results && { results: obj.results.map((item) => EvaluationResultFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchLogsDestinationFilterSensitiveLog = (obj: CloudWatchLogsDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchLogsDestinationConfigFilterSensitiveLog = (obj: CloudWatchLogsDestinationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricDefinitionConfigFilterSensitiveLog = (obj: MetricDefinitionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricGoalConfigFilterSensitiveLog = (obj: MetricGoalConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OnlineAbConfigFilterSensitiveLog = (obj: OnlineAbConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TreatmentConfigFilterSensitiveLog = (obj: TreatmentConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateExperimentRequestFilterSensitiveLog = (obj: CreateExperimentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExperimentExecutionFilterSensitiveLog = (obj: ExperimentExecution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricDefinitionFilterSensitiveLog = (obj: MetricDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricGoalFilterSensitiveLog = (obj: MetricGoal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OnlineAbDefinitionFilterSensitiveLog = (obj: OnlineAbDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExperimentScheduleFilterSensitiveLog = (obj: ExperimentSchedule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TreatmentFilterSensitiveLog = (obj: Treatment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExperimentFilterSensitiveLog = (obj: Experiment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateExperimentResponseFilterSensitiveLog = (obj: CreateExperimentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VariationConfigFilterSensitiveLog = (obj: VariationConfig): any => ({
+  ...obj,
+  ...(obj.value && { value: VariableValueFilterSensitiveLog(obj.value) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateFeatureRequestFilterSensitiveLog = (obj: CreateFeatureRequest): any => ({
+  ...obj,
+  ...(obj.variations && { variations: obj.variations.map((item) => VariationConfigFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const EvaluationRuleFilterSensitiveLog = (obj: EvaluationRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VariationFilterSensitiveLog = (obj: Variation): any => ({
+  ...obj,
+  ...(obj.value && { value: VariableValueFilterSensitiveLog(obj.value) }),
+});
+
+/**
+ * @internal
+ */
+export const FeatureFilterSensitiveLog = (obj: Feature): any => ({
+  ...obj,
+  ...(obj.variations && { variations: obj.variations.map((item) => VariationFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateFeatureResponseFilterSensitiveLog = (obj: CreateFeatureResponse): any => ({
+  ...obj,
+  ...(obj.feature && { feature: FeatureFilterSensitiveLog(obj.feature) }),
+});
+
+/**
+ * @internal
+ */
+export const LaunchGroupConfigFilterSensitiveLog = (obj: LaunchGroupConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricMonitorConfigFilterSensitiveLog = (obj: MetricMonitorConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SegmentOverrideFilterSensitiveLog = (obj: SegmentOverride): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledSplitConfigFilterSensitiveLog = (obj: ScheduledSplitConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledSplitsLaunchConfigFilterSensitiveLog = (obj: ScheduledSplitsLaunchConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLaunchRequestFilterSensitiveLog = (obj: CreateLaunchRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchExecutionFilterSensitiveLog = (obj: LaunchExecution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchGroupFilterSensitiveLog = (obj: LaunchGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricMonitorFilterSensitiveLog = (obj: MetricMonitor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledSplitFilterSensitiveLog = (obj: ScheduledSplit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledSplitsLaunchDefinitionFilterSensitiveLog = (obj: ScheduledSplitsLaunchDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchFilterSensitiveLog = (obj: Launch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLaunchResponseFilterSensitiveLog = (obj: CreateLaunchResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationConfigFilterSensitiveLog = (obj: S3DestinationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectDataDeliveryConfigFilterSensitiveLog = (obj: ProjectDataDeliveryConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProjectRequestFilterSensitiveLog = (obj: CreateProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationFilterSensitiveLog = (obj: S3Destination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectDataDeliveryFilterSensitiveLog = (obj: ProjectDataDelivery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectFilterSensitiveLog = (obj: Project): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProjectResponseFilterSensitiveLog = (obj: CreateProjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSegmentRequestFilterSensitiveLog = (obj: CreateSegmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SegmentFilterSensitiveLog = (obj: Segment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSegmentResponseFilterSensitiveLog = (obj: CreateSegmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteExperimentRequestFilterSensitiveLog = (obj: DeleteExperimentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteExperimentResponseFilterSensitiveLog = (obj: DeleteExperimentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFeatureRequestFilterSensitiveLog = (obj: DeleteFeatureRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFeatureResponseFilterSensitiveLog = (obj: DeleteFeatureResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLaunchRequestFilterSensitiveLog = (obj: DeleteLaunchRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLaunchResponseFilterSensitiveLog = (obj: DeleteLaunchResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectRequestFilterSensitiveLog = (obj: DeleteProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectResponseFilterSensitiveLog = (obj: DeleteProjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSegmentRequestFilterSensitiveLog = (obj: DeleteSegmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSegmentResponseFilterSensitiveLog = (obj: DeleteSegmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluateFeatureRequestFilterSensitiveLog = (obj: EvaluateFeatureRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluateFeatureResponseFilterSensitiveLog = (obj: EvaluateFeatureResponse): any => ({
+  ...obj,
+  ...(obj.value && { value: VariableValueFilterSensitiveLog(obj.value) }),
+});
+
+/**
+ * @internal
+ */
+export const EventFilterSensitiveLog = (obj: Event): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExperimentRequestFilterSensitiveLog = (obj: GetExperimentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExperimentResponseFilterSensitiveLog = (obj: GetExperimentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExperimentResultsRequestFilterSensitiveLog = (obj: GetExperimentResultsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExperimentReportFilterSensitiveLog = (obj: ExperimentReport): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExperimentResultsDataFilterSensitiveLog = (obj: ExperimentResultsData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExperimentResultsResponseFilterSensitiveLog = (obj: GetExperimentResultsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExperimentsRequestFilterSensitiveLog = (obj: ListExperimentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExperimentsResponseFilterSensitiveLog = (obj: ListExperimentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartExperimentRequestFilterSensitiveLog = (obj: StartExperimentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartExperimentResponseFilterSensitiveLog = (obj: StartExperimentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopExperimentRequestFilterSensitiveLog = (obj: StopExperimentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopExperimentResponseFilterSensitiveLog = (obj: StopExperimentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateExperimentRequestFilterSensitiveLog = (obj: UpdateExperimentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateExperimentResponseFilterSensitiveLog = (obj: UpdateExperimentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFeatureRequestFilterSensitiveLog = (obj: GetFeatureRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFeatureResponseFilterSensitiveLog = (obj: GetFeatureResponse): any => ({
+  ...obj,
+  ...(obj.feature && { feature: FeatureFilterSensitiveLog(obj.feature) }),
+});
+
+/**
+ * @internal
+ */
+export const ListFeaturesRequestFilterSensitiveLog = (obj: ListFeaturesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FeatureSummaryFilterSensitiveLog = (obj: FeatureSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFeaturesResponseFilterSensitiveLog = (obj: ListFeaturesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFeatureRequestFilterSensitiveLog = (obj: UpdateFeatureRequest): any => ({
+  ...obj,
+  ...(obj.addOrUpdateVariations && {
+    addOrUpdateVariations: obj.addOrUpdateVariations.map((item) => VariationConfigFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateFeatureResponseFilterSensitiveLog = (obj: UpdateFeatureResponse): any => ({
+  ...obj,
+  ...(obj.feature && { feature: FeatureFilterSensitiveLog(obj.feature) }),
+});
+
+/**
+ * @internal
+ */
+export const GetProjectRequestFilterSensitiveLog = (obj: GetProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProjectResponseFilterSensitiveLog = (obj: GetProjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLaunchRequestFilterSensitiveLog = (obj: GetLaunchRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLaunchResponseFilterSensitiveLog = (obj: GetLaunchResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLaunchesRequestFilterSensitiveLog = (obj: ListLaunchesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLaunchesResponseFilterSensitiveLog = (obj: ListLaunchesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartLaunchRequestFilterSensitiveLog = (obj: StartLaunchRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartLaunchResponseFilterSensitiveLog = (obj: StartLaunchResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopLaunchRequestFilterSensitiveLog = (obj: StopLaunchRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopLaunchResponseFilterSensitiveLog = (obj: StopLaunchResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLaunchRequestFilterSensitiveLog = (obj: UpdateLaunchRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLaunchResponseFilterSensitiveLog = (obj: UpdateLaunchResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProjectsRequestFilterSensitiveLog = (obj: ListProjectsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectSummaryFilterSensitiveLog = (obj: ProjectSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProjectsResponseFilterSensitiveLog = (obj: ListProjectsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutProjectEventsRequestFilterSensitiveLog = (obj: PutProjectEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutProjectEventsResultEntryFilterSensitiveLog = (obj: PutProjectEventsResultEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutProjectEventsResponseFilterSensitiveLog = (obj: PutProjectEventsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectRequestFilterSensitiveLog = (obj: UpdateProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectResponseFilterSensitiveLog = (obj: UpdateProjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectDataDeliveryRequestFilterSensitiveLog = (obj: UpdateProjectDataDeliveryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectDataDeliveryResponseFilterSensitiveLog = (obj: UpdateProjectDataDeliveryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentRequestFilterSensitiveLog = (obj: GetSegmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentResponseFilterSensitiveLog = (obj: GetSegmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSegmentReferencesRequestFilterSensitiveLog = (obj: ListSegmentReferencesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RefResourceFilterSensitiveLog = (obj: RefResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSegmentReferencesResponseFilterSensitiveLog = (obj: ListSegmentReferencesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSegmentsRequestFilterSensitiveLog = (obj: ListSegmentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSegmentsResponseFilterSensitiveLog = (obj: ListSegmentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestSegmentPatternRequestFilterSensitiveLog = (obj: TestSegmentPatternRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestSegmentPatternResponseFilterSensitiveLog = (obj: TestSegmentPatternResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

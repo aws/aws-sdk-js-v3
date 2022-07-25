@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { CreateControlRequest, CreateControlResponse } from "../models/models_0";
+import {
+  CreateControlRequest,
+  CreateControlRequestFilterSensitiveLog,
+  CreateControlResponse,
+  CreateControlResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateControlCommand,
   serializeAws_restJson1CreateControlCommand,
@@ -72,8 +77,8 @@ export class CreateControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateControlRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateControlResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateControlRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateControlResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

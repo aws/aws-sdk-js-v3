@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { DeleteAlarmsInput } from "../models/models_0";
+import { DeleteAlarmsInput, DeleteAlarmsInputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryDeleteAlarmsCommand, serializeAws_queryDeleteAlarmsCommand } from "../protocols/Aws_query";
 
 export interface DeleteAlarmsCommandInput extends DeleteAlarmsInput {}
@@ -84,7 +84,7 @@ export class DeleteAlarmsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAlarmsInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAlarmsInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

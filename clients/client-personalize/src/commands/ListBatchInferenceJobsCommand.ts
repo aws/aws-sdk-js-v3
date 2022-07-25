@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListBatchInferenceJobsRequest, ListBatchInferenceJobsResponse } from "../models/models_0";
+import {
+  ListBatchInferenceJobsRequest,
+  ListBatchInferenceJobsRequestFilterSensitiveLog,
+  ListBatchInferenceJobsResponse,
+  ListBatchInferenceJobsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1ListBatchInferenceJobsCommand,
@@ -73,8 +78,8 @@ export class ListBatchInferenceJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBatchInferenceJobsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListBatchInferenceJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBatchInferenceJobsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListBatchInferenceJobsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

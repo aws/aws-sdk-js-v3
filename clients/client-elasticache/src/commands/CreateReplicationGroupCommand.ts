@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { CreateReplicationGroupMessage, CreateReplicationGroupResult } from "../models/models_0";
+import {
+  CreateReplicationGroupMessage,
+  CreateReplicationGroupMessageFilterSensitiveLog,
+  CreateReplicationGroupResult,
+  CreateReplicationGroupResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCreateReplicationGroupCommand,
   serializeAws_queryCreateReplicationGroupCommand,
@@ -98,8 +103,8 @@ export class CreateReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReplicationGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateReplicationGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateReplicationGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateReplicationGroupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

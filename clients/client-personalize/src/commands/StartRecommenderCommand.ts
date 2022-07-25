@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartRecommenderRequest, StartRecommenderResponse } from "../models/models_0";
+import {
+  StartRecommenderRequest,
+  StartRecommenderRequestFilterSensitiveLog,
+  StartRecommenderResponse,
+  StartRecommenderResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1StartRecommenderCommand,
@@ -73,8 +78,8 @@ export class StartRecommenderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartRecommenderRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartRecommenderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartRecommenderRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartRecommenderResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

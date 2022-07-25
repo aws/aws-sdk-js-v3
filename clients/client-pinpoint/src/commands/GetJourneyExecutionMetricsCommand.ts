@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetJourneyExecutionMetricsRequest, GetJourneyExecutionMetricsResponse } from "../models/models_1";
+import {
+  GetJourneyExecutionMetricsRequest,
+  GetJourneyExecutionMetricsRequestFilterSensitiveLog,
+  GetJourneyExecutionMetricsResponse,
+  GetJourneyExecutionMetricsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetJourneyExecutionMetricsCommand,
@@ -72,8 +77,8 @@ export class GetJourneyExecutionMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJourneyExecutionMetricsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetJourneyExecutionMetricsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetJourneyExecutionMetricsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetJourneyExecutionMetricsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

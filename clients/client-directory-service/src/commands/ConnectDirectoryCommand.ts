@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { ConnectDirectoryRequest, ConnectDirectoryResult } from "../models/models_0";
+import {
+  ConnectDirectoryRequest,
+  ConnectDirectoryRequestFilterSensitiveLog,
+  ConnectDirectoryResult,
+  ConnectDirectoryResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ConnectDirectoryCommand,
   serializeAws_json1_1ConnectDirectoryCommand,
@@ -76,8 +81,8 @@ export class ConnectDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConnectDirectoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ConnectDirectoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ConnectDirectoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ConnectDirectoryResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

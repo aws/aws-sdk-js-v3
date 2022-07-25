@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { GetComplianceSummaryByConfigRuleResponse } from "../models/models_0";
+import {
+  GetComplianceSummaryByConfigRuleResponse,
+  GetComplianceSummaryByConfigRuleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommand,
   serializeAws_json1_1GetComplianceSummaryByConfigRuleCommand,
@@ -76,7 +79,7 @@ export class GetComplianceSummaryByConfigRuleCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetComplianceSummaryByConfigRuleResponse.filterSensitiveLog,
+      outputFilterSensitiveLog: GetComplianceSummaryByConfigRuleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateAssociationBatchRequest, CreateAssociationBatchResult } from "../models/models_0";
+import {
+  CreateAssociationBatchRequest,
+  CreateAssociationBatchRequestFilterSensitiveLog,
+  CreateAssociationBatchResult,
+  CreateAssociationBatchResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateAssociationBatchCommand,
   serializeAws_json1_1CreateAssociationBatchCommand,
@@ -78,8 +83,8 @@ export class CreateAssociationBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAssociationBatchRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateAssociationBatchResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAssociationBatchRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateAssociationBatchResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

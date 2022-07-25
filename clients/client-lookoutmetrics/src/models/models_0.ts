@@ -39,15 +39,6 @@ export interface LambdaConfiguration {
   LambdaArn: string | undefined;
 }
 
-export namespace LambdaConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum SnsFormat {
   JSON = "JSON",
   LONG_TEXT = "LONG_TEXT",
@@ -89,15 +80,6 @@ export interface SNSConfiguration {
   SnsFormat?: SnsFormat | string;
 }
 
-export namespace SNSConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A configuration that specifies the action to perform when anomalies are detected.</p>
  */
@@ -113,15 +95,6 @@ export interface Action {
   LambdaConfiguration?: LambdaConfiguration;
 }
 
-export namespace Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Action): any => ({
-    ...obj,
-  });
-}
-
 export interface ActivateAnomalyDetectorRequest {
   /**
    * <p>The ARN of the anomaly detector.</p>
@@ -129,25 +102,7 @@ export interface ActivateAnomalyDetectorRequest {
   AnomalyDetectorArn: string | undefined;
 }
 
-export namespace ActivateAnomalyDetectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivateAnomalyDetectorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ActivateAnomalyDetectorResponse {}
-
-export namespace ActivateAnomalyDetectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivateAnomalyDetectorResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>There was a conflict processing the request. Try your request again.</p>
@@ -270,15 +225,6 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "CANNOT_PARSE",
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
@@ -339,15 +285,6 @@ export interface DimensionFilter {
   DimensionValueList?: string[];
 }
 
-export namespace DimensionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DimensionFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration of the alert filters.</p>
  */
@@ -361,15 +298,6 @@ export interface AlertFilters {
    * <p>The list of DimensionFilter objects that are used for dimension-based filtering.</p>
    */
   DimensionFilterList?: DimensionFilter[];
-}
-
-export namespace AlertFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlertFilters): any => ({
-    ...obj,
-  });
 }
 
 export enum AlertStatus {
@@ -442,15 +370,6 @@ export interface Alert {
   AlertFilters?: AlertFilters;
 }
 
-export namespace Alert {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Alert): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides a summary of an alert's configuration.</p>
  */
@@ -501,15 +420,6 @@ export interface AlertSummary {
   Tags?: Record<string, string>;
 }
 
-export namespace AlertSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlertSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum AnomalyDetectionTaskStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -535,15 +445,6 @@ export interface AnomalyDetectorConfig {
   AnomalyDetectorFrequency?: Frequency | string;
 }
 
-export namespace AnomalyDetectorConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalyDetectorConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a detector's configuration.</p>
  */
@@ -552,15 +453,6 @@ export interface AnomalyDetectorConfigSummary {
    * <p>The interval at which the detector analyzes its source data.</p>
    */
   AnomalyDetectorFrequency?: Frequency | string;
-}
-
-export namespace AnomalyDetectorConfigSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalyDetectorConfigSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum AnomalyDetectorFailureType {
@@ -624,15 +516,6 @@ export interface AnomalyDetectorSummary {
   Tags?: Record<string, string>;
 }
 
-export namespace AnomalyDetectorSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalyDetectorSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The severity of a value of a dimension that contributed to an anomaly.</p>
  */
@@ -646,15 +529,6 @@ export interface DimensionValueContribution {
    * <p>The severity score of the value.</p>
    */
   ContributionScore?: number;
-}
-
-export namespace DimensionValueContribution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DimensionValueContribution): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -672,15 +546,6 @@ export interface DimensionContribution {
   DimensionValueContributionList?: DimensionValueContribution[];
 }
 
-export namespace DimensionContribution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DimensionContribution): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about dimensions that contributed to an anomaly.</p>
  */
@@ -689,15 +554,6 @@ export interface ContributionMatrix {
    * <p>A list of contributing dimensions.</p>
    */
   DimensionContributionList?: DimensionContribution[];
-}
-
-export namespace ContributionMatrix {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContributionMatrix): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -718,15 +574,6 @@ export interface MetricLevelImpact {
    * <p>Details about the dimensions that contributed to the anomaly.</p>
    */
   ContributionMatrix?: ContributionMatrix;
-}
-
-export namespace MetricLevelImpact {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricLevelImpact): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -764,15 +611,6 @@ export interface AnomalyGroup {
   MetricLevelImpactList?: MetricLevelImpact[];
 }
 
-export namespace AnomalyGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalyGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Aggregated statistics about a measure affected by an anomaly.</p>
  */
@@ -786,15 +624,6 @@ export interface ItemizedMetricStats {
    * <p>The number of times that the measure appears.</p>
    */
   OccurrenceCount?: number;
-}
-
-export namespace ItemizedMetricStats {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ItemizedMetricStats): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -815,15 +644,6 @@ export interface AnomalyGroupStatistics {
    * <p>Statistics for individual metrics within the group.</p>
    */
   ItemizedMetricStatsList?: ItemizedMetricStats[];
-}
-
-export namespace AnomalyGroupStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalyGroupStatistics): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -856,15 +676,6 @@ export interface AnomalyGroupSummary {
   PrimaryMetricName?: string;
 }
 
-export namespace AnomalyGroupSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalyGroupSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An anomalous metric in an anomaly group.</p>
  */
@@ -878,15 +689,6 @@ export interface AnomalyGroupTimeSeries {
    * <p>The ID of the metric.</p>
    */
   TimeSeriesId?: string;
-}
-
-export namespace AnomalyGroupTimeSeries {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalyGroupTimeSeries): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -909,15 +711,6 @@ export interface AnomalyGroupTimeSeriesFeedback {
   IsAnomaly: boolean | undefined;
 }
 
-export namespace AnomalyGroupTimeSeriesFeedback {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalyGroupTimeSeriesFeedback): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about an Amazon AppFlow flow datasource.</p>
  */
@@ -933,15 +726,6 @@ export interface AppFlowConfig {
   FlowName?: string;
 }
 
-export namespace AppFlowConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppFlowConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Settings for backtest mode.</p>
  */
@@ -950,15 +734,6 @@ export interface BackTestConfiguration {
    * <p>Run a backtest instead of monitoring new data.</p>
    */
   RunBackTestMode: boolean | undefined;
-}
-
-export namespace BackTestConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackTestConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1001,15 +776,6 @@ export interface AthenaSourceConfig {
   BackTestConfiguration?: BackTestConfiguration;
 }
 
-export namespace AthenaSourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AthenaSourceConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An attribute value.</p>
  */
@@ -1045,15 +811,6 @@ export interface AttributeValue {
   BS?: string[];
 }
 
-export namespace AttributeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeValue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An auto detection source config.</p>
  */
@@ -1069,15 +826,6 @@ export interface AutoDetectionS3SourceConfig {
   HistoricalDataPathList?: string[];
 }
 
-export namespace AutoDetectionS3SourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoDetectionS3SourceConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An auto detection metric source.</p>
  */
@@ -1088,15 +836,6 @@ export interface AutoDetectionMetricSource {
   S3SourceConfig?: AutoDetectionS3SourceConfig;
 }
 
-export namespace AutoDetectionMetricSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoDetectionMetricSource): any => ({
-    ...obj,
-  });
-}
-
 export interface BackTestAnomalyDetectorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the anomaly detector.</p>
@@ -1104,25 +843,7 @@ export interface BackTestAnomalyDetectorRequest {
   AnomalyDetectorArn: string | undefined;
 }
 
-export namespace BackTestAnomalyDetectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackTestAnomalyDetectorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BackTestAnomalyDetectorResponse {}
-
-export namespace BackTestAnomalyDetectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackTestAnomalyDetectorResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Details about an Amazon CloudWatch datasource.</p>
@@ -1137,15 +858,6 @@ export interface CloudWatchConfig {
    * <p>Settings for backtest mode.</p>
    */
   BackTestConfiguration?: BackTestConfiguration;
-}
-
-export namespace CloudWatchConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum Confidence {
@@ -1191,29 +903,11 @@ export interface CreateAlertRequest {
   AlertFilters?: AlertFilters;
 }
 
-export namespace CreateAlertRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAlertRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAlertResponse {
   /**
    * <p>The ARN of the alert.</p>
    */
   AlertArn?: string;
-}
-
-export namespace CreateAlertResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAlertResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1287,29 +981,11 @@ export interface CreateAnomalyDetectorRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateAnomalyDetectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAnomalyDetectorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAnomalyDetectorResponse {
   /**
    * <p>The ARN of the detector.</p>
    */
   AnomalyDetectorArn?: string;
-}
-
-export namespace CreateAnomalyDetectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAnomalyDetectorResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1332,15 +1008,6 @@ export interface Metric {
   Namespace?: string;
 }
 
-export namespace Metric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Metric): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains configuration information about the Amazon Virtual Private Cloud (VPC).</p>
  */
@@ -1354,15 +1021,6 @@ export interface VpcConfiguration {
    * <p>An array of strings containing the list of security groups.</p>
    */
   SecurityGroupIdList: string[] | undefined;
-}
-
-export namespace VpcConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1410,15 +1068,6 @@ export interface RDSSourceConfig {
   VpcConfiguration?: VpcConfiguration;
 }
 
-export namespace RDSSourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RDSSourceConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the Amazon Redshift database configuration.</p>
  */
@@ -1464,15 +1113,6 @@ export interface RedshiftSourceConfig {
   VpcConfiguration?: VpcConfiguration;
 }
 
-export namespace RedshiftSourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftSourceConfig): any => ({
-    ...obj,
-  });
-}
-
 export enum CSVFileCompression {
   GZIP = "GZIP",
   NONE = "NONE",
@@ -1513,15 +1153,6 @@ export interface CsvFormatDescriptor {
   QuoteSymbol?: string;
 }
 
-export namespace CsvFormatDescriptor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CsvFormatDescriptor): any => ({
-    ...obj,
-  });
-}
-
 export enum JsonFileCompression {
   GZIP = "GZIP",
   NONE = "NONE",
@@ -1542,15 +1173,6 @@ export interface JsonFormatDescriptor {
   Charset?: string;
 }
 
-export namespace JsonFormatDescriptor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JsonFormatDescriptor): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a source file's formatting.</p>
  */
@@ -1564,15 +1186,6 @@ export interface FileFormatDescriptor {
    * <p>Contains information about how a source JSON data file should be analyzed.</p>
    */
   JsonFormatDescriptor?: JsonFormatDescriptor;
-}
-
-export namespace FileFormatDescriptor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileFormatDescriptor): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1598,15 +1211,6 @@ export interface S3SourceConfig {
    * <p>Contains information about a source file's formatting.</p>
    */
   FileFormatDescriptor?: FileFormatDescriptor;
-}
-
-export namespace S3SourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3SourceConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1644,15 +1248,6 @@ export interface MetricSource {
   AthenaSourceConfig?: AthenaSourceConfig;
 }
 
-export namespace MetricSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the column used to track time in a source data file.</p>
  */
@@ -1666,15 +1261,6 @@ export interface TimestampColumn {
    * <p>The format of the timestamp column.</p>
    */
   ColumnFormat?: string;
-}
-
-export namespace TimestampColumn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestampColumn): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateMetricSetRequest {
@@ -1734,29 +1320,11 @@ export interface CreateMetricSetRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateMetricSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMetricSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateMetricSetResponse {
   /**
    * <p>The ARN of the dataset.</p>
    */
   MetricSetArn?: string;
-}
-
-export namespace CreateMetricSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMetricSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeactivateAnomalyDetectorRequest {
@@ -1766,25 +1334,7 @@ export interface DeactivateAnomalyDetectorRequest {
   AnomalyDetectorArn: string | undefined;
 }
 
-export namespace DeactivateAnomalyDetectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeactivateAnomalyDetectorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeactivateAnomalyDetectorResponse {}
-
-export namespace DeactivateAnomalyDetectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeactivateAnomalyDetectorResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteAlertRequest {
   /**
@@ -1793,25 +1343,7 @@ export interface DeleteAlertRequest {
   AlertArn: string | undefined;
 }
 
-export namespace DeleteAlertRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAlertRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAlertResponse {}
-
-export namespace DeleteAlertResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAlertResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteAnomalyDetectorRequest {
   /**
@@ -1820,25 +1352,7 @@ export interface DeleteAnomalyDetectorRequest {
   AnomalyDetectorArn: string | undefined;
 }
 
-export namespace DeleteAnomalyDetectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAnomalyDetectorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAnomalyDetectorResponse {}
-
-export namespace DeleteAnomalyDetectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAnomalyDetectorResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeAlertRequest {
   /**
@@ -1847,29 +1361,11 @@ export interface DescribeAlertRequest {
   AlertArn: string | undefined;
 }
 
-export namespace DescribeAlertRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAlertRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAlertResponse {
   /**
    * <p>Contains information about an alert.</p>
    */
   Alert?: Alert;
-}
-
-export namespace DescribeAlertResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAlertResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAnomalyDetectionExecutionsRequest {
@@ -1894,15 +1390,6 @@ export interface DescribeAnomalyDetectionExecutionsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeAnomalyDetectionExecutionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAnomalyDetectionExecutionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The status of an anomaly detector run.</p>
  */
@@ -1923,15 +1410,6 @@ export interface ExecutionStatus {
   FailureReason?: string;
 }
 
-export namespace ExecutionStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAnomalyDetectionExecutionsResponse {
   /**
    * <p>A list of detection jobs.</p>
@@ -1944,29 +1422,11 @@ export interface DescribeAnomalyDetectionExecutionsResponse {
   NextToken?: string;
 }
 
-export namespace DescribeAnomalyDetectionExecutionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAnomalyDetectionExecutionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAnomalyDetectorRequest {
   /**
    * <p>The ARN of the detector to describe.</p>
    */
   AnomalyDetectorArn: string | undefined;
-}
-
-export namespace DescribeAnomalyDetectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAnomalyDetectorRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAnomalyDetectorResponse {
@@ -2021,29 +1481,11 @@ export interface DescribeAnomalyDetectorResponse {
   FailureType?: AnomalyDetectorFailureType | string;
 }
 
-export namespace DescribeAnomalyDetectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAnomalyDetectorResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeMetricSetRequest {
   /**
    * <p>The ARN of the dataset.</p>
    */
   MetricSetArn: string | undefined;
-}
-
-export namespace DescribeMetricSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMetricSetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeMetricSetResponse {
@@ -2113,15 +1555,6 @@ export interface DescribeMetricSetResponse {
   MetricSource?: MetricSource;
 }
 
-export namespace DescribeMetricSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMetricSetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An inferred field.</p>
  */
@@ -2140,15 +1573,6 @@ export interface DetectedField {
    * <p>The field's message.</p>
    */
   Message?: string;
-}
-
-export namespace DetectedField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectedField): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2186,15 +1610,6 @@ export interface DetectedCsvFormatDescriptor {
   QuoteSymbol?: DetectedField;
 }
 
-export namespace DetectedCsvFormatDescriptor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectedCsvFormatDescriptor): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A detected JSON format descriptor.</p>
  */
@@ -2208,15 +1623,6 @@ export interface DetectedJsonFormatDescriptor {
    * <p>The format's character set.</p>
    */
   Charset?: DetectedField;
-}
-
-export namespace DetectedJsonFormatDescriptor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectedJsonFormatDescriptor): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2234,15 +1640,6 @@ export interface DetectedFileFormatDescriptor {
   JsonFormatDescriptor?: DetectedJsonFormatDescriptor;
 }
 
-export namespace DetectedFileFormatDescriptor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectedFileFormatDescriptor): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An inferred source configuration.</p>
  */
@@ -2253,15 +1650,6 @@ export interface DetectedS3SourceConfig {
   FileFormatDescriptor?: DetectedFileFormatDescriptor;
 }
 
-export namespace DetectedS3SourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectedS3SourceConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An inferred data source.</p>
  */
@@ -2270,15 +1658,6 @@ export interface DetectedMetricSource {
    * <p>The data source's source configuration.</p>
    */
   S3SourceConfig?: DetectedS3SourceConfig;
-}
-
-export namespace DetectedMetricSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectedMetricSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2301,15 +1680,6 @@ export interface DetectedMetricSetConfig {
   MetricSource?: DetectedMetricSource;
 }
 
-export namespace DetectedMetricSetConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectedMetricSetConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectMetricSetConfigRequest {
   /**
    * <p>An anomaly detector ARN.</p>
@@ -2322,29 +1692,11 @@ export interface DetectMetricSetConfigRequest {
   AutoDetectionMetricSource: AutoDetectionMetricSource | undefined;
 }
 
-export namespace DetectMetricSetConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectMetricSetConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectMetricSetConfigResponse {
   /**
    * <p>The inferred dataset configuration for the datasource.</p>
    */
   DetectedMetricSetConfig?: DetectedMetricSetConfig;
-}
-
-export namespace DetectMetricSetConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectMetricSetConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2362,15 +1714,6 @@ export interface DimensionNameValue {
   DimensionValue: string | undefined;
 }
 
-export namespace DimensionNameValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DimensionNameValue): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAnomalyGroupRequest {
   /**
    * <p>The ID of the anomaly group.</p>
@@ -2383,29 +1726,11 @@ export interface GetAnomalyGroupRequest {
   AnomalyDetectorArn: string | undefined;
 }
 
-export namespace GetAnomalyGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAnomalyGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAnomalyGroupResponse {
   /**
    * <p>Details about the anomaly group.</p>
    */
   AnomalyGroup?: AnomalyGroup;
-}
-
-export namespace GetAnomalyGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAnomalyGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFeedbackRequest {
@@ -2430,15 +1755,6 @@ export interface GetFeedbackRequest {
   NextToken?: string;
 }
 
-export namespace GetFeedbackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFeedbackRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about feedback submitted for an anomalous metric.</p>
  */
@@ -2454,15 +1770,6 @@ export interface TimeSeriesFeedback {
   IsAnomaly?: boolean;
 }
 
-export namespace TimeSeriesFeedback {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeSeriesFeedback): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFeedbackResponse {
   /**
    * <p>Feedback for an anomalous metric.</p>
@@ -2473,15 +1780,6 @@ export interface GetFeedbackResponse {
    * <p>The pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetFeedbackResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFeedbackResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2509,29 +1807,11 @@ export interface SampleDataS3SourceConfig {
   FileFormatDescriptor: FileFormatDescriptor | undefined;
 }
 
-export namespace SampleDataS3SourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SampleDataS3SourceConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSampleDataRequest {
   /**
    * <p>A datasource bucket in Amazon S3.</p>
    */
   S3SourceConfig?: SampleDataS3SourceConfig;
-}
-
-export namespace GetSampleDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSampleDataRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSampleDataResponse {
@@ -2544,15 +1824,6 @@ export interface GetSampleDataResponse {
    * <p>A list of records.</p>
    */
   SampleRows?: string[][];
-}
-
-export namespace GetSampleDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSampleDataResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum RelationshipType {
@@ -2590,15 +1861,6 @@ export interface InterMetricImpactDetails {
   ContributionPercentage?: number;
 }
 
-export namespace InterMetricImpactDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InterMetricImpactDetails): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAlertsRequest {
   /**
    * <p>The ARN of the alert's detector.</p>
@@ -2617,15 +1879,6 @@ export interface ListAlertsRequest {
   MaxResults?: number;
 }
 
-export namespace ListAlertsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlertsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAlertsResponse {
   /**
    * <p>Contains information about an alert.</p>
@@ -2637,15 +1890,6 @@ export interface ListAlertsResponse {
    *       token in the next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAlertsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlertsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAnomalyDetectorsRequest {
@@ -2661,15 +1905,6 @@ export interface ListAnomalyDetectorsRequest {
   NextToken?: string;
 }
 
-export namespace ListAnomalyDetectorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnomalyDetectorsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAnomalyDetectorsResponse {
   /**
    * <p>A list of anomaly detectors in the account in the current region.</p>
@@ -2681,15 +1916,6 @@ export interface ListAnomalyDetectorsResponse {
    *       token in the next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAnomalyDetectorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnomalyDetectorsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAnomalyGroupRelatedMetricsRequest {
@@ -2721,15 +1947,6 @@ export interface ListAnomalyGroupRelatedMetricsRequest {
   NextToken?: string;
 }
 
-export namespace ListAnomalyGroupRelatedMetricsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnomalyGroupRelatedMetricsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAnomalyGroupRelatedMetricsResponse {
   /**
    * <p>Aggregated details about the measures contributing to the anomaly group, and the measures
@@ -2741,15 +1958,6 @@ export interface ListAnomalyGroupRelatedMetricsResponse {
    * <p>The pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAnomalyGroupRelatedMetricsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnomalyGroupRelatedMetricsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAnomalyGroupSummariesRequest {
@@ -2774,15 +1982,6 @@ export interface ListAnomalyGroupSummariesRequest {
   NextToken?: string;
 }
 
-export namespace ListAnomalyGroupSummariesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnomalyGroupSummariesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAnomalyGroupSummariesResponse {
   /**
    * <p>A list of anomaly group summaries.</p>
@@ -2798,15 +1997,6 @@ export interface ListAnomalyGroupSummariesResponse {
    * <p>The pagination token that's included if more results are available.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAnomalyGroupSummariesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnomalyGroupSummariesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAnomalyGroupTimeSeriesRequest {
@@ -2836,15 +2026,6 @@ export interface ListAnomalyGroupTimeSeriesRequest {
   NextToken?: string;
 }
 
-export namespace ListAnomalyGroupTimeSeriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnomalyGroupTimeSeriesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about a metric. A metric is an aggregation of the values of a measure for a dimension value, such as
  *         <i>availability</i> in the <i>us-east-1</i> Region.</p>
@@ -2864,15 +2045,6 @@ export interface TimeSeries {
    * <p>The values for the metric.</p>
    */
   MetricValueList: number[] | undefined;
-}
-
-export namespace TimeSeries {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeSeries): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAnomalyGroupTimeSeriesResponse {
@@ -2902,15 +2074,6 @@ export interface ListAnomalyGroupTimeSeriesResponse {
   TimeSeriesList?: TimeSeries[];
 }
 
-export namespace ListAnomalyGroupTimeSeriesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnomalyGroupTimeSeriesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMetricSetsRequest {
   /**
    * <p>The ARN of the anomaly detector containing the metrics sets to list.</p>
@@ -2928,15 +2091,6 @@ export interface ListMetricSetsRequest {
    *       request. Tokens expire after 24 hours.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListMetricSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMetricSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2979,15 +2133,6 @@ export interface MetricSetSummary {
   Tags?: Record<string, string>;
 }
 
-export namespace MetricSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricSetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMetricSetsResponse {
   /**
    * <p>A list of the datasets in the AWS Region, with configuration details for each.</p>
@@ -3001,15 +2146,6 @@ export interface ListMetricSetsResponse {
   NextToken?: string;
 }
 
-export namespace ListMetricSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMetricSetsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The resource's Amazon Resource Name (ARN).</p>
@@ -3017,29 +2153,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The resource's tags.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutFeedbackRequest {
@@ -3054,25 +2172,7 @@ export interface PutFeedbackRequest {
   AnomalyGroupTimeSeriesFeedback: AnomalyGroupTimeSeriesFeedback | undefined;
 }
 
-export namespace PutFeedbackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFeedbackRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutFeedbackResponse {}
-
-export namespace PutFeedbackResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFeedbackResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -3088,25 +2188,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -3120,25 +2202,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateAlertRequest {
   /**
@@ -3167,29 +2231,11 @@ export interface UpdateAlertRequest {
   AlertFilters?: AlertFilters;
 }
 
-export namespace UpdateAlertRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAlertRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAlertResponse {
   /**
    * <p>The ARN of the updated alert.</p>
    */
   AlertArn?: string;
-}
-
-export namespace UpdateAlertResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAlertResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAnomalyDetectorRequest {
@@ -3214,29 +2260,11 @@ export interface UpdateAnomalyDetectorRequest {
   AnomalyDetectorConfig?: AnomalyDetectorConfig;
 }
 
-export namespace UpdateAnomalyDetectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAnomalyDetectorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAnomalyDetectorResponse {
   /**
    * <p>The ARN of the updated detector.</p>
    */
   AnomalyDetectorArn?: string;
-}
-
-export namespace UpdateAnomalyDetectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAnomalyDetectorResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateMetricSetRequest {
@@ -3281,15 +2309,6 @@ export interface UpdateMetricSetRequest {
   MetricSource?: MetricSource;
 }
 
-export namespace UpdateMetricSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMetricSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateMetricSetResponse {
   /**
    * <p>The ARN of the dataset.</p>
@@ -3297,11 +2316,780 @@ export interface UpdateMetricSetResponse {
   MetricSetArn?: string;
 }
 
-export namespace UpdateMetricSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMetricSetResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const LambdaConfigurationFilterSensitiveLog = (obj: LambdaConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SNSConfigurationFilterSensitiveLog = (obj: SNSConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionFilterSensitiveLog = (obj: Action): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivateAnomalyDetectorRequestFilterSensitiveLog = (obj: ActivateAnomalyDetectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivateAnomalyDetectorResponseFilterSensitiveLog = (obj: ActivateAnomalyDetectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionFilterFilterSensitiveLog = (obj: DimensionFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlertFiltersFilterSensitiveLog = (obj: AlertFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlertFilterSensitiveLog = (obj: Alert): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlertSummaryFilterSensitiveLog = (obj: AlertSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyDetectorConfigFilterSensitiveLog = (obj: AnomalyDetectorConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyDetectorConfigSummaryFilterSensitiveLog = (obj: AnomalyDetectorConfigSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyDetectorSummaryFilterSensitiveLog = (obj: AnomalyDetectorSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionValueContributionFilterSensitiveLog = (obj: DimensionValueContribution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionContributionFilterSensitiveLog = (obj: DimensionContribution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContributionMatrixFilterSensitiveLog = (obj: ContributionMatrix): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricLevelImpactFilterSensitiveLog = (obj: MetricLevelImpact): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyGroupFilterSensitiveLog = (obj: AnomalyGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ItemizedMetricStatsFilterSensitiveLog = (obj: ItemizedMetricStats): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyGroupStatisticsFilterSensitiveLog = (obj: AnomalyGroupStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyGroupSummaryFilterSensitiveLog = (obj: AnomalyGroupSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyGroupTimeSeriesFilterSensitiveLog = (obj: AnomalyGroupTimeSeries): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyGroupTimeSeriesFeedbackFilterSensitiveLog = (obj: AnomalyGroupTimeSeriesFeedback): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppFlowConfigFilterSensitiveLog = (obj: AppFlowConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackTestConfigurationFilterSensitiveLog = (obj: BackTestConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AthenaSourceConfigFilterSensitiveLog = (obj: AthenaSourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoDetectionS3SourceConfigFilterSensitiveLog = (obj: AutoDetectionS3SourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoDetectionMetricSourceFilterSensitiveLog = (obj: AutoDetectionMetricSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackTestAnomalyDetectorRequestFilterSensitiveLog = (obj: BackTestAnomalyDetectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackTestAnomalyDetectorResponseFilterSensitiveLog = (obj: BackTestAnomalyDetectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchConfigFilterSensitiveLog = (obj: CloudWatchConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAlertRequestFilterSensitiveLog = (obj: CreateAlertRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAlertResponseFilterSensitiveLog = (obj: CreateAlertResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAnomalyDetectorRequestFilterSensitiveLog = (obj: CreateAnomalyDetectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAnomalyDetectorResponseFilterSensitiveLog = (obj: CreateAnomalyDetectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricFilterSensitiveLog = (obj: Metric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcConfigurationFilterSensitiveLog = (obj: VpcConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RDSSourceConfigFilterSensitiveLog = (obj: RDSSourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedshiftSourceConfigFilterSensitiveLog = (obj: RedshiftSourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CsvFormatDescriptorFilterSensitiveLog = (obj: CsvFormatDescriptor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JsonFormatDescriptorFilterSensitiveLog = (obj: JsonFormatDescriptor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileFormatDescriptorFilterSensitiveLog = (obj: FileFormatDescriptor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3SourceConfigFilterSensitiveLog = (obj: S3SourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricSourceFilterSensitiveLog = (obj: MetricSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimestampColumnFilterSensitiveLog = (obj: TimestampColumn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMetricSetRequestFilterSensitiveLog = (obj: CreateMetricSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMetricSetResponseFilterSensitiveLog = (obj: CreateMetricSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeactivateAnomalyDetectorRequestFilterSensitiveLog = (obj: DeactivateAnomalyDetectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeactivateAnomalyDetectorResponseFilterSensitiveLog = (obj: DeactivateAnomalyDetectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAlertRequestFilterSensitiveLog = (obj: DeleteAlertRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAlertResponseFilterSensitiveLog = (obj: DeleteAlertResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAnomalyDetectorRequestFilterSensitiveLog = (obj: DeleteAnomalyDetectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAnomalyDetectorResponseFilterSensitiveLog = (obj: DeleteAnomalyDetectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAlertRequestFilterSensitiveLog = (obj: DescribeAlertRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAlertResponseFilterSensitiveLog = (obj: DescribeAlertResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAnomalyDetectionExecutionsRequestFilterSensitiveLog = (
+  obj: DescribeAnomalyDetectionExecutionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutionStatusFilterSensitiveLog = (obj: ExecutionStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAnomalyDetectionExecutionsResponseFilterSensitiveLog = (
+  obj: DescribeAnomalyDetectionExecutionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAnomalyDetectorRequestFilterSensitiveLog = (obj: DescribeAnomalyDetectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAnomalyDetectorResponseFilterSensitiveLog = (obj: DescribeAnomalyDetectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMetricSetRequestFilterSensitiveLog = (obj: DescribeMetricSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMetricSetResponseFilterSensitiveLog = (obj: DescribeMetricSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectedFieldFilterSensitiveLog = (obj: DetectedField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectedCsvFormatDescriptorFilterSensitiveLog = (obj: DetectedCsvFormatDescriptor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectedJsonFormatDescriptorFilterSensitiveLog = (obj: DetectedJsonFormatDescriptor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectedFileFormatDescriptorFilterSensitiveLog = (obj: DetectedFileFormatDescriptor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectedS3SourceConfigFilterSensitiveLog = (obj: DetectedS3SourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectedMetricSourceFilterSensitiveLog = (obj: DetectedMetricSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectedMetricSetConfigFilterSensitiveLog = (obj: DetectedMetricSetConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectMetricSetConfigRequestFilterSensitiveLog = (obj: DetectMetricSetConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectMetricSetConfigResponseFilterSensitiveLog = (obj: DetectMetricSetConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionNameValueFilterSensitiveLog = (obj: DimensionNameValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAnomalyGroupRequestFilterSensitiveLog = (obj: GetAnomalyGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAnomalyGroupResponseFilterSensitiveLog = (obj: GetAnomalyGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFeedbackRequestFilterSensitiveLog = (obj: GetFeedbackRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeSeriesFeedbackFilterSensitiveLog = (obj: TimeSeriesFeedback): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFeedbackResponseFilterSensitiveLog = (obj: GetFeedbackResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SampleDataS3SourceConfigFilterSensitiveLog = (obj: SampleDataS3SourceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSampleDataRequestFilterSensitiveLog = (obj: GetSampleDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSampleDataResponseFilterSensitiveLog = (obj: GetSampleDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InterMetricImpactDetailsFilterSensitiveLog = (obj: InterMetricImpactDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAlertsRequestFilterSensitiveLog = (obj: ListAlertsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAlertsResponseFilterSensitiveLog = (obj: ListAlertsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnomalyDetectorsRequestFilterSensitiveLog = (obj: ListAnomalyDetectorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnomalyDetectorsResponseFilterSensitiveLog = (obj: ListAnomalyDetectorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnomalyGroupRelatedMetricsRequestFilterSensitiveLog = (
+  obj: ListAnomalyGroupRelatedMetricsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnomalyGroupRelatedMetricsResponseFilterSensitiveLog = (
+  obj: ListAnomalyGroupRelatedMetricsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnomalyGroupSummariesRequestFilterSensitiveLog = (obj: ListAnomalyGroupSummariesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnomalyGroupSummariesResponseFilterSensitiveLog = (obj: ListAnomalyGroupSummariesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnomalyGroupTimeSeriesRequestFilterSensitiveLog = (obj: ListAnomalyGroupTimeSeriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeSeriesFilterSensitiveLog = (obj: TimeSeries): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnomalyGroupTimeSeriesResponseFilterSensitiveLog = (obj: ListAnomalyGroupTimeSeriesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMetricSetsRequestFilterSensitiveLog = (obj: ListMetricSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricSetSummaryFilterSensitiveLog = (obj: MetricSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMetricSetsResponseFilterSensitiveLog = (obj: ListMetricSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutFeedbackRequestFilterSensitiveLog = (obj: PutFeedbackRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutFeedbackResponseFilterSensitiveLog = (obj: PutFeedbackResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAlertRequestFilterSensitiveLog = (obj: UpdateAlertRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAlertResponseFilterSensitiveLog = (obj: UpdateAlertResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAnomalyDetectorRequestFilterSensitiveLog = (obj: UpdateAnomalyDetectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAnomalyDetectorResponseFilterSensitiveLog = (obj: UpdateAnomalyDetectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMetricSetRequestFilterSensitiveLog = (obj: UpdateMetricSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMetricSetResponseFilterSensitiveLog = (obj: UpdateMetricSetResponse): any => ({
+  ...obj,
+});

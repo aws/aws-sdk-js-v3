@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopDiscovererRequest, StopDiscovererResponse } from "../models/models_0";
+import {
+  StopDiscovererRequest,
+  StopDiscovererRequestFilterSensitiveLog,
+  StopDiscovererResponse,
+  StopDiscovererResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StopDiscovererCommand,
   serializeAws_restJson1StopDiscovererCommand,
@@ -72,8 +77,8 @@ export class StopDiscovererCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopDiscovererRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopDiscovererResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopDiscovererRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopDiscovererResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

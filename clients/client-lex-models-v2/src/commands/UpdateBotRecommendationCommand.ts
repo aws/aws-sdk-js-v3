@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { UpdateBotRecommendationRequest, UpdateBotRecommendationResponse } from "../models/models_0";
+import {
+  UpdateBotRecommendationRequest,
+  UpdateBotRecommendationRequestFilterSensitiveLog,
+  UpdateBotRecommendationResponse,
+  UpdateBotRecommendationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateBotRecommendationCommand,
   serializeAws_restJson1UpdateBotRecommendationCommand,
@@ -72,8 +77,8 @@ export class UpdateBotRecommendationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBotRecommendationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBotRecommendationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateBotRecommendationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBotRecommendationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

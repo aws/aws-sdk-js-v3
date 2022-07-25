@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PromoteReadReplicaDBClusterMessage, PromoteReadReplicaDBClusterResult } from "../models/models_1";
+import {
+  PromoteReadReplicaDBClusterMessage,
+  PromoteReadReplicaDBClusterMessageFilterSensitiveLog,
+  PromoteReadReplicaDBClusterResult,
+  PromoteReadReplicaDBClusterResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryPromoteReadReplicaDBClusterCommand,
   serializeAws_queryPromoteReadReplicaDBClusterCommand,
@@ -72,8 +77,8 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PromoteReadReplicaDBClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: PromoteReadReplicaDBClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PromoteReadReplicaDBClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: PromoteReadReplicaDBClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

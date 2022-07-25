@@ -15,7 +15,9 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   AssociatePhoneNumbersWithVoiceConnectorRequest,
+  AssociatePhoneNumbersWithVoiceConnectorRequestFilterSensitiveLog,
   AssociatePhoneNumbersWithVoiceConnectorResponse,
+  AssociatePhoneNumbersWithVoiceConnectorResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand,
@@ -81,8 +83,8 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

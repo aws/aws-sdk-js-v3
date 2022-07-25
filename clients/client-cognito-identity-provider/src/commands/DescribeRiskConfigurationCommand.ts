@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { DescribeRiskConfigurationRequest, DescribeRiskConfigurationResponse } from "../models/models_0";
+import {
+  DescribeRiskConfigurationRequest,
+  DescribeRiskConfigurationRequestFilterSensitiveLog,
+  DescribeRiskConfigurationResponse,
+  DescribeRiskConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeRiskConfigurationCommand,
   serializeAws_json1_1DescribeRiskConfigurationCommand,
@@ -78,8 +83,8 @@ export class DescribeRiskConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRiskConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRiskConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRiskConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRiskConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

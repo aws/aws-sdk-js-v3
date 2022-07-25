@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
-import { QueryTableRowsRequest, QueryTableRowsResult } from "../models/models_0";
+import {
+  QueryTableRowsRequest,
+  QueryTableRowsRequestFilterSensitiveLog,
+  QueryTableRowsResult,
+  QueryTableRowsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1QueryTableRowsCommand,
   serializeAws_restJson1QueryTableRowsCommand,
@@ -74,8 +79,8 @@ export class QueryTableRowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryTableRowsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: QueryTableRowsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: QueryTableRowsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: QueryTableRowsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

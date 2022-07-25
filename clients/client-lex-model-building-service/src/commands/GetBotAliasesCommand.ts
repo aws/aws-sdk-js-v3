@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { GetBotAliasesRequest, GetBotAliasesResponse } from "../models/models_0";
+import {
+  GetBotAliasesRequest,
+  GetBotAliasesRequestFilterSensitiveLog,
+  GetBotAliasesResponse,
+  GetBotAliasesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetBotAliasesCommand,
   serializeAws_restJson1GetBotAliasesCommand,
@@ -78,8 +83,8 @@ export class GetBotAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBotAliasesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBotAliasesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBotAliasesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBotAliasesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

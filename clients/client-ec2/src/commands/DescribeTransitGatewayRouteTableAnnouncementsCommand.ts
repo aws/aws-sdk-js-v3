@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeTransitGatewayRouteTableAnnouncementsRequest,
+  DescribeTransitGatewayRouteTableAnnouncementsRequestFilterSensitiveLog,
   DescribeTransitGatewayRouteTableAnnouncementsResult,
+  DescribeTransitGatewayRouteTableAnnouncementsResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommand,
@@ -81,8 +83,8 @@ export class DescribeTransitGatewayRouteTableAnnouncementsCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTransitGatewayRouteTableAnnouncementsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTransitGatewayRouteTableAnnouncementsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTransitGatewayRouteTableAnnouncementsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTransitGatewayRouteTableAnnouncementsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

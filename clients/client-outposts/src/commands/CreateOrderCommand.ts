@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateOrderInput, CreateOrderOutput } from "../models/models_0";
+import {
+  CreateOrderInput,
+  CreateOrderInputFilterSensitiveLog,
+  CreateOrderOutput,
+  CreateOrderOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import {
   deserializeAws_restJson1CreateOrderCommand,
@@ -72,8 +77,8 @@ export class CreateOrderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOrderInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateOrderOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateOrderInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateOrderOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

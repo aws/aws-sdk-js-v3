@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { WithdrawByoipCidrRequest, WithdrawByoipCidrResult } from "../models/models_6";
+import {
+  WithdrawByoipCidrRequest,
+  WithdrawByoipCidrRequestFilterSensitiveLog,
+  WithdrawByoipCidrResult,
+  WithdrawByoipCidrResultFilterSensitiveLog,
+} from "../models/models_6";
 import {
   deserializeAws_ec2WithdrawByoipCidrCommand,
   serializeAws_ec2WithdrawByoipCidrCommand,
@@ -76,8 +81,8 @@ export class WithdrawByoipCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: WithdrawByoipCidrRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: WithdrawByoipCidrResult.filterSensitiveLog,
+      inputFilterSensitiveLog: WithdrawByoipCidrRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: WithdrawByoipCidrResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

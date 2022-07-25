@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { GetPipelineStateInput, GetPipelineStateOutput } from "../models/models_0";
+import {
+  GetPipelineStateInput,
+  GetPipelineStateInputFilterSensitiveLog,
+  GetPipelineStateOutput,
+  GetPipelineStateOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetPipelineStateCommand,
   serializeAws_json1_1GetPipelineStateCommand,
@@ -78,8 +83,8 @@ export class GetPipelineStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPipelineStateInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPipelineStateOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPipelineStateInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetPipelineStateOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

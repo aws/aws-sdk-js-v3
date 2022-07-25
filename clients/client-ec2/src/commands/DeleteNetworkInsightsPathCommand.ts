@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteNetworkInsightsPathRequest, DeleteNetworkInsightsPathResult } from "../models/models_2";
+import {
+  DeleteNetworkInsightsPathRequest,
+  DeleteNetworkInsightsPathRequestFilterSensitiveLog,
+  DeleteNetworkInsightsPathResult,
+  DeleteNetworkInsightsPathResultFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_ec2DeleteNetworkInsightsPathCommand,
   serializeAws_ec2DeleteNetworkInsightsPathCommand,
@@ -72,8 +77,8 @@ export class DeleteNetworkInsightsPathCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkInsightsPathRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNetworkInsightsPathResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteNetworkInsightsPathRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteNetworkInsightsPathResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

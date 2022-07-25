@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { UpdateRepositoryDescriptionInput } from "../models/models_1";
+import {
+  UpdateRepositoryDescriptionInput,
+  UpdateRepositoryDescriptionInputFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateRepositoryDescriptionCommand,
   serializeAws_json1_1UpdateRepositoryDescriptionCommand,
@@ -79,7 +82,7 @@ export class UpdateRepositoryDescriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRepositoryDescriptionInput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRepositoryDescriptionInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

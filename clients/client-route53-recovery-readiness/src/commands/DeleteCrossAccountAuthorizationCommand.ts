@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteCrossAccountAuthorizationRequest, DeleteCrossAccountAuthorizationResponse } from "../models/models_0";
+import {
+  DeleteCrossAccountAuthorizationRequest,
+  DeleteCrossAccountAuthorizationRequestFilterSensitiveLog,
+  DeleteCrossAccountAuthorizationResponse,
+  DeleteCrossAccountAuthorizationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCrossAccountAuthorizationCommand,
   serializeAws_restJson1DeleteCrossAccountAuthorizationCommand,
@@ -78,8 +83,8 @@ export class DeleteCrossAccountAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCrossAccountAuthorizationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCrossAccountAuthorizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCrossAccountAuthorizationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCrossAccountAuthorizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

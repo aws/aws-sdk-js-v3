@@ -19,7 +19,9 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   RejectInboundCrossClusterSearchConnectionRequest,
+  RejectInboundCrossClusterSearchConnectionRequestFilterSensitiveLog,
   RejectInboundCrossClusterSearchConnectionResponse,
+  RejectInboundCrossClusterSearchConnectionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1RejectInboundCrossClusterSearchConnectionCommand,
@@ -85,8 +87,8 @@ export class RejectInboundCrossClusterSearchConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectInboundCrossClusterSearchConnectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RejectInboundCrossClusterSearchConnectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RejectInboundCrossClusterSearchConnectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RejectInboundCrossClusterSearchConnectionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

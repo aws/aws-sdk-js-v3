@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { DescribeTrustsRequest, DescribeTrustsResult } from "../models/models_0";
+import {
+  DescribeTrustsRequest,
+  DescribeTrustsRequestFilterSensitiveLog,
+  DescribeTrustsResult,
+  DescribeTrustsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTrustsCommand,
   serializeAws_json1_1DescribeTrustsCommand,
@@ -74,8 +79,8 @@ export class DescribeTrustsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrustsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrustsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTrustsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTrustsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

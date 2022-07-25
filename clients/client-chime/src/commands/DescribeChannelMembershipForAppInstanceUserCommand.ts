@@ -15,7 +15,9 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   DescribeChannelMembershipForAppInstanceUserRequest,
+  DescribeChannelMembershipForAppInstanceUserRequestFilterSensitiveLog,
   DescribeChannelMembershipForAppInstanceUserResponse,
+  DescribeChannelMembershipForAppInstanceUserResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand,
@@ -88,8 +90,8 @@ export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChannelMembershipForAppInstanceUserRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeChannelMembershipForAppInstanceUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeChannelMembershipForAppInstanceUserRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeChannelMembershipForAppInstanceUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { FailoverGlobalReplicationGroupMessage, FailoverGlobalReplicationGroupResult } from "../models/models_0";
+import {
+  FailoverGlobalReplicationGroupMessage,
+  FailoverGlobalReplicationGroupMessageFilterSensitiveLog,
+  FailoverGlobalReplicationGroupResult,
+  FailoverGlobalReplicationGroupResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryFailoverGlobalReplicationGroupCommand,
   serializeAws_queryFailoverGlobalReplicationGroupCommand,
@@ -74,8 +79,8 @@ export class FailoverGlobalReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FailoverGlobalReplicationGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: FailoverGlobalReplicationGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: FailoverGlobalReplicationGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: FailoverGlobalReplicationGroupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

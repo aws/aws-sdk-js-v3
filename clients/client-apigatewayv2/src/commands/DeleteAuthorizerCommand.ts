@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { DeleteAuthorizerRequest } from "../models/models_0";
+import { DeleteAuthorizerRequest, DeleteAuthorizerRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAuthorizerCommand,
   serializeAws_restJson1DeleteAuthorizerCommand,
@@ -72,7 +72,7 @@ export class DeleteAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAuthorizerRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAuthorizerRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

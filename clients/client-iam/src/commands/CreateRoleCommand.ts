@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { CreateRoleRequest, CreateRoleResponse } from "../models/models_0";
+import {
+  CreateRoleRequest,
+  CreateRoleRequestFilterSensitiveLog,
+  CreateRoleResponse,
+  CreateRoleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryCreateRoleCommand, serializeAws_queryCreateRoleCommand } from "../protocols/Aws_query";
 
 export interface CreateRoleCommandInput extends CreateRoleRequest {}
@@ -73,8 +78,8 @@ export class CreateRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRoleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateRoleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRoleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateRoleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutJobTaggingRequest, PutJobTaggingResult } from "../models/models_0";
+import {
+  PutJobTaggingRequest,
+  PutJobTaggingRequestFilterSensitiveLog,
+  PutJobTaggingResult,
+  PutJobTaggingResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlPutJobTaggingCommand,
   serializeAws_restXmlPutJobTaggingCommand,
@@ -138,8 +143,8 @@ export class PutJobTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutJobTaggingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutJobTaggingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutJobTaggingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutJobTaggingResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

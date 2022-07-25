@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { SetInstanceProtectionAnswer, SetInstanceProtectionQuery } from "../models/models_0";
+import {
+  SetInstanceProtectionAnswer,
+  SetInstanceProtectionAnswerFilterSensitiveLog,
+  SetInstanceProtectionQuery,
+  SetInstanceProtectionQueryFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_querySetInstanceProtectionCommand,
   serializeAws_querySetInstanceProtectionCommand,
@@ -79,8 +84,8 @@ export class SetInstanceProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetInstanceProtectionQuery.filterSensitiveLog,
-      outputFilterSensitiveLog: SetInstanceProtectionAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: SetInstanceProtectionQueryFilterSensitiveLog,
+      outputFilterSensitiveLog: SetInstanceProtectionAnswerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

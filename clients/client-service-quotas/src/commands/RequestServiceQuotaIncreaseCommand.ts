@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RequestServiceQuotaIncreaseRequest, RequestServiceQuotaIncreaseResponse } from "../models/models_0";
+import {
+  RequestServiceQuotaIncreaseRequest,
+  RequestServiceQuotaIncreaseRequestFilterSensitiveLog,
+  RequestServiceQuotaIncreaseResponse,
+  RequestServiceQuotaIncreaseResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RequestServiceQuotaIncreaseCommand,
   serializeAws_json1_1RequestServiceQuotaIncreaseCommand,
@@ -74,8 +79,8 @@ export class RequestServiceQuotaIncreaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RequestServiceQuotaIncreaseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RequestServiceQuotaIncreaseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RequestServiceQuotaIncreaseRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RequestServiceQuotaIncreaseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

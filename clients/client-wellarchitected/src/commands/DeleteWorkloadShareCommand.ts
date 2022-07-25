@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteWorkloadShareInput } from "../models/models_0";
+import { DeleteWorkloadShareInput, DeleteWorkloadShareInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteWorkloadShareCommand,
   serializeAws_restJson1DeleteWorkloadShareCommand,
@@ -72,7 +72,7 @@ export class DeleteWorkloadShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkloadShareInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteWorkloadShareInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

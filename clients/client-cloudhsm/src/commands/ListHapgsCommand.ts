@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import { ListHapgsRequest, ListHapgsResponse } from "../models/models_0";
+import {
+  ListHapgsRequest,
+  ListHapgsRequestFilterSensitiveLog,
+  ListHapgsResponse,
+  ListHapgsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1ListHapgsCommand, serializeAws_json1_1ListHapgsCommand } from "../protocols/Aws_json1_1";
 
 export interface ListHapgsCommandInput extends ListHapgsRequest {}
@@ -83,8 +88,8 @@ export class ListHapgsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHapgsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListHapgsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHapgsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListHapgsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

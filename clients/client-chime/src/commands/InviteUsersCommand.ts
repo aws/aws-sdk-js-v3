@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { InviteUsersRequest, InviteUsersResponse } from "../models/models_1";
+import {
+  InviteUsersRequest,
+  InviteUsersRequestFilterSensitiveLog,
+  InviteUsersResponse,
+  InviteUsersResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1InviteUsersCommand,
   serializeAws_restJson1InviteUsersCommand,
@@ -74,8 +79,8 @@ export class InviteUsersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InviteUsersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: InviteUsersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: InviteUsersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: InviteUsersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

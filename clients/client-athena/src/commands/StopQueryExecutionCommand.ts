@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { StopQueryExecutionInput, StopQueryExecutionOutput } from "../models/models_0";
+import {
+  StopQueryExecutionInput,
+  StopQueryExecutionInputFilterSensitiveLog,
+  StopQueryExecutionOutput,
+  StopQueryExecutionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StopQueryExecutionCommand,
   serializeAws_json1_1StopQueryExecutionCommand,
@@ -76,8 +81,8 @@ export class StopQueryExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopQueryExecutionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: StopQueryExecutionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StopQueryExecutionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: StopQueryExecutionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

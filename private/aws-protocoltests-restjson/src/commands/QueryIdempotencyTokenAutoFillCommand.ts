@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { QueryIdempotencyTokenAutoFillInput } from "../models/models_0";
+import {
+  QueryIdempotencyTokenAutoFillInput,
+  QueryIdempotencyTokenAutoFillInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1QueryIdempotencyTokenAutoFillCommand,
   serializeAws_restJson1QueryIdempotencyTokenAutoFillCommand,
@@ -72,7 +75,7 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryIdempotencyTokenAutoFillInput.filterSensitiveLog,
+      inputFilterSensitiveLog: QueryIdempotencyTokenAutoFillInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

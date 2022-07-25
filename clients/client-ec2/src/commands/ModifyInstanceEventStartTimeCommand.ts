@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyInstanceEventStartTimeRequest, ModifyInstanceEventStartTimeResult } from "../models/models_5";
+import {
+  ModifyInstanceEventStartTimeRequest,
+  ModifyInstanceEventStartTimeRequestFilterSensitiveLog,
+  ModifyInstanceEventStartTimeResult,
+  ModifyInstanceEventStartTimeResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2ModifyInstanceEventStartTimeCommand,
   serializeAws_ec2ModifyInstanceEventStartTimeCommand,
@@ -74,8 +79,8 @@ export class ModifyInstanceEventStartTimeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyInstanceEventStartTimeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyInstanceEventStartTimeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyInstanceEventStartTimeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyInstanceEventStartTimeResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

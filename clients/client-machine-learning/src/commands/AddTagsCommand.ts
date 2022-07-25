@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { AddTagsInput, AddTagsOutput } from "../models/models_0";
+import {
+  AddTagsInput,
+  AddTagsInputFilterSensitiveLog,
+  AddTagsOutput,
+  AddTagsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1AddTagsCommand, serializeAws_json1_1AddTagsCommand } from "../protocols/Aws_json1_1";
 
 export interface AddTagsCommandInput extends AddTagsInput {}
@@ -71,8 +76,8 @@ export class AddTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: AddTagsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AddTagsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: AddTagsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

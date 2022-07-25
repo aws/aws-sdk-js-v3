@@ -38,15 +38,6 @@ export interface Entity {
   Confidence?: number;
 }
 
-export namespace Entity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Entity): any => ({
-    ...obj,
-  });
-}
-
 export enum ItemType {
   PRONUNCIATION = "pronunciation",
   PUNCTUATION = "punctuation",
@@ -106,15 +97,6 @@ export interface Item {
   Stable?: boolean;
 }
 
-export namespace Item {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Item): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of possible transcriptions for the audio.</p>
  */
@@ -135,15 +117,6 @@ export interface Alternative {
   Entities?: Entity[];
 }
 
-export namespace Alternative {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Alternative): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides a wrapper for the audio chunks that you are sending.</p>
  *          <p>For information on audio encoding in Amazon Transcribe, see
@@ -157,15 +130,6 @@ export interface AudioEvent {
    *       maximum audio chunk size is 32 KB.</p>
    */
   AudioChunk?: Uint8Array;
-}
-
-export namespace AudioEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioEvent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -200,14 +164,6 @@ export namespace AudioStream {
   export const visit = <T>(value: AudioStream, visitor: Visitor<T>): T => {
     if (value.AudioEvent !== undefined) return visitor.AudioEvent(value.AudioEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioStream): any => {
-    if (obj.AudioEvent !== undefined) return { AudioEvent: AudioEvent.filterSensitiveLog(obj.AudioEvent) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -321,15 +277,6 @@ export interface LanguageWithScore {
   Score?: number;
 }
 
-export namespace LanguageWithScore {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LanguageWithScore): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have exceeded the maximum number of concurrent transcription streams, are starting
  *       transcription streams too quickly, or the maximum audio length of 4 hours. Wait until a stream
@@ -393,15 +340,6 @@ export interface MedicalEntity {
   Confidence?: number;
 }
 
-export namespace MedicalEntity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MedicalEntity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A word, phrase, or punctuation mark that is transcribed from the input audio.</p>
  */
@@ -448,15 +386,6 @@ export interface MedicalItem {
   Speaker?: string;
 }
 
-export namespace MedicalItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MedicalItem): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of possible transcriptions for the audio.</p>
  */
@@ -476,15 +405,6 @@ export interface MedicalAlternative {
    * <p>Contains the medical entities identified as personal health information in the transcription output.</p>
    */
   Entities?: MedicalEntity[];
-}
-
-export namespace MedicalAlternative {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MedicalAlternative): any => ({
-    ...obj,
-  });
 }
 
 export enum MedicalContentIdentificationType {
@@ -537,15 +457,6 @@ export interface MedicalResult {
   ChannelId?: string;
 }
 
-export namespace MedicalResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MedicalResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The medical transcript in a <a>MedicalTranscriptEvent</a>.</p>
  */
@@ -558,15 +469,6 @@ export interface MedicalTranscript {
   Results?: MedicalResult[];
 }
 
-export namespace MedicalTranscript {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MedicalTranscript): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a set of transcription results from the server to the client. It contains
  *             one or more segments of the transcription.</p>
@@ -577,15 +479,6 @@ export interface MedicalTranscriptEvent {
    *             items in the results list.</p>
    */
   Transcript?: MedicalTranscript;
-}
-
-export namespace MedicalTranscriptEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MedicalTranscriptEvent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -742,21 +635,6 @@ export namespace MedicalTranscriptResultStream {
       return visitor.ServiceUnavailableException(value.ServiceUnavailableException);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MedicalTranscriptResultStream): any => {
-    if (obj.TranscriptEvent !== undefined)
-      return { TranscriptEvent: MedicalTranscriptEvent.filterSensitiveLog(obj.TranscriptEvent) };
-    if (obj.BadRequestException !== undefined) return { BadRequestException: obj.BadRequestException };
-    if (obj.LimitExceededException !== undefined) return { LimitExceededException: obj.LimitExceededException };
-    if (obj.InternalFailureException !== undefined) return { InternalFailureException: obj.InternalFailureException };
-    if (obj.ConflictException !== undefined) return { ConflictException: obj.ConflictException };
-    if (obj.ServiceUnavailableException !== undefined)
-      return { ServiceUnavailableException: obj.ServiceUnavailableException };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export enum PartialResultsStability {
@@ -818,15 +696,6 @@ export interface Result {
    * <p>The language code of the dominant language identified in your media.</p>
    */
   LanguageIdentification?: LanguageWithScore[];
-}
-
-export namespace Result {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Result): any => ({
-    ...obj,
-  });
 }
 
 export enum Specialty {
@@ -920,16 +789,6 @@ export interface StartMedicalStreamTranscriptionRequest {
   ContentIdentificationType?: MedicalContentIdentificationType | string;
 }
 
-export namespace StartMedicalStreamTranscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMedicalStreamTranscriptionRequest): any => ({
-    ...obj,
-    ...(obj.AudioStream && { AudioStream: "STREAMING_CONTENT" }),
-  });
-}
-
 export interface StartMedicalStreamTranscriptionResponse {
   /**
    * <p>An identifier for the streaming transcription.</p>
@@ -998,16 +857,6 @@ export interface StartMedicalStreamTranscriptionResponse {
    *             identify personal health information.</p>
    */
   ContentIdentificationType?: MedicalContentIdentificationType | string;
-}
-
-export namespace StartMedicalStreamTranscriptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMedicalStreamTranscriptionResponse): any => ({
-    ...obj,
-    ...(obj.TranscriptResultStream && { TranscriptResultStream: "STREAMING_CONTENT" }),
-  });
 }
 
 export enum VocabularyFilterMethod {
@@ -1199,16 +1048,6 @@ export interface StartStreamTranscriptionRequest {
   VocabularyFilterNames?: string;
 }
 
-export namespace StartStreamTranscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartStreamTranscriptionRequest): any => ({
-    ...obj,
-    ...(obj.AudioStream && { AudioStream: "STREAMING_CONTENT" }),
-  });
-}
-
 /**
  * <p>The transcription in a <a>TranscriptEvent</a>.</p>
  */
@@ -1221,15 +1060,6 @@ export interface Transcript {
   Results?: Result[];
 }
 
-export namespace Transcript {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Transcript): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a set of transcription results from the server to the client. It contains one
  *       or more segments of the transcription.</p>
@@ -1240,15 +1070,6 @@ export interface TranscriptEvent {
    *       in the results list.</p>
    */
   Transcript?: Transcript;
-}
-
-export namespace TranscriptEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TranscriptEvent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1378,21 +1199,6 @@ export namespace TranscriptResultStream {
       return visitor.ServiceUnavailableException(value.ServiceUnavailableException);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TranscriptResultStream): any => {
-    if (obj.TranscriptEvent !== undefined)
-      return { TranscriptEvent: TranscriptEvent.filterSensitiveLog(obj.TranscriptEvent) };
-    if (obj.BadRequestException !== undefined) return { BadRequestException: obj.BadRequestException };
-    if (obj.LimitExceededException !== undefined) return { LimitExceededException: obj.LimitExceededException };
-    if (obj.InternalFailureException !== undefined) return { InternalFailureException: obj.InternalFailureException };
-    if (obj.ConflictException !== undefined) return { ConflictException: obj.ConflictException };
-    if (obj.ServiceUnavailableException !== undefined)
-      return { ServiceUnavailableException: obj.ServiceUnavailableException };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export interface StartStreamTranscriptionResponse {
@@ -1514,12 +1320,174 @@ export interface StartStreamTranscriptionResponse {
   VocabularyFilterNames?: string;
 }
 
-export namespace StartStreamTranscriptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartStreamTranscriptionResponse): any => ({
-    ...obj,
-    ...(obj.TranscriptResultStream && { TranscriptResultStream: "STREAMING_CONTENT" }),
-  });
-}
+/**
+ * @internal
+ */
+export const EntityFilterSensitiveLog = (obj: Entity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ItemFilterSensitiveLog = (obj: Item): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlternativeFilterSensitiveLog = (obj: Alternative): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioEventFilterSensitiveLog = (obj: AudioEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioStreamFilterSensitiveLog = (obj: AudioStream): any => {
+  if (obj.AudioEvent !== undefined) return { AudioEvent: AudioEventFilterSensitiveLog(obj.AudioEvent) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const LanguageWithScoreFilterSensitiveLog = (obj: LanguageWithScore): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MedicalEntityFilterSensitiveLog = (obj: MedicalEntity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MedicalItemFilterSensitiveLog = (obj: MedicalItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MedicalAlternativeFilterSensitiveLog = (obj: MedicalAlternative): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MedicalResultFilterSensitiveLog = (obj: MedicalResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MedicalTranscriptFilterSensitiveLog = (obj: MedicalTranscript): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MedicalTranscriptEventFilterSensitiveLog = (obj: MedicalTranscriptEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MedicalTranscriptResultStreamFilterSensitiveLog = (obj: MedicalTranscriptResultStream): any => {
+  if (obj.TranscriptEvent !== undefined)
+    return { TranscriptEvent: MedicalTranscriptEventFilterSensitiveLog(obj.TranscriptEvent) };
+  if (obj.BadRequestException !== undefined) return { BadRequestException: obj.BadRequestException };
+  if (obj.LimitExceededException !== undefined) return { LimitExceededException: obj.LimitExceededException };
+  if (obj.InternalFailureException !== undefined) return { InternalFailureException: obj.InternalFailureException };
+  if (obj.ConflictException !== undefined) return { ConflictException: obj.ConflictException };
+  if (obj.ServiceUnavailableException !== undefined)
+    return { ServiceUnavailableException: obj.ServiceUnavailableException };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ResultFilterSensitiveLog = (obj: Result): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMedicalStreamTranscriptionRequestFilterSensitiveLog = (
+  obj: StartMedicalStreamTranscriptionRequest
+): any => ({
+  ...obj,
+  ...(obj.AudioStream && { AudioStream: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @internal
+ */
+export const StartMedicalStreamTranscriptionResponseFilterSensitiveLog = (
+  obj: StartMedicalStreamTranscriptionResponse
+): any => ({
+  ...obj,
+  ...(obj.TranscriptResultStream && { TranscriptResultStream: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @internal
+ */
+export const StartStreamTranscriptionRequestFilterSensitiveLog = (obj: StartStreamTranscriptionRequest): any => ({
+  ...obj,
+  ...(obj.AudioStream && { AudioStream: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @internal
+ */
+export const TranscriptFilterSensitiveLog = (obj: Transcript): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TranscriptEventFilterSensitiveLog = (obj: TranscriptEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TranscriptResultStreamFilterSensitiveLog = (obj: TranscriptResultStream): any => {
+  if (obj.TranscriptEvent !== undefined)
+    return { TranscriptEvent: TranscriptEventFilterSensitiveLog(obj.TranscriptEvent) };
+  if (obj.BadRequestException !== undefined) return { BadRequestException: obj.BadRequestException };
+  if (obj.LimitExceededException !== undefined) return { LimitExceededException: obj.LimitExceededException };
+  if (obj.InternalFailureException !== undefined) return { InternalFailureException: obj.InternalFailureException };
+  if (obj.ConflictException !== undefined) return { ConflictException: obj.ConflictException };
+  if (obj.ServiceUnavailableException !== undefined)
+    return { ServiceUnavailableException: obj.ServiceUnavailableException };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const StartStreamTranscriptionResponseFilterSensitiveLog = (obj: StartStreamTranscriptionResponse): any => ({
+  ...obj,
+  ...(obj.TranscriptResultStream && { TranscriptResultStream: "STREAMING_CONTENT" }),
+});

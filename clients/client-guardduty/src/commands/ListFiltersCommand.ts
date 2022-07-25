@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { ListFiltersRequest, ListFiltersResponse } from "../models/models_0";
+import {
+  ListFiltersRequest,
+  ListFiltersRequestFilterSensitiveLog,
+  ListFiltersResponse,
+  ListFiltersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListFiltersCommand,
   serializeAws_restJson1ListFiltersCommand,
@@ -72,8 +77,8 @@ export class ListFiltersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFiltersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListFiltersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFiltersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListFiltersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

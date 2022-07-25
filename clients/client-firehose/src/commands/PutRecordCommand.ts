@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import { PutRecordInput, PutRecordOutput } from "../models/models_0";
+import {
+  PutRecordInput,
+  PutRecordInputFilterSensitiveLog,
+  PutRecordOutput,
+  PutRecordOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1PutRecordCommand, serializeAws_json1_1PutRecordCommand } from "../protocols/Aws_json1_1";
 
 export interface PutRecordCommandInput extends PutRecordInput {}
@@ -100,8 +105,8 @@ export class PutRecordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRecordInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PutRecordOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutRecordInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PutRecordOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

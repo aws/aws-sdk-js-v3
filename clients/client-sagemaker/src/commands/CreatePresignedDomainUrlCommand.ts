@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreatePresignedDomainUrlRequest, CreatePresignedDomainUrlResponse } from "../models/models_1";
+import {
+  CreatePresignedDomainUrlRequest,
+  CreatePresignedDomainUrlRequestFilterSensitiveLog,
+  CreatePresignedDomainUrlResponse,
+  CreatePresignedDomainUrlResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1CreatePresignedDomainUrlCommand,
   serializeAws_json1_1CreatePresignedDomainUrlCommand,
@@ -88,8 +93,8 @@ export class CreatePresignedDomainUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePresignedDomainUrlRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreatePresignedDomainUrlResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePresignedDomainUrlRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreatePresignedDomainUrlResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

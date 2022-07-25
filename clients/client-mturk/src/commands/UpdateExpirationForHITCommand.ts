@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateExpirationForHITRequest, UpdateExpirationForHITResponse } from "../models/models_0";
+import {
+  UpdateExpirationForHITRequest,
+  UpdateExpirationForHITRequestFilterSensitiveLog,
+  UpdateExpirationForHITResponse,
+  UpdateExpirationForHITResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1UpdateExpirationForHITCommand,
@@ -75,8 +80,8 @@ export class UpdateExpirationForHITCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateExpirationForHITRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateExpirationForHITResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateExpirationForHITRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateExpirationForHITResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

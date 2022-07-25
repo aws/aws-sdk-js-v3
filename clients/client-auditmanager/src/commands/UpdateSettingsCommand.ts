@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { UpdateSettingsRequest, UpdateSettingsResponse } from "../models/models_0";
+import {
+  UpdateSettingsRequest,
+  UpdateSettingsRequestFilterSensitiveLog,
+  UpdateSettingsResponse,
+  UpdateSettingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateSettingsCommand,
   serializeAws_restJson1UpdateSettingsCommand,
@@ -72,8 +77,8 @@ export class UpdateSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

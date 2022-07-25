@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteBaiduChannelRequest, DeleteBaiduChannelResponse } from "../models/models_0";
+import {
+  DeleteBaiduChannelRequest,
+  DeleteBaiduChannelRequestFilterSensitiveLog,
+  DeleteBaiduChannelResponse,
+  DeleteBaiduChannelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1DeleteBaiduChannelCommand,
@@ -72,8 +77,8 @@ export class DeleteBaiduChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBaiduChannelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBaiduChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBaiduChannelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBaiduChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

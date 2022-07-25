@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { DeleteBatchPredictionJobRequest, DeleteBatchPredictionJobResult } from "../models/models_0";
+import {
+  DeleteBatchPredictionJobRequest,
+  DeleteBatchPredictionJobRequestFilterSensitiveLog,
+  DeleteBatchPredictionJobResult,
+  DeleteBatchPredictionJobResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteBatchPredictionJobCommand,
   serializeAws_json1_1DeleteBatchPredictionJobCommand,
@@ -72,8 +77,8 @@ export class DeleteBatchPredictionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBatchPredictionJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBatchPredictionJobResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBatchPredictionJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBatchPredictionJobResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

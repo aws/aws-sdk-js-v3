@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DescribeRefreshSchemasStatusMessage, DescribeRefreshSchemasStatusResponse } from "../models/models_0";
+import {
+  DescribeRefreshSchemasStatusMessage,
+  DescribeRefreshSchemasStatusMessageFilterSensitiveLog,
+  DescribeRefreshSchemasStatusResponse,
+  DescribeRefreshSchemasStatusResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeRefreshSchemasStatusCommand,
   serializeAws_json1_1DescribeRefreshSchemasStatusCommand,
@@ -78,8 +83,8 @@ export class DescribeRefreshSchemasStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRefreshSchemasStatusMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRefreshSchemasStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRefreshSchemasStatusMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRefreshSchemasStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

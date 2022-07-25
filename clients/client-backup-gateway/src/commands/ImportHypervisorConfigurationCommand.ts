@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import { ImportHypervisorConfigurationInput, ImportHypervisorConfigurationOutput } from "../models/models_0";
+import {
+  ImportHypervisorConfigurationInput,
+  ImportHypervisorConfigurationInputFilterSensitiveLog,
+  ImportHypervisorConfigurationOutput,
+  ImportHypervisorConfigurationOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0ImportHypervisorConfigurationCommand,
   serializeAws_json1_0ImportHypervisorConfigurationCommand,
@@ -74,8 +79,8 @@ export class ImportHypervisorConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportHypervisorConfigurationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ImportHypervisorConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportHypervisorConfigurationInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ImportHypervisorConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

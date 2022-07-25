@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DeleteDatasetGroupRequest } from "../models/models_0";
+import { DeleteDatasetGroupRequest, DeleteDatasetGroupRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDatasetGroupCommand,
   serializeAws_json1_1DeleteDatasetGroupCommand,
@@ -75,7 +75,7 @@ export class DeleteDatasetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatasetGroupRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDatasetGroupRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

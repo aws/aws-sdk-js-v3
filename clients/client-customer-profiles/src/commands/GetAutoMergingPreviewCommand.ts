@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { GetAutoMergingPreviewRequest, GetAutoMergingPreviewResponse } from "../models/models_0";
+import {
+  GetAutoMergingPreviewRequest,
+  GetAutoMergingPreviewRequestFilterSensitiveLog,
+  GetAutoMergingPreviewResponse,
+  GetAutoMergingPreviewResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetAutoMergingPreviewCommand,
   serializeAws_restJson1GetAutoMergingPreviewCommand,
@@ -85,8 +90,8 @@ export class GetAutoMergingPreviewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAutoMergingPreviewRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAutoMergingPreviewResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAutoMergingPreviewRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAutoMergingPreviewResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

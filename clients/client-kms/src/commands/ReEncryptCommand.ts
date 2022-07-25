@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { ReEncryptRequest, ReEncryptResponse } from "../models/models_0";
+import {
+  ReEncryptRequest,
+  ReEncryptRequestFilterSensitiveLog,
+  ReEncryptResponse,
+  ReEncryptResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1ReEncryptCommand, serializeAws_json1_1ReEncryptCommand } from "../protocols/Aws_json1_1";
 
 export interface ReEncryptCommandInput extends ReEncryptRequest {}
@@ -162,8 +167,8 @@ export class ReEncryptCommand extends $Command<ReEncryptCommandInput, ReEncryptC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReEncryptRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ReEncryptResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ReEncryptRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ReEncryptResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

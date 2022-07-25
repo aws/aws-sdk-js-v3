@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { UpdateAppRequest, UpdateAppResult } from "../models/models_0";
+import {
+  UpdateAppRequest,
+  UpdateAppRequestFilterSensitiveLog,
+  UpdateAppResult,
+  UpdateAppResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAppCommand,
   serializeAws_restJson1UpdateAppCommand,
@@ -72,8 +77,8 @@ export class UpdateAppCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAppRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAppResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAppRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAppResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

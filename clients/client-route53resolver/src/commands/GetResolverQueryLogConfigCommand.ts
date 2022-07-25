@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetResolverQueryLogConfigRequest, GetResolverQueryLogConfigResponse } from "../models/models_0";
+import {
+  GetResolverQueryLogConfigRequest,
+  GetResolverQueryLogConfigRequestFilterSensitiveLog,
+  GetResolverQueryLogConfigResponse,
+  GetResolverQueryLogConfigResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetResolverQueryLogConfigCommand,
   serializeAws_json1_1GetResolverQueryLogConfigCommand,
@@ -73,8 +78,8 @@ export class GetResolverQueryLogConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResolverQueryLogConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetResolverQueryLogConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetResolverQueryLogConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetResolverQueryLogConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

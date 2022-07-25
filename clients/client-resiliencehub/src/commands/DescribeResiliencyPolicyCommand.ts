@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeResiliencyPolicyRequest, DescribeResiliencyPolicyResponse } from "../models/models_0";
+import {
+  DescribeResiliencyPolicyRequest,
+  DescribeResiliencyPolicyRequestFilterSensitiveLog,
+  DescribeResiliencyPolicyResponse,
+  DescribeResiliencyPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeResiliencyPolicyCommand,
   serializeAws_restJson1DescribeResiliencyPolicyCommand,
@@ -74,8 +79,8 @@ export class DescribeResiliencyPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeResiliencyPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeResiliencyPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeResiliencyPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeResiliencyPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

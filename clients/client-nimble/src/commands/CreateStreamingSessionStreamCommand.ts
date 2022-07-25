@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateStreamingSessionStreamRequest, CreateStreamingSessionStreamResponse } from "../models/models_0";
+import {
+  CreateStreamingSessionStreamRequest,
+  CreateStreamingSessionStreamRequestFilterSensitiveLog,
+  CreateStreamingSessionStreamResponse,
+  CreateStreamingSessionStreamResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1CreateStreamingSessionStreamCommand,
@@ -76,8 +81,8 @@ export class CreateStreamingSessionStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStreamingSessionStreamRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateStreamingSessionStreamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateStreamingSessionStreamRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateStreamingSessionStreamResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { CreateLocationFsxOntapRequest, CreateLocationFsxOntapResponse } from "../models/models_0";
+import {
+  CreateLocationFsxOntapRequest,
+  CreateLocationFsxOntapRequestFilterSensitiveLog,
+  CreateLocationFsxOntapResponse,
+  CreateLocationFsxOntapResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLocationFsxOntapCommand,
   serializeAws_json1_1CreateLocationFsxOntapCommand,
@@ -73,8 +78,8 @@ export class CreateLocationFsxOntapCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLocationFsxOntapRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationFsxOntapResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLocationFsxOntapRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateLocationFsxOntapResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

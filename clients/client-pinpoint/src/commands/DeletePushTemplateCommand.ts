@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeletePushTemplateRequest, DeletePushTemplateResponse } from "../models/models_0";
+import {
+  DeletePushTemplateRequest,
+  DeletePushTemplateRequestFilterSensitiveLog,
+  DeletePushTemplateResponse,
+  DeletePushTemplateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1DeletePushTemplateCommand,
@@ -72,8 +77,8 @@ export class DeletePushTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePushTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePushTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePushTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePushTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

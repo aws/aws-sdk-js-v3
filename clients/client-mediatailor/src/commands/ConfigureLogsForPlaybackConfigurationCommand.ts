@@ -15,7 +15,9 @@ import {
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
 import {
   ConfigureLogsForPlaybackConfigurationRequest,
+  ConfigureLogsForPlaybackConfigurationRequestFilterSensitiveLog,
   ConfigureLogsForPlaybackConfigurationResponse,
+  ConfigureLogsForPlaybackConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ConfigureLogsForPlaybackConfigurationCommand,
@@ -78,8 +80,8 @@ export class ConfigureLogsForPlaybackConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfigureLogsForPlaybackConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ConfigureLogsForPlaybackConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ConfigureLogsForPlaybackConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ConfigureLogsForPlaybackConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

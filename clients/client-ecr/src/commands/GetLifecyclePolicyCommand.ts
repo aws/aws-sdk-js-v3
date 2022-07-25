@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { GetLifecyclePolicyRequest, GetLifecyclePolicyResponse } from "../models/models_0";
+import {
+  GetLifecyclePolicyRequest,
+  GetLifecyclePolicyRequestFilterSensitiveLog,
+  GetLifecyclePolicyResponse,
+  GetLifecyclePolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetLifecyclePolicyCommand,
   serializeAws_json1_1GetLifecyclePolicyCommand,
@@ -72,8 +77,8 @@ export class GetLifecyclePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLifecyclePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetLifecyclePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLifecyclePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetLifecyclePolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

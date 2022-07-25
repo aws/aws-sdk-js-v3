@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { DeleteDeploymentConfigInput } from "../models/models_0";
+import { DeleteDeploymentConfigInput, DeleteDeploymentConfigInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDeploymentConfigCommand,
   serializeAws_json1_1DeleteDeploymentConfigCommand,
@@ -76,7 +76,7 @@ export class DeleteDeploymentConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeploymentConfigInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDeploymentConfigInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

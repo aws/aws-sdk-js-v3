@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { GetSupportedResourceTypesOutput } from "../models/models_0";
+import { GetSupportedResourceTypesOutput, GetSupportedResourceTypesOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSupportedResourceTypesCommand,
   serializeAws_restJson1GetSupportedResourceTypesCommand,
@@ -73,7 +73,7 @@ export class GetSupportedResourceTypesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetSupportedResourceTypesOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSupportedResourceTypesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

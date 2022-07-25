@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { QueryListsInput } from "../models/models_0";
+import { QueryListsInput, QueryListsInputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_ec2QueryListsCommand, serializeAws_ec2QueryListsCommand } from "../protocols/Aws_ec2";
 
 export interface QueryListsCommandInput extends QueryListsInput {}
@@ -69,7 +69,7 @@ export class QueryListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryListsInput.filterSensitiveLog,
+      inputFilterSensitiveLog: QueryListsInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

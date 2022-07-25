@@ -15,7 +15,9 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   DescribeAggregationAuthorizationsRequest,
+  DescribeAggregationAuthorizationsRequestFilterSensitiveLog,
   DescribeAggregationAuthorizationsResponse,
+  DescribeAggregationAuthorizationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAggregationAuthorizationsCommand,
@@ -78,8 +80,8 @@ export class DescribeAggregationAuthorizationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAggregationAuthorizationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAggregationAuthorizationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAggregationAuthorizationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAggregationAuthorizationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

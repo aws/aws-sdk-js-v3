@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { BatchDeleteScheduledActionAnswer, BatchDeleteScheduledActionType } from "../models/models_0";
+import {
+  BatchDeleteScheduledActionAnswer,
+  BatchDeleteScheduledActionAnswerFilterSensitiveLog,
+  BatchDeleteScheduledActionType,
+  BatchDeleteScheduledActionTypeFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryBatchDeleteScheduledActionCommand,
   serializeAws_queryBatchDeleteScheduledActionCommand,
@@ -72,8 +77,8 @@ export class BatchDeleteScheduledActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteScheduledActionType.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteScheduledActionAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDeleteScheduledActionTypeFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeleteScheduledActionAnswerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

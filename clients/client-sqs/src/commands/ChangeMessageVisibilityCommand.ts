@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ChangeMessageVisibilityRequest } from "../models/models_0";
+import { ChangeMessageVisibilityRequest, ChangeMessageVisibilityRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryChangeMessageVisibilityCommand,
   serializeAws_queryChangeMessageVisibilityCommand,
@@ -105,7 +105,7 @@ export class ChangeMessageVisibilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ChangeMessageVisibilityRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ChangeMessageVisibilityRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

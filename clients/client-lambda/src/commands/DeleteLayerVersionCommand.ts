@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { DeleteLayerVersionRequest } from "../models/models_0";
+import { DeleteLayerVersionRequest, DeleteLayerVersionRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteLayerVersionCommand,
   serializeAws_restJson1DeleteLayerVersionCommand,
@@ -74,7 +74,7 @@ export class DeleteLayerVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLayerVersionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLayerVersionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

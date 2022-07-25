@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssociateLinkRequest, AssociateLinkResponse } from "../models/models_0";
+import {
+  AssociateLinkRequest,
+  AssociateLinkRequestFilterSensitiveLog,
+  AssociateLinkResponse,
+  AssociateLinkResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1AssociateLinkCommand,
@@ -72,8 +77,8 @@ export class AssociateLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateLinkRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateLinkResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateLinkRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateLinkResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

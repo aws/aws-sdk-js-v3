@@ -93,16 +93,6 @@ export interface Target {
   TargetAddress?: string;
 }
 
-export namespace Target {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Target): any => ({
-    ...obj,
-    ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateNotificationRuleRequest {
   /**
    * <p>The name for the notification rule. Notifictaion rule names must be unique in your AWS
@@ -159,31 +149,11 @@ export interface CreateNotificationRuleRequest {
   Status?: NotificationRuleStatus | string;
 }
 
-export namespace CreateNotificationRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNotificationRuleRequest): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Targets && { Targets: obj.Targets.map((item) => Target.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateNotificationRuleResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
    */
   Arn?: string;
-}
-
-export namespace CreateNotificationRuleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNotificationRuleResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -259,29 +229,11 @@ export interface DeleteNotificationRuleRequest {
   Arn: string | undefined;
 }
 
-export namespace DeleteNotificationRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNotificationRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteNotificationRuleResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the deleted notification rule.</p>
    */
   Arn?: string;
-}
-
-export namespace DeleteNotificationRuleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNotificationRuleResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteTargetRequest {
@@ -298,41 +250,13 @@ export interface DeleteTargetRequest {
   ForceUnsubscribeAll?: boolean;
 }
 
-export namespace DeleteTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTargetRequest): any => ({
-    ...obj,
-    ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
-  });
-}
-
 export interface DeleteTargetResult {}
-
-export namespace DeleteTargetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTargetResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeNotificationRuleRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule.</p>
    */
   Arn: string | undefined;
-}
-
-export namespace DescribeNotificationRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNotificationRuleRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -358,15 +282,6 @@ export interface EventTypeSummary {
    * <p>The resource type of the event.</p>
    */
   ResourceType?: string;
-}
-
-export namespace EventTypeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventTypeSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum TargetStatus {
@@ -395,16 +310,6 @@ export interface TargetSummary {
    * <p>The status of the target.</p>
    */
   TargetStatus?: TargetStatus | string;
-}
-
-export namespace TargetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetSummary): any => ({
-    ...obj,
-    ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
-  });
 }
 
 export interface DescribeNotificationRuleResult {
@@ -467,17 +372,6 @@ export interface DescribeNotificationRuleResult {
    * <p>The tags associated with the notification rule.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace DescribeNotificationRuleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNotificationRuleResult): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetSummary.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -544,15 +438,6 @@ export interface ListEventTypesFilter {
   Value: string | undefined;
 }
 
-export namespace ListEventTypesFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventTypesFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEventTypesRequest {
   /**
    * <p>The filters to use to return information by service or resource type.</p>
@@ -572,15 +457,6 @@ export interface ListEventTypesRequest {
   MaxResults?: number;
 }
 
-export namespace ListEventTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventTypesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEventTypesResult {
   /**
    * <p>Information about each event, including service name, resource type, event ID, and event
@@ -592,15 +468,6 @@ export interface ListEventTypesResult {
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListEventTypesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventTypesResult): any => ({
-    ...obj,
-  });
 }
 
 export enum ListNotificationRulesFilterName {
@@ -627,15 +494,6 @@ export interface ListNotificationRulesFilter {
   Value: string | undefined;
 }
 
-export namespace ListNotificationRulesFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNotificationRulesFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNotificationRulesRequest {
   /**
    * <p>The filters to use to return information by service or resource type. For valid values,
@@ -659,15 +517,6 @@ export interface ListNotificationRulesRequest {
   MaxResults?: number;
 }
 
-export namespace ListNotificationRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNotificationRulesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a specified notification rule.</p>
  */
@@ -683,15 +532,6 @@ export interface NotificationRuleSummary {
   Arn?: string;
 }
 
-export namespace NotificationRuleSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationRuleSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNotificationRulesResult {
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
@@ -704,15 +544,6 @@ export interface ListNotificationRulesResult {
   NotificationRules?: NotificationRuleSummary[];
 }
 
-export namespace ListNotificationRulesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNotificationRulesResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the notification rule.</p>
@@ -720,29 +551,11 @@ export interface ListTagsForResourceRequest {
   Arn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResult {
   /**
    * <p>The tags associated with the notification rule.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-    ...obj,
-  });
 }
 
 export enum ListTargetsFilterName {
@@ -772,15 +585,6 @@ export interface ListTargetsFilter {
   Value: string | undefined;
 }
 
-export namespace ListTargetsFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTargetsFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTargetsRequest {
   /**
    * <p>The filters to use to return information by service or resource type. Valid filters
@@ -804,15 +608,6 @@ export interface ListTargetsRequest {
   MaxResults?: number;
 }
 
-export namespace ListTargetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTargetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTargetsResult {
   /**
    * <p>The list of notification rule targets. </p>
@@ -824,16 +619,6 @@ export interface ListTargetsResult {
    *             results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTargetsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTargetsResult): any => ({
-    ...obj,
-    ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetSummary.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface SubscribeRequest {
@@ -854,30 +639,11 @@ export interface SubscribeRequest {
   ClientRequestToken?: string;
 }
 
-export namespace SubscribeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscribeRequest): any => ({
-    ...obj,
-    ...(obj.Target && { Target: Target.filterSensitiveLog(obj.Target) }),
-  });
-}
-
 export interface SubscribeResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the notification rule for which you have created assocations.</p>
    */
   Arn?: string;
-}
-
-export namespace SubscribeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscribeResult): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -892,29 +658,11 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResult {
   /**
    * <p>The list of tags associated with the resource.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace TagResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UnsubscribeRequest {
@@ -929,30 +677,11 @@ export interface UnsubscribeRequest {
   TargetAddress: string | undefined;
 }
 
-export namespace UnsubscribeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsubscribeRequest): any => ({
-    ...obj,
-    ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
-  });
-}
-
 export interface UnsubscribeResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the the notification rule from which you have removed a subscription.</p>
    */
   Arn: string | undefined;
-}
-
-export namespace UnsubscribeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsubscribeResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {
@@ -968,25 +697,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResult {}
-
-export namespace UntagResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateNotificationRuleRequest {
   /**
@@ -1024,24 +735,247 @@ export interface UpdateNotificationRuleRequest {
   DetailType?: DetailType | string;
 }
 
-export namespace UpdateNotificationRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNotificationRuleRequest): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Targets && { Targets: obj.Targets.map((item) => Target.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface UpdateNotificationRuleResult {}
 
-export namespace UpdateNotificationRuleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNotificationRuleResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TargetFilterSensitiveLog = (obj: Target): any => ({
+  ...obj,
+  ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateNotificationRuleRequestFilterSensitiveLog = (obj: CreateNotificationRuleRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateNotificationRuleResultFilterSensitiveLog = (obj: CreateNotificationRuleResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNotificationRuleRequestFilterSensitiveLog = (obj: DeleteNotificationRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNotificationRuleResultFilterSensitiveLog = (obj: DeleteNotificationRuleResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTargetRequestFilterSensitiveLog = (obj: DeleteTargetRequest): any => ({
+  ...obj,
+  ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteTargetResultFilterSensitiveLog = (obj: DeleteTargetResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNotificationRuleRequestFilterSensitiveLog = (obj: DescribeNotificationRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventTypeSummaryFilterSensitiveLog = (obj: EventTypeSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetSummaryFilterSensitiveLog = (obj: TargetSummary): any => ({
+  ...obj,
+  ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeNotificationRuleResultFilterSensitiveLog = (obj: DescribeNotificationRuleResult): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListEventTypesFilterFilterSensitiveLog = (obj: ListEventTypesFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventTypesRequestFilterSensitiveLog = (obj: ListEventTypesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventTypesResultFilterSensitiveLog = (obj: ListEventTypesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNotificationRulesFilterFilterSensitiveLog = (obj: ListNotificationRulesFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNotificationRulesRequestFilterSensitiveLog = (obj: ListNotificationRulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationRuleSummaryFilterSensitiveLog = (obj: NotificationRuleSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNotificationRulesResultFilterSensitiveLog = (obj: ListNotificationRulesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsFilterFilterSensitiveLog = (obj: ListTargetsFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsRequestFilterSensitiveLog = (obj: ListTargetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsResultFilterSensitiveLog = (obj: ListTargetsResult): any => ({
+  ...obj,
+  ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SubscribeRequestFilterSensitiveLog = (obj: SubscribeRequest): any => ({
+  ...obj,
+  ...(obj.Target && { Target: TargetFilterSensitiveLog(obj.Target) }),
+});
+
+/**
+ * @internal
+ */
+export const SubscribeResultFilterSensitiveLog = (obj: SubscribeResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResultFilterSensitiveLog = (obj: TagResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnsubscribeRequestFilterSensitiveLog = (obj: UnsubscribeRequest): any => ({
+  ...obj,
+  ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UnsubscribeResultFilterSensitiveLog = (obj: UnsubscribeResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResultFilterSensitiveLog = (obj: UntagResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNotificationRuleRequestFilterSensitiveLog = (obj: UpdateNotificationRuleRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateNotificationRuleResultFilterSensitiveLog = (obj: UpdateNotificationRuleResult): any => ({
+  ...obj,
+});

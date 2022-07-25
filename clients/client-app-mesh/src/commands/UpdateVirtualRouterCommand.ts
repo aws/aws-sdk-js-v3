@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { UpdateVirtualRouterInput, UpdateVirtualRouterOutput } from "../models/models_0";
+import {
+  UpdateVirtualRouterInput,
+  UpdateVirtualRouterInputFilterSensitiveLog,
+  UpdateVirtualRouterOutput,
+  UpdateVirtualRouterOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateVirtualRouterCommand,
   serializeAws_restJson1UpdateVirtualRouterCommand,
@@ -72,8 +77,8 @@ export class UpdateVirtualRouterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVirtualRouterInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVirtualRouterOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateVirtualRouterInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVirtualRouterOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

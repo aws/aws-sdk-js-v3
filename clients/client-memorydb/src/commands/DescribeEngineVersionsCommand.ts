@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import { DescribeEngineVersionsRequest, DescribeEngineVersionsResponse } from "../models/models_0";
+import {
+  DescribeEngineVersionsRequest,
+  DescribeEngineVersionsRequestFilterSensitiveLog,
+  DescribeEngineVersionsResponse,
+  DescribeEngineVersionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEngineVersionsCommand,
   serializeAws_json1_1DescribeEngineVersionsCommand,
@@ -72,8 +77,8 @@ export class DescribeEngineVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEngineVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEngineVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEngineVersionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEngineVersionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

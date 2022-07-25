@@ -13,7 +13,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketMetricsConfigurationRequest } from "../models/models_0";
+import {
+  PutBucketMetricsConfigurationRequest,
+  PutBucketMetricsConfigurationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlPutBucketMetricsConfigurationCommand,
   serializeAws_restXmlPutBucketMetricsConfigurationCommand,
@@ -124,7 +127,7 @@ export class PutBucketMetricsConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketMetricsConfigurationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutBucketMetricsConfigurationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

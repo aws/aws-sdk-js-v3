@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { UpdateApplicationInput } from "../models/models_0";
+import { UpdateApplicationInput, UpdateApplicationInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateApplicationCommand,
   serializeAws_json1_1UpdateApplicationCommand,
@@ -72,7 +72,7 @@ export class UpdateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApplicationInput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateApplicationInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

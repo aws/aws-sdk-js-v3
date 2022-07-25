@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisableImportFindingsForProductRequest, DisableImportFindingsForProductResponse } from "../models/models_1";
+import {
+  DisableImportFindingsForProductRequest,
+  DisableImportFindingsForProductRequestFilterSensitiveLog,
+  DisableImportFindingsForProductResponse,
+  DisableImportFindingsForProductResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DisableImportFindingsForProductCommand,
   serializeAws_restJson1DisableImportFindingsForProductCommand,
@@ -75,8 +80,8 @@ export class DisableImportFindingsForProductCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableImportFindingsForProductRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableImportFindingsForProductResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableImportFindingsForProductRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisableImportFindingsForProductResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListResourceDataSyncRequest, ListResourceDataSyncResult } from "../models/models_1";
+import {
+  ListResourceDataSyncRequest,
+  ListResourceDataSyncRequestFilterSensitiveLog,
+  ListResourceDataSyncResult,
+  ListResourceDataSyncResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1ListResourceDataSyncCommand,
   serializeAws_json1_1ListResourceDataSyncCommand,
@@ -80,8 +85,8 @@ export class ListResourceDataSyncCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceDataSyncRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceDataSyncResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListResourceDataSyncRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListResourceDataSyncResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

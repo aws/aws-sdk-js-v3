@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { AllocateHostedConnectionRequest, Connection } from "../models/models_0";
+import {
+  AllocateHostedConnectionRequest,
+  AllocateHostedConnectionRequestFilterSensitiveLog,
+  Connection,
+  ConnectionFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AllocateHostedConnectionCommand,
   serializeAws_json1_1AllocateHostedConnectionCommand,
@@ -77,8 +82,8 @@ export class AllocateHostedConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AllocateHostedConnectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Connection.filterSensitiveLog,
+      inputFilterSensitiveLog: AllocateHostedConnectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ConnectionFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

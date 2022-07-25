@@ -19,15 +19,6 @@ export interface DeleteReportDefinitionRequest {
   ReportName?: string;
 }
 
-export namespace DeleteReportDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReportDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
  */
@@ -36,15 +27,6 @@ export interface DeleteReportDefinitionResponse {
    * <p>Whether the deletion was successful or not.</p>
    */
   ResponseMessage?: string;
-}
-
-export namespace DeleteReportDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReportDefinitionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -108,15 +90,6 @@ export interface DescribeReportDefinitionsRequest {
    * <p>A generic string.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeReportDefinitionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReportDefinitionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum SchemaElement {
@@ -245,15 +218,6 @@ export interface ReportDefinition {
   BillingViewArn?: string;
 }
 
-export namespace ReportDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
  */
@@ -267,15 +231,6 @@ export interface DescribeReportDefinitionsResponse {
    * <p>A generic string.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeReportDefinitionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReportDefinitionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyReportDefinitionRequest {
@@ -294,25 +249,7 @@ export interface ModifyReportDefinitionRequest {
   ReportDefinition: ReportDefinition | undefined;
 }
 
-export namespace ModifyReportDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyReportDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyReportDefinitionResponse {}
-
-export namespace ModifyReportDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyReportDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A report with the specified name already exists in the account. Specify a different report name.</p>
@@ -349,28 +286,10 @@ export interface PutReportDefinitionRequest {
   ReportDefinition: ReportDefinition | undefined;
 }
 
-export namespace PutReportDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutReportDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
  */
 export interface PutReportDefinitionResponse {}
-
-export namespace PutReportDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutReportDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>This account already has five reports defined. To define a new report, you must delete an existing report.</p>
@@ -395,3 +314,66 @@ export class ReportLimitReachedException extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * @internal
+ */
+export const DeleteReportDefinitionRequestFilterSensitiveLog = (obj: DeleteReportDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReportDefinitionResponseFilterSensitiveLog = (obj: DeleteReportDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReportDefinitionsRequestFilterSensitiveLog = (obj: DescribeReportDefinitionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportDefinitionFilterSensitiveLog = (obj: ReportDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReportDefinitionsResponseFilterSensitiveLog = (obj: DescribeReportDefinitionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyReportDefinitionRequestFilterSensitiveLog = (obj: ModifyReportDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyReportDefinitionResponseFilterSensitiveLog = (obj: ModifyReportDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutReportDefinitionRequestFilterSensitiveLog = (obj: PutReportDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutReportDefinitionResponseFilterSensitiveLog = (obj: PutReportDefinitionResponse): any => ({
+  ...obj,
+});

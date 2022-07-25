@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DescribeReplicationTasksMessage, DescribeReplicationTasksResponse } from "../models/models_0";
+import {
+  DescribeReplicationTasksMessage,
+  DescribeReplicationTasksMessageFilterSensitiveLog,
+  DescribeReplicationTasksResponse,
+  DescribeReplicationTasksResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeReplicationTasksCommand,
   serializeAws_json1_1DescribeReplicationTasksCommand,
@@ -77,8 +82,8 @@ export class DescribeReplicationTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReplicationTasksMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReplicationTasksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeReplicationTasksMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReplicationTasksResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

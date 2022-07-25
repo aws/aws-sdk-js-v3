@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetRecoveryPointRequest, GetRecoveryPointResponse } from "../models/models_0";
+import {
+  GetRecoveryPointRequest,
+  GetRecoveryPointRequestFilterSensitiveLog,
+  GetRecoveryPointResponse,
+  GetRecoveryPointResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetRecoveryPointCommand,
   serializeAws_json1_1GetRecoveryPointCommand,
@@ -76,8 +81,8 @@ export class GetRecoveryPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecoveryPointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRecoveryPointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRecoveryPointRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRecoveryPointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

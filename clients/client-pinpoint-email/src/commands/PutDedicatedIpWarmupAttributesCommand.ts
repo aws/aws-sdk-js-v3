@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutDedicatedIpWarmupAttributesRequest, PutDedicatedIpWarmupAttributesResponse } from "../models/models_0";
+import {
+  PutDedicatedIpWarmupAttributesRequest,
+  PutDedicatedIpWarmupAttributesRequestFilterSensitiveLog,
+  PutDedicatedIpWarmupAttributesResponse,
+  PutDedicatedIpWarmupAttributesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
   deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommand,
@@ -74,8 +79,8 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDedicatedIpWarmupAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutDedicatedIpWarmupAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutDedicatedIpWarmupAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutDedicatedIpWarmupAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

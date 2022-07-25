@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult } from "../models/models_0";
+import {
+  ModifyEventSubscriptionMessage,
+  ModifyEventSubscriptionMessageFilterSensitiveLog,
+  ModifyEventSubscriptionResult,
+  ModifyEventSubscriptionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryModifyEventSubscriptionCommand,
   serializeAws_queryModifyEventSubscriptionCommand,
@@ -72,8 +77,8 @@ export class ModifyEventSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyEventSubscriptionMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyEventSubscriptionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyEventSubscriptionMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyEventSubscriptionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { CreatePartnerInputRequest, CreatePartnerInputResponse } from "../models/models_1";
+import {
+  CreatePartnerInputRequest,
+  CreatePartnerInputRequestFilterSensitiveLog,
+  CreatePartnerInputResponse,
+  CreatePartnerInputResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1CreatePartnerInputCommand,
   serializeAws_restJson1CreatePartnerInputCommand,
@@ -72,8 +77,8 @@ export class CreatePartnerInputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePartnerInputRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreatePartnerInputResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePartnerInputRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreatePartnerInputResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

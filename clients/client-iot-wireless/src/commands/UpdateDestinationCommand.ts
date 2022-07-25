@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { UpdateDestinationRequest, UpdateDestinationResponse } from "../models/models_0";
+import {
+  UpdateDestinationRequest,
+  UpdateDestinationRequestFilterSensitiveLog,
+  UpdateDestinationResponse,
+  UpdateDestinationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDestinationCommand,
   serializeAws_restJson1UpdateDestinationCommand,
@@ -72,8 +77,8 @@ export class UpdateDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDestinationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDestinationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDestinationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDestinationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

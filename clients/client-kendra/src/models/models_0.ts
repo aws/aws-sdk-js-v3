@@ -14,15 +14,6 @@ export interface AccessControlConfigurationSummary {
   Id: string | undefined;
 }
 
-export namespace AccessControlConfigurationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessControlConfigurationSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Access Control List files for the documents in a data source. For
  *             the format of the file, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html">Access control for S3 data
@@ -33,15 +24,6 @@ export interface AccessControlListConfiguration {
    * <p>Path to the Amazon Web Services S3 bucket that contains the ACL files.</p>
    */
   KeyPath?: string;
-}
-
-export namespace AccessControlListConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessControlListConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -80,15 +62,6 @@ export interface AclConfiguration {
   AllowedGroupsColumnName: string | undefined;
 }
 
-export namespace AclConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AclConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum HighlightType {
   STANDARD = "STANDARD",
   THESAURUS_SYNONYM = "THESAURUS_SYNONYM",
@@ -124,15 +97,6 @@ export interface Highlight {
   Type?: HighlightType | string;
 }
 
-export namespace Highlight {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Highlight): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides text and information about where to highlight the
  *             text.</p>
@@ -150,15 +114,6 @@ export interface TextWithHighlights {
   Highlights?: Highlight[];
 }
 
-export namespace TextWithHighlights {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextWithHighlights): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An attribute returned with a document from a search.</p>
  */
@@ -168,15 +123,6 @@ export interface AdditionalResultAttributeValue {
    *             highlight to apply to the text.</p>
    */
   TextWithHighlightsValue?: TextWithHighlights;
-}
-
-export namespace AdditionalResultAttributeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdditionalResultAttributeValue): any => ({
-    ...obj,
-  });
 }
 
 export enum AdditionalResultAttributeValueType {
@@ -203,15 +149,6 @@ export interface AdditionalResultAttribute {
   Value: AdditionalResultAttributeValue | undefined;
 }
 
-export namespace AdditionalResultAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdditionalResultAttribute): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Maps a column or attribute in the data source to an index field.
  *             You must first create the fields in the index using the
@@ -232,15 +169,6 @@ export interface DataSourceToIndexFieldMapping {
    * <p>The name of the field in the index.</p>
    */
   IndexFieldName: string | undefined;
-}
-
-export namespace DataSourceToIndexFieldMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceToIndexFieldMapping): any => ({
-    ...obj,
-  });
 }
 
 export enum AlfrescoEntity {
@@ -265,15 +193,6 @@ export interface S3Path {
   Key: string | undefined;
 }
 
-export namespace S3Path {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Path): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information to connect to an Amazon VPC.</p>
  */
@@ -292,15 +211,6 @@ export interface DataSourceVpcConfiguration {
    *             source.</p>
    */
   SecurityGroupIds: string[] | undefined;
-}
-
-export namespace DataSourceVpcConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceVpcConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -421,15 +331,6 @@ export interface AlfrescoConfiguration {
   VpcConfiguration?: DataSourceVpcConfiguration;
 }
 
-export namespace AlfrescoConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlfrescoConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum EntityType {
   GROUP = "GROUP",
   USER = "USER",
@@ -454,15 +355,6 @@ export interface EntityConfiguration {
   EntityType: EntityType | string | undefined;
 }
 
-export namespace EntityConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateEntitiesToExperienceRequest {
   /**
    * <p>The identifier of your Amazon Kendra experience.</p>
@@ -478,15 +370,6 @@ export interface AssociateEntitiesToExperienceRequest {
    * <p>Lists users or groups in your Amazon Web Services SSO identity source.</p>
    */
   EntityList: EntityConfiguration[] | undefined;
-}
-
-export namespace AssociateEntitiesToExperienceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateEntitiesToExperienceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -507,30 +390,12 @@ export interface FailedEntity {
   ErrorMessage?: string;
 }
 
-export namespace FailedEntity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedEntity): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateEntitiesToExperienceResponse {
   /**
    * <p>Lists the users or groups in your Amazon Web Services SSO identity source that
    *             failed to properly configure with your Amazon Kendra experience.</p>
    */
   FailedEntityList?: FailedEntity[];
-}
-
-export namespace AssociateEntitiesToExperienceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateEntitiesToExperienceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -666,15 +531,6 @@ export interface EntityPersonaConfiguration {
   Persona: Persona | string | undefined;
 }
 
-export namespace EntityPersonaConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityPersonaConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociatePersonasToEntitiesRequest {
   /**
    * <p>The identifier of your Amazon Kendra experience.</p>
@@ -696,30 +552,12 @@ export interface AssociatePersonasToEntitiesRequest {
   Personas: EntityPersonaConfiguration[] | undefined;
 }
 
-export namespace AssociatePersonasToEntitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatePersonasToEntitiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociatePersonasToEntitiesResponse {
   /**
    * <p>Lists the users or groups in your Amazon Web Services SSO identity source that
    *             failed to properly configure with your Amazon Kendra experience.</p>
    */
   FailedEntityList?: FailedEntity[];
-}
-
-export namespace AssociatePersonasToEntitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatePersonasToEntitiesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -753,15 +591,6 @@ export interface DocumentAttributeValue {
   DateValue?: Date;
 }
 
-export namespace DocumentAttributeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentAttributeValue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A document attribute or metadata field. To create custom document
  *             attributes, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-attributes.html">Custom attributes</a>.</p>
@@ -776,15 +605,6 @@ export interface DocumentAttribute {
    * <p>The value of the attribute.</p>
    */
   Value: DocumentAttributeValue | undefined;
-}
-
-export namespace DocumentAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentAttribute): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -817,15 +637,6 @@ export interface BasicAuthenticationConfiguration {
   Credentials: string | undefined;
 }
 
-export namespace BasicAuthenticationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BasicAuthenticationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information to connect to websites that require
  *             user authentication.</p>
@@ -837,15 +648,6 @@ export interface AuthenticationConfiguration {
    *         <p>The list includes the name and port number of the website host.</p>
    */
   BasicAuthentication?: BasicAuthenticationConfiguration[];
-}
-
-export namespace AuthenticationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthenticationConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -870,15 +672,6 @@ export interface DataSourceSyncJobMetricTarget {
   DataSourceSyncJobId?: string;
 }
 
-export namespace DataSourceSyncJobMetricTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceSyncJobMetricTarget): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteDocumentRequest {
   /**
    * <p>The identifier of the index that contains the documents to
@@ -896,15 +689,6 @@ export interface BatchDeleteDocumentRequest {
    *             source.</p>
    */
   DataSourceSyncJobMetricTarget?: DataSourceSyncJobMetricTarget;
-}
-
-export namespace BatchDeleteDocumentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteDocumentRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ErrorCode {
@@ -937,15 +721,6 @@ export interface BatchDeleteDocumentResponseFailedDocument {
   ErrorMessage?: string;
 }
 
-export namespace BatchDeleteDocumentResponseFailedDocument {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteDocumentResponseFailedDocument): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteDocumentResponse {
   /**
    * <p>A list of documents that could not be removed from the index. Each
@@ -953,15 +728,6 @@ export interface BatchDeleteDocumentResponse {
    *       be removed from the index.</p>
    */
   FailedDocuments?: BatchDeleteDocumentResponseFailedDocument[];
-}
-
-export namespace BatchDeleteDocumentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteDocumentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1034,15 +800,6 @@ export interface DocumentInfo {
   Attributes?: DocumentAttribute[];
 }
 
-export namespace DocumentInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetDocumentStatusRequest {
   /**
    * <p>The identifier of the index to add documents to. The index ID is
@@ -1057,15 +814,6 @@ export interface BatchGetDocumentStatusRequest {
    *             their document ID and optional attributes.</p>
    */
   DocumentInfoList: DocumentInfo[] | undefined;
-}
-
-export namespace BatchGetDocumentStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetDocumentStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DocumentStatus {
@@ -1106,15 +854,6 @@ export interface Status {
   FailureReason?: string;
 }
 
-export namespace Status {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Status): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides a response when the status of a document could not be retrieved.</p>
  */
@@ -1136,15 +875,6 @@ export interface BatchGetDocumentStatusResponseError {
   ErrorMessage?: string;
 }
 
-export namespace BatchGetDocumentStatusResponseError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetDocumentStatusResponseError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetDocumentStatusResponse {
   /**
    * <p>A list of documents that Amazon Kendra couldn't get the status for. The
@@ -1160,15 +890,6 @@ export interface BatchGetDocumentStatusResponse {
    *             status provides the reason why.</p>
    */
   DocumentStatusList?: Status[];
-}
-
-export namespace BatchGetDocumentStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetDocumentStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ConditionOperator {
@@ -1223,15 +944,6 @@ export interface DocumentAttributeCondition {
   ConditionOnValue?: DocumentAttributeValue;
 }
 
-export namespace DocumentAttributeCondition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentAttributeCondition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The target document attribute or metadata field you want to alter when ingesting
  *             documents into Amazon Kendra.</p>
@@ -1271,15 +983,6 @@ export interface DocumentAttributeTarget {
   TargetDocumentAttributeValue?: DocumentAttributeValue;
 }
 
-export namespace DocumentAttributeTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentAttributeTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information for applying basic logic to alter document
  *             metadata and content when ingesting documents into Amazon Kendra. To apply advanced
@@ -1306,15 +1009,6 @@ export interface InlineCustomDocumentEnrichmentConfiguration {
    *             attribute is met.</p>
    */
   DocumentContentDeletion?: boolean;
-}
-
-export namespace InlineCustomDocumentEnrichmentConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InlineCustomDocumentEnrichmentConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1351,15 +1045,6 @@ export interface HookConfiguration {
    *                 contracts for Lambda functions</a>.</p>
    */
   S3Bucket: string | undefined;
-}
-
-export namespace HookConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HookConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1404,15 +1089,6 @@ export interface CustomDocumentEnrichmentConfiguration {
   RoleArn?: string;
 }
 
-export namespace CustomDocumentEnrichmentConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomDocumentEnrichmentConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum ReadAccessType {
   ALLOW = "ALLOW",
   DENY = "DENY",
@@ -1449,15 +1125,6 @@ export interface Principal {
   DataSourceId?: string;
 }
 
-export namespace Principal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Principal): any => ({
-    ...obj,
-  });
-}
-
 export enum ContentType {
   HTML = "HTML",
   MS_WORD = "MS_WORD",
@@ -1479,15 +1146,6 @@ export interface HierarchicalPrincipal {
    *                 access for each document.</p>
    */
   PrincipalList: Principal[] | undefined;
-}
-
-export namespace HierarchicalPrincipal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HierarchicalPrincipal): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1565,15 +1223,6 @@ export interface Document {
   AccessControlConfigurationId?: string;
 }
 
-export namespace Document {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Document): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchPutDocumentRequest {
   /**
    * <p>The identifier of the index to add the documents to. You need to
@@ -1621,15 +1270,6 @@ export interface BatchPutDocumentRequest {
   CustomDocumentEnrichmentConfiguration?: CustomDocumentEnrichmentConfiguration;
 }
 
-export namespace BatchPutDocumentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutDocumentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about a document that could not be
  *             indexed.</p>
@@ -1653,15 +1293,6 @@ export interface BatchPutDocumentResponseFailedDocument {
   ErrorMessage?: string;
 }
 
-export namespace BatchPutDocumentResponseFailedDocument {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutDocumentResponseFailedDocument): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchPutDocumentResponse {
   /**
    * <p>A list of documents that were not added to the index because the
@@ -1674,15 +1305,6 @@ export interface BatchPutDocumentResponse {
    *          </p>
    */
   FailedDocuments?: BatchPutDocumentResponseFailedDocument[];
-}
-
-export namespace BatchPutDocumentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutDocumentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1711,15 +1333,6 @@ export interface ClearQuerySuggestionsRequest {
    * <p>The identifier of the index you want to clear query suggestions from.</p>
    */
   IndexId: string | undefined;
-}
-
-export namespace ClearQuerySuggestionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClearQuerySuggestionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAccessControlConfigurationRequest {
@@ -1761,29 +1374,11 @@ export interface CreateAccessControlConfigurationRequest {
   ClientToken?: string;
 }
 
-export namespace CreateAccessControlConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccessControlConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAccessControlConfigurationResponse {
   /**
    * <p>The identifier of the access control configuration for your documents in an index.</p>
    */
   Id: string | undefined;
-}
-
-export namespace CreateAccessControlConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccessControlConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1917,15 +1512,6 @@ export interface BoxConfiguration {
   VpcConfiguration?: DataSourceVpcConfiguration;
 }
 
-export namespace BoxConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BoxConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum ConfluenceAttachmentFieldName {
   AUTHOR = "AUTHOR",
   CONTENT_TYPE = "CONTENT_TYPE",
@@ -1971,15 +1557,6 @@ export interface ConfluenceAttachmentToIndexFieldMapping {
   IndexFieldName?: string;
 }
 
-export namespace ConfluenceAttachmentToIndexFieldMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfluenceAttachmentToIndexFieldMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration of attachment settings for the Confluence data source.
  *             Attachment settings are optional, if you don't specify settings
@@ -2002,15 +1579,6 @@ export interface ConfluenceAttachmentConfiguration {
    *             at least one field mapping.</p>
    */
   AttachmentFieldMappings?: ConfluenceAttachmentToIndexFieldMapping[];
-}
-
-export namespace ConfluenceAttachmentConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfluenceAttachmentConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum ConfluenceBlogFieldName {
@@ -2054,15 +1622,6 @@ export interface ConfluenceBlogToIndexFieldMapping {
   IndexFieldName?: string;
 }
 
-export namespace ConfluenceBlogToIndexFieldMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfluenceBlogToIndexFieldMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration of blog settings for the Confluence data source. Blogs
  *             are always indexed unless filtered from the index by the
@@ -2080,15 +1639,6 @@ export interface ConfluenceBlogConfiguration {
    *             must specify at least one field mapping.</p>
    */
   BlogFieldMappings?: ConfluenceBlogToIndexFieldMapping[];
-}
-
-export namespace ConfluenceBlogConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfluenceBlogConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum ConfluencePageFieldName {
@@ -2135,15 +1685,6 @@ export interface ConfluencePageToIndexFieldMapping {
   IndexFieldName?: string;
 }
 
-export namespace ConfluencePageToIndexFieldMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfluencePageToIndexFieldMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration of the page settings for the Confluence data source.</p>
  */
@@ -2158,15 +1699,6 @@ export interface ConfluencePageConfiguration {
    *             must specify at least one field mapping.</p>
    */
   PageFieldMappings?: ConfluencePageToIndexFieldMapping[];
-}
-
-export namespace ConfluencePageConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfluencePageConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum ConfluenceSpaceFieldName {
@@ -2203,15 +1735,6 @@ export interface ConfluenceSpaceToIndexFieldMapping {
    *             type.</p>
    */
   IndexFieldName?: string;
-}
-
-export namespace ConfluenceSpaceToIndexFieldMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfluenceSpaceToIndexFieldMapping): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2264,15 +1787,6 @@ export interface ConfluenceSpaceConfiguration {
    *             must specify at least one field mapping.</p>
    */
   SpaceFieldMappings?: ConfluenceSpaceToIndexFieldMapping[];
-}
-
-export namespace ConfluenceSpaceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfluenceSpaceConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum ConfluenceVersion {
@@ -2354,15 +1868,6 @@ export interface ConfluenceConfiguration {
   ExclusionPatterns?: string[];
 }
 
-export namespace ConfluenceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfluenceConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about how Amazon Kendra should use the columns of
  *             a database in an index.</p>
@@ -2395,15 +1900,6 @@ export interface ColumnConfiguration {
    *             has changed.</p>
    */
   ChangeDetectingColumns: string[] | undefined;
-}
-
-export namespace ColumnConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2444,15 +1940,6 @@ export interface ConnectionConfiguration {
   SecretArn: string | undefined;
 }
 
-export namespace ConnectionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum DatabaseEngineType {
   RDS_AURORA_MYSQL = "RDS_AURORA_MYSQL",
   RDS_AURORA_POSTGRESQL = "RDS_AURORA_POSTGRESQL",
@@ -2485,15 +1972,6 @@ export interface SqlConfiguration {
    *             option when you set this field to <code>DOUBLE_QUOTES</code>.</p>
    */
   QueryIdentifiersEnclosingOption?: QueryIdentifiersEnclosingOption | string;
-}
-
-export namespace SqlConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqlConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2533,15 +2011,6 @@ export interface DatabaseConfiguration {
    *             identifiers when querying a database data source.</p>
    */
   SqlConfiguration?: SqlConfiguration;
-}
-
-export namespace DatabaseConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatabaseConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum FsxFileSystemType {
@@ -2629,15 +2098,6 @@ export interface FsxConfiguration {
   FieldMappings?: DataSourceToIndexFieldMapping[];
 }
 
-export namespace FsxConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FsxConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information to include certain types of GitHub content. You can
  *             configure to index repository files only, or also include issues and pull requests,
@@ -2687,15 +2147,6 @@ export interface GitHubDocumentCrawlProperties {
   CrawlPullRequestCommentAttachment?: boolean;
 }
 
-export namespace GitHubDocumentCrawlProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GitHubDocumentCrawlProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information to connect to GitHub Enterprise Server (on premises).</p>
  */
@@ -2721,15 +2172,6 @@ export interface OnPremiseConfiguration {
   SslCertificateS3Path: S3Path | undefined;
 }
 
-export namespace OnPremiseConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OnPremiseConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information to connect to GitHub Enterprise Cloud (SaaS).</p>
  */
@@ -2746,15 +2188,6 @@ export interface SaaSConfiguration {
    *             <i>https://api.github.com</i>.</p>
    */
   HostUrl: string | undefined;
-}
-
-export namespace SaaSConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SaaSConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum Type {
@@ -2951,15 +2384,6 @@ export interface GitHubConfiguration {
   GitHubPullRequestDocumentAttachmentConfigurationFieldMappings?: DataSourceToIndexFieldMapping[];
 }
 
-export namespace GitHubConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GitHubConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information to connect to
  *             Google Drive as your data source.</p>
@@ -3023,15 +2447,6 @@ export interface GoogleDriveConfiguration {
    *             excluded.</p>
    */
   ExcludeSharedDrives?: string[];
-}
-
-export namespace GoogleDriveConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GoogleDriveConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum IssueSubEntity {
@@ -3184,15 +2599,6 @@ export interface JiraConfiguration {
   VpcConfiguration?: DataSourceVpcConfiguration;
 }
 
-export namespace JiraConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JiraConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>User accounts whose documents should be indexed.</p>
  */
@@ -3212,15 +2618,6 @@ export interface OneDriveUsers {
    *             documents should be indexed.</p>
    */
   OneDriveUserS3Path?: S3Path;
-}
-
-export namespace OneDriveUsers {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OneDriveUsers): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3283,15 +2680,6 @@ export interface OneDriveConfiguration {
    *             <code>TRUE</code> to disable local groups information.</p>
    */
   DisableLocalGroups?: boolean;
-}
-
-export namespace OneDriveConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OneDriveConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3400,15 +2788,6 @@ export interface QuipConfiguration {
   VpcConfiguration?: DataSourceVpcConfiguration;
 }
 
-export namespace QuipConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QuipConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Document metadata files that contain information such as the
  *             document access control information, source URI, document author,
@@ -3423,15 +2802,6 @@ export interface DocumentsMetadataConfiguration {
    *             files.</p>
    */
   S3Prefix?: string;
-}
-
-export namespace DocumentsMetadataConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentsMetadataConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3522,15 +2892,6 @@ export interface S3DataSourceConfiguration {
   AccessControlListConfiguration?: AccessControlListConfiguration;
 }
 
-export namespace S3DataSourceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DataSourceConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum SalesforceChatterFeedIncludeFilterType {
   ACTIVE_USER = "ACTIVE_USER",
   STANDARD_USER = "STANDARD_USER",
@@ -3572,15 +2933,6 @@ export interface SalesforceChatterFeedConfiguration {
   IncludeFilterTypes?: (SalesforceChatterFeedIncludeFilterType | string)[];
 }
 
-export namespace SalesforceChatterFeedConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SalesforceChatterFeedConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information for indexing Salesforce custom
  *             articles.</p>
@@ -3611,15 +2963,6 @@ export interface SalesforceCustomKnowledgeArticleTypeConfiguration {
    *             The Salesforce data source field names must exist in your Salesforce custom metadata.</p>
    */
   FieldMappings?: DataSourceToIndexFieldMapping[];
-}
-
-export namespace SalesforceCustomKnowledgeArticleTypeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SalesforceCustomKnowledgeArticleTypeConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum SalesforceKnowledgeArticleState {
@@ -3654,15 +2997,6 @@ export interface SalesforceStandardKnowledgeArticleTypeConfiguration {
   FieldMappings?: DataSourceToIndexFieldMapping[];
 }
 
-export namespace SalesforceStandardKnowledgeArticleTypeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SalesforceStandardKnowledgeArticleTypeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information for the knowledge article
  *             types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge
@@ -3690,15 +3024,6 @@ export interface SalesforceKnowledgeArticleConfiguration {
   CustomKnowledgeArticleTypeConfigurations?: SalesforceCustomKnowledgeArticleTypeConfiguration[];
 }
 
-export namespace SalesforceKnowledgeArticleConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SalesforceKnowledgeArticleConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information for processing attachments to
  *             Salesforce standard objects.</p>
@@ -3714,15 +3039,6 @@ export interface SalesforceStandardObjectAttachmentConfiguration {
    *             index fields.</p>
    */
   FieldMappings?: DataSourceToIndexFieldMapping[];
-}
-
-export namespace SalesforceStandardObjectAttachmentConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SalesforceStandardObjectAttachmentConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum SalesforceStandardObjectName {
@@ -3775,15 +3091,6 @@ export interface SalesforceStandardObjectConfiguration {
    *             The Salesforce data source field names must exist in your Salesforce custom metadata.</p>
    */
   FieldMappings?: DataSourceToIndexFieldMapping[];
-}
-
-export namespace SalesforceStandardObjectConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SalesforceStandardObjectConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3883,15 +3190,6 @@ export interface SalesforceConfiguration {
   ExcludeAttachmentFilePatterns?: string[];
 }
 
-export namespace SalesforceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SalesforceConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum ServiceNowAuthenticationType {
   HTTP_BASIC = "HTTP_BASIC",
   OAUTH2 = "OAUTH2",
@@ -3962,15 +3260,6 @@ export interface ServiceNowKnowledgeArticleConfiguration {
   FilterQuery?: string;
 }
 
-export namespace ServiceNowKnowledgeArticleConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceNowKnowledgeArticleConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information for crawling service catalog
  *             items in the ServiceNow site</p>
@@ -4022,15 +3311,6 @@ export interface ServiceNowServiceCatalogConfiguration {
    *             The ServiceNow data source field names must exist in your ServiceNow custom metadata.</p>
    */
   FieldMappings?: DataSourceToIndexFieldMapping[];
-}
-
-export namespace ServiceNowServiceCatalogConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceNowServiceCatalogConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum ServiceNowBuildVersionType {
@@ -4093,15 +3373,6 @@ export interface ServiceNowConfiguration {
    *                 ServiceNow data source</a>.</p>
    */
   AuthenticationType?: ServiceNowAuthenticationType | string;
-}
-
-export namespace ServiceNowConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceNowConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum SharePointOnlineAuthenticationType {
@@ -4224,15 +3495,6 @@ export interface SharePointConfiguration {
    *             SharePoint Online.</p>
    */
   AuthenticationType?: SharePointOnlineAuthenticationType | string;
-}
-
-export namespace SharePointConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SharePointConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum SlackEntity {
@@ -4363,15 +3625,6 @@ export interface SlackConfiguration {
   FieldMappings?: DataSourceToIndexFieldMapping[];
 }
 
-export namespace SlackConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlackConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information for a web proxy to connect to
  *             website hosts.</p>
@@ -4402,15 +3655,6 @@ export interface ProxyConfiguration {
    *             credentials.</p>
    */
   Credentials?: string;
-}
-
-export namespace ProxyConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProxyConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum WebCrawlerMode {
@@ -4463,15 +3707,6 @@ export interface SeedUrlConfiguration {
   WebCrawlerMode?: WebCrawlerMode | string;
 }
 
-export namespace SeedUrlConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SeedUrlConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information for the sitemap URLs to crawl.</p>
  *         <p>
@@ -4489,15 +3724,6 @@ export interface SiteMapsConfiguration {
    *         <p>The list can include a maximum of three sitemap URLs.</p>
    */
   SiteMaps: string[] | undefined;
-}
-
-export namespace SiteMapsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SiteMapsConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4530,15 +3756,6 @@ export interface Urls {
    *             three sitemap URLs.</p>
    */
   SiteMapsConfiguration?: SiteMapsConfiguration;
-}
-
-export namespace Urls {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Urls): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4641,15 +3858,6 @@ export interface WebCrawlerConfiguration {
   AuthenticationConfiguration?: AuthenticationConfiguration;
 }
 
-export namespace WebCrawlerConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebCrawlerConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information to connect to Amazon WorkDocs
  *             as your data source.</p>
@@ -4718,15 +3926,6 @@ export interface WorkDocsConfiguration {
    *             must exist in your Amazon WorkDocs custom metadata.</p>
    */
   FieldMappings?: DataSourceToIndexFieldMapping[];
-}
-
-export namespace WorkDocsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkDocsConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4835,15 +4034,6 @@ export interface DataSourceConfiguration {
   AlfrescoConfiguration?: AlfrescoConfiguration;
 }
 
-export namespace DataSourceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of key/value pairs that identify an index, FAQ, or data source.
  *       Tag keys and values can consist of Unicode letters, digits, white space,
@@ -4861,15 +4051,6 @@ export interface Tag {
    *       but it can't be null.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export enum DataSourceType {
@@ -4983,29 +4164,11 @@ export interface CreateDataSourceRequest {
   CustomDocumentEnrichmentConfiguration?: CustomDocumentEnrichmentConfiguration;
 }
 
-export namespace CreateDataSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataSourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDataSourceResponse {
   /**
    * <p>The identifier of the data source connector.</p>
    */
   Id: string | undefined;
-}
-
-export namespace CreateDataSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataSourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5031,15 +4194,6 @@ export interface ContentSourceConfiguration {
   DirectPutContent?: boolean;
 }
 
-export namespace ContentSourceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContentSourceConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information for the identifiers of your users.</p>
  */
@@ -5054,15 +4208,6 @@ export interface UserIdentityConfiguration {
    *                 started with an Amazon Web Services SSO identity source</a>.</p>
    */
   IdentityAttributeName?: string;
-}
-
-export namespace UserIdentityConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserIdentityConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5083,15 +4228,6 @@ export interface ExperienceConfiguration {
    *             such as their emails.</p>
    */
   UserIdentityConfiguration?: UserIdentityConfiguration;
-}
-
-export namespace ExperienceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExperienceConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateExperienceRequest {
@@ -5134,29 +4270,11 @@ export interface CreateExperienceRequest {
   ClientToken?: string;
 }
 
-export namespace CreateExperienceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExperienceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateExperienceResponse {
   /**
    * <p>The identifier for your created Amazon Kendra experience.</p>
    */
   Id: string | undefined;
-}
-
-export namespace CreateExperienceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExperienceResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum FaqFileFormat {
@@ -5226,29 +4344,11 @@ export interface CreateFaqRequest {
   LanguageCode?: string;
 }
 
-export namespace CreateFaqRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFaqRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFaqResponse {
   /**
    * <p>The unique identifier of the FAQ.</p>
    */
   Id?: string;
-}
-
-export namespace CreateFaqResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFaqResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum IndexEdition {
@@ -5267,16 +4367,6 @@ export interface ServerSideEncryptionConfiguration {
    *             doesn't support asymmetric keys.</p>
    */
   KmsKeyId?: string;
-}
-
-export namespace ServerSideEncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerSideEncryptionConfiguration): any => ({
-    ...obj,
-    ...(obj.KmsKeyId && { KmsKeyId: SENSITIVE_STRING }),
-  });
 }
 
 export enum UserContextPolicy {
@@ -5318,15 +4408,6 @@ export interface UserGroupResolutionConfiguration {
   UserGroupResolutionMode: UserGroupResolutionMode | string | undefined;
 }
 
-export namespace UserGroupResolutionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserGroupResolutionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information for the JSON token type.</p>
  */
@@ -5340,15 +4421,6 @@ export interface JsonTokenTypeConfiguration {
    * <p>The group attribute field.</p>
    */
   GroupAttributeField: string | undefined;
-}
-
-export namespace JsonTokenTypeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JsonTokenTypeConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum KeyLocation {
@@ -5396,15 +4468,6 @@ export interface JwtTokenTypeConfiguration {
   ClaimRegex?: string;
 }
 
-export namespace JwtTokenTypeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JwtTokenTypeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information for a token.</p>
  */
@@ -5418,15 +4481,6 @@ export interface UserTokenConfiguration {
    * <p>Information about the JSON token type configuration.</p>
    */
   JsonTokenTypeConfiguration?: JsonTokenTypeConfiguration;
-}
-
-export namespace UserTokenConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserTokenConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateIndexRequest {
@@ -5520,35 +4574,12 @@ export interface CreateIndexRequest {
   UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration;
 }
 
-export namespace CreateIndexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIndexRequest): any => ({
-    ...obj,
-    ...(obj.ServerSideEncryptionConfiguration && {
-      ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration.filterSensitiveLog(
-        obj.ServerSideEncryptionConfiguration
-      ),
-    }),
-  });
-}
-
 export interface CreateIndexResponse {
   /**
    * <p>The unique identifier of the index. Use this identifier when you query
    *       an index, set up a data source, or index a document.</p>
    */
   Id?: string;
-}
-
-export namespace CreateIndexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIndexResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateQuerySuggestionsBlockListRequest {
@@ -5604,29 +4635,11 @@ export interface CreateQuerySuggestionsBlockListRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateQuerySuggestionsBlockListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateQuerySuggestionsBlockListRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateQuerySuggestionsBlockListResponse {
   /**
    * <p>The unique identifier of the created block list.</p>
    */
   Id?: string;
-}
-
-export namespace CreateQuerySuggestionsBlockListResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateQuerySuggestionsBlockListResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateThesaurusRequest {
@@ -5674,30 +4687,12 @@ export interface CreateThesaurusRequest {
   ClientToken?: string;
 }
 
-export namespace CreateThesaurusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateThesaurusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateThesaurusResponse {
   /**
    * <p>The unique identifier of the thesaurus.
    *       </p>
    */
   Id?: string;
-}
-
-export namespace CreateThesaurusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateThesaurusResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAccessControlConfigurationRequest {
@@ -5712,25 +4707,7 @@ export interface DeleteAccessControlConfigurationRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteAccessControlConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccessControlConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAccessControlConfigurationResponse {}
-
-export namespace DeleteAccessControlConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccessControlConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteDataSourceRequest {
   /**
@@ -5742,15 +4719,6 @@ export interface DeleteDataSourceRequest {
    * <p>The identifier of the index used with the data source.</p>
    */
   IndexId: string | undefined;
-}
-
-export namespace DeleteDataSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataSourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteExperienceRequest {
@@ -5765,25 +4733,7 @@ export interface DeleteExperienceRequest {
   IndexId: string | undefined;
 }
 
-export namespace DeleteExperienceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteExperienceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteExperienceResponse {}
-
-export namespace DeleteExperienceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteExperienceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteFaqRequest {
   /**
@@ -5797,29 +4747,11 @@ export interface DeleteFaqRequest {
   IndexId: string | undefined;
 }
 
-export namespace DeleteFaqRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFaqRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteIndexRequest {
   /**
    * <p>The identifier of the index you want to delete.</p>
    */
   Id: string | undefined;
-}
-
-export namespace DeleteIndexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIndexRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeletePrincipalMappingRequest {
@@ -5865,15 +4797,6 @@ export interface DeletePrincipalMappingRequest {
   OrderingId?: number;
 }
 
-export namespace DeletePrincipalMappingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePrincipalMappingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteQuerySuggestionsBlockListRequest {
   /**
    * <p>The identifier of the index for the block list.</p>
@@ -5884,15 +4807,6 @@ export interface DeleteQuerySuggestionsBlockListRequest {
    * <p>The identifier of the block list you want to delete.</p>
    */
   Id: string | undefined;
-}
-
-export namespace DeleteQuerySuggestionsBlockListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteQuerySuggestionsBlockListRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteThesaurusRequest {
@@ -5907,15 +4821,6 @@ export interface DeleteThesaurusRequest {
   IndexId: string | undefined;
 }
 
-export namespace DeleteThesaurusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteThesaurusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccessControlConfigurationRequest {
   /**
    * <p>The identifier of the index for an access control configuration.</p>
@@ -5927,15 +4832,6 @@ export interface DescribeAccessControlConfigurationRequest {
    *             you want to get information on.</p>
    */
   Id: string | undefined;
-}
-
-export namespace DescribeAccessControlConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccessControlConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAccessControlConfigurationResponse {
@@ -5969,15 +4865,6 @@ export interface DescribeAccessControlConfigurationResponse {
   HierarchicalAccessControlList?: HierarchicalPrincipal[];
 }
 
-export namespace DescribeAccessControlConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccessControlConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDataSourceRequest {
   /**
    * <p>The identifier of the data source.</p>
@@ -5988,15 +4875,6 @@ export interface DescribeDataSourceRequest {
    * <p>The identifier of the index used with the data source.</p>
    */
   IndexId: string | undefined;
-}
-
-export namespace DescribeDataSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataSourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DataSourceStatus {
@@ -6096,15 +4974,6 @@ export interface DescribeDataSourceResponse {
   CustomDocumentEnrichmentConfiguration?: CustomDocumentEnrichmentConfiguration;
 }
 
-export namespace DescribeDataSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataSourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeExperienceRequest {
   /**
    * <p>The identifier of your Amazon Kendra experience you want to get information on.</p>
@@ -6115,15 +4984,6 @@ export interface DescribeExperienceRequest {
    * <p>The identifier of the index for your Amazon Kendra experience.</p>
    */
   IndexId: string | undefined;
-}
-
-export namespace DescribeExperienceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExperienceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum EndpointType {
@@ -6146,15 +5006,6 @@ export interface ExperienceEndpoint {
    * <p>The endpoint of your Amazon Kendra experience.</p>
    */
   Endpoint?: string;
-}
-
-export namespace ExperienceEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExperienceEndpoint): any => ({
-    ...obj,
-  });
 }
 
 export enum ExperienceStatus {
@@ -6231,15 +5082,6 @@ export interface DescribeExperienceResponse {
   ErrorMessage?: string;
 }
 
-export namespace DescribeExperienceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExperienceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFaqRequest {
   /**
    * <p>The identifier of the FAQ you want to get information on.</p>
@@ -6250,15 +5092,6 @@ export interface DescribeFaqRequest {
    * <p>The identifier of the index for the FAQ.</p>
    */
   IndexId: string | undefined;
-}
-
-export namespace DescribeFaqRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFaqRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum FaqStatus {
@@ -6339,29 +5172,11 @@ export interface DescribeFaqResponse {
   LanguageCode?: string;
 }
 
-export namespace DescribeFaqResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFaqResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeIndexRequest {
   /**
    * <p>The identifier of the index you want to get information on.</p>
    */
   Id: string | undefined;
-}
-
-export namespace DescribeIndexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIndexRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6393,15 +5208,6 @@ export interface CapacityUnitsConfiguration {
    *             (higher than five times 0.2 queries per second).</p>
    */
   QueryCapacityUnits: number | undefined;
-}
-
-export namespace CapacityUnitsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CapacityUnitsConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum Order {
@@ -6475,15 +5281,6 @@ export interface Relevance {
   ValueImportanceMap?: Record<string, number>;
 }
 
-export namespace Relevance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Relevance): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about how a custom index field is used during
  *             a search.</p>
@@ -6518,15 +5315,6 @@ export interface Search {
    *             exception. The default is <code>false</code>.</p>
    */
   Sortable?: boolean;
-}
-
-export namespace Search {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Search): any => ({
-    ...obj,
-  });
 }
 
 export enum DocumentAttributeValueType {
@@ -6564,15 +5352,6 @@ export interface DocumentMetadataConfiguration {
   Search?: Search;
 }
 
-export namespace DocumentMetadataConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentMetadataConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides statistical information about the FAQ questions and
  *             answers contained in an index.</p>
@@ -6583,15 +5362,6 @@ export interface FaqStatistics {
    *             index.</p>
    */
   IndexedQuestionAnswersCount: number | undefined;
-}
-
-export namespace FaqStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FaqStatistics): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6610,15 +5380,6 @@ export interface TextDocumentStatistics {
   IndexedTextBytes: number | undefined;
 }
 
-export namespace TextDocumentStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextDocumentStatistics): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the number of documents and the number
  *             of questions and answers in an index.</p>
@@ -6633,15 +5394,6 @@ export interface IndexStatistics {
    * <p>The number of text documents indexed.</p>
    */
   TextDocumentStatistics: TextDocumentStatistics | undefined;
-}
-
-export namespace IndexStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IndexStatistics): any => ({
-    ...obj,
-  });
 }
 
 export enum IndexStatus {
@@ -6755,20 +5507,6 @@ export interface DescribeIndexResponse {
   UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration;
 }
 
-export namespace DescribeIndexResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIndexResponse): any => ({
-    ...obj,
-    ...(obj.ServerSideEncryptionConfiguration && {
-      ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration.filterSensitiveLog(
-        obj.ServerSideEncryptionConfiguration
-      ),
-    }),
-  });
-}
-
 export interface DescribePrincipalMappingRequest {
   /**
    * <p>The identifier of the index required to check the processing of
@@ -6790,15 +5528,6 @@ export interface DescribePrincipalMappingRequest {
    *             to their groups.</p>
    */
   GroupId: string | undefined;
-}
-
-export namespace DescribePrincipalMappingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePrincipalMappingRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum PrincipalMappingStatus {
@@ -6850,15 +5579,6 @@ export interface GroupOrderingIdSummary {
   FailureReason?: string;
 }
 
-export namespace GroupOrderingIdSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupOrderingIdSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePrincipalMappingResponse {
   /**
    * <p>Shows the identifier of the index to see information on the
@@ -6908,15 +5628,6 @@ export interface DescribePrincipalMappingResponse {
   GroupOrderingIdSummaries?: GroupOrderingIdSummary[];
 }
 
-export namespace DescribePrincipalMappingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePrincipalMappingResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeQuerySuggestionsBlockListRequest {
   /**
    * <p>The identifier of the index for the block list.</p>
@@ -6927,15 +5638,6 @@ export interface DescribeQuerySuggestionsBlockListRequest {
    * <p>The identifier of the block list you want to get information on.</p>
    */
   Id: string | undefined;
-}
-
-export namespace DescribeQuerySuggestionsBlockListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeQuerySuggestionsBlockListRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum QuerySuggestionsBlockListStatus {
@@ -7020,30 +5722,12 @@ export interface DescribeQuerySuggestionsBlockListResponse {
   RoleArn?: string;
 }
 
-export namespace DescribeQuerySuggestionsBlockListResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeQuerySuggestionsBlockListResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeQuerySuggestionsConfigRequest {
   /**
    * <p>The identifier of the index with query suggestions that you want to get
    *             information on.</p>
    */
   IndexId: string | undefined;
-}
-
-export namespace DescribeQuerySuggestionsConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeQuerySuggestionsConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum Mode {
@@ -7123,15 +5807,6 @@ export interface DescribeQuerySuggestionsConfigResponse {
   TotalSuggestionsCount?: number;
 }
 
-export namespace DescribeQuerySuggestionsConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeQuerySuggestionsConfigResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeThesaurusRequest {
   /**
    * <p>The identifier of the thesaurus you want to get information on.</p>
@@ -7142,15 +5817,6 @@ export interface DescribeThesaurusRequest {
    * <p>The identifier of the index for the thesaurus.</p>
    */
   IndexId: string | undefined;
-}
-
-export namespace DescribeThesaurusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThesaurusRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ThesaurusStatus {
@@ -7245,15 +5911,6 @@ export interface DescribeThesaurusResponse {
   SynonymRuleCount?: number;
 }
 
-export namespace DescribeThesaurusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThesaurusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateEntitiesFromExperienceRequest {
   /**
    * <p>The identifier of your Amazon Kendra experience.</p>
@@ -7271,30 +5928,12 @@ export interface DisassociateEntitiesFromExperienceRequest {
   EntityList: EntityConfiguration[] | undefined;
 }
 
-export namespace DisassociateEntitiesFromExperienceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateEntitiesFromExperienceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateEntitiesFromExperienceResponse {
   /**
    * <p>Lists the users or groups in your Amazon Web Services SSO identity source that
    *             failed to properly remove access to your Amazon Kendra experience.</p>
    */
   FailedEntityList?: FailedEntity[];
-}
-
-export namespace DisassociateEntitiesFromExperienceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateEntitiesFromExperienceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociatePersonasFromEntitiesRequest {
@@ -7315,30 +5954,12 @@ export interface DisassociatePersonasFromEntitiesRequest {
   EntityIds: string[] | undefined;
 }
 
-export namespace DisassociatePersonasFromEntitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociatePersonasFromEntitiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociatePersonasFromEntitiesResponse {
   /**
    * <p>Lists the users or groups in your Amazon Web Services SSO identity source that
    *             failed to properly remove access to your Amazon Kendra experience.</p>
    */
   FailedEntityList?: FailedEntity[];
-}
-
-export namespace DisassociatePersonasFromEntitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociatePersonasFromEntitiesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetQuerySuggestionsRequest {
@@ -7365,15 +5986,6 @@ export interface GetQuerySuggestionsRequest {
   MaxSuggestionsCount?: number;
 }
 
-export namespace GetQuerySuggestionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQuerySuggestionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The text highlights for a single query suggestion.</p>
  */
@@ -7387,15 +5999,6 @@ export interface SuggestionHighlight {
    * <p>The zero-based location in the response string where the highlight ends.</p>
    */
   EndOffset?: number;
-}
-
-export namespace SuggestionHighlight {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuggestionHighlight): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7413,15 +6016,6 @@ export interface SuggestionTextWithHighlights {
   Highlights?: SuggestionHighlight[];
 }
 
-export namespace SuggestionTextWithHighlights {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuggestionTextWithHighlights): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>SuggestionTextWithHighlights</code> structure information.</p>
  */
@@ -7431,15 +6025,6 @@ export interface SuggestionValue {
    *             the query suggestion text and highlights.</p>
    */
   Text?: SuggestionTextWithHighlights;
-}
-
-export namespace SuggestionValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuggestionValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7460,15 +6045,6 @@ export interface Suggestion {
   Value?: SuggestionValue;
 }
 
-export namespace Suggestion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Suggestion): any => ({
-    ...obj,
-  });
-}
-
 export interface GetQuerySuggestionsResponse {
   /**
    * <p>The unique identifier for a list of query suggestions for an index.</p>
@@ -7479,15 +6055,6 @@ export interface GetQuerySuggestionsResponse {
    * <p>A list of query suggestions for an index.</p>
    */
   Suggestions?: Suggestion[];
-}
-
-export namespace GetQuerySuggestionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQuerySuggestionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum Interval {
@@ -7576,15 +6143,6 @@ export interface GetSnapshotsRequest {
   MaxResults?: number;
 }
 
-export namespace GetSnapshotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSnapshotsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides a range of time.</p>
  */
@@ -7598,15 +6156,6 @@ export interface TimeRange {
    * <p>The UNIX datetime of the end of the time range.</p>
    */
   EndTime?: Date;
-}
-
-export namespace TimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeRange): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSnapshotsResponse {
@@ -7633,15 +6182,6 @@ export interface GetSnapshotsResponse {
    *             next set of search metrics data.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetSnapshotsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSnapshotsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7685,15 +6225,6 @@ export interface ListAccessControlConfigurationsRequest {
   MaxResults?: number;
 }
 
-export namespace ListAccessControlConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccessControlConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccessControlConfigurationsResponse {
   /**
    * <p>If the response is truncated, Amazon Kendra returns this
@@ -7706,15 +6237,6 @@ export interface ListAccessControlConfigurationsResponse {
    * <p>The details of your access control configurations.</p>
    */
   AccessControlConfigurations: AccessControlConfigurationSummary[] | undefined;
-}
-
-export namespace ListAccessControlConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccessControlConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDataSourcesRequest {
@@ -7735,15 +6257,6 @@ export interface ListDataSourcesRequest {
    * <p>The maximum number of data sources to return.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListDataSourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSourcesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7792,15 +6305,6 @@ export interface DataSourceSummary {
   LanguageCode?: string;
 }
 
-export namespace DataSourceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDataSourcesResponse {
   /**
    * <p>An array of summary information for one or more data sources.</p>
@@ -7813,15 +6317,6 @@ export interface ListDataSourcesResponse {
    *       sources. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListDataSourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum DataSourceSyncJobStatus {
@@ -7872,15 +6367,6 @@ export interface ListDataSourceSyncJobsRequest {
   StatusFilter?: DataSourceSyncJobStatus | string;
 }
 
-export namespace ListDataSourceSyncJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSourceSyncJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Maps a batch delete document request to a specific data source
  *             sync job. This is optional and should only be supplied when
@@ -7916,15 +6402,6 @@ export interface DataSourceSyncJobMetrics {
    *             the data source.</p>
    */
   DocumentsScanned?: string;
-}
-
-export namespace DataSourceSyncJobMetrics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceSyncJobMetrics): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7986,15 +6463,6 @@ export interface DataSourceSyncJob {
   Metrics?: DataSourceSyncJobMetrics;
 }
 
-export namespace DataSourceSyncJob {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceSyncJob): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDataSourceSyncJobsResponse {
   /**
    * <p>A history of synchronization jobs for the data source.</p>
@@ -8006,15 +6474,6 @@ export interface ListDataSourceSyncJobsResponse {
    *       can use in the subsequent request to retrieve the next set of jobs.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDataSourceSyncJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSourceSyncJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEntityPersonasRequest {
@@ -8039,15 +6498,6 @@ export interface ListEntityPersonasRequest {
    * <p>The maximum number of returned users or groups.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListEntityPersonasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEntityPersonasRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8085,15 +6535,6 @@ export interface PersonasSummary {
   UpdatedAt?: Date;
 }
 
-export namespace PersonasSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PersonasSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEntityPersonasResponse {
   /**
    * <p>An array of summary information for one or more users or groups.</p>
@@ -8105,15 +6546,6 @@ export interface ListEntityPersonasResponse {
    *             a later request to retrieve the next set of users or groups.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListEntityPersonasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEntityPersonasResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListExperienceEntitiesRequest {
@@ -8133,15 +6565,6 @@ export interface ListExperienceEntitiesRequest {
    *             token to retrieve the next set of users or groups.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListExperienceEntitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExperienceEntitiesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8174,20 +6597,6 @@ export interface EntityDisplayData {
   LastName?: string;
 }
 
-export namespace EntityDisplayData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityDisplayData): any => ({
-    ...obj,
-    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
-    ...(obj.GroupName && { GroupName: SENSITIVE_STRING }),
-    ...(obj.IdentifiedUserName && { IdentifiedUserName: SENSITIVE_STRING }),
-    ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
-    ...(obj.LastName && { LastName: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Summary information for users or groups in your Amazon Web Services SSO identity
  *             source with granted access to your Amazon Kendra experience. You can create an Amazon Kendra
@@ -8213,16 +6622,6 @@ export interface ExperienceEntitiesSummary {
   DisplayData?: EntityDisplayData;
 }
 
-export namespace ExperienceEntitiesSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExperienceEntitiesSummary): any => ({
-    ...obj,
-    ...(obj.DisplayData && { DisplayData: EntityDisplayData.filterSensitiveLog(obj.DisplayData) }),
-  });
-}
-
 export interface ListExperienceEntitiesResponse {
   /**
    * <p>An array of summary information for one or more users or groups.</p>
@@ -8234,18 +6633,6 @@ export interface ListExperienceEntitiesResponse {
    *             a later request to retrieve the next set of users or groups.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListExperienceEntitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExperienceEntitiesResponse): any => ({
-    ...obj,
-    ...(obj.SummaryItems && {
-      SummaryItems: obj.SummaryItems.map((item) => ExperienceEntitiesSummary.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListExperiencesRequest {
@@ -8265,15 +6652,6 @@ export interface ListExperiencesRequest {
    * <p>The maximum number of returned Amazon Kendra experiences.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListExperiencesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExperiencesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8310,15 +6688,6 @@ export interface ExperiencesSummary {
   Endpoints?: ExperienceEndpoint[];
 }
 
-export namespace ExperiencesSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExperiencesSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListExperiencesResponse {
   /**
    * <p>An array of summary information for one or more Amazon Kendra experiences.</p>
@@ -8330,15 +6699,6 @@ export interface ListExperiencesResponse {
    *             in a later request to retrieve the next set of Amazon Kendra experiences.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListExperiencesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExperiencesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFaqsRequest {
@@ -8359,15 +6719,6 @@ export interface ListFaqsRequest {
    *             the list, this response contains only the actual results.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListFaqsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFaqsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8417,15 +6768,6 @@ export interface FaqSummary {
   LanguageCode?: string;
 }
 
-export namespace FaqSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FaqSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFaqsResponse {
   /**
    * <p>If the response is truncated, Amazon Kendra returns this token that you can use
@@ -8437,15 +6779,6 @@ export interface ListFaqsResponse {
    * <p>information about the FAQs associated with the specified index.</p>
    */
   FaqSummaryItems?: FaqSummary[];
-}
-
-export namespace ListFaqsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFaqsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGroupsOlderThanOrderingIdRequest {
@@ -8486,15 +6819,6 @@ export interface ListGroupsOlderThanOrderingIdRequest {
   MaxResults?: number;
 }
 
-export namespace ListGroupsOlderThanOrderingIdRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsOlderThanOrderingIdRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary information for groups.</p>
  */
@@ -8509,15 +6833,6 @@ export interface GroupSummary {
    *             action.</p>
    */
   OrderingId?: number;
-}
-
-export namespace GroupSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupSummary): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGroupsOlderThanOrderingIdResponse {
@@ -8539,15 +6854,6 @@ export interface ListGroupsOlderThanOrderingIdResponse {
   NextToken?: string;
 }
 
-export namespace ListGroupsOlderThanOrderingIdResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsOlderThanOrderingIdResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListIndicesRequest {
   /**
    * <p>If the previous response was incomplete (because there is more data to
@@ -8561,15 +6867,6 @@ export interface ListIndicesRequest {
    * <p>The maximum number of data sources to return.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListIndicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIndicesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8613,15 +6910,6 @@ export interface IndexConfigurationSummary {
   Status: IndexStatus | string | undefined;
 }
 
-export namespace IndexConfigurationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IndexConfigurationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListIndicesResponse {
   /**
    * <p>An array of summary information on the configuration of one or more indexes.</p>
@@ -8634,15 +6922,6 @@ export interface ListIndicesResponse {
    *       indexes.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListIndicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIndicesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListQuerySuggestionsBlockListsRequest {
@@ -8666,15 +6945,6 @@ export interface ListQuerySuggestionsBlockListsRequest {
    * <p>The maximum number of block lists to return.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListQuerySuggestionsBlockListsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQuerySuggestionsBlockListsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8719,15 +6989,6 @@ export interface QuerySuggestionsBlockListSummary {
   ItemCount?: number;
 }
 
-export namespace QuerySuggestionsBlockListSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QuerySuggestionsBlockListSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListQuerySuggestionsBlockListsResponse {
   /**
    * <p>Summary items for a block list.</p>
@@ -8747,15 +7008,6 @@ export interface ListQuerySuggestionsBlockListsResponse {
   NextToken?: string;
 }
 
-export namespace ListQuerySuggestionsBlockListsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQuerySuggestionsBlockListsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the index, FAQ, or data source to
@@ -8764,29 +7016,11 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags associated with the index, FAQ, or data source.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8830,15 +7064,6 @@ export interface ListThesauriRequest {
   MaxResults?: number;
 }
 
-export namespace ListThesauriRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThesauriRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An array of summary information for a thesaurus or multiple thesauri.</p>
  */
@@ -8869,15 +7094,6 @@ export interface ThesaurusSummary {
   UpdatedAt?: Date;
 }
 
-export namespace ThesaurusSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThesaurusSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListThesauriResponse {
   /**
    * <p>If the response is truncated, Amazon Kendra returns this
@@ -8891,15 +7107,6 @@ export interface ListThesauriResponse {
    * <p>An array of summary information for a thesaurus or multiple thesauri.</p>
    */
   ThesaurusSummaryItems?: ThesaurusSummary[];
-}
-
-export namespace ListThesauriResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThesauriResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8918,15 +7125,6 @@ export interface MemberGroup {
   DataSourceId?: string;
 }
 
-export namespace MemberGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemberGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The users that belong to a group.</p>
  */
@@ -8935,15 +7133,6 @@ export interface MemberUser {
    * <p>The identifier of the user you want to map to a group.</p>
    */
   UserId: string | undefined;
-}
-
-export namespace MemberUser {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemberUser): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8979,15 +7168,6 @@ export interface GroupMembers {
    *             always <code>USER</code>.</p>
    */
   S3PathforGroupMembers?: S3Path;
-}
-
-export namespace GroupMembers {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupMembers): any => ({
-    ...obj,
-  });
 }
 
 export interface PutPrincipalMappingRequest {
@@ -9050,15 +7230,6 @@ export interface PutPrincipalMappingRequest {
   RoleArn?: string;
 }
 
-export namespace PutPrincipalMappingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPrincipalMappingRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Overrides the document relevance properties of a custom index field.</p>
  */
@@ -9075,15 +7246,6 @@ export interface DocumentRelevanceConfiguration {
    *          parameters.</p>
    */
   Relevance: Relevance | undefined;
-}
-
-export namespace DocumentRelevanceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentRelevanceConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum QueryResultType {
@@ -9156,15 +7318,6 @@ export interface SortingConfiguration {
   SortOrder: SortOrder | string | undefined;
 }
 
-export namespace SortingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SortingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the configuration information for suggested query spell corrections.</p>
  *         <p>Suggested spell corrections are based on words that appear in your indexed documents
@@ -9180,15 +7333,6 @@ export interface SpellCorrectionConfiguration {
    *             <code>TRUE</code> to suggest spell corrections for queries.</p>
    */
   IncludeQuerySpellCheckSuggestions: boolean | undefined;
-}
-
-export namespace SpellCorrectionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SpellCorrectionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9209,15 +7353,6 @@ export interface DataSourceGroup {
    *          that data source.</p>
    */
   DataSourceId: string | undefined;
-}
-
-export namespace DataSourceGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9268,15 +7403,6 @@ export interface UserContext {
   DataSourceGroups?: DataSourceGroup[];
 }
 
-export namespace UserContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserContext): any => ({
-    ...obj,
-  });
-}
-
 export enum ScoreConfidence {
   HIGH = "HIGH",
   LOW = "LOW",
@@ -9295,15 +7421,6 @@ export interface ScoreAttributes {
    *          query.</p>
    */
   ScoreConfidence?: ScoreConfidence | string;
-}
-
-export namespace ScoreAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScoreAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9381,15 +7498,6 @@ export interface QueryResultItem {
   FeedbackToken?: string;
 }
 
-export namespace QueryResultItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryResultItem): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A corrected misspelled word in a query.</p>
  */
@@ -9417,15 +7525,6 @@ export interface Correction {
   CorrectedTerm?: string;
 }
 
-export namespace Correction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Correction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A query with suggested spell corrections. </p>
  */
@@ -9439,15 +7538,6 @@ export interface SpellCorrectedQuery {
    * <p>The corrected misspelled word or words in a query.</p>
    */
   Corrections?: Correction[];
-}
-
-export namespace SpellCorrectedQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SpellCorrectedQuery): any => ({
-    ...obj,
-  });
 }
 
 export enum WarningCode {
@@ -9467,15 +7557,6 @@ export interface Warning {
    * <p>The code used to show the type of warning for the query.</p>
    */
   Code?: WarningCode | string;
-}
-
-export namespace Warning {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Warning): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9511,29 +7592,11 @@ export interface StartDataSourceSyncJobRequest {
   IndexId: string | undefined;
 }
 
-export namespace StartDataSourceSyncJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDataSourceSyncJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartDataSourceSyncJobResponse {
   /**
    * <p>Identifies a particular synchronization job.</p>
    */
   ExecutionId?: string;
-}
-
-export namespace StartDataSourceSyncJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDataSourceSyncJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StopDataSourceSyncJobRequest {
@@ -9547,15 +7610,6 @@ export interface StopDataSourceSyncJobRequest {
    * <p>The identifier of the index that contains the data source.</p>
    */
   IndexId: string | undefined;
-}
-
-export namespace StopDataSourceSyncJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopDataSourceSyncJobRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9575,15 +7629,6 @@ export interface ClickFeedback {
    *             clicked.</p>
    */
   ClickTime: Date | undefined;
-}
-
-export namespace ClickFeedback {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClickFeedback): any => ({
-    ...obj,
-  });
 }
 
 export enum RelevanceType {
@@ -9608,15 +7653,6 @@ export interface RelevanceFeedback {
    *             search.</p>
    */
   RelevanceValue: RelevanceType | string | undefined;
-}
-
-export namespace RelevanceFeedback {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelevanceFeedback): any => ({
-    ...obj,
-  });
 }
 
 export interface SubmitFeedbackRequest {
@@ -9645,15 +7681,6 @@ export interface SubmitFeedbackRequest {
   RelevanceFeedbackItems?: RelevanceFeedback[];
 }
 
-export namespace SubmitFeedbackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubmitFeedbackRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the index, FAQ, or data source to
@@ -9668,25 +7695,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -9702,25 +7711,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateAccessControlConfigurationRequest {
   /**
@@ -9758,25 +7749,7 @@ export interface UpdateAccessControlConfigurationRequest {
   HierarchicalAccessControlList?: HierarchicalPrincipal[];
 }
 
-export namespace UpdateAccessControlConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAccessControlConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAccessControlConfigurationResponse {}
-
-export namespace UpdateAccessControlConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAccessControlConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDataSourceRequest {
   /**
@@ -9839,15 +7812,6 @@ export interface UpdateDataSourceRequest {
   CustomDocumentEnrichmentConfiguration?: CustomDocumentEnrichmentConfiguration;
 }
 
-export namespace UpdateDataSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataSourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateExperienceRequest {
   /**
    * <p>The identifier of your Amazon Kendra experience you want to update.</p>
@@ -9881,15 +7845,6 @@ export interface UpdateExperienceRequest {
    * <p>A new description for your Amazon Kendra experience.</p>
    */
   Description?: string;
-}
-
-export namespace UpdateExperienceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateExperienceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateIndexRequest {
@@ -9950,15 +7905,6 @@ export interface UpdateIndexRequest {
   UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration;
 }
 
-export namespace UpdateIndexRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIndexRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateQuerySuggestionsBlockListRequest {
   /**
    * <p>The identifier of the index for the block list.</p>
@@ -9998,15 +7944,6 @@ export interface UpdateQuerySuggestionsBlockListRequest {
    *             block list text file in S3.</p>
    */
   RoleArn?: string;
-}
-
-export namespace UpdateQuerySuggestionsBlockListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateQuerySuggestionsBlockListRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateQuerySuggestionsConfigRequest {
@@ -10069,15 +8006,6 @@ export interface UpdateQuerySuggestionsConfigRequest {
   MinimumQueryCount?: number;
 }
 
-export namespace UpdateQuerySuggestionsConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateQuerySuggestionsConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateThesaurusRequest {
   /**
    * <p>The identifier of the thesaurus you want to update.</p>
@@ -10110,15 +8038,6 @@ export interface UpdateThesaurusRequest {
    *             bucket.</p>
    */
   SourceS3Path?: S3Path;
-}
-
-export namespace UpdateThesaurusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateThesaurusRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10158,15 +8077,6 @@ export interface Facet {
   MaxResults?: number;
 }
 
-export namespace Facet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Facet): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the count of documents that match a particular attribute
  *             when doing a faceted search.</p>
@@ -10199,15 +8109,6 @@ export interface DocumentAttributeValueCountPair {
   FacetResults?: FacetResult[];
 }
 
-export namespace DocumentAttributeValueCountPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentAttributeValueCountPair): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The facet values for the documents in the response.</p>
  */
@@ -10230,15 +8131,6 @@ export interface FacetResult {
    *          value.</p>
    */
   DocumentAttributeValueCountPairs?: DocumentAttributeValueCountPair[];
-}
-
-export namespace FacetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FacetResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10338,11 +8230,1739 @@ export interface AttributeFilter {
   LessThanOrEquals?: DocumentAttribute;
 }
 
-export namespace AttributeFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeFilter): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccessControlConfigurationSummaryFilterSensitiveLog = (obj: AccessControlConfigurationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessControlListConfigurationFilterSensitiveLog = (obj: AccessControlListConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AclConfigurationFilterSensitiveLog = (obj: AclConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HighlightFilterSensitiveLog = (obj: Highlight): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextWithHighlightsFilterSensitiveLog = (obj: TextWithHighlights): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdditionalResultAttributeValueFilterSensitiveLog = (obj: AdditionalResultAttributeValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdditionalResultAttributeFilterSensitiveLog = (obj: AdditionalResultAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSourceToIndexFieldMappingFilterSensitiveLog = (obj: DataSourceToIndexFieldMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3PathFilterSensitiveLog = (obj: S3Path): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSourceVpcConfigurationFilterSensitiveLog = (obj: DataSourceVpcConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlfrescoConfigurationFilterSensitiveLog = (obj: AlfrescoConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EntityConfigurationFilterSensitiveLog = (obj: EntityConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateEntitiesToExperienceRequestFilterSensitiveLog = (
+  obj: AssociateEntitiesToExperienceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedEntityFilterSensitiveLog = (obj: FailedEntity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateEntitiesToExperienceResponseFilterSensitiveLog = (
+  obj: AssociateEntitiesToExperienceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EntityPersonaConfigurationFilterSensitiveLog = (obj: EntityPersonaConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociatePersonasToEntitiesRequestFilterSensitiveLog = (obj: AssociatePersonasToEntitiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociatePersonasToEntitiesResponseFilterSensitiveLog = (
+  obj: AssociatePersonasToEntitiesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentAttributeValueFilterSensitiveLog = (obj: DocumentAttributeValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentAttributeFilterSensitiveLog = (obj: DocumentAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BasicAuthenticationConfigurationFilterSensitiveLog = (obj: BasicAuthenticationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthenticationConfigurationFilterSensitiveLog = (obj: AuthenticationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSourceSyncJobMetricTargetFilterSensitiveLog = (obj: DataSourceSyncJobMetricTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteDocumentRequestFilterSensitiveLog = (obj: BatchDeleteDocumentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteDocumentResponseFailedDocumentFilterSensitiveLog = (
+  obj: BatchDeleteDocumentResponseFailedDocument
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteDocumentResponseFilterSensitiveLog = (obj: BatchDeleteDocumentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentInfoFilterSensitiveLog = (obj: DocumentInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetDocumentStatusRequestFilterSensitiveLog = (obj: BatchGetDocumentStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatusFilterSensitiveLog = (obj: Status): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetDocumentStatusResponseErrorFilterSensitiveLog = (
+  obj: BatchGetDocumentStatusResponseError
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetDocumentStatusResponseFilterSensitiveLog = (obj: BatchGetDocumentStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentAttributeConditionFilterSensitiveLog = (obj: DocumentAttributeCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentAttributeTargetFilterSensitiveLog = (obj: DocumentAttributeTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InlineCustomDocumentEnrichmentConfigurationFilterSensitiveLog = (
+  obj: InlineCustomDocumentEnrichmentConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HookConfigurationFilterSensitiveLog = (obj: HookConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomDocumentEnrichmentConfigurationFilterSensitiveLog = (
+  obj: CustomDocumentEnrichmentConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrincipalFilterSensitiveLog = (obj: Principal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HierarchicalPrincipalFilterSensitiveLog = (obj: HierarchicalPrincipal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentFilterSensitiveLog = (obj: Document): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutDocumentRequestFilterSensitiveLog = (obj: BatchPutDocumentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutDocumentResponseFailedDocumentFilterSensitiveLog = (
+  obj: BatchPutDocumentResponseFailedDocument
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutDocumentResponseFilterSensitiveLog = (obj: BatchPutDocumentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClearQuerySuggestionsRequestFilterSensitiveLog = (obj: ClearQuerySuggestionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAccessControlConfigurationRequestFilterSensitiveLog = (
+  obj: CreateAccessControlConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAccessControlConfigurationResponseFilterSensitiveLog = (
+  obj: CreateAccessControlConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BoxConfigurationFilterSensitiveLog = (obj: BoxConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfluenceAttachmentToIndexFieldMappingFilterSensitiveLog = (
+  obj: ConfluenceAttachmentToIndexFieldMapping
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfluenceAttachmentConfigurationFilterSensitiveLog = (obj: ConfluenceAttachmentConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfluenceBlogToIndexFieldMappingFilterSensitiveLog = (obj: ConfluenceBlogToIndexFieldMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfluenceBlogConfigurationFilterSensitiveLog = (obj: ConfluenceBlogConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfluencePageToIndexFieldMappingFilterSensitiveLog = (obj: ConfluencePageToIndexFieldMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfluencePageConfigurationFilterSensitiveLog = (obj: ConfluencePageConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfluenceSpaceToIndexFieldMappingFilterSensitiveLog = (obj: ConfluenceSpaceToIndexFieldMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfluenceSpaceConfigurationFilterSensitiveLog = (obj: ConfluenceSpaceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfluenceConfigurationFilterSensitiveLog = (obj: ConfluenceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnConfigurationFilterSensitiveLog = (obj: ColumnConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionConfigurationFilterSensitiveLog = (obj: ConnectionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SqlConfigurationFilterSensitiveLog = (obj: SqlConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatabaseConfigurationFilterSensitiveLog = (obj: DatabaseConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FsxConfigurationFilterSensitiveLog = (obj: FsxConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GitHubDocumentCrawlPropertiesFilterSensitiveLog = (obj: GitHubDocumentCrawlProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OnPremiseConfigurationFilterSensitiveLog = (obj: OnPremiseConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SaaSConfigurationFilterSensitiveLog = (obj: SaaSConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GitHubConfigurationFilterSensitiveLog = (obj: GitHubConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GoogleDriveConfigurationFilterSensitiveLog = (obj: GoogleDriveConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JiraConfigurationFilterSensitiveLog = (obj: JiraConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OneDriveUsersFilterSensitiveLog = (obj: OneDriveUsers): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OneDriveConfigurationFilterSensitiveLog = (obj: OneDriveConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QuipConfigurationFilterSensitiveLog = (obj: QuipConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentsMetadataConfigurationFilterSensitiveLog = (obj: DocumentsMetadataConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DataSourceConfigurationFilterSensitiveLog = (obj: S3DataSourceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SalesforceChatterFeedConfigurationFilterSensitiveLog = (obj: SalesforceChatterFeedConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SalesforceCustomKnowledgeArticleTypeConfigurationFilterSensitiveLog = (
+  obj: SalesforceCustomKnowledgeArticleTypeConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SalesforceStandardKnowledgeArticleTypeConfigurationFilterSensitiveLog = (
+  obj: SalesforceStandardKnowledgeArticleTypeConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SalesforceKnowledgeArticleConfigurationFilterSensitiveLog = (
+  obj: SalesforceKnowledgeArticleConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SalesforceStandardObjectAttachmentConfigurationFilterSensitiveLog = (
+  obj: SalesforceStandardObjectAttachmentConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SalesforceStandardObjectConfigurationFilterSensitiveLog = (
+  obj: SalesforceStandardObjectConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SalesforceConfigurationFilterSensitiveLog = (obj: SalesforceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceNowKnowledgeArticleConfigurationFilterSensitiveLog = (
+  obj: ServiceNowKnowledgeArticleConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceNowServiceCatalogConfigurationFilterSensitiveLog = (
+  obj: ServiceNowServiceCatalogConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceNowConfigurationFilterSensitiveLog = (obj: ServiceNowConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SharePointConfigurationFilterSensitiveLog = (obj: SharePointConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlackConfigurationFilterSensitiveLog = (obj: SlackConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProxyConfigurationFilterSensitiveLog = (obj: ProxyConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SeedUrlConfigurationFilterSensitiveLog = (obj: SeedUrlConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SiteMapsConfigurationFilterSensitiveLog = (obj: SiteMapsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UrlsFilterSensitiveLog = (obj: Urls): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebCrawlerConfigurationFilterSensitiveLog = (obj: WebCrawlerConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkDocsConfigurationFilterSensitiveLog = (obj: WorkDocsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSourceConfigurationFilterSensitiveLog = (obj: DataSourceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataSourceRequestFilterSensitiveLog = (obj: CreateDataSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataSourceResponseFilterSensitiveLog = (obj: CreateDataSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContentSourceConfigurationFilterSensitiveLog = (obj: ContentSourceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserIdentityConfigurationFilterSensitiveLog = (obj: UserIdentityConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExperienceConfigurationFilterSensitiveLog = (obj: ExperienceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateExperienceRequestFilterSensitiveLog = (obj: CreateExperienceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateExperienceResponseFilterSensitiveLog = (obj: CreateExperienceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFaqRequestFilterSensitiveLog = (obj: CreateFaqRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFaqResponseFilterSensitiveLog = (obj: CreateFaqResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerSideEncryptionConfigurationFilterSensitiveLog = (obj: ServerSideEncryptionConfiguration): any => ({
+  ...obj,
+  ...(obj.KmsKeyId && { KmsKeyId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UserGroupResolutionConfigurationFilterSensitiveLog = (obj: UserGroupResolutionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JsonTokenTypeConfigurationFilterSensitiveLog = (obj: JsonTokenTypeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JwtTokenTypeConfigurationFilterSensitiveLog = (obj: JwtTokenTypeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserTokenConfigurationFilterSensitiveLog = (obj: UserTokenConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIndexRequestFilterSensitiveLog = (obj: CreateIndexRequest): any => ({
+  ...obj,
+  ...(obj.ServerSideEncryptionConfiguration && {
+    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationFilterSensitiveLog(
+      obj.ServerSideEncryptionConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateIndexResponseFilterSensitiveLog = (obj: CreateIndexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateQuerySuggestionsBlockListRequestFilterSensitiveLog = (
+  obj: CreateQuerySuggestionsBlockListRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateQuerySuggestionsBlockListResponseFilterSensitiveLog = (
+  obj: CreateQuerySuggestionsBlockListResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateThesaurusRequestFilterSensitiveLog = (obj: CreateThesaurusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateThesaurusResponseFilterSensitiveLog = (obj: CreateThesaurusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccessControlConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteAccessControlConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccessControlConfigurationResponseFilterSensitiveLog = (
+  obj: DeleteAccessControlConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDataSourceRequestFilterSensitiveLog = (obj: DeleteDataSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteExperienceRequestFilterSensitiveLog = (obj: DeleteExperienceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteExperienceResponseFilterSensitiveLog = (obj: DeleteExperienceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFaqRequestFilterSensitiveLog = (obj: DeleteFaqRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIndexRequestFilterSensitiveLog = (obj: DeleteIndexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePrincipalMappingRequestFilterSensitiveLog = (obj: DeletePrincipalMappingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteQuerySuggestionsBlockListRequestFilterSensitiveLog = (
+  obj: DeleteQuerySuggestionsBlockListRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteThesaurusRequestFilterSensitiveLog = (obj: DeleteThesaurusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccessControlConfigurationRequestFilterSensitiveLog = (
+  obj: DescribeAccessControlConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccessControlConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeAccessControlConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataSourceRequestFilterSensitiveLog = (obj: DescribeDataSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataSourceResponseFilterSensitiveLog = (obj: DescribeDataSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExperienceRequestFilterSensitiveLog = (obj: DescribeExperienceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExperienceEndpointFilterSensitiveLog = (obj: ExperienceEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExperienceResponseFilterSensitiveLog = (obj: DescribeExperienceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFaqRequestFilterSensitiveLog = (obj: DescribeFaqRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFaqResponseFilterSensitiveLog = (obj: DescribeFaqResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIndexRequestFilterSensitiveLog = (obj: DescribeIndexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CapacityUnitsConfigurationFilterSensitiveLog = (obj: CapacityUnitsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelevanceFilterSensitiveLog = (obj: Relevance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchFilterSensitiveLog = (obj: Search): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentMetadataConfigurationFilterSensitiveLog = (obj: DocumentMetadataConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FaqStatisticsFilterSensitiveLog = (obj: FaqStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextDocumentStatisticsFilterSensitiveLog = (obj: TextDocumentStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IndexStatisticsFilterSensitiveLog = (obj: IndexStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIndexResponseFilterSensitiveLog = (obj: DescribeIndexResponse): any => ({
+  ...obj,
+  ...(obj.ServerSideEncryptionConfiguration && {
+    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationFilterSensitiveLog(
+      obj.ServerSideEncryptionConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribePrincipalMappingRequestFilterSensitiveLog = (obj: DescribePrincipalMappingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupOrderingIdSummaryFilterSensitiveLog = (obj: GroupOrderingIdSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePrincipalMappingResponseFilterSensitiveLog = (obj: DescribePrincipalMappingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeQuerySuggestionsBlockListRequestFilterSensitiveLog = (
+  obj: DescribeQuerySuggestionsBlockListRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeQuerySuggestionsBlockListResponseFilterSensitiveLog = (
+  obj: DescribeQuerySuggestionsBlockListResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeQuerySuggestionsConfigRequestFilterSensitiveLog = (
+  obj: DescribeQuerySuggestionsConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeQuerySuggestionsConfigResponseFilterSensitiveLog = (
+  obj: DescribeQuerySuggestionsConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeThesaurusRequestFilterSensitiveLog = (obj: DescribeThesaurusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeThesaurusResponseFilterSensitiveLog = (obj: DescribeThesaurusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateEntitiesFromExperienceRequestFilterSensitiveLog = (
+  obj: DisassociateEntitiesFromExperienceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateEntitiesFromExperienceResponseFilterSensitiveLog = (
+  obj: DisassociateEntitiesFromExperienceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociatePersonasFromEntitiesRequestFilterSensitiveLog = (
+  obj: DisassociatePersonasFromEntitiesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociatePersonasFromEntitiesResponseFilterSensitiveLog = (
+  obj: DisassociatePersonasFromEntitiesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQuerySuggestionsRequestFilterSensitiveLog = (obj: GetQuerySuggestionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuggestionHighlightFilterSensitiveLog = (obj: SuggestionHighlight): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuggestionTextWithHighlightsFilterSensitiveLog = (obj: SuggestionTextWithHighlights): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuggestionValueFilterSensitiveLog = (obj: SuggestionValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuggestionFilterSensitiveLog = (obj: Suggestion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQuerySuggestionsResponseFilterSensitiveLog = (obj: GetQuerySuggestionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSnapshotsRequestFilterSensitiveLog = (obj: GetSnapshotsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeRangeFilterSensitiveLog = (obj: TimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSnapshotsResponseFilterSensitiveLog = (obj: GetSnapshotsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccessControlConfigurationsRequestFilterSensitiveLog = (
+  obj: ListAccessControlConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccessControlConfigurationsResponseFilterSensitiveLog = (
+  obj: ListAccessControlConfigurationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataSourcesRequestFilterSensitiveLog = (obj: ListDataSourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSourceSummaryFilterSensitiveLog = (obj: DataSourceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataSourcesResponseFilterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataSourceSyncJobsRequestFilterSensitiveLog = (obj: ListDataSourceSyncJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSourceSyncJobMetricsFilterSensitiveLog = (obj: DataSourceSyncJobMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSourceSyncJobFilterSensitiveLog = (obj: DataSourceSyncJob): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataSourceSyncJobsResponseFilterSensitiveLog = (obj: ListDataSourceSyncJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEntityPersonasRequestFilterSensitiveLog = (obj: ListEntityPersonasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PersonasSummaryFilterSensitiveLog = (obj: PersonasSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEntityPersonasResponseFilterSensitiveLog = (obj: ListEntityPersonasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExperienceEntitiesRequestFilterSensitiveLog = (obj: ListExperienceEntitiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EntityDisplayDataFilterSensitiveLog = (obj: EntityDisplayData): any => ({
+  ...obj,
+  ...(obj.UserName && { UserName: SENSITIVE_STRING }),
+  ...(obj.GroupName && { GroupName: SENSITIVE_STRING }),
+  ...(obj.IdentifiedUserName && { IdentifiedUserName: SENSITIVE_STRING }),
+  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
+  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ExperienceEntitiesSummaryFilterSensitiveLog = (obj: ExperienceEntitiesSummary): any => ({
+  ...obj,
+  ...(obj.DisplayData && { DisplayData: EntityDisplayDataFilterSensitiveLog(obj.DisplayData) }),
+});
+
+/**
+ * @internal
+ */
+export const ListExperienceEntitiesResponseFilterSensitiveLog = (obj: ListExperienceEntitiesResponse): any => ({
+  ...obj,
+  ...(obj.SummaryItems && {
+    SummaryItems: obj.SummaryItems.map((item) => ExperienceEntitiesSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListExperiencesRequestFilterSensitiveLog = (obj: ListExperiencesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExperiencesSummaryFilterSensitiveLog = (obj: ExperiencesSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExperiencesResponseFilterSensitiveLog = (obj: ListExperiencesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFaqsRequestFilterSensitiveLog = (obj: ListFaqsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FaqSummaryFilterSensitiveLog = (obj: FaqSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFaqsResponseFilterSensitiveLog = (obj: ListFaqsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupsOlderThanOrderingIdRequestFilterSensitiveLog = (
+  obj: ListGroupsOlderThanOrderingIdRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupSummaryFilterSensitiveLog = (obj: GroupSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupsOlderThanOrderingIdResponseFilterSensitiveLog = (
+  obj: ListGroupsOlderThanOrderingIdResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIndicesRequestFilterSensitiveLog = (obj: ListIndicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IndexConfigurationSummaryFilterSensitiveLog = (obj: IndexConfigurationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIndicesResponseFilterSensitiveLog = (obj: ListIndicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQuerySuggestionsBlockListsRequestFilterSensitiveLog = (
+  obj: ListQuerySuggestionsBlockListsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QuerySuggestionsBlockListSummaryFilterSensitiveLog = (obj: QuerySuggestionsBlockListSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQuerySuggestionsBlockListsResponseFilterSensitiveLog = (
+  obj: ListQuerySuggestionsBlockListsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListThesauriRequestFilterSensitiveLog = (obj: ListThesauriRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThesaurusSummaryFilterSensitiveLog = (obj: ThesaurusSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListThesauriResponseFilterSensitiveLog = (obj: ListThesauriResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberGroupFilterSensitiveLog = (obj: MemberGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberUserFilterSensitiveLog = (obj: MemberUser): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupMembersFilterSensitiveLog = (obj: GroupMembers): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPrincipalMappingRequestFilterSensitiveLog = (obj: PutPrincipalMappingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentRelevanceConfigurationFilterSensitiveLog = (obj: DocumentRelevanceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SortingConfigurationFilterSensitiveLog = (obj: SortingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SpellCorrectionConfigurationFilterSensitiveLog = (obj: SpellCorrectionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSourceGroupFilterSensitiveLog = (obj: DataSourceGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserContextFilterSensitiveLog = (obj: UserContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScoreAttributesFilterSensitiveLog = (obj: ScoreAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryResultItemFilterSensitiveLog = (obj: QueryResultItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CorrectionFilterSensitiveLog = (obj: Correction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SpellCorrectedQueryFilterSensitiveLog = (obj: SpellCorrectedQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WarningFilterSensitiveLog = (obj: Warning): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDataSourceSyncJobRequestFilterSensitiveLog = (obj: StartDataSourceSyncJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDataSourceSyncJobResponseFilterSensitiveLog = (obj: StartDataSourceSyncJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopDataSourceSyncJobRequestFilterSensitiveLog = (obj: StopDataSourceSyncJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClickFeedbackFilterSensitiveLog = (obj: ClickFeedback): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelevanceFeedbackFilterSensitiveLog = (obj: RelevanceFeedback): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubmitFeedbackRequestFilterSensitiveLog = (obj: SubmitFeedbackRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccessControlConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateAccessControlConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccessControlConfigurationResponseFilterSensitiveLog = (
+  obj: UpdateAccessControlConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataSourceRequestFilterSensitiveLog = (obj: UpdateDataSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateExperienceRequestFilterSensitiveLog = (obj: UpdateExperienceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIndexRequestFilterSensitiveLog = (obj: UpdateIndexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateQuerySuggestionsBlockListRequestFilterSensitiveLog = (
+  obj: UpdateQuerySuggestionsBlockListRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateQuerySuggestionsConfigRequestFilterSensitiveLog = (
+  obj: UpdateQuerySuggestionsConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateThesaurusRequestFilterSensitiveLog = (obj: UpdateThesaurusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FacetFilterSensitiveLog = (obj: Facet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentAttributeValueCountPairFilterSensitiveLog = (obj: DocumentAttributeValueCountPair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FacetResultFilterSensitiveLog = (obj: FacetResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributeFilterFilterSensitiveLog = (obj: AttributeFilter): any => ({
+  ...obj,
+});

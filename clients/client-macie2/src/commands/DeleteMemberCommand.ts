@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { DeleteMemberRequest, DeleteMemberResponse } from "../models/models_0";
+import {
+  DeleteMemberRequest,
+  DeleteMemberRequestFilterSensitiveLog,
+  DeleteMemberResponse,
+  DeleteMemberResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMemberCommand,
   serializeAws_restJson1DeleteMemberCommand,
@@ -72,8 +77,8 @@ export class DeleteMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMemberRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMemberResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMemberRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMemberResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

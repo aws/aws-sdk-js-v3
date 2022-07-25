@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListAvailableManagedRuleGroupsRequest, ListAvailableManagedRuleGroupsResponse } from "../models/models_0";
+import {
+  ListAvailableManagedRuleGroupsRequest,
+  ListAvailableManagedRuleGroupsRequestFilterSensitiveLog,
+  ListAvailableManagedRuleGroupsResponse,
+  ListAvailableManagedRuleGroupsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListAvailableManagedRuleGroupsCommand,
   serializeAws_json1_1ListAvailableManagedRuleGroupsCommand,
@@ -76,8 +81,8 @@ export class ListAvailableManagedRuleGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAvailableManagedRuleGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAvailableManagedRuleGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAvailableManagedRuleGroupsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAvailableManagedRuleGroupsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

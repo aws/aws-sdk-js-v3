@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { GetUsagePlansRequest, UsagePlans } from "../models/models_0";
+import {
+  GetUsagePlansRequest,
+  GetUsagePlansRequestFilterSensitiveLog,
+  UsagePlans,
+  UsagePlansFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetUsagePlansCommand,
   serializeAws_restJson1GetUsagePlansCommand,
@@ -72,8 +77,8 @@ export class GetUsagePlansCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUsagePlansRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UsagePlans.filterSensitiveLog,
+      inputFilterSensitiveLog: GetUsagePlansRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UsagePlansFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

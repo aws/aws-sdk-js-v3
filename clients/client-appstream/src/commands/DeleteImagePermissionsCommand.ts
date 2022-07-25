@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DeleteImagePermissionsRequest, DeleteImagePermissionsResult } from "../models/models_0";
+import {
+  DeleteImagePermissionsRequest,
+  DeleteImagePermissionsRequestFilterSensitiveLog,
+  DeleteImagePermissionsResult,
+  DeleteImagePermissionsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteImagePermissionsCommand,
   serializeAws_json1_1DeleteImagePermissionsCommand,
@@ -72,8 +77,8 @@ export class DeleteImagePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteImagePermissionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteImagePermissionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteImagePermissionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteImagePermissionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

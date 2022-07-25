@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { StopDBClusterMessage, StopDBClusterResult } from "../models/models_0";
+import {
+  StopDBClusterMessage,
+  StopDBClusterMessageFilterSensitiveLog,
+  StopDBClusterResult,
+  StopDBClusterResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryStopDBClusterCommand,
   serializeAws_queryStopDBClusterCommand,
@@ -75,8 +80,8 @@ export class StopDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopDBClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: StopDBClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StopDBClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: StopDBClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

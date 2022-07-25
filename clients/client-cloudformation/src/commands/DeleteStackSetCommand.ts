@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { DeleteStackSetInput, DeleteStackSetOutput } from "../models/models_0";
+import {
+  DeleteStackSetInput,
+  DeleteStackSetInputFilterSensitiveLog,
+  DeleteStackSetOutput,
+  DeleteStackSetOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteStackSetCommand,
   serializeAws_queryDeleteStackSetCommand,
@@ -73,8 +78,8 @@ export class DeleteStackSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStackSetInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStackSetOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteStackSetInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteStackSetOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

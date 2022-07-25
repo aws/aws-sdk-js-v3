@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import { DeleteLiveSourceRequest, DeleteLiveSourceResponse } from "../models/models_0";
+import {
+  DeleteLiveSourceRequest,
+  DeleteLiveSourceRequestFilterSensitiveLog,
+  DeleteLiveSourceResponse,
+  DeleteLiveSourceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteLiveSourceCommand,
   serializeAws_restJson1DeleteLiveSourceCommand,
@@ -72,8 +77,8 @@ export class DeleteLiveSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLiveSourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLiveSourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLiveSourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLiveSourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

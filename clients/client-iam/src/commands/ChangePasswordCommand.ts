@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ChangePasswordRequest } from "../models/models_0";
+import { ChangePasswordRequest, ChangePasswordRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryChangePasswordCommand,
   serializeAws_queryChangePasswordCommand,
@@ -79,7 +79,7 @@ export class ChangePasswordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ChangePasswordRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ChangePasswordRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

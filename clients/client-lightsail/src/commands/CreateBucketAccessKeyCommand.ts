@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { CreateBucketAccessKeyRequest, CreateBucketAccessKeyResult } from "../models/models_0";
+import {
+  CreateBucketAccessKeyRequest,
+  CreateBucketAccessKeyRequestFilterSensitiveLog,
+  CreateBucketAccessKeyResult,
+  CreateBucketAccessKeyResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateBucketAccessKeyCommand,
   serializeAws_json1_1CreateBucketAccessKeyCommand,
@@ -85,8 +90,8 @@ export class CreateBucketAccessKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBucketAccessKeyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateBucketAccessKeyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateBucketAccessKeyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateBucketAccessKeyResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

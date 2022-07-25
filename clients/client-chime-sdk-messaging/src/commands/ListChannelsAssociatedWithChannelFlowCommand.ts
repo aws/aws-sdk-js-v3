@@ -19,7 +19,9 @@ import {
 } from "../ChimeSDKMessagingClient";
 import {
   ListChannelsAssociatedWithChannelFlowRequest,
+  ListChannelsAssociatedWithChannelFlowRequestFilterSensitiveLog,
   ListChannelsAssociatedWithChannelFlowResponse,
+  ListChannelsAssociatedWithChannelFlowResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand,
@@ -82,8 +84,8 @@ export class ListChannelsAssociatedWithChannelFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListChannelsAssociatedWithChannelFlowRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListChannelsAssociatedWithChannelFlowResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListChannelsAssociatedWithChannelFlowRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListChannelsAssociatedWithChannelFlowResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

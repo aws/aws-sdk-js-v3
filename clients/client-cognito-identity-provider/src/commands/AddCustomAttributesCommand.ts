@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AddCustomAttributesRequest, AddCustomAttributesResponse } from "../models/models_0";
+import {
+  AddCustomAttributesRequest,
+  AddCustomAttributesRequestFilterSensitiveLog,
+  AddCustomAttributesResponse,
+  AddCustomAttributesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AddCustomAttributesCommand,
   serializeAws_json1_1AddCustomAttributesCommand,
@@ -78,8 +83,8 @@ export class AddCustomAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddCustomAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AddCustomAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddCustomAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AddCustomAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

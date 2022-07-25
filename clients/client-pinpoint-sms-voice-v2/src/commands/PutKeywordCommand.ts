@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutKeywordRequest, PutKeywordResult } from "../models/models_0";
+import {
+  PutKeywordRequest,
+  PutKeywordRequestFilterSensitiveLog,
+  PutKeywordResult,
+  PutKeywordResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -83,8 +88,8 @@ export class PutKeywordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutKeywordRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutKeywordResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutKeywordRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutKeywordResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

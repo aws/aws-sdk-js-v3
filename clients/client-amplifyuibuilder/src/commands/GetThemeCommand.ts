@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import { GetThemeRequest, GetThemeResponse } from "../models/models_0";
+import {
+  GetThemeRequest,
+  GetThemeRequestFilterSensitiveLog,
+  GetThemeResponse,
+  GetThemeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetThemeCommand,
   serializeAws_restJson1GetThemeCommand,
@@ -72,8 +77,8 @@ export class GetThemeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetThemeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetThemeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetThemeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetThemeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

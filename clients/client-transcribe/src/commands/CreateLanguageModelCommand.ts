@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateLanguageModelRequest, CreateLanguageModelResponse } from "../models/models_0";
+import {
+  CreateLanguageModelRequest,
+  CreateLanguageModelRequestFilterSensitiveLog,
+  CreateLanguageModelResponse,
+  CreateLanguageModelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLanguageModelCommand,
   serializeAws_json1_1CreateLanguageModelCommand,
@@ -89,8 +94,8 @@ export class CreateLanguageModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLanguageModelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLanguageModelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLanguageModelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateLanguageModelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { CreateGraphqlApiRequest, CreateGraphqlApiResponse } from "../models/models_0";
+import {
+  CreateGraphqlApiRequest,
+  CreateGraphqlApiRequestFilterSensitiveLog,
+  CreateGraphqlApiResponse,
+  CreateGraphqlApiResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateGraphqlApiCommand,
   serializeAws_restJson1CreateGraphqlApiCommand,
@@ -72,8 +77,8 @@ export class CreateGraphqlApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGraphqlApiRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateGraphqlApiResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateGraphqlApiRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateGraphqlApiResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

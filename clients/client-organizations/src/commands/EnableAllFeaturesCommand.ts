@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { EnableAllFeaturesRequest, EnableAllFeaturesResponse } from "../models/models_0";
+import {
+  EnableAllFeaturesRequest,
+  EnableAllFeaturesRequestFilterSensitiveLog,
+  EnableAllFeaturesResponse,
+  EnableAllFeaturesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1EnableAllFeaturesCommand,
@@ -97,8 +102,8 @@ export class EnableAllFeaturesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableAllFeaturesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: EnableAllFeaturesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableAllFeaturesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: EnableAllFeaturesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

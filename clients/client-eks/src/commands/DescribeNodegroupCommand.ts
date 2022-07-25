@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { DescribeNodegroupRequest, DescribeNodegroupResponse } from "../models/models_0";
+import {
+  DescribeNodegroupRequest,
+  DescribeNodegroupRequestFilterSensitiveLog,
+  DescribeNodegroupResponse,
+  DescribeNodegroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeNodegroupCommand,
   serializeAws_restJson1DescribeNodegroupCommand,
@@ -72,8 +77,8 @@ export class DescribeNodegroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNodegroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNodegroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeNodegroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNodegroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

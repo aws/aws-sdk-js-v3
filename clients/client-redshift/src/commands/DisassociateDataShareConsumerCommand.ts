@@ -12,8 +12,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DataShare } from "../models/models_0";
-import { DisassociateDataShareConsumerMessage } from "../models/models_1";
+import { DataShare, DataShareFilterSensitiveLog } from "../models/models_0";
+import {
+  DisassociateDataShareConsumerMessage,
+  DisassociateDataShareConsumerMessageFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryDisassociateDataShareConsumerCommand,
   serializeAws_queryDisassociateDataShareConsumerCommand,
@@ -74,8 +77,8 @@ export class DisassociateDataShareConsumerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateDataShareConsumerMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DataShare.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateDataShareConsumerMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DataShareFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { GetSkillGroupRequest, GetSkillGroupResponse } from "../models/models_0";
+import {
+  GetSkillGroupRequest,
+  GetSkillGroupRequestFilterSensitiveLog,
+  GetSkillGroupResponse,
+  GetSkillGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetSkillGroupCommand,
   serializeAws_json1_1GetSkillGroupCommand,
@@ -72,8 +77,8 @@ export class GetSkillGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSkillGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSkillGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSkillGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSkillGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

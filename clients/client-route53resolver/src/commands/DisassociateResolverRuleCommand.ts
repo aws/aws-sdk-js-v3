@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateResolverRuleRequest, DisassociateResolverRuleResponse } from "../models/models_0";
+import {
+  DisassociateResolverRuleRequest,
+  DisassociateResolverRuleRequestFilterSensitiveLog,
+  DisassociateResolverRuleResponse,
+  DisassociateResolverRuleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateResolverRuleCommand,
   serializeAws_json1_1DisassociateResolverRuleCommand,
@@ -76,8 +81,8 @@ export class DisassociateResolverRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateResolverRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateResolverRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateResolverRuleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateResolverRuleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

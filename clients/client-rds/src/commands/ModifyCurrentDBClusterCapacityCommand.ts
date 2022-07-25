@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBClusterCapacityInfo, ModifyCurrentDBClusterCapacityMessage } from "../models/models_1";
+import {
+  DBClusterCapacityInfo,
+  DBClusterCapacityInfoFilterSensitiveLog,
+  ModifyCurrentDBClusterCapacityMessage,
+  ModifyCurrentDBClusterCapacityMessageFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryModifyCurrentDBClusterCapacityCommand,
   serializeAws_queryModifyCurrentDBClusterCapacityCommand,
@@ -89,8 +94,8 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyCurrentDBClusterCapacityMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterCapacityInfo.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyCurrentDBClusterCapacityMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterCapacityInfoFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

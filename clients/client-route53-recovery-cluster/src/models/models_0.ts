@@ -79,15 +79,6 @@ export interface GetRoutingControlStateRequest {
   RoutingControlArn: string | undefined;
 }
 
-export namespace GetRoutingControlStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRoutingControlStateRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum RoutingControlState {
   Off = "Off",
   On = "On",
@@ -108,15 +99,6 @@ export interface GetRoutingControlStateResponse {
    * <p>The routing control name.</p>
    */
   RoutingControlName?: string;
-}
-
-export namespace GetRoutingControlStateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRoutingControlStateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -215,15 +197,6 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "cannotParse",
   FIELD_VALIDATION_FAILED = "fieldValidationFailed",
@@ -279,15 +252,6 @@ export interface ListRoutingControlsRequest {
   MaxResults?: number;
 }
 
-export namespace ListRoutingControlsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRoutingControlsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A routing control, which is a simple on/off switch that you
  * 			can use to route traffic to cells. When a routing control state is On, traffic flows to a cell. When
@@ -321,15 +285,6 @@ export interface RoutingControl {
   RoutingControlState?: RoutingControlState | string;
 }
 
-export namespace RoutingControl {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoutingControl): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRoutingControlsResponse {
   /**
    * <p>The list of routing controls.</p>
@@ -340,15 +295,6 @@ export interface ListRoutingControlsResponse {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListRoutingControlsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRoutingControlsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -415,25 +361,7 @@ export interface UpdateRoutingControlStateRequest {
   SafetyRulesToOverride?: string[];
 }
 
-export namespace UpdateRoutingControlStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRoutingControlStateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRoutingControlStateResponse {}
-
-export namespace UpdateRoutingControlStateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRoutingControlStateResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A routing control state entry.</p>
@@ -448,15 +376,6 @@ export interface UpdateRoutingControlStateEntry {
    * <p>The routing control state in a set of routing control state entries.</p>
    */
   RoutingControlState: RoutingControlState | string | undefined;
-}
-
-export namespace UpdateRoutingControlStateEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRoutingControlStateEntry): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRoutingControlStatesRequest {
@@ -475,22 +394,81 @@ export interface UpdateRoutingControlStatesRequest {
   SafetyRulesToOverride?: string[];
 }
 
-export namespace UpdateRoutingControlStatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRoutingControlStatesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRoutingControlStatesResponse {}
 
-export namespace UpdateRoutingControlStatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRoutingControlStatesResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GetRoutingControlStateRequestFilterSensitiveLog = (obj: GetRoutingControlStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRoutingControlStateResponseFilterSensitiveLog = (obj: GetRoutingControlStateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRoutingControlsRequestFilterSensitiveLog = (obj: ListRoutingControlsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoutingControlFilterSensitiveLog = (obj: RoutingControl): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRoutingControlsResponseFilterSensitiveLog = (obj: ListRoutingControlsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRoutingControlStateRequestFilterSensitiveLog = (obj: UpdateRoutingControlStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRoutingControlStateResponseFilterSensitiveLog = (obj: UpdateRoutingControlStateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRoutingControlStateEntryFilterSensitiveLog = (obj: UpdateRoutingControlStateEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRoutingControlStatesRequestFilterSensitiveLog = (obj: UpdateRoutingControlStatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRoutingControlStatesResponseFilterSensitiveLog = (obj: UpdateRoutingControlStatesResponse): any => ({
+  ...obj,
+});

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { GetRequestValidatorRequest, RequestValidator } from "../models/models_0";
+import {
+  GetRequestValidatorRequest,
+  GetRequestValidatorRequestFilterSensitiveLog,
+  RequestValidator,
+  RequestValidatorFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetRequestValidatorCommand,
   serializeAws_restJson1GetRequestValidatorCommand,
@@ -72,8 +77,8 @@ export class GetRequestValidatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRequestValidatorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RequestValidator.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRequestValidatorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RequestValidatorFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

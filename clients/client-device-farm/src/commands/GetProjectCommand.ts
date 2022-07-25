@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { GetProjectRequest, GetProjectResult } from "../models/models_0";
+import {
+  GetProjectRequest,
+  GetProjectRequestFilterSensitiveLog,
+  GetProjectResult,
+  GetProjectResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetProjectCommand,
   serializeAws_json1_1GetProjectCommand,
@@ -72,8 +77,8 @@ export class GetProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetProjectResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetProjectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetProjectResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

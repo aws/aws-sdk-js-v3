@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { ListInsightsRequest, ListInsightsResponse } from "../models/models_0";
+import {
+  ListInsightsRequest,
+  ListInsightsRequestFilterSensitiveLog,
+  ListInsightsResponse,
+  ListInsightsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListInsightsCommand,
   serializeAws_restJson1ListInsightsCommand,
@@ -74,8 +79,8 @@ export class ListInsightsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInsightsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListInsightsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListInsightsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListInsightsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

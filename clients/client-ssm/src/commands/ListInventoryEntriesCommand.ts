@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListInventoryEntriesRequest, ListInventoryEntriesResult } from "../models/models_1";
+import {
+  ListInventoryEntriesRequest,
+  ListInventoryEntriesRequestFilterSensitiveLog,
+  ListInventoryEntriesResult,
+  ListInventoryEntriesResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1ListInventoryEntriesCommand,
   serializeAws_json1_1ListInventoryEntriesCommand,
@@ -72,8 +77,8 @@ export class ListInventoryEntriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInventoryEntriesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListInventoryEntriesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListInventoryEntriesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListInventoryEntriesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

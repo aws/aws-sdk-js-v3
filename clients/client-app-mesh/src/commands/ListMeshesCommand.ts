@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { ListMeshesInput, ListMeshesOutput } from "../models/models_0";
+import {
+  ListMeshesInput,
+  ListMeshesInputFilterSensitiveLog,
+  ListMeshesOutput,
+  ListMeshesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListMeshesCommand,
   serializeAws_restJson1ListMeshesCommand,
@@ -72,8 +77,8 @@ export class ListMeshesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMeshesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListMeshesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListMeshesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListMeshesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

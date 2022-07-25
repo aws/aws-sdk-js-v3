@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DetachPolicyRequest } from "../models/models_1";
+import { DetachPolicyRequest, DetachPolicyRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1DetachPolicyCommand,
   serializeAws_restJson1DetachPolicyCommand,
@@ -77,7 +77,7 @@ export class DetachPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachPolicyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachPolicyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

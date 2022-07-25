@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetMailboxDetailsRequest, GetMailboxDetailsResponse } from "../models/models_0";
+import {
+  GetMailboxDetailsRequest,
+  GetMailboxDetailsRequestFilterSensitiveLog,
+  GetMailboxDetailsResponse,
+  GetMailboxDetailsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetMailboxDetailsCommand,
   serializeAws_json1_1GetMailboxDetailsCommand,
@@ -72,8 +77,8 @@ export class GetMailboxDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMailboxDetailsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMailboxDetailsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMailboxDetailsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMailboxDetailsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

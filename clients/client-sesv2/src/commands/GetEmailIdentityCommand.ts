@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetEmailIdentityRequest, GetEmailIdentityResponse } from "../models/models_0";
+import {
+  GetEmailIdentityRequest,
+  GetEmailIdentityRequestFilterSensitiveLog,
+  GetEmailIdentityResponse,
+  GetEmailIdentityResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetEmailIdentityCommand,
   serializeAws_restJson1GetEmailIdentityCommand,
@@ -74,8 +79,8 @@ export class GetEmailIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEmailIdentityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetEmailIdentityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEmailIdentityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetEmailIdentityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import { UpdateBudgetRequest, UpdateBudgetResponse } from "../models/models_0";
+import {
+  UpdateBudgetRequest,
+  UpdateBudgetRequestFilterSensitiveLog,
+  UpdateBudgetResponse,
+  UpdateBudgetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateBudgetCommand,
   serializeAws_json1_1UpdateBudgetCommand,
@@ -75,8 +80,8 @@ export class UpdateBudgetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBudgetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBudgetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateBudgetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBudgetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

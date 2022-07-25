@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { DeleteRuleGroupsNamespaceRequest } from "../models/models_0";
+import {
+  DeleteRuleGroupsNamespaceRequest,
+  DeleteRuleGroupsNamespaceRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRuleGroupsNamespaceCommand,
   serializeAws_restJson1DeleteRuleGroupsNamespaceCommand,
@@ -72,7 +75,7 @@ export class DeleteRuleGroupsNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRuleGroupsNamespaceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRuleGroupsNamespaceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

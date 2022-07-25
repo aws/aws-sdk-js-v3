@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { DeleteMapRequest, DeleteMapResponse } from "../models/models_0";
+import {
+  DeleteMapRequest,
+  DeleteMapRequestFilterSensitiveLog,
+  DeleteMapResponse,
+  DeleteMapResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMapCommand,
   serializeAws_restJson1DeleteMapCommand,
@@ -76,8 +81,8 @@ export class DeleteMapCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMapRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMapResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMapRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMapResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

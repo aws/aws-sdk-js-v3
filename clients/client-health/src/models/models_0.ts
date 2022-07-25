@@ -67,15 +67,6 @@ export interface AffectedEntity {
   tags?: Record<string, string>;
 }
 
-export namespace AffectedEntity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AffectedEntity): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAffectedAccountsForOrganizationRequest {
   /**
    * <p>The unique identifier for the event. The event ARN has the
@@ -101,15 +92,6 @@ export interface DescribeAffectedAccountsForOrganizationRequest {
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
    */
   maxResults?: number;
-}
-
-export namespace DescribeAffectedAccountsForOrganizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAffectedAccountsForOrganizationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum EventScopeCode {
@@ -156,15 +138,6 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
   nextToken?: string;
 }
 
-export namespace DescribeAffectedAccountsForOrganizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAffectedAccountsForOrganizationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
  */
@@ -203,15 +176,6 @@ export interface DateTimeRange {
    * <p>The ending date and time of a time range.</p>
    */
   to?: Date;
-}
-
-export namespace DateTimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DateTimeRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -254,15 +218,6 @@ export interface EntityFilter {
   statusCodes?: (EntityStatusCode | string)[];
 }
 
-export namespace EntityFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAffectedEntitiesRequest {
   /**
    * <p>Values to narrow the results returned. At least one event ARN is required.</p>
@@ -288,15 +243,6 @@ export interface DescribeAffectedEntitiesRequest {
   maxResults?: number;
 }
 
-export namespace DescribeAffectedEntitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAffectedEntitiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAffectedEntitiesResponse {
   /**
    * <p>The entities that match the filter criteria.</p>
@@ -310,15 +256,6 @@ export interface DescribeAffectedEntitiesResponse {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeAffectedEntitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAffectedEntitiesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -362,15 +299,6 @@ export interface EventAccountFilter {
   awsAccountId?: string;
 }
 
-export namespace EventAccountFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventAccountFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAffectedEntitiesForOrganizationRequest {
   /**
    * <p>A JSON set of elements including the <code>awsAccountId</code> and the
@@ -395,15 +323,6 @@ export interface DescribeAffectedEntitiesForOrganizationRequest {
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
    */
   maxResults?: number;
-}
-
-export namespace DescribeAffectedEntitiesForOrganizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAffectedEntitiesForOrganizationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -441,15 +360,6 @@ export interface OrganizationAffectedEntitiesErrorItem {
   errorMessage?: string;
 }
 
-export namespace OrganizationAffectedEntitiesErrorItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationAffectedEntitiesErrorItem): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAffectedEntitiesForOrganizationResponse {
   /**
    * <p>A JSON set of elements including the <code>awsAccountId</code> and its
@@ -473,30 +383,12 @@ export interface DescribeAffectedEntitiesForOrganizationResponse {
   nextToken?: string;
 }
 
-export namespace DescribeAffectedEntitiesForOrganizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAffectedEntitiesForOrganizationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEntityAggregatesRequest {
   /**
    * <p>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code>
    *          </p>
    */
   eventArns?: string[];
-}
-
-export namespace DescribeEntityAggregatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEntityAggregatesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -521,29 +413,11 @@ export interface EntityAggregate {
   count?: number;
 }
 
-export namespace EntityAggregate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityAggregate): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEntityAggregatesResponse {
   /**
    * <p>The number of entities that are affected by each of the specified events.</p>
    */
   entityAggregates?: EntityAggregate[];
-}
-
-export namespace DescribeEntityAggregatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEntityAggregatesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum EventAggregateField {
@@ -642,15 +516,6 @@ export interface EventFilter {
   eventStatusCodes?: (EventStatusCode | string)[];
 }
 
-export namespace EventFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEventAggregatesRequest {
   /**
    * <p>Values to narrow the results returned.</p>
@@ -676,15 +541,6 @@ export interface DescribeEventAggregatesRequest {
   nextToken?: string;
 }
 
-export namespace DescribeEventAggregatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventAggregatesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of events of each issue type. Returned by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventAggregates.html">DescribeEventAggregates</a> operation.</p>
  */
@@ -698,15 +554,6 @@ export interface EventAggregate {
    * <p>The number of events of the associated issue type.</p>
    */
   count?: number;
-}
-
-export namespace EventAggregate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventAggregate): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeEventAggregatesResponse {
@@ -724,15 +571,6 @@ export interface DescribeEventAggregatesResponse {
   nextToken?: string;
 }
 
-export namespace DescribeEventAggregatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventAggregatesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEventDetailsRequest {
   /**
    * <p>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code>
@@ -744,15 +582,6 @@ export interface DescribeEventDetailsRequest {
    * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
    */
   locale?: string;
-}
-
-export namespace DescribeEventDetailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventDetailsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -780,15 +609,6 @@ export interface EventDetailsErrorItem {
    * <p>A message that describes the error.</p>
    */
   errorMessage?: string;
-}
-
-export namespace EventDetailsErrorItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDetailsErrorItem): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -899,15 +719,6 @@ export interface Event {
   eventScopeCode?: EventScopeCode | string;
 }
 
-export namespace Event {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Event): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The detailed description of the event. Included in the information returned by the
  *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation.</p>
@@ -917,15 +728,6 @@ export interface EventDescription {
    * <p>The most recent description of the event.</p>
    */
   latestDescription?: string;
-}
-
-export namespace EventDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -949,15 +751,6 @@ export interface EventDetails {
   eventMetadata?: Record<string, string>;
 }
 
-export namespace EventDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDetails): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEventDetailsResponse {
   /**
    * <p>Information about the events that could be retrieved.</p>
@@ -968,15 +761,6 @@ export interface DescribeEventDetailsResponse {
    * <p>Error messages for any events that could not be retrieved.</p>
    */
   failedSet?: EventDetailsErrorItem[];
-}
-
-export namespace DescribeEventDetailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventDetailsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeEventDetailsForOrganizationRequest {
@@ -990,15 +774,6 @@ export interface DescribeEventDetailsForOrganizationRequest {
    * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
    */
   locale?: string;
-}
-
-export namespace DescribeEventDetailsForOrganizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventDetailsForOrganizationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1048,15 +823,6 @@ export interface OrganizationEventDetailsErrorItem {
   errorMessage?: string;
 }
 
-export namespace OrganizationEventDetailsErrorItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationEventDetailsErrorItem): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Detailed information about an event. A combination of an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a> object, an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventDescription.html">EventDescription</a> object, and additional metadata about the event. Returned by
  *          the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a> operation.</p>
@@ -1103,15 +869,6 @@ export interface OrganizationEventDetails {
   eventMetadata?: Record<string, string>;
 }
 
-export namespace OrganizationEventDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationEventDetails): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEventDetailsForOrganizationResponse {
   /**
    * <p>Information about the events that could be retrieved.</p>
@@ -1122,15 +879,6 @@ export interface DescribeEventDetailsForOrganizationResponse {
    * <p>Error messages for any events that could not be retrieved.</p>
    */
   failedSet?: OrganizationEventDetailsErrorItem[];
-}
-
-export namespace DescribeEventDetailsForOrganizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventDetailsForOrganizationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeEventsRequest {
@@ -1158,15 +906,6 @@ export interface DescribeEventsRequest {
   locale?: string;
 }
 
-export namespace DescribeEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEventsResponse {
   /**
    * <p>The events that match the specified filter criteria.</p>
@@ -1180,15 +919,6 @@ export interface DescribeEventsResponse {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1272,15 +1002,6 @@ export interface OrganizationEventFilter {
   eventStatusCodes?: (EventStatusCode | string)[];
 }
 
-export namespace OrganizationEventFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationEventFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEventsForOrganizationRequest {
   /**
    * <p>Values to narrow the results returned.</p>
@@ -1304,15 +1025,6 @@ export interface DescribeEventsForOrganizationRequest {
    * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
    */
   locale?: string;
-}
-
-export namespace DescribeEventsForOrganizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventsForOrganizationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1400,15 +1112,6 @@ export interface OrganizationEvent {
   statusCode?: EventStatusCode | string;
 }
 
-export namespace OrganizationEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationEvent): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEventsForOrganizationResponse {
   /**
    * <p>The events that match the specified filter criteria.</p>
@@ -1422,15 +1125,6 @@ export interface DescribeEventsForOrganizationResponse {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeEventsForOrganizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventsForOrganizationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1456,15 +1150,6 @@ export interface EventTypeFilter {
   eventTypeCategories?: (EventTypeCategory | string)[];
 }
 
-export namespace EventTypeFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventTypeFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEventTypesRequest {
   /**
    * <p>Values to narrow the results returned.</p>
@@ -1488,15 +1173,6 @@ export interface DescribeEventTypesRequest {
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
    */
   maxResults?: number;
-}
-
-export namespace DescribeEventTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventTypesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1531,15 +1207,6 @@ export interface EventType {
   category?: EventTypeCategory | string;
 }
 
-export namespace EventType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventType): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEventTypesResponse {
   /**
    * <p>A list of event types that match the filter criteria. Event types have a category
@@ -1561,15 +1228,6 @@ export interface DescribeEventTypesResponse {
   nextToken?: string;
 }
 
-export namespace DescribeEventTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventTypesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeHealthServiceStatusForOrganizationResponse {
   /**
    * <p>Information about the status of enabling or disabling the Health organizational
@@ -1577,15 +1235,6 @@ export interface DescribeHealthServiceStatusForOrganizationResponse {
    *          <p>Valid values are <code>ENABLED | DISABLED | PENDING</code>. </p>
    */
   healthServiceAccessStatusForOrganization?: string;
-}
-
-export namespace DescribeHealthServiceStatusForOrganizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHealthServiceStatusForOrganizationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1608,3 +1257,296 @@ export class ConcurrentModificationException extends __BaseException {
     Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
   }
 }
+
+/**
+ * @internal
+ */
+export const AffectedEntityFilterSensitiveLog = (obj: AffectedEntity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAffectedAccountsForOrganizationRequestFilterSensitiveLog = (
+  obj: DescribeAffectedAccountsForOrganizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAffectedAccountsForOrganizationResponseFilterSensitiveLog = (
+  obj: DescribeAffectedAccountsForOrganizationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DateTimeRangeFilterSensitiveLog = (obj: DateTimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EntityFilterFilterSensitiveLog = (obj: EntityFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAffectedEntitiesRequestFilterSensitiveLog = (obj: DescribeAffectedEntitiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAffectedEntitiesResponseFilterSensitiveLog = (obj: DescribeAffectedEntitiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventAccountFilterFilterSensitiveLog = (obj: EventAccountFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAffectedEntitiesForOrganizationRequestFilterSensitiveLog = (
+  obj: DescribeAffectedEntitiesForOrganizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationAffectedEntitiesErrorItemFilterSensitiveLog = (
+  obj: OrganizationAffectedEntitiesErrorItem
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAffectedEntitiesForOrganizationResponseFilterSensitiveLog = (
+  obj: DescribeAffectedEntitiesForOrganizationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEntityAggregatesRequestFilterSensitiveLog = (obj: DescribeEntityAggregatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EntityAggregateFilterSensitiveLog = (obj: EntityAggregate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEntityAggregatesResponseFilterSensitiveLog = (obj: DescribeEntityAggregatesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventFilterFilterSensitiveLog = (obj: EventFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventAggregatesRequestFilterSensitiveLog = (obj: DescribeEventAggregatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventAggregateFilterSensitiveLog = (obj: EventAggregate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventAggregatesResponseFilterSensitiveLog = (obj: DescribeEventAggregatesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventDetailsRequestFilterSensitiveLog = (obj: DescribeEventDetailsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventDetailsErrorItemFilterSensitiveLog = (obj: EventDetailsErrorItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventFilterSensitiveLog = (obj: Event): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventDescriptionFilterSensitiveLog = (obj: EventDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventDetailsFilterSensitiveLog = (obj: EventDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventDetailsResponseFilterSensitiveLog = (obj: DescribeEventDetailsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventDetailsForOrganizationRequestFilterSensitiveLog = (
+  obj: DescribeEventDetailsForOrganizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationEventDetailsErrorItemFilterSensitiveLog = (obj: OrganizationEventDetailsErrorItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationEventDetailsFilterSensitiveLog = (obj: OrganizationEventDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventDetailsForOrganizationResponseFilterSensitiveLog = (
+  obj: DescribeEventDetailsForOrganizationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventsRequestFilterSensitiveLog = (obj: DescribeEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventsResponseFilterSensitiveLog = (obj: DescribeEventsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationEventFilterFilterSensitiveLog = (obj: OrganizationEventFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventsForOrganizationRequestFilterSensitiveLog = (
+  obj: DescribeEventsForOrganizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationEventFilterSensitiveLog = (obj: OrganizationEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventsForOrganizationResponseFilterSensitiveLog = (
+  obj: DescribeEventsForOrganizationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventTypeFilterFilterSensitiveLog = (obj: EventTypeFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventTypesRequestFilterSensitiveLog = (obj: DescribeEventTypesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventTypeFilterSensitiveLog = (obj: EventType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventTypesResponseFilterSensitiveLog = (obj: DescribeEventTypesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHealthServiceStatusForOrganizationResponseFilterSensitiveLog = (
+  obj: DescribeHealthServiceStatusForOrganizationResponse
+): any => ({
+  ...obj,
+});

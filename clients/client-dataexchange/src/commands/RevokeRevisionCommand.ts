@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { RevokeRevisionRequest, RevokeRevisionResponse } from "../models/models_0";
+import {
+  RevokeRevisionRequest,
+  RevokeRevisionRequestFilterSensitiveLog,
+  RevokeRevisionResponse,
+  RevokeRevisionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RevokeRevisionCommand,
   serializeAws_restJson1RevokeRevisionCommand,
@@ -72,8 +77,8 @@ export class RevokeRevisionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeRevisionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RevokeRevisionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokeRevisionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RevokeRevisionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

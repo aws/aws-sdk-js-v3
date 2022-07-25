@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { DetectDominantLanguageRequest, DetectDominantLanguageResponse } from "../models/models_0";
+import {
+  DetectDominantLanguageRequest,
+  DetectDominantLanguageRequestFilterSensitiveLog,
+  DetectDominantLanguageResponse,
+  DetectDominantLanguageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DetectDominantLanguageCommand,
   serializeAws_json1_1DetectDominantLanguageCommand,
@@ -73,8 +78,8 @@ export class DetectDominantLanguageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectDominantLanguageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DetectDominantLanguageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetectDominantLanguageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DetectDominantLanguageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

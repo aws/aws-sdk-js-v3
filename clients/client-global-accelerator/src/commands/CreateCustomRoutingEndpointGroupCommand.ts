@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { CreateCustomRoutingEndpointGroupRequest, CreateCustomRoutingEndpointGroupResponse } from "../models/models_0";
+import {
+  CreateCustomRoutingEndpointGroupRequest,
+  CreateCustomRoutingEndpointGroupRequestFilterSensitiveLog,
+  CreateCustomRoutingEndpointGroupResponse,
+  CreateCustomRoutingEndpointGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCustomRoutingEndpointGroupCommand,
   serializeAws_json1_1CreateCustomRoutingEndpointGroupCommand,
@@ -80,8 +85,8 @@ export class CreateCustomRoutingEndpointGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomRoutingEndpointGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomRoutingEndpointGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCustomRoutingEndpointGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateCustomRoutingEndpointGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

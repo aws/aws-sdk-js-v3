@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { StartBotRecommendationRequest, StartBotRecommendationResponse } from "../models/models_0";
+import {
+  StartBotRecommendationRequest,
+  StartBotRecommendationRequestFilterSensitiveLog,
+  StartBotRecommendationResponse,
+  StartBotRecommendationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartBotRecommendationCommand,
   serializeAws_restJson1StartBotRecommendationCommand,
@@ -73,8 +78,8 @@ export class StartBotRecommendationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartBotRecommendationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartBotRecommendationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartBotRecommendationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartBotRecommendationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

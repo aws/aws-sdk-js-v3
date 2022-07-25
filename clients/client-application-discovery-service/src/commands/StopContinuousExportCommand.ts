@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { StopContinuousExportRequest, StopContinuousExportResponse } from "../models/models_0";
+import {
+  StopContinuousExportRequest,
+  StopContinuousExportRequestFilterSensitiveLog,
+  StopContinuousExportResponse,
+  StopContinuousExportResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StopContinuousExportCommand,
   serializeAws_json1_1StopContinuousExportCommand,
@@ -76,8 +81,8 @@ export class StopContinuousExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopContinuousExportRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopContinuousExportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopContinuousExportRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopContinuousExportResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

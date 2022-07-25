@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListPermissionVersionsRequest, ListPermissionVersionsResponse } from "../models/models_0";
+import {
+  ListPermissionVersionsRequest,
+  ListPermissionVersionsRequestFilterSensitiveLog,
+  ListPermissionVersionsResponse,
+  ListPermissionVersionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListPermissionVersionsCommand,
   serializeAws_restJson1ListPermissionVersionsCommand,
@@ -72,8 +77,8 @@ export class ListPermissionVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPermissionVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPermissionVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPermissionVersionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPermissionVersionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

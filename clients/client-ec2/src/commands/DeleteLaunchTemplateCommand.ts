@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteLaunchTemplateRequest, DeleteLaunchTemplateResult } from "../models/models_2";
+import {
+  DeleteLaunchTemplateRequest,
+  DeleteLaunchTemplateRequestFilterSensitiveLog,
+  DeleteLaunchTemplateResult,
+  DeleteLaunchTemplateResultFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_ec2DeleteLaunchTemplateCommand,
   serializeAws_ec2DeleteLaunchTemplateCommand,
@@ -73,8 +78,8 @@ export class DeleteLaunchTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLaunchTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLaunchTemplateResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLaunchTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLaunchTemplateResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

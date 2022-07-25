@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { ListMetricsInput, ListMetricsOutput } from "../models/models_0";
+import {
+  ListMetricsInput,
+  ListMetricsInputFilterSensitiveLog,
+  ListMetricsOutput,
+  ListMetricsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryListMetricsCommand, serializeAws_queryListMetricsCommand } from "../protocols/Aws_query";
 
 export interface ListMetricsCommandInput extends ListMetricsInput {}
@@ -82,8 +87,8 @@ export class ListMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMetricsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListMetricsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListMetricsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListMetricsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateFileSystemAssociationInput, UpdateFileSystemAssociationOutput } from "../models/models_0";
+import {
+  UpdateFileSystemAssociationInput,
+  UpdateFileSystemAssociationInputFilterSensitiveLog,
+  UpdateFileSystemAssociationOutput,
+  UpdateFileSystemAssociationOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateFileSystemAssociationCommand,
   serializeAws_json1_1UpdateFileSystemAssociationCommand,
@@ -73,8 +78,8 @@ export class UpdateFileSystemAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFileSystemAssociationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFileSystemAssociationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFileSystemAssociationInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFileSystemAssociationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

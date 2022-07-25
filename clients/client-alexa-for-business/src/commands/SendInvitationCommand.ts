@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { SendInvitationRequest, SendInvitationResponse } from "../models/models_0";
+import {
+  SendInvitationRequest,
+  SendInvitationRequestFilterSensitiveLog,
+  SendInvitationResponse,
+  SendInvitationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1SendInvitationCommand,
   serializeAws_json1_1SendInvitationCommand,
@@ -73,8 +78,8 @@ export class SendInvitationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendInvitationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendInvitationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SendInvitationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SendInvitationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

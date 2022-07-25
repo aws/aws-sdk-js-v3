@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import { ListRulesetsRequest, ListRulesetsResponse } from "../models/models_0";
+import {
+  ListRulesetsRequest,
+  ListRulesetsRequestFilterSensitiveLog,
+  ListRulesetsResponse,
+  ListRulesetsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListRulesetsCommand,
   serializeAws_restJson1ListRulesetsCommand,
@@ -73,8 +78,8 @@ export class ListRulesetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRulesetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListRulesetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRulesetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListRulesetsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

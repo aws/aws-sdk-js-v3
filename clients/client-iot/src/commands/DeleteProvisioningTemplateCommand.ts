@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteProvisioningTemplateRequest, DeleteProvisioningTemplateResponse } from "../models/models_0";
+import {
+  DeleteProvisioningTemplateRequest,
+  DeleteProvisioningTemplateRequestFilterSensitiveLog,
+  DeleteProvisioningTemplateResponse,
+  DeleteProvisioningTemplateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteProvisioningTemplateCommand,
   serializeAws_restJson1DeleteProvisioningTemplateCommand,
@@ -73,8 +78,8 @@ export class DeleteProvisioningTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProvisioningTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProvisioningTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteProvisioningTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteProvisioningTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

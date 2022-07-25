@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateResponsePlanInput, CreateResponsePlanOutput } from "../models/models_0";
+import {
+  CreateResponsePlanInput,
+  CreateResponsePlanInputFilterSensitiveLog,
+  CreateResponsePlanOutput,
+  CreateResponsePlanOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateResponsePlanCommand,
   serializeAws_restJson1CreateResponsePlanCommand,
@@ -74,8 +79,8 @@ export class CreateResponsePlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateResponsePlanInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateResponsePlanOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateResponsePlanInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateResponsePlanOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

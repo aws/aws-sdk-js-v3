@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeletePolicyVersionRequest } from "../models/models_0";
+import { DeletePolicyVersionRequest, DeletePolicyVersionRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDeletePolicyVersionCommand,
   serializeAws_queryDeletePolicyVersionCommand,
@@ -77,7 +77,7 @@ export class DeletePolicyVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePolicyVersionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePolicyVersionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

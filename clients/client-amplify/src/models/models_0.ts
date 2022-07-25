@@ -90,17 +90,6 @@ export interface AutoBranchCreationConfig {
   pullRequestEnvironmentName?: string;
 }
 
-export namespace AutoBranchCreationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoBranchCreationConfig): any => ({
-    ...obj,
-    ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
-    ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p> Describes a custom rewrite or redirect rule. </p>
  */
@@ -148,15 +137,6 @@ export interface CustomRule {
    * <p> The condition for a URL rewrite or redirect rule, such as a country code. </p>
    */
   condition?: string;
-}
-
-export namespace CustomRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRule): any => ({
-    ...obj,
-  });
 }
 
 export enum Platform {
@@ -289,22 +269,6 @@ export interface CreateAppRequest {
   autoBranchCreationConfig?: AutoBranchCreationConfig;
 }
 
-export namespace CreateAppRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAppRequest): any => ({
-    ...obj,
-    ...(obj.oauthToken && { oauthToken: SENSITIVE_STRING }),
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-    ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
-    ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
-    ...(obj.autoBranchCreationConfig && {
-      autoBranchCreationConfig: AutoBranchCreationConfig.filterSensitiveLog(obj.autoBranchCreationConfig),
-    }),
-  });
-}
-
 /**
  * <p> Describes the information about a production branch for an Amplify app. </p>
  */
@@ -328,15 +292,6 @@ export interface ProductionBranch {
    * <p> The branch name for the production branch. </p>
    */
   branchName?: string;
-}
-
-export namespace ProductionBranch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProductionBranch): any => ({
-    ...obj,
-  });
 }
 
 export enum RepositoryCloneMethod {
@@ -482,36 +437,12 @@ export interface App {
   repositoryCloneMethod?: RepositoryCloneMethod | string;
 }
 
-export namespace App {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: App): any => ({
-    ...obj,
-    ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
-    ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
-    ...(obj.autoBranchCreationConfig && {
-      autoBranchCreationConfig: AutoBranchCreationConfig.filterSensitiveLog(obj.autoBranchCreationConfig),
-    }),
-  });
-}
-
 export interface CreateAppResult {
   /**
    * <p> Represents the different branches of a repository for building, deploying, and
    *             hosting an Amplify app. </p>
    */
   app: App | undefined;
-}
-
-export namespace CreateAppResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAppResult): any => ({
-    ...obj,
-    ...(obj.app && { app: App.filterSensitiveLog(obj.app) }),
-  });
 }
 
 /**
@@ -615,15 +546,6 @@ export interface CreateBackendEnvironmentRequest {
   deploymentArtifacts?: string;
 }
 
-export namespace CreateBackendEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendEnvironmentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Describes the backend environment for an Amplify app. </p>
  */
@@ -662,15 +584,6 @@ export interface BackendEnvironment {
   updateTime: Date | undefined;
 }
 
-export namespace BackendEnvironment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackendEnvironment): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the create backend environment request. </p>
  */
@@ -679,15 +592,6 @@ export interface CreateBackendEnvironmentResult {
    * <p> Describes the backend environment for an Amplify app. </p>
    */
   backendEnvironment: BackendEnvironment | undefined;
-}
-
-export namespace CreateBackendEnvironmentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackendEnvironmentResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -808,17 +712,6 @@ export interface CreateBranchRequest {
    *             app. </p>
    */
   backendEnvironmentArn?: string;
-}
-
-export namespace CreateBranchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBranchRequest): any => ({
-    ...obj,
-    ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
-    ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -968,17 +861,6 @@ export interface Branch {
   backendEnvironmentArn?: string;
 }
 
-export namespace Branch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Branch): any => ({
-    ...obj,
-    ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
-    ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p> The result structure for create branch request. </p>
  */
@@ -988,16 +870,6 @@ export interface CreateBranchResult {
    *             branch. </p>
    */
   branch: Branch | undefined;
-}
-
-export namespace CreateBranchResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBranchResult): any => ({
-    ...obj,
-    ...(obj.branch && { branch: Branch.filterSensitiveLog(obj.branch) }),
-  });
 }
 
 /**
@@ -1023,15 +895,6 @@ export interface CreateDeploymentRequest {
   fileMap?: Record<string, string>;
 }
 
-export namespace CreateDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the create a new deployment request. </p>
  */
@@ -1054,15 +917,6 @@ export interface CreateDeploymentResult {
   zipUploadUrl: string | undefined;
 }
 
-export namespace CreateDeploymentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Describes the settings for the subdomain. </p>
  */
@@ -1076,15 +930,6 @@ export interface SubDomainSetting {
    * <p> The branch name setting for the subdomain. </p>
    */
   branchName: string | undefined;
-}
-
-export namespace SubDomainSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubDomainSetting): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1123,15 +968,6 @@ export interface CreateDomainAssociationRequest {
   autoSubDomainIAMRole?: string;
 }
 
-export namespace CreateDomainAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum DomainStatus {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
@@ -1161,15 +997,6 @@ export interface SubDomain {
    * <p> The DNS record for the subdomain. </p>
    */
   dnsRecord: string | undefined;
-}
-
-export namespace SubDomain {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubDomain): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1224,15 +1051,6 @@ export interface DomainAssociation {
   subDomains: SubDomain[] | undefined;
 }
 
-export namespace DomainAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainAssociation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the create domain association request. </p>
  */
@@ -1242,15 +1060,6 @@ export interface CreateDomainAssociationResult {
    *             with an Amplify app. </p>
    */
   domainAssociation: DomainAssociation | undefined;
-}
-
-export namespace CreateDomainAssociationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainAssociationResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1271,15 +1080,6 @@ export interface CreateWebhookRequest {
    * <p> The description for a webhook. </p>
    */
   description?: string;
-}
-
-export namespace CreateWebhookRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWebhookRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1322,15 +1122,6 @@ export interface Webhook {
   updateTime: Date | undefined;
 }
 
-export namespace Webhook {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Webhook): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the create webhook request. </p>
  */
@@ -1339,15 +1130,6 @@ export interface CreateWebhookResult {
    * <p> Describes a webhook that connects repository events to an Amplify app. </p>
    */
   webhook: Webhook | undefined;
-}
-
-export namespace CreateWebhookResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWebhookResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1360,15 +1142,6 @@ export interface DeleteAppRequest {
   appId: string | undefined;
 }
 
-export namespace DeleteAppRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the delete app request. </p>
  */
@@ -1378,16 +1151,6 @@ export interface DeleteAppResult {
    *             hosting an Amplify app. </p>
    */
   app: App | undefined;
-}
-
-export namespace DeleteAppResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppResult): any => ({
-    ...obj,
-    ...(obj.app && { app: App.filterSensitiveLog(obj.app) }),
-  });
 }
 
 /**
@@ -1405,15 +1168,6 @@ export interface DeleteBackendEnvironmentRequest {
   environmentName: string | undefined;
 }
 
-export namespace DeleteBackendEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBackendEnvironmentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure of the delete backend environment result. </p>
  */
@@ -1422,15 +1176,6 @@ export interface DeleteBackendEnvironmentResult {
    * <p> Describes the backend environment for an Amplify app. </p>
    */
   backendEnvironment: BackendEnvironment | undefined;
-}
-
-export namespace DeleteBackendEnvironmentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBackendEnvironmentResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1448,15 +1193,6 @@ export interface DeleteBranchRequest {
   branchName: string | undefined;
 }
 
-export namespace DeleteBranchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBranchRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the delete branch request. </p>
  */
@@ -1465,16 +1201,6 @@ export interface DeleteBranchResult {
    * <p> The branch for an Amplify app, which maps to a third-party repository branch. </p>
    */
   branch: Branch | undefined;
-}
-
-export namespace DeleteBranchResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBranchResult): any => ({
-    ...obj,
-    ...(obj.branch && { branch: Branch.filterSensitiveLog(obj.branch) }),
-  });
 }
 
 /**
@@ -1492,30 +1218,12 @@ export interface DeleteDomainAssociationRequest {
   domainName: string | undefined;
 }
 
-export namespace DeleteDomainAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDomainAssociationResult {
   /**
    * <p> Describes a domain association that associates a custom domain with an Amplify app.
    *         </p>
    */
   domainAssociation: DomainAssociation | undefined;
-}
-
-export namespace DeleteDomainAssociationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainAssociationResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1536,15 +1244,6 @@ export interface DeleteJobRequest {
    * <p> The unique ID for the job. </p>
    */
   jobId: string | undefined;
-}
-
-export namespace DeleteJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum JobType {
@@ -1618,15 +1317,6 @@ export interface JobSummary {
   jobType: JobType | string | undefined;
 }
 
-export namespace JobSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the delete job request. </p>
  */
@@ -1635,15 +1325,6 @@ export interface DeleteJobResult {
    * <p> Describes the summary for an execution job for an Amplify app. </p>
    */
   jobSummary: JobSummary | undefined;
-}
-
-export namespace DeleteJobResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteJobResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1656,15 +1337,6 @@ export interface DeleteWebhookRequest {
   webhookId: string | undefined;
 }
 
-export namespace DeleteWebhookRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWebhookRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the delete webhook request. </p>
  */
@@ -1673,15 +1345,6 @@ export interface DeleteWebhookResult {
    * <p> Describes a webhook that connects repository events to an Amplify app. </p>
    */
   webhook: Webhook | undefined;
-}
-
-export namespace DeleteWebhookResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWebhookResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1711,15 +1374,6 @@ export interface GenerateAccessLogsRequest {
   appId: string | undefined;
 }
 
-export namespace GenerateAccessLogsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateAccessLogsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the generate access logs request. </p>
  */
@@ -1728,15 +1382,6 @@ export interface GenerateAccessLogsResult {
    * <p> The pre-signed URL for the requested access logs. </p>
    */
   logUrl?: string;
-}
-
-export namespace GenerateAccessLogsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateAccessLogsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1749,31 +1394,12 @@ export interface GetAppRequest {
   appId: string | undefined;
 }
 
-export namespace GetAppRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAppResult {
   /**
    * <p> Represents the different branches of a repository for building, deploying, and
    *             hosting an Amplify app. </p>
    */
   app: App | undefined;
-}
-
-export namespace GetAppResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppResult): any => ({
-    ...obj,
-    ...(obj.app && { app: App.filterSensitiveLog(obj.app) }),
-  });
 }
 
 /**
@@ -1784,15 +1410,6 @@ export interface GetArtifactUrlRequest {
    * <p> The unique ID for an artifact. </p>
    */
   artifactId: string | undefined;
-}
-
-export namespace GetArtifactUrlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetArtifactUrlRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1810,15 +1427,6 @@ export interface GetArtifactUrlResult {
   artifactUrl: string | undefined;
 }
 
-export namespace GetArtifactUrlResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetArtifactUrlResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The request structure for the get backend environment request. </p>
  */
@@ -1834,15 +1442,6 @@ export interface GetBackendEnvironmentRequest {
   environmentName: string | undefined;
 }
 
-export namespace GetBackendEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBackendEnvironmentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the get backend environment result. </p>
  */
@@ -1851,15 +1450,6 @@ export interface GetBackendEnvironmentResult {
    * <p> Describes the backend environment for an Amplify app. </p>
    */
   backendEnvironment: BackendEnvironment | undefined;
-}
-
-export namespace GetBackendEnvironmentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBackendEnvironmentResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1877,30 +1467,11 @@ export interface GetBranchRequest {
   branchName: string | undefined;
 }
 
-export namespace GetBranchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBranchRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBranchResult {
   /**
    * <p> The branch for an Amplify app, which maps to a third-party repository branch. </p>
    */
   branch: Branch | undefined;
-}
-
-export namespace GetBranchResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBranchResult): any => ({
-    ...obj,
-    ...(obj.branch && { branch: Branch.filterSensitiveLog(obj.branch) }),
-  });
 }
 
 /**
@@ -1918,15 +1489,6 @@ export interface GetDomainAssociationRequest {
   domainName: string | undefined;
 }
 
-export namespace GetDomainAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the get domain association request. </p>
  */
@@ -1936,15 +1498,6 @@ export interface GetDomainAssociationResult {
    *             with an Amplify app. </p>
    */
   domainAssociation: DomainAssociation | undefined;
-}
-
-export namespace GetDomainAssociationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainAssociationResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1965,15 +1518,6 @@ export interface GetJobRequest {
    * <p> The unique ID for the job. </p>
    */
   jobId: string | undefined;
-}
-
-export namespace GetJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2037,15 +1581,6 @@ export interface Step {
   context?: string;
 }
 
-export namespace Step {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Step): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Describes an execution job for an Amplify app. </p>
  */
@@ -2061,29 +1596,11 @@ export interface Job {
   steps: Step[] | undefined;
 }
 
-export namespace Job {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Job): any => ({
-    ...obj,
-  });
-}
-
 export interface GetJobResult {
   /**
    * <p> Describes an execution job for an Amplify app. </p>
    */
   job: Job | undefined;
-}
-
-export namespace GetJobResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2096,15 +1613,6 @@ export interface GetWebhookRequest {
   webhookId: string | undefined;
 }
 
-export namespace GetWebhookRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWebhookRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the get webhook request. </p>
  */
@@ -2113,15 +1621,6 @@ export interface GetWebhookResult {
    * <p> Describes the structure of a webhook. </p>
    */
   webhook: Webhook | undefined;
-}
-
-export namespace GetWebhookResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWebhookResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2140,15 +1639,6 @@ export interface ListAppsRequest {
   maxResults?: number;
 }
 
-export namespace ListAppsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for an Amplify app list request. </p>
  */
@@ -2164,16 +1654,6 @@ export interface ListAppsResult {
    *         </p>
    */
   nextToken?: string;
-}
-
-export namespace ListAppsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppsResult): any => ({
-    ...obj,
-    ...(obj.apps && { apps: obj.apps.map((item) => App.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -2208,15 +1688,6 @@ export interface ListArtifactsRequest {
   maxResults?: number;
 }
 
-export namespace ListArtifactsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListArtifactsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Describes an artifact. </p>
  */
@@ -2230,15 +1701,6 @@ export interface Artifact {
    * <p> The unique ID for the artifact. </p>
    */
   artifactId: string | undefined;
-}
-
-export namespace Artifact {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Artifact): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2255,15 +1717,6 @@ export interface ListArtifactsResult {
    *             value in another request to retrieve more entries. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListArtifactsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListArtifactsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2293,15 +1746,6 @@ export interface ListBackendEnvironmentsRequest {
   maxResults?: number;
 }
 
-export namespace ListBackendEnvironmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBackendEnvironmentsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the list backend environments result. </p>
  */
@@ -2316,15 +1760,6 @@ export interface ListBackendEnvironmentsResult {
    *             value in another request to retrieve more entries. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListBackendEnvironmentsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBackendEnvironmentsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2349,15 +1784,6 @@ export interface ListBranchesRequest {
   maxResults?: number;
 }
 
-export namespace ListBranchesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBranchesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the list branches request. </p>
  */
@@ -2372,16 +1798,6 @@ export interface ListBranchesResult {
    *             value in another request to retrieve more entries. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListBranchesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBranchesResult): any => ({
-    ...obj,
-    ...(obj.branches && { branches: obj.branches.map((item) => Branch.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -2406,15 +1822,6 @@ export interface ListDomainAssociationsRequest {
   maxResults?: number;
 }
 
-export namespace ListDomainAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the list domain association request. </p>
  */
@@ -2429,15 +1836,6 @@ export interface ListDomainAssociationsResult {
    *             value in another request to retrieve more entries. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListDomainAssociationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainAssociationsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2467,15 +1865,6 @@ export interface ListJobsRequest {
   maxResults?: number;
 }
 
-export namespace ListJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The maximum number of records to list in a single response. </p>
  */
@@ -2492,15 +1881,6 @@ export interface ListJobsResult {
   nextToken?: string;
 }
 
-export namespace ListJobsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The request structure to use to list tags for a resource. </p>
  */
@@ -2511,15 +1891,6 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The response for the list tags for resource request. </p>
  */
@@ -2528,15 +1899,6 @@ export interface ListTagsForResourceResponse {
    * <p> A list of tags for the specified The Amazon Resource Name (ARN). </p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2582,15 +1944,6 @@ export interface ListWebhooksRequest {
   maxResults?: number;
 }
 
-export namespace ListWebhooksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebhooksRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the list webhooks request. </p>
  */
@@ -2605,15 +1958,6 @@ export interface ListWebhooksResult {
    *             its value in another request to retrieve more entries. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListWebhooksResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebhooksResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2643,15 +1987,6 @@ export interface StartDeploymentRequest {
   sourceUrl?: string;
 }
 
-export namespace StartDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the start a deployment request. </p>
  */
@@ -2660,15 +1995,6 @@ export interface StartDeploymentResult {
    * <p> The summary for the job. </p>
    */
   jobSummary: JobSummary | undefined;
-}
-
-export namespace StartDeploymentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDeploymentResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2721,15 +2047,6 @@ export interface StartJobRequest {
   commitTime?: Date;
 }
 
-export namespace StartJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartJobRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the run job request. </p>
  */
@@ -2738,15 +2055,6 @@ export interface StartJobResult {
    * <p> The summary for the job. </p>
    */
   jobSummary: JobSummary | undefined;
-}
-
-export namespace StartJobResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartJobResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2769,15 +2077,6 @@ export interface StopJobRequest {
   jobId: string | undefined;
 }
 
-export namespace StopJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopJobRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the stop job request. </p>
  */
@@ -2786,15 +2085,6 @@ export interface StopJobResult {
    * <p> The summary for the job. </p>
    */
   jobSummary: JobSummary | undefined;
-}
-
-export namespace StopJobResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopJobResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2812,28 +2102,10 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The response for the tag resource request. </p>
  */
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> The request structure for the untag resource request. </p>
@@ -2850,28 +2122,10 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The response for the untag resource request. </p>
  */
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> The request structure for the update app request. </p>
@@ -2998,22 +2252,6 @@ export interface UpdateAppRequest {
   accessToken?: string;
 }
 
-export namespace UpdateAppRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAppRequest): any => ({
-    ...obj,
-    ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
-    ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
-    ...(obj.autoBranchCreationConfig && {
-      autoBranchCreationConfig: AutoBranchCreationConfig.filterSensitiveLog(obj.autoBranchCreationConfig),
-    }),
-    ...(obj.oauthToken && { oauthToken: SENSITIVE_STRING }),
-    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p> The result structure for an Amplify app update request. </p>
  */
@@ -3022,16 +2260,6 @@ export interface UpdateAppResult {
    * <p> Represents the updated Amplify app. </p>
    */
   app: App | undefined;
-}
-
-export namespace UpdateAppResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAppResult): any => ({
-    ...obj,
-    ...(obj.app && { app: App.filterSensitiveLog(obj.app) }),
-  });
 }
 
 /**
@@ -3130,17 +2358,6 @@ export interface UpdateBranchRequest {
   backendEnvironmentArn?: string;
 }
 
-export namespace UpdateBranchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBranchRequest): any => ({
-    ...obj,
-    ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
-    ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p> The result structure for the update branch request. </p>
  */
@@ -3149,16 +2366,6 @@ export interface UpdateBranchResult {
    * <p> The branch for an Amplify app, which maps to a third-party repository branch. </p>
    */
   branch: Branch | undefined;
-}
-
-export namespace UpdateBranchResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBranchResult): any => ({
-    ...obj,
-    ...(obj.branch && { branch: Branch.filterSensitiveLog(obj.branch) }),
-  });
 }
 
 /**
@@ -3197,15 +2404,6 @@ export interface UpdateDomainAssociationRequest {
   autoSubDomainIAMRole?: string;
 }
 
-export namespace UpdateDomainAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the update domain association request. </p>
  */
@@ -3215,15 +2413,6 @@ export interface UpdateDomainAssociationResult {
    *         </p>
    */
   domainAssociation: DomainAssociation | undefined;
-}
-
-export namespace UpdateDomainAssociationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainAssociationResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3246,15 +2435,6 @@ export interface UpdateWebhookRequest {
   description?: string;
 }
 
-export namespace UpdateWebhookRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWebhookRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The result structure for the update webhook request. </p>
  */
@@ -3265,11 +2445,655 @@ export interface UpdateWebhookResult {
   webhook: Webhook | undefined;
 }
 
-export namespace UpdateWebhookResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWebhookResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AutoBranchCreationConfigFilterSensitiveLog = (obj: AutoBranchCreationConfig): any => ({
+  ...obj,
+  ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
+  ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CustomRuleFilterSensitiveLog = (obj: CustomRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAppRequestFilterSensitiveLog = (obj: CreateAppRequest): any => ({
+  ...obj,
+  ...(obj.oauthToken && { oauthToken: SENSITIVE_STRING }),
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+  ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
+  ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
+  ...(obj.autoBranchCreationConfig && {
+    autoBranchCreationConfig: AutoBranchCreationConfigFilterSensitiveLog(obj.autoBranchCreationConfig),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ProductionBranchFilterSensitiveLog = (obj: ProductionBranch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppFilterSensitiveLog = (obj: App): any => ({
+  ...obj,
+  ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
+  ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
+  ...(obj.autoBranchCreationConfig && {
+    autoBranchCreationConfig: AutoBranchCreationConfigFilterSensitiveLog(obj.autoBranchCreationConfig),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAppResultFilterSensitiveLog = (obj: CreateAppResult): any => ({
+  ...obj,
+  ...(obj.app && { app: AppFilterSensitiveLog(obj.app) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendEnvironmentRequestFilterSensitiveLog = (obj: CreateBackendEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackendEnvironmentFilterSensitiveLog = (obj: BackendEnvironment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackendEnvironmentResultFilterSensitiveLog = (obj: CreateBackendEnvironmentResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBranchRequestFilterSensitiveLog = (obj: CreateBranchRequest): any => ({
+  ...obj,
+  ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
+  ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BranchFilterSensitiveLog = (obj: Branch): any => ({
+  ...obj,
+  ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
+  ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateBranchResultFilterSensitiveLog = (obj: CreateBranchResult): any => ({
+  ...obj,
+  ...(obj.branch && { branch: BranchFilterSensitiveLog(obj.branch) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentRequestFilterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentResultFilterSensitiveLog = (obj: CreateDeploymentResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubDomainSettingFilterSensitiveLog = (obj: SubDomainSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainAssociationRequestFilterSensitiveLog = (obj: CreateDomainAssociationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubDomainFilterSensitiveLog = (obj: SubDomain): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainAssociationFilterSensitiveLog = (obj: DomainAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainAssociationResultFilterSensitiveLog = (obj: CreateDomainAssociationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWebhookRequestFilterSensitiveLog = (obj: CreateWebhookRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebhookFilterSensitiveLog = (obj: Webhook): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWebhookResultFilterSensitiveLog = (obj: CreateWebhookResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppRequestFilterSensitiveLog = (obj: DeleteAppRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppResultFilterSensitiveLog = (obj: DeleteAppResult): any => ({
+  ...obj,
+  ...(obj.app && { app: AppFilterSensitiveLog(obj.app) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteBackendEnvironmentRequestFilterSensitiveLog = (obj: DeleteBackendEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBackendEnvironmentResultFilterSensitiveLog = (obj: DeleteBackendEnvironmentResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBranchRequestFilterSensitiveLog = (obj: DeleteBranchRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBranchResultFilterSensitiveLog = (obj: DeleteBranchResult): any => ({
+  ...obj,
+  ...(obj.branch && { branch: BranchFilterSensitiveLog(obj.branch) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainAssociationRequestFilterSensitiveLog = (obj: DeleteDomainAssociationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainAssociationResultFilterSensitiveLog = (obj: DeleteDomainAssociationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteJobRequestFilterSensitiveLog = (obj: DeleteJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobSummaryFilterSensitiveLog = (obj: JobSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteJobResultFilterSensitiveLog = (obj: DeleteJobResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWebhookRequestFilterSensitiveLog = (obj: DeleteWebhookRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWebhookResultFilterSensitiveLog = (obj: DeleteWebhookResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateAccessLogsRequestFilterSensitiveLog = (obj: GenerateAccessLogsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateAccessLogsResultFilterSensitiveLog = (obj: GenerateAccessLogsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppRequestFilterSensitiveLog = (obj: GetAppRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppResultFilterSensitiveLog = (obj: GetAppResult): any => ({
+  ...obj,
+  ...(obj.app && { app: AppFilterSensitiveLog(obj.app) }),
+});
+
+/**
+ * @internal
+ */
+export const GetArtifactUrlRequestFilterSensitiveLog = (obj: GetArtifactUrlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetArtifactUrlResultFilterSensitiveLog = (obj: GetArtifactUrlResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBackendEnvironmentRequestFilterSensitiveLog = (obj: GetBackendEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBackendEnvironmentResultFilterSensitiveLog = (obj: GetBackendEnvironmentResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBranchRequestFilterSensitiveLog = (obj: GetBranchRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBranchResultFilterSensitiveLog = (obj: GetBranchResult): any => ({
+  ...obj,
+  ...(obj.branch && { branch: BranchFilterSensitiveLog(obj.branch) }),
+});
+
+/**
+ * @internal
+ */
+export const GetDomainAssociationRequestFilterSensitiveLog = (obj: GetDomainAssociationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainAssociationResultFilterSensitiveLog = (obj: GetDomainAssociationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobRequestFilterSensitiveLog = (obj: GetJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StepFilterSensitiveLog = (obj: Step): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobFilterSensitiveLog = (obj: Job): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobResultFilterSensitiveLog = (obj: GetJobResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWebhookRequestFilterSensitiveLog = (obj: GetWebhookRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWebhookResultFilterSensitiveLog = (obj: GetWebhookResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppsRequestFilterSensitiveLog = (obj: ListAppsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppsResultFilterSensitiveLog = (obj: ListAppsResult): any => ({
+  ...obj,
+  ...(obj.apps && { apps: obj.apps.map((item) => AppFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListArtifactsRequestFilterSensitiveLog = (obj: ListArtifactsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArtifactFilterSensitiveLog = (obj: Artifact): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListArtifactsResultFilterSensitiveLog = (obj: ListArtifactsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBackendEnvironmentsRequestFilterSensitiveLog = (obj: ListBackendEnvironmentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBackendEnvironmentsResultFilterSensitiveLog = (obj: ListBackendEnvironmentsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBranchesRequestFilterSensitiveLog = (obj: ListBranchesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBranchesResultFilterSensitiveLog = (obj: ListBranchesResult): any => ({
+  ...obj,
+  ...(obj.branches && { branches: obj.branches.map((item) => BranchFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListDomainAssociationsRequestFilterSensitiveLog = (obj: ListDomainAssociationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainAssociationsResultFilterSensitiveLog = (obj: ListDomainAssociationsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsRequestFilterSensitiveLog = (obj: ListJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsResultFilterSensitiveLog = (obj: ListJobsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWebhooksRequestFilterSensitiveLog = (obj: ListWebhooksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWebhooksResultFilterSensitiveLog = (obj: ListWebhooksResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDeploymentRequestFilterSensitiveLog = (obj: StartDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDeploymentResultFilterSensitiveLog = (obj: StartDeploymentResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartJobRequestFilterSensitiveLog = (obj: StartJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartJobResultFilterSensitiveLog = (obj: StartJobResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopJobRequestFilterSensitiveLog = (obj: StopJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopJobResultFilterSensitiveLog = (obj: StopJobResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAppRequestFilterSensitiveLog = (obj: UpdateAppRequest): any => ({
+  ...obj,
+  ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
+  ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
+  ...(obj.autoBranchCreationConfig && {
+    autoBranchCreationConfig: AutoBranchCreationConfigFilterSensitiveLog(obj.autoBranchCreationConfig),
+  }),
+  ...(obj.oauthToken && { oauthToken: SENSITIVE_STRING }),
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAppResultFilterSensitiveLog = (obj: UpdateAppResult): any => ({
+  ...obj,
+  ...(obj.app && { app: AppFilterSensitiveLog(obj.app) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateBranchRequestFilterSensitiveLog = (obj: UpdateBranchRequest): any => ({
+  ...obj,
+  ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
+  ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateBranchResultFilterSensitiveLog = (obj: UpdateBranchResult): any => ({
+  ...obj,
+  ...(obj.branch && { branch: BranchFilterSensitiveLog(obj.branch) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainAssociationRequestFilterSensitiveLog = (obj: UpdateDomainAssociationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainAssociationResultFilterSensitiveLog = (obj: UpdateDomainAssociationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWebhookRequestFilterSensitiveLog = (obj: UpdateWebhookRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWebhookResultFilterSensitiveLog = (obj: UpdateWebhookResult): any => ({
+  ...obj,
+});

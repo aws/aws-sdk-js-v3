@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient";
-import { DeleteScalingPlanRequest, DeleteScalingPlanResponse } from "../models/models_0";
+import {
+  DeleteScalingPlanRequest,
+  DeleteScalingPlanRequestFilterSensitiveLog,
+  DeleteScalingPlanResponse,
+  DeleteScalingPlanResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteScalingPlanCommand,
   serializeAws_json1_1DeleteScalingPlanCommand,
@@ -76,8 +81,8 @@ export class DeleteScalingPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScalingPlanRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteScalingPlanResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteScalingPlanRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteScalingPlanResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { PutAccountPreferencesRequest, PutAccountPreferencesResponse } from "../models/models_0";
+import {
+  PutAccountPreferencesRequest,
+  PutAccountPreferencesRequestFilterSensitiveLog,
+  PutAccountPreferencesResponse,
+  PutAccountPreferencesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutAccountPreferencesCommand,
   serializeAws_restJson1PutAccountPreferencesCommand,
@@ -82,8 +87,8 @@ export class PutAccountPreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccountPreferencesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutAccountPreferencesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAccountPreferencesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutAccountPreferencesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

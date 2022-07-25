@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CancelTaskInput, CancelTaskOutput } from "../models/models_0";
+import {
+  CancelTaskInput,
+  CancelTaskInputFilterSensitiveLog,
+  CancelTaskOutput,
+  CancelTaskOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CancelTaskCommand,
   serializeAws_restJson1CancelTaskCommand,
@@ -81,8 +86,8 @@ export class CancelTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelTaskInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelTaskOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelTaskInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelTaskOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

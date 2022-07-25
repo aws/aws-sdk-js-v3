@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DescribeTagsRequest, DescribeTagsResponse } from "../models/models_0";
+import {
+  DescribeTagsRequest,
+  DescribeTagsRequestFilterSensitiveLog,
+  DescribeTagsResponse,
+  DescribeTagsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeTagsCommand,
   serializeAws_restJson1DescribeTagsCommand,
@@ -83,8 +88,8 @@ export class DescribeTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

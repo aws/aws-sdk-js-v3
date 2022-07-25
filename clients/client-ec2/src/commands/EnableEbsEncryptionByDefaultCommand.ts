@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { EnableEbsEncryptionByDefaultRequest, EnableEbsEncryptionByDefaultResult } from "../models/models_4";
+import {
+  EnableEbsEncryptionByDefaultRequest,
+  EnableEbsEncryptionByDefaultRequestFilterSensitiveLog,
+  EnableEbsEncryptionByDefaultResult,
+  EnableEbsEncryptionByDefaultResultFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2EnableEbsEncryptionByDefaultCommand,
   serializeAws_ec2EnableEbsEncryptionByDefaultCommand,
@@ -85,8 +90,8 @@ export class EnableEbsEncryptionByDefaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableEbsEncryptionByDefaultRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: EnableEbsEncryptionByDefaultResult.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableEbsEncryptionByDefaultRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: EnableEbsEncryptionByDefaultResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

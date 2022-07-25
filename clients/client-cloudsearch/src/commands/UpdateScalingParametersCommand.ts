@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { UpdateScalingParametersRequest, UpdateScalingParametersResponse } from "../models/models_0";
+import {
+  UpdateScalingParametersRequest,
+  UpdateScalingParametersRequestFilterSensitiveLog,
+  UpdateScalingParametersResponse,
+  UpdateScalingParametersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryUpdateScalingParametersCommand,
   serializeAws_queryUpdateScalingParametersCommand,
@@ -72,8 +77,8 @@ export class UpdateScalingParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateScalingParametersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateScalingParametersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateScalingParametersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateScalingParametersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

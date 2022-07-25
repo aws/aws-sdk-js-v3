@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopEdgePackagingJobRequest } from "../models/models_3";
+import { StopEdgePackagingJobRequest, StopEdgePackagingJobRequestFilterSensitiveLog } from "../models/models_3";
 import {
   deserializeAws_json1_1StopEdgePackagingJobCommand,
   serializeAws_json1_1StopEdgePackagingJobCommand,
@@ -72,7 +72,7 @@ export class StopEdgePackagingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopEdgePackagingJobRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: StopEdgePackagingJobRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

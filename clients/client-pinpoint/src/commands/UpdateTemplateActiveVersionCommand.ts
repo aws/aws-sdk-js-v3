@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateTemplateActiveVersionRequest, UpdateTemplateActiveVersionResponse } from "../models/models_1";
+import {
+  UpdateTemplateActiveVersionRequest,
+  UpdateTemplateActiveVersionRequestFilterSensitiveLog,
+  UpdateTemplateActiveVersionResponse,
+  UpdateTemplateActiveVersionResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1UpdateTemplateActiveVersionCommand,
@@ -74,8 +79,8 @@ export class UpdateTemplateActiveVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTemplateActiveVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTemplateActiveVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTemplateActiveVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTemplateActiveVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

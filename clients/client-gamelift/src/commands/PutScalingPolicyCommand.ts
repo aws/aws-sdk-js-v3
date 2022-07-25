@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { PutScalingPolicyInput, PutScalingPolicyOutput } from "../models/models_0";
+import {
+  PutScalingPolicyInput,
+  PutScalingPolicyInputFilterSensitiveLog,
+  PutScalingPolicyOutput,
+  PutScalingPolicyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutScalingPolicyCommand,
   serializeAws_json1_1PutScalingPolicyCommand,
@@ -148,8 +153,8 @@ export class PutScalingPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutScalingPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PutScalingPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutScalingPolicyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PutScalingPolicyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

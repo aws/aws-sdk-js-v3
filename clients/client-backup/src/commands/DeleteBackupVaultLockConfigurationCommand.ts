@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DeleteBackupVaultLockConfigurationInput } from "../models/models_0";
+import {
+  DeleteBackupVaultLockConfigurationInput,
+  DeleteBackupVaultLockConfigurationInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBackupVaultLockConfigurationCommand,
   serializeAws_restJson1DeleteBackupVaultLockConfigurationCommand,
@@ -77,7 +80,7 @@ export class DeleteBackupVaultLockConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBackupVaultLockConfigurationInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBackupVaultLockConfigurationInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

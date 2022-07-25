@@ -27,25 +27,7 @@ export interface AssociateDeviceWithPlacementRequest {
   deviceTemplateName: string | undefined;
 }
 
-export namespace AssociateDeviceWithPlacementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDeviceWithPlacementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateDeviceWithPlacementResponse {}
-
-export namespace AssociateDeviceWithPlacementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDeviceWithPlacementResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p></p>
@@ -149,25 +131,7 @@ export interface CreatePlacementRequest {
   attributes?: Record<string, string>;
 }
 
-export namespace CreatePlacementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePlacementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePlacementResponse {}
-
-export namespace CreatePlacementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePlacementResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>An object representing a device for a placement template (see <a>PlacementTemplate</a>).</p>
@@ -185,15 +149,6 @@ export interface DeviceTemplate {
   callbackOverrides?: Record<string, string>;
 }
 
-export namespace DeviceTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceTemplate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object defining the template for a placement.</p>
  */
@@ -209,15 +164,6 @@ export interface PlacementTemplate {
    *         (<a>PlacementTemplate</a>) template.</p>
    */
   deviceTemplates?: Record<string, DeviceTemplate>;
-}
-
-export namespace PlacementTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlacementTemplate): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProjectRequest {
@@ -247,25 +193,7 @@ export interface CreateProjectRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProjectResponse {}
-
-export namespace CreateProjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeletePlacementRequest {
   /**
@@ -279,25 +207,7 @@ export interface DeletePlacementRequest {
   projectName: string | undefined;
 }
 
-export namespace DeletePlacementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePlacementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePlacementResponse {}
-
-export namespace DeletePlacementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePlacementResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p></p>
@@ -327,25 +237,7 @@ export interface DeleteProjectRequest {
   projectName: string | undefined;
 }
 
-export namespace DeleteProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProjectResponse {}
-
-export namespace DeleteProjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribePlacementRequest {
   /**
@@ -357,15 +249,6 @@ export interface DescribePlacementRequest {
    * <p>The project containing the placement to be described.</p>
    */
   projectName: string | undefined;
-}
-
-export namespace DescribePlacementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePlacementRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -400,15 +283,6 @@ export interface PlacementDescription {
   updatedDate: Date | undefined;
 }
 
-export namespace PlacementDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlacementDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePlacementResponse {
   /**
    * <p>An object describing the placement.</p>
@@ -416,29 +290,11 @@ export interface DescribePlacementResponse {
   placement: PlacementDescription | undefined;
 }
 
-export namespace DescribePlacementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePlacementResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProjectRequest {
   /**
    * <p>The name of the project to be described.</p>
    */
   projectName: string | undefined;
-}
-
-export namespace DescribeProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -483,29 +339,11 @@ export interface ProjectDescription {
   tags?: Record<string, string>;
 }
 
-export namespace ProjectDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProjectResponse {
   /**
    * <p>An object describing the project.</p>
    */
   project: ProjectDescription | undefined;
-}
-
-export namespace DescribeProjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateDeviceFromPlacementRequest {
@@ -525,25 +363,7 @@ export interface DisassociateDeviceFromPlacementRequest {
   deviceTemplateName: string | undefined;
 }
 
-export namespace DisassociateDeviceFromPlacementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDeviceFromPlacementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateDeviceFromPlacementResponse {}
-
-export namespace DisassociateDeviceFromPlacementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDeviceFromPlacementResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetDevicesInPlacementRequest {
   /**
@@ -557,29 +377,11 @@ export interface GetDevicesInPlacementRequest {
   placementName: string | undefined;
 }
 
-export namespace GetDevicesInPlacementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDevicesInPlacementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDevicesInPlacementResponse {
   /**
    * <p>An object containing the devices (zero or more) within the placement.</p>
    */
   devices: Record<string, string> | undefined;
-}
-
-export namespace GetDevicesInPlacementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDevicesInPlacementResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPlacementsRequest {
@@ -598,15 +400,6 @@ export interface ListPlacementsRequest {
    *       used.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListPlacementsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPlacementsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -636,15 +429,6 @@ export interface PlacementSummary {
   updatedDate: Date | undefined;
 }
 
-export namespace PlacementSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlacementSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPlacementsResponse {
   /**
    * <p>An object listing the requested placements.</p>
@@ -658,15 +442,6 @@ export interface ListPlacementsResponse {
   nextToken?: string;
 }
 
-export namespace ListPlacementsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPlacementsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProjectsRequest {
   /**
    * <p>The token to retrieve the next set of results.</p>
@@ -678,15 +453,6 @@ export interface ListProjectsRequest {
    *       used.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListProjectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -721,15 +487,6 @@ export interface ProjectSummary {
   tags?: Record<string, string>;
 }
 
-export namespace ProjectSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProjectsResponse {
   /**
    * <p>An object containing the list of projects.</p>
@@ -743,15 +500,6 @@ export interface ListProjectsResponse {
   nextToken?: string;
 }
 
-export namespace ListProjectsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource whose tags you want to list.</p>
@@ -759,29 +507,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags (metadata key/value pairs) which you have assigned to the resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -797,25 +527,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -829,25 +541,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdatePlacementRequest {
   /**
@@ -867,25 +561,7 @@ export interface UpdatePlacementRequest {
   attributes?: Record<string, string>;
 }
 
-export namespace UpdatePlacementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePlacementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePlacementResponse {}
-
-export namespace UpdatePlacementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePlacementResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateProjectRequest {
   /**
@@ -907,22 +583,278 @@ export interface UpdateProjectRequest {
   placementTemplate?: PlacementTemplate;
 }
 
-export namespace UpdateProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateProjectResponse {}
 
-export namespace UpdateProjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AssociateDeviceWithPlacementRequestFilterSensitiveLog = (
+  obj: AssociateDeviceWithPlacementRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateDeviceWithPlacementResponseFilterSensitiveLog = (
+  obj: AssociateDeviceWithPlacementResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePlacementRequestFilterSensitiveLog = (obj: CreatePlacementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePlacementResponseFilterSensitiveLog = (obj: CreatePlacementResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceTemplateFilterSensitiveLog = (obj: DeviceTemplate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlacementTemplateFilterSensitiveLog = (obj: PlacementTemplate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProjectRequestFilterSensitiveLog = (obj: CreateProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProjectResponseFilterSensitiveLog = (obj: CreateProjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePlacementRequestFilterSensitiveLog = (obj: DeletePlacementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePlacementResponseFilterSensitiveLog = (obj: DeletePlacementResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectRequestFilterSensitiveLog = (obj: DeleteProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectResponseFilterSensitiveLog = (obj: DeleteProjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePlacementRequestFilterSensitiveLog = (obj: DescribePlacementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlacementDescriptionFilterSensitiveLog = (obj: PlacementDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePlacementResponseFilterSensitiveLog = (obj: DescribePlacementResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProjectRequestFilterSensitiveLog = (obj: DescribeProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectDescriptionFilterSensitiveLog = (obj: ProjectDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProjectResponseFilterSensitiveLog = (obj: DescribeProjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateDeviceFromPlacementRequestFilterSensitiveLog = (
+  obj: DisassociateDeviceFromPlacementRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateDeviceFromPlacementResponseFilterSensitiveLog = (
+  obj: DisassociateDeviceFromPlacementResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDevicesInPlacementRequestFilterSensitiveLog = (obj: GetDevicesInPlacementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDevicesInPlacementResponseFilterSensitiveLog = (obj: GetDevicesInPlacementResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPlacementsRequestFilterSensitiveLog = (obj: ListPlacementsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlacementSummaryFilterSensitiveLog = (obj: PlacementSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPlacementsResponseFilterSensitiveLog = (obj: ListPlacementsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProjectsRequestFilterSensitiveLog = (obj: ListProjectsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectSummaryFilterSensitiveLog = (obj: ProjectSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProjectsResponseFilterSensitiveLog = (obj: ListProjectsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePlacementRequestFilterSensitiveLog = (obj: UpdatePlacementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePlacementResponseFilterSensitiveLog = (obj: UpdatePlacementResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectRequestFilterSensitiveLog = (obj: UpdateProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectResponseFilterSensitiveLog = (obj: UpdateProjectResponse): any => ({
+  ...obj,
+});

@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ResetNetworkInterfaceAttributeRequest } from "../models/models_6";
+import {
+  ResetNetworkInterfaceAttributeRequest,
+  ResetNetworkInterfaceAttributeRequestFilterSensitiveLog,
+} from "../models/models_6";
 import {
   deserializeAws_ec2ResetNetworkInterfaceAttributeCommand,
   serializeAws_ec2ResetNetworkInterfaceAttributeCommand,
@@ -72,7 +75,7 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetNetworkInterfaceAttributeRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetNetworkInterfaceAttributeRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { CloseInstancePublicPortsRequest, CloseInstancePublicPortsResult } from "../models/models_0";
+import {
+  CloseInstancePublicPortsRequest,
+  CloseInstancePublicPortsRequestFilterSensitiveLog,
+  CloseInstancePublicPortsResult,
+  CloseInstancePublicPortsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CloseInstancePublicPortsCommand,
   serializeAws_json1_1CloseInstancePublicPortsCommand,
@@ -75,8 +80,8 @@ export class CloseInstancePublicPortsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CloseInstancePublicPortsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CloseInstancePublicPortsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CloseInstancePublicPortsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CloseInstancePublicPortsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

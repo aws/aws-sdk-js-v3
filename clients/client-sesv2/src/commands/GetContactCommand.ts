@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetContactRequest, GetContactResponse } from "../models/models_0";
+import {
+  GetContactRequest,
+  GetContactRequestFilterSensitiveLog,
+  GetContactResponse,
+  GetContactResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetContactCommand,
   serializeAws_restJson1GetContactCommand,
@@ -72,8 +77,8 @@ export class GetContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContactRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetContactResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetContactRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetContactResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

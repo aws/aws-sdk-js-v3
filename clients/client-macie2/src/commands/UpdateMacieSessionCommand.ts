@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { UpdateMacieSessionRequest, UpdateMacieSessionResponse } from "../models/models_0";
+import {
+  UpdateMacieSessionRequest,
+  UpdateMacieSessionRequestFilterSensitiveLog,
+  UpdateMacieSessionResponse,
+  UpdateMacieSessionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateMacieSessionCommand,
   serializeAws_restJson1UpdateMacieSessionCommand,
@@ -72,8 +77,8 @@ export class UpdateMacieSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMacieSessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMacieSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateMacieSessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMacieSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

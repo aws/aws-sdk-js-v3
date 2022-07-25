@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { UpdateClusterVersionRequest, UpdateClusterVersionResponse } from "../models/models_0";
+import {
+  UpdateClusterVersionRequest,
+  UpdateClusterVersionRequestFilterSensitiveLog,
+  UpdateClusterVersionResponse,
+  UpdateClusterVersionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateClusterVersionCommand,
   serializeAws_restJson1UpdateClusterVersionCommand,
@@ -81,8 +86,8 @@ export class UpdateClusterVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClusterVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClusterVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateClusterVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateClusterVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

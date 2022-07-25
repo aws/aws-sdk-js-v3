@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { StartAssessmentRunRequest, StartAssessmentRunResponse } from "../models/models_0";
+import {
+  StartAssessmentRunRequest,
+  StartAssessmentRunRequestFilterSensitiveLog,
+  StartAssessmentRunResponse,
+  StartAssessmentRunResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartAssessmentRunCommand,
   serializeAws_json1_1StartAssessmentRunCommand,
@@ -74,8 +79,8 @@ export class StartAssessmentRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartAssessmentRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartAssessmentRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartAssessmentRunRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartAssessmentRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

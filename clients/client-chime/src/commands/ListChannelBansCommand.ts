@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { ListChannelBansRequest, ListChannelBansResponse } from "../models/models_1";
+import {
+  ListChannelBansRequest,
+  ListChannelBansRequestFilterSensitiveLog,
+  ListChannelBansResponse,
+  ListChannelBansResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListChannelBansCommand,
   serializeAws_restJson1ListChannelBansCommand,
@@ -79,8 +84,8 @@ export class ListChannelBansCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListChannelBansRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListChannelBansResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListChannelBansRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListChannelBansResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

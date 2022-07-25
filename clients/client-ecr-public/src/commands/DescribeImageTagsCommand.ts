@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import { DescribeImageTagsRequest, DescribeImageTagsResponse } from "../models/models_0";
+import {
+  DescribeImageTagsRequest,
+  DescribeImageTagsRequestFilterSensitiveLog,
+  DescribeImageTagsResponse,
+  DescribeImageTagsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeImageTagsCommand,
   serializeAws_json1_1DescribeImageTagsCommand,
@@ -72,8 +77,8 @@ export class DescribeImageTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImageTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImageTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeImageTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeImageTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

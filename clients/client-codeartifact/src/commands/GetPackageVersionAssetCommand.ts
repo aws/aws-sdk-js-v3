@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { GetPackageVersionAssetRequest, GetPackageVersionAssetResult } from "../models/models_0";
+import {
+  GetPackageVersionAssetRequest,
+  GetPackageVersionAssetRequestFilterSensitiveLog,
+  GetPackageVersionAssetResult,
+  GetPackageVersionAssetResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetPackageVersionAssetCommand,
   serializeAws_restJson1GetPackageVersionAssetCommand,
@@ -76,8 +81,8 @@ export class GetPackageVersionAssetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPackageVersionAssetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPackageVersionAssetResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPackageVersionAssetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetPackageVersionAssetResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

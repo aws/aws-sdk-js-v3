@@ -13,7 +13,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketInventoryConfigurationRequest } from "../models/models_0";
+import {
+  PutBucketInventoryConfigurationRequest,
+  PutBucketInventoryConfigurationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlPutBucketInventoryConfigurationCommand,
   serializeAws_restXmlPutBucketInventoryConfigurationCommand,
@@ -174,7 +177,7 @@ export class PutBucketInventoryConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketInventoryConfigurationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutBucketInventoryConfigurationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

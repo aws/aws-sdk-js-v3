@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import { GetMinuteUsageRequest, GetMinuteUsageResponse } from "../models/models_0";
+import {
+  GetMinuteUsageRequest,
+  GetMinuteUsageRequestFilterSensitiveLog,
+  GetMinuteUsageResponse,
+  GetMinuteUsageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetMinuteUsageCommand,
   serializeAws_restJson1GetMinuteUsageCommand,
@@ -72,8 +77,8 @@ export class GetMinuteUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMinuteUsageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMinuteUsageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMinuteUsageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMinuteUsageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

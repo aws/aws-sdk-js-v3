@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PhoneNumberValidateRequest, PhoneNumberValidateResponse } from "../models/models_1";
+import {
+  PhoneNumberValidateRequest,
+  PhoneNumberValidateRequestFilterSensitiveLog,
+  PhoneNumberValidateResponse,
+  PhoneNumberValidateResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1PhoneNumberValidateCommand,
@@ -72,8 +77,8 @@ export class PhoneNumberValidateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PhoneNumberValidateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PhoneNumberValidateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PhoneNumberValidateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PhoneNumberValidateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

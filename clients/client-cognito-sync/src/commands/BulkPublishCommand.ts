@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { BulkPublishRequest, BulkPublishResponse } from "../models/models_0";
+import {
+  BulkPublishRequest,
+  BulkPublishRequestFilterSensitiveLog,
+  BulkPublishResponse,
+  BulkPublishResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BulkPublishCommand,
   serializeAws_restJson1BulkPublishCommand,
@@ -72,8 +77,8 @@ export class BulkPublishCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BulkPublishRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BulkPublishResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BulkPublishRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BulkPublishResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

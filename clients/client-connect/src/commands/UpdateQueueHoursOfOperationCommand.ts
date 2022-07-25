@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateQueueHoursOfOperationRequest } from "../models/models_1";
+import {
+  UpdateQueueHoursOfOperationRequest,
+  UpdateQueueHoursOfOperationRequestFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateQueueHoursOfOperationCommand,
   serializeAws_restJson1UpdateQueueHoursOfOperationCommand,
@@ -73,7 +76,7 @@ export class UpdateQueueHoursOfOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateQueueHoursOfOperationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateQueueHoursOfOperationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

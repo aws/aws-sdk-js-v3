@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeletePendingAggregationRequestRequest } from "../models/models_0";
+import {
+  DeletePendingAggregationRequestRequest,
+  DeletePendingAggregationRequestRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePendingAggregationRequestCommand,
   serializeAws_json1_1DeletePendingAggregationRequestCommand,
@@ -73,7 +76,7 @@ export class DeletePendingAggregationRequestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePendingAggregationRequestRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePendingAggregationRequestRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

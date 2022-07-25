@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { StopReplicationTaskMessage, StopReplicationTaskResponse } from "../models/models_0";
+import {
+  StopReplicationTaskMessage,
+  StopReplicationTaskMessageFilterSensitiveLog,
+  StopReplicationTaskResponse,
+  StopReplicationTaskResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StopReplicationTaskCommand,
   serializeAws_json1_1StopReplicationTaskCommand,
@@ -76,8 +81,8 @@ export class StopReplicationTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopReplicationTaskMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: StopReplicationTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopReplicationTaskMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: StopReplicationTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

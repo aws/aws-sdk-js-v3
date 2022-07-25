@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
-import { CreateParticipantConnectionRequest, CreateParticipantConnectionResponse } from "../models/models_0";
+import {
+  CreateParticipantConnectionRequest,
+  CreateParticipantConnectionRequestFilterSensitiveLog,
+  CreateParticipantConnectionResponse,
+  CreateParticipantConnectionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateParticipantConnectionCommand,
   serializeAws_restJson1CreateParticipantConnectionCommand,
@@ -106,8 +111,8 @@ export class CreateParticipantConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateParticipantConnectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateParticipantConnectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateParticipantConnectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateParticipantConnectionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

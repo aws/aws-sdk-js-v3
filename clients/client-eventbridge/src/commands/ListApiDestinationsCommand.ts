@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { ListApiDestinationsRequest, ListApiDestinationsResponse } from "../models/models_0";
+import {
+  ListApiDestinationsRequest,
+  ListApiDestinationsRequestFilterSensitiveLog,
+  ListApiDestinationsResponse,
+  ListApiDestinationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListApiDestinationsCommand,
   serializeAws_json1_1ListApiDestinationsCommand,
@@ -72,8 +77,8 @@ export class ListApiDestinationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApiDestinationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListApiDestinationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListApiDestinationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListApiDestinationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

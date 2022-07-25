@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { LaunchConfigurationNameType } from "../models/models_0";
+import { LaunchConfigurationNameType, LaunchConfigurationNameTypeFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDeleteLaunchConfigurationCommand,
   serializeAws_queryDeleteLaunchConfigurationCommand,
@@ -74,7 +74,7 @@ export class DeleteLaunchConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LaunchConfigurationNameType.filterSensitiveLog,
+      inputFilterSensitiveLog: LaunchConfigurationNameTypeFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

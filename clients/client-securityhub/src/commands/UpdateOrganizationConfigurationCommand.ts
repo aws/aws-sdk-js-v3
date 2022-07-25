@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateOrganizationConfigurationRequest, UpdateOrganizationConfigurationResponse } from "../models/models_2";
+import {
+  UpdateOrganizationConfigurationRequest,
+  UpdateOrganizationConfigurationRequestFilterSensitiveLog,
+  UpdateOrganizationConfigurationResponse,
+  UpdateOrganizationConfigurationResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateOrganizationConfigurationCommand,
   serializeAws_restJson1UpdateOrganizationConfigurationCommand,
@@ -75,8 +80,8 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOrganizationConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateOrganizationConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateOrganizationConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateOrganizationConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

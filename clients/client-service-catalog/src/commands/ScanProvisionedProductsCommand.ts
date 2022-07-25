@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ScanProvisionedProductsInput, ScanProvisionedProductsOutput } from "../models/models_0";
+import {
+  ScanProvisionedProductsInput,
+  ScanProvisionedProductsInputFilterSensitiveLog,
+  ScanProvisionedProductsOutput,
+  ScanProvisionedProductsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ScanProvisionedProductsCommand,
   serializeAws_json1_1ScanProvisionedProductsCommand,
@@ -73,8 +78,8 @@ export class ScanProvisionedProductsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScanProvisionedProductsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ScanProvisionedProductsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ScanProvisionedProductsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ScanProvisionedProductsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

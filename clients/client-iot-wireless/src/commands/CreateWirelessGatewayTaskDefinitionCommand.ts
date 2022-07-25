@@ -15,7 +15,9 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   CreateWirelessGatewayTaskDefinitionRequest,
+  CreateWirelessGatewayTaskDefinitionRequestFilterSensitiveLog,
   CreateWirelessGatewayTaskDefinitionResponse,
+  CreateWirelessGatewayTaskDefinitionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateWirelessGatewayTaskDefinitionCommand,
@@ -77,8 +79,8 @@ export class CreateWirelessGatewayTaskDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWirelessGatewayTaskDefinitionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateWirelessGatewayTaskDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateWirelessGatewayTaskDefinitionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateWirelessGatewayTaskDefinitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

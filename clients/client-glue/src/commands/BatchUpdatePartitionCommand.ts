@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { BatchUpdatePartitionRequest, BatchUpdatePartitionResponse } from "../models/models_0";
+import {
+  BatchUpdatePartitionRequest,
+  BatchUpdatePartitionRequestFilterSensitiveLog,
+  BatchUpdatePartitionResponse,
+  BatchUpdatePartitionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1BatchUpdatePartitionCommand,
   serializeAws_json1_1BatchUpdatePartitionCommand,
@@ -72,8 +77,8 @@ export class BatchUpdatePartitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUpdatePartitionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdatePartitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchUpdatePartitionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchUpdatePartitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

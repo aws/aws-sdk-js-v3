@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { SetSecurityGroupsInput, SetSecurityGroupsOutput } from "../models/models_0";
+import {
+  SetSecurityGroupsInput,
+  SetSecurityGroupsInputFilterSensitiveLog,
+  SetSecurityGroupsOutput,
+  SetSecurityGroupsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_querySetSecurityGroupsCommand,
   serializeAws_querySetSecurityGroupsCommand,
@@ -79,8 +84,8 @@ export class SetSecurityGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetSecurityGroupsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: SetSecurityGroupsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetSecurityGroupsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: SetSecurityGroupsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

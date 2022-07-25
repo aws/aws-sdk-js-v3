@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { ListTaskExecutionsRequest, ListTaskExecutionsResponse } from "../models/models_0";
+import {
+  ListTaskExecutionsRequest,
+  ListTaskExecutionsRequestFilterSensitiveLog,
+  ListTaskExecutionsResponse,
+  ListTaskExecutionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListTaskExecutionsCommand,
   serializeAws_json1_1ListTaskExecutionsCommand,
@@ -72,8 +77,8 @@ export class ListTaskExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTaskExecutionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTaskExecutionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTaskExecutionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTaskExecutionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

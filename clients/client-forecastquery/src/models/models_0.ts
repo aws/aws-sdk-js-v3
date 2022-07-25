@@ -105,15 +105,6 @@ export interface QueryForecastRequest {
   NextToken?: string;
 }
 
-export namespace QueryForecastRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryForecastRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The forecast value for a specific date. Part of the <a>Forecast</a>
  *       object.</p>
@@ -128,15 +119,6 @@ export interface DataPoint {
    * <p>The forecast value.</p>
    */
   Value?: number;
-}
-
-export namespace DataPoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataPoint): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -162,29 +144,11 @@ export interface Forecast {
   Predictions?: Record<string, DataPoint[]>;
 }
 
-export namespace Forecast {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Forecast): any => ({
-    ...obj,
-  });
-}
-
 export interface QueryForecastResponse {
   /**
    * <p>The forecast.</p>
    */
   Forecast?: Forecast;
-}
-
-export namespace QueryForecastResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryForecastResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -229,3 +193,31 @@ export class ResourceNotFoundException extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * @internal
+ */
+export const QueryForecastRequestFilterSensitiveLog = (obj: QueryForecastRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataPointFilterSensitiveLog = (obj: DataPoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ForecastFilterSensitiveLog = (obj: Forecast): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryForecastResponseFilterSensitiveLog = (obj: QueryForecastResponse): any => ({
+  ...obj,
+});

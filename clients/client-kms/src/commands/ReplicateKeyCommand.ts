@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { ReplicateKeyRequest, ReplicateKeyResponse } from "../models/models_0";
+import {
+  ReplicateKeyRequest,
+  ReplicateKeyRequestFilterSensitiveLog,
+  ReplicateKeyResponse,
+  ReplicateKeyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ReplicateKeyCommand,
   serializeAws_json1_1ReplicateKeyCommand,
@@ -153,8 +158,8 @@ export class ReplicateKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplicateKeyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ReplicateKeyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ReplicateKeyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ReplicateKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

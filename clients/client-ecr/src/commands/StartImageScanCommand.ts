@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { StartImageScanRequest, StartImageScanResponse } from "../models/models_0";
+import {
+  StartImageScanRequest,
+  StartImageScanRequestFilterSensitiveLog,
+  StartImageScanResponse,
+  StartImageScanResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartImageScanCommand,
   serializeAws_json1_1StartImageScanCommand,
@@ -75,8 +80,8 @@ export class StartImageScanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartImageScanRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartImageScanResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartImageScanRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartImageScanResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

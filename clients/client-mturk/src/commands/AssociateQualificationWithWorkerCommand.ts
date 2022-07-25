@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssociateQualificationWithWorkerRequest, AssociateQualificationWithWorkerResponse } from "../models/models_0";
+import {
+  AssociateQualificationWithWorkerRequest,
+  AssociateQualificationWithWorkerRequestFilterSensitiveLog,
+  AssociateQualificationWithWorkerResponse,
+  AssociateQualificationWithWorkerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1AssociateQualificationWithWorkerCommand,
@@ -94,8 +99,8 @@ export class AssociateQualificationWithWorkerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateQualificationWithWorkerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateQualificationWithWorkerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateQualificationWithWorkerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateQualificationWithWorkerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

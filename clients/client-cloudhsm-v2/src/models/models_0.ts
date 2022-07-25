@@ -25,15 +25,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a backup of an AWS CloudHSM cluster. All backup objects
  *       contain the <code>BackupId</code>, <code>BackupState</code>, <code>ClusterId</code>, and
@@ -103,15 +94,6 @@ export interface Backup {
   TagList?: Tag[];
 }
 
-export namespace Backup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Backup): any => ({
-    ...obj,
-  });
-}
-
 export enum BackupPolicy {
   DEFAULT = "DEFAULT",
 }
@@ -134,15 +116,6 @@ export interface BackupRetentionPolicy {
    * <p>Use a value between 7 - 379.</p>
    */
   Value?: string;
-}
-
-export namespace BackupRetentionPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackupRetentionPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -291,15 +264,6 @@ export interface CopyBackupToRegionRequest {
   TagList?: Tag[];
 }
 
-export namespace CopyBackupToRegionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyBackupToRegionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the backup that will be copied and created by the <a>CopyBackupToRegion</a> operation.</p>
  */
@@ -325,15 +289,6 @@ export interface DestinationBackup {
   SourceCluster?: string;
 }
 
-export namespace DestinationBackup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationBackup): any => ({
-    ...obj,
-  });
-}
-
 export interface CopyBackupToRegionResponse {
   /**
    * <p>Information on the backup that will be copied to the destination region, including
@@ -344,15 +299,6 @@ export interface CopyBackupToRegionResponse {
    *       destination region.</p>
    */
   DestinationBackup?: DestinationBackup;
-}
-
-export namespace CopyBackupToRegionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyBackupToRegionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateClusterRequest {
@@ -394,15 +340,6 @@ export interface CreateClusterRequest {
   TagList?: Tag[];
 }
 
-export namespace CreateClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains one or more certificates or a certificate signing request (CSR).</p>
  */
@@ -433,15 +370,6 @@ export interface Certificates {
    *       the cluster's owner.</p>
    */
   ClusterCertificate?: string;
-}
-
-export namespace Certificates {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Certificates): any => ({
-    ...obj,
-  });
 }
 
 export enum HsmState {
@@ -496,15 +424,6 @@ export interface Hsm {
    * <p>A description of the HSM's state.</p>
    */
   StateMessage?: string;
-}
-
-export namespace Hsm {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Hsm): any => ({
-    ...obj,
-  });
 }
 
 export enum ClusterState {
@@ -601,29 +520,11 @@ export interface Cluster {
   TagList?: Tag[];
 }
 
-export namespace Cluster {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Cluster): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateClusterResponse {
   /**
    * <p>Information about the cluster that was created.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace CreateClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateClusterResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateHsmRequest {
@@ -646,29 +547,11 @@ export interface CreateHsmRequest {
   IpAddress?: string;
 }
 
-export namespace CreateHsmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHsmRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateHsmResponse {
   /**
    * <p>Information about the HSM that was created.</p>
    */
   Hsm?: Hsm;
-}
-
-export namespace CreateHsmResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHsmResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBackupRequest {
@@ -678,29 +561,11 @@ export interface DeleteBackupRequest {
   BackupId: string | undefined;
 }
 
-export namespace DeleteBackupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBackupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBackupResponse {
   /**
    * <p>Information on the <code>Backup</code> object deleted.</p>
    */
   Backup?: Backup;
-}
-
-export namespace DeleteBackupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBackupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteClusterRequest {
@@ -711,29 +576,11 @@ export interface DeleteClusterRequest {
   ClusterId: string | undefined;
 }
 
-export namespace DeleteClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteClusterResponse {
   /**
    * <p>Information about the cluster that was deleted.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace DeleteClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClusterResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteHsmRequest {
@@ -761,29 +608,11 @@ export interface DeleteHsmRequest {
   EniIp?: string;
 }
 
-export namespace DeleteHsmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHsmRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteHsmResponse {
   /**
    * <p>The identifier (ID) of the HSM that was deleted.</p>
    */
   HsmId?: string;
-}
-
-export namespace DeleteHsmResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHsmResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeBackupsRequest {
@@ -823,15 +652,6 @@ export interface DescribeBackupsRequest {
   SortAscending?: boolean;
 }
 
-export namespace DescribeBackupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeBackupsResponse {
   /**
    * <p>A list of backups.</p>
@@ -844,15 +664,6 @@ export interface DescribeBackupsResponse {
    *       backups.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeBackupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeClustersRequest {
@@ -880,15 +691,6 @@ export interface DescribeClustersRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeClustersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClustersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeClustersResponse {
   /**
    * <p>A list of clusters.</p>
@@ -901,15 +703,6 @@ export interface DescribeClustersResponse {
    *       clusters.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeClustersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClustersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface InitializeClusterRequest {
@@ -934,15 +727,6 @@ export interface InitializeClusterRequest {
   TrustAnchor: string | undefined;
 }
 
-export namespace InitializeClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitializeClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface InitializeClusterResponse {
   /**
    * <p>The cluster's state.</p>
@@ -953,15 +737,6 @@ export interface InitializeClusterResponse {
    * <p>A description of the cluster's state.</p>
    */
   StateMessage?: string;
-}
-
-export namespace InitializeClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitializeClusterResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsRequest {
@@ -984,15 +759,6 @@ export interface ListTagsRequest {
   MaxResults?: number;
 }
 
-export namespace ListTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsResponse {
   /**
    * <p>A list of tags.</p>
@@ -1004,15 +770,6 @@ export interface ListTagsResponse {
    *       this value in a subsequent <code>ListTags</code> request to get more tags.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyBackupAttributesRequest {
@@ -1028,15 +785,6 @@ export interface ModifyBackupAttributesRequest {
   NeverExpires: boolean | undefined;
 }
 
-export namespace ModifyBackupAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyBackupAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyBackupAttributesResponse {
   /**
    * <p>Contains information about a backup of an AWS CloudHSM cluster. All backup objects
@@ -1047,15 +795,6 @@ export interface ModifyBackupAttributesResponse {
    *       pending deletion will include the <code>DeleteTimestamp</code> parameter.</p>
    */
   Backup?: Backup;
-}
-
-export namespace ModifyBackupAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyBackupAttributesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyClusterRequest {
@@ -1071,29 +810,11 @@ export interface ModifyClusterRequest {
   ClusterId: string | undefined;
 }
 
-export namespace ModifyClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyClusterResponse {
   /**
    * <p>Contains information about an AWS CloudHSM cluster.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace ModifyClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClusterResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreBackupRequest {
@@ -1103,29 +824,11 @@ export interface RestoreBackupRequest {
   BackupId: string | undefined;
 }
 
-export namespace RestoreBackupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreBackupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreBackupResponse {
   /**
    * <p>Information on the <code>Backup</code> object created.</p>
    */
   Backup?: Backup;
-}
-
-export namespace RestoreBackupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreBackupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -1141,25 +844,7 @@ export interface TagResourceRequest {
   TagList: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1175,22 +860,263 @@ export interface UntagResourceRequest {
   TagKeyList: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackupFilterSensitiveLog = (obj: Backup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackupRetentionPolicyFilterSensitiveLog = (obj: BackupRetentionPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyBackupToRegionRequestFilterSensitiveLog = (obj: CopyBackupToRegionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationBackupFilterSensitiveLog = (obj: DestinationBackup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyBackupToRegionResponseFilterSensitiveLog = (obj: CopyBackupToRegionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterRequestFilterSensitiveLog = (obj: CreateClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificatesFilterSensitiveLog = (obj: Certificates): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HsmFilterSensitiveLog = (obj: Hsm): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterFilterSensitiveLog = (obj: Cluster): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterResponseFilterSensitiveLog = (obj: CreateClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHsmRequestFilterSensitiveLog = (obj: CreateHsmRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHsmResponseFilterSensitiveLog = (obj: CreateHsmResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBackupRequestFilterSensitiveLog = (obj: DeleteBackupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBackupResponseFilterSensitiveLog = (obj: DeleteBackupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteClusterRequestFilterSensitiveLog = (obj: DeleteClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteClusterResponseFilterSensitiveLog = (obj: DeleteClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteHsmRequestFilterSensitiveLog = (obj: DeleteHsmRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteHsmResponseFilterSensitiveLog = (obj: DeleteHsmResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBackupsRequestFilterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBackupsResponseFilterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClustersRequestFilterSensitiveLog = (obj: DescribeClustersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClustersResponseFilterSensitiveLog = (obj: DescribeClustersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitializeClusterRequestFilterSensitiveLog = (obj: InitializeClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitializeClusterResponseFilterSensitiveLog = (obj: InitializeClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyBackupAttributesRequestFilterSensitiveLog = (obj: ModifyBackupAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyBackupAttributesResponseFilterSensitiveLog = (obj: ModifyBackupAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterRequestFilterSensitiveLog = (obj: ModifyClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterResponseFilterSensitiveLog = (obj: ModifyClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreBackupRequestFilterSensitiveLog = (obj: RestoreBackupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreBackupResponseFilterSensitiveLog = (obj: RestoreBackupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

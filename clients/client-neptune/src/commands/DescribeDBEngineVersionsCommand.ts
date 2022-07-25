@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBEngineVersionMessage, DescribeDBEngineVersionsMessage } from "../models/models_0";
+import {
+  DBEngineVersionMessage,
+  DBEngineVersionMessageFilterSensitiveLog,
+  DescribeDBEngineVersionsMessage,
+  DescribeDBEngineVersionsMessageFilterSensitiveLog,
+} from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryDescribeDBEngineVersionsCommand,
@@ -72,8 +77,8 @@ export class DescribeDBEngineVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBEngineVersionsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBEngineVersionMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDBEngineVersionsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DBEngineVersionMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
