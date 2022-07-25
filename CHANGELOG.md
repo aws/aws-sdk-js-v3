@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.136.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.136.0...v3.136.1) (2022-07-25)
+
+
+### Bug Fixes
+
+* **client-kinesis:** support eventstream in subscribeToShard ([#3818](https://github.com/aws/aws-sdk-js-v3/issues/3818)) ([6892bb9](https://github.com/aws/aws-sdk-js-v3/commit/6892bb9057f46c650f19227d9e8b117f0d9c2b68))
+
+
+
+
+
 # [3.136.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.135.0...v3.136.0) (2022-07-22)
 
 
