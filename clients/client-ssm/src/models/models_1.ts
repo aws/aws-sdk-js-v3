@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import {
   AssociationComplianceSeverity,
   AssociationDescription,
+  AssociationDescriptionFilterSensitiveLog,
   AssociationOverview,
   AssociationStatus,
   AssociationSyncCompliance,
@@ -38,6 +39,7 @@ import {
   PatchOrchestratorFilter,
   PatchRuleGroup,
   PatchSource,
+  PatchSourceFilterSensitiveLog,
   PlatformType,
   RelatedOpsItem,
   ResolvedTargets,

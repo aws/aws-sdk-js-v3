@@ -54,6 +54,7 @@ import {
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
   OidcConfig,
+  OidcConfigFilterSensitiveLog,
   ParallelismConfiguration,
   PipelineDefinitionS3Location,
   ProcessingInput,
@@ -71,6 +72,7 @@ import {
   TensorBoardOutputConfig,
   TrialComponentArtifact,
   TrialComponentParameterValue,
+  TrialComponentParameterValueFilterSensitiveLog,
   TrialComponentStatus,
   WorkforceVpcConfigRequest,
 } from "./models_1";

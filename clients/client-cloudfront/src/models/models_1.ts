@@ -17,6 +17,8 @@ import {
   DefaultCacheBehavior,
   Distribution,
   DistributionConfig,
+  DistributionConfigFilterSensitiveLog,
+  DistributionFilterSensitiveLog,
   EncryptionEntities,
   EndPoint,
   FieldLevelEncryption,

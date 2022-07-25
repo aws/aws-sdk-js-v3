@@ -134,6 +134,7 @@ import {
   TensorBoardOutputConfig,
   TrialComponentArtifact,
   TrialComponentParameterValue,
+  TrialComponentParameterValueFilterSensitiveLog,
   TrialComponentStatus,
 } from "./models_1";
 
