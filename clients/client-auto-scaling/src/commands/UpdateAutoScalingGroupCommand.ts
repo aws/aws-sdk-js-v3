@@ -27,8 +27,8 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *             <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b>
  *          </p>
  *         <p>Updates the configuration for the specified Auto Scaling group.</p>
- *         <p>To update an Auto Scaling group, specify the name of the group and the parameter that you want
- *             to change. Any parameters that you don't specify are not changed by this update request.
+ *         <p>To update an Auto Scaling group, specify the name of the group and the property that you want
+ *             to change. Any properties that you don't specify are not changed by this update request.
  *             The new settings take effect on any scaling activities after this call returns.
  *             </p>
  *         <p>If you associate a new launch configuration or template with an Auto Scaling group, all new
@@ -63,7 +63,7 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *                         <code>DesiredCapacity</code> to the new <code>MaxSize</code> value.</p>
  *             </li>
  *          </ul>
- *         <p>To see which parameters have been set, call the <a>DescribeAutoScalingGroups</a> API. To view the scaling policies for an Auto Scaling
+ *         <p>To see which properties have been set, call the <a>DescribeAutoScalingGroups</a> API. To view the scaling policies for an Auto Scaling
  *             group, call the <a>DescribePolicies</a> API. If the group has scaling
  *             policies, you can update them by calling the <a>PutScalingPolicy</a>
  *             API.</p>

@@ -29,23 +29,24 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
  *         <p>This operation is used with the following load balancer types: </p>
  *         <ul>
  *             <li>
- *                 <p> Application Load Balancer - Operates at the application layer (layer 7) and
- *                     supports HTTP and HTTPS. </p>
+ *                 <p>Application Load Balancer - Operates at the application layer (layer 7) and supports HTTP and
+ *                     HTTPS. </p>
  *             </li>
  *             <li>
- *                 <p> Network Load Balancer - Operates at the transport layer (layer 4) and
- *                     supports TCP, TLS, and UDP. </p>
+ *                 <p>Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP, TLS, and
+ *                     UDP. </p>
  *             </li>
  *             <li>
- *                 <p> Gateway Load Balancer - Operates at the network layer (layer 3).</p>
+ *                 <p>Gateway Load Balancer - Operates at the network layer (layer 3).</p>
  *             </li>
  *          </ul>
  *         <p>To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a> API. To detach the target group from
  *             the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a> API.</p>
  *         <p>This operation is additive and does not detach existing target groups or Classic Load
  *             Balancers from the Auto Scaling group.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Elastic Load Balancing and
- *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to
+ *                 distribute traffic across the instances in your Auto Scaling group</a> in the
+ *                 <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

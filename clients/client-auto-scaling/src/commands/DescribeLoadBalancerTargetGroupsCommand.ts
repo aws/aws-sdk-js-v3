@@ -25,9 +25,8 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets information about the load balancer target groups for the specified Auto Scaling
- *             group.</p>
- *         <p>To determine the availability of registered instances, use the <code>State</code>
+ * <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p>
+ *         <p>To determine the attachment status of the target group, use the <code>State</code>
  *             element in the response. When you attach a target group to an Auto Scaling group, the initial
  *                 <code>State</code> value is <code>Adding</code>. The state transitions to
  *                 <code>Added</code> after all Auto Scaling instances are registered with the target group. If
@@ -43,8 +42,9 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
  *             necessary.</p>
  *         <p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling:
  *                 Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more
- *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Elastic Load Balancing and
- *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+ *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to
+ *                 distribute traffic across the instances in your Auto Scaling group</a> in the
+ *                 <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,6 +28,8 @@ export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBe
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  *         <p>You can view the scheduled actions for an Auto Scaling group using the <a>DescribeScheduledActions</a> API call. If you are no longer using a
  *             scheduled action, you can delete it by calling the <a>DeleteScheduledAction</a> API.</p>
+ *         <p>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an error
+ *             message.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

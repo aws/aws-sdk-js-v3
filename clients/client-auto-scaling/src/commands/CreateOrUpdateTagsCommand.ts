@@ -26,7 +26,7 @@ export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
  * <p>Creates or updates tags for the specified Auto Scaling group.</p>
  *         <p>When you specify a tag with a key that already exists, the operation overwrites the
  *             previous tag definition, and you do not get an error message.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging Auto Scaling groups and
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html">Tag Auto Scaling groups and
  *                 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -26,8 +26,8 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * <p>Describes the current Amazon EC2 Auto Scaling resource quotas for your account.</p>
  *         <p>When you establish an Amazon Web Services account, the account has initial quotas on the maximum
  *             number of Auto Scaling groups and launch configurations that you can create in a given Region.
- *             For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling service
- *                 quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *             For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for
+ *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

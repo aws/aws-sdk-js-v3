@@ -23,7 +23,7 @@ export interface DisableMetricsCollectionCommandInput extends DisableMetricsColl
 export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disables group metrics for the specified Auto Scaling group.</p>
+ * <p>Disables group metrics collection for the specified Auto Scaling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

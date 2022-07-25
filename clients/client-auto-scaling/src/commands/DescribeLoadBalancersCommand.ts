@@ -24,9 +24,9 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
 
 /**
  * <p>Gets information about the load balancers for the specified Auto Scaling group.</p>
- *         <p>This operation describes only Classic Load Balancers. If you have Application Load
- *             Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DescribeLoadBalancerTargetGroups</a> API instead.</p>
- *         <p>To determine the availability of registered instances, use the <code>State</code>
+ *         <p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancer, use the
+ *                 <a>DescribeLoadBalancerTargetGroups</a> API instead.</p>
+ *         <p>To determine the attachment status of the load balancer, use the <code>State</code>
  *             element in the response. When you attach a load balancer to an Auto Scaling group, the initial
  *                 <code>State</code> value is <code>Adding</code>. The state transitions to
  *                 <code>Added</code> after all Auto Scaling instances are registered with the load balancer.
@@ -43,8 +43,9 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  *             necessary.</p>
  *         <p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling:
  *                 Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more
- *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Elastic Load Balancing and
- *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+ *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to
+ *                 distribute traffic across the instances in your Auto Scaling group</a> in the
+ *                 <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

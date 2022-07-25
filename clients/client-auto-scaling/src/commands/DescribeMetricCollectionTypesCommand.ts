@@ -26,8 +26,6 @@ export interface DescribeMetricCollectionTypesCommandOutput
 
 /**
  * <p>Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.</p>
- *         <p>The <code>GroupStandbyInstances</code> metric is not returned by default. You must
- *             explicitly request this metric when calling the <a>EnableMetricsCollection</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
