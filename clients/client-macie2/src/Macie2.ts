@@ -165,6 +165,21 @@ import {
 } from "./commands/GetMasterAccountCommand";
 import { GetMemberCommand, GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
 import {
+  GetRevealConfigurationCommand,
+  GetRevealConfigurationCommandInput,
+  GetRevealConfigurationCommandOutput,
+} from "./commands/GetRevealConfigurationCommand";
+import {
+  GetSensitiveDataOccurrencesAvailabilityCommand,
+  GetSensitiveDataOccurrencesAvailabilityCommandInput,
+  GetSensitiveDataOccurrencesAvailabilityCommandOutput,
+} from "./commands/GetSensitiveDataOccurrencesAvailabilityCommand";
+import {
+  GetSensitiveDataOccurrencesCommand,
+  GetSensitiveDataOccurrencesCommandInput,
+  GetSensitiveDataOccurrencesCommandOutput,
+} from "./commands/GetSensitiveDataOccurrencesCommand";
+import {
   GetUsageStatisticsCommand,
   GetUsageStatisticsCommandInput,
   GetUsageStatisticsCommandOutput,
@@ -266,6 +281,11 @@ import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
+import {
+  UpdateRevealConfigurationCommand,
+  UpdateRevealConfigurationCommandInput,
+  UpdateRevealConfigurationCommandOutput,
+} from "./commands/UpdateRevealConfigurationCommand";
 import { Macie2Client } from "./Macie2Client";
 
 /**
@@ -1366,6 +1386,104 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * <p>Retrieves the status and configuration settings for retrieving (revealing) occurrences of sensitive data reported by findings.</p>
+   */
+  public getRevealConfiguration(
+    args: GetRevealConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRevealConfigurationCommandOutput>;
+  public getRevealConfiguration(
+    args: GetRevealConfigurationCommandInput,
+    cb: (err: any, data?: GetRevealConfigurationCommandOutput) => void
+  ): void;
+  public getRevealConfiguration(
+    args: GetRevealConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRevealConfigurationCommandOutput) => void
+  ): void;
+  public getRevealConfiguration(
+    args: GetRevealConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRevealConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetRevealConfigurationCommandOutput) => void
+  ): Promise<GetRevealConfigurationCommandOutput> | void {
+    const command = new GetRevealConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves (reveals) occurrences of sensitive data reported by a finding.</p>
+   */
+  public getSensitiveDataOccurrences(
+    args: GetSensitiveDataOccurrencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSensitiveDataOccurrencesCommandOutput>;
+  public getSensitiveDataOccurrences(
+    args: GetSensitiveDataOccurrencesCommandInput,
+    cb: (err: any, data?: GetSensitiveDataOccurrencesCommandOutput) => void
+  ): void;
+  public getSensitiveDataOccurrences(
+    args: GetSensitiveDataOccurrencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSensitiveDataOccurrencesCommandOutput) => void
+  ): void;
+  public getSensitiveDataOccurrences(
+    args: GetSensitiveDataOccurrencesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSensitiveDataOccurrencesCommandOutput) => void),
+    cb?: (err: any, data?: GetSensitiveDataOccurrencesCommandOutput) => void
+  ): Promise<GetSensitiveDataOccurrencesCommandOutput> | void {
+    const command = new GetSensitiveDataOccurrencesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Checks whether occurrences of sensitive data can be retrieved (revealed) for a finding.</p>
+   */
+  public getSensitiveDataOccurrencesAvailability(
+    args: GetSensitiveDataOccurrencesAvailabilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSensitiveDataOccurrencesAvailabilityCommandOutput>;
+  public getSensitiveDataOccurrencesAvailability(
+    args: GetSensitiveDataOccurrencesAvailabilityCommandInput,
+    cb: (err: any, data?: GetSensitiveDataOccurrencesAvailabilityCommandOutput) => void
+  ): void;
+  public getSensitiveDataOccurrencesAvailability(
+    args: GetSensitiveDataOccurrencesAvailabilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSensitiveDataOccurrencesAvailabilityCommandOutput) => void
+  ): void;
+  public getSensitiveDataOccurrencesAvailability(
+    args: GetSensitiveDataOccurrencesAvailabilityCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSensitiveDataOccurrencesAvailabilityCommandOutput) => void),
+    cb?: (err: any, data?: GetSensitiveDataOccurrencesAvailabilityCommandOutput) => void
+  ): Promise<GetSensitiveDataOccurrencesAvailabilityCommandOutput> | void {
+    const command = new GetSensitiveDataOccurrencesAvailabilityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves (queries) quotas and aggregated usage data for one or more accounts.</p>
    */
   public getUsageStatistics(
@@ -2044,6 +2162,38 @@ export class Macie2 extends Macie2Client {
     cb?: (err: any, data?: UpdateOrganizationConfigurationCommandOutput) => void
   ): Promise<UpdateOrganizationConfigurationCommandOutput> | void {
     const command = new UpdateOrganizationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the status and configuration settings for retrieving (revealing) occurrences of sensitive data reported by findings.</p>
+   */
+  public updateRevealConfiguration(
+    args: UpdateRevealConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRevealConfigurationCommandOutput>;
+  public updateRevealConfiguration(
+    args: UpdateRevealConfigurationCommandInput,
+    cb: (err: any, data?: UpdateRevealConfigurationCommandOutput) => void
+  ): void;
+  public updateRevealConfiguration(
+    args: UpdateRevealConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRevealConfigurationCommandOutput) => void
+  ): void;
+  public updateRevealConfiguration(
+    args: UpdateRevealConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRevealConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRevealConfigurationCommandOutput) => void
+  ): Promise<UpdateRevealConfigurationCommandOutput> | void {
+    const command = new UpdateRevealConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

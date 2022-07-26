@@ -148,6 +148,18 @@ import {
 import { GetMacieSessionCommandInput, GetMacieSessionCommandOutput } from "./commands/GetMacieSessionCommand";
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
 import { GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
+import {
+  GetRevealConfigurationCommandInput,
+  GetRevealConfigurationCommandOutput,
+} from "./commands/GetRevealConfigurationCommand";
+import {
+  GetSensitiveDataOccurrencesAvailabilityCommandInput,
+  GetSensitiveDataOccurrencesAvailabilityCommandOutput,
+} from "./commands/GetSensitiveDataOccurrencesAvailabilityCommand";
+import {
+  GetSensitiveDataOccurrencesCommandInput,
+  GetSensitiveDataOccurrencesCommandOutput,
+} from "./commands/GetSensitiveDataOccurrencesCommand";
 import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "./commands/GetUsageStatisticsCommand";
 import { GetUsageTotalsCommandInput, GetUsageTotalsCommandOutput } from "./commands/GetUsageTotalsCommand";
 import {
@@ -209,6 +221,10 @@ import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
+import {
+  UpdateRevealConfigurationCommandInput,
+  UpdateRevealConfigurationCommandOutput,
+} from "./commands/UpdateRevealConfigurationCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -247,6 +263,9 @@ export type ServiceInputTypes =
   | GetMacieSessionCommandInput
   | GetMasterAccountCommandInput
   | GetMemberCommandInput
+  | GetRevealConfigurationCommandInput
+  | GetSensitiveDataOccurrencesAvailabilityCommandInput
+  | GetSensitiveDataOccurrencesCommandInput
   | GetUsageStatisticsCommandInput
   | GetUsageTotalsCommandInput
   | ListClassificationJobsCommandInput
@@ -268,7 +287,8 @@ export type ServiceInputTypes =
   | UpdateFindingsFilterCommandInput
   | UpdateMacieSessionCommandInput
   | UpdateMemberSessionCommandInput
-  | UpdateOrganizationConfigurationCommandInput;
+  | UpdateOrganizationConfigurationCommandInput
+  | UpdateRevealConfigurationCommandInput;
 
 export type ServiceOutputTypes =
   | AcceptInvitationCommandOutput
@@ -306,6 +326,9 @@ export type ServiceOutputTypes =
   | GetMacieSessionCommandOutput
   | GetMasterAccountCommandOutput
   | GetMemberCommandOutput
+  | GetRevealConfigurationCommandOutput
+  | GetSensitiveDataOccurrencesAvailabilityCommandOutput
+  | GetSensitiveDataOccurrencesCommandOutput
   | GetUsageStatisticsCommandOutput
   | GetUsageTotalsCommandOutput
   | ListClassificationJobsCommandOutput
@@ -327,7 +350,8 @@ export type ServiceOutputTypes =
   | UpdateFindingsFilterCommandOutput
   | UpdateMacieSessionCommandOutput
   | UpdateMemberSessionCommandOutput
-  | UpdateOrganizationConfigurationCommandOutput;
+  | UpdateOrganizationConfigurationCommandOutput
+  | UpdateRevealConfigurationCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

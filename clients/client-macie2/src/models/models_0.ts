@@ -85,7 +85,7 @@ export enum IsMonitoredByJob {
  */
 export interface JobDetails {
   /**
-   * <p>Specifies whether any one-time or recurring jobs are configured to analyze data in the bucket. Possible values are:</p> <ul><li><p>TRUE - The bucket is explicitly included in the bucket definition (S3BucketDefinitionForJob) for one or more jobs and at least one of those jobs has a status other than CANCELLED. Or the bucket matched the bucket criteria (S3BucketCriteriaForJob) for at least one job that previously ran.</p></li> <li><p>FALSE - The bucket isn't explicitly included in the bucket definition (S3BucketDefinitionForJob) for any jobs, all the jobs that explicitly include the bucket in their bucket definitions have a status of CANCELLED, or the bucket didn't match the bucket criteria (S3BucketCriteriaForJob) for any jobs that previously ran.</p></li> <li><p>UNKNOWN - An exception occurred when Amazon Macie attempted to retrieve job data for the bucket.</p></li></ul> <p></p>
+   * <p>Specifies whether any one-time or recurring jobs are configured to analyze data in the bucket. Possible values are:</p> <ul><li><p>TRUE - The bucket is explicitly included in the bucket definition (S3BucketDefinitionForJob) for one or more jobs and at least one of those jobs has a status other than CANCELLED. Or the bucket matched the bucket criteria (S3BucketCriteriaForJob) for at least one job that previously ran.</p></li> <li><p>FALSE - The bucket isn't explicitly included in the bucket definition (S3BucketDefinitionForJob) for any jobs, all the jobs that explicitly include the bucket in their bucket definitions have a status of CANCELLED, or the bucket didn't match the bucket criteria (S3BucketCriteriaForJob) for any jobs that previously ran.</p></li> <li><p>UNKNOWN - An exception occurred when Amazon Macie attempted to retrieve job data for the bucket.</p></li></ul>
    */
   isDefinedInJob?: IsDefinedInJob | string;
 
@@ -577,6 +577,16 @@ export interface CustomDataIdentifierSummary {
   name?: string;
 }
 
+/**
+ * <p>Specifies 1-10 occurrences of a specific type of sensitive data reported by a finding.</p>
+ */
+export interface DetectedDataDetails {
+  /**
+   * <p>An occurrence of the specified type of sensitive data. Each occurrence can contain 1-128 characters.</p>
+   */
+  value: string | undefined;
+}
+
 export enum FindingCategory {
   CLASSIFICATION = "CLASSIFICATION",
   POLICY = "POLICY",
@@ -667,7 +677,7 @@ export interface _Record {
 }
 
 /**
- * <p>Specifies the location of 1-15 occurrences of sensitive data that was detected by a managed data identifier or a custom data identifier and produced a sensitive data finding.</p>
+ * <p>Specifies the location of 1-15 occurrences of sensitive data that was detected by a managed data identifier or a custom data identifier and produced a sensitive data finding. Depending on the file or storage format of the affected S3 object, you can optionally retrieve (reveal) sample occurrences of the sensitive data that was detected.</p>
  */
 export interface Occurrences {
   /**
@@ -2149,6 +2159,14 @@ export interface SearchResourcesCriteria {
   tagCriterion?: SearchResourcesTagCriterion;
 }
 
+export enum UnavailabilityReasonCode {
+  INVALID_CLASSIFICATION_RESULT = "INVALID_CLASSIFICATION_RESULT",
+  OBJECT_EXCEEDS_SIZE_QUOTA = "OBJECT_EXCEEDS_SIZE_QUOTA",
+  OBJECT_UNAVAILABLE = "OBJECT_UNAVAILABLE",
+  UNSUPPORTED_FINDING_TYPE = "UNSUPPORTED_FINDING_TYPE",
+  UNSUPPORTED_OBJECT_TYPE = "UNSUPPORTED_OBJECT_TYPE",
+}
+
 export enum ErrorCode {
   ClientError = "ClientError",
   InternalError = "InternalError",
@@ -2476,6 +2494,11 @@ export interface AccountDetail {
   email: string | undefined;
 }
 
+export enum AvailabilityCode {
+  AVAILABLE = "AVAILABLE",
+  UNAVAILABLE = "UNAVAILABLE",
+}
+
 export interface BatchGetCustomDataIdentifiersRequest {
   /**
    * <p>An array of custom data identifier IDs, one for each custom data identifier to retrieve information about.</p>
@@ -2665,7 +2688,7 @@ export interface S3Destination {
   keyPrefix?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to use for encryption of the results. This must be the ARN of an existing, symmetric, customer managed KMS key that's in the same Amazon Web Services Region as the bucket.</p>
+   * <p>The Amazon Resource Name (ARN) of the customer managed KMS key to use for encryption of the results. This must be the ARN of an existing, symmetric encryption KMS key that's in the same Amazon Web Services Region as the bucket.</p>
    */
   kmsKeyArn: string | undefined;
 }
@@ -2899,12 +2922,12 @@ export interface CreateCustomDataIdentifierRequest {
   ignoreWords?: string[];
 
   /**
-   * <p>An array that lists specific character sequences (<i>keywords</i>), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3-90 UTF-8 characters. Keywords aren't case sensitive.</p>
+   * <p>An array that lists specific character sequences (<i>keywords</i>), one of which must precede and be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3-90 UTF-8 characters. Keywords aren't case sensitive.</p>
    */
   keywords?: string[];
 
   /**
-   * <p>The maximum number of characters that can exist between text that matches the regular expression and the character sequences specified by the keywords array. Amazon Macie includes or excludes a result based on the proximity of a keyword to text that matches the regular expression. The distance can be 1-300 characters. The default value is 50.</p>
+   * <p>The maximum number of characters that can exist between the end of at least one complete character sequence specified by the keywords array and the end of the text that matches the regex pattern. If a complete keyword precedes all the text that matches the pattern and the keyword is within the specified distance, Amazon Macie includes the result. The distance can be 1-300 characters. The default value is 50.</p>
    */
   maximumMatchDistance?: number;
 
@@ -3250,7 +3273,7 @@ export interface DescribeClassificationJobResponse {
   lastRunErrorStatus?: LastRunErrorStatus;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when the job started. If the job is a recurring job, this value indicates when the most recent run started.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the job started. If the job is a recurring job, this value indicates when the most recent run started or, if the job hasn't run yet, when the job was created.</p>
    */
   lastRunTime?: Date;
 
@@ -3539,12 +3562,12 @@ export interface GetCustomDataIdentifierResponse {
   ignoreWords?: string[];
 
   /**
-   * <p>An array that lists specific character sequences (<i>keywords</i>), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. Keywords aren't case sensitive.</p>
+   * <p>An array that lists specific character sequences (<i>keywords</i>), one of which must precede and be within proximity (maximumMatchDistance) of the regular expression to match. Keywords aren't case sensitive.</p>
    */
   keywords?: string[];
 
   /**
-   * <p>The maximum number of characters that can exist between text that matches the regular expression and the character sequences specified by the keywords array. Amazon Macie includes or excludes a result based on the proximity of a keyword to text that matches the regular expression.</p>
+   * <p>The maximum number of characters that can exist between the end of at least one complete character sequence specified by the keywords array and the end of the text that matches the regex pattern. If a complete keyword precedes all the text that matches the pattern and the keyword is within the specified distance, Amazon Macie includes the result. Otherwise, Macie excludes the result.</p>
    */
   maximumMatchDistance?: number;
 
@@ -3811,6 +3834,103 @@ export interface GetMemberResponse {
    * <p>The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the relationship between the account and the administrator account.</p>
    */
   updatedAt?: Date;
+}
+
+export interface GetRevealConfigurationRequest {}
+
+export enum RevealStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>Specifies the configuration settings for retrieving occurrences of sensitive data reported by findings, and the status of the configuration for an Amazon Macie account. When you enable the configuration for the first time, your request must specify an AWS Key Management Service (AWS KMS) key. Otherwise, an error occurs. Macie uses the specified key to encrypt the sensitive data that you retrieve.</p>
+ */
+export interface RevealConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN), ID, or alias of the KMS key to use to encrypt sensitive data that's retrieved. The key must be an existing, customer managed, symmetric encryption key that's in the same Amazon Web Services Region as the Amazon Macie account.</p> <p>If this value specifies an alias, it must include the following prefix: alias/. If this value specifies a key that's owned by another Amazon Web Services account, it must specify the ARN of the key or the ARN of the key's alias.</p>
+   */
+  kmsKeyId?: string;
+
+  /**
+   * <p>The status of the configuration for the Amazon Macie account. In a request, valid values are: ENABLED, enable the configuration for the account; and, DISABLED, disable the configuration for the account. In a response, possible values are: ENABLED, the configuration is currently enabled for the account; and, DISABLED, the configuration is currently disabled for the account.</p>
+   */
+  status: RevealStatus | string | undefined;
+}
+
+export interface GetRevealConfigurationResponse {
+  /**
+   * <p>The current configuration settings and the status of the configuration for the account.</p>
+   */
+  configuration?: RevealConfiguration;
+}
+
+export interface GetSensitiveDataOccurrencesRequest {
+  /**
+   * <p>The unique identifier for the finding.</p>
+   */
+  findingId: string | undefined;
+}
+
+export enum RevealRequestStatus {
+  ERROR = "ERROR",
+  PROCESSING = "PROCESSING",
+  SUCCESS = "SUCCESS",
+}
+
+export interface GetSensitiveDataOccurrencesResponse {
+  /**
+   * <p>If an error occurred when Amazon Macie attempted to retrieve occurrences of sensitive data reported by the finding, a description of the error that occurred. This value is null if the status (status) of the request is PROCESSING or SUCCESS.</p>
+   */
+  error?: string;
+
+  /**
+   * <p>A map that specifies 1-100 types of sensitive data reported by the finding and, for each type, 1-10 occurrences of sensitive data.</p>
+   */
+  sensitiveDataOccurrences?: Record<string, DetectedDataDetails[]>;
+
+  /**
+   * <p>The status of the request to retrieve occurrences of sensitive data reported by the finding. Possible values are:</p> <ul><li><p>ERROR - An error occurred when Amazon Macie attempted to locate, retrieve, or encrypt the sensitive data. The error value indicates the nature of the error that occurred.</p></li> <li><p>PROCESSING - Macie is processing the request.</p></li> <li><p>SUCCESS - Macie successfully located, retrieved, and encrypted the sensitive data.</p></li></ul>
+   */
+  status?: RevealRequestStatus | string;
+}
+
+/**
+ * <p>Provides information about an error that occurred due to an unprocessable entity.</p>
+ */
+export class UnprocessableEntityException extends __BaseException {
+  readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnprocessableEntityException, __BaseException>) {
+    super({
+      name: "UnprocessableEntityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnprocessableEntityException.prototype);
+  }
+}
+
+export interface GetSensitiveDataOccurrencesAvailabilityRequest {
+  /**
+   * <p>The unique identifier for the finding.</p>
+   */
+  findingId: string | undefined;
+}
+
+export interface GetSensitiveDataOccurrencesAvailabilityResponse {
+  /**
+   * <p>Specifies whether occurrences of sensitive data can be retrieved for the finding. Possible values are: AVAILABLE, the sensitive data can be retrieved; and, UNAVAILABLE, the sensitive data can't be retrieved. If this value is UNAVAILABLE, the reasons array indicates why the data can't be retrieved.</p>
+   */
+  code?: AvailabilityCode | string;
+
+  /**
+   * <p>Specifies why occurrences of sensitive data can't be retrieved for the finding. Possible values are:</p> <ul><li><p>INVALID_CLASSIFICATION_RESULT - Amazon Macie can't verify the location of the sensitive data to retrieve. There isn't a corresponding sensitive data discovery result for the finding. Or the sensitive data discovery result specified by the ClassificationDetails.detailedResultsLocation field of the finding isn't available, is malformed or corrupted, or uses an unsupported storage format.</p></li> <li><p>OBJECT_EXCEEDS_SIZE_QUOTA - The storage size of the affected S3 object exceeds the size quota for retrieving occurrences of sensitive data.</p></li> <li><p>OBJECT_UNAVAILABLE - The affected S3 object isn't available. The object might have been renamed, moved, or deleted. Or the object was changed after Amazon Macie created the finding.</p></li> <li><p>UNSUPPORTED_FINDING_TYPE - The specified finding isn't a sensitive data finding.</p></li> <li><p>UNSUPPORTED_OBJECT_TYPE - The affected S3 object uses a file or storage format that Macie doesn't support for retrieving occurrences of sensitive data.</p></li></ul> <p>This value is null if sensitive data can be retrieved for the finding.</p>
+   */
+  reasons?: (UnavailabilityReasonCode | string)[];
 }
 
 export enum UsageStatisticsSortKey {
@@ -4296,12 +4416,12 @@ export interface TestCustomDataIdentifierRequest {
   ignoreWords?: string[];
 
   /**
-   * <p>An array that lists specific character sequences (<i>keywords</i>), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3-90 UTF-8 characters. Keywords aren't case sensitive.</p>
+   * <p>An array that lists specific character sequences (<i>keywords</i>), one of which must precede and be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3-90 UTF-8 characters. Keywords aren't case sensitive.</p>
    */
   keywords?: string[];
 
   /**
-   * <p>The maximum number of characters that can exist between text that matches the regular expression and the character sequences specified by the keywords array. Amazon Macie includes or excludes a result based on the proximity of a keyword to text that matches the regular expression. The distance can be 1-300 characters. The default value is 50.</p>
+   * <p>The maximum number of characters that can exist between the end of at least one complete character sequence specified by the keywords array and the end of the text that matches the regex pattern. If a complete keyword precedes all the text that matches the pattern and the keyword is within the specified distance, Amazon Macie includes the result. The distance can be 1-300 characters. The default value is 50.</p>
    */
   maximumMatchDistance?: number;
 
@@ -4436,6 +4556,20 @@ export interface UpdateOrganizationConfigurationRequest {
 }
 
 export interface UpdateOrganizationConfigurationResponse {}
+
+export interface UpdateRevealConfigurationRequest {
+  /**
+   * <p>The new configuration settings and the status of the configuration for the account.</p>
+   */
+  configuration: RevealConfiguration | undefined;
+}
+
+export interface UpdateRevealConfigurationResponse {
+  /**
+   * <p>The new configuration settings and the status of the configuration for the account.</p>
+   */
+  configuration?: RevealConfiguration;
+}
 
 /**
  * @internal
@@ -4583,6 +4717,13 @@ export const CriteriaForJobFilterSensitiveLog = (obj: CriteriaForJob): any => ({
  * @internal
  */
 export const CustomDataIdentifierSummaryFilterSensitiveLog = (obj: CustomDataIdentifierSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectedDataDetailsFilterSensitiveLog = (obj: DetectedDataDetails): any => ({
   ...obj,
 });
 
@@ -5743,6 +5884,61 @@ export const GetMemberResponseFilterSensitiveLog = (obj: GetMemberResponse): any
 /**
  * @internal
  */
+export const GetRevealConfigurationRequestFilterSensitiveLog = (obj: GetRevealConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevealConfigurationFilterSensitiveLog = (obj: RevealConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRevealConfigurationResponseFilterSensitiveLog = (obj: GetRevealConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSensitiveDataOccurrencesRequestFilterSensitiveLog = (obj: GetSensitiveDataOccurrencesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSensitiveDataOccurrencesResponseFilterSensitiveLog = (
+  obj: GetSensitiveDataOccurrencesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSensitiveDataOccurrencesAvailabilityRequestFilterSensitiveLog = (
+  obj: GetSensitiveDataOccurrencesAvailabilityRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSensitiveDataOccurrencesAvailabilityResponseFilterSensitiveLog = (
+  obj: GetSensitiveDataOccurrencesAvailabilityResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const UsageStatisticsSortByFilterSensitiveLog = (obj: UsageStatisticsSortBy): any => ({
   ...obj,
 });
@@ -6103,5 +6299,19 @@ export const UpdateOrganizationConfigurationRequestFilterSensitiveLog = (
 export const UpdateOrganizationConfigurationResponseFilterSensitiveLog = (
   obj: UpdateOrganizationConfigurationResponse
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRevealConfigurationRequestFilterSensitiveLog = (obj: UpdateRevealConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRevealConfigurationResponseFilterSensitiveLog = (obj: UpdateRevealConfigurationResponse): any => ({
   ...obj,
 });

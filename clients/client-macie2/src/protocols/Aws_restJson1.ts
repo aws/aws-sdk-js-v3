@@ -114,6 +114,18 @@ import {
 import { GetMacieSessionCommandInput, GetMacieSessionCommandOutput } from "../commands/GetMacieSessionCommand";
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "../commands/GetMasterAccountCommand";
 import { GetMemberCommandInput, GetMemberCommandOutput } from "../commands/GetMemberCommand";
+import {
+  GetRevealConfigurationCommandInput,
+  GetRevealConfigurationCommandOutput,
+} from "../commands/GetRevealConfigurationCommand";
+import {
+  GetSensitiveDataOccurrencesAvailabilityCommandInput,
+  GetSensitiveDataOccurrencesAvailabilityCommandOutput,
+} from "../commands/GetSensitiveDataOccurrencesAvailabilityCommand";
+import {
+  GetSensitiveDataOccurrencesCommandInput,
+  GetSensitiveDataOccurrencesCommandOutput,
+} from "../commands/GetSensitiveDataOccurrencesCommand";
 import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "../commands/GetUsageStatisticsCommand";
 import { GetUsageTotalsCommandInput, GetUsageTotalsCommandOutput } from "../commands/GetUsageTotalsCommand";
 import {
@@ -175,6 +187,10 @@ import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "../commands/UpdateOrganizationConfigurationCommand";
+import {
+  UpdateRevealConfigurationCommandInput,
+  UpdateRevealConfigurationCommandOutput,
+} from "../commands/UpdateRevealConfigurationCommand";
 import { Macie2ServiceException as __BaseException } from "../models/Macie2ServiceException";
 import {
   _Record,
@@ -215,6 +231,7 @@ import {
   CustomDetection,
   DailySchedule,
   DefaultDetection,
+  DetectedDataDetails,
   DomainDetails,
   FederatedUser,
   Finding,
@@ -257,6 +274,7 @@ import {
   ReplicationDetails,
   ResourceNotFoundException,
   ResourcesAffected,
+  RevealConfiguration,
   S3Bucket,
   S3BucketCriteriaForJob,
   S3BucketDefinitionForJob,
@@ -291,6 +309,8 @@ import {
   TagScopeTerm,
   TagValuePair,
   ThrottlingException,
+  UnavailabilityReasonCode,
+  UnprocessableEntityException,
   UnprocessedAccount,
   UsageByAccount,
   UsageRecord,
@@ -1230,6 +1250,86 @@ export const serializeAws_restJson1GetMemberCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetRevealConfigurationCommand = async (
+  input: GetRevealConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reveal-configuration";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetSensitiveDataOccurrencesCommand = async (
+  input: GetSensitiveDataOccurrencesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/findings/{findingId}/reveal";
+  if (input.findingId !== undefined) {
+    const labelValue: string = input.findingId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: findingId.");
+    }
+    resolvedPath = resolvedPath.replace("{findingId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: findingId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetSensitiveDataOccurrencesAvailabilityCommand = async (
+  input: GetSensitiveDataOccurrencesAvailabilityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/findings/{findingId}/reveal/availability";
+  if (input.findingId !== undefined) {
+    const labelValue: string = input.findingId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: findingId.");
+    }
+    resolvedPath = resolvedPath.replace("{findingId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: findingId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetUsageStatisticsCommand = async (
   input: GetUsageStatisticsCommandInput,
   context: __SerdeContext
@@ -1853,6 +1953,32 @@ export const serializeAws_restJson1UpdateOrganizationConfigurationCommand = asyn
     hostname,
     port,
     method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateRevealConfigurationCommand = async (
+  input: UpdateRevealConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reveal-configuration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.configuration != null && {
+      configuration: serializeAws_restJson1RevealConfiguration(input.configuration, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -4320,6 +4446,189 @@ const deserializeAws_restJson1GetMemberCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetRevealConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRevealConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetRevealConfigurationCommandError(output, context);
+  }
+  const contents: GetRevealConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    configuration: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.configuration !== undefined && data.configuration !== null) {
+    contents.configuration = deserializeAws_restJson1RevealConfiguration(data.configuration, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetRevealConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRevealConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1GetSensitiveDataOccurrencesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSensitiveDataOccurrencesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetSensitiveDataOccurrencesCommandError(output, context);
+  }
+  const contents: GetSensitiveDataOccurrencesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    error: undefined,
+    sensitiveDataOccurrences: undefined,
+    status: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.error !== undefined && data.error !== null) {
+    contents.error = __expectString(data.error);
+  }
+  if (data.sensitiveDataOccurrences !== undefined && data.sensitiveDataOccurrences !== null) {
+    contents.sensitiveDataOccurrences = deserializeAws_restJson1SensitiveDataOccurrences(
+      data.sensitiveDataOccurrences,
+      context
+    );
+  }
+  if (data.status !== undefined && data.status !== null) {
+    contents.status = __expectString(data.status);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetSensitiveDataOccurrencesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSensitiveDataOccurrencesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.macie2#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.macie2#UnprocessableEntityException":
+      throw await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1GetSensitiveDataOccurrencesAvailabilityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSensitiveDataOccurrencesAvailabilityCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetSensitiveDataOccurrencesAvailabilityCommandError(output, context);
+  }
+  const contents: GetSensitiveDataOccurrencesAvailabilityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    code: undefined,
+    reasons: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.code !== undefined && data.code !== null) {
+    contents.code = __expectString(data.code);
+  }
+  if (data.reasons !== undefined && data.reasons !== null) {
+    contents.reasons = deserializeAws_restJson1__listOfUnavailabilityReasonCode(data.reasons, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetSensitiveDataOccurrencesAvailabilityCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSensitiveDataOccurrencesAvailabilityCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1GetUsageStatisticsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5649,6 +5958,60 @@ const deserializeAws_restJson1UpdateOrganizationConfigurationCommandError = asyn
   }
 };
 
+export const deserializeAws_restJson1UpdateRevealConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRevealConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateRevealConfigurationCommandError(output, context);
+  }
+  const contents: UpdateRevealConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    configuration: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.configuration !== undefined && data.configuration !== null) {
+    contents.configuration = deserializeAws_restJson1RevealConfiguration(data.configuration, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateRevealConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRevealConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -5739,6 +6102,22 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
     contents.message = __expectString(data.message);
   }
   const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1UnprocessableEntityExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnprocessableEntityException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  const exception = new UnprocessableEntityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -6087,6 +6466,13 @@ const serializeAws_restJson1MonthlySchedule = (input: MonthlySchedule, context: 
   };
 };
 
+const serializeAws_restJson1RevealConfiguration = (input: RevealConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
+    ...(input.status != null && { status: input.status }),
+  };
+};
+
 const serializeAws_restJson1S3BucketCriteriaForJob = (input: S3BucketCriteriaForJob, context: __SerdeContext): any => {
   return {
     ...(input.excludes != null && { excludes: serializeAws_restJson1CriteriaBlockForJob(input.excludes, context) }),
@@ -6407,6 +6793,21 @@ const deserializeAws_restJson1__listOfCustomDataIdentifierSummary = (
   return retVal;
 };
 
+const deserializeAws_restJson1__listOfDetectedDataDetails = (
+  output: any,
+  context: __SerdeContext
+): DetectedDataDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DetectedDataDetails(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1__listOfFinding = (output: any, context: __SerdeContext): Finding[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -6571,6 +6972,21 @@ const deserializeAws_restJson1__listOfTagValuePair = (output: any, context: __Se
         return null as any;
       }
       return deserializeAws_restJson1TagValuePair(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1__listOfUnavailabilityReasonCode = (
+  output: any,
+  context: __SerdeContext
+): (UnavailabilityReasonCode | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
   return retVal;
 };
@@ -7054,6 +7470,12 @@ const deserializeAws_restJson1DefaultDetections = (output: any, context: __Serde
   return retVal;
 };
 
+const deserializeAws_restJson1DetectedDataDetails = (output: any, context: __SerdeContext): DetectedDataDetails => {
+  return {
+    value: __expectString(output.value),
+  } as any;
+};
+
 const deserializeAws_restJson1DomainDetails = (output: any, context: __SerdeContext): DomainDetails => {
   return {
     domainName: __expectString(output.domainName),
@@ -7485,6 +7907,13 @@ const deserializeAws_restJson1ResourcesAffected = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1RevealConfiguration = (output: any, context: __SerdeContext): RevealConfiguration => {
+  return {
+    kmsKeyId: __expectString(output.kmsKeyId),
+    status: __expectString(output.status),
+  } as any;
+};
+
 const deserializeAws_restJson1S3Bucket = (output: any, context: __SerdeContext): S3Bucket => {
   return {
     allowsUnencryptedObjectUploads: __expectString(output.allowsUnencryptedObjectUploads),
@@ -7612,6 +8041,21 @@ const deserializeAws_restJson1SensitiveDataItem = (output: any, context: __Serde
       output.detections != null ? deserializeAws_restJson1DefaultDetections(output.detections, context) : undefined,
     totalCount: __expectLong(output.totalCount),
   } as any;
+};
+
+const deserializeAws_restJson1SensitiveDataOccurrences = (
+  output: any,
+  context: __SerdeContext
+): Record<string, DetectedDataDetails[]> => {
+  return Object.entries(output).reduce((acc: Record<string, DetectedDataDetails[]>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1__listOfDetectedDataDetails(value, context),
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1ServerSideEncryption = (output: any, context: __SerdeContext): ServerSideEncryption => {
