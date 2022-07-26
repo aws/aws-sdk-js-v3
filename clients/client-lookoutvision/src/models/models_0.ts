@@ -846,6 +846,19 @@ export interface ModelDescription {
    *          during training.</p>
    */
   KmsKeyId?: string;
+
+  /**
+   * <p>The minimum number of inference units used by the model. For more information,
+   *          see <a>StartModel</a>
+   *          </p>
+   */
+  MinInferenceUnits?: number;
+
+  /**
+   * <p>The maximum number of inference units Amazon Lookout for Vision uses to auto-scale the model.
+   *          For more information, see <a>StartModel</a>.</p>
+   */
+  MaxInferenceUnits?: number;
 }
 
 export interface DescribeModelResponse {
@@ -1533,6 +1546,12 @@ export interface StartModelRequest {
    *       </p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>The maximum number of inference units to use for auto-scaling the model. If you don't
+   *          specify a value, Amazon Lookout for Vision doesn't auto-scale the model.</p>
+   */
+  MaxInferenceUnits?: number;
 }
 
 export enum ModelHostingStatus {

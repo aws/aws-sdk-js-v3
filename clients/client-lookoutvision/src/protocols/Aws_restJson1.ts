@@ -707,6 +707,7 @@ export const serializeAws_restJson1StartModelCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.MaxInferenceUnits != null && { MaxInferenceUnits: input.MaxInferenceUnits }),
     ...(input.MinInferenceUnits != null && { MinInferenceUnits: input.MinInferenceUnits }),
   });
   return new __HttpRequest({
@@ -2627,6 +2628,8 @@ const deserializeAws_restJson1ModelDescription = (output: any, context: __SerdeC
         ? deserializeAws_restJson1OutputS3Object(output.EvaluationResult, context)
         : undefined,
     KmsKeyId: __expectString(output.KmsKeyId),
+    MaxInferenceUnits: __expectInt32(output.MaxInferenceUnits),
+    MinInferenceUnits: __expectInt32(output.MinInferenceUnits),
     ModelArn: __expectString(output.ModelArn),
     ModelVersion: __expectString(output.ModelVersion),
     OutputConfig:

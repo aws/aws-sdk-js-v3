@@ -620,7 +620,8 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
-   * <p>Lists the Amazon Lookout for Vision projects in your AWS account.</p>
+   * <p>Lists the Amazon Lookout for Vision projects in your AWS account that are in the AWS Region in
+   *       which you call <code>ListProjects</code>.</p>
    *          <p>The <code>ListProjects</code> operation is eventually consistent.
    *          Recent calls to <code>CreateProject</code> and <code>DeleteProject</code> might
    *          take a while to appear in the response from <code>ListProjects</code>.</p>
