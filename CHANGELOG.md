@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.137.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.136.1...v3.137.0) (2022-07-26)
+
+
+### Bug Fixes
+
+* **smithy-client:** rfc-7231 date-time value ([#3814](https://github.com/aws/aws-sdk-js-v3/issues/3814)) ([f52a985](https://github.com/aws/aws-sdk-js-v3/commit/f52a985b90e1a015704472dd1a3754c4b5b005df))
+
+
+### Features
+
+* **client-appsync:** Adds support for a new API to evaluate mapping templates with mock data, allowing you to remotely unit test your AppSync resolvers and functions. ([9f42ace](https://github.com/aws/aws-sdk-js-v3/commit/9f42ace9220879f5718af4a285aae0a124085f06))
+* **client-detective:** Added the ability to get data source package information for the behavior graph. Graph administrators can now start (or stop) optional datasources on the behavior graph. ([6b3a1ff](https://github.com/aws/aws-sdk-js-v3/commit/6b3a1ff962b149e3e3e9e2c0a936e119c6fec243))
+* **client-guardduty:** Amazon GuardDuty introduces a new Malware Protection feature that triggers malware scan on selected EC2 instance resources, after the service detects a potentially malicious activity. ([f85fa66](https://github.com/aws/aws-sdk-js-v3/commit/f85fa66467b02464efa46f203b5e246d0fe01b31))
+* **client-lookoutvision:** This release introduces support for the automatic scaling of inference units used by Amazon Lookout for Vision models. ([65ad083](https://github.com/aws/aws-sdk-js-v3/commit/65ad08320fcdaf57b90810e40a1093abfe98e920))
+* **client-macie2:** This release adds support for retrieving (revealing) sample occurrences of sensitive data that Amazon Macie detects and reports in findings. ([00eeecb](https://github.com/aws/aws-sdk-js-v3/commit/00eeecb37066c7a290321730c09c072848dc5937))
+* **client-rekognition:** This release introduces support for the automatic scaling of inference units used by Amazon Rekognition Custom Labels models. ([34e5ab6](https://github.com/aws/aws-sdk-js-v3/commit/34e5ab696808e9c80d6c88e064a4bc0c4aebfb7b))
+* **client-transfer:** AWS Transfer Family now supports Applicability Statement 2 (AS2), a network protocol used for the secure and reliable transfer of critical Business-to-Business (B2B) data over the public internet using HTTP/HTTPS as the transport mechanism. ([8424fee](https://github.com/aws/aws-sdk-js-v3/commit/8424fee53f8d6090c1e19f79a0b6cbd6e5017375))
+* **namespaces:** remove namespaces with only a log filter ([#3823](https://github.com/aws/aws-sdk-js-v3/issues/3823)) ([33e6822](https://github.com/aws/aws-sdk-js-v3/commit/33e68228fb64c53dd8f89e6be76dd5f46edc3cfd))
+
+
+
+
+
 ## [3.136.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.136.0...v3.136.1) (2022-07-25)
 
 
