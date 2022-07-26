@@ -6023,6 +6023,7 @@ const serializeAws_json1_1StartProjectVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.MaxInferenceUnits != null && { MaxInferenceUnits: input.MaxInferenceUnits }),
     ...(input.MinInferenceUnits != null && { MinInferenceUnits: input.MinInferenceUnits }),
     ...(input.ProjectVersionArn != null && { ProjectVersionArn: input.ProjectVersionArn }),
   };
@@ -7840,6 +7841,7 @@ const deserializeAws_json1_1ProjectVersionDescription = (
       output.ManifestSummary != null
         ? deserializeAws_json1_1GroundTruthManifest(output.ManifestSummary, context)
         : undefined,
+    MaxInferenceUnits: __expectInt32(output.MaxInferenceUnits),
     MinInferenceUnits: __expectInt32(output.MinInferenceUnits),
     OutputConfig:
       output.OutputConfig != null ? deserializeAws_json1_1OutputConfig(output.OutputConfig, context) : undefined,

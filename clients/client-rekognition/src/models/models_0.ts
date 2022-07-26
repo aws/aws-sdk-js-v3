@@ -1829,7 +1829,7 @@ export interface Point {
 
 /**
  * <p>Specifies a location within the frame that Rekognition checks for objects of interest such as text, labels, or faces. It uses a <code>BoundingBox</code>
- *       or object or <code>Polygon</code> to set a region of the screen.</p>
+ *       or <code>Polygon</code> to set a region of the screen.</p>
  *          <p>A word, face, or label is included in the region if it is more than half in that region. If there is more than
  *       one region, the word, face, or label is compared with all regions of the screen. Any object of interest that is more than half in a region
  *       is kept in the results.</p>
@@ -1949,7 +1949,7 @@ export interface CreateStreamProcessorRequest {
 
   /**
    * <p>
-   *             Specifies locations in the frames where Amazon Rekognition checks for objects or people. You can specify up to 10 regions of interest. This is an optional parameter for label detection stream processors and should not be used to create a face search stream processor.
+   *             Specifies locations in the frames where Amazon Rekognition checks for objects or people. You can specify up to 10 regions of interest, and each region has either a polygon or a bounding box. This is an optional parameter for label detection stream processors and should not be used to create a face search stream processor.
    *         </p>
    */
   RegionsOfInterest?: RegionOfInterest[];
@@ -2675,6 +2675,12 @@ export interface ProjectVersionDescription {
    * <p>The identifer for the AWS Key Management Service key (AWS KMS key) that was used to encrypt the model during training. </p>
    */
   KmsKeyId?: string;
+
+  /**
+   * <p>The maximum number of inference units Amazon Rekognition Custom Labels uses to auto-scale the model.
+   *          For more information, see <a>StartProjectVersion</a>.</p>
+   */
+  MaxInferenceUnits?: number;
 }
 
 export interface DescribeProjectVersionsResponse {
@@ -5296,12 +5302,24 @@ export interface StartProjectVersionRequest {
 
   /**
    * <p>The minimum number of inference units to use. A single
-   *       inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS).
-   *       Use a higher number to increase the TPS throughput of your model. You are charged for the number
+   *       inference unit represents 1 hour of processing. </p>
+   *
+   *          <p>For information about the number
+   *             of transactions per second (TPS) that an inference unit can support, see
+   *             <i>Running a trained Amazon Rekognition Custom Labels model</i> in the
+   *             Amazon Rekognition Custom Labels Guide.
+   *          </p>
+   *          <p>Use a higher number to increase the TPS throughput of your model. You are charged for the number
    *       of inference units that you use.
    *     </p>
    */
   MinInferenceUnits: number | undefined;
+
+  /**
+   * <p>The maximum number of inference units to use for auto-scaling the model. If you don't
+   *          specify a value, Amazon Rekognition Custom Labels doesn't auto-scale the model.</p>
+   */
+  MaxInferenceUnits?: number;
 }
 
 export interface StartProjectVersionResponse {

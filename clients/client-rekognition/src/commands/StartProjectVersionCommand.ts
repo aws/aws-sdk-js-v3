@@ -36,6 +36,9 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
  *             <p>You are charged for the amount of time that the model is running. To stop a running
  *       model, call <a>StopProjectVersion</a>.</p>
  *          </note>
+ *
+ *          <p>For more information, see <i>Running a trained Amazon Rekognition Custom Labels model</i> in the Amazon Rekognition Custom Labels Guide.</p>
+ *
  *          <p>This operation requires permissions to perform the
  *          <code>rekognition:StartProjectVersion</code> action.</p>
  * @example
