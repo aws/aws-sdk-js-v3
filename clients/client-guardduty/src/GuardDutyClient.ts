@@ -90,6 +90,10 @@ import {
   DeleteThreatIntelSetCommandOutput,
 } from "./commands/DeleteThreatIntelSetCommand";
 import {
+  DescribeMalwareScansCommandInput,
+  DescribeMalwareScansCommandOutput,
+} from "./commands/DescribeMalwareScansCommand";
+import {
   DescribeOrganizationConfigurationCommandInput,
   DescribeOrganizationConfigurationCommandOutput,
 } from "./commands/DescribeOrganizationConfigurationCommand";
@@ -133,6 +137,10 @@ import {
   GetInvitationsCountCommandOutput,
 } from "./commands/GetInvitationsCountCommand";
 import { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
+import {
+  GetMalwareScanSettingsCommandInput,
+  GetMalwareScanSettingsCommandOutput,
+} from "./commands/GetMalwareScanSettingsCommand";
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
 import { GetMemberDetectorsCommandInput, GetMemberDetectorsCommandOutput } from "./commands/GetMemberDetectorsCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
@@ -184,6 +192,10 @@ import {
 } from "./commands/UpdateFindingsFeedbackCommand";
 import { UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand";
 import {
+  UpdateMalwareScanSettingsCommandInput,
+  UpdateMalwareScanSettingsCommandOutput,
+} from "./commands/UpdateMalwareScanSettingsCommand";
+import {
   UpdateMemberDetectorsCommandInput,
   UpdateMemberDetectorsCommandOutput,
 } from "./commands/UpdateMemberDetectorsCommand";
@@ -220,6 +232,7 @@ export type ServiceInputTypes =
   | DeleteMembersCommandInput
   | DeletePublishingDestinationCommandInput
   | DeleteThreatIntelSetCommandInput
+  | DescribeMalwareScansCommandInput
   | DescribeOrganizationConfigurationCommandInput
   | DescribePublishingDestinationCommandInput
   | DisableOrganizationAdminAccountCommandInput
@@ -234,6 +247,7 @@ export type ServiceInputTypes =
   | GetFindingsStatisticsCommandInput
   | GetIPSetCommandInput
   | GetInvitationsCountCommandInput
+  | GetMalwareScanSettingsCommandInput
   | GetMasterAccountCommandInput
   | GetMemberDetectorsCommandInput
   | GetMembersCommandInput
@@ -260,6 +274,7 @@ export type ServiceInputTypes =
   | UpdateFilterCommandInput
   | UpdateFindingsFeedbackCommandInput
   | UpdateIPSetCommandInput
+  | UpdateMalwareScanSettingsCommandInput
   | UpdateMemberDetectorsCommandInput
   | UpdateOrganizationConfigurationCommandInput
   | UpdatePublishingDestinationCommandInput
@@ -284,6 +299,7 @@ export type ServiceOutputTypes =
   | DeleteMembersCommandOutput
   | DeletePublishingDestinationCommandOutput
   | DeleteThreatIntelSetCommandOutput
+  | DescribeMalwareScansCommandOutput
   | DescribeOrganizationConfigurationCommandOutput
   | DescribePublishingDestinationCommandOutput
   | DisableOrganizationAdminAccountCommandOutput
@@ -298,6 +314,7 @@ export type ServiceOutputTypes =
   | GetFindingsStatisticsCommandOutput
   | GetIPSetCommandOutput
   | GetInvitationsCountCommandOutput
+  | GetMalwareScanSettingsCommandOutput
   | GetMasterAccountCommandOutput
   | GetMemberDetectorsCommandOutput
   | GetMembersCommandOutput
@@ -324,6 +341,7 @@ export type ServiceOutputTypes =
   | UpdateFilterCommandOutput
   | UpdateFindingsFeedbackCommandOutput
   | UpdateIPSetCommandOutput
+  | UpdateMalwareScanSettingsCommandOutput
   | UpdateMemberDetectorsCommandOutput
   | UpdateOrganizationConfigurationCommandOutput
   | UpdatePublishingDestinationCommandOutput

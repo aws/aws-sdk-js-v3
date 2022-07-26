@@ -57,6 +57,10 @@ import {
   DeleteThreatIntelSetCommandOutput,
 } from "../commands/DeleteThreatIntelSetCommand";
 import {
+  DescribeMalwareScansCommandInput,
+  DescribeMalwareScansCommandOutput,
+} from "../commands/DescribeMalwareScansCommand";
+import {
   DescribeOrganizationConfigurationCommandInput,
   DescribeOrganizationConfigurationCommandOutput,
 } from "../commands/DescribeOrganizationConfigurationCommand";
@@ -100,6 +104,10 @@ import {
   GetInvitationsCountCommandOutput,
 } from "../commands/GetInvitationsCountCommand";
 import { GetIPSetCommandInput, GetIPSetCommandOutput } from "../commands/GetIPSetCommand";
+import {
+  GetMalwareScanSettingsCommandInput,
+  GetMalwareScanSettingsCommandOutput,
+} from "../commands/GetMalwareScanSettingsCommand";
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "../commands/GetMasterAccountCommand";
 import { GetMemberDetectorsCommandInput, GetMemberDetectorsCommandOutput } from "../commands/GetMemberDetectorsCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "../commands/GetMembersCommand";
@@ -151,6 +159,10 @@ import {
 } from "../commands/UpdateFindingsFeedbackCommand";
 import { UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "../commands/UpdateIPSetCommand";
 import {
+  UpdateMalwareScanSettingsCommandInput,
+  UpdateMalwareScanSettingsCommandOutput,
+} from "../commands/UpdateMalwareScanSettingsCommand";
+import {
   UpdateMemberDetectorsCommandInput,
   UpdateMemberDetectorsCommandOutput,
 } from "../commands/UpdateMemberDetectorsCommand";
@@ -197,14 +209,23 @@ import {
   DNSLogsConfigurationResult,
   DnsRequestAction,
   DomainDetails,
+  EbsVolumeDetails,
+  EbsVolumeScanDetails,
+  EbsVolumesResult,
+  EcsClusterDetails,
+  EcsTaskDetails,
   EksClusterDetails,
   Evidence,
+  FilterCondition,
+  FilterCriteria,
+  FilterCriterion,
   Finding,
   FindingCriteria,
   FindingStatistics,
   FindingStatisticType,
   FlowLogsConfigurationResult,
   GeoLocation,
+  HighestSeverityThreatDetails,
   HostPath,
   IamInstanceProfile,
   InstanceDetails,
@@ -221,6 +242,9 @@ import {
   KubernetesWorkloadDetails,
   LocalIpDetails,
   LocalPortDetails,
+  MalwareProtectionConfiguration,
+  MalwareProtectionConfigurationResult,
+  MalwareProtectionDataSourceFreeTrial,
   Master,
   Member,
   MemberDataSourceConfiguration,
@@ -229,12 +253,18 @@ import {
   Organization,
   OrganizationDataSourceConfigurations,
   OrganizationDataSourceConfigurationsResult,
+  OrganizationEbsVolumes,
+  OrganizationEbsVolumesResult,
   OrganizationKubernetesAuditLogsConfiguration,
   OrganizationKubernetesAuditLogsConfigurationResult,
   OrganizationKubernetesConfiguration,
   OrganizationKubernetesConfigurationResult,
+  OrganizationMalwareProtectionConfiguration,
+  OrganizationMalwareProtectionConfigurationResult,
   OrganizationS3LogsConfiguration,
   OrganizationS3LogsConfigurationResult,
+  OrganizationScanEc2InstanceWithFindings,
+  OrganizationScanEc2InstanceWithFindingsResult,
   Owner,
   PermissionConfiguration,
   PortProbeAction,
@@ -246,17 +276,33 @@ import {
   RemoteIpDetails,
   RemotePortDetails,
   Resource,
+  ResourceDetails,
   S3BucketDetail,
   S3LogsConfiguration,
   S3LogsConfigurationResult,
+  Scan,
+  ScanCondition,
+  ScanConditionPair,
+  ScanCriterionKey,
+  ScanDetections,
+  ScanEc2InstanceWithFindings,
+  ScanEc2InstanceWithFindingsResult,
+  ScanFilePath,
+  ScannedItemCount,
+  ScanResourceCriteria,
+  ScanResultDetails,
+  ScanThreatName,
   SecurityContext,
   SecurityGroup,
   Service,
   ServiceAdditionalInfo,
   SortCriteria,
   Tag,
+  ThreatDetectedByName,
   ThreatIntelligenceDetail,
+  ThreatsDetectedItemCount,
   Total,
+  TriggerDetails,
   UnprocessedAccount,
   UsageAccountResult,
   UsageCriteria,
@@ -264,6 +310,7 @@ import {
   UsageResourceResult,
   UsageStatistics,
   Volume,
+  VolumeDetail,
   VolumeMount,
 } from "../models/models_0";
 
@@ -897,6 +944,47 @@ export const serializeAws_restJson1DeleteThreatIntelSetCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeMalwareScansCommand = async (
+  input: DescribeMalwareScansCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/malware-scans";
+  if (input.DetectorId !== undefined) {
+    const labelValue: string = input.DetectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DetectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{DetectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DetectorId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.FilterCriteria != null && {
+      filterCriteria: serializeAws_restJson1FilterCriteria(input.FilterCriteria, context),
+    }),
+    ...(input.MaxResults != null && { maxResults: input.MaxResults }),
+    ...(input.NextToken != null && { nextToken: input.NextToken }),
+    ...(input.SortCriteria != null && {
+      sortCriteria: serializeAws_restJson1SortCriteria(input.SortCriteria, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeOrganizationConfigurationCommand = async (
   input: DescribeOrganizationConfigurationCommandInput,
   context: __SerdeContext
@@ -1328,6 +1416,36 @@ export const serializeAws_restJson1GetIPSetCommand = async (
     resolvedPath = resolvedPath.replace("{IpSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IpSetId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetMalwareScanSettingsCommand = async (
+  input: GetMalwareScanSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/detector/{DetectorId}/malware-scan-settings";
+  if (input.DetectorId !== undefined) {
+    const labelValue: string = input.DetectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DetectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{DetectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
   return new __HttpRequest({
@@ -2224,6 +2342,44 @@ export const serializeAws_restJson1UpdateIPSetCommand = async (
     ...(input.Activate != null && { activate: input.Activate }),
     ...(input.Location != null && { location: input.Location }),
     ...(input.Name != null && { name: input.Name }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateMalwareScanSettingsCommand = async (
+  input: UpdateMalwareScanSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/detector/{DetectorId}/malware-scan-settings";
+  if (input.DetectorId !== undefined) {
+    const labelValue: string = input.DetectorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DetectorId.");
+    }
+    resolvedPath = resolvedPath.replace("{DetectorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DetectorId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.EbsSnapshotPreservation != null && { ebsSnapshotPreservation: input.EbsSnapshotPreservation }),
+    ...(input.ScanResourceCriteria != null && {
+      scanResourceCriteria: serializeAws_restJson1ScanResourceCriteria(input.ScanResourceCriteria, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -3231,6 +3387,58 @@ const deserializeAws_restJson1DeleteThreatIntelSetCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DescribeMalwareScansCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMalwareScansCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeMalwareScansCommandError(output, context);
+  }
+  const contents: DescribeMalwareScansCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    Scans: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.NextToken = __expectString(data.nextToken);
+  }
+  if (data.scans !== undefined && data.scans !== null) {
+    contents.Scans = deserializeAws_restJson1Scans(data.scans, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeMalwareScansCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMalwareScansCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.guardduty#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.guardduty#InternalServerErrorException":
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1DescribeOrganizationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3948,6 +4156,58 @@ const deserializeAws_restJson1GetIPSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIPSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.guardduty#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.guardduty#InternalServerErrorException":
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1GetMalwareScanSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMalwareScanSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetMalwareScanSettingsCommandError(output, context);
+  }
+  const contents: GetMalwareScanSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    EbsSnapshotPreservation: undefined,
+    ScanResourceCriteria: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ebsSnapshotPreservation !== undefined && data.ebsSnapshotPreservation !== null) {
+    contents.EbsSnapshotPreservation = __expectString(data.ebsSnapshotPreservation);
+  }
+  if (data.scanResourceCriteria !== undefined && data.scanResourceCriteria !== null) {
+    contents.ScanResourceCriteria = deserializeAws_restJson1ScanResourceCriteria(data.scanResourceCriteria, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetMalwareScanSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMalwareScanSettingsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -5269,6 +5529,50 @@ const deserializeAws_restJson1UpdateIPSetCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateMalwareScanSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMalwareScanSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateMalwareScanSettingsCommandError(output, context);
+  }
+  const contents: UpdateMalwareScanSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateMalwareScanSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMalwareScanSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.guardduty#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.guardduty#InternalServerErrorException":
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1UpdateMemberDetectorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5553,6 +5857,9 @@ const serializeAws_restJson1DataSourceConfigurations = (
     ...(input.Kubernetes != null && {
       kubernetes: serializeAws_restJson1KubernetesConfiguration(input.Kubernetes, context),
     }),
+    ...(input.MalwareProtection != null && {
+      malwareProtection: serializeAws_restJson1MalwareProtectionConfiguration(input.MalwareProtection, context),
+    }),
     ...(input.S3Logs != null && { s3Logs: serializeAws_restJson1S3LogsConfiguration(input.S3Logs, context) }),
   };
 };
@@ -5594,6 +5901,42 @@ const serializeAws_restJson1Equals = (input: string[], context: __SerdeContext):
         return null as any;
       }
       return entry;
+    });
+};
+
+const serializeAws_restJson1FilterCondition = (input: FilterCondition, context: __SerdeContext): any => {
+  return {
+    ...(input.EqualsValue != null && { equalsValue: input.EqualsValue }),
+    ...(input.GreaterThan != null && { greaterThan: input.GreaterThan }),
+    ...(input.LessThan != null && { lessThan: input.LessThan }),
+  };
+};
+
+const serializeAws_restJson1FilterCriteria = (input: FilterCriteria, context: __SerdeContext): any => {
+  return {
+    ...(input.FilterCriterion != null && {
+      filterCriterion: serializeAws_restJson1FilterCriterionList(input.FilterCriterion, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1FilterCriterion = (input: FilterCriterion, context: __SerdeContext): any => {
+  return {
+    ...(input.CriterionKey != null && { criterionKey: input.CriterionKey }),
+    ...(input.FilterCondition != null && {
+      filterCondition: serializeAws_restJson1FilterCondition(input.FilterCondition, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1FilterCriterionList = (input: FilterCriterion[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1FilterCriterion(entry, context);
     });
 };
 
@@ -5659,6 +6002,31 @@ const serializeAws_restJson1KubernetesConfiguration = (
   };
 };
 
+const serializeAws_restJson1MalwareProtectionConfiguration = (
+  input: MalwareProtectionConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ScanEc2InstanceWithFindings != null && {
+      scanEc2InstanceWithFindings: serializeAws_restJson1ScanEc2InstanceWithFindings(
+        input.ScanEc2InstanceWithFindings,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1MapEquals = (input: ScanConditionPair[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ScanConditionPair(entry, context);
+    });
+};
+
 const serializeAws_restJson1Neq = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -5689,9 +6057,21 @@ const serializeAws_restJson1OrganizationDataSourceConfigurations = (
     ...(input.Kubernetes != null && {
       kubernetes: serializeAws_restJson1OrganizationKubernetesConfiguration(input.Kubernetes, context),
     }),
+    ...(input.MalwareProtection != null && {
+      malwareProtection: serializeAws_restJson1OrganizationMalwareProtectionConfiguration(
+        input.MalwareProtection,
+        context
+      ),
+    }),
     ...(input.S3Logs != null && {
       s3Logs: serializeAws_restJson1OrganizationS3LogsConfiguration(input.S3Logs, context),
     }),
+  };
+};
+
+const serializeAws_restJson1OrganizationEbsVolumes = (input: OrganizationEbsVolumes, context: __SerdeContext): any => {
+  return {
+    ...(input.AutoEnable != null && { autoEnable: input.AutoEnable }),
   };
 };
 
@@ -5715,12 +6095,37 @@ const serializeAws_restJson1OrganizationKubernetesConfiguration = (
   };
 };
 
+const serializeAws_restJson1OrganizationMalwareProtectionConfiguration = (
+  input: OrganizationMalwareProtectionConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ScanEc2InstanceWithFindings != null && {
+      scanEc2InstanceWithFindings: serializeAws_restJson1OrganizationScanEc2InstanceWithFindings(
+        input.ScanEc2InstanceWithFindings,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_restJson1OrganizationS3LogsConfiguration = (
   input: OrganizationS3LogsConfiguration,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.AutoEnable != null && { autoEnable: input.AutoEnable }),
+  };
+};
+
+const serializeAws_restJson1OrganizationScanEc2InstanceWithFindings = (
+  input: OrganizationScanEc2InstanceWithFindings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EbsVolumes != null && {
+      ebsVolumes: serializeAws_restJson1OrganizationEbsVolumes(input.EbsVolumes, context),
+    }),
   };
 };
 
@@ -5738,6 +6143,47 @@ const serializeAws_restJson1ResourceList = (input: string[], context: __SerdeCon
 const serializeAws_restJson1S3LogsConfiguration = (input: S3LogsConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Enable != null && { enable: input.Enable }),
+  };
+};
+
+const serializeAws_restJson1ScanCondition = (input: ScanCondition, context: __SerdeContext): any => {
+  return {
+    ...(input.MapEquals != null && { mapEquals: serializeAws_restJson1MapEquals(input.MapEquals, context) }),
+  };
+};
+
+const serializeAws_restJson1ScanConditionPair = (input: ScanConditionPair, context: __SerdeContext): any => {
+  return {
+    ...(input.Key != null && { key: input.Key }),
+    ...(input.Value != null && { value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1ScanCriterion = (input: Record<string, ScanCondition>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [ScanCriterionKey | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1ScanCondition(value, context),
+    };
+  }, {});
+};
+
+const serializeAws_restJson1ScanEc2InstanceWithFindings = (
+  input: ScanEc2InstanceWithFindings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EbsVolumes != null && { ebsVolumes: input.EbsVolumes }),
+  };
+};
+
+const serializeAws_restJson1ScanResourceCriteria = (input: ScanResourceCriteria, context: __SerdeContext): any => {
+  return {
+    ...(input.Exclude != null && { exclude: serializeAws_restJson1ScanCriterion(input.Exclude, context) }),
+    ...(input.Include != null && { include: serializeAws_restJson1ScanCriterion(input.Include, context) }),
   };
 };
 
@@ -6055,6 +6501,10 @@ const deserializeAws_restJson1DataSourceConfigurationsResult = (
       output.kubernetes != null
         ? deserializeAws_restJson1KubernetesConfigurationResult(output.kubernetes, context)
         : undefined,
+    MalwareProtection:
+      output.malwareProtection != null
+        ? deserializeAws_restJson1MalwareProtectionConfigurationResult(output.malwareProtection, context)
+        : undefined,
     S3Logs:
       output.s3Logs != null ? deserializeAws_restJson1S3LogsConfigurationResult(output.s3Logs, context) : undefined,
   } as any;
@@ -6076,6 +6526,10 @@ const deserializeAws_restJson1DataSourcesFreeTrial = (output: any, context: __Se
     Kubernetes:
       output.kubernetes != null
         ? deserializeAws_restJson1KubernetesDataSourceFreeTrial(output.kubernetes, context)
+        : undefined,
+    MalwareProtection:
+      output.malwareProtection != null
+        ? deserializeAws_restJson1MalwareProtectionDataSourceFreeTrial(output.malwareProtection, context)
         : undefined,
     S3Logs: output.s3Logs != null ? deserializeAws_restJson1DataSourceFreeTrial(output.s3Logs, context) : undefined,
   } as any;
@@ -6153,6 +6607,76 @@ const deserializeAws_restJson1DomainDetails = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1EbsVolumeDetails = (output: any, context: __SerdeContext): EbsVolumeDetails => {
+  return {
+    ScannedVolumeDetails:
+      output.scannedVolumeDetails != null
+        ? deserializeAws_restJson1VolumeDetails(output.scannedVolumeDetails, context)
+        : undefined,
+    SkippedVolumeDetails:
+      output.skippedVolumeDetails != null
+        ? deserializeAws_restJson1VolumeDetails(output.skippedVolumeDetails, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EbsVolumeScanDetails = (output: any, context: __SerdeContext): EbsVolumeScanDetails => {
+  return {
+    ScanCompletedAt:
+      output.scanCompletedAt != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.scanCompletedAt)))
+        : undefined,
+    ScanDetections:
+      output.scanDetections != null
+        ? deserializeAws_restJson1ScanDetections(output.scanDetections, context)
+        : undefined,
+    ScanId: __expectString(output.scanId),
+    ScanStartedAt:
+      output.scanStartedAt != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.scanStartedAt)))
+        : undefined,
+    Sources: output.sources != null ? deserializeAws_restJson1Sources(output.sources, context) : undefined,
+    TriggerFindingId: __expectString(output.triggerFindingId),
+  } as any;
+};
+
+const deserializeAws_restJson1EbsVolumesResult = (output: any, context: __SerdeContext): EbsVolumesResult => {
+  return {
+    Status: __expectString(output.status),
+  } as any;
+};
+
+const deserializeAws_restJson1EcsClusterDetails = (output: any, context: __SerdeContext): EcsClusterDetails => {
+  return {
+    ActiveServicesCount: __expectInt32(output.activeServicesCount),
+    Arn: __expectString(output.arn),
+    Name: __expectString(output.name),
+    RegisteredContainerInstancesCount: __expectInt32(output.registeredContainerInstancesCount),
+    RunningTasksCount: __expectInt32(output.runningTasksCount),
+    Status: __expectString(output.status),
+    Tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    TaskDetails:
+      output.taskDetails != null ? deserializeAws_restJson1EcsTaskDetails(output.taskDetails, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EcsTaskDetails = (output: any, context: __SerdeContext): EcsTaskDetails => {
+  return {
+    Arn: __expectString(output.arn),
+    Containers: output.containers != null ? deserializeAws_restJson1Containers(output.containers, context) : undefined,
+    DefinitionArn: __expectString(output.definitionArn),
+    Group: __expectString(output.group),
+    StartedAt:
+      output.startedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startedAt))) : undefined,
+    StartedBy: __expectString(output.startedBy),
+    Tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+    TaskCreatedAt:
+      output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
+    Version: __expectString(output.version),
+    Volumes: output.volumes != null ? deserializeAws_restJson1Volumes(output.volumes, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1EksClusterDetails = (output: any, context: __SerdeContext): EksClusterDetails => {
   return {
     Arn: __expectString(output.arn),
@@ -6196,6 +6720,18 @@ const deserializeAws_restJson1Evidence = (output: any, context: __SerdeContext):
         ? deserializeAws_restJson1ThreatIntelligenceDetails(output.threatIntelligenceDetails, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1FilePaths = (output: any, context: __SerdeContext): ScanFilePath[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ScanFilePath(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1FilterNames = (output: any, context: __SerdeContext): string[] => {
@@ -6295,6 +6831,17 @@ const deserializeAws_restJson1Groups = (output: any, context: __SerdeContext): s
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1HighestSeverityThreatDetails = (
+  output: any,
+  context: __SerdeContext
+): HighestSeverityThreatDetails => {
+  return {
+    Count: __expectInt32(output.count),
+    Severity: __expectString(output.severity),
+    ThreatName: __expectString(output.threatName),
+  } as any;
 };
 
 const deserializeAws_restJson1HostPath = (output: any, context: __SerdeContext): HostPath => {
@@ -6478,6 +7025,43 @@ const deserializeAws_restJson1LocalPortDetails = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1MalwareProtectionConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): MalwareProtectionConfigurationResult => {
+  return {
+    ScanEc2InstanceWithFindings:
+      output.scanEc2InstanceWithFindings != null
+        ? deserializeAws_restJson1ScanEc2InstanceWithFindingsResult(output.scanEc2InstanceWithFindings, context)
+        : undefined,
+    ServiceRole: __expectString(output.serviceRole),
+  } as any;
+};
+
+const deserializeAws_restJson1MalwareProtectionDataSourceFreeTrial = (
+  output: any,
+  context: __SerdeContext
+): MalwareProtectionDataSourceFreeTrial => {
+  return {
+    ScanEc2InstanceWithFindings:
+      output.scanEc2InstanceWithFindings != null
+        ? deserializeAws_restJson1DataSourceFreeTrial(output.scanEc2InstanceWithFindings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MapEquals = (output: any, context: __SerdeContext): ScanConditionPair[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ScanConditionPair(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1Master = (output: any, context: __SerdeContext): Master => {
   return {
     AccountId: __expectString(output.accountId),
@@ -6643,10 +7227,23 @@ const deserializeAws_restJson1OrganizationDataSourceConfigurationsResult = (
       output.kubernetes != null
         ? deserializeAws_restJson1OrganizationKubernetesConfigurationResult(output.kubernetes, context)
         : undefined,
+    MalwareProtection:
+      output.malwareProtection != null
+        ? deserializeAws_restJson1OrganizationMalwareProtectionConfigurationResult(output.malwareProtection, context)
+        : undefined,
     S3Logs:
       output.s3Logs != null
         ? deserializeAws_restJson1OrganizationS3LogsConfigurationResult(output.s3Logs, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1OrganizationEbsVolumesResult = (
+  output: any,
+  context: __SerdeContext
+): OrganizationEbsVolumesResult => {
+  return {
+    AutoEnable: __expectBoolean(output.autoEnable),
   } as any;
 };
 
@@ -6671,12 +7268,39 @@ const deserializeAws_restJson1OrganizationKubernetesConfigurationResult = (
   } as any;
 };
 
+const deserializeAws_restJson1OrganizationMalwareProtectionConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): OrganizationMalwareProtectionConfigurationResult => {
+  return {
+    ScanEc2InstanceWithFindings:
+      output.scanEc2InstanceWithFindings != null
+        ? deserializeAws_restJson1OrganizationScanEc2InstanceWithFindingsResult(
+            output.scanEc2InstanceWithFindings,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1OrganizationS3LogsConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): OrganizationS3LogsConfigurationResult => {
   return {
     AutoEnable: __expectBoolean(output.autoEnable),
+  } as any;
+};
+
+const deserializeAws_restJson1OrganizationScanEc2InstanceWithFindingsResult = (
+  output: any,
+  context: __SerdeContext
+): OrganizationScanEc2InstanceWithFindingsResult => {
+  return {
+    EbsVolumes:
+      output.ebsVolumes != null
+        ? deserializeAws_restJson1OrganizationEbsVolumesResult(output.ebsVolumes, context)
+        : undefined,
   } as any;
 };
 
@@ -6827,6 +7451,16 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
       output.accessKeyDetails != null
         ? deserializeAws_restJson1AccessKeyDetails(output.accessKeyDetails, context)
         : undefined,
+    ContainerDetails:
+      output.containerDetails != null ? deserializeAws_restJson1Container(output.containerDetails, context) : undefined,
+    EbsVolumeDetails:
+      output.ebsVolumeDetails != null
+        ? deserializeAws_restJson1EbsVolumeDetails(output.ebsVolumeDetails, context)
+        : undefined,
+    EcsClusterDetails:
+      output.ecsClusterDetails != null
+        ? deserializeAws_restJson1EcsClusterDetails(output.ecsClusterDetails, context)
+        : undefined,
     EksClusterDetails:
       output.eksClusterDetails != null
         ? deserializeAws_restJson1EksClusterDetails(output.eksClusterDetails, context)
@@ -6844,6 +7478,12 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
       output.s3BucketDetails != null
         ? deserializeAws_restJson1S3BucketDetails(output.s3BucketDetails, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
+  return {
+    InstanceArn: __expectString(output.instanceArn),
   } as any;
 };
 
@@ -6886,6 +7526,165 @@ const deserializeAws_restJson1S3LogsConfigurationResult = (
   } as any;
 };
 
+const deserializeAws_restJson1Scan = (output: any, context: __SerdeContext): Scan => {
+  return {
+    AccountId: __expectString(output.accountId),
+    AdminDetectorId: __expectString(output.adminDetectorId),
+    AttachedVolumes:
+      output.attachedVolumes != null
+        ? deserializeAws_restJson1VolumeDetails(output.attachedVolumes, context)
+        : undefined,
+    DetectorId: __expectString(output.detectorId),
+    FailureReason: __expectString(output.failureReason),
+    FileCount: __expectLong(output.fileCount),
+    ResourceDetails:
+      output.resourceDetails != null
+        ? deserializeAws_restJson1ResourceDetails(output.resourceDetails, context)
+        : undefined,
+    ScanEndTime:
+      output.scanEndTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.scanEndTime)))
+        : undefined,
+    ScanId: __expectString(output.scanId),
+    ScanResultDetails:
+      output.scanResultDetails != null
+        ? deserializeAws_restJson1ScanResultDetails(output.scanResultDetails, context)
+        : undefined,
+    ScanStartTime:
+      output.scanStartTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.scanStartTime)))
+        : undefined,
+    ScanStatus: __expectString(output.scanStatus),
+    TotalBytes: __expectLong(output.totalBytes),
+    TriggerDetails:
+      output.triggerDetails != null
+        ? deserializeAws_restJson1TriggerDetails(output.triggerDetails, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ScanCondition = (output: any, context: __SerdeContext): ScanCondition => {
+  return {
+    MapEquals: output.mapEquals != null ? deserializeAws_restJson1MapEquals(output.mapEquals, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ScanConditionPair = (output: any, context: __SerdeContext): ScanConditionPair => {
+  return {
+    Key: __expectString(output.key),
+    Value: __expectString(output.value),
+  } as any;
+};
+
+const deserializeAws_restJson1ScanCriterion = (output: any, context: __SerdeContext): Record<string, ScanCondition> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, ScanCondition>, [key, value]: [ScanCriterionKey | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1ScanCondition(value, context),
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1ScanDetections = (output: any, context: __SerdeContext): ScanDetections => {
+  return {
+    HighestSeverityThreatDetails:
+      output.highestSeverityThreatDetails != null
+        ? deserializeAws_restJson1HighestSeverityThreatDetails(output.highestSeverityThreatDetails, context)
+        : undefined,
+    ScannedItemCount:
+      output.scannedItemCount != null
+        ? deserializeAws_restJson1ScannedItemCount(output.scannedItemCount, context)
+        : undefined,
+    ThreatDetectedByName:
+      output.threatDetectedByName != null
+        ? deserializeAws_restJson1ThreatDetectedByName(output.threatDetectedByName, context)
+        : undefined,
+    ThreatsDetectedItemCount:
+      output.threatsDetectedItemCount != null
+        ? deserializeAws_restJson1ThreatsDetectedItemCount(output.threatsDetectedItemCount, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ScanEc2InstanceWithFindingsResult = (
+  output: any,
+  context: __SerdeContext
+): ScanEc2InstanceWithFindingsResult => {
+  return {
+    EbsVolumes:
+      output.ebsVolumes != null ? deserializeAws_restJson1EbsVolumesResult(output.ebsVolumes, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ScanFilePath = (output: any, context: __SerdeContext): ScanFilePath => {
+  return {
+    FileName: __expectString(output.fileName),
+    FilePath: __expectString(output.filePath),
+    Hash: __expectString(output.hash),
+    VolumeArn: __expectString(output.volumeArn),
+  } as any;
+};
+
+const deserializeAws_restJson1ScannedItemCount = (output: any, context: __SerdeContext): ScannedItemCount => {
+  return {
+    Files: __expectInt32(output.files),
+    TotalGb: __expectInt32(output.totalGb),
+    Volumes: __expectInt32(output.volumes),
+  } as any;
+};
+
+const deserializeAws_restJson1ScanResourceCriteria = (output: any, context: __SerdeContext): ScanResourceCriteria => {
+  return {
+    Exclude: output.exclude != null ? deserializeAws_restJson1ScanCriterion(output.exclude, context) : undefined,
+    Include: output.include != null ? deserializeAws_restJson1ScanCriterion(output.include, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ScanResultDetails = (output: any, context: __SerdeContext): ScanResultDetails => {
+  return {
+    ScanResult: __expectString(output.scanResult),
+  } as any;
+};
+
+const deserializeAws_restJson1Scans = (output: any, context: __SerdeContext): Scan[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Scan(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ScanThreatName = (output: any, context: __SerdeContext): ScanThreatName => {
+  return {
+    FilePaths: output.filePaths != null ? deserializeAws_restJson1FilePaths(output.filePaths, context) : undefined,
+    ItemCount: __expectInt32(output.itemCount),
+    Name: __expectString(output.name),
+    Severity: __expectString(output.severity),
+  } as any;
+};
+
+const deserializeAws_restJson1ScanThreatNames = (output: any, context: __SerdeContext): ScanThreatName[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ScanThreatName(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1SecurityContext = (output: any, context: __SerdeContext): SecurityContext => {
   return {
     Privileged: __expectBoolean(output.privileged),
@@ -6921,9 +7720,14 @@ const deserializeAws_restJson1Service = (output: any, context: __SerdeContext): 
     Archived: __expectBoolean(output.archived),
     Count: __expectInt32(output.count),
     DetectorId: __expectString(output.detectorId),
+    EbsVolumeScanDetails:
+      output.ebsVolumeScanDetails != null
+        ? deserializeAws_restJson1EbsVolumeScanDetails(output.ebsVolumeScanDetails, context)
+        : undefined,
     EventFirstSeen: __expectString(output.eventFirstSeen),
     EventLastSeen: __expectString(output.eventLastSeen),
     Evidence: output.evidence != null ? deserializeAws_restJson1Evidence(output.evidence, context) : undefined,
+    FeatureName: __expectString(output.featureName),
     ResourceRole: __expectString(output.resourceRole),
     ServiceName: __expectString(output.serviceName),
     UserFeedback: __expectString(output.userFeedback),
@@ -6938,6 +7742,18 @@ const deserializeAws_restJson1ServiceAdditionalInfo = (output: any, context: __S
 };
 
 const deserializeAws_restJson1SourceIps = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1Sources = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6978,6 +7794,16 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Tag
       return deserializeAws_restJson1Tag(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1ThreatDetectedByName = (output: any, context: __SerdeContext): ThreatDetectedByName => {
+  return {
+    ItemCount: __expectInt32(output.itemCount),
+    Shortened: __expectBoolean(output.shortened),
+    ThreatNames:
+      output.threatNames != null ? deserializeAws_restJson1ScanThreatNames(output.threatNames, context) : undefined,
+    UniqueThreatNameCount: __expectInt32(output.uniqueThreatNameCount),
+  } as any;
 };
 
 const deserializeAws_restJson1ThreatIntelligenceDetail = (
@@ -7030,10 +7856,26 @@ const deserializeAws_restJson1ThreatNames = (output: any, context: __SerdeContex
   return retVal;
 };
 
+const deserializeAws_restJson1ThreatsDetectedItemCount = (
+  output: any,
+  context: __SerdeContext
+): ThreatsDetectedItemCount => {
+  return {
+    Files: __expectInt32(output.files),
+  } as any;
+};
+
 const deserializeAws_restJson1Total = (output: any, context: __SerdeContext): Total => {
   return {
     Amount: __expectString(output.amount),
     Unit: __expectString(output.unit),
+  } as any;
+};
+
+const deserializeAws_restJson1TriggerDetails = (output: any, context: __SerdeContext): TriggerDetails => {
+  return {
+    Description: __expectString(output.description),
+    GuardDutyFindingId: __expectString(output.guardDutyFindingId),
   } as any;
 };
 
@@ -7145,6 +7987,30 @@ const deserializeAws_restJson1Volume = (output: any, context: __SerdeContext): V
     HostPath: output.hostPath != null ? deserializeAws_restJson1HostPath(output.hostPath, context) : undefined,
     Name: __expectString(output.name),
   } as any;
+};
+
+const deserializeAws_restJson1VolumeDetail = (output: any, context: __SerdeContext): VolumeDetail => {
+  return {
+    DeviceName: __expectString(output.deviceName),
+    EncryptionType: __expectString(output.encryptionType),
+    KmsKeyArn: __expectString(output.kmsKeyArn),
+    SnapshotArn: __expectString(output.snapshotArn),
+    VolumeArn: __expectString(output.volumeArn),
+    VolumeSizeInGB: __expectInt32(output.volumeSizeInGB),
+    VolumeType: __expectString(output.volumeType),
+  } as any;
+};
+
+const deserializeAws_restJson1VolumeDetails = (output: any, context: __SerdeContext): VolumeDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1VolumeDetail(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1VolumeMount = (output: any, context: __SerdeContext): VolumeMount => {

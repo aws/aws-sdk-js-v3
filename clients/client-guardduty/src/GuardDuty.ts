@@ -84,6 +84,11 @@ import {
   DeleteThreatIntelSetCommandOutput,
 } from "./commands/DeleteThreatIntelSetCommand";
 import {
+  DescribeMalwareScansCommand,
+  DescribeMalwareScansCommandInput,
+  DescribeMalwareScansCommandOutput,
+} from "./commands/DescribeMalwareScansCommand";
+import {
   DescribeOrganizationConfigurationCommand,
   DescribeOrganizationConfigurationCommandInput,
   DescribeOrganizationConfigurationCommandOutput,
@@ -137,6 +142,11 @@ import {
   GetInvitationsCountCommandOutput,
 } from "./commands/GetInvitationsCountCommand";
 import { GetIPSetCommand, GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
+import {
+  GetMalwareScanSettingsCommand,
+  GetMalwareScanSettingsCommandInput,
+  GetMalwareScanSettingsCommandOutput,
+} from "./commands/GetMalwareScanSettingsCommand";
 import {
   GetMasterAccountCommand,
   GetMasterAccountCommandInput,
@@ -243,6 +253,11 @@ import {
   UpdateFindingsFeedbackCommandOutput,
 } from "./commands/UpdateFindingsFeedbackCommand";
 import { UpdateIPSetCommand, UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand";
+import {
+  UpdateMalwareScanSettingsCommand,
+  UpdateMalwareScanSettingsCommandInput,
+  UpdateMalwareScanSettingsCommandOutput,
+} from "./commands/UpdateMalwareScanSettingsCommand";
 import {
   UpdateMemberDetectorsCommand,
   UpdateMemberDetectorsCommandInput,
@@ -878,6 +893,38 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
+   * <p>Returns a list of malware scans.</p>
+   */
+  public describeMalwareScans(
+    args: DescribeMalwareScansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMalwareScansCommandOutput>;
+  public describeMalwareScans(
+    args: DescribeMalwareScansCommandInput,
+    cb: (err: any, data?: DescribeMalwareScansCommandOutput) => void
+  ): void;
+  public describeMalwareScans(
+    args: DescribeMalwareScansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMalwareScansCommandOutput) => void
+  ): void;
+  public describeMalwareScans(
+    args: DescribeMalwareScansCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMalwareScansCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMalwareScansCommandOutput) => void
+  ): Promise<DescribeMalwareScansCommandOutput> | void {
+    const command = new DescribeMalwareScansCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about the account selected as the delegated administrator for
    *       GuardDuty.</p>
    */
@@ -1300,6 +1347,38 @@ export class GuardDuty extends GuardDutyClient {
     cb?: (err: any, data?: GetIPSetCommandOutput) => void
   ): Promise<GetIPSetCommandOutput> | void {
     const command = new GetIPSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the details of the malware scan settings.</p>
+   */
+  public getMalwareScanSettings(
+    args: GetMalwareScanSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMalwareScanSettingsCommandOutput>;
+  public getMalwareScanSettings(
+    args: GetMalwareScanSettingsCommandInput,
+    cb: (err: any, data?: GetMalwareScanSettingsCommandOutput) => void
+  ): void;
+  public getMalwareScanSettings(
+    args: GetMalwareScanSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMalwareScanSettingsCommandOutput) => void
+  ): void;
+  public getMalwareScanSettings(
+    args: GetMalwareScanSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMalwareScanSettingsCommandOutput) => void),
+    cb?: (err: any, data?: GetMalwareScanSettingsCommandOutput) => void
+  ): Promise<GetMalwareScanSettingsCommandOutput> | void {
+    const command = new GetMalwareScanSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2111,6 +2190,38 @@ export class GuardDuty extends GuardDutyClient {
     cb?: (err: any, data?: UpdateIPSetCommandOutput) => void
   ): Promise<UpdateIPSetCommandOutput> | void {
     const command = new UpdateIPSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the malware scan settings.</p>
+   */
+  public updateMalwareScanSettings(
+    args: UpdateMalwareScanSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMalwareScanSettingsCommandOutput>;
+  public updateMalwareScanSettings(
+    args: UpdateMalwareScanSettingsCommandInput,
+    cb: (err: any, data?: UpdateMalwareScanSettingsCommandOutput) => void
+  ): void;
+  public updateMalwareScanSettings(
+    args: UpdateMalwareScanSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMalwareScanSettingsCommandOutput) => void
+  ): void;
+  public updateMalwareScanSettings(
+    args: UpdateMalwareScanSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMalwareScanSettingsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateMalwareScanSettingsCommandOutput) => void
+  ): Promise<UpdateMalwareScanSettingsCommandOutput> | void {
+    const command = new UpdateMalwareScanSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

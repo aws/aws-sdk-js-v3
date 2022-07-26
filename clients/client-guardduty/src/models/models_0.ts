@@ -179,6 +179,16 @@ export interface KubernetesDataSourceFreeTrial {
 }
 
 /**
+ * <p>Provides details about Malware Protection when it is enabled as a data source.</p>
+ */
+export interface MalwareProtectionDataSourceFreeTrial {
+  /**
+   * <p>Describes whether Malware Protection for EC2 instances with findings is enabled as a data source.</p>
+   */
+  ScanEc2InstanceWithFindings?: DataSourceFreeTrial;
+}
+
+/**
  * <p>Contains information about which data sources are enabled for the GuardDuty member account.</p>
  */
 export interface DataSourcesFreeTrial {
@@ -206,6 +216,11 @@ export interface DataSourcesFreeTrial {
    * <p>Describes whether any Kubernetes logs are enabled as data sources.</p>
    */
   Kubernetes?: KubernetesDataSourceFreeTrial;
+
+  /**
+   * <p>Describes whether Malware Protection is enabled as a data source.</p>
+   */
+  MalwareProtection?: MalwareProtectionDataSourceFreeTrial;
 }
 
 /**
@@ -932,6 +947,26 @@ export interface KubernetesConfiguration {
 }
 
 /**
+ * <p>Describes whether Malware Protection for EC2 instances with findings will be enabled as a data source.</p>
+ */
+export interface ScanEc2InstanceWithFindings {
+  /**
+   * <p>Describes the configuration for scanning EBS volumes as data source.</p>
+   */
+  EbsVolumes?: boolean;
+}
+
+/**
+ * <p>Describes whether Malware Protection will be enabled as a data source.</p>
+ */
+export interface MalwareProtectionConfiguration {
+  /**
+   * <p>Describes the configuration of Malware Protection for EC2 instances with findings.</p>
+   */
+  ScanEc2InstanceWithFindings?: ScanEc2InstanceWithFindings;
+}
+
+/**
  * <p>Describes whether S3 data event logs will be enabled as a data source.</p>
  */
 export interface S3LogsConfiguration {
@@ -954,6 +989,11 @@ export interface DataSourceConfigurations {
    * <p>Describes whether any Kubernetes logs are enabled as data sources.</p>
    */
   Kubernetes?: KubernetesConfiguration;
+
+  /**
+   * <p>Describes whether Malware Protection is enabled as a data source.</p>
+   */
+  MalwareProtection?: MalwareProtectionConfiguration;
 }
 
 export enum FindingPublishingFrequency {
@@ -1459,9 +1499,19 @@ export interface CreateThreatIntelSetResponse {
   ThreatIntelSetId: string | undefined;
 }
 
+export enum CriterionKey {
+  ACCOUNT_ID = "ACCOUNT_ID",
+  EC2_INSTANCE_ARN = "EC2_INSTANCE_ARN",
+  GUARDDUTY_FINDING_ID = "GUARDDUTY_FINDING_ID",
+  SCAN_ID = "SCAN_ID",
+  SCAN_START_TIME = "SCAN_START_TIME",
+  SCAN_STATUS = "SCAN_STATUS",
+}
+
 export enum DataSource {
   CLOUD_TRAIL = "CLOUD_TRAIL",
   DNS_LOGS = "DNS_LOGS",
+  EC2_MALWARE_SCAN = "EC2_MALWARE_SCAN",
   FLOW_LOGS = "FLOW_LOGS",
   KUBERNETES_AUDIT_LOGS = "KUBERNETES_AUDIT_LOGS",
   S3_LOGS = "S3_LOGS",
@@ -1508,6 +1558,41 @@ export interface KubernetesConfigurationResult {
 }
 
 /**
+ * <p>Describes the configuration of scanning EBS volumes as a data source.</p>
+ */
+export interface EbsVolumesResult {
+  /**
+   * <p>Describes whether scanning EBS volumes is enabled as a data source.</p>
+   */
+  Status?: DataSourceStatus | string;
+}
+
+/**
+ * <p>An object that contains information on the status of whether Malware Protection for EC2 instances with findings will be enabled as a data source.</p>
+ */
+export interface ScanEc2InstanceWithFindingsResult {
+  /**
+   * <p>Describes the configuration of scanning EBS volumes as a data source.</p>
+   */
+  EbsVolumes?: EbsVolumesResult;
+}
+
+/**
+ * <p>An object that contains information on the status of all Malware Protection data sources.</p>
+ */
+export interface MalwareProtectionConfigurationResult {
+  /**
+   * <p>Describes the configuration of Malware Protection for EC2 instances with findings.</p>
+   */
+  ScanEc2InstanceWithFindings?: ScanEc2InstanceWithFindingsResult;
+
+  /**
+   * <p>The GuardDuty Malware Protection service role.</p>
+   */
+  ServiceRole?: string;
+}
+
+/**
  * <p>Describes whether S3 data event logs will be enabled as a data source.</p>
  */
 export interface S3LogsConfigurationResult {
@@ -1548,6 +1633,11 @@ export interface DataSourceConfigurationsResult {
    * <p>An object that contains information on the status of all Kubernetes data sources.</p>
    */
   Kubernetes?: KubernetesConfigurationResult;
+
+  /**
+   * <p>Describes the configuration of Malware Protection data sources.</p>
+   */
+  MalwareProtection?: MalwareProtectionConfigurationResult;
 }
 
 export interface DeclineInvitationsRequest {
@@ -1685,6 +1775,280 @@ export interface DeleteThreatIntelSetRequest {
 
 export interface DeleteThreatIntelSetResponse {}
 
+/**
+ * <p>Contains information about the condition.</p>
+ */
+export interface FilterCondition {
+  /**
+   * <p>Represents an <i>equal</i>
+   *             <b></b> condition to be applied to
+   *       a single field when querying for scan entries.</p>
+   */
+  EqualsValue?: string;
+
+  /**
+   * <p>Represents a <i>greater than</i> condition to be applied to a single field
+   *       when querying for scan entries.</p>
+   */
+  GreaterThan?: number;
+
+  /**
+   * <p>Represents a <i>less than</i> condition to be applied to a single field when
+   *       querying for scan entries.</p>
+   */
+  LessThan?: number;
+}
+
+/**
+ * <p>Represents a condition that when matched will be added to the response of the operation.</p>
+ */
+export interface FilterCriterion {
+  /**
+   * <p>An enum value representing possible scan properties to match with given scan entries.</p>
+   */
+  CriterionKey?: CriterionKey | string;
+
+  /**
+   * <p>Contains information about the condition.</p>
+   */
+  FilterCondition?: FilterCondition;
+}
+
+/**
+ * <p>Represents the criteria to be used in the filter for describing scan entries.</p>
+ */
+export interface FilterCriteria {
+  /**
+   * <p>Represents a condition that when matched will be added to the response of the operation.</p>
+   */
+  FilterCriterion?: FilterCriterion[];
+}
+
+export enum OrderBy {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
+/**
+ * <p>Contains information about the criteria used for sorting findings.</p>
+ */
+export interface SortCriteria {
+  /**
+   * <p>Represents the finding attribute (for example, accountId) to sort findings by.</p>
+   */
+  AttributeName?: string;
+
+  /**
+   * <p>The order by which the sorted findings are to be displayed.</p>
+   */
+  OrderBy?: OrderBy | string;
+}
+
+export interface DescribeMalwareScansRequest {
+  /**
+   * <p>The unique ID of the detector that the request is associated with.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to
+   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
+   *       in the request with the value of NextToken from the previous response to continue listing
+   *       data.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>You can use this parameter to indicate the maximum number of items that you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Represents the criteria to be used in the filter for describing scan entries.</p>
+   */
+  FilterCriteria?: FilterCriteria;
+
+  /**
+   * <p>Represents the criteria used for sorting scan entries.</p>
+   */
+  SortCriteria?: SortCriteria;
+}
+
+/**
+ * <p>Contains EBS volume details.</p>
+ */
+export interface VolumeDetail {
+  /**
+   * <p>EBS volume Arn information.</p>
+   */
+  VolumeArn?: string;
+
+  /**
+   * <p>The EBS volume type.</p>
+   */
+  VolumeType?: string;
+
+  /**
+   * <p>The device name for the EBS volume.</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>EBS volume size in GB.</p>
+   */
+  VolumeSizeInGB?: number;
+
+  /**
+   * <p>EBS volume encryption type.</p>
+   */
+  EncryptionType?: string;
+
+  /**
+   * <p>Snapshot Arn of the EBS volume.</p>
+   */
+  SnapshotArn?: string;
+
+  /**
+   * <p>KMS key Arn used to encrypt the EBS volume.</p>
+   */
+  KmsKeyArn?: string;
+}
+
+/**
+ * <p>Represents the resources that were scanned in the scan entry.</p>
+ */
+export interface ResourceDetails {
+  /**
+   * <p>InstanceArn that was scanned in the scan entry.</p>
+   */
+  InstanceArn?: string;
+}
+
+export enum ScanResult {
+  CLEAN = "CLEAN",
+  INFECTED = "INFECTED",
+}
+
+/**
+ * <p>Represents the result of the scan.</p>
+ */
+export interface ScanResultDetails {
+  /**
+   * <p>An enum value representing possible scan results.</p>
+   */
+  ScanResult?: ScanResult | string;
+}
+
+export enum ScanStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+}
+
+/**
+ * <p>Represents the reason the scan was triggered.</p>
+ */
+export interface TriggerDetails {
+  /**
+   * <p>The ID of the GuardDuty finding that triggered the BirdDog scan.</p>
+   */
+  GuardDutyFindingId?: string;
+
+  /**
+   * <p>The description of the scan trigger.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * <p>Contains information about a malware scan.</p>
+ */
+export interface Scan {
+  /**
+   * <p>The unique ID of the detector that the request is associated with.</p>
+   */
+  DetectorId?: string;
+
+  /**
+   * <p>The unique detector ID of the administrator account that the request is associated with. Note that
+   *       this value will be the same as the one used for <code>DetectorId</code> if the account is an administrator.</p>
+   */
+  AdminDetectorId?: string;
+
+  /**
+   * <p>The unique scan ID associated with a scan entry.</p>
+   */
+  ScanId?: string;
+
+  /**
+   * <p>An enum value representing possible scan statuses.</p>
+   */
+  ScanStatus?: ScanStatus | string;
+
+  /**
+   * <p>Represents the reason for FAILED scan status.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The timestamp of when the scan was triggered.</p>
+   */
+  ScanStartTime?: Date;
+
+  /**
+   * <p>The timestamp of when the scan was finished.</p>
+   */
+  ScanEndTime?: Date;
+
+  /**
+   * <p>Represents the reason the scan was triggered.</p>
+   */
+  TriggerDetails?: TriggerDetails;
+
+  /**
+   * <p>Represents the resources that were scanned in the scan entry.</p>
+   */
+  ResourceDetails?: ResourceDetails;
+
+  /**
+   * <p>Represents the result of the scan.</p>
+   */
+  ScanResultDetails?: ScanResultDetails;
+
+  /**
+   * <p>The ID for the account that belongs to the scan.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>Represents total bytes that were scanned.</p>
+   */
+  TotalBytes?: number;
+
+  /**
+   * <p>Represents the number of files that were scanned.</p>
+   */
+  FileCount?: number;
+
+  /**
+   * <p>List of volumes that were attached to the original instance to be scanned.</p>
+   */
+  AttachedVolumes?: VolumeDetail[];
+}
+
+export interface DescribeMalwareScansResponse {
+  /**
+   * <p>Contains information about malware scans.</p>
+   */
+  Scans: Scan[] | undefined;
+
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
+   */
+  NextToken?: string;
+}
+
 export interface DescribeOrganizationConfigurationRequest {
   /**
    * <p>The ID of the detector to retrieve information about the delegated administrator
@@ -1714,6 +2078,36 @@ export interface OrganizationKubernetesConfigurationResult {
 }
 
 /**
+ * <p>An object that contains information on the status of whether EBS volumes scanning will be enabled as a data source for an organization.</p>
+ */
+export interface OrganizationEbsVolumesResult {
+  /**
+   * <p>An object that contains the status of whether scanning EBS volumes should be auto-enabled for new members joining the organization.</p>
+   */
+  AutoEnable?: boolean;
+}
+
+/**
+ * <p>An object that contains information on the status of scanning EC2 instances with findings for an organization.</p>
+ */
+export interface OrganizationScanEc2InstanceWithFindingsResult {
+  /**
+   * <p>Describes the configuration for scanning EBS volumes for an organization.</p>
+   */
+  EbsVolumes?: OrganizationEbsVolumesResult;
+}
+
+/**
+ * <p>An object that contains information on the status of all Malware Protection data source for an organization.</p>
+ */
+export interface OrganizationMalwareProtectionConfigurationResult {
+  /**
+   * <p>Describes the configuration for scanning EC2 instances with findings for an organization.</p>
+   */
+  ScanEc2InstanceWithFindings?: OrganizationScanEc2InstanceWithFindingsResult;
+}
+
+/**
  * <p>The current configuration of S3 data event logs as a data source for the
  *       organization.</p>
  */
@@ -1739,6 +2133,11 @@ export interface OrganizationDataSourceConfigurationsResult {
    * <p>Describes the configuration of Kubernetes data sources.</p>
    */
   Kubernetes?: OrganizationKubernetesConfigurationResult;
+
+  /**
+   * <p>Describes the configuration of Malware Protection data source for an organization.</p>
+   */
+  MalwareProtection?: OrganizationMalwareProtectionConfigurationResult;
 }
 
 export interface DescribeOrganizationConfigurationResponse {
@@ -1888,6 +2287,211 @@ export interface DisassociateMembersResponse {
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
 
+export enum EbsSnapshotPreservation {
+  NO_RETENTION = "NO_RETENTION",
+  RETENTION_WITH_FINDING = "RETENTION_WITH_FINDING",
+}
+
+/**
+ * <p>Contains list of scanned and skipped EBS volumes with details.</p>
+ */
+export interface EbsVolumeDetails {
+  /**
+   * <p>List of EBS volumes that were scanned.</p>
+   */
+  ScannedVolumeDetails?: VolumeDetail[];
+
+  /**
+   * <p>List of EBS volumes that were skipped from the malware scan.</p>
+   */
+  SkippedVolumeDetails?: VolumeDetail[];
+}
+
+/**
+ * <p>Contains details of the highest severity threat detected during scan and number of infected files.</p>
+ */
+export interface HighestSeverityThreatDetails {
+  /**
+   * <p>Severity level of the highest severity threat detected.</p>
+   */
+  Severity?: string;
+
+  /**
+   * <p>Threat name of the highest severity threat detected as part of the malware scan.</p>
+   */
+  ThreatName?: string;
+
+  /**
+   * <p>Total number of infected files with the highest severity threat detected.</p>
+   */
+  Count?: number;
+}
+
+/**
+ * <p>Total number of scanned files.</p>
+ */
+export interface ScannedItemCount {
+  /**
+   * <p>Total GB of files scanned for malware.</p>
+   */
+  TotalGb?: number;
+
+  /**
+   * <p>Number of files scanned.</p>
+   */
+  Files?: number;
+
+  /**
+   * <p>Total number of scanned volumes.</p>
+   */
+  Volumes?: number;
+}
+
+/**
+ * <p>Contains details of infected file including name, file path and hash.</p>
+ */
+export interface ScanFilePath {
+  /**
+   * <p>The file path of the infected file.</p>
+   */
+  FilePath?: string;
+
+  /**
+   * <p>EBS volume Arn details of the infected file.</p>
+   */
+  VolumeArn?: string;
+
+  /**
+   * <p>The hash value of the infected file.</p>
+   */
+  Hash?: string;
+
+  /**
+   * <p>File name of the infected file.</p>
+   */
+  FileName?: string;
+}
+
+/**
+ * <p>Contains files infected with the given threat providing details of malware name and severity.</p>
+ */
+export interface ScanThreatName {
+  /**
+   * <p>The name of the identified threat.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Severity of threat identified as part of the malware scan.</p>
+   */
+  Severity?: string;
+
+  /**
+   * <p>Total number of files infected with given threat.</p>
+   */
+  ItemCount?: number;
+
+  /**
+   * <p>List of infected files in EBS volume with details.</p>
+   */
+  FilePaths?: ScanFilePath[];
+}
+
+/**
+ * <p>Contains details about identified threats organized by threat name.</p>
+ */
+export interface ThreatDetectedByName {
+  /**
+   * <p>Total number of infected files identified.</p>
+   */
+  ItemCount?: number;
+
+  /**
+   * <p>Total number of unique threats by name identified, as part of the malware scan.</p>
+   */
+  UniqueThreatNameCount?: number;
+
+  /**
+   * <p>Flag to determine if the finding contains every single infected file-path and/or every threat.</p>
+   */
+  Shortened?: boolean;
+
+  /**
+   * <p>List of identified threats with details, organized by threat name.</p>
+   */
+  ThreatNames?: ScanThreatName[];
+}
+
+/**
+ * <p>Contains total number of infected files.</p>
+ */
+export interface ThreatsDetectedItemCount {
+  /**
+   * <p>Total number of infected files.</p>
+   */
+  Files?: number;
+}
+
+/**
+ * <p>Contains a complete view providing malware scan result details.</p>
+ */
+export interface ScanDetections {
+  /**
+   * <p>Total number of scanned files.</p>
+   */
+  ScannedItemCount?: ScannedItemCount;
+
+  /**
+   * <p>Total number of infected files.</p>
+   */
+  ThreatsDetectedItemCount?: ThreatsDetectedItemCount;
+
+  /**
+   * <p>Details of the highest severity threat detected during malware scan and number of infected files.</p>
+   */
+  HighestSeverityThreatDetails?: HighestSeverityThreatDetails;
+
+  /**
+   * <p>Contains details about identified threats organized by threat name.</p>
+   */
+  ThreatDetectedByName?: ThreatDetectedByName;
+}
+
+/**
+ * <p>Contains details from the malware scan that created a finding.</p>
+ */
+export interface EbsVolumeScanDetails {
+  /**
+   * <p>Unique Id of the malware scan that generated the finding.</p>
+   */
+  ScanId?: string;
+
+  /**
+   * <p>Returns the start date and time of the malware scan.</p>
+   */
+  ScanStartedAt?: Date;
+
+  /**
+   * <p>Returns the completion date and time of the malware scan.</p>
+   */
+  ScanCompletedAt?: Date;
+
+  /**
+   * <p>GuardDuty finding ID that triggered a malware scan.</p>
+   */
+  TriggerFindingId?: string;
+
+  /**
+   * <p>Contains list of threat intelligence sources used to detect threats.</p>
+   */
+  Sources?: string[];
+
+  /**
+   * <p>Contains a complete view providing malware scan result details.</p>
+   */
+  ScanDetections?: ScanDetections;
+}
+
 /**
  * <p>Contains information about a tag associated with the EC2 instance.</p>
  */
@@ -1901,6 +2505,131 @@ export interface Tag {
    * <p>The EC2 instance tag value.</p>
    */
   Value?: string;
+}
+
+/**
+ * <p>Represents a pre-existing file or directory on the host machine that the volume maps to.</p>
+ */
+export interface HostPath {
+  /**
+   * <p>Path of the file or directory on the host that the volume maps to.</p>
+   */
+  Path?: string;
+}
+
+/**
+ * <p>Volume used by the Kubernetes workload.</p>
+ */
+export interface Volume {
+  /**
+   * <p>Volume name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Represents a pre-existing file or directory on the host machine that the volume maps to.</p>
+   */
+  HostPath?: HostPath;
+}
+
+/**
+ * <p>Contains information about the task in an ECS cluster.</p>
+ */
+export interface EcsTaskDetails {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the task.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ARN of the task definition that creates the task.</p>
+   */
+  DefinitionArn?: string;
+
+  /**
+   * <p>The version counter for the task.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The Unix timestamp for the time when the task was created.</p>
+   */
+  TaskCreatedAt?: Date;
+
+  /**
+   * <p>The Unix timestamp for the time when the task started.</p>
+   */
+  StartedAt?: Date;
+
+  /**
+   * <p>Contains the tag specified when a task is started.</p>
+   */
+  StartedBy?: string;
+
+  /**
+   * <p>The tags of the ECS Task.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The list of data volume definitions for the task.</p>
+   */
+  Volumes?: Volume[];
+
+  /**
+   * <p>The containers that's associated with the task.</p>
+   */
+  Containers?: Container[];
+
+  /**
+   * <p>The name of the task group that's associated with the task.</p>
+   */
+  Group?: string;
+}
+
+/**
+ * <p>Contains information about the details of the ECS Cluster.</p>
+ */
+export interface EcsClusterDetails {
+  /**
+   * <p>The name of the ECS Cluster.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the cluster.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The status of the ECS cluster.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The number of services that are running on the cluster in an ACTIVE state.</p>
+   */
+  ActiveServicesCount?: number;
+
+  /**
+   * <p>The number of container instances registered into the cluster.</p>
+   */
+  RegisteredContainerInstancesCount?: number;
+
+  /**
+   * <p>The number of tasks in the cluster that are in the RUNNING state.</p>
+   */
+  RunningTasksCount?: number;
+
+  /**
+   * <p>The tags of the ECS Cluster.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Contains information about the details of the ECS Task.</p>
+   */
+  TaskDetails?: EcsTaskDetails;
 }
 
 /**
@@ -2187,31 +2916,6 @@ export interface KubernetesUserDetails {
 }
 
 /**
- * <p>Represents a pre-existing file or directory on the host machine that the volume maps to.</p>
- */
-export interface HostPath {
-  /**
-   * <p>Path of the file or directory on the host that the volume maps to.</p>
-   */
-  Path?: string;
-}
-
-/**
- * <p>Volume used by the Kubernetes workload.</p>
- */
-export interface Volume {
-  /**
-   * <p>Volume name.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>Represents a pre-existing file or directory on the host machine that the volume maps to.</p>
-   */
-  HostPath?: HostPath;
-}
-
-/**
  * <p>Details about the Kubernetes workload involved in a Kubernetes finding.</p>
  */
 export interface KubernetesWorkloadDetails {
@@ -2391,6 +3095,21 @@ export interface Resource {
    * <p>The type of Amazon Web Services resource.</p>
    */
   ResourceType?: string;
+
+  /**
+   * <p>Contains list of scanned and skipped EBS volumes with details.</p>
+   */
+  EbsVolumeDetails?: EbsVolumeDetails;
+
+  /**
+   * <p>Contains information about the details of the ECS Cluster.</p>
+   */
+  EcsClusterDetails?: EcsClusterDetails;
+
+  /**
+   * <p>Details of a container.</p>
+   */
+  ContainerDetails?: Container;
 }
 
 /**
@@ -2468,6 +3187,16 @@ export interface Service {
    * <p>Contains additional information about the generated finding.</p>
    */
   AdditionalInfo?: ServiceAdditionalInfo;
+
+  /**
+   * <p>The name of the feature that generated a finding.</p>
+   */
+  FeatureName?: string;
+
+  /**
+   * <p>Returns details from the malware scan that created a finding.</p>
+   */
+  EbsVolumeScanDetails?: EbsVolumeScanDetails;
 }
 
 /**
@@ -2669,26 +3398,6 @@ export interface GetFilterResponse {
   Tags?: Record<string, string>;
 }
 
-export enum OrderBy {
-  ASC = "ASC",
-  DESC = "DESC",
-}
-
-/**
- * <p>Contains information about the criteria used for sorting findings.</p>
- */
-export interface SortCriteria {
-  /**
-   * <p>Represents the finding attribute (for example, accountId) to sort findings by.</p>
-   */
-  AttributeName?: string;
-
-  /**
-   * <p>The order by which the sorted findings are to be displayed.</p>
-   */
-  OrderBy?: OrderBy | string;
-}
-
 export interface GetFindingsRequest {
   /**
    * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to
@@ -2795,6 +3504,74 @@ export interface GetIPSetResponse {
    * <p>The tags of the IPSet resource.</p>
    */
   Tags?: Record<string, string>;
+}
+
+export interface GetMalwareScanSettingsRequest {
+  /**
+   * <p>The unique ID of the detector that the scan setting is associated with.</p>
+   */
+  DetectorId: string | undefined;
+}
+
+export enum ScanCriterionKey {
+  EC2_INSTANCE_TAG = "EC2_INSTANCE_TAG",
+}
+
+/**
+ * <p>Represents key, value pair to be matched against given resource property.</p>
+ */
+export interface ScanConditionPair {
+  /**
+   * <p>Represents <i>key</i>
+   *             <b></b> in the map condition.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>Represents optional <i>value</i>
+   *             <b></b> in the map condition. If not specified, only <i>key</i>
+   *             <b></b> will be matched.</p>
+   */
+  Value?: string;
+}
+
+/**
+ * <p>Contains information about the condition.</p>
+ */
+export interface ScanCondition {
+  /**
+   * <p>Represents an <i>mapEqual</i>
+   *             <b></b> condition to be applied to
+   *       a single field when triggering for malware scan.</p>
+   */
+  MapEquals: ScanConditionPair[] | undefined;
+}
+
+/**
+ * <p>Contains information about criteria used to filter resources before triggering malware scan.</p>
+ */
+export interface ScanResourceCriteria {
+  /**
+   * <p>Represents condition that when matched will allow a malware scan for a certain resource.</p>
+   */
+  Include?: Record<string, ScanCondition>;
+
+  /**
+   * <p>Represents condition that when matched will prevent a malware scan for a certain resource.</p>
+   */
+  Exclude?: Record<string, ScanCondition>;
+}
+
+export interface GetMalwareScanSettingsResponse {
+  /**
+   * <p>Represents the criteria to be used in the filter for scanning resources.</p>
+   */
+  ScanResourceCriteria?: ScanResourceCriteria;
+
+  /**
+   * <p>An enum value representing possible snapshot preservations.</p>
+   */
+  EbsSnapshotPreservation?: EbsSnapshotPreservation | string;
 }
 
 export interface GetMasterAccountRequest {
@@ -3923,6 +4700,26 @@ export interface UpdateIPSetRequest {
 
 export interface UpdateIPSetResponse {}
 
+export interface UpdateMalwareScanSettingsRequest {
+  /**
+   * <p>The unique ID of the detector that specifies the GuardDuty service where you want to
+   *       update scan settings.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>Represents the criteria to be used in the filter for selecting resources to scan.</p>
+   */
+  ScanResourceCriteria?: ScanResourceCriteria;
+
+  /**
+   * <p>An enum value representing possible snapshot preservations.</p>
+   */
+  EbsSnapshotPreservation?: EbsSnapshotPreservation | string;
+}
+
+export interface UpdateMalwareScanSettingsResponse {}
+
 export interface UpdateMemberDetectorsRequest {
   /**
    * <p>The detector ID of the administrator account.</p>
@@ -3970,6 +4767,36 @@ export interface OrganizationKubernetesConfiguration {
 }
 
 /**
+ * <p>Organization-wide EBS volumes scan configuration.</p>
+ */
+export interface OrganizationEbsVolumes {
+  /**
+   * <p>Whether scanning EBS volumes should be auto-enabled for new members joining the organization.</p>
+   */
+  AutoEnable?: boolean;
+}
+
+/**
+ * <p>Organization-wide EC2 instances with findings scan configuration.</p>
+ */
+export interface OrganizationScanEc2InstanceWithFindings {
+  /**
+   * <p>Whether scanning EBS volumes should be auto-enabled for new members joining the organization.</p>
+   */
+  EbsVolumes?: OrganizationEbsVolumes;
+}
+
+/**
+ * <p>Organization-wide Malware Protection configurations.</p>
+ */
+export interface OrganizationMalwareProtectionConfiguration {
+  /**
+   * <p>Whether Malware Protection for EC2 instances with findings should be auto-enabled for new members joining the organization.</p>
+   */
+  ScanEc2InstanceWithFindings?: OrganizationScanEc2InstanceWithFindings;
+}
+
+/**
  * <p>Describes whether S3 data event logs will be automatically enabled for new members of the
  *       organization.</p>
  */
@@ -3996,6 +4823,11 @@ export interface OrganizationDataSourceConfigurations {
    * <p>Describes the configuration of Kubernetes data sources for new members of the organization.</p>
    */
   Kubernetes?: OrganizationKubernetesConfiguration;
+
+  /**
+   * <p>Describes the configuration of Malware Protection for new members of the organization.</p>
+   */
+  MalwareProtection?: OrganizationMalwareProtectionConfiguration;
 }
 
 export interface UpdateOrganizationConfigurationRequest {
@@ -4132,6 +4964,15 @@ export const DataSourceFreeTrialFilterSensitiveLog = (obj: DataSourceFreeTrial):
  * @internal
  */
 export const KubernetesDataSourceFreeTrialFilterSensitiveLog = (obj: KubernetesDataSourceFreeTrial): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MalwareProtectionDataSourceFreeTrialFilterSensitiveLog = (
+  obj: MalwareProtectionDataSourceFreeTrial
+): any => ({
   ...obj,
 });
 
@@ -4376,6 +5217,20 @@ export const KubernetesConfigurationFilterSensitiveLog = (obj: KubernetesConfigu
 /**
  * @internal
  */
+export const ScanEc2InstanceWithFindingsFilterSensitiveLog = (obj: ScanEc2InstanceWithFindings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MalwareProtectionConfigurationFilterSensitiveLog = (obj: MalwareProtectionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const S3LogsConfigurationFilterSensitiveLog = (obj: S3LogsConfiguration): any => ({
   ...obj,
 });
@@ -4541,6 +5396,29 @@ export const KubernetesConfigurationResultFilterSensitiveLog = (obj: KubernetesC
 /**
  * @internal
  */
+export const EbsVolumesResultFilterSensitiveLog = (obj: EbsVolumesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScanEc2InstanceWithFindingsResultFilterSensitiveLog = (obj: ScanEc2InstanceWithFindingsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MalwareProtectionConfigurationResultFilterSensitiveLog = (
+  obj: MalwareProtectionConfigurationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const S3LogsConfigurationResultFilterSensitiveLog = (obj: S3LogsConfigurationResult): any => ({
   ...obj,
 });
@@ -4676,6 +5554,83 @@ export const DeleteThreatIntelSetResponseFilterSensitiveLog = (obj: DeleteThreat
 /**
  * @internal
  */
+export const FilterConditionFilterSensitiveLog = (obj: FilterCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterCriterionFilterSensitiveLog = (obj: FilterCriterion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterCriteriaFilterSensitiveLog = (obj: FilterCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SortCriteriaFilterSensitiveLog = (obj: SortCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMalwareScansRequestFilterSensitiveLog = (obj: DescribeMalwareScansRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VolumeDetailFilterSensitiveLog = (obj: VolumeDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceDetailsFilterSensitiveLog = (obj: ResourceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScanResultDetailsFilterSensitiveLog = (obj: ScanResultDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TriggerDetailsFilterSensitiveLog = (obj: TriggerDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScanFilterSensitiveLog = (obj: Scan): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMalwareScansResponseFilterSensitiveLog = (obj: DescribeMalwareScansResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribeOrganizationConfigurationRequestFilterSensitiveLog = (
   obj: DescribeOrganizationConfigurationRequest
 ): any => ({
@@ -4696,6 +5651,31 @@ export const OrganizationKubernetesAuditLogsConfigurationResultFilterSensitiveLo
  */
 export const OrganizationKubernetesConfigurationResultFilterSensitiveLog = (
   obj: OrganizationKubernetesConfigurationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationEbsVolumesResultFilterSensitiveLog = (obj: OrganizationEbsVolumesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationScanEc2InstanceWithFindingsResultFilterSensitiveLog = (
+  obj: OrganizationScanEc2InstanceWithFindingsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationMalwareProtectionConfigurationResultFilterSensitiveLog = (
+  obj: OrganizationMalwareProtectionConfigurationResult
 ): any => ({
   ...obj,
 });
@@ -4823,7 +5803,98 @@ export const DisassociateMembersResponseFilterSensitiveLog = (obj: DisassociateM
 /**
  * @internal
  */
+export const EbsVolumeDetailsFilterSensitiveLog = (obj: EbsVolumeDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HighestSeverityThreatDetailsFilterSensitiveLog = (obj: HighestSeverityThreatDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScannedItemCountFilterSensitiveLog = (obj: ScannedItemCount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScanFilePathFilterSensitiveLog = (obj: ScanFilePath): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScanThreatNameFilterSensitiveLog = (obj: ScanThreatName): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThreatDetectedByNameFilterSensitiveLog = (obj: ThreatDetectedByName): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThreatsDetectedItemCountFilterSensitiveLog = (obj: ThreatsDetectedItemCount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScanDetectionsFilterSensitiveLog = (obj: ScanDetections): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EbsVolumeScanDetailsFilterSensitiveLog = (obj: EbsVolumeScanDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HostPathFilterSensitiveLog = (obj: HostPath): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VolumeFilterSensitiveLog = (obj: Volume): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EcsTaskDetailsFilterSensitiveLog = (obj: EcsTaskDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EcsClusterDetailsFilterSensitiveLog = (obj: EcsClusterDetails): any => ({
   ...obj,
 });
 
@@ -4912,20 +5983,6 @@ export const InstanceDetailsFilterSensitiveLog = (obj: InstanceDetails): any => 
  * @internal
  */
 export const KubernetesUserDetailsFilterSensitiveLog = (obj: KubernetesUserDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HostPathFilterSensitiveLog = (obj: HostPath): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeFilterSensitiveLog = (obj: Volume): any => ({
   ...obj,
 });
 
@@ -5051,13 +6108,6 @@ export const GetFilterResponseFilterSensitiveLog = (obj: GetFilterResponse): any
 /**
  * @internal
  */
-export const SortCriteriaFilterSensitiveLog = (obj: SortCriteria): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetFindingsRequestFilterSensitiveLog = (obj: GetFindingsRequest): any => ({
   ...obj,
 });
@@ -5108,6 +6158,41 @@ export const GetIPSetRequestFilterSensitiveLog = (obj: GetIPSetRequest): any => 
  * @internal
  */
 export const GetIPSetResponseFilterSensitiveLog = (obj: GetIPSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMalwareScanSettingsRequestFilterSensitiveLog = (obj: GetMalwareScanSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScanConditionPairFilterSensitiveLog = (obj: ScanConditionPair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScanConditionFilterSensitiveLog = (obj: ScanCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScanResourceCriteriaFilterSensitiveLog = (obj: ScanResourceCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMalwareScanSettingsResponseFilterSensitiveLog = (obj: GetMalwareScanSettingsResponse): any => ({
   ...obj,
 });
 
@@ -5552,6 +6637,20 @@ export const UpdateIPSetResponseFilterSensitiveLog = (obj: UpdateIPSetResponse):
 /**
  * @internal
  */
+export const UpdateMalwareScanSettingsRequestFilterSensitiveLog = (obj: UpdateMalwareScanSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMalwareScanSettingsResponseFilterSensitiveLog = (obj: UpdateMalwareScanSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const UpdateMemberDetectorsRequestFilterSensitiveLog = (obj: UpdateMemberDetectorsRequest): any => ({
   ...obj,
 });
@@ -5577,6 +6676,31 @@ export const OrganizationKubernetesAuditLogsConfigurationFilterSensitiveLog = (
  */
 export const OrganizationKubernetesConfigurationFilterSensitiveLog = (
   obj: OrganizationKubernetesConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationEbsVolumesFilterSensitiveLog = (obj: OrganizationEbsVolumes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationScanEc2InstanceWithFindingsFilterSensitiveLog = (
+  obj: OrganizationScanEc2InstanceWithFindings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationMalwareProtectionConfigurationFilterSensitiveLog = (
+  obj: OrganizationMalwareProtectionConfiguration
 ): any => ({
   ...obj,
 });
